@@ -1,0 +1,147 @@
+import { ChevronDown, Check } from 'lucide-react';
+import { useRef, useEffect, useCallback } from 'react';
+import { subjects, subjectsByTrack } from '@/data/subjects';
+import { topicsBySubject } from '@/data/topics';
+import { useSubjectSelection } from '@/contexts/subject-selection-context';
+import { useDropdownKeyboard } from '@/hooks/useDropdownKeyboard';
+import type { SubjectId } from '@/types';
+
+export type SubjectFilterValue = SubjectId | 'all';
+
+const subjectColors: Record<string, string> = {
+  'meteo-climatology': 'bg-sky-500',
+  'physics': 'bg-purple-500',
+  'maths': 'bg-orange-500',
+  'earth-science': 'bg-stone-500',
+  'env-studies': 'bg-green-500',
+  'research-analysis': 'bg-red-500',
+  'english': 'bg-pink-500',
+  'hat-verbal': 'bg-indigo-500',
+  'hat-analytical': 'bg-emerald-500',
+  'hat-quantitative': 'bg-amber-500',
+};
+
+interface SubjectSelectorProps {
+  value: SubjectFilterValue;
+  onChange: (value: SubjectFilterValue) => void;
+  showAllOption?: boolean;
+  compact?: boolean;
+  label?: string;
+}
+
+export function SubjectSelector({ value, onChange, showAllOption = true, compact = false, label }: SubjectSelectorProps) {
+  const { activeTrack } = useSubjectSelection();
+  const ref = useRef<HTMLDivElement>(null);
+  const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const trackSubjects = subjectsByTrack(activeTrack);
+  const allOptions = [
+    ...(showAllOption ? [{ value: 'all' as SubjectFilterValue, label: 'All Subjects' }] : []),
+    ...trackSubjects.map((s) => ({ value: s.id as SubjectFilterValue, label: s.title })),
+  ];
+  const enabledOptions = allOptions.filter((opt) => {
+    if (opt.value === 'all') return true;
+    return topicsBySubject(opt.value as SubjectId).length > 0;
+  });
+  const {
+    open, setOpen, closeDropdown, handleTriggerKeyDown, handleOptionKeyDown,
+  } = useDropdownKeyboard(enabledOptions.length);
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open, setOpen]);
+  const currentLabel = value === 'all'
+    ? 'All Subjects'
+    : trackSubjects.find((s) => s.id === value)?.title ?? 'All Subjects';
+  const panelId = 'subject-selector-panel';
+  const handleSelect = useCallback((val: SubjectFilterValue) => {
+    onChange(val);
+    closeDropdown();
+  }, [onChange, closeDropdown]);
+  let optionIdx = -1;
+  return (
+    <div className={`relative ${compact ? '' : 'w-full sm:w-auto'}`} ref={ref}>
+      {label && (
+        <p className="text-slate-500 text-xs font-medium mb-1.5">{label}</p>
+      )}
+      <button
+        onClick={() => (open ? closeDropdown() : setOpen(true))}
+        onKeyDown={handleTriggerKeyDown}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={panelId}
+        aria-label={label ?? 'Select subject'}
+        className={`flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors min-h-[44px] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1 ${open ? 'border-sky-300 ring-2 ring-sky-500/20' : ''} ${compact ? 'min-w-[160px]' : 'w-full sm:w-[240px]'}`}
+      >
+        <span className="flex items-center gap-2 truncate">
+          {value !== 'all' && (
+            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${subjectColors[value] ?? 'bg-slate-400'}`} />
+          )}
+          <span className="truncate">{currentLabel}</span>
+        </span>
+        <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+      </button>
+      {open && (
+        <div
+          id={panelId}
+          role="listbox"
+          aria-label={label ?? 'Select subject'}
+          className="absolute z-50 mt-1 w-full sm:w-[240px] rounded-xl border border-slate-200 bg-white shadow-lg overflow-hidden max-h-72 overflow-y-auto"
+        >
+          {showAllOption && (() => {
+            optionIdx++;
+            const idx = optionIdx;
+            return (
+              <button
+                ref={(el) => { optionRefs.current[idx] = el; }}
+                onClick={() => handleSelect('all')}
+                onKeyDown={(e) => handleOptionKeyDown(e, idx)}
+                role="option"
+                aria-selected={value === 'all'}
+                tabIndex={-1}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors ${
+                  value === 'all' ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700'
+                }`}
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300 shrink-0" />
+                <span className="flex-1">All Subjects</span>
+                {value === 'all' && <Check className="w-4 h-4 text-sky-500" />}
+              </button>
+            );
+          })()}
+          {trackSubjects.map((subject) => {
+            const count = topicsBySubject(subject.id as SubjectId).length;
+            const disabled = count === 0;
+            const active = value === subject.id;
+            if (!disabled) optionIdx++;
+            const idx = optionIdx;
+            return (
+              <button
+                key={subject.id}
+                ref={(el) => { if (!disabled) optionRefs.current[idx] = el; }}
+                onClick={() => { if (!disabled) handleSelect(subject.id as SubjectId); }}
+                onKeyDown={disabled ? undefined : (e) => handleOptionKeyDown(e, idx)}
+                disabled={disabled}
+                aria-selected={active}
+                aria-disabled={disabled}
+                role="option"
+                tabIndex={-1}
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left transition-colors ${
+                  active ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700 hover:bg-slate-50'
+                } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+                <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${subjectColors[subject.id] ?? 'bg-slate-400'}`} />
+                <span className="flex-1 truncate">{subject.title}</span>
+                {disabled && <span className="text-slate-400 text-xs">(no content)</span>}
+                {active && <Check className="w-4 h-4 text-sky-500" />}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
