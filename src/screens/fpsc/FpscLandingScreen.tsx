@@ -77,7 +77,7 @@ export function FpscLandingScreen() {
 
           <div className="relative">
             <div className="flex items-center gap-3 mb-4">
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
+              <div className={`w-14 h-14 rounded-card bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
                 <FileText className="w-7 h-7 text-white" />
               </div>
               <div>
@@ -97,7 +97,7 @@ export function FpscLandingScreen() {
               {stats.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.label} className="flex flex-col items-center gap-1 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 px-2 py-3">
+                  <div key={s.label} className="flex flex-col items-center gap-1 rounded-card bg-white/5 backdrop-blur-sm border border-white/10 px-2 py-3">
                     <Icon className={`w-4 h-4 ${s.color}`} />
                     <span className="text-white font-bold text-lg leading-tight">{s.value}</span>
                     <span className="text-slate-400 text-[10px] uppercase tracking-wide leading-tight">{s.label}</span>
@@ -143,7 +143,7 @@ export function FpscLandingScreen() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <button
             onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors"
+            className="flex flex-col items-center gap-2 p-4 rounded-card bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors"
           >
             <Zap className="w-5 h-5 text-amber-600" />
             <span className="text-sm font-semibold text-slate-900">Quick Practice</span>
@@ -151,7 +151,7 @@ export function FpscLandingScreen() {
           </button>
           <button
             onClick={() => navigate({ screen: 'review', parent: null })}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
+            className="flex flex-col items-center gap-2 p-4 rounded-card bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
             <RotateCcw className="w-5 h-5 text-emerald-600" />
             <span className="text-sm font-semibold text-slate-900">Review</span>
@@ -159,18 +159,18 @@ export function FpscLandingScreen() {
           </button>
           <button
             onClick={() => navigate({ screen: 'search', parent: null })}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-sky-50 border border-sky-200 hover:bg-sky-100 transition-colors"
+            className="flex flex-col items-center gap-2 p-4 rounded-card bg-brand-50 border border-brand-200 hover:bg-brand-100 transition-colors"
           >
-            <BookOpen className="w-5 h-5 text-sky-600" />
+            <BookOpen className="w-5 h-5 text-brand-600" />
             <span className="text-sm font-semibold text-slate-900">Search</span>
             <span className="text-slate-500 text-xs">Find any topic</span>
           </button>
           <button
             onClick={() => navigate({ screen: 'practice', mode: 'mock', parent: null })}
             disabled={totalQuestions < 10}
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-slate-900 text-white hover:bg-slate-800 transition-colors disabled:opacity-50"
+            className="flex flex-col items-center gap-2 p-4 rounded-card bg-slate-900 text-white hover:bg-slate-800 transition-colors disabled:opacity-50"
           >
-            <Clock className="w-5 h-5 text-sky-400" />
+            <Clock className="w-5 h-5 text-brand-400" />
             <span className="text-sm font-semibold">Mock Exam</span>
             <span className="text-slate-400 text-xs">Full simulation</span>
           </button>
@@ -198,7 +198,7 @@ export function FpscLandingScreen() {
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shrink-0 shadow-lg ${style.glow}`}>
+                <div className={`w-14 h-14 rounded-card bg-gradient-to-br ${style.gradient} flex items-center justify-center shrink-0 shadow-lg ${style.glow}`}>
                   <Icon className="w-7 h-7 text-white" />
                 </div>
 
@@ -279,7 +279,7 @@ export function FpscLandingScreen() {
           <div className={`absolute top-0 right-0 w-48 h-48 ${ts.mockOrb} rounded-full blur-3xl pointer-events-none`} />
 
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
+            <div className={`w-14 h-14 rounded-card bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
               <Clock className="w-7 h-7 text-white" />
             </div>
             <div className="flex-1">

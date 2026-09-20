@@ -395,14 +395,14 @@ function AccuracyChart({ data }: { data: WeeklyAccuracyPoint[] }) {
 
 function StatCard({ icon, label, value, sub, color }: { icon: React.ReactNode; label: string; value: string; sub?: string; color: 'sky' | 'slate' | 'amber' | 'green' }) {
   const colors = {
-    sky: 'bg-sky-100 text-sky-600',
+    sky: 'bg-brand-100 text-brand-600',
     slate: 'bg-slate-100 text-slate-600',
     amber: 'bg-amber-100 text-amber-600',
     green: 'bg-emerald-100 text-emerald-600',
   };
   return (
     <Card className="p-4">
-      <div className={`w-9 h-9 rounded-xl ${colors[color]} flex items-center justify-center mb-2`}>{icon}</div>
+      <div className={`w-9 h-9 rounded-btn ${colors[color]} flex items-center justify-center mb-2`}>{icon}</div>
       <p className="text-slate-500 text-xs font-medium">{label}</p>
       <div className="flex items-baseline gap-0.5 mt-1">
         <span className="text-xl font-bold text-slate-900">{value}</span>

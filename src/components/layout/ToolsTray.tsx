@@ -87,7 +87,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
   ];
 
   const rowClass =
-    'w-full flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-slate-50 active:bg-slate-100 transition-colors text-left min-h-[48px] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1';
+    'w-full flex items-center gap-3 px-3 py-3 rounded-btn hover:bg-slate-50 active:bg-slate-100 transition-colors duration-DEFAULT text-left min-h-touch-lg touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1';
 
   if (variant === 'mobile-sheet') {
     return (
@@ -110,7 +110,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
               <button
                 type="button"
                 onClick={onClose}
-                className="w-10 h-10 rounded-xl flex items-center justify-center text-slate-500 hover:bg-slate-100 active:bg-slate-200 transition-colors touch-manipulation"
+                className="w-10 h-10 rounded-btn flex items-center justify-center text-slate-500 hover:bg-slate-100 active:bg-slate-200 transition-colors duration-DEFAULT touch-manipulation"
                 aria-label="Close"
               >
                 <X className="w-5 h-5" />
@@ -157,7 +157,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
                   }}
                   className={rowClass}
                 >
-                  <FileText className="w-5 h-5 text-sky-600 shrink-0" />
+                  <FileText className="w-5 h-5 text-brand-600 shrink-0" />
                   <span className="text-slate-800 font-medium text-sm">FPSC Exam</span>
                 </button>
                 <button

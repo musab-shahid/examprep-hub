@@ -284,15 +284,15 @@ export function DashboardScreen() {
               onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
             />
             <QuickActionTile
-              icon={<Target className="w-5 h-5 text-sky-600" />}
-              iconBg="bg-sky-50 border border-sky-200"
+              icon={<Target className="w-5 h-5 text-brand-600" />}
+              iconBg="bg-brand-50 border border-brand-200"
               title="Focus Practice"
               subtitle="Pick your topics"
               onClick={() => navigate({ screen: 'practice', parent: null })}
             />
             <QuickActionTile
-              icon={<FileText className="w-5 h-5 text-sky-600" />}
-              iconBg="bg-sky-50 border border-sky-200"
+              icon={<FileText className="w-5 h-5 text-brand-600" />}
+              iconBg="bg-brand-50 border border-brand-200"
               title="FPSC Exam"
               subtitle="7 subjects"
               onClick={() => navigate({ screen: 'fpsc', parent: null })}
@@ -312,7 +312,7 @@ export function DashboardScreen() {
               onClick={() => navigate({ screen: 'review', parent: null })}
             />
             <QuickActionTile
-              icon={<Clock className="w-5 h-5 text-sky-400" />}
+              icon={<Clock className="w-5 h-5 text-brand-400" />}
               iconBg="bg-slate-900 border border-slate-700"
               title="Mock Exam"
               subtitle="Full simulation"

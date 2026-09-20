@@ -62,7 +62,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={label ?? 'Select subject'}
-        className={`flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors min-h-[44px] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1 ${open ? 'border-sky-300 ring-2 ring-sky-500/20' : ''} ${compact ? 'min-w-[160px]' : 'w-full sm:w-[240px]'}`}
+        className={`flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors duration-DEFAULT min-h-touch touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1 ${open ? 'border-brand-300 ring-2 ring-brand-500/20' : ''} ${compact ? 'min-w-[160px]' : 'w-full sm:w-[240px]'}`}
       >
         <span className="flex items-center gap-2 truncate">
           {value !== 'all' && (
@@ -70,14 +70,14 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
           )}
           <span className="truncate">{currentLabel}</span>
         </span>
-        <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-DEFAULT ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
         <div
           id={panelId}
           role="listbox"
           aria-label={label ?? 'Select subject'}
-          className="absolute z-50 mt-1 w-full sm:w-[240px] rounded-xl border border-slate-200 bg-white shadow-lg overflow-hidden max-h-72 overflow-y-auto"
+          className="absolute z-50 mt-1 w-full sm:w-[240px] rounded-btn border border-slate-200 bg-white shadow-card-hover overflow-hidden max-h-72 overflow-y-auto"
         >
           {showAllOption && (() => {
             optionIdx++;
@@ -90,13 +90,13 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
                 role="option"
                 aria-selected={value === 'all'}
                 tabIndex={-1}
-                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors ${
-                  value === 'all' ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700'
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors duration-DEFAULT ${
+                  value === 'all' ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700'
                 }`}
               >
                 <span className="w-2.5 h-2.5 rounded-full bg-slate-300 shrink-0" />
                 <span className="flex-1">All Subjects</span>
-                {value === 'all' && <Check className="w-4 h-4 text-sky-500" />}
+                {value === 'all' && <Check className="w-4 h-4 text-brand-500" />}
               </button>
             );
           })()}
@@ -117,14 +117,14 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
                 aria-disabled={disabled}
                 role="option"
                 tabIndex={-1}
-                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left transition-colors ${
-                  active ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700 hover:bg-slate-50'
+                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left transition-colors duration-DEFAULT ${
+                  active ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700 hover:bg-slate-50'
                 } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getSubjectStyle(subject.id).dotBg}`} />
                 <span className="flex-1 truncate">{subject.title}</span>
                 {disabled && <span className="text-slate-400 text-xs">(no content)</span>}
-                {active && <Check className="w-4 h-4 text-sky-500" />}
+                {active && <Check className="w-4 h-4 text-brand-500" />}
               </button>
             );
           })}

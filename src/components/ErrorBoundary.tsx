@@ -40,9 +40,9 @@ export class ErrorBoundary extends Component<Props, State> {
           role="alert"
           aria-live="assertive"
         >
-          <div className="max-w-md w-full bg-white rounded-2xl border border-slate-200 shadow-sm p-8 text-center">
-            <div className="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center mx-auto mb-4">
-              <AlertTriangle className="w-7 h-7 text-red-500" aria-hidden />
+          <div className="max-w-md w-full bg-white rounded-card border border-slate-200 shadow-card p-8 text-center">
+            <div className="w-14 h-14 rounded-card bg-danger-50 flex items-center justify-center mx-auto mb-4">
+              <AlertTriangle className="w-7 h-7 text-danger-500" aria-hidden />
             </div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight mb-2">Something went wrong</h1>
             <p className="text-slate-500 text-sm leading-relaxed mb-4">
@@ -50,7 +50,7 @@ export class ErrorBoundary extends Component<Props, State> {
               Your study progress is saved in this browser.
             </p>
             {this.state.error?.message && (
-              <pre className="text-left text-xs text-slate-500 bg-slate-50 rounded-xl p-3 mb-5 overflow-x-auto max-h-28">
+              <pre className="text-left text-xs text-slate-500 bg-slate-50 rounded-btn p-3 mb-5 overflow-x-auto max-h-28">
                 {this.state.error.message}
               </pre>
             )}
@@ -58,14 +58,14 @@ export class ErrorBoundary extends Component<Props, State> {
               <button
                 type="button"
                 onClick={this.handleReset}
-                className="px-4 py-2.5 rounded-xl text-sm font-medium bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                className="px-4 py-2.5 rounded-btn text-sm font-medium bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 min-h-touch focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 Try again
               </button>
               <button
                 type="button"
                 onClick={this.handleReload}
-                className="px-4 py-2.5 rounded-xl text-sm font-medium bg-sky-500 text-white hover:bg-sky-600 min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+                className="px-4 py-2.5 rounded-btn text-sm font-medium bg-brand-500 text-white hover:bg-brand-600 min-h-touch focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 Reload app
               </button>

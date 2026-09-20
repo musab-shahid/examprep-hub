@@ -88,7 +88,7 @@ export function SearchScreen() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search topics, facts, formulas..."
-              className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-colors"
+              className="w-full pl-12 pr-4 py-3.5 rounded-btn border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition-colors duration-DEFAULT"
             />
           </div>
 
@@ -120,7 +120,7 @@ export function SearchScreen() {
                         onClick={() => navigate({ screen: 'topic', topicId: result.topicId })}
                         className="w-full flex items-start gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl"
                       >
-                        <div className="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-9 h-9 rounded-btn bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
                           {result.type === 'formula'
                             ? <Calculator className="w-4 h-4 text-slate-600" />
                             : <BookOpen className="w-4 h-4 text-slate-600" />}

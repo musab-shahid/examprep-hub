@@ -107,7 +107,7 @@ export function RevisionScreen() {
             </Card>
           ) : (
             <>
-            <Card className="p-4 mb-6 bg-gradient-to-r from-sky-50 to-indigo-50 border border-sky-100">
+            <Card className="p-4 mb-6 bg-gradient-to-r from-brand-50 to-indigo-50 border border-brand-100">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">{totalDue} topic{totalDue !== 1 ? 's' : ''} due for review</p>

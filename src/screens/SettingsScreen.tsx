@@ -96,7 +96,7 @@ export function SettingsScreen() {
       {/* App info — global totals across both tracks */}
       <Card className="p-5 mb-4 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center shrink-0 shadow-sm shadow-sky-500/20">
+          <div className="w-12 h-12 rounded-card bg-gradient-to-br from-brand-500 to-blue-600 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">
             <GraduationCap className="w-7 h-7 text-white" />
           </div>
           <div className="flex-1 min-w-0">
@@ -105,7 +105,7 @@ export function SettingsScreen() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
-          <InfoStat icon={<BookOpen className="w-4 h-4 text-sky-500" />} value={`${subjects.length}`} label="subjects" />
+          <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
           <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${sd.totalTopics}`} label="topics" />
           <InfoStat icon={<Database className="w-4 h-4 text-emerald-500" />} value={`${sd.totalQuestions}`} label="questions" />
         </div>
@@ -125,7 +125,7 @@ export function SettingsScreen() {
         </Card>
         <Card className="p-3">
           <div className="flex items-center gap-1.5 mb-1">
-            <TrendingUp className="w-4 h-4 text-sky-500" />
+            <TrendingUp className="w-4 h-4 text-brand-500" />
             <span className="text-slate-400 text-xs font-medium">Today</span>
           </div>
           <p className="text-xl font-bold text-slate-900 leading-tight">{today.questionsAnswered}</p>
@@ -284,7 +284,7 @@ export function SettingsScreen() {
       <Card className="p-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
         <h3 className="font-semibold text-slate-900 mb-3">All Data</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <MiniStat icon={<BookOpen className="w-4 h-4 text-sky-500" />} label="Studied" value={`${globalStudied}`} />
+          <MiniStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} label="Studied" value={`${globalStudied}`} />
           <MiniStat icon={<Brain className="w-4 h-4 text-violet-500" />} label="Answered" value={`${globalAnswered}`} />
           <MiniStat icon={<Target className="w-4 h-4 text-emerald-500" />} label="Accuracy" value={`${globalAcc}%`} />
           <MiniStat icon={<TrendingUp className="w-4 h-4 text-amber-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />

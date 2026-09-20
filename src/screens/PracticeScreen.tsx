@@ -190,7 +190,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                             }}
                             className={`px-3 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-1.5 ${
                               selected
-                                ? 'bg-sky-500 text-white'
+                                ? 'bg-brand-500 text-white'
                                 : isMastered
                                   ? 'bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100'
                                   : isAttempted
@@ -216,7 +216,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                 navigate({ screen: 'quiz', mode: 'quick', topicIds: topicIdsArr, scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 999, difficulty: 'any', timeLimit: 'none' });
               }}
               disabled={selectedFocusTopics.size === 0}
-              className="w-full py-3 rounded-xl bg-sky-500 text-white font-semibold hover:bg-sky-600 transition-colors disabled:opacity-50"
+              className="w-full py-3 rounded-btn bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors disabled:opacity-50"
             >
               Start Focus Practice ({selectedFocusTopics.size} topic{selectedFocusTopics.size !== 1 ? 's' : ''})
             </button>
@@ -302,7 +302,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
             {/* Focus Practice */}
             <SimpleModeCard
               icon={<Target className="w-5 h-5" />}
-              iconBg="bg-sky-100 text-sky-600"
+              iconBg="bg-brand-100 text-brand-600"
               title="Focus Practice"
               description="All questions from selected topics"
               bestFor="targeted improvement"
@@ -316,7 +316,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
             {/* Mock Exam */}
             <ExpandableModeCard
               icon={<GraduationCap className="w-5 h-5" />}
-              iconBg="bg-slate-900 text-sky-400"
+              iconBg="bg-slate-900 text-brand-400"
               title="Mock Exam"
               description={mockDisabled ? `Need at least 30 questions — only ${totalAvailable} available` : `${prefs.mockCount} questions, exam simulation`}
               bestFor="exam simulation"
@@ -340,13 +340,13 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                   </div>
                   <div>
                     <label className="block text-slate-500 text-xs font-medium mb-1.5">Timer</label>
-                    <div className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
+                    <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
                       {mockTimerMinutes} min (auto)
                     </div>
                   </div>
                   <div>
                     <label className="block text-slate-500 text-xs font-medium mb-1.5">Difficulty</label>
-                    <div className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
+                    <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
                       Auto-mixed
                     </div>
                   </div>
@@ -392,7 +392,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                 </div>
                 <div>
                   <label className="block text-slate-500 text-xs font-medium mb-1.5">Available at this level</label>
-                  <div className="px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
+                  <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
                     {challengePool.length} questions
                   </div>
                 </div>
@@ -464,7 +464,7 @@ function Dropdown({ value, options, onChange, ariaLabel }: {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={ariaLabel}
-        className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 transition-colors"
       >
         <span>{currentLabel}</span>
         <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
@@ -477,7 +477,7 @@ function Dropdown({ value, options, onChange, ariaLabel }: {
             id={panelId}
             role="listbox"
             aria-label={ariaLabel}
-            className="absolute z-20 mt-1 w-full rounded-xl border border-slate-200 bg-white shadow-lg overflow-hidden max-h-60 overflow-y-auto"
+            className="absolute z-20 mt-1 w-full rounded-btn border border-slate-200 bg-white shadow-lg overflow-hidden max-h-60 overflow-y-auto"
           >
             {options.map((opt, idx) => (
               <button
@@ -489,11 +489,11 @@ function Dropdown({ value, options, onChange, ariaLabel }: {
                 aria-selected={opt.value === value}
                 tabIndex={-1}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors ${
-                  opt.value === value ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700'
+                  opt.value === value ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700'
                 }`}
               >
                 <span>{opt.label}</span>
-                {opt.value === value && <Check className="w-4 h-4 text-sky-500" />}
+                {opt.value === value && <Check className="w-4 h-4 text-brand-500" />}
               </button>
             ))}
           </div>
@@ -519,7 +519,7 @@ function SimpleModeCard({ icon, iconBg, title, description, bestFor, onClick, di
       disabled={disabled}
       className="w-full flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
     >
-      <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center shrink-0`}>
+      <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
         {icon}
       </div>
       <div className="flex-1 min-w-0">
@@ -553,7 +553,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
         disabled={disabled}
         className="w-full flex items-start gap-4 p-5 text-left disabled:cursor-not-allowed"
       >
-        <div className={`w-12 h-12 rounded-xl ${iconBg} flex items-center justify-center shrink-0`}>
+        <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
           {icon}
         </div>
         <div className="flex-1 min-w-0">
@@ -572,7 +572,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
             {children}
             <button
               onClick={onStart}
-              className="w-full mt-4 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5"
+              className="w-full mt-4 py-2.5 rounded-btn bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5"
             >
               {startLabel}
               <ChevronRight className="w-4 h-4" />

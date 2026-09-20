@@ -18,7 +18,7 @@ export function SubjectContextChip({
       aria-live="polite"
     >
       <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 px-2.5 py-1 text-slate-600 ring-1 ring-slate-200/60">
-        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0" aria-hidden />
+        <span className="w-1.5 h-1.5 rounded-full bg-brand-500 shrink-0" aria-hidden />
         {currentlyViewingLabel(activeSubject, subjectTitle)}
       </span>
     </p>

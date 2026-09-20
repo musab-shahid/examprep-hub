@@ -762,13 +762,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
               currentQ.type === 'multi'
                 ? (currentQ.correctAnswer as number[]).includes(idx)
                 : currentQ.correctAnswer === idx;
-            let bgClass = 'bg-white border-slate-200 hover:border-sky-300 hover:bg-sky-50/50';
+            let bgClass = 'bg-white border-slate-200 hover:border-brand-300 hover:bg-brand-50/50';
             if (state.checked) {
               if (isCorrectOption) bgClass = 'bg-emerald-50 border-emerald-400';
               else if (isSelected && !isCorrectOption) bgClass = 'bg-red-50 border-red-400';
               else bgClass = 'bg-white border-slate-200 opacity-60';
             } else if (isSelected) {
-              bgClass = 'bg-sky-50 border-sky-500';
+              bgClass = 'bg-brand-50 border-brand-500';
             }
             const ariaExtra = state.checked
               ? isCorrectOption
@@ -787,7 +787,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                 role={currentQ.type === 'multi' ? 'checkbox' : 'radio'}
                 aria-checked={isSelected}
                 aria-label={`Option ${idx + 1}: ${opt}${ariaExtra}${state.checked && currentQ.type !== 'multi' ? ' — tap to continue' : ''}`}
-                className={`w-full flex items-center gap-3 p-3.5 rounded-xl border-2 text-left transition-all ${bgClass} ${state.checked && currentQ.type !== 'multi' ? 'cursor-pointer' : ''}`}
+                className={`w-full flex items-center gap-3 p-3.5 rounded-btn border-2 text-left transition-all ${bgClass} ${state.checked && currentQ.type !== 'multi' ? 'cursor-pointer' : ''}`}
               >
                 <div
                   className={`w-6 h-6 shrink-0 flex items-center justify-center text-xs font-bold ${
@@ -798,7 +798,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                         ? 'bg-emerald-500 text-white'
                         : state.checked && isSelected && !isCorrectOption
                           ? 'bg-red-500 text-white'
-                          : 'bg-sky-500 text-white'
+                          : 'bg-brand-500 text-white'
                       : 'bg-slate-100 text-slate-500'
                   }`}
                 >
@@ -817,7 +817,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* After-answer feedback — live region + multi-correct + tap to advance */}
       {state.checked && (
         <div
-          className={`rounded-2xl border bg-white shadow-sm p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-emerald-200 hover:border-emerald-300' : 'border-red-200 hover:border-red-300'}`}
+          className={`rounded-card border bg-white shadow-card p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-emerald-200 hover:border-emerald-300' : 'border-red-200 hover:border-red-300'}`}
           role="status"
           aria-live="polite"
           onClick={handleNext}
@@ -910,7 +910,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           onClick={() => setShowExitConfirm(false)}
         >
           <div
-            className="max-w-sm w-full p-6 rounded-2xl border border-slate-200 bg-white shadow-lg"
+            className="max-w-sm w-full p-6 rounded-card border border-slate-200 bg-white shadow-lg"
             id="exit-modal"
             role="dialog"
             aria-modal="true"
@@ -918,7 +918,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-btn bg-amber-100 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-5 h-5 text-amber-600" />
               </div>
               <h3 id="exit-modal-title" className="font-bold text-slate-900 text-lg">Exit quiz?</h3>
@@ -1137,10 +1137,10 @@ function QuizResults({
       )}
 
       {mode === 'mock' && (
-        <Card className="p-4 mb-4 border-l-4 border-l-sky-500">
+        <Card className="p-4 mb-4 border-l-4 border-l-brand-500">
           <button
             onClick={onNavigateToProgress}
-            className="flex items-center gap-2 text-sky-600 text-sm font-medium hover:text-sky-700"
+            className="flex items-center gap-2 text-brand-600 text-sm font-medium hover:text-brand-700"
           >
             <TrendingUp className="w-4 h-4" /> See your full progress
           </button>
@@ -1235,14 +1235,14 @@ function MatchingOptions({ question, selectedIndices, checked, onSelect }: {
         }
 
         return (
-          <div key={optIdx} className={`flex items-center gap-3 p-3 rounded-xl border-2 ${rowClass}`}>
+          <div key={optIdx} className={`flex items-center gap-3 p-3 rounded-btn border-2 ${rowClass}`}>
             <span className="text-slate-800 text-sm font-medium flex-1 min-w-0">{opt}</span>
             <span className="text-slate-400 text-xs">→</span>
             <select
               value={selectedMatch ?? ''}
               disabled={checked}
               onChange={(e) => onSelect(optIdx * 100 + parseInt(e.target.value, 10))}
-              className="flex-1 min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-sky-400 focus:outline-none disabled:opacity-60"
+              className="flex-1 min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-brand-400 focus:outline-none disabled:opacity-60"
               aria-label={`Match for ${opt}`}
             >
               <option value="" disabled>Choose...</option>

@@ -29,18 +29,18 @@ const stageIcons: Record<StageScreen, typeof BookOpen> = {
   search: Search,
 };
 
-const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; dotColor: string }> = {
+const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; stageActive: string }> = {
   fpsc: {
-    activeBorder: getTrackStyle('fpsc').borderTint.replace('border-', 'border-l-').replace('-100', '-500'),
+    activeBorder: 'border-l-sky-500',
     activeBg: 'bg-sky-500/10',
     iconColor: 'text-sky-400',
-    dotColor: 'bg-sky-500',
+    stageActive: 'text-sky-400 bg-slate-800',
   },
   hat: {
-    activeBorder: getTrackStyle('hat').borderTint.replace('border-', 'border-l-').replace('-100', '-500'),
+    activeBorder: 'border-l-indigo-500',
     activeBg: 'bg-indigo-500/10',
     iconColor: 'text-indigo-400',
-    dotColor: 'bg-indigo-500',
+    stageActive: 'text-indigo-400 bg-slate-800',
   },
 };
 
@@ -84,7 +84,7 @@ export function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center shrink-0">
+          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-brand-400 to-indigo-500 flex items-center justify-center shrink-0 shadow-glow-brand">
             <Library className="w-6 h-6 text-white" />
           </div>
           <div className="min-w-0">
@@ -121,7 +121,7 @@ export function Sidebar() {
               {/* Track header — navigates to track landing page */}
               <button
                 onClick={() => navigate({ screen: landing, parent: null })}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all border-l-2 ${
+                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-btn text-sm font-medium transition-all duration-DEFAULT border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                   isTrackActive
                     ? `${styles.activeBorder} text-white bg-slate-800`
                     : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
@@ -143,13 +143,13 @@ export function Sidebar() {
                     <div key={subject.id}>
                       <button
                         onClick={() => toggleSubject(subject.id)}
-                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all border-l-2 ${
+                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-DEFAULT border-l-2 ${
                           active
-                            ? `${colors.border} text-white bg-slate-800`
+                            ? `${colors.borderActive.replace('border-', 'border-l-')} text-white bg-slate-800`
                             : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
                         }`}
                       >
-                        <span className={`w-2 h-2 rounded-full ${colors.dot} shrink-0`} />
+                        <span className={`w-2 h-2 rounded-full ${colors.dotBg} shrink-0`} />
                         <span className="flex-1 text-left truncate text-[13px]">{subject.title}</span>
                         {topicCount === 0 && <span className="text-slate-600 text-xs">·</span>}
                         {expanded
@@ -165,9 +165,9 @@ export function Sidebar() {
                               <button
                                 key={stage}
                                 onClick={() => goToStage(stage, subject.id as SubjectId)}
-                                className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                                className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-DEFAULT ${
                                   stageActive
-                                    ? 'text-sky-400 bg-slate-800'
+                                    ? styles.stageActive
                                     : 'text-slate-500 hover:text-white hover:bg-slate-800'
                                 }`}
                               >
@@ -186,7 +186,7 @@ export function Sidebar() {
                               onClick={() => navigate({ screen: 'cloud-atlas', parent: null })}
                               className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                                 currentScreen === 'cloud-atlas'
-                                  ? 'text-sky-400 bg-slate-800'
+                                  ? styles.stageActive
                                   : 'text-slate-500 hover:text-white hover:bg-slate-800'
                               }`}
                             >
@@ -333,11 +333,11 @@ export function MobileNav() {
             aria-expanded={moreOpen}
             aria-label={reviewDue > 0 ? `More, ${reviewDue} reviews due` : 'More'}
             className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-btn transition-colors duration-DEFAULT relative min-w-[56px] min-h-touch-lg touch-manipulation ${
-              moreActive ? 'text-sky-400' : 'text-slate-500 hover:text-slate-300'
+              moreActive ? 'text-brand-400' : 'text-slate-500 hover:text-slate-300'
             }`}
           >
             {moreActive && (
-              <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-sky-400" aria-hidden />
+              <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-brand-400" aria-hidden />
             )}
             <span className="relative">
               <MoreHorizontal className="w-5 h-5" strokeWidth={moreActive ? 2.25 : 2} />
