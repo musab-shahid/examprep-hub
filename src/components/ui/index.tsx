@@ -173,14 +173,11 @@ export function ProgressBar({
   );
 }
 
+/** Unified status icon (Lucide). Prefer TopicStatusIcon name in new code. */
 export function StatusIcon({ status }: { status: 'not_started' | 'studied' | 'mastered' }) {
-  if (status === 'mastered') {
-    return <span className="text-emerald-600 font-bold text-sm">✓</span>;
-  }
-  if (status === 'studied') {
-    return <span className="text-sky-500 font-bold text-sm">●</span>;
-  }
-  return <span className="text-slate-400 font-bold text-sm">→</span>;
+  if (status === 'mastered') return <Star className="w-4 h-4 text-sky-500 fill-sky-500 shrink-0" aria-label="Mastered" />;
+  if (status === 'studied') return <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-label="Studied" />;
+  return <Circle className="w-4 h-4 text-slate-300 shrink-0" aria-label="Not started" />;
 }
 
 export function EmptyState({
@@ -308,10 +305,9 @@ export function PurposeLine({ children, className = '' }: { children: ReactNode;
   );
 }
 
+/** Alias — same as StatusIcon (kept for existing imports) */
 export function TopicStatusIcon({ status }: { status: 'not_started' | 'studied' | 'mastered' }) {
-  if (status === 'mastered') return <Star className="w-4 h-4 text-sky-500 fill-sky-500 shrink-0" aria-label="Mastered" />;
-  if (status === 'studied') return <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-label="Studied" />;
-  return <Circle className="w-4 h-4 text-slate-300 shrink-0" aria-label="Not started" />;
+  return <StatusIcon status={status} />;
 }
 
 export function StreakIndicator({ streak, atRisk = false }: { streak: number; atRisk?: boolean }) {
