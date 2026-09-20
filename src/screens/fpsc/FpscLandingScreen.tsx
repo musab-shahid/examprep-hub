@@ -10,98 +10,9 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { subjectsByTrack } from '@/data/subjects';
+import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
-
-const SUBJECT_STYLES: Record<string, {
-  gradient: string;
-  bg: string;
-  text: string;
-  tint: string;
-  border: string;
-  hoverBorder: string;
-  glow: string;
-  bar: string;
-  lightGradient: string;
-}> = {
-  'meteo-climatology': {
-    gradient: 'from-sky-500 to-cyan-600',
-    bg: 'bg-sky-500',
-    text: 'text-sky-600',
-    tint: 'bg-sky-50',
-    border: 'border-sky-200',
-    hoverBorder: 'hover:border-sky-400',
-    glow: 'shadow-sky-500/20',
-    bar: 'bg-sky-500',
-    lightGradient: 'from-sky-50 to-cyan-50',
-  },
-  'earth-science': {
-    gradient: 'from-stone-500 to-amber-700',
-    bg: 'bg-stone-500',
-    text: 'text-stone-600',
-    tint: 'bg-stone-50',
-    border: 'border-stone-200',
-    hoverBorder: 'hover:border-stone-400',
-    glow: 'shadow-stone-500/20',
-    bar: 'bg-stone-500',
-    lightGradient: 'from-stone-50 to-amber-50',
-  },
-  physics: {
-    gradient: 'from-purple-500 to-fuchsia-600',
-    bg: 'bg-purple-500',
-    text: 'text-purple-600',
-    tint: 'bg-purple-50',
-    border: 'border-purple-200',
-    hoverBorder: 'hover:border-purple-400',
-    glow: 'shadow-purple-500/20',
-    bar: 'bg-purple-500',
-    lightGradient: 'from-purple-50 to-fuchsia-50',
-  },
-  maths: {
-    gradient: 'from-orange-500 to-red-600',
-    bg: 'bg-orange-500',
-    text: 'text-orange-600',
-    tint: 'bg-orange-50',
-    border: 'border-orange-200',
-    hoverBorder: 'hover:border-orange-400',
-    glow: 'shadow-orange-500/20',
-    bar: 'bg-orange-500',
-    lightGradient: 'from-orange-50 to-red-50',
-  },
-  'env-studies': {
-    gradient: 'from-green-500 to-emerald-600',
-    bg: 'bg-green-500',
-    text: 'text-green-600',
-    tint: 'bg-green-50',
-    border: 'border-green-200',
-    hoverBorder: 'hover:border-green-400',
-    glow: 'shadow-green-500/20',
-    bar: 'bg-green-500',
-    lightGradient: 'from-green-50 to-emerald-50',
-  },
-  'research-analysis': {
-    gradient: 'from-red-500 to-rose-600',
-    bg: 'bg-red-500',
-    text: 'text-red-600',
-    tint: 'bg-red-50',
-    border: 'border-red-200',
-    hoverBorder: 'hover:border-red-400',
-    glow: 'shadow-red-500/20',
-    bar: 'bg-red-500',
-    lightGradient: 'from-red-50 to-rose-50',
-  },
-  english: {
-    gradient: 'from-pink-500 to-rose-600',
-    bg: 'bg-pink-500',
-    text: 'text-pink-600',
-    tint: 'bg-pink-50',
-    border: 'border-pink-200',
-    hoverBorder: 'hover:border-pink-400',
-    glow: 'shadow-pink-500/20',
-    bar: 'bg-pink-500',
-    lightGradient: 'from-pink-50 to-rose-50',
-  },
-};
 
 const SUBJECT_DESCRIPTIONS: Record<string, string> = {
   'meteo-climatology': 'Atmospheric science, weather systems, climate classification, and Pakistan-specific meteorology — the most content-rich subject.',
@@ -121,6 +32,7 @@ export function FpscLandingScreen() {
   const { data } = useData();
 
   const fpscSubjects = subjectsByTrack('fpsc');
+  const ts = getTrackStyle('fpsc');
 
   const totalTopics = fpscSubjects.reduce((sum, s) => sum + sd.topicsFor(s.id as SubjectId).length, 0);
   const totalQuestions = fpscSubjects.reduce((sum, s) => {
@@ -138,10 +50,10 @@ export function FpscLandingScreen() {
   const overallProgress = totalTopics > 0 ? Math.round((studiedFpscTopics / totalTopics) * 100) : 0;
 
   const stats = [
-    { icon: Layers, label: 'Subjects', value: String(fpscSubjects.length), color: 'text-sky-400' },
-    { icon: BookOpen, label: 'Topics', value: String(totalTopics), color: 'text-emerald-400' },
-    { icon: Target, label: 'Questions', value: String(totalQuestions), color: 'text-amber-400' },
-    { icon: FileText, label: 'Sections', value: String(totalSections), color: 'text-rose-400' },
+    { icon: Layers, label: 'Subjects', value: String(fpscSubjects.length), color: ts.statIconColors[0] },
+    { icon: BookOpen, label: 'Topics', value: String(totalTopics), color: ts.statIconColors[1] },
+    { icon: Target, label: 'Questions', value: String(totalQuestions), color: ts.statIconColors[2] },
+    { icon: FileText, label: 'Sections', value: String(totalSections), color: ts.statIconColors[3] },
   ];
 
   const handleStudySubject = (subjectId: SubjectId) => {
@@ -158,19 +70,19 @@ export function FpscLandingScreen() {
     <PageContainer>
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 p-6 sm:p-8">
+        <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-6 sm:p-8`}>
           {/* Decorative gradient orbs */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className={`absolute top-0 right-0 w-64 h-64 ${ts.heroOrb} rounded-full blur-3xl pointer-events-none`} />
+          <div className={`absolute bottom-0 left-1/4 w-48 h-48 ${ts.heroOrbSecondary} rounded-full blur-3xl pointer-events-none`} />
 
           <div className="relative">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-sky-500/30">
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
                 <FileText className="w-7 h-7 text-white" />
               </div>
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white">FPSC Exam</h1>
-                <p className="text-sky-200 text-sm">Federal Public Service Commission</p>
+                <p className={`${ts.accentText} text-sm`}>Federal Public Service Commission</p>
               </div>
             </div>
 
@@ -199,14 +111,14 @@ export function FpscLandingScreen() {
 
       {/* Progress Bar Card */}
       {(studiedFpscTopics > 0 || quizTouchedFpscTopics > 0) && (
-        <Card className="p-4 mb-6 animate-fade-in-up border-sky-100" style={{ animationDelay: '0.05s' }}>
+        <Card className={`p-4 mb-6 animate-fade-in-up ${ts.borderTint}`} style={{ animationDelay: '0.05s' }}>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-sky-500" />
+              <TrendingUp className={`w-4 h-4 ${ts.progressIcon}`} />
               <span className="font-semibold text-slate-900 text-sm">Your Progress</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <span className="text-sky-600 font-bold">{studiedFpscTopics}/{totalTopics} studied</span>
+              <span className={`${ts.accent} font-bold`}>{studiedFpscTopics}/{totalTopics} studied</span>
               {quizTouchedFpscTopics > 0 && (
                 <span className="text-amber-600 font-bold">{quizTouchedFpscTopics} practiced</span>
               )}
@@ -214,7 +126,7 @@ export function FpscLandingScreen() {
           </div>
           <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-sky-500 to-blue-500 rounded-full transition-all duration-700 ease-out"
+              className={`h-full bg-gradient-to-r ${ts.progressGradient} rounded-full transition-all duration-700 ease-out`}
               style={{ width: `${overallProgress}%` }}
             />
           </div>
@@ -225,7 +137,7 @@ export function FpscLandingScreen() {
       {/* Quick Actions Card */}
       <Card className="p-5 mb-6 animate-fade-in-up bg-gradient-to-br from-slate-50 to-white border-slate-200" style={{ animationDelay: '0.1s' }}>
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="w-5 h-5 text-sky-500" />
+          <Sparkles className={`w-5 h-5 ${ts.sparklesIcon}`} />
           <h2 className="font-bold text-slate-900 text-base">Quick Actions</h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -268,7 +180,7 @@ export function FpscLandingScreen() {
       {/* Subject Cards */}
       <div className="grid grid-cols-1 gap-4 mb-6">
         {fpscSubjects.map((subject, idx) => {
-          const style = SUBJECT_STYLES[subject.id] ?? SUBJECT_STYLES['physics'];
+          const style = getSubjectStyle(subject.id);
           const Icon = subject.lucideIcon ?? BookOpen;
           const subjectSections = sectionsBySubject(subject.id);
           const topicCount = sd.topicsFor(subject.id as SubjectId).length;
@@ -364,10 +276,10 @@ export function FpscLandingScreen() {
       {/* Mock Exam CTA */}
       <div className="animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 sm:p-7">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" />
+          <div className={`absolute top-0 right-0 w-48 h-48 ${ts.mockOrb} rounded-full blur-3xl pointer-events-none`} />
 
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-sky-500/20">
+            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
               <Clock className="w-7 h-7 text-white" />
             </div>
             <div className="flex-1">

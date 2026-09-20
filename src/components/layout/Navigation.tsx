@@ -6,7 +6,8 @@ import {
   Library, Dumbbell,
 } from 'lucide-react';
 import { useRouter } from '@/router';
-import { getSubjectColorClasses, examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { ToolsTray } from '@/components/layout/ToolsTray';
@@ -28,15 +29,15 @@ const stageIcons: Record<StageScreen, typeof BookOpen> = {
   search: Search,
 };
 
-const trackStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; dotColor: string }> = {
+const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; dotColor: string }> = {
   fpsc: {
-    activeBorder: 'border-sky-500',
+    activeBorder: getTrackStyle('fpsc').borderTint.replace('border-', 'border-l-').replace('-100', '-500'),
     activeBg: 'bg-sky-500/10',
     iconColor: 'text-sky-400',
     dotColor: 'bg-sky-500',
   },
   hat: {
-    activeBorder: 'border-indigo-500',
+    activeBorder: getTrackStyle('hat').borderTint.replace('border-', 'border-l-').replace('-100', '-500'),
     activeBg: 'bg-indigo-500/10',
     iconColor: 'text-indigo-400',
     dotColor: 'bg-indigo-500',
@@ -111,7 +112,7 @@ export function Sidebar() {
           const trackId = track.id as ExamTrackId;
           // Full subject objects from data (color, icon) — both FPSC and HAT are multi-subject
           const trackSubs = subjectsByTrack(trackId);
-          const styles = trackStyles[trackId];
+          const styles = trackNavStyles[trackId];
           const TrackIcon = track.icon;
           const landing = getLandingScreenForTrack(trackId);
           const isTrackActive = isTrackLandingActive(trackId);
@@ -133,7 +134,7 @@ export function Sidebar() {
               {/* Subject list under every track */}
               <div className="ml-3 mt-0.5 space-y-0.5 border-l border-slate-700 pl-2">
                 {trackSubs.map((subject) => {
-                  const colors = getSubjectColorClasses(subject.color);
+                  const colors = getSubjectStyle(subject.id);
                   const expanded = expandedSubject === subject.id;
                   const active = isSubjectActive(subject.id);
                   const topicCount = sd.topicsFor(subject.id as SubjectId).length;

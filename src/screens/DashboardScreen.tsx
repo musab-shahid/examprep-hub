@@ -7,13 +7,13 @@ import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
-import { subjects, getSubjectColorClasses, examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { subjects, examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
 import type { SubjectId } from '@/types';
 import { getTopic } from '@/data/topics';
 import { sectionMap, sections } from '@/data/sections';
 import { topics } from '@/data/topics';
 import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator } from '@/components/ui';
-import { getSubjectColor } from '@/data/subject-colors';
+import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
 
@@ -25,20 +25,6 @@ function getGreeting(): string {
   return 'Burning the midnight oil';
 }
 
-const trackHeaderStyles: Record<ExamTrack, { label: string; accent: string; icon: typeof FileText; gradient: string }> = {
-  fpsc: {
-    label: 'FPSC Subjects',
-    accent: 'text-sky-600',
-    icon: FileText,
-    gradient: 'from-sky-500 to-blue-600',
-  },
-  hat: {
-    label: 'HAT Modules',
-    accent: 'text-indigo-600',
-    icon: GraduationCap,
-    gradient: 'from-indigo-500 to-violet-600',
-  },
-};
 
 export function DashboardScreen() {
   const { navigate } = useRouter();
@@ -162,21 +148,21 @@ export function DashboardScreen() {
       {/* Exam Track Sections */}
       {examTracks.map((track, trackIdx) => {
         const trackStats = statsByTrack[track.id];
-        const headerStyle = trackHeaderStyles[track.id];
-        const TrackIcon = headerStyle.icon;
+        const trackTs = getTrackStyle(track.id);
+        const TrackIcon = track.id === 'fpsc' ? FileText : GraduationCap;
 
         return (
           <Card key={track.id} className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: `${0.15 + trackIdx * 0.05}s` }}>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2.5">
-                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${headerStyle.gradient} flex items-center justify-center shrink-0 shadow-sm`}>
+                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${trackTs.gradient} flex items-center justify-center shrink-0 shadow-sm`}>
                   <TrackIcon className="w-4 h-4 text-white" />
                 </div>
-                <h3 className="font-semibold text-slate-900">{headerStyle.label}</h3>
+                <h3 className="font-semibold text-slate-900">{trackTs.label}</h3>
               </div>
               <button
                 onClick={() => navigate({ screen: getLandingScreenForTrack(track.id), parent: null })}
-                className={`text-sm font-medium hover:underline ${headerStyle.accent}`}
+                className={`text-sm font-medium hover:underline ${trackTs.accent}`}
               >
                 Open {track.shortTitle}
               </button>
@@ -187,7 +173,7 @@ export function DashboardScreen() {
                 const subject = subjects.find((s) => s.id === sStats.subjectId);
                 if (!subject) return null;
                 const color = getSubjectColor(sStats.subjectId);
-                const colors = getSubjectColorClasses(subject.color);
+                const colors = getSubjectStyle(sStats.subjectId);
                 const studiedPct = sStats.totalTopics > 0 ? Math.round((sStats.studiedTopics / sStats.totalTopics) * 100) : 0;
                 const isComplete = studiedPct === 100;
                 const hasContent = sStats.hasContent;

@@ -7,6 +7,7 @@ import { allHatTopics, allHatQuestions, hatQuestionsBySection } from '@/data/hat
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { getSubjectsForTrack } from '@/lib/exam-track';
+import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import type { SubjectId } from '@/types';
 
 const SECTION_ICONS = {
@@ -14,50 +15,11 @@ const SECTION_ICONS = {
   analytical: Brain,
   quantitative: Calculator,
 } as const;
-const SECTION_STYLES = {
-  verbal: {
-    gradient: 'from-indigo-500 to-blue-600',
-    bg: 'bg-indigo-500',
-    text: 'text-indigo-600',
-    tint: 'bg-indigo-50',
-    border: 'border-indigo-200',
-    ring: 'ring-indigo-200',
-    hoverBorder: 'hover:border-indigo-400',
-    glow: 'shadow-indigo-500/20',
-    bar: 'bg-indigo-500',
-    lightGradient: 'from-indigo-50 to-blue-50',
-  },
-  analytical: {
-    gradient: 'from-emerald-500 to-teal-600',
-    bg: 'bg-emerald-500',
-    text: 'text-emerald-600',
-    tint: 'bg-emerald-50',
-    border: 'border-emerald-200',
-    ring: 'ring-emerald-200',
-    hoverBorder: 'hover:border-emerald-400',
-    glow: 'shadow-emerald-500/20',
-    bar: 'bg-emerald-500',
-    lightGradient: 'from-emerald-50 to-teal-50',
-  },
-  quantitative: {
-    gradient: 'from-amber-500 to-orange-600',
-    bg: 'bg-amber-500',
-    text: 'text-amber-600',
-    tint: 'bg-amber-50',
-    border: 'border-amber-200',
-    ring: 'ring-amber-200',
-    hoverBorder: 'hover:border-amber-400',
-    glow: 'shadow-amber-500/20',
-    bar: 'bg-amber-500',
-    lightGradient: 'from-amber-50 to-orange-50',
-  },
-} as const;
 
 /** Map a HAT section code (verbal / analytical / quantitative) to its SubjectId. */
 function subjectIdForHatSection(sectionCode: string): SubjectId {
   const hatSubjects = getSubjectsForTrack('hat');
   const code = sectionCode.toLowerCase();
-  // Prefer exact id match, then id/title containing the section code
   const match =
     hatSubjects.find((s) => s.subjectId === code) ??
     hatSubjects.find((s) => s.subjectId === `hat-${code}`) ??
@@ -70,6 +32,7 @@ export function HatLandingScreen() {
   const { setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
   useEffect(() => { setActiveTrack('hat'); }, [setActiveTrack]);
   const { data } = useData();
+  const ts = getTrackStyle('hat');
   const handleStudySection = (sectionCode: string) => {
     setActiveSubjectForScreen('learn', subjectIdForHatSection(sectionCode));
     navigate({ screen: 'learn', parent: currentRoute });
@@ -85,27 +48,27 @@ export function HatLandingScreen() {
   const quizTouchedHatTopics = allHatTopics.filter((t) => (data.topicProgress[t.id]?.quizAttempts ?? 0) > 0).length;
   const overallProgress = totalTopics > 0 ? Math.round((studiedHatTopics / totalTopics) * 100) : 0;
   const stats = [
-    { icon: Layers, label: 'Sections', value: '3', color: 'text-indigo-500' },
-    { icon: BookOpen, label: 'Topics', value: String(totalTopics), color: 'text-emerald-500' },
-    { icon: Target, label: 'Questions', value: String(totalQuestions), color: 'text-amber-500' },
-    { icon: Clock, label: 'Minutes', value: String(HAT_EXAM_DURATION_MINUTES), color: 'text-rose-500' },
+    { icon: Layers, label: 'Sections', value: '3', color: ts.statIconColors[0] },
+    { icon: BookOpen, label: 'Topics', value: String(totalTopics), color: ts.statIconColors[1] },
+    { icon: Target, label: 'Questions', value: String(totalQuestions), color: ts.statIconColors[2] },
+    { icon: Clock, label: 'Minutes', value: String(HAT_EXAM_DURATION_MINUTES), color: ts.statIconColors[3] },
   ];
   return (
     <PageContainer>
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 p-6 sm:p-8">
+        <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-6 sm:p-8`}>
           {/* Decorative gradient orbs */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className={`absolute top-0 right-0 w-64 h-64 ${ts.heroOrb} rounded-full blur-3xl pointer-events-none`} />
+          <div className={`absolute bottom-0 left-1/4 w-48 h-48 ${ts.heroOrbSecondary} rounded-full blur-3xl pointer-events-none`} />
           <div className="relative">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
                 <GraduationCap className="w-7 h-7 text-white" />
               </div>
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white">HAT Prep</h1>
-                <p className="text-indigo-200 text-sm">Higher Education Aptitude Test</p>
+                <p className={`${ts.accentText} text-sm`}>Higher Education Aptitude Test</p>
               </div>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed max-w-xl mb-5">
@@ -130,14 +93,14 @@ export function HatLandingScreen() {
       </div>
       {/* Progress Bar Card */}
       {(studiedHatTopics > 0 || quizTouchedHatTopics > 0) && (
-        <Card className="p-4 mb-6 animate-fade-in-up border-indigo-100" style={{ animationDelay: '0.05s' }}>
+        <Card className={`p-4 mb-6 animate-fade-in-up ${ts.borderTint}`} style={{ animationDelay: '0.05s' }}>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-indigo-500" />
+              <TrendingUp className={`w-4 h-4 ${ts.progressIcon}`} />
               <span className="font-semibold text-slate-900 text-sm">Your Progress</span>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <span className="text-indigo-600 font-bold">{studiedHatTopics}/{totalTopics} studied</span>
+              <span className={`${ts.accent} font-bold`}>{studiedHatTopics}/{totalTopics} studied</span>
               {quizTouchedHatTopics > 0 && (
                 <span className="text-amber-600 font-bold">{quizTouchedHatTopics} practiced</span>
               )}
@@ -145,7 +108,7 @@ export function HatLandingScreen() {
           </div>
           <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full transition-all duration-700 ease-out"
+              className={`h-full bg-gradient-to-r ${ts.progressGradient} rounded-full transition-all duration-700 ease-out`}
               style={{ width: `${overallProgress}%` }}
             />
           </div>
@@ -155,12 +118,12 @@ export function HatLandingScreen() {
       {/* Exam Overview Card */}
       <Card className="p-5 mb-6 animate-fade-in-up bg-gradient-to-br from-slate-50 to-white border-slate-200" style={{ animationDelay: '0.1s' }}>
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="w-5 h-5 text-indigo-500" />
+          <Sparkles className={`w-5 h-5 ${ts.sparklesIcon}`} />
           <h2 className="font-bold text-slate-900 text-base">Exam Overview</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {sectionEntries.map((section) => {
-            const style = SECTION_STYLES[section.id];
+            const style = getSubjectStyle(`hat-${section.id}`);
             return (
               <div key={section.id} className={`rounded-2xl bg-gradient-to-br ${style.lightGradient} p-4 border ${style.border}`}>
                 <div className="flex items-center justify-between mb-2">
@@ -199,7 +162,7 @@ export function HatLandingScreen() {
       {/* Section Cards */}
       <div className="grid grid-cols-1 gap-4 mb-6">
         {sectionEntries.map((section, idx) => {
-          const style = SECTION_STYLES[section.id];
+          const style = getSubjectStyle(`hat-${section.id}`);
           const Icon = SECTION_ICONS[section.id];
           const topics = allHatTopics.filter((t) => t.hatSection === section.id);
           const sectionQuestionCount = hatQuestionsBySection(section.sectionCode).length;
@@ -282,9 +245,9 @@ export function HatLandingScreen() {
       {/* Full Mock Exam CTA */}
       <div className="animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-6 sm:p-7">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none" />
+          <div className={`absolute top-0 right-0 w-48 h-48 ${ts.mockOrb} rounded-full blur-3xl pointer-events-none`} />
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center shrink-0 shadow-lg shadow-sky-500/20">
+            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
               <Clock className="w-7 h-7 text-white" />
             </div>
             <div className="flex-1">

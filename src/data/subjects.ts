@@ -67,21 +67,3 @@ export const subjectMap: Record<string, SubjectWithMeta> = Object.fromEntries(
 export function subjectsByTrack(track: ExamTrack): SubjectWithMeta[] {
   return subjects.filter((s) => s.track === track);
 }
-
-export const subjectColorClasses: Record<string, { bg: string; text: string; border: string; dot: string }> = {
-  sky: { bg: 'bg-sky-500', text: 'text-sky-600', border: 'border-sky-500', dot: 'bg-sky-500' },
-  stone: { bg: 'bg-stone-500', text: 'text-stone-600', border: 'border-stone-500', dot: 'bg-stone-500' },
-  purple: { bg: 'bg-purple-500', text: 'text-purple-600', border: 'border-purple-500', dot: 'bg-purple-500' },
-  orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-500', dot: 'bg-orange-500' },
-  green: { bg: 'bg-green-500', text: 'text-green-600', border: 'border-green-500', dot: 'bg-green-500' },
-  slate: { bg: 'bg-slate-500', text: 'text-slate-600', border: 'border-slate-500', dot: 'bg-slate-500' },
-  red: { bg: 'bg-red-500', text: 'text-red-600', border: 'border-red-500', dot: 'bg-red-500' },
-  pink: { bg: 'bg-pink-500', text: 'text-pink-600', border: 'border-pink-500', dot: 'bg-pink-500' },
-  indigo: { bg: 'bg-indigo-500', text: 'text-indigo-600', border: 'border-indigo-500', dot: 'bg-indigo-500' },
-  emerald: { bg: 'bg-emerald-500', text: 'text-emerald-600', border: 'border-emerald-500', dot: 'bg-emerald-500' },
-  amber: { bg: 'bg-amber-500', text: 'text-amber-600', border: 'border-amber-500', dot: 'bg-amber-500' },
-};
-
-export function getSubjectColorClasses(color: string) {
-  return subjectColorClasses[color] ?? subjectColorClasses.slate;
-}

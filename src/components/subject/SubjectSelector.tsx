@@ -1,25 +1,13 @@
 import { ChevronDown, Check } from 'lucide-react';
 import { useRef, useEffect, useCallback } from 'react';
 import { subjects, subjectsByTrack } from '@/data/subjects';
+import { getSubjectStyle } from '@/data/subject-colors';
 import { topicsBySubject } from '@/data/topics';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useDropdownKeyboard } from '@/hooks/useDropdownKeyboard';
 import type { SubjectId } from '@/types';
 
 export type SubjectFilterValue = SubjectId | 'all';
-
-const subjectColors: Record<string, string> = {
-  'meteo-climatology': 'bg-sky-500',
-  'physics': 'bg-purple-500',
-  'maths': 'bg-orange-500',
-  'earth-science': 'bg-stone-500',
-  'env-studies': 'bg-green-500',
-  'research-analysis': 'bg-red-500',
-  'english': 'bg-pink-500',
-  'hat-verbal': 'bg-indigo-500',
-  'hat-analytical': 'bg-emerald-500',
-  'hat-quantitative': 'bg-amber-500',
-};
 
 interface SubjectSelectorProps {
   value: SubjectFilterValue;
@@ -78,7 +66,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
       >
         <span className="flex items-center gap-2 truncate">
           {value !== 'all' && (
-            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${subjectColors[value] ?? 'bg-slate-400'}`} />
+            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getSubjectStyle(value).dotBg}`} />
           )}
           <span className="truncate">{currentLabel}</span>
         </span>
@@ -133,7 +121,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
                   active ? 'bg-sky-50 text-sky-700 font-medium' : 'text-slate-700 hover:bg-slate-50'
                 } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${subjectColors[subject.id] ?? 'bg-slate-400'}`} />
+                <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getSubjectStyle(subject.id).dotBg}`} />
                 <span className="flex-1 truncate">{subject.title}</span>
                 {disabled && <span className="text-slate-400 text-xs">(no content)</span>}
                 {active && <Check className="w-4 h-4 text-sky-500" />}

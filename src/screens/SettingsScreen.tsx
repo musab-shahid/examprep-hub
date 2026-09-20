@@ -6,9 +6,10 @@ import { useState } from 'react';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import {
-  subjects, getSubjectColorClasses, subjectsByTrack,
+  subjects, subjectsByTrack,
   examTracks, examTrackMap,
 } from '@/data/subjects';
+import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
 import type { SubjectId } from '@/types';
@@ -170,7 +171,7 @@ export function SettingsScreen() {
                 className="w-full flex items-center justify-between mb-2 px-1 group"
               >
                 <div className="flex items-center gap-2">
-                  <span className={`w-6 h-6 rounded-md bg-gradient-to-br ${trackMeta.accent} flex items-center justify-center shrink-0`}>
+                  <span className={`w-6 h-6 rounded-md bg-gradient-to-br ${getTrackStyle(track.id).gradient} flex items-center justify-center shrink-0`}>
                     <TrackIcon className="w-3.5 h-3.5 text-white" />
                   </span>
                   <span className="text-sm font-semibold text-slate-700">{trackMeta.title}</span>
@@ -192,7 +193,7 @@ export function SettingsScreen() {
 
               <div className="space-y-0.5">
                 {trackSubjects.map((subject) => {
-                  const colors = getSubjectColorClasses(subject.color);
+                  const colors = getSubjectStyle(subject.id);
                   const selected = selectedSubjects.has(subject.id as SubjectId);
                   const stats = sd.statsFor(subject.id as SubjectId);
                   const Icon = subject.lucideIcon;
