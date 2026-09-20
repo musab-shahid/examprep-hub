@@ -98,9 +98,9 @@ export function Sidebar() {
         <button
           type="button"
           onClick={() => navigate({ screen: 'home', parent: null })}
-          className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all mb-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+          className={`w-full flex items-center gap-3 px-4 py-3 rounded-btn text-sm font-medium transition-all duration-DEFAULT mb-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
             currentScreen === 'home'
-              ? 'bg-sky-500 text-white shadow-lg shadow-sky-500/20'
+              ? 'bg-brand-500 text-white shadow-lg shadow-brand-500/25'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
           }`}
         >

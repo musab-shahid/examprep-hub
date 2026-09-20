@@ -41,94 +41,216 @@ export interface TrackStyle {
   statIconColors: [string, string, string, string];
 }
 
+/**
+ * Refined 10-subject + 2-track palette
+ * Goal: strong thematic association, clear visual distinction, harmonious together.
+ *
+ * FPSC subjects (7)
+ * 1. Meteo      → Sky / Cyan     (atmosphere)
+ * 2. Physics    → Violet         (energy / quantum)
+ * 3. Maths      → Amber          (classic academic orange-gold)
+ * 4. Earth      → Teal           (geology / terrain — was dull stone)
+ * 5. Env        → Emerald        (nature)
+ * 6. Research   → Rose           (analysis / insight — softer than pure red)
+ * 7. English    → Fuchsia/Pink   (language / expression)
+ *
+ * HAT modules (3)
+ * 8. Verbal       → Indigo
+ * 9. Analytical   → Emerald/Teal
+ * 10. Quantitative → Amber/Orange
+ *
+ * Tracks (2)
+ * - FPSC hero → deep sky navy
+ * - HAT  hero → deep indigo violet
+ */
+
 // ── Subject styles (single source of truth) ──
 
 export const subjectStyles: Record<string, SubjectStyle> = {
   'meteo-climatology': {
-    dot: '#0ea5e9', dotBg: 'bg-sky-500',
-    bar: 'bg-sky-500', tint: 'bg-sky-50', text: 'text-sky-600', borderLeft: 'border-l-sky-500',
-    bg: 'bg-sky-500', border: 'border-sky-200', borderActive: 'border-sky-500', hoverBorder: 'hover:border-sky-400',
+    dot: '#0ea5e9',
+    dotBg: 'bg-sky-500',
+    bar: 'bg-sky-500',
+    tint: 'bg-sky-50',
+    text: 'text-sky-600',
+    borderLeft: 'border-l-sky-500',
+    bg: 'bg-sky-500',
+    border: 'border-sky-200',
+    borderActive: 'border-sky-500',
+    hoverBorder: 'hover:border-sky-400',
     glow: 'shadow-sky-500/20',
-    gradient: 'from-sky-500 to-cyan-600', lightGradient: 'from-sky-50 to-cyan-50',
+    gradient: 'from-sky-500 to-cyan-600',
+    lightGradient: 'from-sky-50 to-cyan-50',
   },
   physics: {
-    dot: '#a855f7', dotBg: 'bg-purple-500',
-    bar: 'bg-purple-500', tint: 'bg-purple-50', text: 'text-purple-600', borderLeft: 'border-l-purple-500',
-    bg: 'bg-purple-500', border: 'border-purple-200', borderActive: 'border-purple-500', hoverBorder: 'hover:border-purple-400',
-    glow: 'shadow-purple-500/20',
-    gradient: 'from-purple-500 to-fuchsia-600', lightGradient: 'from-purple-50 to-fuchsia-50',
+    dot: '#8b5cf6',
+    dotBg: 'bg-violet-500',
+    bar: 'bg-violet-500',
+    tint: 'bg-violet-50',
+    text: 'text-violet-600',
+    borderLeft: 'border-l-violet-500',
+    bg: 'bg-violet-500',
+    border: 'border-violet-200',
+    borderActive: 'border-violet-500',
+    hoverBorder: 'hover:border-violet-400',
+    glow: 'shadow-violet-500/20',
+    gradient: 'from-violet-500 to-purple-600',
+    lightGradient: 'from-violet-50 to-purple-50',
   },
   maths: {
-    dot: '#f97316', dotBg: 'bg-orange-500',
-    bar: 'bg-orange-500', tint: 'bg-orange-50', text: 'text-orange-600', borderLeft: 'border-l-orange-500',
-    bg: 'bg-orange-500', border: 'border-orange-200', borderActive: 'border-orange-500', hoverBorder: 'hover:border-orange-400',
-    glow: 'shadow-orange-500/20',
-    gradient: 'from-orange-500 to-red-600', lightGradient: 'from-orange-50 to-red-50',
+    dot: '#f59e0b',
+    dotBg: 'bg-amber-500',
+    bar: 'bg-amber-500',
+    tint: 'bg-amber-50',
+    text: 'text-amber-600',
+    borderLeft: 'border-l-amber-500',
+    bg: 'bg-amber-500',
+    border: 'border-amber-200',
+    borderActive: 'border-amber-500',
+    hoverBorder: 'hover:border-amber-400',
+    glow: 'shadow-amber-500/20',
+    gradient: 'from-amber-500 to-orange-600',
+    lightGradient: 'from-amber-50 to-orange-50',
   },
   'earth-science': {
-    dot: '#78716c', dotBg: 'bg-stone-500',
-    bar: 'bg-stone-500', tint: 'bg-stone-50', text: 'text-stone-600', borderLeft: 'border-l-stone-500',
-    bg: 'bg-stone-500', border: 'border-stone-200', borderActive: 'border-stone-500', hoverBorder: 'hover:border-stone-400',
-    glow: 'shadow-stone-500/20',
-    gradient: 'from-stone-500 to-amber-700', lightGradient: 'from-stone-50 to-amber-50',
+    // Was dull stone — now a richer teal that still feels “earthy”
+    dot: '#0d9488',
+    dotBg: 'bg-teal-600',
+    bar: 'bg-teal-600',
+    tint: 'bg-teal-50',
+    text: 'text-teal-700',
+    borderLeft: 'border-l-teal-600',
+    bg: 'bg-teal-600',
+    border: 'border-teal-200',
+    borderActive: 'border-teal-600',
+    hoverBorder: 'hover:border-teal-400',
+    glow: 'shadow-teal-600/20',
+    gradient: 'from-teal-500 to-cyan-700',
+    lightGradient: 'from-teal-50 to-cyan-50',
   },
   'env-studies': {
-    dot: '#22c55e', dotBg: 'bg-green-500',
-    bar: 'bg-green-500', tint: 'bg-green-50', text: 'text-green-600', borderLeft: 'border-l-green-500',
-    bg: 'bg-green-500', border: 'border-green-200', borderActive: 'border-green-500', hoverBorder: 'hover:border-green-400',
-    glow: 'shadow-green-500/20',
-    gradient: 'from-green-500 to-emerald-600', lightGradient: 'from-green-50 to-emerald-50',
+    dot: '#10b981',
+    dotBg: 'bg-emerald-500',
+    bar: 'bg-emerald-500',
+    tint: 'bg-emerald-50',
+    text: 'text-emerald-600',
+    borderLeft: 'border-l-emerald-500',
+    bg: 'bg-emerald-500',
+    border: 'border-emerald-200',
+    borderActive: 'border-emerald-500',
+    hoverBorder: 'hover:border-emerald-400',
+    glow: 'shadow-emerald-500/20',
+    gradient: 'from-emerald-500 to-green-600',
+    lightGradient: 'from-emerald-50 to-green-50',
   },
   'research-analysis': {
-    dot: '#ef4444', dotBg: 'bg-red-500',
-    bar: 'bg-red-500', tint: 'bg-red-50', text: 'text-red-600', borderLeft: 'border-l-red-500',
-    bg: 'bg-red-500', border: 'border-red-200', borderActive: 'border-red-500', hoverBorder: 'hover:border-red-400',
-    glow: 'shadow-red-500/20',
-    gradient: 'from-red-500 to-rose-600', lightGradient: 'from-red-50 to-rose-50',
+    // Softened from pure red → rose (more academic, less alarm)
+    dot: '#f43f5e',
+    dotBg: 'bg-rose-500',
+    bar: 'bg-rose-500',
+    tint: 'bg-rose-50',
+    text: 'text-rose-600',
+    borderLeft: 'border-l-rose-500',
+    bg: 'bg-rose-500',
+    border: 'border-rose-200',
+    borderActive: 'border-rose-500',
+    hoverBorder: 'hover:border-rose-400',
+    glow: 'shadow-rose-500/20',
+    gradient: 'from-rose-500 to-pink-600',
+    lightGradient: 'from-rose-50 to-pink-50',
   },
   english: {
-    dot: '#ec4899', dotBg: 'bg-pink-500',
-    bar: 'bg-pink-500', tint: 'bg-pink-50', text: 'text-pink-600', borderLeft: 'border-l-pink-500',
-    bg: 'bg-pink-500', border: 'border-pink-200', borderActive: 'border-pink-500', hoverBorder: 'hover:border-pink-400',
-    glow: 'shadow-pink-500/20',
-    gradient: 'from-pink-500 to-rose-600', lightGradient: 'from-pink-50 to-rose-50',
+    dot: '#d946ef',
+    dotBg: 'bg-fuchsia-500',
+    bar: 'bg-fuchsia-500',
+    tint: 'bg-fuchsia-50',
+    text: 'text-fuchsia-600',
+    borderLeft: 'border-l-fuchsia-500',
+    bg: 'bg-fuchsia-500',
+    border: 'border-fuchsia-200',
+    borderActive: 'border-fuchsia-500',
+    hoverBorder: 'hover:border-fuchsia-400',
+    glow: 'shadow-fuchsia-500/20',
+    gradient: 'from-fuchsia-500 to-pink-600',
+    lightGradient: 'from-fuchsia-50 to-pink-50',
   },
+  // HAT aggregate (used when track-level color is needed)
   hat: {
-    dot: '#6366f1', dotBg: 'bg-indigo-500',
-    bar: 'bg-indigo-500', tint: 'bg-indigo-50', text: 'text-indigo-600', borderLeft: 'border-l-indigo-500',
-    bg: 'bg-indigo-500', border: 'border-indigo-200', borderActive: 'border-indigo-500', hoverBorder: 'hover:border-indigo-400',
+    dot: '#6366f1',
+    dotBg: 'bg-indigo-500',
+    bar: 'bg-indigo-500',
+    tint: 'bg-indigo-50',
+    text: 'text-indigo-600',
+    borderLeft: 'border-l-indigo-500',
+    bg: 'bg-indigo-500',
+    border: 'border-indigo-200',
+    borderActive: 'border-indigo-500',
+    hoverBorder: 'hover:border-indigo-400',
     glow: 'shadow-indigo-500/20',
-    gradient: 'from-indigo-500 to-blue-600', lightGradient: 'from-indigo-50 to-blue-50',
+    gradient: 'from-indigo-500 to-violet-600',
+    lightGradient: 'from-indigo-50 to-violet-50',
   },
   'hat-verbal': {
-    dot: '#6366f1', dotBg: 'bg-indigo-500',
-    bar: 'bg-indigo-500', tint: 'bg-indigo-50', text: 'text-indigo-600', borderLeft: 'border-l-indigo-500',
-    bg: 'bg-indigo-500', border: 'border-indigo-200', borderActive: 'border-indigo-500', hoverBorder: 'hover:border-indigo-400',
+    dot: '#6366f1',
+    dotBg: 'bg-indigo-500',
+    bar: 'bg-indigo-500',
+    tint: 'bg-indigo-50',
+    text: 'text-indigo-600',
+    borderLeft: 'border-l-indigo-500',
+    bg: 'bg-indigo-500',
+    border: 'border-indigo-200',
+    borderActive: 'border-indigo-500',
+    hoverBorder: 'hover:border-indigo-400',
     glow: 'shadow-indigo-500/20',
-    gradient: 'from-indigo-500 to-blue-600', lightGradient: 'from-indigo-50 to-blue-50',
+    gradient: 'from-indigo-500 to-violet-600',
+    lightGradient: 'from-indigo-50 to-violet-50',
   },
   'hat-analytical': {
-    dot: '#10b981', dotBg: 'bg-emerald-500',
-    bar: 'bg-emerald-500', tint: 'bg-emerald-50', text: 'text-emerald-600', borderLeft: 'border-l-emerald-500',
-    bg: 'bg-emerald-500', border: 'border-emerald-200', borderActive: 'border-emerald-500', hoverBorder: 'hover:border-emerald-400',
-    glow: 'shadow-emerald-500/20',
-    gradient: 'from-emerald-500 to-teal-600', lightGradient: 'from-emerald-50 to-teal-50',
+    dot: '#14b8a6',
+    dotBg: 'bg-teal-500',
+    bar: 'bg-teal-500',
+    tint: 'bg-teal-50',
+    text: 'text-teal-600',
+    borderLeft: 'border-l-teal-500',
+    bg: 'bg-teal-500',
+    border: 'border-teal-200',
+    borderActive: 'border-teal-500',
+    hoverBorder: 'hover:border-teal-400',
+    glow: 'shadow-teal-500/20',
+    gradient: 'from-teal-500 to-emerald-600',
+    lightGradient: 'from-teal-50 to-emerald-50',
   },
   'hat-quantitative': {
-    dot: '#f59e0b', dotBg: 'bg-amber-500',
-    bar: 'bg-amber-500', tint: 'bg-amber-50', text: 'text-amber-600', borderLeft: 'border-l-amber-500',
-    bg: 'bg-amber-500', border: 'border-amber-200', borderActive: 'border-amber-500', hoverBorder: 'hover:border-amber-400',
+    dot: '#f59e0b',
+    dotBg: 'bg-amber-500',
+    bar: 'bg-amber-500',
+    tint: 'bg-amber-50',
+    text: 'text-amber-600',
+    borderLeft: 'border-l-amber-500',
+    bg: 'bg-amber-500',
+    border: 'border-amber-200',
+    borderActive: 'border-amber-500',
+    hoverBorder: 'hover:border-amber-400',
     glow: 'shadow-amber-500/20',
-    gradient: 'from-amber-500 to-orange-600', lightGradient: 'from-amber-50 to-orange-50',
+    gradient: 'from-amber-500 to-orange-600',
+    lightGradient: 'from-amber-50 to-orange-50',
   },
 };
 
 export const allSubjectsStyle: SubjectStyle = {
-  dot: '#94a3b8', dotBg: 'bg-slate-400',
-  bar: 'bg-slate-400', tint: 'bg-slate-50', text: 'text-slate-600', borderLeft: 'border-l-slate-400',
-  bg: 'bg-slate-400', border: 'border-slate-200', borderActive: 'border-slate-400', hoverBorder: 'hover:border-slate-400',
+  dot: '#94a3b8',
+  dotBg: 'bg-slate-400',
+  bar: 'bg-slate-400',
+  tint: 'bg-slate-50',
+  text: 'text-slate-600',
+  borderLeft: 'border-l-slate-400',
+  bg: 'bg-slate-400',
+  border: 'border-slate-200',
+  borderActive: 'border-slate-400',
+  hoverBorder: 'hover:border-slate-400',
   glow: 'shadow-slate-500/20',
-  gradient: 'from-slate-500 to-slate-600', lightGradient: 'from-slate-50 to-slate-100',
+  gradient: 'from-slate-500 to-slate-600',
+  lightGradient: 'from-slate-50 to-slate-100',
 };
 
 export function getSubjectStyle(id: string | SubjectId): SubjectStyle {
@@ -142,16 +264,17 @@ export function getSubjectColor(id: string | SubjectId): SubjectColor {
   return getSubjectStyle(id);
 }
 
-// ── Track styles ──
+// ── Track styles (hero cards + track chrome) ──
 
 export const trackStyles: Record<string, TrackStyle> = {
   fpsc: {
     label: 'FPSC Subjects',
     accent: 'text-sky-600',
     gradient: 'from-sky-500 to-blue-600',
+    // Deep navy-sky hero
     heroGradient: 'from-slate-900 via-sky-950 to-slate-900',
-    heroOrb: 'bg-sky-500/20',
-    heroOrbSecondary: 'bg-emerald-500/10',
+    heroOrb: 'bg-sky-500/25',
+    heroOrbSecondary: 'bg-cyan-400/10',
     iconGradient: 'from-sky-400 to-blue-500',
     iconGlow: 'shadow-sky-500/30',
     accentText: 'text-sky-200',
@@ -168,20 +291,21 @@ export const trackStyles: Record<string, TrackStyle> = {
     label: 'HAT Modules',
     accent: 'text-indigo-600',
     gradient: 'from-indigo-500 to-violet-600',
+    // Deep indigo-violet hero
     heroGradient: 'from-slate-900 via-indigo-950 to-slate-900',
-    heroOrb: 'bg-indigo-500/20',
-    heroOrbSecondary: 'bg-emerald-500/10',
-    iconGradient: 'from-indigo-400 to-blue-500',
+    heroOrb: 'bg-indigo-500/25',
+    heroOrbSecondary: 'bg-violet-400/10',
+    iconGradient: 'from-indigo-400 to-violet-500',
     iconGlow: 'shadow-indigo-500/30',
     accentText: 'text-indigo-200',
     borderTint: 'border-indigo-100',
-    progressGradient: 'from-indigo-500 to-blue-500',
+    progressGradient: 'from-indigo-500 to-violet-500',
     progressIcon: 'text-indigo-500',
     sparklesIcon: 'text-indigo-500',
     mockOrb: 'bg-indigo-500/15',
-    mockIconGradient: 'from-sky-400 to-indigo-500',
-    mockIconGlow: 'shadow-sky-500/20',
-    statIconColors: ['text-indigo-400', 'text-emerald-400', 'text-amber-400', 'text-rose-400'],
+    mockIconGradient: 'from-indigo-400 to-violet-500',
+    mockIconGlow: 'shadow-indigo-500/20',
+    statIconColors: ['text-indigo-400', 'text-teal-400', 'text-amber-400', 'text-rose-400'],
   },
 };
 
