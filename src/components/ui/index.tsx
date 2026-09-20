@@ -5,7 +5,7 @@ import { getSubjectColor } from '@/data/subject-colors';
 export function LoadingSpinner({ label = 'Loading…' }: { label?: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-6 text-center" role="status" aria-live="polite">
-      <div className="w-8 h-8 border-2 border-slate-200 border-t-sky-500 rounded-full animate-spin mb-3" />
+      <div className="w-8 h-8 border-2 border-slate-200 border-t-brand-500 rounded-full animate-spin mb-3" />
       <p className="text-slate-500 text-sm">{label}</p>
     </div>
   );
@@ -83,7 +83,7 @@ export function Card({
   onClick?: () => void;
 }) {
   const interactiveClasses = interactive
-    ? 'cursor-pointer transition-all duration-200 hover:border-slate-300 hover:shadow-md active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2'
+    ? 'cursor-pointer transition-all duration-medium hover:border-slate-300 hover:shadow-card-hover active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2'
     : '';
   const Comp = onClick ? 'button' : 'div';
   return (
@@ -91,7 +91,7 @@ export function Card({
       type={onClick ? 'button' : undefined}
       onClick={onClick}
       className={[
-        'bg-white rounded-2xl border border-slate-200 shadow-sm text-left w-full',
+        'bg-white rounded-card border border-slate-200 shadow-card text-left w-full',
         interactiveClasses,
         className,
       ].join(' ')}
@@ -120,12 +120,12 @@ export function ListRow({
       onClick={onClick}
       disabled={disabled}
       className={[
-        'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left',
-        'transition-colors duration-150',
+        'w-full flex items-center gap-3 px-3 py-2.5 rounded-btn text-left',
+        'transition-colors duration-DEFAULT',
         'hover:bg-slate-50 active:bg-slate-100',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1',
         'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent',
-        'min-h-[44px]',
+        'min-h-touch',
         className,
       ].join(' ')}
     >
@@ -149,10 +149,10 @@ export function ProgressBar({
 }) {
   const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0;
   const colors = {
-    sky: 'bg-sky-500',
-    green: 'bg-emerald-500',
-    amber: 'bg-amber-500',
-    red: 'bg-red-500',
+    sky: 'bg-brand-500',
+    green: 'bg-success-500',
+    amber: 'bg-warning-500',
+    red: 'bg-danger-500',
   };
   const fillClass = colorClass ?? colors[color];
   const height = size === 'sm' ? 'h-1.5' : size === 'lg' ? 'h-3' : 'h-2';
@@ -166,7 +166,7 @@ export function ProgressBar({
       aria-label={`${pct}% complete`}
     >
       <div
-        className={`h-full ${fillClass} rounded-full transition-all duration-500 ease-out`}
+        className={`h-full ${fillClass} rounded-full transition-all duration-slow ease-out`}
         style={{ width: `${pct}%` }}
       />
     </div>
@@ -175,8 +175,8 @@ export function ProgressBar({
 
 /** Unified status icon (Lucide). Prefer TopicStatusIcon name in new code. */
 export function StatusIcon({ status }: { status: 'not_started' | 'studied' | 'mastered' }) {
-  if (status === 'mastered') return <Star className="w-4 h-4 text-sky-500 fill-sky-500 shrink-0" aria-label="Mastered" />;
-  if (status === 'studied') return <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" aria-label="Studied" />;
+  if (status === 'mastered') return <Star className="w-4 h-4 text-brand-500 fill-brand-500 shrink-0" aria-label="Mastered" />;
+  if (status === 'studied') return <CheckCircle2 className="w-4 h-4 text-success-500 shrink-0" aria-label="Studied" />;
   return <Circle className="w-4 h-4 text-slate-300 shrink-0" aria-label="Not started" />;
 }
 
@@ -248,15 +248,15 @@ export function Button({
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick' | 'disabled' | 'className'>) {
   const variants: Record<ButtonVariant, string> = {
-    primary: 'bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700 shadow-sm shadow-sky-500/20',
+    primary: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-sm shadow-brand-500/20',
     secondary: 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 active:bg-slate-100',
     ghost: 'text-slate-600 hover:bg-slate-100 active:bg-slate-200',
-    danger: 'bg-red-500 text-white hover:bg-red-600 active:bg-red-700 shadow-sm shadow-red-500/20',
+    danger: 'bg-danger-500 text-white hover:bg-danger-600 active:bg-danger-700 shadow-sm shadow-danger-500/20',
   };
   const sizes: Record<ButtonSize, string> = {
     sm: 'px-3 py-1.5 text-xs rounded-lg min-h-[32px]',
-    md: 'px-4 py-2.5 text-sm rounded-xl min-h-[40px]',
-    lg: 'px-5 py-3 text-sm rounded-xl min-h-[44px]',
+    md: 'px-4 py-2.5 text-sm rounded-btn min-h-[40px]',
+    lg: 'px-5 py-3 text-sm rounded-btn min-h-touch',
   };
   return (
     <button
@@ -264,8 +264,8 @@ export function Button({
       onClick={onClick}
       disabled={disabled}
       className={[
-        'inline-flex items-center justify-center gap-1.5 font-medium transition-all duration-150 touch-manipulation',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2',
+        'inline-flex items-center justify-center gap-1.5 font-medium transition-all duration-DEFAULT touch-manipulation',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
         'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none',
         variants[variant],
         sizes[size],
@@ -281,7 +281,7 @@ export function Button({
 export function ActionCard({
   children,
   className = '',
-  borderColorClass = 'border-l-sky-500',
+  borderColorClass = 'border-l-brand-500',
   style,
 }: {
   children: ReactNode;
@@ -291,7 +291,7 @@ export function ActionCard({
 }) {
   return (
     <div
-      className={`bg-white rounded-2xl border border-slate-200 border-l-4 ${borderColorClass} shadow-sm p-5 sm:p-6 ${className}`}
+      className={`bg-white rounded-card border border-slate-200 border-l-4 ${borderColorClass} shadow-card p-5 sm:p-6 ${className}`}
       style={style}
     >
       {children}
@@ -395,10 +395,10 @@ export function IconButton({
       onClick={onClick}
       aria-label={label}
       className={[
-        'flex items-center justify-center w-11 h-11 rounded-xl',
+        'flex items-center justify-center w-11 h-11 rounded-btn',
         'text-slate-600 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200',
-        'transition-colors touch-manipulation',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-1',
+        'transition-colors duration-DEFAULT touch-manipulation',
+        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1',
         className,
       ].join(' ')}
     >

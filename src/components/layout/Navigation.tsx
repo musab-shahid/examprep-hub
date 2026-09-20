@@ -310,7 +310,7 @@ export function MobileNav() {
                 type="button"
                 onClick={item.onClick}
                 aria-current={active ? 'page' : undefined}
-                className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-colors relative min-w-[56px] min-h-[48px] touch-manipulation ${
+                className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-btn transition-colors duration-DEFAULT relative min-w-[56px] min-h-touch-lg touch-manipulation ${
                   active ? activeColor : 'text-slate-500 hover:text-slate-300'
                 }`}
               >
@@ -323,7 +323,7 @@ export function MobileNav() {
                   />
                 )}
                 <Icon className="w-5 h-5" strokeWidth={active ? 2.25 : 2} />
-                <span className="text-[10px] font-medium leading-tight">{item.label}</span>
+                <span className="text-[11px] font-medium leading-tight">{item.label}</span>
               </button>
             );
           })}
@@ -332,7 +332,7 @@ export function MobileNav() {
             onClick={() => setMoreOpen(true)}
             aria-expanded={moreOpen}
             aria-label={reviewDue > 0 ? `More, ${reviewDue} reviews due` : 'More'}
-            className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-xl transition-colors relative min-w-[56px] min-h-[48px] touch-manipulation ${
+            className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-btn transition-colors duration-DEFAULT relative min-w-[56px] min-h-touch-lg touch-manipulation ${
               moreActive ? 'text-sky-400' : 'text-slate-500 hover:text-slate-300'
             }`}
           >
@@ -342,12 +342,12 @@ export function MobileNav() {
             <span className="relative">
               <MoreHorizontal className="w-5 h-5" strokeWidth={moreActive ? 2.25 : 2} />
               {reviewDue > 0 && (
-                <span className="absolute -top-1.5 -right-2 min-w-[16px] h-4 px-1 rounded-full bg-amber-500 text-white text-[9px] font-bold leading-4 text-center">
+                <span className="absolute -top-1.5 -right-2 min-w-[16px] h-4 px-1 rounded-full bg-warning-500 text-white text-[9px] font-bold leading-4 text-center">
                   {reviewDue > 9 ? '9+' : reviewDue}
                 </span>
               )}
             </span>
-            <span className="text-[10px] font-medium leading-tight">More</span>
+            <span className="text-[11px] font-medium leading-tight">More</span>
           </button>
         </div>
       </nav>
