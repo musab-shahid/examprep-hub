@@ -80,7 +80,9 @@ function pickQuestions(
   if (difficulty && difficulty !== 'any') {
     pool = pool.filter((q) => q.difficulty === difficulty);
   }
-  const targetCount = count ?? (mode === 'mock' ? 60 : 10);
+  // count >= 999 means "all available in pool"
+  const rawTarget = count ?? (mode === 'mock' ? 60 : 10);
+  const targetCount = rawTarget >= 999 ? pool.length : rawTarget;
   if (mode === 'mock') {
     if (pool.length <= targetCount) return shuffleArray(pool);
     const easyPool = pool.filter((q) => q.difficulty === 'easy');
@@ -151,16 +153,17 @@ type ResultsData = {
 };
 
 function buildBreakdown(questions: Question[], answers: AnswerRecord[]) {
+  const byId = new Map(answers.map((a) => [a.questionId, a]));
   const perTopic: Record<string, { correct: number; total: number }> = {};
   const perDifficulty: Record<string, { correct: number; total: number }> = {};
-  for (let i = 0; i < questions.length; i++) {
-    const q = questions[i];
+  for (const q of questions) {
+    const ans = byId.get(q.id);
     if (!perTopic[q.topicId]) perTopic[q.topicId] = { correct: 0, total: 0 };
     perTopic[q.topicId].total++;
-    if (answers[i]?.correct) perTopic[q.topicId].correct++;
+    if (ans?.correct) perTopic[q.topicId].correct++;
     if (!perDifficulty[q.difficulty]) perDifficulty[q.difficulty] = { correct: 0, total: 0 };
     perDifficulty[q.difficulty].total++;
-    if (answers[i]?.correct) perDifficulty[q.difficulty].correct++;
+    if (ans?.correct) perDifficulty[q.difficulty].correct++;
   }
   return { perTopic, perDifficulty };
 }
@@ -273,15 +276,17 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const [results, setResults] = useState<ResultsData | null>(null);
 
-  // Snapshot question results at mount so recordQuiz updating data doesn't re-init the quiz
+  // Snapshot question results once at mount — do not rewrite every render
   const questionResultsSnapshot = useRef(data.questionResults);
-  questionResultsSnapshot.current = data.questionResults;
+  // Lock track for this quiz session so mid-quiz track switches do not re-init
+  const trackRef = useRef(activeTrack);
 
   // Refs for stable handlers in keyboard / timer effects
   const stateRef = useRef(state);
   stateRef.current = state;
   const finishedRef = useRef(finished);
   finishedRef.current = finished;
+  const finishQuizRef = useRef<(s: QuizState, a: AnswerRecord[]) => void>(() => {});
   // Debounce for second-tap check / third-tap next (avoids accidental double-taps)
   const lastTapRef = useRef<{ idx: number; at: number } | null>(null);
   const TAP_DEBOUNCE_MS = 280;
@@ -295,11 +300,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
-    const qs = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, activeTrack);
+    const qs = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current);
     setState({ questions: qs, currentIdx: 0, selectedIndices: [], checked: false, answers: [], startTime: Date.now(), elapsed: 0 });
     setFinished(false);
     setResults(null);
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool]);
 
   // Check for saved quiz progress on mount — only offer resume if full signature matches
   useEffect(() => {
@@ -328,19 +333,36 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   // Save quiz progress whenever answers or currentIdx changes
   useEffect(() => {
     if (state && !finished && state.questions.length > 0) {
-      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, activeTrack);
+      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, trackRef.current);
     }
-  }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, activeTrack]);
+  }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool]);
 
-  const resumeQuiz = useCallback(() => {
+  const resumeQuiz = useCallback(async () => {
     const saved = resumeOffer;
     if (!saved) return;
     setResumeOffer(null);
+    setQuestionsLoading(true);
+    try {
+      if (saved.mode === 'topic' && saved.topicId) {
+        await loadQuestionsForTopic(saved.topicId);
+      } else if (saved.scope === 'subject' && saved.subjectId) {
+        await loadSubjectQuestions(saved.subjectId as SubjectId);
+      } else {
+        await loadAllQuestions();
+      }
+    } catch (err) {
+      console.error('Failed to load questions for resume:', err);
+      setQuestionsLoading(false);
+      clearQuizProgress();
+      initQuiz();
+      return;
+    }
     const allQs = allQuestions();
     const qMap = new Map(allQs.map((q) => [q.id, q]));
     const restoredQuestions = saved.questionIds.map((id) => qMap.get(id)).filter((q): q is Question => q !== undefined);
     if (restoredQuestions.length === 0) {
       clearQuizProgress();
+      setQuestionsLoading(false);
       initQuiz();
       return;
     }
@@ -366,7 +388,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const handleRetry = useCallback(() => {
     if (wrongPool) {
-      const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, true, data.questionResults, activeTrack);
+      const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, true, data.questionResults, trackRef.current);
       if (pool.length === 0) {
         setRetakeEmpty(true);
         return;
@@ -374,7 +396,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     }
     setRetakeEmpty(false);
     initQuiz();
-  }, [wrongPool, data.questionResults, mode, topicId, topicIds, scope, subjectId, count, difficulty, initQuiz, activeTrack]);
+  }, [wrongPool, data.questionResults, mode, topicId, topicIds, scope, subjectId, count, difficulty, initQuiz]);
 
   // Load questions first, then init quiz
   useEffect(() => {
@@ -404,7 +426,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     return () => { cancelled = true; };
   }, [initQuiz]);
 
-  // ── Shared finish helper — runs side effects OUTSIDE setState updaters ──
+  // ── Shared finish helper — side effects only outside setState updaters ──
   const finishQuiz = useCallback((s: QuizState, finalAnswers: AnswerRecord[]) => {
     if (recordedRef.current) return;
     recordedRef.current = true;
@@ -423,12 +445,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setFinished(true);
     clearQuizProgress();
   }, [recordQuiz, topicId, mode, subjectId, difficulty]);
+  finishQuizRef.current = finishQuiz;
 
-  // ── BUG 1A: Timer counts down when timeLimit is a number; auto-submits at 0 ──
+  // Timer: depends only on startTime / finished / timeLimit (finish via ref)
   useEffect(() => {
     if (!state || finished) return;
     if (timeLimit === 'none' || timeLimit === undefined) return;
-    if (timeLimit === 'auto') return; // no-op for now
+    if (timeLimit === 'auto') return;
     if (typeof timeLimit !== 'number') return;
 
     const totalSeconds = timeLimit * 60;
@@ -438,20 +461,18 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       const newElapsed = Math.floor((Date.now() - currentState.startTime) / 1000);
       if (newElapsed >= totalSeconds) {
         clearInterval(interval);
-        // Pure state update only
         setState((prev) => (prev ? { ...prev, elapsed: totalSeconds } : prev));
-        // Side effects run outside the updater
         const finalAnswers: AnswerRecord[] = [...currentState.answers];
         for (let i = finalAnswers.length; i < currentState.questions.length; i++) {
           finalAnswers.push({ questionId: currentState.questions[i].id, correct: false, selectedIndices: [] });
         }
-        finishQuiz(currentState, finalAnswers);
+        finishQuizRef.current(currentState, finalAnswers);
       } else {
         setState((prev) => (prev ? { ...prev, elapsed: newElapsed } : prev));
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [state?.startTime, finished, timeLimit, finishQuiz]);
+  }, [state?.startTime, finished, timeLimit]);
 
   // ── ENHANCEMENT 5C: Focus trap on exit modal ──
   useEffect(() => {
@@ -509,26 +530,22 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     });
   }, []);
 
-  const finishWithAnswers = useCallback((prev: QuizState, finalAnswers: AnswerRecord[]) => {
-    finishQuiz(prev, finalAnswers);
-  }, [finishQuiz]);
-
   const handleNext = useCallback(() => {
     lastTapRef.current = null;
-    setState((prev) => {
-      if (!prev) return prev;
-      if (prev.currentIdx + 1 >= prev.questions.length) {
-        finishWithAnswers(prev, prev.answers);
-        return prev;
-      }
-      return {
-        ...prev,
-        currentIdx: prev.currentIdx + 1,
-        selectedIndices: [],
-        checked: false,
-      };
+    const prev = stateRef.current;
+    if (!prev) return;
+    if (prev.currentIdx + 1 >= prev.questions.length) {
+      // Side effects outside setState
+      finishQuiz(prev, prev.answers);
+      return;
+    }
+    setState({
+      ...prev,
+      currentIdx: prev.currentIdx + 1,
+      selectedIndices: [],
+      checked: false,
     });
-  }, [finishWithAnswers]);
+  }, [finishQuiz]);
 
   /**
    * Option interaction:

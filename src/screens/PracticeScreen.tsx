@@ -223,7 +223,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
               disabled={selectedFocusTopics.size === 0}
               className="w-full py-3 rounded-btn bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors disabled:opacity-50"
             >
-              Start Focus Practice ({selectedFocusTopics.size} topic{selectedFocusTopics.size !== 1 ? 's' : ''})
+              Start Focus Practice — all questions ({selectedFocusTopics.size} topic{selectedFocusTopics.size !== 1 ? 's' : ''})
             </button>
           </>
         )}
@@ -309,7 +309,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
               icon={<Target className="w-5 h-5" />}
               iconBg="bg-brand-100 text-brand-600"
               title="Focus Practice"
-              description="All questions from selected topics"
+              description="Every available question from your selected topics"
               bestFor="targeted improvement"
               onClick={() => {
                 setSelectedFocusTopics(new Set());
@@ -364,7 +364,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
               icon={<RotateCcw className="w-5 h-5" />}
               iconBg="bg-rose-100 text-rose-600"
               title="Review Wrong Answers"
-              description="Re-attempt questions you got wrong"
+              description={reviewDisabled ? "Re-attempt questions you got wrong" : `All ${wrongPool.length} wrong answers available`}
               bestFor="closing knowledge gaps"
               onClick={startReview}
               disabled={reviewDisabled}
