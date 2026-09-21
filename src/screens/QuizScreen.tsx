@@ -173,10 +173,53 @@ interface SavedQuizProgress {
   currentIdx: number;
   mode: PracticeMode;
   topicId?: string;
+  topicIds?: string[];
+  scope?: 'subject' | 'all';
   subjectId?: string;
+  count?: number;
+  difficulty?: DifficultyFilter;
+  timeLimit?: TimeLimitSetting;
+  wrongPool?: boolean;
+  track?: 'fpsc' | 'hat';
 }
 
-function saveQuizProgress(state: QuizState, mode: PracticeMode, topicId?: string, subjectId?: string): void {
+function quizSignature(p: {
+  mode: PracticeMode;
+  topicId?: string;
+  topicIds?: string[];
+  scope?: 'subject' | 'all';
+  subjectId?: string;
+  count?: number;
+  difficulty?: DifficultyFilter;
+  wrongPool?: boolean;
+  track?: 'fpsc' | 'hat';
+}): string {
+  return [
+    p.mode,
+    p.topicId ?? '',
+    (p.topicIds ?? []).join(','),
+    p.scope ?? '',
+    p.subjectId ?? '',
+    p.count ?? '',
+    p.difficulty ?? '',
+    p.wrongPool ? '1' : '0',
+    p.track ?? '',
+  ].join('|');
+}
+
+function saveQuizProgress(
+  state: QuizState,
+  mode: PracticeMode,
+  topicId?: string,
+  subjectId?: string,
+  topicIds?: string[],
+  scope?: 'subject' | 'all',
+  count?: number,
+  difficulty?: DifficultyFilter,
+  timeLimit?: TimeLimitSetting,
+  wrongPool?: boolean,
+  track?: 'fpsc' | 'hat',
+): void {
   try {
     const progress: SavedQuizProgress = {
       questionIds: state.questions.map((q) => q.id),
@@ -185,6 +228,13 @@ function saveQuizProgress(state: QuizState, mode: PracticeMode, topicId?: string
       mode,
       topicId,
       subjectId,
+      topicIds,
+      scope,
+      count,
+      difficulty,
+      timeLimit,
+      wrongPool,
+      track,
     };
     localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify(progress));
   } catch { /* ignore */ }
@@ -251,20 +301,36 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setResults(null);
   }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack]);
 
-  // Check for saved quiz progress on mount
+  // Check for saved quiz progress on mount — only offer resume if full signature matches
   useEffect(() => {
     const saved = loadQuizProgress();
-    if (saved && saved.answers.length > 0 && saved.mode === mode) {
-      setResumeOffer(saved);
+    if (saved && saved.answers.length > 0) {
+      const currentSig = quizSignature({ mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, track: activeTrack });
+      const savedSig = quizSignature({
+        mode: saved.mode,
+        topicId: saved.topicId,
+        topicIds: saved.topicIds,
+        scope: saved.scope,
+        subjectId: saved.subjectId,
+        count: saved.count,
+        difficulty: saved.difficulty,
+        wrongPool: saved.wrongPool,
+        track: saved.track,
+      });
+      if (currentSig === savedSig) {
+        setResumeOffer(saved);
+      } else {
+        clearQuizProgress();
+      }
     }
-  }, [mode]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack]);
 
   // Save quiz progress whenever answers or currentIdx changes
   useEffect(() => {
     if (state && !finished && state.questions.length > 0) {
-      saveQuizProgress(state, mode, topicId, subjectId);
+      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, activeTrack);
     }
-  }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId]);
+  }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, activeTrack]);
 
   const resumeQuiz = useCallback(() => {
     const saved = resumeOffer;
@@ -602,12 +668,22 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   }
 
   if (resumeOffer) {
+    const subjectLabel = resumeOffer.subjectId
+      ? subjectMap[resumeOffer.subjectId]?.title ?? resumeOffer.subjectId
+      : resumeOffer.topicId
+        ? (getTopic(resumeOffer.topicId)?.title ?? resumeOffer.topicId)
+        : 'All Subjects';
+    const modeLabel = resumeOffer.mode === 'topic' ? 'Topic Practice'
+      : resumeOffer.mode === 'quick' ? 'Quick Practice'
+      : resumeOffer.mode === 'mock' ? 'Mock Exam'
+      : resumeOffer.mode === 'review' ? 'Review'
+      : 'Challenge';
     return (
       <PageContainer>
         <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
-            title="Resume quiz?"
+            title={`Resume ${subjectLabel} · ${modeLabel}?`}
             message={`You have ${resumeOffer.answers.length} answered question${resumeOffer.answers.length !== 1 ? 's' : ''} saved from a previous session.`}
             icon={<RotateCcw className="w-12 h-12" />}
           />

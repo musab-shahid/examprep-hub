@@ -127,17 +127,17 @@ function getCurrentStage(nextReview: string | null): number {
   const reviewDate = new Date(nextReview);
   reviewDate.setHours(0, 0, 0, 0);
   const diffDays = Math.round((reviewDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  // Find which stage this corresponds to
-  for (let i = STAGES.length - 1; i >= 0; i--) {
+  // Find the smallest stage whose interval is >= diffDays
+  for (let i = 0; i < STAGES.length; i++) {
     if (diffDays <= STAGES[i]) return i;
   }
   return STAGES.length - 1;
 }
 function computeNextReviewDate(currentStage: number, accuracy: number): string {
   let stage = currentStage;
-  // If accuracy < 65%, pull back one stage
-  if (accuracy < 65 && stage > 0) {
-    stage = stage - 1;
+  // If accuracy < 65%, pull back one stage (not below 0)
+  if (accuracy < 65) {
+    stage = Math.max(stage - 1, 0);
   } else {
     stage = Math.min(stage + 1, STAGES.length - 1);
   }
