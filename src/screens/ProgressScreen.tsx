@@ -11,6 +11,7 @@ import { SectionBadge } from '@/components/SectionBadge';
 import { getSectionAccuracy } from '@/lib/stats';
 import { computeStreak, getWeakTopics, getWeeklyAccuracy, type WeeklyAccuracyPoint } from '@/lib/streak';
 import { deriveAccuracy, computeMasteryScore } from '@/lib/constants';
+import { countMasteredTopics } from '@/lib/attention';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge } from '@/components/ui';
 import type { SubjectId } from '@/types';
@@ -45,10 +46,7 @@ export function ProgressScreen() {
   // Achievements
   const totalQuestionsAll = allStats.reduce((s, st) => s + st.questionsAnswered, 0);
   const subjectTopicIds = isAllSubjects ? null : new Set(sd.topicsFor(activeSubject as SubjectId).map((t) => t.id));
-  const masteredTopics = Object.entries(data.topicProgress).filter(([tid, p]) => {
-    const acc = deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0);
-    return (p.quizTotal ?? 0) >= 1 && acc >= 80 && (isAllSubjects || subjectTopicIds?.has(tid));
-  }).length;
+  const masteredTopics = countMasteredTopics(data, isAllSubjects ? null : subjectTopicIds);
   const perfectQuizzes = data.quizHistory.filter((q) => q.total >= 5 && q.score === q.total).length;
   const subjectsTouched = allStats.filter((s) => s.questionsAnswered > 0).length;
   const subjectsWithContent = allStats.filter((s) => s.hasContent).length;

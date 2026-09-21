@@ -195,7 +195,10 @@ function getCurrentStage(nextReview: string | null): number {
 
 function computeNextReviewDate(currentStage: number, accuracy: number): string {
   let stage = currentStage;
-  if (accuracy < 65) {
+  // Never scheduled yet → start at stage 0 (1 day)
+  if (stage < 0) {
+    stage = 0;
+  } else if (accuracy < 65) {
     stage = Math.max(stage - 1, 0);
   } else {
     stage = Math.min(stage + 1, STAGES.length - 1);
