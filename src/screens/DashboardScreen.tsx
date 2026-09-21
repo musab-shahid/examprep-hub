@@ -1,3 +1,4 @@
+import { isTopicMastered } from '@/lib/attention';
 import {
   Zap, ChevronRight, GraduationCap, Clock,
   AlertTriangle, Target, Flame, TrendingUp, Brain,
@@ -45,15 +46,23 @@ export function DashboardScreen() {
   };
   const allStats = subjects.map((s) => sd.statsFor(s.id as SubjectId));
 
-  const lastTopicRaw = data.lastOpenedTopic ? getTopic(data.lastOpenedTopic) : null;
-  const lastTopic = lastTopicRaw && topics.some((t) => t.id === lastTopicRaw.id) ? lastTopicRaw : null;
-
   const reviewDue = sd.revisionQueueAll();
-  const trackTopicIds = new Set(topics.filter((t) => {
+  const trackTopicsList = topics.filter((t) => {
     const subjId = sectionMap[t.sectionId]?.subjectId;
     return subjId ? subjectsByTrack(activeTrack).some((s) => s.id === subjId) : false;
-  }).map((t) => t.id));
+  });
+  const trackTopicIds = new Set(trackTopicsList.map((t) => t.id));
   const weakTopics = getWeakTopics(data, trackTopicIds, 5, 5);
+
+  // Continue Learning: prefer last in-progress (opened, not mastered), else first unstudied in track
+  const lastTopicRaw = data.lastOpenedTopic ? getTopic(data.lastOpenedTopic) : null;
+  const lastInTrack =
+    lastTopicRaw && trackTopicIds.has(lastTopicRaw.id) ? lastTopicRaw : null;
+  const continueTopic =
+    (lastInTrack && !isTopicMastered(lastInTrack.id, data) ? lastInTrack : null) ??
+    trackTopicsList.find((t) => !data.studiedTopics.includes(t.id) && !isTopicMastered(t.id, data)) ??
+    trackTopicsList.find((t) => !isTopicMastered(t.id, data)) ??
+    null;
 
   const overallProgress = globalStats.totalTopics > 0 ? Math.round((globalStats.studiedTopics / globalStats.totalTopics) * 100) : 0;
 
@@ -67,12 +76,15 @@ export function DashboardScreen() {
     recSubtext = 'Spaced repetition works best when you review before forgetting. Clear your queue now.';
     recAction = 'Go to Review';
     recNavigate = () => navigate({ screen: 'review', parent: null });
-  } else if (lastTopic && !data.studiedTopics.includes(lastTopic.id)) {
-    recHeadline = `Continue: ${lastTopic.title}`;
-    const section = sectionMap[lastTopic.sectionId];
-    recSubtext = `0% read · ${section?.title ?? 'Section ' + lastTopic.sectionId}`;
-    recAction = 'Continue Reading';
-    recNavigate = () => navigate({ screen: 'topic', topicId: lastTopic.id, parent: null });
+  } else if (continueTopic) {
+    recHeadline = `Continue: ${continueTopic.title}`;
+    const section = sectionMap[continueTopic.sectionId];
+    const opened = data.studiedTopics.includes(continueTopic.id) || data.lastOpenedTopic === continueTopic.id;
+    recSubtext = opened
+      ? `In progress · ${section?.title ?? 'Section ' + continueTopic.sectionId}`
+      : `Not started · ${section?.title ?? 'Section ' + continueTopic.sectionId}`;
+    recAction = opened ? 'Continue Reading' : 'Start Topic';
+    recNavigate = () => navigate({ screen: 'topic', topicId: continueTopic.id, parent: null });
   } else if (weakTopics.length >= 3) {
     recHeadline = `Address ${weakTopics.length} weak areas`;
     recSubtext = 'These topics have the lowest accuracy. Focus practice to close the gaps.';
