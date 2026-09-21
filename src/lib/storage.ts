@@ -6,6 +6,41 @@ const STORAGE_KEY = STORAGE_KEYS.appData;
 const LEGACY_KEY = STORAGE_KEYS.legacyAppData;
 const BACKUP_KEY = 'examprep-data-backup';
 
+/** One-shot message for the UI after a corrupt-load recovery */
+let lastStorageWarning: string | null = null;
+
+export function consumeStorageWarning(): string | null {
+  const msg = lastStorageWarning;
+  lastStorageWarning = null;
+  return msg;
+}
+
+/** Raw backup JSON if present (for user export) */
+export function getBackupRaw(): string | null {
+  try {
+    return localStorage.getItem(BACKUP_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function downloadBackupFile(): boolean {
+  const raw = getBackupRaw();
+  if (!raw) return false;
+  try {
+    const blob = new Blob([raw], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `examprep-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const emptyData: AppData = {
   studiedTopics: [],
   topicProgress: {},
@@ -99,6 +134,26 @@ function migrateProgress(p: Record<string, unknown>): TopicProgress {
   };
 }
 
+function normalizeLoaded(parsed: AppData): AppData {
+  const merged = { ...emptyData, ...parsed };
+  let migrated = false;
+  for (const [k, v] of Object.entries(merged.topicProgress)) {
+    if (v.quizCorrect === undefined && (v.quizAccuracy !== undefined || v.quizAttempts !== undefined || v.attempts !== undefined)) {
+      merged.topicProgress[k] = migrateProgress(v as unknown as Record<string, unknown>);
+      migrated = true;
+    }
+  }
+  for (const [tid, prog] of Object.entries(merged.topicProgress)) {
+    if (prog.nextReview) {
+      merged.revisionDates[tid] = prog.nextReview;
+    }
+  }
+  if (migrated) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch { /* ignore */ }
+  }
+  return merged;
+}
+
 export function loadData(): AppData {
   try {
     let raw = localStorage.getItem(STORAGE_KEY);
@@ -111,33 +166,51 @@ export function loadData(): AppData {
       }
     }
     if (!raw) return { ...emptyData };
-    const parsed = JSON.parse(raw);
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      console.warn('[storage] JSON parse failed, backing up corrupt blob');
+      try { localStorage.setItem(BACKUP_KEY, raw); } catch { /* ignore */ }
+      lastStorageWarning =
+        'Your saved progress looked corrupt and was reset to defaults. A backup is available to download.';
+      return tryRestoreBackup() ?? { ...emptyData };
+    }
+
     if (!validateAppData(parsed)) {
       console.warn('[storage] Stored data failed validation, backing up and resetting');
       try { localStorage.setItem(BACKUP_KEY, raw); } catch { /* ignore */ }
+      const fromBackup = tryRestoreBackup();
+      if (fromBackup) {
+        lastStorageWarning =
+          'Primary save was invalid; restored from the last good backup. You can still download a copy.';
+        return fromBackup;
+      }
+      lastStorageWarning =
+        'Your saved progress looked corrupt and was reset to defaults. A backup is available to download.';
       return { ...emptyData };
     }
-    const merged = { ...emptyData, ...parsed };
-    // Migrate any legacy topicProgress entries
-    let migrated = false;
-    for (const [k, v] of Object.entries(merged.topicProgress)) {
-      if (v.quizCorrect === undefined && (v.quizAccuracy !== undefined || v.quizAttempts !== undefined || v.attempts !== undefined)) {
-        merged.topicProgress[k] = migrateProgress(v as unknown as Record<string, unknown>);
-        migrated = true;
-      }
-    }
-    // Sync revisionDates to topicProgress.nextReview (single source of truth)
-    for (const [tid, prog] of Object.entries(merged.topicProgress)) {
-      if (prog.nextReview) {
-        merged.revisionDates[tid] = prog.nextReview;
-      }
-    }
-    if (migrated) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch { /* ignore */ }
-    }
-    return merged;
+
+    return normalizeLoaded(parsed as AppData);
   } catch {
-    return { ...emptyData };
+    lastStorageWarning =
+      'Could not read saved progress. Starting fresh. If you had data, try downloading the backup.';
+    return tryRestoreBackup() ?? { ...emptyData };
+  }
+}
+
+function tryRestoreBackup(): AppData | null {
+  try {
+    const backup = localStorage.getItem(BACKUP_KEY);
+    if (!backup) return null;
+    const parsed = JSON.parse(backup);
+    if (!validateAppData(parsed)) return null;
+    const normalized = normalizeLoaded(parsed as AppData);
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized)); } catch { /* ignore */ }
+    return normalized;
+  } catch {
+    return null;
   }
 }
 

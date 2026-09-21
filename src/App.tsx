@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { RouterProvider, useRouter, routeLabel, type Route } from '@/router';
 import { DataProvider } from '@/data-context';
 import { SubjectSelectionProvider, useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -20,7 +20,7 @@ import { sectionMap } from '@/data/sections';
 import { getTopic } from '@/data/topics';
 import { subjectMap } from '@/data/subjects';
 import { STAGE_SCREENS } from '@/lib/constants';
-import { flushPendingSave } from '@/lib/storage';
+import { flushPendingSave, consumeStorageWarning, downloadBackupFile, getBackupRaw } from '@/lib/storage';
 
 function ScreenRouter() {
   const { route } = useRouter();
@@ -131,17 +131,25 @@ function AppContent() {
     document.title = parts.join(' · ');
   }, [title, finalSubtitle]);
 
-  // Flush debounced localStorage on page hide / unload
+  // Flush debounced localStorage on hide / background / unload
   useEffect(() => {
     const onHide = () => flushPendingSave();
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') flushPendingSave();
+    };
     window.addEventListener('pagehide', onHide);
     window.addEventListener('beforeunload', onHide);
+    document.addEventListener('visibilitychange', onVisibility);
     return () => {
       window.removeEventListener('pagehide', onHide);
       window.removeEventListener('beforeunload', onHide);
+      document.removeEventListener('visibilitychange', onVisibility);
       flushPendingSave();
     };
   }, []);
+
+  const [storageWarning, setStorageWarning] = useState<string | null>(() => consumeStorageWarning());
+  const hasBackup = Boolean(getBackupRaw());
 
   return (
     <div className="min-h-screen bg-pattern-topo">
@@ -153,6 +161,32 @@ function AppContent() {
       </a>
       <Sidebar />
       <div className="lg:ml-64">
+        {storageWarning && (
+          <div
+            role="alert"
+            className="mx-3 mt-3 lg:mx-6 rounded-btn border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-950 shadow-sm"
+          >
+            <p className="font-medium">{storageWarning}</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {hasBackup && (
+                <button
+                  type="button"
+                  className="rounded-btn bg-amber-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-amber-700"
+                  onClick={() => downloadBackupFile()}
+                >
+                  Download backup
+                </button>
+              )}
+              <button
+                type="button"
+                className="rounded-btn border border-amber-300 bg-white px-3 py-1.5 text-xs font-medium text-amber-900 hover:bg-amber-100"
+                onClick={() => setStorageWarning(null)}
+              >
+                Dismiss
+              </button>
+            </div>
+          </div>
+        )}
         {showHeader && (
           <Header
             title={title}
