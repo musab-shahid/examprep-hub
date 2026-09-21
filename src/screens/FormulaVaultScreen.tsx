@@ -17,6 +17,7 @@ export function FormulaVaultScreen() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+  const [vaultTick, setVaultTick] = useState(0);
 
   const activeSubject = getActiveSubject('formulas');
   const isAllSubjects = activeSubject === 'all';
@@ -31,7 +32,11 @@ export function FormulaVaultScreen() {
     setLoading(true);
     setLoadError(false);
     ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
-      .then(() => { if (!cancelled) setLoading(false); })
+      .then(() => {
+        if (cancelled) return;
+        setVaultTick((n) => n + 1);
+        setLoading(false);
+      })
       .catch(() => { if (!cancelled) { setLoading(false); setLoadError(true); } });
     return () => { cancelled = true; };
   }, [isAllSubjects, activeSubject]);
@@ -40,7 +45,7 @@ export function FormulaVaultScreen() {
     if (loading) return [];
     if (isAllSubjects) return refreshFormulaVault();
     return sd.formulasFor(activeSubject as SubjectId);
-  }, [isAllSubjects, activeSubject, sd, loading]);
+  }, [isAllSubjects, activeSubject, sd, loading, vaultTick]);
 
   if (loadError) return (
     <PageContainer>

@@ -61,6 +61,7 @@ export interface SubjectDataLayer {
   ensureQuestionsLoaded: (id: SubjectId | 'all') => Promise<void>;
   loadedSubjects: Set<string>;
   isLoaded: (id: SubjectId | 'all') => boolean;
+  isQuestionsReady: (id: SubjectId | 'all') => boolean;
 }
 
 export function useSubjectData(): SubjectDataLayer {
@@ -134,7 +135,12 @@ export function useSubjectData(): SubjectDataLayer {
     const stats = getOverallStats(data, sTopics, sQuestions);
     const weakest = getWeakestTopics(data, sTopicIds, 3);
     const revision = getTodayRevision(data, sTopicIds);
-    const qCount = sQuestions.length > 0 ? sQuestions.length : questionCountFor(id);
+    // Prefer authored metadata counts unless the full question bank for this scope is loaded
+    const fullyLoaded =
+      id === 'all'
+        ? trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined)
+        : getCachedQuestions(id) !== undefined;
+    const qCount = fullyLoaded && sQuestions.length > 0 ? sQuestions.length : questionCountFor(id);
 
     return {
       subjectId: id,
@@ -161,15 +167,17 @@ export function useSubjectData(): SubjectDataLayer {
 
   const totalTopics = useMemo(() => trackTopics.length, [trackTopics]);
   const totalQuestions = useMemo(() => {
-    const cached = getAllCachedQuestions();
-    if (cached.length > 0) {
-      return cached.filter((q) => {
+    // Only trust live cache counts when every track subject is loaded;
+    // otherwise section metadata is the stable source of truth (avoids totals shrinking).
+    const allQuestionsLoaded = trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined);
+    if (allQuestionsLoaded) {
+      return getAllCachedQuestions().filter((q) => {
         const subjId = sectionMap[q.sectionId]?.subjectId;
         return trackSubjectIds.has(subjId);
       }).length;
     }
     return trackSections.reduce((sum, s) => sum + s.questionCount, 0);
-  }, [trackSections, trackSubjectIds]);
+  }, [trackSections, trackSubjectIds, trackSubjectIdList, loadedSubjects]);
   const totalFormulas = useMemo(() => {
     return trackSubjectIdList.reduce((sum, sid) => sum + getFormulasForSubject(sid).length, 0);
   }, [trackSubjectIdList]);
@@ -204,17 +212,23 @@ export function useSubjectData(): SubjectDataLayer {
   }, [data, trackSubjectIds]);
 
   const searchAll = useCallback((query: string) => {
-    // Search uses cached full topics if available, falls back to metadata-only
-    const cachedTopics = getAllCachedTopics();
-    const searchScope = (cachedTopics.length > 0 ? cachedTopics : topics)
-      .filter((t) => trackSubjectIds.has(sectionMap[t.sectionId]?.subjectId));
+    // Always index metadata so unloaded subjects remain searchable by title;
+    // overlay full cached topics when available for deeper matches.
+    const byId = new Map<string, (typeof topics)[number]>();
+    for (const t of topics) {
+      if (trackSubjectIds.has(sectionMap[t.sectionId]?.subjectId)) byId.set(t.id, t);
+    }
+    for (const t of getAllCachedTopics()) {
+      if (trackSubjectIds.has(sectionMap[t.sectionId]?.subjectId)) byId.set(t.id, t);
+    }
+    const searchScope = Array.from(byId.values());
     const results = searchTopics(query, searchScope);
     return results.flatMap((r) => {
       const subjectId = sectionMap[r.sectionId]?.subjectId;
       if (!subjectId) return [];
       return [{ topic: r.topic, subjectId, match: r.match, type: r.type }];
     });
-  }, [trackSubjectIds]);
+  }, [trackSubjectIds, loadedSubjects]);
 
   const getTopicById = useCallback((topicId: string): Topic | undefined => {
     // Prefer cached full topic, fall back to metadata
@@ -263,6 +277,11 @@ export function useSubjectData(): SubjectDataLayer {
     return getCachedTopics(id) !== undefined;
   }, [trackSubjectIdList]);
 
+  const isQuestionsReady = useCallback((id: SubjectId | 'all') => {
+    if (id === 'all') return trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined);
+    return getCachedQuestions(id) !== undefined;
+  }, [trackSubjectIdList, loadedSubjects]);
+
   return useMemo(() => ({
     topicsFor,
     questionsFor,
@@ -281,11 +300,12 @@ export function useSubjectData(): SubjectDataLayer {
     ensureQuestionsLoaded,
     loadedSubjects,
     isLoaded,
+    isQuestionsReady,
   }), [
     topicsFor, questionsFor, sectionsFor, statsFor, allSubjectsStats,
     totalTopics, totalQuestions, totalFormulas,
     revisionQueueAll, searchAll, formulasFor, getTopicById,
     questionsByTopicId, ensureTopicsLoaded, ensureQuestionsLoaded,
-    loadedSubjects, isLoaded,
+    loadedSubjects, isLoaded, isQuestionsReady,
   ]);
 }

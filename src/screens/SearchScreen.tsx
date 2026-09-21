@@ -36,16 +36,26 @@ export function SearchScreen() {
     return () => { cancelled = true; };
   }, [isAllSubjects, activeSubject]);
 
+  // Merge metadata (always) with cached full topics; include loading so scope refreshes after load
   const searchScope = useMemo(() => {
-    const cached = getAllCachedTopics();
-    if (cached.length === 0) return topics;
-    if (isAllSubjects) return cached;
-    return cached.filter((t) => sectionMap[t.sectionId]?.subjectId === activeSubject);
-  }, [isAllSubjects, activeSubject]);
+    const byId = new Map(topics.map((t) => [t.id, t]));
+    for (const t of getAllCachedTopics()) {
+      byId.set(t.id, t);
+    }
+    const merged = Array.from(byId.values());
+    if (isAllSubjects) return merged;
+    return merged.filter((t) => sectionMap[t.sectionId]?.subjectId === activeSubject);
+    // loading in deps forces recompute after ensureTopicsLoaded completes
+  }, [isAllSubjects, activeSubject, loading]);
 
-  const hasContent = isAllSubjects || searchScope.length > 0;
+  const hasContent = isAllSubjects || searchScope.length > 0 || topics.some(
+    (t) => sectionMap[t.sectionId]?.subjectId === activeSubject,
+  );
 
-  const results = useMemo(() => searchTopics(query, searchScope), [query, searchScope]);
+  const results = useMemo(() => {
+    if (loading) return [];
+    return searchTopics(query, searchScope);
+  }, [query, searchScope, loading]);
 
   if (loadError) return (
     <PageContainer>

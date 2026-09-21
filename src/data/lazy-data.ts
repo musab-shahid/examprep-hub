@@ -51,12 +51,18 @@ export async function loadSubjectTopics(subjectId: SubjectId): Promise<Topic[]> 
   const loader = topicLoaders[subjectId];
   if (!loader) return [];
 
-  const promise = loader().then((mod) => {
-    const topics = mod.topics;
-    topicCache.set(subjectId, topics);
-    inflightTopics.delete(subjectId);
-    return topics;
-  });
+  const promise = loader()
+    .then((mod) => {
+      const topics = mod.topics;
+      topicCache.set(subjectId, topics);
+      inflightTopics.delete(subjectId);
+      return topics;
+    })
+    .catch((err) => {
+      // Allow retry — do not permanently cache a rejected promise
+      inflightTopics.delete(subjectId);
+      throw err;
+    });
   inflightTopics.set(subjectId, promise);
   return promise;
 }
@@ -71,12 +77,18 @@ export async function loadSubjectQuestions(subjectId: SubjectId): Promise<Questi
   const loader = questionLoaders[subjectId];
   if (!loader) return [];
 
-  const promise = loader().then((mod) => {
-    const questions = mod.questions;
-    questionCache.set(subjectId, questions);
-    inflightQuestions.delete(subjectId);
-    return questions;
-  });
+  const promise = loader()
+    .then((mod) => {
+      const questions = mod.questions;
+      questionCache.set(subjectId, questions);
+      inflightQuestions.delete(subjectId);
+      return questions;
+    })
+    .catch((err) => {
+      // Allow retry — do not permanently cache a rejected promise
+      inflightQuestions.delete(subjectId);
+      throw err;
+    });
   inflightQuestions.set(subjectId, promise);
   return promise;
 }
@@ -91,6 +103,15 @@ export function getCachedQuestions(subjectId: SubjectId): Question[] | undefined
 
 export function isSubjectLoaded(subjectId: SubjectId): boolean {
   return topicCache.has(subjectId);
+}
+
+export function isQuestionsLoaded(subjectId: SubjectId): boolean {
+  return questionCache.has(subjectId);
+}
+
+/** True if a subject is currently loading (in-flight). */
+export function isSubjectLoadInFlight(subjectId: SubjectId): boolean {
+  return inflightTopics.has(subjectId) || inflightQuestions.has(subjectId);
 }
 
 export function getAllCachedTopics(): Topic[] {
