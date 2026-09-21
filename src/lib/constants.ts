@@ -37,3 +37,40 @@ export const REVIEW_STAGES_DAYS = [1, 3, 7, 14, 30] as const;
 /** Weak-topic defaults (aligned across attention + streak) */
 export const WEAK_TOPIC_MIN_ATTEMPTS = 5;
 export const WEAK_TOPIC_LIMIT = 5;
+
+/** Derive accuracy percentage from raw counts — no rounding drift */
+export function deriveAccuracy(correct: number, total: number): number {
+  if (total <= 0) return 0;
+  return Math.round((correct / total) * 100);
+}
+
+/** Derive topic status from underlying data — single source of truth */
+export function deriveStatus(
+  studied: boolean,
+  quizTotal: number,
+  quizAccuracy: number,
+): 'not_started' | 'studied' | 'mastered' {
+  if (quizTotal >= MASTERY_MIN_QUIZ_ATTEMPTS && quizAccuracy >= MASTERY_ACCURACY_THRESHOLD) return 'mastered';
+  if (studied || quizTotal > 0) return 'studied';
+  return 'not_started';
+}
+
+/** Composite mastery score 0–100, clamped: 50% coverage + 50% accuracy */
+export function computeMasteryScore(studiedTopics: number, totalTopics: number, accuracy: number): number {
+  if (totalTopics <= 0) return 0;
+  return Math.min(100, Math.max(0, Math.round((studiedTopics / totalTopics) * 50 + accuracy * 0.5)));
+}
+
+/** Local date string (YYYY-MM-DD) for storage — avoids UTC/local mismatch */
+export function localDateString(d: Date = new Date()): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+/** Parse a stored YYYY-MM-DD date as local midnight (not UTC) */
+export function parseLocalDate(s: string): Date {
+  const [y, m, d] = s.split('-').map(Number);
+  return new Date(y, m - 1, d);
+}

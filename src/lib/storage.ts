@@ -1,8 +1,10 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, REVIEW_STAGES_DAYS } from '@/lib/constants';
+import { STORAGE_KEYS, REVIEW_STAGES_DAYS, deriveAccuracy, localDateString, parseLocalDate } from '@/lib/constants';
+import { sectionMap } from '@/data/sections';
 
 const STORAGE_KEY = STORAGE_KEYS.appData;
 const LEGACY_KEY = STORAGE_KEYS.legacyAppData;
+const BACKUP_KEY = 'examprep-data-backup';
 
 const emptyData: AppData = {
   studiedTopics: [],
@@ -28,9 +30,21 @@ function flushSave(): void {
   pendingData = null;
   saveTimer = null;
 }
+
 function isObject(v: unknown): v is Record<string, unknown> {
   return typeof v === 'object' && v !== null && !Array.isArray(v);
 }
+
+function validateTopicProgress(p: unknown): p is TopicProgress {
+  if (!isObject(p)) return false;
+  if (p.lastStudied !== undefined && p.lastStudied !== null && typeof p.lastStudied !== 'string') return false;
+  if (p.nextReview !== undefined && p.nextReview !== null && typeof p.nextReview !== 'string') return false;
+  if (p.lastQuizDate !== undefined && p.lastQuizDate !== null && typeof p.lastQuizDate !== 'string') return false;
+  if (p.quizCorrect !== undefined && typeof p.quizCorrect !== 'number') return false;
+  if (p.quizTotal !== undefined && typeof p.quizTotal !== 'number') return false;
+  return true;
+}
+
 function validateAppData(data: unknown): data is AppData {
   if (!isObject(data)) {
     console.warn('[storage] Invalid data: not an object');
@@ -40,9 +54,17 @@ function validateAppData(data: unknown): data is AppData {
     console.warn('[storage] Invalid data: quizHistory is not an array');
     return false;
   }
-  if (data.topicProgress !== undefined && !isObject(data.topicProgress)) {
-    console.warn('[storage] Invalid data: topicProgress is not an object');
-    return false;
+  if (data.topicProgress !== undefined) {
+    if (!isObject(data.topicProgress)) {
+      console.warn('[storage] Invalid data: topicProgress is not an object');
+      return false;
+    }
+    for (const [k, v] of Object.entries(data.topicProgress)) {
+      if (!validateTopicProgress(v)) {
+        console.warn(`[storage] Invalid topicProgress entry: ${k}`);
+        return false;
+      }
+    }
   }
   if (data.questionResults !== undefined && !isObject(data.questionResults)) {
     console.warn('[storage] Invalid data: questionResults is not an object');
@@ -62,9 +84,23 @@ function validateAppData(data: unknown): data is AppData {
   }
   return true;
 }
+
+/** Migrate legacy TopicProgress (quizAccuracy/quizAttempts → quizCorrect/quizTotal) */
+function migrateProgress(p: Record<string, unknown>): TopicProgress {
+  const quizAttempts = typeof p.quizAttempts === 'number' ? p.quizAttempts : (typeof p.attempts === 'number' ? p.attempts : 0);
+  const quizAccuracyPct = typeof p.quizAccuracy === 'number' ? p.quizAccuracy : (typeof p.accuracy === 'number' ? p.accuracy : 0);
+  const quizCorrect = Math.round((quizAccuracyPct / 100) * quizAttempts);
+  return {
+    lastStudied: (p.lastStudied as string | null) ?? null,
+    nextReview: (p.nextReview as string | null) ?? (p.quizNextReview as string | null) ?? null,
+    lastQuizDate: (p.lastQuizDate as string | null) ?? null,
+    quizCorrect,
+    quizTotal: quizAttempts,
+  };
+}
+
 export function loadData(): AppData {
   try {
-    // Migrate from legacy key if the new key doesn't exist yet
     let raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) {
       const legacy = localStorage.getItem(LEGACY_KEY);
@@ -77,14 +113,34 @@ export function loadData(): AppData {
     if (!raw) return { ...emptyData };
     const parsed = JSON.parse(raw);
     if (!validateAppData(parsed)) {
-      console.warn('[storage] Stored data failed validation, resetting to defaults');
+      console.warn('[storage] Stored data failed validation, backing up and resetting');
+      try { localStorage.setItem(BACKUP_KEY, raw); } catch { /* ignore */ }
       return { ...emptyData };
     }
-    return { ...emptyData, ...parsed };
+    const merged = { ...emptyData, ...parsed };
+    // Migrate any legacy topicProgress entries
+    let migrated = false;
+    for (const [k, v] of Object.entries(merged.topicProgress)) {
+      if (v.quizCorrect === undefined && (v.quizAccuracy !== undefined || v.quizAttempts !== undefined || v.attempts !== undefined)) {
+        merged.topicProgress[k] = migrateProgress(v as unknown as Record<string, unknown>);
+        migrated = true;
+      }
+    }
+    // Sync revisionDates to topicProgress.nextReview (single source of truth)
+    for (const [tid, prog] of Object.entries(merged.topicProgress)) {
+      if (prog.nextReview) {
+        merged.revisionDates[tid] = prog.nextReview;
+      }
+    }
+    if (migrated) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch { /* ignore */ }
+    }
+    return merged;
   } catch {
     return { ...emptyData };
   }
 }
+
 export function saveData(data: AppData): void {
   pendingData = data;
   if (saveTimer !== null) clearTimeout(saveTimer);
@@ -107,6 +163,9 @@ export function resetData(): void {
   }
   pendingData = null;
   try {
+    // Backup before wiping
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) localStorage.setItem(BACKUP_KEY, raw);
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(LEGACY_KEY);
     localStorage.removeItem(STORAGE_KEYS.subjectSelection);
@@ -120,22 +179,22 @@ export function resetData(): void {
 
 // Spaced repetition stages: New → 1 → 3 → 7 → 14 → 30 days
 const STAGES = [...REVIEW_STAGES_DAYS];
+
 function getCurrentStage(nextReview: string | null): number {
-  if (!nextReview) return -1; // new, never studied
+  if (!nextReview) return -1;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const reviewDate = new Date(nextReview);
+  const reviewDate = parseLocalDate(nextReview);
   reviewDate.setHours(0, 0, 0, 0);
   const diffDays = Math.round((reviewDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  // Find the smallest stage whose interval is >= diffDays
   for (let i = 0; i < STAGES.length; i++) {
     if (diffDays <= STAGES[i]) return i;
   }
   return STAGES.length - 1;
 }
+
 function computeNextReviewDate(currentStage: number, accuracy: number): string {
   let stage = currentStage;
-  // If accuracy < 65%, pull back one stage (not below 0)
   if (accuracy < 65) {
     stage = Math.max(stage - 1, 0);
   } else {
@@ -144,19 +203,16 @@ function computeNextReviewDate(currentStage: number, accuracy: number): string {
   const days = STAGES[stage];
   const date = new Date();
   date.setDate(date.getDate() + days);
-  return date.toISOString().split('T')[0];
+  return localDateString(date);
 }
+
 function defaultProgress(): TopicProgress {
   return {
-    status: 'not_started',
     lastStudied: null,
     nextReview: null,
-    accuracy: 0,
-    attempts: 0,
     lastQuizDate: null,
-    quizAccuracy: 0,
-    quizAttempts: 0,
-    quizNextReview: null,
+    quizCorrect: 0,
+    quizTotal: 0,
   };
 }
 
@@ -168,9 +224,9 @@ export function getOrCreateProgress(data: AppData, topicId: string): TopicProgre
 export function markTopicStudied(data: AppData, topicId: string): AppData {
   const prog = { ...getOrCreateProgress(data, topicId) };
   const currentStage = getCurrentStage(prog.nextReview);
+  const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
   prog.lastStudied = new Date().toISOString();
-  prog.status = prog.status === 'mastered' ? 'mastered' : 'studied';
-  prog.nextReview = computeNextReviewDate(currentStage, prog.accuracy);
+  prog.nextReview = computeNextReviewDate(currentStage, accuracy);
   return {
     ...data,
     studiedTopics: [...new Set([...data.studiedTopics, topicId])],
@@ -179,6 +235,7 @@ export function markTopicStudied(data: AppData, topicId: string): AppData {
     lastOpenedTopic: topicId,
   };
 }
+
 export function recordQuizResult(
   data: AppData,
   topicId: string | null,
@@ -192,16 +249,18 @@ export function recordQuizResult(
   const totalCount = answers.length;
   const now = Date.now();
 
-  // Record individual question results (immutable)
   const questionResults = { ...data.questionResults };
+  const qSectionMap = new Map(questions.map((q) => [q.id, q.sectionId]));
   for (const a of answers) {
+    const secId = qSectionMap.get(a.questionId);
+    const qSubjectId = secId ? sectionMap[secId]?.subjectId : undefined;
     questionResults[a.questionId] = {
       correct: a.correct,
       timestamp: now,
+      subjectId: qSubjectId ?? subjectId,
     };
   }
 
-  // Record quiz history
   const quizHistory = [
     ...data.quizHistory,
     {
@@ -215,7 +274,6 @@ export function recordQuizResult(
     },
   ];
 
-  // Group answers by topic
   const questionTopicMap = new Map(questions.map((q) => [q.id, q.topicId]));
   const topicAnswers: Record<string, { correct: number; total: number }> = {};
   for (const a of answers) {
@@ -226,22 +284,17 @@ export function recordQuizResult(
     if (a.correct) topicAnswers[tid].correct++;
   }
 
-  // Update quiz progress per topic without mutating the input `data`
   let topicProgress = data.topicProgress;
+  const revisionDates = { ...data.revisionDates };
   for (const [tid, { correct, total }] of Object.entries(topicAnswers)) {
     const prog = { ...getOrCreateProgress({ ...data, topicProgress }, tid) };
-    const prevCorrect = (prog.quizAccuracy / 100) * prog.quizAttempts;
-    prog.quizAttempts += total;
-    prog.quizAccuracy =
-      prog.quizAttempts > 0
-        ? Math.round(((prevCorrect + correct) / prog.quizAttempts) * 100)
-        : 0;
+    prog.quizCorrect += correct;
+    prog.quizTotal += total;
     prog.lastQuizDate = new Date(now).toISOString();
-    const quizStage = getCurrentStage(prog.quizNextReview);
-    prog.quizNextReview = computeNextReviewDate(quizStage, prog.quizAccuracy);
-    // Keep legacy accuracy/attempts in sync for existing UI
-    prog.accuracy = prog.quizAccuracy;
-    prog.attempts = prog.quizAttempts;
+    const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
+    const quizStage = getCurrentStage(prog.nextReview);
+    prog.nextReview = computeNextReviewDate(quizStage, accuracy);
+    revisionDates[tid] = prog.nextReview;
     topicProgress = { ...topicProgress, [tid]: prog };
   }
 
@@ -250,21 +303,24 @@ export function recordQuizResult(
     questionResults,
     quizHistory,
     topicProgress,
+    revisionDates,
   };
 }
+
 export function setLastOpenedTopic(data: AppData, topicId: string): AppData {
   return { ...data, lastOpenedTopic: topicId };
 }
-// Topics due for revision today or earlier (from either study or quiz schedule)
+
 export function getDueTopics(data: AppData): string[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const due = new Set<string>();
-  for (const [topicId, dateStr] of Object.entries(data.revisionDates)) {
-    if (new Date(dateStr) <= today) due.add(topicId);
-  }
   for (const [topicId, prog] of Object.entries(data.topicProgress)) {
-    if (prog.quizNextReview && new Date(prog.quizNextReview) <= today) due.add(topicId);
+    if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) due.add(topicId);
+  }
+  // Also check legacy revisionDates for topics without progress entries
+  for (const [topicId, dateStr] of Object.entries(data.revisionDates)) {
+    if (!data.topicProgress[topicId]?.nextReview && parseLocalDate(dateStr) <= today) due.add(topicId);
   }
   return [...due];
 }

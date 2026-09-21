@@ -16,6 +16,7 @@ import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
 import type { SubjectId, Topic, Question } from '@/types';
+import { deriveAccuracy, deriveStatus } from '@/lib/constants';
 
 // ---- Learn Landing ----
 export function StudyScreen() {
@@ -47,7 +48,11 @@ export function StudyScreen() {
       }
     }
     const inProgress = subjectTopics
-      .filter((t) => data.topicProgress[t.id]?.status === 'studied')
+      .filter((t) => {
+        const p = data.topicProgress[t.id];
+        const studied = data.studiedTopics.includes(t.id);
+        return deriveStatus(studied, p?.quizTotal ?? 0, deriveAccuracy(p?.quizCorrect ?? 0, p?.quizTotal ?? 0)) === 'studied';
+      })
       .sort((a, b) => {
         const aTime = data.topicProgress[a.id]?.lastStudied ? new Date(data.topicProgress[a.id]!.lastStudied!).getTime() : 0;
         const bTime = data.topicProgress[b.id]?.lastStudied ? new Date(data.topicProgress[b.id]!.lastStudied!).getTime() : 0;
@@ -181,7 +186,11 @@ export function StudyScreen() {
               {subjectSections.map((section) => {
                 const sectionTopics = topicsBySection(section.id);
                 const studiedInSection = sectionTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
-                const masteredInSection = sectionTopics.filter((t) => data.topicProgress[t.id]?.status === 'mastered').length;
+                const masteredInSection = sectionTopics.filter((t) => {
+                  const p = data.topicProgress[t.id];
+                  const studied = data.studiedTopics.includes(t.id);
+                  return deriveStatus(studied, p?.quizTotal ?? 0, deriveAccuracy(p?.quizCorrect ?? 0, p?.quizTotal ?? 0)) === 'mastered';
+                }).length;
                 const isExpanded = expandedSection === section.id;
                 return (
                   <div key={section.id}>
@@ -199,7 +208,9 @@ export function StudyScreen() {
                     {isExpanded && (
                       <div className="ml-12 pl-3 pr-1 py-1 space-y-1">
                         {sectionTopics.map((topic) => {
-                          const status = data.topicProgress[topic.id]?.status ?? 'not_started';
+                          const p = data.topicProgress[topic.id];
+                          const studied = data.studiedTopics.includes(topic.id);
+                          const status = deriveStatus(studied, p?.quizTotal ?? 0, deriveAccuracy(p?.quizCorrect ?? 0, p?.quizTotal ?? 0));
                           const statusLabel = status === 'mastered' ? 'mastered' : status === 'studied' ? 'studied' : 'not started';
                           return (
                             <button
@@ -256,7 +267,8 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
       <div className="space-y-2">
         {sectionTopics.map((topic) => {
           const prog = data.topicProgress[topic.id];
-          const status = prog?.status ?? 'not_started';
+          const studied = data.studiedTopics.includes(topic.id);
+          const status = deriveStatus(studied, prog?.quizTotal ?? 0, deriveAccuracy(prog?.quizCorrect ?? 0, prog?.quizTotal ?? 0));
           return (
             <Card key={topic.id} className="p-0">
               <button onClick={() => navigate({ screen: 'topic', topicId: topic.id })} className="w-full flex items-center gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl">

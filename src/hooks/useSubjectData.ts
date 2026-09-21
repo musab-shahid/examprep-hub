@@ -18,6 +18,7 @@ import {
   getTopicFromCache,
 } from '@/data/lazy-data';
 import type { Topic, Question, Section, SubjectId } from '@/types';
+import { deriveAccuracy, parseLocalDate } from '@/lib/constants';
 
 export interface SubjectStats {
   subjectId: SubjectId | 'all';
@@ -180,23 +181,23 @@ export function useSubjectData(): SubjectDataLayer {
   const revisionQueueAll = useCallback(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    return Object.entries(data.revisionDates)
-      .filter(([topicId, dateStr]) => {
-        if (new Date(dateStr) > today) return false;
+    return Object.entries(data.topicProgress)
+      .filter(([topicId, p]) => {
+        if (!p.nextReview) return false;
+        if (parseLocalDate(p.nextReview) > today) return false;
         const topic = getTopic(topicId);
         if (!topic) return false;
         const subjId = sectionMap[topic.sectionId]?.subjectId;
         return subjId && trackSubjectIds.has(subjId);
       })
-      .map(([topicId, dateStr]) => {
+      .map(([topicId, p]) => {
         const topic = getTopic(topicId);
         const subjectId = topic ? sectionMap[topic.sectionId]?.subjectId : undefined;
-        const prog = data.topicProgress[topicId];
         return subjectId ? {
           topicId,
           subjectId,
-          accuracy: prog?.accuracy ?? 0,
-          dateStr,
+          accuracy: deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0),
+          dateStr: p.nextReview!,
         } : null;
       })
       .filter((item): item is { topicId: string; subjectId: SubjectId; accuracy: number; dateStr: string } => item !== null);

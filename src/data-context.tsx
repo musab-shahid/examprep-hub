@@ -1,9 +1,8 @@
 import { createContext, useState, useCallback, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId } from '@/types';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
-import { sections } from '@/data/sections';
+import { sections, sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
-import { allQuestions } from '@/data/questions';
 
 export interface DataContextValue {
   data: AppData;
@@ -59,19 +58,15 @@ export function DataProvider({ children }: { children: ReactNode }) {
         topics.filter((t) => subjectSectionIds.has(t.sectionId)).map((t) => t.id)
       );
 
-      // Build questionId → topicId map from cached questions for filtering questionResults
-      const cachedQs = allQuestions();
-      const qTopicMap = new Map(cachedQs.map((q) => [q.id, q.topicId]));
-
       const newData: AppData = {
         studiedTopics: prev.studiedTopics.filter((tid) => !subjectTopicIds.has(tid)),
         topicProgress: Object.fromEntries(
           Object.entries(prev.topicProgress).filter(([tid]) => !subjectTopicIds.has(tid))
         ),
         questionResults: Object.fromEntries(
-          Object.entries(prev.questionResults).filter(([qid]) => {
-            const tid = qTopicMap.get(qid);
-            return !tid || !subjectTopicIds.has(tid);
+          Object.entries(prev.questionResults).filter(([, r]) => {
+            if (r.subjectId) return !subjectIdSet.has(r.subjectId as SubjectId);
+            return true; // keep legacy entries without subjectId
           })
         ),
         quizHistory: prev.quizHistory.filter((q) => {

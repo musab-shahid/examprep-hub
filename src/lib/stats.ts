@@ -1,4 +1,5 @@
 import type { AppData, Topic, Question } from '@/types';
+import { deriveAccuracy, parseLocalDate, computeMasteryScore } from '@/lib/constants';
 export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQuestions: Question[]) {
   const topicIds = new Set(scopedTopics.map((t) => t.id));
   const questionIds = new Set(scopedQuestions.map((q) => q.id));
@@ -11,13 +12,13 @@ export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQues
   const correctCount = questionResults.filter((r) => r.correct).length;
   const accuracy = questionsAnswered > 0 ? Math.round((correctCount / questionsAnswered) * 100) : 0;
   const quizProgress = Object.entries(data.topicProgress)
-    .filter(([id, p]) => topicIds.has(id) && p.quizAttempts > 0)
+    .filter(([id, p]) => topicIds.has(id) && (p.quizTotal ?? 0) > 0)
     .map(([, p]) => p);
   const mastery = quizProgress.length > 0
-    ? Math.round(quizProgress.reduce((sum, p) => sum + p.quizAccuracy, 0) / quizProgress.length)
+    ? Math.round(quizProgress.reduce((sum, p) => sum + deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0), 0) / quizProgress.length)
     : 0;
   const quizTouchedCount = Object.entries(data.topicProgress)
-    .filter(([id, p]) => topicIds.has(id) && p.quizAttempts > 0).length;
+    .filter(([id, p]) => topicIds.has(id) && (p.quizTotal ?? 0) > 0).length;
   return {
     studiedCount,
     totalTopics,
@@ -41,15 +42,15 @@ export function getSectionAccuracy(data: AppData, sectionId: string, scopedQuest
 }
 export function getWeakestTopics(data: AppData, scopedTopicIds: Set<string>, count = 3): { topicId: string; accuracy: number }[] {
   return Object.entries(data.topicProgress)
-    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.attempts > 0)
-    .map(([topicId, p]) => ({ topicId, accuracy: p.accuracy }))
+    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && (p.quizTotal ?? 0) > 0)
+    .map(([topicId, p]) => ({ topicId, accuracy: deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0) }))
     .sort((a, b) => a.accuracy - b.accuracy)
     .slice(0, count);
 }
 export function getTodayRevision(data: AppData, scopedTopicIds: Set<string>): string[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  return Object.entries(data.revisionDates)
-    .filter(([topicId, dateStr]) => scopedTopicIds.has(topicId) && new Date(dateStr) <= today)
+  return Object.entries(data.topicProgress)
+    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.nextReview && parseLocalDate(p.nextReview) <= today)
     .map(([topicId]) => topicId);
 }

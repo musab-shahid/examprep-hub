@@ -12,6 +12,10 @@ import {
   MASTERY_MIN_QUIZ_ATTEMPTS,
   WEAK_TOPIC_LIMIT,
   WEAK_TOPIC_MIN_ATTEMPTS,
+  deriveAccuracy,
+  deriveStatus,
+  computeMasteryScore,
+  parseLocalDate,
 } from '@/lib/constants';
 
 // ── Types ──
@@ -71,23 +75,18 @@ export type DashboardRecommendation = {
 export function isTopicMastered(topicId: string, data: AppData): boolean {
   const progress = data.topicProgress[topicId];
   if (!progress) return false;
-  if (progress.status === 'mastered') return true;
-
   const studied = data.studiedTopics.includes(topicId);
-  const attempts = progress.quizAttempts ?? progress.attempts ?? 0;
-  const acc = progress.quizAccuracy ?? progress.accuracy ?? 0;
-
-  return studied && attempts >= MASTERY_MIN_QUIZ_ATTEMPTS && acc >= MASTERY_ACCURACY_THRESHOLD;
+  const quizTotal = progress.quizTotal ?? 0;
+  const acc = deriveAccuracy(progress.quizCorrect ?? 0, quizTotal);
+  return deriveStatus(studied, quizTotal, acc) === 'mastered';
 }
 
-/** Composite mastery score 0–100: 50% coverage + 50% accuracy. */
 export function getMasteryScore(
   studiedTopics: number,
   totalTopics: number,
   accuracy: number,
 ): number {
-  if (totalTopics <= 0) return 0;
-  return Math.round((studiedTopics / totalTopics) * 50 + accuracy * 0.5);
+  return computeMasteryScore(studiedTopics, totalTopics, accuracy);
 }
 
 export function countMasteredTopics(
@@ -123,10 +122,10 @@ export function getDueReviews(
   }
   for (const [topicId, prog] of Object.entries(data.topicProgress ?? {})) {
     if (!scopedTopicIds.has(topicId)) continue;
-    if (prog.quizNextReview && new Date(prog.quizNextReview) <= today) {
+    if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) {
       const existing = dueMap.get(topicId);
-      if (!existing || new Date(prog.quizNextReview) < new Date(existing)) {
-        dueMap.set(topicId, prog.quizNextReview);
+      if (!existing || parseLocalDate(prog.nextReview) < parseLocalDate(existing)) {
+        dueMap.set(topicId, prog.nextReview);
       }
     }
   }
@@ -134,7 +133,7 @@ export function getDueReviews(
   const due: DueReviewItem[] = [];
   for (const [topicId, dateStr] of dueMap) {
     const progress = data.topicProgress[topicId];
-    const accuracy = progress?.quizAccuracy ?? progress?.accuracy ?? 0;
+    const accuracy = deriveAccuracy(progress?.quizCorrect ?? 0, progress?.quizTotal ?? 0);
     let group: DueReviewItem['group'];
     if (accuracy < 60) group = 'high';
     else if (accuracy < 75) group = 'review';

@@ -251,20 +251,24 @@ export interface CloudEntry {
 }
 
 export interface TopicProgress {
-  status: 'not_started' | 'studied' | 'mastered';
   lastStudied: string | null;
   nextReview: string | null;
-  accuracy: number;
-  attempts: number;
   lastQuizDate: string | null;
-  quizAccuracy: number;
-  quizAttempts: number;
-  quizNextReview: string | null;
+  quizCorrect: number;
+  quizTotal: number;
+  // Legacy fields kept for migration — derived from quizCorrect/quizTotal at read time
+  accuracy?: number;
+  attempts?: number;
+  quizAccuracy?: number;
+  quizAttempts?: number;
+  quizNextReview?: string | null;
+  status?: string;
 }
 
 export interface QuestionResult {
   correct: boolean;
   timestamp: number;
+  subjectId?: string;
 }
 
 export type PracticeMode = 'topic' | 'quick' | 'mock' | 'review' | 'challenge';

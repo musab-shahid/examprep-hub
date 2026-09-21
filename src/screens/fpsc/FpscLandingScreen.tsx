@@ -13,6 +13,7 @@ import { subjectsByTrack } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
+import { deriveAccuracy } from '@/lib/constants';
 
 const SUBJECT_DESCRIPTIONS: Record<string, string> = {
   'meteo-climatology': 'Atmospheric science, weather systems, climate classification, and Pakistan-specific meteorology — the most content-rich subject.',
@@ -45,7 +46,7 @@ export function FpscLandingScreen() {
     return sum + sd.topicsFor(s.id as SubjectId).filter((t) => data.studiedTopics.includes(t.id)).length;
   }, 0);
   const quizTouchedFpscTopics = fpscSubjects.reduce((sum, s) => {
-    return sum + sd.topicsFor(s.id as SubjectId).filter((t) => (data.topicProgress[t.id]?.quizAttempts ?? 0) > 0).length;
+    return sum + sd.topicsFor(s.id as SubjectId).filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
   }, 0);
   const overallProgress = totalTopics > 0 ? Math.round((studiedFpscTopics / totalTopics) * 100) : 0;
 

@@ -9,25 +9,26 @@ import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, Button } from '@/components/ui';
-import type { SubjectId } from '@/types';
+import type { SubjectId, TopicProgress } from '@/types';
+
+import { deriveAccuracy, parseLocalDate } from '@/lib/constants';
 
 function getRevisionGroups(
-  revisionDates: Record<string, string>,
-  topicProgress: Record<string, { accuracy: number }>,
+  topicProgress: Record<string, TopicProgress>,
   scopedTopicIds: Set<string>,
 ) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const due = Object.entries(revisionDates)
-    .filter(([topicId, dateStr]) => scopedTopicIds.has(topicId) && new Date(dateStr) <= today)
-    .map(([topicId, dateStr]) => {
-      const accuracy = topicProgress[topicId]?.accuracy ?? 0;
+  const due = Object.entries(topicProgress)
+    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.nextReview && parseLocalDate(p.nextReview) <= today)
+    .map(([topicId, p]) => {
+      const accuracy = deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0);
       let group: 'high' | 'review' | 'refresh';
       if (accuracy < 60) group = 'high';
       else if (accuracy < 75) group = 'review';
       else group = 'refresh';
-      return { topicId, dateStr, accuracy, group };
+      return { topicId, dateStr: p.nextReview!, accuracy, group };
     });
 
   const high = due.filter((d) => d.group === 'high');
@@ -61,7 +62,7 @@ export function RevisionScreen() {
   const hasContent = isAllSubjects || scopedTopicIds.size > 0;
   const subjectTitle = isAllSubjects ? 'All Subjects' : (subjectMap[activeSubject as string]?.title ?? 'Subject');
 
-  const groups = getRevisionGroups(data.revisionDates, data.topicProgress, scopedTopicIds);
+  const groups = getRevisionGroups(data.topicProgress, scopedTopicIds);
   const totalDue = groups.high.length + groups.review.length + groups.refresh.length;
 
   return (

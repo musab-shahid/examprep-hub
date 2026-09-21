@@ -10,6 +10,7 @@ import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSectionAccuracy } from '@/lib/stats';
 import { computeStreak, getWeakTopics, getWeeklyAccuracy, type WeeklyAccuracyPoint } from '@/lib/streak';
+import { deriveAccuracy, computeMasteryScore } from '@/lib/constants';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge } from '@/components/ui';
 import type { SubjectId } from '@/types';
@@ -39,14 +40,15 @@ export function ProgressScreen() {
   const weeklyData = getWeeklyAccuracy(data, 8, scopedSubjectIds);
 
   // Mastery calculation
-  const masteryScore = currentStats.totalTopics > 0
-    ? Math.round((currentStats.studiedTopics / currentStats.totalTopics) * 50 + currentStats.accuracy * 0.5)
-    : 0;
+  const masteryScore = computeMasteryScore(currentStats.studiedTopics, currentStats.totalTopics, currentStats.accuracy);
 
   // Achievements
   const totalQuestionsAll = allStats.reduce((s, st) => s + st.questionsAnswered, 0);
   const subjectTopicIds = isAllSubjects ? null : new Set(sd.topicsFor(activeSubject as SubjectId).map((t) => t.id));
-  const masteredTopics = Object.entries(data.topicProgress).filter(([tid, p]) => p.quizAccuracy >= 80 && p.quizAttempts > 0 && (isAllSubjects || subjectTopicIds?.has(tid))).length;
+  const masteredTopics = Object.entries(data.topicProgress).filter(([tid, p]) => {
+    const acc = deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0);
+    return (p.quizTotal ?? 0) >= 1 && acc >= 80 && (isAllSubjects || subjectTopicIds?.has(tid));
+  }).length;
   const perfectQuizzes = data.quizHistory.filter((q) => q.total >= 5 && q.score === q.total).length;
   const subjectsTouched = allStats.filter((s) => s.questionsAnswered > 0).length;
   const subjectsWithContent = allStats.filter((s) => s.hasContent).length;
@@ -146,7 +148,7 @@ export function ProgressScreen() {
                   const subject = subjects.find((s) => s.id === sStats.subjectId);
                   if (!subject) return null;
                   const color = getSubjectColor(sStats.subjectId);
-                  const mScore = sStats.totalTopics > 0 ? Math.round((sStats.studiedTopics / sStats.totalTopics) * 50 + sStats.accuracy * 0.5) : 0;
+                  const mScore = computeMasteryScore(sStats.studiedTopics, sStats.totalTopics, sStats.accuracy);
                   return (
                     <div key={sStats.subjectId}>
                       <div className="flex items-center justify-between mb-1">
