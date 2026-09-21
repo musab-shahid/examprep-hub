@@ -1987,9 +1987,9 @@ export const questions: Question[] = [
 
 { id: "EARTH-H2-Q007", sectionId: "EARTH-H", topicId: "earth-h2", difficulty: "medium", type: "single",
   question: "A P-wave travels at about 6 km/s in the crust and an S-wave at about 3.5 km/s. How long will the S-wave lag behind the P-wave at a distance of 70 km?",
-  options: ["~5 s", "~10 s", "~20 s", "~30 s"],
+  options: ["~5 s", "~8 s", "~20 s", "~30 s"],
   correctAnswer: 1,
-  explanation: "P-wave travel time = 70/6 ≈ 11.7 s. S-wave travel time = 70/3.5 = 20 s. Lag = 20 − 11.7 ≈ 8.3 s, closest to 10 s. This P–S time difference is the basis for locating earthquakes.",
+  explanation: "P-wave travel time = 70/6 ≈ 11.7 s. S-wave travel time = 70/3.5 = 20 s. Lag ≈ 20 − 11.7 ≈ 8.3 s ≈ 8 s. This P–S time difference is used when locating earthquakes.",
   sourceCitation: "Standard Earth science curriculum" },
 
 

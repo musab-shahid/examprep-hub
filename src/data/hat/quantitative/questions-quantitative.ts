@@ -649,10 +649,10 @@ export const quantitativeQuestions: Question[] = [
     sectionId: 'HATQ-2', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'hard', type: 'single',
     question: 'CI on Rs 8000 at 10% for 2 years compounded half-yearly?',
-    options: ['Rs 1684', 'Rs 1620', 'Rs 1738', 'Rs 1500'],
+    options: ['Rs 1724', 'Rs 1620', 'Rs 1684', 'Rs 1500'],
     correctAnswer: 0,
     explanation:
-      'IDEA: Half-yearly → rate/2, time doubled. STEP: A = 8000 × (1 + 5/100)^4 = 8000 × 1.21550625 ≈ 9724. CI ≈ 1724. Closest: Rs 1684.',
+      'Half-yearly compounding: rate per period = 5%, number of periods = 4. A = 8000 × (1.05)^4 = 8000 × 1.21550625 ≈ 9724.05. CI = A − P ≈ 1724.',
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {

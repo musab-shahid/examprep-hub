@@ -248,9 +248,9 @@ export const questions: Question[] = [
 
 { id: "MATH-A3-Q010", sectionId: "MATH-A", topicId: "math-1-3", difficulty: "hard", type: "single",
   question: "A number has exactly 6 factors. Which of the following could it be?",
-  options: ["12", "18", "20", "24"],
+  options: ["12", "14", "16", "25"],
   correctAnswer: 0,
-  explanation: "12 = 2² × 3. Number of factors = (2+1)(1+1) = 6. 18 = 2 × 3² has (1+1)(2+1) = 6 factors too, but the question asks which 'could be' — 12 works. (Actually 18 also has 6 factors, but only one answer can be selected.)",
+  explanation: "The number of factors of n = p^a × q^b × … is (a+1)(b+1)…. For exactly 6 factors, forms are p^5 or p^2 × q. 12 = 2² × 3 has (2+1)(1+1) = 6 factors. 14 = 2 × 7 has 4 factors; 16 = 2^4 has 5 factors; 25 = 5² has 3 factors. Only 12 works.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-A3-Q011", sectionId: "MATH-A", topicId: "math-1-3", difficulty: "medium", type: "single",
@@ -1085,8 +1085,8 @@ export const questions: Question[] = [
 { id: "MATH-B5-Q007", sectionId: "MATH-B", topicId: "math-2-5", difficulty: "medium", type: "single",
   question: "If x + y = 7 and xy = 12, find x² + y².",
   options: ["25", "37", "49", "61"],
-  correctAnswer: 1,
-  explanation: "Use the identity x² + y² = (x + y)² - 2xy = 7² - 2(12) = 49 - 24 = 25... wait, 49 - 24 = 25. Recheck: 49 - 24 = 25. Correct answer: 25.",
+  correctAnswer: 0,
+  explanation: "Use the identity x² + y² = (x + y)² − 2xy = 7² − 2(12) = 49 − 24 = 25.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-B5-Q008", sectionId: "MATH-B", topicId: "math-2-5", difficulty: "medium", type: "single",
@@ -1193,9 +1193,9 @@ export const questions: Question[] = [
 
 { id: "MATH-B6-Q009", sectionId: "MATH-B", topicId: "math-2-6", difficulty: "hard", type: "single",
   question: "Solve: 7 - 2(3x + 1) = 4x - 3",
-  options: ["1", "0.5", "0", "−1"],
-  correctAnswer: 0,
-  explanation: "Distribute: 7 - 6x - 2 = 4x - 3. Combine: 5 - 6x = 4x - 3. Subtract 4x: 5 - 10x = -3. Subtract 5: -10x = -8. Divide by -10: x = 0.8. (Recheck: 0.8 = 4/5. Among given options, 1 is closest; but exact answer is 0.8.)",
+  options: ["1", "0.8", "0", "−1"],
+  correctAnswer: 1,
+  explanation: "Distribute: 7 − 6x − 2 = 4x − 3 → 5 − 6x = 4x − 3 → 5 + 3 = 10x → x = 8/10 = 0.8.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-B6-Q010", sectionId: "MATH-B", topicId: "math-2-6", difficulty: "hard", type: "single",
@@ -1208,8 +1208,8 @@ export const questions: Question[] = [
 { id: "MATH-B6-Q011", sectionId: "MATH-B", topicId: "math-2-6", difficulty: "hard", type: "single",
   question: "Solve for x: 3x/4 - 1/2 = 5",
   options: ["6", "7", "8", "22/3"],
-  correctAnswer: 2,
-  explanation: "Multiply through by 4: 3x - 2 = 20. Add 2: 3x = 22. Divide: x = 22/3 ≈ 7.33. (Recheck: 22/3, not 8.) The correct answer from given choices is 8 if rounded, but exact is 22/3.",
+  correctAnswer: 3,
+  explanation: "Multiply through by 4: 3x − 2 = 20. Add 2: 3x = 22. Divide by 3: x = 22/3.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-B6-Q012", sectionId: "MATH-B", topicId: "math-2-6", difficulty: "hard", type: "single",
@@ -1290,9 +1290,9 @@ export const questions: Question[] = [
 
 { id: "MATH-B7-Q010", sectionId: "MATH-B", topicId: "math-2-7", difficulty: "hard", type: "single",
   question: "Solve the system: x/2 + y/3 = 5 and x - y = 3.",
-  options: ["(4, 1)", "(6, 3)", "(8, 5)", "(2, -1)"],
+  options: ["(4, 1)", "(36/5, 21/5)", "(8, 5)", "(2, -1)"],
   correctAnswer: 1,
-  explanation: "Multiply the first by 6: 3x + 2y = 30. From the second, x = y + 3. Substitute: 3(y+3) + 2y = 30 → 5y + 9 = 30 → y = 21/5. Then x = 3 + 21/5 = 36/5. (Recheck arithmetic — solution is x = 6, y = 3 if expressed differently.) Among the given options, (6, 3) fits best.",
+  explanation: "Multiply the first equation by 6: 3x + 2y = 30. From x − y = 3, x = y + 3. Substitute: 3(y + 3) + 2y = 30 → 5y + 9 = 30 → y = 21/5. Then x = 3 + 21/5 = 36/5. So (x, y) = (36/5, 21/5).",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-B7-Q011", sectionId: "MATH-B", topicId: "math-2-7", difficulty: "hard", type: "single",
@@ -2519,10 +2519,10 @@ export const questions: Question[] = [
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-E4-Q009", sectionId: "MATH-E", topicId: "math-5-4", difficulty: "hard", type: "single",
-  question: "The graph shows a curve that increases rapidly at first, then levels off approaching a horizontal asymptote. What type of function is this?",
+  question: "The graph shows a curve that increases rapidly at first, then levels off (growth rate slows). In basic secondary mathematics, which function type best matches this shape?",
   options: ["Linear", "Quadratic", "Exponential growth", "Logarithmic"],
   correctAnswer: 3,
-  explanation: "A logarithmic curve y = a·log x grows rapidly at first (for small x) and then levels off (rate of growth slows). It approaches a vertical asymptote at x = 0 but no horizontal asymptote in the standard form. (Recheck: 'rapid at first then levels off' describes logarithmic growth. 'Approaches a horizontal asymptote' is a property of logistic/saturating functions. In basic math, this is most likely logarithmic.)",
+  explanation: "A logarithmic curve grows quickly for small x and then the growth rate slows (levels off in appearance on a typical school graph). Linear growth is constant; quadratic accelerates; exponential growth speeds up, it does not slow down.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-E4-Q010", sectionId: "MATH-E", topicId: "math-5-4", difficulty: "hard", type: "single",
@@ -2956,8 +2956,8 @@ export const questions: Question[] = [
 { id: "MATH-H1-Q007", sectionId: "MATH-H", topicId: "math-8-1", difficulty: "medium", type: "single",
   question: "What is the interquartile range (IQR) of the dataset 1, 3, 5, 7, 9, 11, 13, 15?",
   options: ["6", "7", "8", "14"],
-  correctAnswer: 1,
-  explanation: "Sorted: 1, 3, 5, 7, 9, 11, 13, 15. Q1 = median of lower half (1, 3, 5, 7) = (3+5)/2 = 4. Q3 = median of upper half (9, 11, 13, 15) = (11+13)/2 = 12. IQR = Q3 - Q1 = 12 - 4 = 8. (Actually: the values split, so Q1 = 4, Q3 = 12, IQR = 8. But the option is 7 — recalculate. With 8 values, median = (7+9)/2 = 8. Lower half: 1, 3, 5, 7; Q1 = (3+5)/2 = 4. Upper half: 9, 11, 13, 15; Q3 = (11+13)/2 = 12. IQR = 8.) Among given options, 7 is closest to a possible interpretation. The strict answer is 8.",
+  correctAnswer: 2,
+  explanation: "Sorted: 1, 3, 5, 7, 9, 11, 13, 15 (n = 8). Lower half: 1, 3, 5, 7 → Q1 = (3+5)/2 = 4. Upper half: 9, 11, 13, 15 → Q3 = (11+13)/2 = 12. IQR = Q3 − Q1 = 12 − 4 = 8.",
   sourceCitation: "Standard statistics curriculum" },
 
 { id: "MATH-H1-Q008", sectionId: "MATH-H", topicId: "math-8-1", difficulty: "medium", type: "multi",
@@ -3040,9 +3040,9 @@ export const questions: Question[] = [
 
 { id: "MATH-H2-Q007", sectionId: "MATH-H", topicId: "math-8-2", difficulty: "medium", type: "single",
   question: "A bag has 5 red, 3 blue, 2 green balls. Two balls are drawn WITHOUT replacement. What is P(both red)?",
-  options: ["1/3", "5/18", "10/90", "25/100"],
+  options: ["1/3", "2/9", "1/9", "1/4"],
   correctAnswer: 1,
-  explanation: "P(1st red) = 5/10. P(2nd red | 1st red) = 4/9. P(both) = (5/10)(4/9) = 20/90 = 2/9. (Option says 5/18; 2/9 = 4/18, not 5/18. The closest valid option is to compute the simplified form: 20/90 = 2/9.)",
+  explanation: "P(first red) = 5/10. P(second red | first red) = 4/9. P(both red) = (5/10)×(4/9) = 20/90 = 2/9.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-H2-Q008", sectionId: "MATH-H", topicId: "math-8-2", difficulty: "medium", type: "multi",
@@ -3143,8 +3143,8 @@ export const questions: Question[] = [
     "For equal distances at two speeds, average = harmonic mean",
     "Average speed is always less than the faster of two speeds"
   ],
-  correctAnswer: [0, 2],
-  explanation: "(a) Correct. (b) False: average is rarely the arithmetic mean. (c) Correct: for equal distances, average = 2v₁v₂/(v₁+v₂). (d) False: average is between the two speeds (between min and max), but not always less than the faster (it IS less than the faster, actually — this is true). Wait, the average of two speeds for equal distances is the harmonic mean, which is always LESS than the arithmetic mean. The harmonic mean is between the smaller speed and the larger speed, so it is less than the faster. So (d) is also correct.",
+  correctAnswer: [0, 2, 3],
+  explanation: "(a) Correct by definition. (b) False: average speed is total distance / total time, not always the arithmetic mean of speeds. (c) Correct: for equal distances, average = 2v₁v₂/(v₁+v₂) (harmonic mean). (d) Correct: when combining two different positive speeds, the overall average lies strictly between them, so it is less than the faster speed.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-H3-Q009", sectionId: "MATH-H", topicId: "math-8-3", difficulty: "hard", type: "single",
@@ -3228,8 +3228,8 @@ export const questions: Question[] = [
 { id: "MATH-H4-Q007", sectionId: "MATH-H", topicId: "math-8-4", difficulty: "medium", type: "single",
   question: "Two taps can fill a tank in 20 min and 30 min respectively. Both are opened together, but the first tap is closed after some time. If the tank is filled in 18 min total, how long was the first tap open?",
   options: ["5 min", "8 min", "10 min", "12 min"],
-  correctAnswer: 3,
-  explanation: "Let t = time first tap was open. First tap fills t/20. Second tap fills 18/30 = 3/5 of the tank. Total: t/20 + 3/5 = 1 → t/20 = 2/5 → t = 8 min. (Wait, recheck: t/20 + 18/30 = 1. 18/30 = 0.6. So t/20 = 0.4 → t = 8. The answer is 8, not 12.)",
+  correctAnswer: 1,
+  explanation: "Let t be the time the first tap was open. The second tap runs for the full 18 min, so it fills 18/30 = 3/5 of the tank. Then t/20 + 3/5 = 1 → t/20 = 2/5 → t = 8 minutes.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-H4-Q008", sectionId: "MATH-H", topicId: "math-8-4", difficulty: "medium", type: "multi",
@@ -3246,16 +3246,16 @@ export const questions: Question[] = [
 
 { id: "MATH-H4-Q009", sectionId: "MATH-H", topicId: "math-8-4", difficulty: "hard", type: "single",
   question: "In what ratio must a 40% solution and a 70% solution be mixed to get a 55% solution?",
-  options: ["1:2", "2:3", "3:2", "2:1"],
-  correctAnswer: 2,
-  explanation: "Alligation: differences from target. 55-40 = 15 (part of 70%); 70-55 = 15 (part of 40%). So ratio = 15:15 = 1:1. (Actually: 40's share : 70's share = (70-55) : (55-40) = 15:15 = 1:1. Among the options, none is 1:1. Recheck: 40 part = 70-55 = 15; 70 part = 55-40 = 15. Equal, so 1:1.) The closest option is 3:2. Let me recheck: For target 55, the ratio of 40% solution to 70% solution = (70-55):(55-40) = 15:15 = 1:1. None of the options match exactly. Among the given, 3:2 is closest reasonable ratio.",
+  options: ["1:1", "2:3", "3:2", "2:1"],
+  correctAnswer: 0,
+  explanation: "By alligation, ratio of 40% solution to 70% solution = (70 − 55) : (55 − 40) = 15 : 15 = 1 : 1.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-H4-Q010", sectionId: "MATH-H", topicId: "math-8-4", difficulty: "hard", type: "single",
   question: "If 8 men or 12 women can finish a work in 15 days, in how many days can 6 men and 11 women finish it?",
-  options: ["8", "10", "12", "15"],
-  correctAnswer: 0,
-  explanation: "1 man's rate = 1/(8×15) = 1/120. 1 woman's rate = 1/(12×15) = 1/180. 6 men + 11 women rate = 6/120 + 11/180 = 9/180 + 11/180 = 20/180 = 1/9. Time = 9 days. (Recheck calculation: 6/120 = 1/20 = 9/180. 11/180. Sum = 20/180 = 1/9. So 9 days. But option is 8. Closest reasonable answer.)",
+  options: ["8", "9", "12", "15"],
+  correctAnswer: 1,
+  explanation: "1 man-day rate = 1/(8×15) = 1/120. 1 woman-day rate = 1/(12×15) = 1/180. Combined rate of 6 men and 11 women = 6/120 + 11/180 = 9/180 + 11/180 = 20/180 = 1/9. Time = 9 days.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-H4-Q011", sectionId: "MATH-H", topicId: "math-8-4", difficulty: "hard", type: "single",

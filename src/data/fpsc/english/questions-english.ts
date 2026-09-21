@@ -765,7 +765,7 @@ export const questions: Question[] = [
   question: "Choose the synonym of 'ANALYZE':",
   options: ["synthesize", "examine", "ignore", "synthesize in reverse"],
   correctAnswer: 1,
-  explanation: "Analyze means 'to examine in detail'. Synthesize means 'to combine' (the opposite kind of thinking). Ignore is unrelated. 'Examine' is the closest synonym.",
+  explanation: "Analyze means 'to examine in detail'. Synthesize means 'to combine' (the opposite kind of thinking). Ignore is unrelated. The synonym is 'examine'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENGB1-Q012", sectionId: "ENG-B", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "true_false",
