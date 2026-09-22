@@ -16,7 +16,8 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate:data": "tsx scripts/validate-question-bank.ts",
-    "check": "npm run validate:data && npm run typecheck && npm run build"
+    "check": "npm run validate:data && npm test && npm run typecheck && npm run build",
+    "test": "tsx --test src/lib/__tests__/spaced-repetition.test.ts src/lib/__tests__/quiz-signature.test.ts src/lib/__tests__/mastery.test.ts src/lib/__tests__/question-fixtures.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -37,8 +38,3 @@
     "vite": "^5.4.2"
   }
 }
-
-
-
-
-

@@ -12,6 +12,7 @@ import { BackButton, Breadcrumbs, HomeButton } from '@/components/layout/Breadcr
 import { PageContainer, Card, ProgressBar, Button, EmptyState, LoadingSpinner } from '@/components/ui';
 import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@/data/lazy-data';
 import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId } from '@/types';
+import { quizSignature } from '@/lib/quiz-signature';
 
 const VALID_MODES: PracticeMode[] = ['topic', 'quick', 'mock', 'review', 'challenge'];
 const VALID_SUBJECT_IDS = Object.keys(subjectMap);
@@ -184,30 +185,6 @@ interface SavedQuizProgress {
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
   track?: 'fpsc' | 'hat';
-}
-
-function quizSignature(p: {
-  mode: PracticeMode;
-  topicId?: string;
-  topicIds?: string[];
-  scope?: 'subject' | 'all';
-  subjectId?: string;
-  count?: number;
-  difficulty?: DifficultyFilter;
-  wrongPool?: boolean;
-  track?: 'fpsc' | 'hat';
-}): string {
-  return [
-    p.mode,
-    p.topicId ?? '',
-    (p.topicIds ?? []).join(','),
-    p.scope ?? '',
-    p.subjectId ?? '',
-    p.count ?? '',
-    p.difficulty ?? '',
-    p.wrongPool ? '1' : '0',
-    p.track ?? '',
-  ].join('|');
 }
 
 function saveQuizProgress(

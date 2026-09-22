@@ -1,5 +1,6 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, REVIEW_STAGES_DAYS, deriveAccuracy, localDateString, parseLocalDate } from '@/lib/constants';
+import { STORAGE_KEYS, deriveAccuracy, parseLocalDate } from '@/lib/constants';
+import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 
 const STORAGE_KEY = STORAGE_KEYS.appData;
@@ -248,38 +249,6 @@ export function resetData(): void {
   } catch {
     // ignore
   }
-}
-
-// Spaced repetition stages: New → 1 → 3 → 7 → 14 → 30 days
-const STAGES = [...REVIEW_STAGES_DAYS];
-
-function getCurrentStage(nextReview: string | null): number {
-  if (!nextReview) return -1;
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const reviewDate = parseLocalDate(nextReview);
-  reviewDate.setHours(0, 0, 0, 0);
-  const diffDays = Math.round((reviewDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  for (let i = 0; i < STAGES.length; i++) {
-    if (diffDays <= STAGES[i]) return i;
-  }
-  return STAGES.length - 1;
-}
-
-function computeNextReviewDate(currentStage: number, accuracy: number): string {
-  let stage = currentStage;
-  // Never scheduled yet → start at stage 0 (1 day)
-  if (stage < 0) {
-    stage = 0;
-  } else if (accuracy < 65) {
-    stage = Math.max(stage - 1, 0);
-  } else {
-    stage = Math.min(stage + 1, STAGES.length - 1);
-  }
-  const days = STAGES[stage];
-  const date = new Date();
-  date.setDate(date.getDate() + days);
-  return localDateString(date);
 }
 
 function defaultProgress(): TopicProgress {
