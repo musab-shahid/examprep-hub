@@ -11,7 +11,7 @@ import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, Button } from '@/components/ui';
 import type { SubjectId, TopicProgress } from '@/types';
 
-import { deriveAccuracy, parseLocalDate } from '@/lib/constants';
+import { getEffectiveQuizStats, parseLocalDate } from '@/lib/constants';
 
 function getRevisionGroups(
   topicProgress: Record<string, TopicProgress>,
@@ -23,7 +23,7 @@ function getRevisionGroups(
   const due = Object.entries(topicProgress)
     .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.nextReview && parseLocalDate(p.nextReview) <= today)
     .map(([topicId, p]) => {
-      const accuracy = deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0);
+      const accuracy = getEffectiveQuizStats(p).accuracy;
       let group: 'high' | 'review' | 'refresh';
       if (accuracy < 60) group = 'high';
       else if (accuracy < 75) group = 'review';

@@ -204,7 +204,7 @@ export function useSubjectData(): SubjectDataLayer {
         return subjectId ? {
           topicId,
           subjectId,
-          accuracy: deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0),
+          accuracy: getEffectiveQuizStats(p).accuracy,
           dateStr: p.nextReview!,
         } : null;
       })

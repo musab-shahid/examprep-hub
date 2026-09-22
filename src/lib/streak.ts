@@ -1,5 +1,5 @@
 import type { AppData } from '@/types';
-import { deriveAccuracy, WEAK_TOPIC_MIN_ATTEMPTS } from '@/lib/constants';
+import { deriveAccuracy, getEffectiveQuizStats, WEAK_TOPIC_MIN_ATTEMPTS } from '@/lib/constants';
 export interface StreakInfo {
   streak: number;
   atRisk: boolean;
@@ -90,8 +90,14 @@ export function getWeakTopics(
   count = 5,
 ): { topicId: string; accuracy: number; attempts: number }[] {
   return Object.entries(data.topicProgress)
-    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && (p.quizTotal ?? 0) >= minQuestions)
-    .map(([topicId, p]) => ({ topicId, accuracy: deriveAccuracy(p.quizCorrect ?? 0, p.quizTotal ?? 0), attempts: p.quizTotal ?? 0 }))
+    .filter(([topicId, p]) => {
+      if (!scopedTopicIds.has(topicId)) return false;
+      return getEffectiveQuizStats(p).total >= minQuestions;
+    })
+    .map(([topicId, p]) => {
+      const eff = getEffectiveQuizStats(p);
+      return { topicId, accuracy: eff.accuracy, attempts: eff.total };
+    })
     .sort((a, b) => a.accuracy - b.accuracy)
     .slice(0, count);
 }

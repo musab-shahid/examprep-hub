@@ -1,5 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, deriveAccuracy, parseLocalDate } from '@/lib/constants';
+import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 
@@ -59,13 +59,17 @@ const SAVE_DEBOUNCE_MS = 120;
 
 /** Drop deprecated TopicProgress fields so new saves stay clean. */
 function sanitizeTopicProgress(p: TopicProgress): TopicProgress {
-  return {
+  const clean: TopicProgress = {
     lastStudied: p.lastStudied,
     nextReview: p.nextReview,
     lastQuizDate: p.lastQuizDate,
     quizCorrect: p.quizCorrect,
     quizTotal: p.quizTotal,
   };
+  if (p.recentSessions && p.recentSessions.length > 0) {
+    clean.recentSessions = p.recentSessions.slice(-RECENT_QUIZ_SESSION_WINDOW);
+  }
+  return clean;
 }
 
 function sanitizeForSave(data: AppData): AppData {
@@ -302,7 +306,7 @@ export function getOrCreateProgress(data: AppData, topicId: string): TopicProgre
 export function markTopicStudied(data: AppData, topicId: string): AppData {
   const prog = { ...getOrCreateProgress(data, topicId) };
   const currentStage = getCurrentStage(prog.nextReview);
-  const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
+  const accuracy = getEffectiveQuizStats(prog).accuracy;
   prog.lastStudied = new Date().toISOString();
   prog.nextReview = computeNextReviewDate(currentStage, accuracy);
   return {
@@ -364,10 +368,12 @@ export function recordQuizResult(
   let topicProgress = data.topicProgress;
   for (const [tid, { correct, total }] of Object.entries(topicAnswers)) {
     const prog = { ...getOrCreateProgress({ ...data, topicProgress }, tid) };
-    prog.quizCorrect += correct; // lifetime totals (v1); rolling window is a future enhancement
+    prog.quizCorrect += correct; // lifetime volume
     prog.quizTotal += total;
     prog.lastQuizDate = new Date(now).toISOString();
-    const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
+    const prev = prog.recentSessions ?? [];
+    prog.recentSessions = [...prev, { correct, total, at: now }].slice(-RECENT_QUIZ_SESSION_WINDOW);
+    const accuracy = getEffectiveQuizStats(prog).accuracy;
     const quizStage = getCurrentStage(prog.nextReview);
     prog.nextReview = computeNextReviewDate(quizStage, accuracy);
     topicProgress = { ...topicProgress, [tid]: prog };

@@ -250,14 +250,26 @@ export interface CloudEntry {
   topicId?: string;
 }
 
+export interface TopicQuizSession {
+  correct: number;
+  total: number;
+  /** epoch ms */
+  at: number;
+}
+
 export interface TopicProgress {
   lastStudied: string | null;
   /** Authoritative next review (YYYY-MM-DD local). Single schedule. */
   nextReview: string | null;
   lastQuizDate: string | null;
-  /** Raw counts — source of truth for accuracy */
+  /** Lifetime totals (volume / history). Prefer recentSessions for mastery accuracy. */
   quizCorrect: number;
   quizTotal: number;
+  /**
+   * Last N quiz sessions on this topic (see RECENT_QUIZ_SESSION_WINDOW).
+   * Mastery, weak-topics, and SR accuracy use this window when present.
+   */
+  recentSessions?: TopicQuizSession[];
   /**
    * @deprecated Migration only. loadData maps these into quizCorrect/quizTotal/nextReview.
    * Do not write in new code; prefer quizCorrect/quizTotal/nextReview.

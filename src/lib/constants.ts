@@ -40,10 +40,39 @@ export const REVIEW_STAGES_DAYS = [1, 3, 7, 14, 30] as const;
 export const WEAK_TOPIC_MIN_ATTEMPTS = 3;
 export const WEAK_TOPIC_LIMIT = 5;
 
+/** How many recent quiz sessions drive mastery / weak / SR accuracy */
+export const RECENT_QUIZ_SESSION_WINDOW = 5;
+
 /** Derive accuracy percentage from raw counts — no rounding drift */
 export function deriveAccuracy(correct: number, total: number): number {
   if (total <= 0) return 0;
   return Math.round((correct / total) * 100);
+}
+
+export type QuizSessionLike = { correct: number; total: number };
+
+/**
+ * Effective quiz stats for mastery / weak / SR.
+ * Prefer sum of recentSessions (last N); fall back to lifetime quizCorrect/quizTotal.
+ */
+export function getEffectiveQuizStats(progress: {
+  quizCorrect?: number;
+  quizTotal?: number;
+  recentSessions?: QuizSessionLike[] | null;
+}): { correct: number; total: number; accuracy: number; fromWindow: boolean } {
+  const sessions = progress.recentSessions;
+  if (sessions && sessions.length > 0) {
+    let correct = 0;
+    let total = 0;
+    for (const s of sessions) {
+      correct += s.correct;
+      total += s.total;
+    }
+    return { correct, total, accuracy: deriveAccuracy(correct, total), fromWindow: true };
+  }
+  const correct = progress.quizCorrect ?? 0;
+  const total = progress.quizTotal ?? 0;
+  return { correct, total, accuracy: deriveAccuracy(correct, total), fromWindow: false };
 }
 
 /** Derive topic status from underlying data — single source of truth */

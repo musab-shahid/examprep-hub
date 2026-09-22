@@ -10,6 +10,7 @@ import { getWeakTopics as streakGetWeakTopics } from '@/lib/streak';
 import {
   MASTERY_ACCURACY_THRESHOLD,
   MASTERY_MIN_QUIZ_ATTEMPTS,
+  getEffectiveQuizStats,
   WEAK_TOPIC_LIMIT,
   WEAK_TOPIC_MIN_ATTEMPTS,
   deriveAccuracy,
@@ -69,16 +70,15 @@ export type DashboardRecommendation = {
 
 /**
  * Single mastery rule (see deriveStatus in constants):
- * mastered = quizTotal ≥ MASTERY_MIN_QUIZ_ATTEMPTS AND accuracy ≥ MASTERY_ACCURACY_THRESHOLD
- * Accuracy from quizCorrect / quizTotal only.
+ * mastered = effective quiz total ≥ MASTERY_MIN_QUIZ_ATTEMPTS AND accuracy ≥ threshold
+ * Effective stats prefer recentSessions window over lifetime totals.
  */
 export function isTopicMastered(topicId: string, data: AppData): boolean {
   const progress = data.topicProgress[topicId];
   if (!progress) return false;
   const studied = data.studiedTopics.includes(topicId);
-  const quizTotal = progress.quizTotal ?? 0;
-  const acc = deriveAccuracy(progress.quizCorrect ?? 0, quizTotal);
-  return deriveStatus(studied, quizTotal, acc) === 'mastered';
+  const { total, accuracy } = getEffectiveQuizStats(progress);
+  return deriveStatus(studied, total, accuracy) === 'mastered';
 }
 
 export function getMasteryScore(
@@ -117,7 +117,7 @@ export function getDueReviews(
   for (const [topicId, prog] of Object.entries(data.topicProgress ?? {})) {
     if (!scopedTopicIds.has(topicId)) continue;
     if (!prog.nextReview || parseLocalDate(prog.nextReview) > today) continue;
-    const accuracy = deriveAccuracy(prog.quizCorrect ?? 0, prog.quizTotal ?? 0);
+    const accuracy = getEffectiveQuizStats(prog).accuracy;
     let group: DueReviewItem['group'];
     if (accuracy < 60) group = 'high';
     else if (accuracy < 75) group = 'review';

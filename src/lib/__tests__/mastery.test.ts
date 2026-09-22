@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { deriveAccuracy, deriveStatus, computeMasteryScore } from '../constants.ts';
+import { deriveAccuracy, deriveStatus, computeMasteryScore, getEffectiveQuizStats } from '../constants.ts';
 
 describe('mastery helpers', () => {
   it('deriveAccuracy uses exact ratio and rounds', () => {
@@ -16,6 +16,25 @@ describe('mastery helpers', () => {
     assert.equal(deriveStatus(true, 3, 80), 'mastered');
     assert.equal(deriveStatus(false, 5, 90), 'mastered');
     assert.equal(deriveStatus(true, 5, 70), 'studied');
+  });
+
+  it('getEffectiveQuizStats prefers recent window over lifetime', () => {
+    const lifetimeHeavy = {
+      quizCorrect: 90,
+      quizTotal: 100,
+      recentSessions: [
+        { correct: 1, total: 5 },
+        { correct: 2, total: 5 },
+      ],
+    };
+    const eff = getEffectiveQuizStats(lifetimeHeavy);
+    assert.equal(eff.fromWindow, true);
+    assert.equal(eff.total, 10);
+    assert.equal(eff.correct, 3);
+    assert.equal(eff.accuracy, 30);
+    const lifetimeOnly = getEffectiveQuizStats({ quizCorrect: 8, quizTotal: 10 });
+    assert.equal(lifetimeOnly.fromWindow, false);
+    assert.equal(lifetimeOnly.accuracy, 80);
   });
 
   it('computeMasteryScore clamps 0-100', () => {
