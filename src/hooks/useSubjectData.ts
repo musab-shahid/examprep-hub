@@ -18,7 +18,7 @@ import {
   getTopicFromCache,
 } from '@/data/lazy-data';
 import type { Topic, Question, Section, SubjectId } from '@/types';
-import { deriveAccuracy, parseLocalDate } from '@/lib/constants';
+import { getEffectiveQuizStats, parseLocalDate } from '@/lib/constants';
 
 export interface SubjectStats {
   subjectId: SubjectId | 'all';
