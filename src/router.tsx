@@ -1,3 +1,7 @@
+/**
+ * In-memory router (v1). Deep-link / shareable URLs are intentionally deferred
+ * until content + quiz + SR stay solid. Do not add partial URL sync without tests.
+ */
 import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';
 import { resolveScreen } from '@/router/resolveScreen';
@@ -16,7 +20,7 @@ export type Route =
   | { screen: 'formulas' }
   | { screen: 'cloud-atlas' }
   | { screen: 'practice'; mode?: 'topic' | 'quick' | 'mock' }
-  | { screen: 'quiz'; mode: PracticeMode; topicId?: string; topicIds?: string[]; scope?: 'subject' | 'all'; subjectId?: string; count?: number; difficulty?: DifficultyFilter; timeLimit?: TimeLimitSetting; wrongPool?: boolean }
+  | { screen: 'quiz'; mode: PracticeMode; topicId?: string; topicIds?: string[]; scope?: 'subject' | 'all'; subjectId?: string; count?: number | 'all'; difficulty?: DifficultyFilter; timeLimit?: TimeLimitSetting; wrongPool?: boolean }
   | { screen: 'review' }
   | { screen: 'progress' }
   | { screen: 'search' }
@@ -44,7 +48,7 @@ interface NavigateOptions {
   subjectId?: string;
   parent?: RouteState | null;
   breadcrumb?: BreadcrumbItem[];
-  count?: number;
+  count?: number | 'all';
   difficulty?: DifficultyFilter;
   timeLimit?: TimeLimitSetting;
   topicIds?: string[];

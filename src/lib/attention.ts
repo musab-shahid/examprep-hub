@@ -68,9 +68,9 @@ export type DashboardRecommendation = {
 // ── Mastery (one rule for the whole app) ──
 
 /**
- * mastered = studied AND quizAttempts ≥ 1 AND accuracy ≥ threshold
- * Also respects explicit status === 'mastered'.
- * Prefers quizAccuracy; falls back to accuracy (storage keeps them in sync).
+ * Single mastery rule (see deriveStatus in constants):
+ * mastered = quizTotal ≥ MASTERY_MIN_QUIZ_ATTEMPTS AND accuracy ≥ MASTERY_ACCURACY_THRESHOLD
+ * Accuracy from quizCorrect / quizTotal only.
  */
 export function isTopicMastered(topicId: string, data: AppData): boolean {
   const progress = data.topicProgress[topicId];

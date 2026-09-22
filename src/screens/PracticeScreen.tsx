@@ -218,7 +218,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
               onClick={() => {
                 const topicIdsArr = [...selectedFocusTopics];
                 if (topicIdsArr.length === 0) return;
-                navigate({ screen: 'quiz', mode: 'quick', topicIds: topicIdsArr, scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 999, difficulty: 'any', timeLimit: 'none' });
+                navigate({ screen: 'quiz', mode: 'quick', topicIds: topicIdsArr, scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 'all', difficulty: 'any', timeLimit: 'none' });
               }}
               disabled={selectedFocusTopics.size === 0}
               className="w-full py-3 rounded-btn bg-brand-500 text-white font-semibold hover:bg-brand-600 transition-colors disabled:opacity-50"
@@ -242,7 +242,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
   };
 
   const startReview = () => {
-    navigate({ screen: 'quiz', mode: 'review', scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 999, difficulty: 'any', timeLimit: 'none', wrongPool: true });
+    navigate({ screen: 'quiz', mode: 'review', scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 'all', difficulty: 'any', timeLimit: 'none', wrongPool: true });
   };
 
   const startMock = () => {
@@ -250,7 +250,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
   };
 
   const startChallenge = () => {
-    navigate({ screen: 'quiz', mode: 'challenge', scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 999, difficulty: prefs.challengeDifficulty, timeLimit: 'none' });
+    navigate({ screen: 'quiz', mode: 'challenge', scope: activeSubject === 'all' ? 'all' : 'subject', subjectId: activeSubject === 'all' ? undefined : subjectId, count: 'all', difficulty: prefs.challengeDifficulty, timeLimit: 'none' });
   };
 
   const toggleExpand = (modeType: ModeType) => {

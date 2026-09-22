@@ -113,7 +113,10 @@ export function ProgressScreen() {
             <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
               <div>
                 <h3 className="font-semibold text-slate-900">Accuracy over time</h3>
-                <p className="text-slate-400 text-xs mt-0.5">Last {weeklyData.length} weeks · {totalQuestionsThisPeriod} questions answered</p>
+                <p className="text-slate-400 text-xs mt-0.5">
+                  Last {weeklyData.length} weeks · {totalQuestionsThisPeriod} questions answered
+                  {isAllSubjects ? ' · based on subjects you\'ve practiced' : ''}
+                </p>
               </div>
               {trendDelta !== null && (
                 <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${trendDelta > 0 ? 'bg-emerald-50 text-emerald-600' : trendDelta < 0 ? 'bg-rose-50 text-rose-600' : 'bg-slate-100 text-slate-500'}`}>

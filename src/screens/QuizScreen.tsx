@@ -20,16 +20,16 @@ const VALID_SUBJECT_IDS = Object.keys(subjectMap);
 
 function validateQuizParams(params: {
   mode?: PracticeMode;
-  count?: number;
+  count?: number | 'all';
   topicId?: string;
   subjectId?: string;
 }): string | null {
   if (!params.mode || !VALID_MODES.includes(params.mode)) {
     return `Invalid quiz mode: "${params.mode ?? 'undefined'}". Expected one of: ${VALID_MODES.join(', ')}.`;
   }
-  if (params.count !== undefined) {
-    if (!Number.isInteger(params.count) || params.count < 1 || params.count > 999) {
-      return `Invalid question count: "${params.count}". Expected a positive integer between 1 and 999.`;
+  if (params.count !== undefined && params.count !== 'all') {
+    if (typeof params.count !== 'number' || !Number.isInteger(params.count) || params.count < 1 || params.count > 500) {
+      return `Invalid question count: "${params.count}". Expected a positive integer, or "all".`;
     }
   }
   if (params.topicId !== undefined && params.topicId !== '' && !getTopic(params.topicId)) {
@@ -56,7 +56,7 @@ function pickQuestions(
   topicIds?: string[],
   scope?: 'subject' | 'all',
   subjectId?: string,
-  count?: number,
+  count?: number | 'all',
   difficulty?: DifficultyFilter,
   wrongPool?: boolean,
   questionResults?: Record<string, { correct: boolean; timestamp: number }>,
@@ -82,9 +82,14 @@ function pickQuestions(
   if (difficulty && difficulty !== 'any') {
     pool = pool.filter((q) => q.difficulty === difficulty);
   }
-  // count >= 999 means "all available in pool"
-  const rawTarget = count ?? (mode === 'mock' ? 60 : 10);
-  const targetCount = rawTarget >= 999 ? pool.length : rawTarget;
+  // Explicit "all", legacy >=999, or review/challenge default → entire pool
+  const targetCount = (() => {
+    if (count === 'all' || (typeof count === 'number' && count >= 999)) return pool.length;
+    if (count !== undefined) return count;
+    if (mode === 'mock') return 60;
+    if (mode === 'review' || mode === 'challenge') return pool.length;
+    return 10;
+  })();
   if (mode === 'mock') {
     if (pool.length <= targetCount) return shuffleArray(pool);
     const easyPool = pool.filter((q) => q.difficulty === 'easy');
@@ -181,7 +186,7 @@ interface SavedQuizProgress {
   topicIds?: string[];
   scope?: 'subject' | 'all';
   subjectId?: string;
-  count?: number;
+  count?: number | \'all\';
   difficulty?: DifficultyFilter;
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
@@ -241,7 +246,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   topicIds?: string[];
   scope?: 'subject' | 'all';
   subjectId?: string;
-  count?: number;
+  count?: number | 'all';
   difficulty?: DifficultyFilter;
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;

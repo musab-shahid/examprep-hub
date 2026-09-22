@@ -9,7 +9,7 @@ export type QuizSignatureInput = {
   topicIds?: string[];
   scope?: 'subject' | 'all';
   subjectId?: string;
-  count?: number;
+  count?: number | 'all';
   difficulty?: DifficultyFilter;
   wrongPool?: boolean;
   track?: 'fpsc' | 'hat';

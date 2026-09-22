@@ -252,11 +252,16 @@ export interface CloudEntry {
 
 export interface TopicProgress {
   lastStudied: string | null;
+  /** Authoritative next review (YYYY-MM-DD local). Single schedule. */
   nextReview: string | null;
   lastQuizDate: string | null;
+  /** Raw counts — source of truth for accuracy */
   quizCorrect: number;
   quizTotal: number;
-  // Legacy fields kept for migration — derived from quizCorrect/quizTotal at read time
+  /**
+   * @deprecated Migration only. loadData maps these into quizCorrect/quizTotal/nextReview.
+   * Do not write in new code; prefer quizCorrect/quizTotal/nextReview.
+   */
   accuracy?: number;
   attempts?: number;
   quizAccuracy?: number;
