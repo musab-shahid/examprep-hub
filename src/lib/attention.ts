@@ -99,7 +99,7 @@ export function countMasteredTopics(
   }).length;
 }
 
-// ── Due reviews (matches storage.getDueTopics: revisionDates OR quizNextReview) ──
+// ── Due reviews (single schedule: nextReview; revisionDates as legacy fallback) ──
 
 function startOfToday(): Date {
   const d = new Date();
@@ -116,7 +116,7 @@ export function getDueReviews(
 
   for (const [topicId, dateStr] of Object.entries(data.revisionDates ?? {})) {
     if (!scopedTopicIds.has(topicId)) continue;
-    if (new Date(dateStr) <= today) {
+    if (parseLocalDate(dateStr) <= today) {
       dueMap.set(topicId, dateStr);
     }
   }

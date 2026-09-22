@@ -59,6 +59,14 @@ function splitParts(text: string): string[] {
   return parts;
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function renderParts(text: string, katex: typeof import('katex').default): string {
   const parts = splitParts(text);
   return parts
@@ -71,9 +79,9 @@ function renderParts(text: string, katex: typeof import('katex').default): strin
         const expr = part.slice(1, -1).trim();
         return katex.renderToString(expr, { displayMode: false, throwOnError: false });
       }
-      return null;
+      // Preserve prose between formulas (escaped for safe HTML injection)
+      return escapeHtml(part);
     })
-    .filter((h): h is string => h !== null)
     .join('');
 }
 
