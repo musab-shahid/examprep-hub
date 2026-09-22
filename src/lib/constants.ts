@@ -29,13 +29,15 @@ export const STORAGE_KEYS = {
 
 /** Mastery threshold used by attention + UI */
 export const MASTERY_ACCURACY_THRESHOLD = 80;
-export const MASTERY_MIN_QUIZ_ATTEMPTS = 1;
+/** Min quiz answers on a topic before mastery can apply (was 1 — too easy). */
+export const MASTERY_MIN_QUIZ_ATTEMPTS = 3;
 
 /** Spaced-repetition interval stages (days) */
 export const REVIEW_STAGES_DAYS = [1, 3, 7, 14, 30] as const;
 
 /** Weak-topic defaults (aligned across attention + streak) */
-export const WEAK_TOPIC_MIN_ATTEMPTS = 5;
+/** Align with mastery floor so topics are not invisible between mastered and weak. */
+export const WEAK_TOPIC_MIN_ATTEMPTS = 3;
 export const WEAK_TOPIC_LIMIT = 5;
 
 /** Derive accuracy percentage from raw counts — no rounding drift */

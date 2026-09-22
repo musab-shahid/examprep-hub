@@ -12,7 +12,8 @@ describe('mastery helpers', () => {
   it('deriveStatus: mastered only with enough attempts and accuracy', () => {
     assert.equal(deriveStatus(false, 0, 0), 'not_started');
     assert.equal(deriveStatus(true, 0, 0), 'studied');
-    assert.equal(deriveStatus(true, 1, 80), 'mastered');
+    assert.equal(deriveStatus(true, 1, 80), 'studied'); // need MASTERY_MIN_QUIZ_ATTEMPTS
+    assert.equal(deriveStatus(true, 3, 80), 'mastered');
     assert.equal(deriveStatus(false, 5, 90), 'mastered');
     assert.equal(deriveStatus(true, 5, 70), 'studied');
   });

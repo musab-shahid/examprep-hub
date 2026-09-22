@@ -99,7 +99,7 @@ export function countMasteredTopics(
   }).length;
 }
 
-// ── Due reviews (single schedule: nextReview; revisionDates as legacy fallback) ──
+// ── Due reviews (authoritative: topicProgress.nextReview only) ──
 
 function startOfToday(): Date {
   const d = new Date();
@@ -112,33 +112,17 @@ export function getDueReviews(
   scopedTopicIds: Set<string>,
 ): DueReviewItem[] {
   const today = startOfToday();
-  const dueMap = new Map<string, string>(); // topicId → earliest due date
+  const due: DueReviewItem[] = [];
 
-  for (const [topicId, dateStr] of Object.entries(data.revisionDates ?? {})) {
-    if (!scopedTopicIds.has(topicId)) continue;
-    if (parseLocalDate(dateStr) <= today) {
-      dueMap.set(topicId, dateStr);
-    }
-  }
   for (const [topicId, prog] of Object.entries(data.topicProgress ?? {})) {
     if (!scopedTopicIds.has(topicId)) continue;
-    if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) {
-      const existing = dueMap.get(topicId);
-      if (!existing || parseLocalDate(prog.nextReview) < parseLocalDate(existing)) {
-        dueMap.set(topicId, prog.nextReview);
-      }
-    }
-  }
-
-  const due: DueReviewItem[] = [];
-  for (const [topicId, dateStr] of dueMap) {
-    const progress = data.topicProgress[topicId];
-    const accuracy = deriveAccuracy(progress?.quizCorrect ?? 0, progress?.quizTotal ?? 0);
+    if (!prog.nextReview || parseLocalDate(prog.nextReview) > today) continue;
+    const accuracy = deriveAccuracy(prog.quizCorrect ?? 0, prog.quizTotal ?? 0);
     let group: DueReviewItem['group'];
     if (accuracy < 60) group = 'high';
     else if (accuracy < 75) group = 'review';
     else group = 'refresh';
-    due.push({ topicId, dateStr, accuracy, group });
+    due.push({ topicId, dateStr: prog.nextReview, accuracy, group });
   }
   return due;
 }

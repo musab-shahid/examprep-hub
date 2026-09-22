@@ -1,5 +1,5 @@
 import type { AppData } from '@/types';
-import { deriveAccuracy } from '@/lib/constants';
+import { deriveAccuracy, WEAK_TOPIC_MIN_ATTEMPTS } from '@/lib/constants';
 export interface StreakInfo {
   streak: number;
   atRisk: boolean;
@@ -13,7 +13,7 @@ function dateKey(d: Date): string {
 }
 export function computeStreak(data: AppData, scopedTopicIds?: Set<string>): StreakInfo {
   const studyDays = new Set<string>();
-  // Only count days where the user actually studied (read) a topic
+  // Reading a topic counts
   for (const [topicId, prog] of Object.entries(data.topicProgress)) {
     if (scopedTopicIds && !scopedTopicIds.has(topicId)) continue;
     if (prog.lastStudied) {
@@ -21,6 +21,12 @@ export function computeStreak(data: AppData, scopedTopicIds?: Set<string>): Stre
       d.setHours(0, 0, 0, 0);
       studyDays.add(dateKey(d));
     }
+  }
+  // Quiz activity also counts (streak should not require reading-only)
+  for (const q of data.quizHistory ?? []) {
+    const d = new Date(q.date);
+    d.setHours(0, 0, 0, 0);
+    studyDays.add(dateKey(d));
   }
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -80,7 +86,7 @@ export function getWeekActivity(data: AppData, scopedSubjectIds?: Set<string>) {
 export function getWeakTopics(
   data: AppData,
   scopedTopicIds: Set<string>,
-  minQuestions = 5,
+  minQuestions = WEAK_TOPIC_MIN_ATTEMPTS,
   count = 5,
 ): { topicId: string; accuracy: number; attempts: number }[] {
   return Object.entries(data.topicProgress)

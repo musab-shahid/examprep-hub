@@ -1,4 +1,4 @@
-import { isTopicMastered } from '@/lib/attention';
+import { getAttentionItems, getDashboardRecommendation } from '@/lib/attention';
 import {
   Zap, ChevronRight, GraduationCap, Clock,
   AlertTriangle, Target, Flame, TrendingUp, Brain,
@@ -52,55 +52,36 @@ export function DashboardScreen() {
     return subjId ? subjectsByTrack(activeTrack).some((s) => s.id === subjId) : false;
   });
   const trackTopicIds = new Set(trackTopicsList.map((t) => t.id));
-  const weakTopics = getWeakTopics(data, trackTopicIds, 5, 5);
+  const weakTopics = getWeakTopics(data, trackTopicIds);
 
-  // Continue Learning: prefer last in-progress (opened, not mastered), else first unstudied in track
-  const lastTopicRaw = data.lastOpenedTopic ? getTopic(data.lastOpenedTopic) : null;
-  const lastInTrack =
-    lastTopicRaw && trackTopicIds.has(lastTopicRaw.id) ? lastTopicRaw : null;
-  const continueTopic =
-    (lastInTrack && !isTopicMastered(lastInTrack.id, data) ? lastInTrack : null) ??
-    trackTopicsList.find((t) => !data.studiedTopics.includes(t.id) && !isTopicMastered(t.id, data)) ??
-    trackTopicsList.find((t) => !isTopicMastered(t.id, data)) ??
-    null;
 
   const overallProgress = globalStats.totalTopics > 0 ? Math.round((globalStats.studiedTopics / globalStats.totalTopics) * 100) : 0;
 
-  let recHeadline = '';
-  let recSubtext = '';
-  let recAction = '';
-  let recNavigate: () => void;
-
-  if (reviewDue.length >= 3) {
-    recHeadline = `${reviewDue.length} topics due for review`;
-    recSubtext = 'Spaced repetition works best when you review before forgetting. Clear your queue now.';
-    recAction = 'Go to Review';
-    recNavigate = () => navigate({ screen: 'review', parent: null });
-  } else if (continueTopic) {
-    recHeadline = `Continue: ${continueTopic.title}`;
-    const section = sectionMap[continueTopic.sectionId];
-    const opened = data.studiedTopics.includes(continueTopic.id) || data.lastOpenedTopic === continueTopic.id;
-    recSubtext = opened
-      ? `In progress · ${section?.title ?? 'Section ' + continueTopic.sectionId}`
-      : `Not started · ${section?.title ?? 'Section ' + continueTopic.sectionId}`;
-    recAction = opened ? 'Continue Reading' : 'Start Topic';
-    recNavigate = () => navigate({ screen: 'topic', topicId: continueTopic.id, parent: null });
-  } else if (weakTopics.length >= 3) {
-    recHeadline = `Address ${weakTopics.length} weak areas`;
-    recSubtext = 'These topics have the lowest accuracy. Focus practice to close the gaps.';
-    recAction = 'Practice Weak Topics';
-    recNavigate = () => navigate({ screen: 'practice', parent: null });
-  } else if (weekActivity.quizCount === 0) {
-    recHeadline = 'Ready for a quick practice?';
-    recSubtext = 'No activity in the last 24 hours. A 5-minute quiz keeps your knowledge sharp.';
-    recAction = 'Start Quick Practice';
-    recNavigate = () => navigate({ screen: 'practice', mode: 'quick', parent: null });
-  } else {
-    recHeadline = 'All caught up! Try a mock exam?';
-    recSubtext = 'You are on track. Simulate the real thing with a full mock exam.';
-    recAction = 'Start Mock Exam';
-    recNavigate = () => navigate({ screen: 'practice', mode: 'mock', parent: null });
-  }
+  // Single recommendation source (attention.ts) — do not duplicate priority logic here
+  const attention = getAttentionItems(data, trackTopicIds, {
+    getTopicExists: (id) => Boolean(getTopic(id)),
+  });
+  const rec = getDashboardRecommendation(attention, {
+    getTopicTitle: (id) => getTopic(id)?.title,
+    getTopicSectionLabel: (id) => {
+      const topic = getTopic(id);
+      return topic ? sectionMap[topic.sectionId]?.title : undefined;
+    },
+    isTopicStudied: (id) => data.studiedTopics.includes(id),
+  });
+  const recHeadline = rec.headline;
+  const recSubtext = rec.subtext;
+  const recAction = rec.action;
+  const recNavigate = () => {
+    const p = rec.payload;
+    if (p.screen === 'topic' && p.topicId) {
+      navigate({ screen: 'topic', topicId: p.topicId, parent: null });
+    } else if (p.screen === 'practice') {
+      navigate({ screen: 'practice', mode: p.mode, parent: null });
+    } else if (p.screen === 'review') {
+      navigate({ screen: 'review', parent: null });
+    }
+  };
 
   const statsByTrack: Record<ExamTrack, typeof allStats> = { fpsc: [], hat: [] };
   for (const s of allStats) {

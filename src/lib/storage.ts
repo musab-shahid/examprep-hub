@@ -364,7 +364,7 @@ export function recordQuizResult(
   let topicProgress = data.topicProgress;
   for (const [tid, { correct, total }] of Object.entries(topicAnswers)) {
     const prog = { ...getOrCreateProgress({ ...data, topicProgress }, tid) };
-    prog.quizCorrect += correct;
+    prog.quizCorrect += correct; // lifetime totals (v1); rolling window is a future enhancement
     prog.quizTotal += total;
     prog.lastQuizDate = new Date(now).toISOString();
     const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
@@ -389,13 +389,9 @@ export function setLastOpenedTopic(data: AppData, topicId: string): AppData {
 export function getDueTopics(data: AppData): string[] {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const due = new Set<string>();
+  const due: string[] = [];
   for (const [topicId, prog] of Object.entries(data.topicProgress)) {
-    if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) due.add(topicId);
+    if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) due.push(topicId);
   }
-  // Legacy only: revisionDates for topics that never got a TopicProgress row
-  for (const [topicId, dateStr] of Object.entries(data.revisionDates)) {
-    if (!data.topicProgress[topicId]?.nextReview && parseLocalDate(dateStr) <= today) due.add(topicId);
-  }
-  return [...due];
+  return due;
 }

@@ -445,9 +445,25 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   }, [recordQuiz, topicId, mode, subjectId, difficulty]);
   finishQuizRef.current = finishQuiz;
 
+  // Pause wall-clock when exit modal is open so confirm time does not burn the quiz timer
+  const exitPauseStartedRef = useRef<number | null>(null);
+  useEffect(() => {
+    if (showExitConfirm) {
+      if (exitPauseStartedRef.current === null) exitPauseStartedRef.current = Date.now();
+      return;
+    }
+    if (exitPauseStartedRef.current !== null) {
+      const pausedMs = Date.now() - exitPauseStartedRef.current;
+      exitPauseStartedRef.current = null;
+      setState((prev) =>
+        prev ? { ...prev, startTime: prev.startTime + pausedMs } : prev,
+      );
+    }
+  }, [showExitConfirm]);
+
   // Timer: depends only on startTime / finished / timeLimit (finish via ref)
   useEffect(() => {
-    if (!state || finished) return;
+    if (!state || finished || showExitConfirm) return;
     if (timeLimit === 'none' || timeLimit === undefined) return;
     if (timeLimit === 'auto') return;
     if (typeof timeLimit !== 'number') return;
@@ -470,7 +486,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       }
     }, 1000);
     return () => clearInterval(interval);
-  }, [state?.startTime, finished, timeLimit]);
+  }, [state?.startTime, finished, timeLimit, showExitConfirm]);
 
   // Shared focus trap for exit confirmation modal
   useFocusTrap(exitModalRef, showExitConfirm, {
@@ -751,6 +767,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const difficultyLabel = currentQ.difficulty.charAt(0).toUpperCase() + currentQ.difficulty.slice(1);
   const topicInfo = getTopic(currentQ.topicId);
 
+  const mockShortPool = mode === 'mock' && state.questions.length > 0 && state.questions.length < 60;
+
   // Display remaining time when a numeric limit is set; otherwise elapsed
   const showTimer = timeLimit !== 'none' && timeLimit !== undefined && timeLimit !== 'auto';
   const totalSeconds = typeof timeLimit === 'number' ? timeLimit * 60 : 0;
@@ -785,6 +803,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           )}
         </div>
         {/* ENHANCEMENT 2B: progress by answers completed */}
+        {mockShortPool && (
+          <p className="text-amber-700 bg-amber-50 border border-amber-200 rounded-btn px-3 py-2 text-xs mb-2">
+            Only {state.questions.length} questions available for this mock (full mock targets 60). Continuing with the full available set.
+          </p>
+        )}
         <ProgressBar value={state.answers.length} max={state.questions.length} color="sky" />
       </div>
 

@@ -12,6 +12,7 @@ import {
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
+import { downloadBackupFile } from '@/lib/storage';
 import { sections } from '@/data/sections';
 import type { SubjectId } from '@/types';
 
@@ -145,6 +146,17 @@ export function SettingsScreen() {
           <p className="text-slate-400 text-xs mt-0.5 truncate">{week.questionsAnswered} answered</p>
         </Card>
       </div>
+
+      {/* Export progress */}
+      <Card className="p-4 mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div>
+            <p className="font-semibold text-slate-900 text-sm">Export progress</p>
+            <p className="text-slate-500 text-xs mt-0.5">Download a JSON backup of your local study data.</p>
+          </div>
+          <Button variant="secondary" onClick={() => downloadBackupFile()}>Download backup</Button>
+        </div>
+      </Card>
 
       {/* Per-subject data management — grouped by exam track */}
       <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
