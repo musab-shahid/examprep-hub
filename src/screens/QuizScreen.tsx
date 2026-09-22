@@ -1087,13 +1087,13 @@ function QuizResults({
             />
           </svg>
           <div className="absolute">
-            <span className="text-3xl font-bold text-slate-900">{pct}%</span>
+            <span className="text-3xl font-bold text-slate-900 font-mono tabular-nums">{pct}%</span>
           </div>
         </div>
         <p className="text-slate-700 font-semibold text-lg">
-          {results.score}/{results.total} correct
+          <span className="font-mono tabular-nums">{results.score}/{results.total}</span> correct
         </p>
-        <p className="text-slate-500 text-sm mt-1">{results.total - results.score} incorrect</p>
+        <p className="text-slate-500 text-sm mt-1"><span className="font-mono tabular-nums">{results.total - results.score}</span> incorrect</p>
       </Card>
 
       {/* Performance breakdown */}

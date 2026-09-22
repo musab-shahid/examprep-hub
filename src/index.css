@@ -92,11 +92,28 @@
   overflow: hidden;
 }
 
-/* Glassmorphism utility */
+/* Glass surfaces */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+/* Light sticky chrome (header) */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-surface {
+    background: rgba(255, 255, 255, 0.96);
+  }
+}
+/* Dark sticky chrome (mobile nav / sidebar accents) */
+.glass-dark {
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
 }
 
 /* Safe area for mobile bottom nav */

@@ -116,7 +116,7 @@ export function DashboardScreen() {
       <PurposeLine className="animate-fade-in-up">Your study command center — see what to do and how you're doing.</PurposeLine>
 
       {/* Hero card */}
-      <Card className="hero-glow p-5 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+      <Card elevation="hero" className="hero-glow p-5 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="min-w-0">
             <p className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">{getGreeting()}!</p>
@@ -129,7 +129,7 @@ export function DashboardScreen() {
             </div>
           </div>
           <div className="text-right shrink-0">
-            <p className="text-3xl sm:text-4xl font-bold text-slate-900 leading-none">{overallProgress}<span className="text-lg text-slate-400">%</span></p>
+            <p className="text-3xl sm:text-4xl font-bold text-slate-900 font-mono tabular-nums leading-none">{overallProgress}<span className="text-lg text-slate-400">%</span></p>
             <p className="text-slate-400 text-xs mt-1">overall progress</p>
           </div>
         </div>
@@ -214,7 +214,7 @@ export function DashboardScreen() {
                         <div className="flex items-center justify-between text-xs">
                           <span className={color.text}>{studiedPct}%</span>
                           {sStats.accuracy > 0 && (
-                            <span className={`tabular-nums ${sStats.accuracy >= 75 ? 'text-emerald-600' : sStats.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'}`}>
+                            <span className={`font-mono tabular-nums ${sStats.accuracy >= 75 ? 'text-emerald-600' : sStats.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'}`}>
                               {sStats.accuracy}% acc
                             </span>
                           )}

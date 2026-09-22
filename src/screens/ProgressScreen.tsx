@@ -405,7 +405,7 @@ function StatCard({ icon, label, value, sub, color }: { icon: React.ReactNode; l
       <div className={`w-9 h-9 rounded-btn ${colors[color]} flex items-center justify-center mb-2`}>{icon}</div>
       <p className="text-slate-500 text-xs font-medium">{label}</p>
       <div className="flex items-baseline gap-0.5 mt-1">
-        <span className="text-xl font-bold text-slate-900">{value}</span>
+        <span className="text-xl font-bold text-slate-900 font-mono tabular-nums">{value}</span>
         {sub && <span className="text-slate-400 text-xs">{sub}</span>}
       </div>
     </Card>

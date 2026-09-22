@@ -309,7 +309,7 @@ function InfoStat({ icon, value, label }: { icon: React.ReactNode; value: string
   return (
     <div className="flex flex-col items-center gap-0.5">
       {icon}
-      <p className="text-lg font-bold text-slate-900 leading-tight">{value}</p>
+      <p className="text-lg font-bold text-slate-900 font-mono tabular-nums leading-tight">{value}</p>
       <p className="text-slate-400 text-xs leading-tight">{label}</p>
     </div>
   );
@@ -320,7 +320,7 @@ function MiniStat({ icon, label, value }: { icon: React.ReactNode; label: string
     <div className="flex items-center gap-2">
       {icon}
       <div>
-        <p className="text-slate-900 text-sm font-bold leading-tight">{value}</p>
+        <p className="text-slate-900 text-sm font-bold font-mono tabular-nums leading-tight">{value}</p>
         <p className="text-slate-400 text-xs leading-tight">{label}</p>
       </div>
     </div>

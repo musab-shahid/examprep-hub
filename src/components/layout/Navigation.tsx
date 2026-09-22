@@ -294,7 +294,7 @@ export function MobileNav() {
   return (
     <>
       <nav
-        className="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 z-40 safe-area"
+        className="lg:hidden fixed bottom-0 left-0 right-0 glass-dark border-t border-slate-800 z-40 safe-area"
         aria-label="Primary"
       >
         <div className="flex items-center justify-around px-1 pt-1.5 pb-1">

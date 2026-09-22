@@ -21,8 +21,13 @@ export function Skeleton({
 }) {
   return (
     <div
-      className={`rounded-lg bg-slate-100 animate-pulse ${className}`}
-      style={style}
+      className={`rounded-lg bg-slate-100 shimmer-bg animate-shimmer ${className}`}
+      style={{
+        backgroundImage:
+          'linear-gradient(90deg, #f1f5f9 0%, #e2e8f0 40%, #f1f5f9 80%)',
+        backgroundSize: '200% 100%',
+        ...style,
+      }}
       aria-hidden
     />
   );
@@ -68,31 +73,47 @@ export function SectionLabel({ children, className = '' }: { children: ReactNode
   );
 }
 
+const CARD_ELEVATION = {
+  /** Border only — nested rows, dense lists */
+  flat: 'shadow-none',
+  /** Default surface */
+  raised: 'shadow-card',
+  /** Clickable / selectable — lifts on hover */
+  interactive:
+    'shadow-card cursor-pointer transition-all duration-medium hover:border-slate-300 hover:shadow-card-hover active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
+  /** Featured / CTA cards */
+  hero: 'shadow-card-hover ring-1 ring-brand-100/80',
+} as const;
+
+export type CardElevation = keyof typeof CARD_ELEVATION;
+
 export function Card({
   children,
   className = '',
   style,
   interactive = false,
+  elevation,
   onClick,
 }: {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
-  /** Soft lift + border change on hover (for clickable cards) */
+  /** @deprecated Prefer elevation="interactive" */
   interactive?: boolean;
+  /** Elevation ladder: flat | raised | interactive | hero */
+  elevation?: CardElevation;
   onClick?: () => void;
 }) {
-  const interactiveClasses = interactive
-    ? 'cursor-pointer transition-all duration-medium hover:border-slate-300 hover:shadow-card-hover active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2'
-    : '';
+  const level: CardElevation =
+    elevation ?? (interactive || onClick ? 'interactive' : 'raised');
   const Comp = onClick ? 'button' : 'div';
   return (
     <Comp
       type={onClick ? 'button' : undefined}
       onClick={onClick}
       className={[
-        'bg-white rounded-card border border-slate-200 shadow-card text-left w-full',
-        interactiveClasses,
+        'bg-white rounded-card border border-slate-200 text-left w-full',
+        CARD_ELEVATION[level],
         className,
       ].join(' ')}
       style={style}
@@ -278,20 +299,37 @@ export function Button({
   );
 }
 
+/** Tabular mono for scores, timers, percentages */
+export function StatValue({
+  children,
+  className = '',
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <span className={`font-mono tabular-nums tracking-tight ${className}`}>
+      {children}
+    </span>
+  );
+}
+
 export function ActionCard({
   children,
   className = '',
   borderColorClass = 'border-l-brand-500',
   style,
+  elevation = 'raised',
 }: {
   children: ReactNode;
   className?: string;
   borderColorClass?: string;
   style?: CSSProperties;
+  elevation?: CardElevation;
 }) {
   return (
     <div
-      className={`bg-white rounded-card border border-slate-200 border-l-4 ${borderColorClass} shadow-card p-5 sm:p-6 ${className}`}
+      className={`bg-white rounded-card border border-slate-200 border-l-4 ${borderColorClass} ${CARD_ELEVATION[elevation]} p-5 sm:p-6 ${className}`}
       style={style}
     >
       {children}

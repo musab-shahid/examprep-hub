@@ -10,7 +10,7 @@ export function Header({ title, subtitle, screen }: { title?: string; subtitle?:
   const showHome = screen !== 'home';
 
   return (
-    <header className="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 supports-[backdrop-filter]:bg-white/75">
+    <header className="sticky top-0 z-30 glass-surface border-b border-slate-200/80">
       <div className="flex items-center justify-between gap-2 px-3 sm:px-6 py-2 sm:py-3 min-h-[56px]">
         <div className="flex items-center gap-1 min-w-0 flex-1">
           <BackButton />
