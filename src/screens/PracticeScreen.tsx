@@ -13,7 +13,7 @@ import { SectionBadge } from '@/components/subject/SubjectBadge';
 import { PageContainer, Card, EmptyState, PurposeLine, LoadingSpinner, Button } from '@/components/ui';
 
 import type { SubjectId } from '@/types';
-import { deriveStatus, getEffectiveQuizStats } from '@/lib/constants';
+import { getTopicStatusFromProgress } from '@/lib/constants';
 
 type MockCount = 30 | 50 | 75 | 100;
 type ChallengeDifficulty = 'easy' | 'medium' | 'hard';
@@ -177,8 +177,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                         const selected = selectedFocusTopics.has(topic.id);
                         const progress = data.topicProgress[topic.id];
                         const studied = data.studiedTopics.includes(topic.id);
-                        const eff = getEffectiveQuizStats(progress ?? {});
-                        const status = deriveStatus(studied, eff.total, eff.accuracy);
+                        const status = getTopicStatusFromProgress(studied, progress);
                         const isMastered = status === 'mastered';
                         const isAttempted = !isMastered && qTotal > 0;
                         return (

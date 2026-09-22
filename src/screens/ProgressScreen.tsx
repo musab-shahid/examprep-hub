@@ -260,7 +260,7 @@ function AccuracyChart({ data }: { data: WeeklyAccuracyPoint[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
   const width = 640;
   const height = 200;
-  const padL = 36;
+  const padL = 44;
   const padR = 16;
   const padT = 16;
   const padB = 36;

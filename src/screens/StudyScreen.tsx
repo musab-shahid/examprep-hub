@@ -16,7 +16,7 @@ import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
 import type { SubjectId, Topic, Question } from '@/types';
-import { deriveStatus, getEffectiveQuizStats } from '@/lib/constants';
+import { getTopicStatusFromProgress } from '@/lib/constants';
 
 // ---- Learn Landing ----
 export function StudyScreen() {
@@ -51,7 +51,7 @@ export function StudyScreen() {
       .filter((t) => {
         const p = data.topicProgress[t.id];
         const studied = data.studiedTopics.includes(t.id);
-        return deriveStatus(studied, getEffectiveQuizStats(p ?? {}).total, getEffectiveQuizStats(p ?? {}).accuracy) === 'studied';
+        return getTopicStatusFromProgress(studied, p) === 'studied';
       })
       .sort((a, b) => {
         const aTime = data.topicProgress[a.id]?.lastStudied ? new Date(data.topicProgress[a.id]!.lastStudied!).getTime() : 0;
@@ -189,7 +189,7 @@ export function StudyScreen() {
                 const masteredInSection = sectionTopics.filter((t) => {
                   const p = data.topicProgress[t.id];
                   const studied = data.studiedTopics.includes(t.id);
-                  return deriveStatus(studied, getEffectiveQuizStats(p ?? {}).total, getEffectiveQuizStats(p ?? {}).accuracy) === 'mastered';
+                  return getTopicStatusFromProgress(studied, p) === 'mastered';
                 }).length;
                 const isExpanded = expandedSection === section.id;
                 return (
@@ -210,7 +210,7 @@ export function StudyScreen() {
                         {sectionTopics.map((topic) => {
                           const p = data.topicProgress[topic.id];
                           const studied = data.studiedTopics.includes(topic.id);
-                          const status = deriveStatus(studied, getEffectiveQuizStats(p ?? {}).total, getEffectiveQuizStats(p ?? {}).accuracy);
+                          const status = getTopicStatusFromProgress(studied, p);
                           const statusLabel = status === 'mastered' ? 'mastered' : status === 'studied' ? 'studied' : 'not started';
                           return (
                             <button
@@ -268,7 +268,7 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
         {sectionTopics.map((topic) => {
           const prog = data.topicProgress[topic.id];
           const studied = data.studiedTopics.includes(topic.id);
-          const status = deriveStatus(studied, getEffectiveQuizStats(prog ?? {}).total, getEffectiveQuizStats(prog ?? {}).accuracy);
+          const status = getTopicStatusFromProgress(studied, prog);
           return (
             <Card key={topic.id} className="p-0">
               <button onClick={() => navigate({ screen: 'topic', topicId: topic.id })} className="w-full flex items-center gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl">

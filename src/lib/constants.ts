@@ -86,6 +86,19 @@ export function deriveStatus(
   return 'not_started';
 }
 
+/** One-call status from progress (uses recent-session window when present). */
+export function getTopicStatusFromProgress(
+  studied: boolean,
+  progress: {
+    quizCorrect?: number;
+    quizTotal?: number;
+    recentSessions?: QuizSessionLike[] | null;
+  } | null | undefined,
+): 'not_started' | 'studied' | 'mastered' {
+  const eff = getEffectiveQuizStats(progress ?? {});
+  return deriveStatus(studied, eff.total, eff.accuracy);
+}
+
 /** Composite mastery score 0–100, clamped: 50% coverage + 50% accuracy */
 export function computeMasteryScore(studiedTopics: number, totalTopics: number, accuracy: number): number {
   if (totalTopics <= 0) return 0;

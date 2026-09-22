@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { CheckCircle, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
 import { useRouter } from '@/router';
@@ -1063,6 +1063,22 @@ function QuizResults({
     }))
     .sort((a, b) => b.accuracy - a.accuracy);
   const weakTopics = sortedByAccuracy.filter((t) => t.accuracy < 70);
+
+  type ReviewFilter = 'all' | 'wrong' | 'correct';
+  const [reviewFilter, setReviewFilter] = useState<ReviewFilter>('all');
+  const reviewItems = useMemo(() => {
+    return results.answers
+      .map((ans, idx) => ({ ans, idx, q: results.questions[idx] }))
+      .filter((row) => row.q)
+      .filter((row) => {
+        if (reviewFilter === 'wrong') return !row.ans.correct;
+        if (reviewFilter === 'correct') return row.ans.correct;
+        return true;
+      });
+  }, [results.answers, results.questions, reviewFilter]);
+  const wrongCount = results.answers.filter((a) => !a.correct).length;
+  const correctCount = results.answers.filter((a) => a.correct).length;
+
   const modeLabel =
     mode === 'topic'
       ? 'Topic Quiz'
@@ -1233,54 +1249,108 @@ function QuizResults({
         </Card>
       )}
 
-      {/* ENHANCEMENT 3A: Per-question review */}
+      {/* Per-question review with filter + jump */}
       {results.answers.length > 0 && results.questions.length > 0 && (
         <Card className="p-5 mb-4">
-          <h3 className="font-semibold text-slate-900 mb-3">Review Answers</h3>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+            <h3 className="font-semibold text-slate-900">Review Answers</h3>
+            <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter reviewed answers">
+              {([
+                ['all', `All (${results.answers.length})`],
+                ['wrong', `Incorrect (${wrongCount})`],
+                ['correct', `Correct (${correctCount})`],
+              ] as const).map(([key, label]) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setReviewFilter(key)}
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
+                    reviewFilter === key
+                      ? 'bg-slate-900 text-white'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {results.answers.length > 8 && (
+            <div className="flex flex-wrap gap-1 mb-3 max-h-20 overflow-y-auto" aria-label="Jump to question">
+              {results.answers.map((ans, idx) => {
+                if (!results.questions[idx]) return null;
+                if (reviewFilter === 'wrong' && ans.correct) return null;
+                if (reviewFilter === 'correct' && !ans.correct) return null;
+                return (
+                  <button
+                    key={`jump-${results.questions[idx].id}`}
+                    type="button"
+                    onClick={() => {
+                      document.getElementById(`review-q-${idx}`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }}
+                    className={`w-7 h-7 rounded-md text-[11px] font-mono font-semibold tabular-nums ${
+                      ans.correct
+                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                        : 'bg-red-50 text-red-700 border border-red-200'
+                    }`}
+                    title={`Question ${idx + 1}`}
+                  >
+                    {idx + 1}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
           <div className="space-y-3 max-h-96 overflow-y-auto">
-            {results.answers.map((ans, idx) => {
-              const q = results.questions[idx];
-              if (!q) return null;
-              const isOk = ans.correct;
-              const yourText =
-                ans.selectedIndices.length === 0
-                  ? 'No answer (time expired)'
-                  : q.type === 'matching'
-                    ? q.options.map((opt, i) => `${opt} → ${q.matchOptions?.[ans.selectedIndices[i] ?? -1] ?? '—'}`).join(', ')
-                    : ans.selectedIndices.map((i) => q.options[i]).join(', ');
-              const correctText =
-                q.type === 'multi'
-                  ? (q.correctAnswer as number[]).map((i) => q.options[i]).join(', ')
-                  : q.type === 'matching'
-                    ? q.options.map((opt, i) => `${opt} → ${q.matchOptions?.[(q.correctAnswer as number[])[i]] ?? '—'}`).join(', ')
-                    : q.options[q.correctAnswer as number];
-              return (
-                <div key={q.id} className="border-b border-slate-100 pb-3 last:border-b-0 last:pb-0">
-                  <div className="flex items-start gap-2 mb-1">
-                    {isOk ? (
-                      <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
-                    ) : (
-                      <XCircle className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
-                    )}
-                    <p className="text-sm text-slate-700 flex-1">
-                      <span className="text-slate-400 font-medium mr-1">Q{idx + 1}.</span>
-                      {q.question}
-                    </p>
-                  </div>
-                  {!isOk && (
-                    <div className="ml-6 text-xs text-slate-500 space-y-0.5">
-                      <p>
-                        Your answer: <span className="text-red-600 font-medium">{yourText}</span>
-                      </p>
-                      <p>
-                        Correct: <span className="text-emerald-600 font-medium">{correctText}</span>
+            {reviewItems.length === 0 ? (
+              <p className="text-sm text-slate-500 py-4 text-center">No answers in this filter.</p>
+            ) : (
+              reviewItems.map(({ ans, idx, q }) => {
+                const isOk = ans.correct;
+                const yourText =
+                  ans.selectedIndices.length === 0
+                    ? 'No answer (time expired)'
+                    : q.type === 'matching'
+                      ? q.options.map((opt, i) => `${opt} → ${q.matchOptions?.[ans.selectedIndices[i] ?? -1] ?? '—'}`).join(', ')
+                      : ans.selectedIndices.map((i) => q.options[i]).join(', ');
+                const correctText =
+                  q.type === 'multi'
+                    ? (q.correctAnswer as number[]).map((i) => q.options[i]).join(', ')
+                    : q.type === 'matching'
+                      ? q.options.map((opt, i) => `${opt} → ${q.matchOptions?.[(q.correctAnswer as number[])[i]] ?? '—'}`).join(', ')
+                      : q.options[q.correctAnswer as number];
+                return (
+                  <div key={q.id} id={`review-q-${idx}`} className="border-b border-slate-100 pb-3 last:border-b-0 last:pb-0 scroll-mt-2">
+                    <div className="flex items-start gap-2 mb-1">
+                      {isOk ? (
+                        <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                      ) : (
+                        <XCircle className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                      )}
+                      <p className="text-sm text-slate-700 flex-1">
+                        <span className="text-slate-400 font-medium mr-1">Q{idx + 1}.</span>
+                        {q.question}
                       </p>
                     </div>
-                  )}
-                  <p className="ml-6 text-xs text-slate-500 italic mt-1">{q.explanation}</p>
-                </div>
-              );
-            })}
+                    {!isOk && (
+                      <div className="ml-6 text-xs text-slate-500 space-y-0.5">
+                        <p>
+                          Your answer: <span className="text-red-600 font-medium">{yourText}</span>
+                        </p>
+                        <p>
+                          Correct: <span className="text-emerald-600 font-medium">{correctText}</span>
+                        </p>
+                      </div>
+                    )}
+                    {q.explanation && (
+                      <p className="ml-6 text-xs text-slate-500 italic mt-1">{q.explanation}</p>
+                    )}
+                  </div>
+                );
+              })
+            )}
           </div>
         </Card>
       )}
