@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { CheckCircle, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
@@ -251,6 +252,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const [state, setState] = useState<QuizState | null>(null);
   const [finished, setFinished] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
+  const exitModalRef = useRef<HTMLDivElement>(null);
   const [results, setResults] = useState<ResultsData | null>(null);
 
   // Snapshot question results once at mount — do not rewrite every render
@@ -451,39 +453,10 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     return () => clearInterval(interval);
   }, [state?.startTime, finished, timeLimit]);
 
-  // ── ENHANCEMENT 5C: Focus trap on exit modal ──
-  useEffect(() => {
-    if (!showExitConfirm) return;
-    const previouslyFocused = document.activeElement as HTMLElement | null;
-    const modal = document.getElementById('exit-modal');
-    if (!modal) return;
-
-    const focusable = modal.querySelectorAll<HTMLElement>(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
-    );
-    focusable[0]?.focus();
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        e.preventDefault();
-        setShowExitConfirm(false);
-        previouslyFocused?.focus();
-      } else if (e.key === 'Tab' && focusable.length > 0) {
-        if (e.shiftKey && document.activeElement === focusable[0]) {
-          e.preventDefault();
-          focusable[focusable.length - 1].focus();
-        } else if (!e.shiftKey && document.activeElement === focusable[focusable.length - 1]) {
-          e.preventDefault();
-          focusable[0].focus();
-        }
-      }
-    };
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      previouslyFocused?.focus();
-    };
-  }, [showExitConfirm]);
+  // Shared focus trap for exit confirmation modal
+  useFocusTrap(exitModalRef, showExitConfirm, {
+    onEscape: () => setShowExitConfirm(false),
+  });
 
   // ── All hooks MUST be above any early return (Rules of Hooks) ──
   const handleCheck = useCallback(() => {
@@ -980,6 +953,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           onClick={() => setShowExitConfirm(false)}
         >
           <div
+            ref={exitModalRef}
             className="max-w-sm w-full p-6 rounded-card border border-slate-200 bg-white shadow-lg"
             id="exit-modal"
             role="dialog"

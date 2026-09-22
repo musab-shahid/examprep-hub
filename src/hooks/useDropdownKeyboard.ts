@@ -10,14 +10,22 @@ export function useDropdownKeyboard(optionCount: number) {
   const focusOption = useCallback((index: number) => {
     const clamped = Math.max(0, Math.min(index, optionCount - 1));
     setFocusedIndex(clamped);
-    optionRefs.current[clamped]?.focus();
+    const el = optionRefs.current[clamped];
+    el?.focus();
+    el?.scrollIntoView({ block: 'nearest' });
   }, [optionCount]);
 
-  const openDropdown = useCallback(() => {
+  /** Open and focus option at preferredIndex (e.g. currently selected), default 0 */
+  const openDropdown = useCallback((preferredIndex = 0) => {
     setOpen(true);
-    setFocusedIndex(0);
-    requestAnimationFrame(() => optionRefs.current[0]?.focus());
-  }, []);
+    const idx = Math.max(0, Math.min(preferredIndex, Math.max(0, optionCount - 1)));
+    setFocusedIndex(idx);
+    requestAnimationFrame(() => {
+      const el = optionRefs.current[idx];
+      el?.focus();
+      el?.scrollIntoView({ block: 'nearest' });
+    });
+  }, [optionCount]);
 
   const closeDropdown = useCallback(() => {
     setOpen(false);
@@ -34,14 +42,12 @@ export function useDropdownKeyboard(optionCount: number) {
   const handleTriggerKeyDown = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      if (!open) openDropdown();
+      if (!open) openDropdown(0);
       else focusOption(0);
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (!open) {
-        setOpen(true);
-        setFocusedIndex(optionCount - 1);
-        requestAnimationFrame(() => optionRefs.current[optionCount - 1]?.focus());
+        openDropdown(optionCount - 1);
       } else {
         focusOption(focusedIndex - 1);
       }
@@ -66,7 +72,7 @@ export function useDropdownKeyboard(optionCount: number) {
       focusOption(optionCount - 1);
     } else if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      selectOption(index);
+      selectOption();
     } else if (e.key === 'Escape') {
       e.preventDefault();
       closeDropdown();
@@ -88,3 +94,4 @@ export function useDropdownKeyboard(optionCount: number) {
     handleOptionKeyDown,
   };
 }
+

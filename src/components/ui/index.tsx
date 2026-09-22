@@ -141,7 +141,7 @@ export function ListRow({
       onClick={onClick}
       disabled={disabled}
       className={[
-        'w-full flex items-center gap-3 px-3 py-2.5 rounded-btn text-left',
+        'w-full flex items-center gap-3 px-3 py-2 rounded-btn text-left',
         'transition-colors duration-DEFAULT',
         'hover:bg-slate-50 active:bg-slate-100',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1',
@@ -241,7 +241,7 @@ export function Badge({
     red: 'bg-red-100 text-red-700',
   };
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${colors[color]}`}>
+    <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${colors[color]}`}>
       {children}
     </span>
   );
@@ -275,8 +275,8 @@ export function Button({
     danger: 'bg-danger-500 text-white hover:bg-danger-600 active:bg-danger-700 shadow-sm shadow-danger-500/20',
   };
   const sizes: Record<ButtonSize, string> = {
-    sm: 'px-3 py-1.5 text-xs rounded-lg min-h-[32px]',
-    md: 'px-4 py-2.5 text-sm rounded-btn min-h-[40px]',
+    sm: 'px-3 py-2 text-xs rounded-lg min-h-[32px]',
+    md: 'px-4 py-2 text-sm rounded-btn min-h-[40px]',
     lg: 'px-5 py-3 text-sm rounded-btn min-h-touch',
   };
   return (
@@ -287,7 +287,7 @@ export function Button({
       className={[
         'inline-flex items-center justify-center gap-1.5 font-medium transition-all duration-DEFAULT touch-manipulation',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
-        'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none',
+        'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2',
         variants[variant],
         sizes[size],
         className,

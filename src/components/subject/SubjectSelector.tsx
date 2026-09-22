@@ -31,7 +31,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
     return topicsBySubject(opt.value as SubjectId).length > 0;
   });
   const {
-    open, setOpen, closeDropdown, handleTriggerKeyDown, handleOptionKeyDown,
+    open, setOpen, closeDropdown, openDropdown, handleTriggerKeyDown, handleOptionKeyDown,
   } = useDropdownKeyboard(enabledOptions.length);
   useEffect(() => {
     if (!open) return;
@@ -56,7 +56,13 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
         <p className="text-slate-500 text-xs font-medium mb-1.5">{label}</p>
       )}
       <button
-        onClick={() => (open ? closeDropdown() : setOpen(true))}
+        onClick={() => {
+          if (open) closeDropdown();
+          else {
+            const selectedIdx = enabledOptions.findIndex((o) => o.value === value);
+            openDropdown(selectedIdx >= 0 ? selectedIdx : 0);
+          }
+        }}
         onKeyDown={handleTriggerKeyDown}
         aria-haspopup="listbox"
         aria-expanded={open}
@@ -90,7 +96,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
                 role="option"
                 aria-selected={value === 'all'}
                 tabIndex={-1}
-                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors duration-DEFAULT ${
+                className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left hover:bg-slate-50 transition-colors duration-DEFAULT ${
                   value === 'all' ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700'
                 }`}
               >
@@ -117,7 +123,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
                 aria-disabled={disabled}
                 role="option"
                 tabIndex={-1}
-                className={`w-full flex items-center gap-2.5 px-3.5 py-2.5 text-sm text-left transition-colors duration-DEFAULT ${
+                className={`w-full flex items-center gap-2 px-3 py-2 text-sm text-left transition-colors duration-DEFAULT ${
                   active ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700 hover:bg-slate-50'
                 } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
               >

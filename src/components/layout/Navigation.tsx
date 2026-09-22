@@ -29,18 +29,19 @@ const stageIcons: Record<StageScreen, typeof BookOpen> = {
   search: Search,
 };
 
+/** Nav accents aligned with getTrackStyle (sky vs indigo metal) */
 const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; stageActive: string }> = {
   fpsc: {
     activeBorder: 'border-l-sky-500',
     activeBg: 'bg-sky-500/10',
-    iconColor: 'text-sky-400',
-    stageActive: 'text-sky-400 bg-slate-800',
+    iconColor: getTrackStyle('fpsc').accent, // text-sky-400
+    stageActive: `${getTrackStyle('fpsc').accent} bg-slate-800`,
   },
   hat: {
-    activeBorder: 'border-l-indigo-500',
-    activeBg: 'bg-indigo-500/10',
-    iconColor: 'text-indigo-400',
-    stageActive: 'text-indigo-400 bg-slate-800',
+    activeBorder: 'border-l-indigo-600',
+    activeBg: 'bg-indigo-600/10',
+    iconColor: getTrackStyle('hat').accent, // text-indigo-400
+    stageActive: `${getTrackStyle('hat').accent} bg-slate-800`,
   },
 };
 
@@ -84,7 +85,7 @@ export function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-brand-400 to-indigo-500 flex items-center justify-center shrink-0 shadow-glow-brand">
+          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-glow-brand">
             <Library className="w-6 h-6 text-white" />
           </div>
           <div className="min-w-0">
@@ -303,7 +304,7 @@ export function MobileNav() {
             const Icon = item.icon;
             const isHat = item.screen === 'hat';
             const isFpsc = item.screen === 'fpsc';
-            const activeColor = isHat ? 'text-indigo-400' : isFpsc ? 'text-sky-400' : 'text-sky-400';
+            const activeColor = isHat ? getTrackStyle('hat').accent : getTrackStyle('fpsc').accent;
             return (
               <button
                 key={item.screen}
@@ -317,7 +318,7 @@ export function MobileNav() {
                 {active && (
                   <span
                     className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full ${
-                      isHat ? 'bg-indigo-400' : 'bg-sky-400'
+                      isHat ? 'bg-indigo-600' : 'bg-sky-500'
                     }`}
                     aria-hidden
                   />

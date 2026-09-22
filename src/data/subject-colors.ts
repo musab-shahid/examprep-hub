@@ -44,9 +44,15 @@ export interface TrackStyle {
 /**
  * SINGLE SOURCE OF TRUTH for all subject + track colors.
  *
+ * Branding:
+ * - FPSC = sky / earth (sky–cyan metal on navy). Keep FPSC chrome free of indigo/violet.
+ * - HAT  = indigo / violet metal on charcoal. Indigo+violet are intentional HAT identity
+ *   (track chrome + Verbal subject) — not a global ban.
+ *
  * Design rules:
- * - Tracks = dark shiny heroes + one metal accent (not reused as subject main color)
- * - Subjects = 10 distinct lively mid-saturation hues (no shared families required)
+ * - Tracks = dark shiny heroes + one metal accent (not reused as every subject main color)
+ * - Subjects = 10 distinct lively mid-saturation hues
+ * - Nav / focus rings for a track should use the same scale as getTrackStyle(track)
  *
  *  T1 FPSC track     → sky metal on deep navy
  *  T2 HAT track      → indigo metal on deep charcoal
