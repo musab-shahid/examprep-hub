@@ -186,7 +186,7 @@ interface SavedQuizProgress {
   topicIds?: string[];
   scope?: 'subject' | 'all';
   subjectId?: string;
-  count?: number | \'all\';
+  count?: number | 'all';
   difficulty?: DifficultyFilter;
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
