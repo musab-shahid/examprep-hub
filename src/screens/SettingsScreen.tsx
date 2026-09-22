@@ -12,6 +12,7 @@ import {
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
+import { sections } from '@/data/sections';
 import type { SubjectId } from '@/types';
 
 export function SettingsScreen() {
@@ -28,6 +29,10 @@ export function SettingsScreen() {
   const globalStudied = data.studiedTopics.length;
   const globalAnswered = Object.keys(data.questionResults).length;
   const globalCorrect = Object.values(data.questionResults).filter((r) => r.correct).length;
+
+  // App-wide inventory (both tracks) — not scoped to activeTrack
+  const globalTopicCount = sections.reduce((sum, s) => sum + s.topicCount, 0);
+  const globalQuestionCount = sections.reduce((sum, s) => sum + s.questionCount, 0);
   const globalAcc = globalAnswered > 0 ? Math.round((globalCorrect / globalAnswered) * 100) : 0;
 
   const allSelected = selectedSubjects.size === subjects.length;
@@ -106,8 +111,8 @@ export function SettingsScreen() {
         </div>
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
           <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
-          <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${sd.totalTopics}`} label="topics" />
-          <InfoStat icon={<Database className="w-4 h-4 text-emerald-500" />} value={`${sd.totalQuestions}`} label="questions" />
+          <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${globalTopicCount}`} label="topics" />
+          <InfoStat icon={<Database className="w-4 h-4 text-emerald-500" />} value={`${globalQuestionCount}`} label="questions" />
         </div>
       </Card>
 
