@@ -38,6 +38,9 @@ function validateQuizParams(params: {
   if (params.subjectId !== undefined && params.subjectId !== '' && !VALID_SUBJECT_IDS.includes(params.subjectId)) {
     return `Invalid subject ID: "${params.subjectId}" does not exist.`;
   }
+  if (params.mode === 'topic' && (!params.topicId || params.topicId === '')) {
+    return 'Topic quiz requires a topicId. Refusing to start a track-wide pool.';
+  }
   return null;
 }
 
@@ -62,6 +65,13 @@ function pickQuestions(
   questionResults?: Record<string, { correct: boolean; timestamp: number }>,
   track?: 'fpsc' | 'hat',
 ): Question[] {
+  // Fail closed: never treat a broken topic quiz as track-wide practice
+  if (mode === 'topic' && !topicId) {
+    if (import.meta.env?.DEV) {
+      console.warn('[pickQuestions] mode=topic without topicId — returning empty pool');
+    }
+    return [];
+  }
   const fullPool = allQuestions();
   let pool: Question[];
   if (mode === 'topic' && topicId) {

@@ -216,13 +216,50 @@ async function main() {
     }
   }
 
-  // Metadata: section question counts (from loaded questions)
-  const countBySection = new Map<string, number>();
-  // Re-count from findings pass — reload is expensive; skip detailed recount if load failed
-  // Optional: compare sections.ts questionCount when we have full load
+  // Metadata drift: sections.ts topicCount/questionCount must match bank + topic metadata
+  const qCountBySection = new Map<string, number>();
+  for (const subjectId of activeSubjects as SubjectId[]) {
+    const loader = questionLoaders[subjectId];
+    if (!loader) continue;
+    try {
+      const mod = await loader();
+      for (const q of mod.questions ?? []) {
+        if (!q.sectionId) continue;
+        qCountBySection.set(q.sectionId, (qCountBySection.get(q.sectionId) ?? 0) + 1);
+      }
+    } catch {
+      /* load failures already reported */
+    }
+  }
+  const topicCountBySection = new Map<string, number>();
+  for (const topic of topics) {
+    topicCountBySection.set(topic.sectionId, (topicCountBySection.get(topic.sectionId) ?? 0) + 1);
+  }
+
   for (const s of sections) {
     if (s.questionCount < 0 || s.topicCount < 0) {
       add('critical', s.subjectId, s.id, 'NEGATIVE_META', 'Negative topicCount/questionCount');
+    }
+    const actualTopics = topicCountBySection.get(s.id) ?? 0;
+    if (s.topicCount !== actualTopics) {
+      add(
+        'critical',
+        s.subjectId,
+        s.id,
+        'TOPIC_COUNT_DRIFT',
+        `sections.topicCount=${s.topicCount} but topic metadata has ${actualTopics}`,
+      );
+    }
+    // Only assert question counts when we successfully loaded that subject's bank
+    const actualQs = qCountBySection.get(s.id);
+    if (actualQs !== undefined && s.questionCount !== actualQs) {
+      add(
+        'critical',
+        s.subjectId,
+        s.id,
+        'QUESTION_COUNT_DRIFT',
+        `sections.questionCount=${s.questionCount} but bank has ${actualQs}`,
+      );
     }
   }
 

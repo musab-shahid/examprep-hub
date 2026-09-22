@@ -16,6 +16,13 @@ import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
+/** Honesty label when filter is All Subjects — stats are not bank-wide. */
+function practicedSubjectsNote(isAll: boolean): string {
+  return isAll
+    ? 'Accuracy and weak areas reflect subjects you\'ve practiced.'
+    : '';
+}
+
 export function ProgressScreen() {
   const { data } = useData();
   const sd = useSubjectData();
@@ -115,7 +122,7 @@ export function ProgressScreen() {
                 <h3 className="font-semibold text-slate-900">Accuracy over time</h3>
                 <p className="text-slate-400 text-xs mt-0.5">
                   Last {weeklyData.length} weeks · {totalQuestionsThisPeriod} questions answered
-                  {isAllSubjects ? ' · based on subjects you\'ve practiced' : ''}
+                  {practicedSubjectsNote(isAllSubjects) ? ` · ${practicedSubjectsNote(isAllSubjects)}` : ''}
                 </p>
               </div>
               {trendDelta !== null && (
@@ -143,7 +150,12 @@ export function ProgressScreen() {
           {/* By subject (all) or section accuracy (single) */}
           {isAllSubjects ? (
             <Card className="p-5 mb-4">
-              <h3 className="font-semibold text-slate-900 mb-4">By Subject</h3>
+              <div className="mb-4">
+                <h3 className="font-semibold text-slate-900">By Subject</h3>
+                {practicedSubjectsNote(isAllSubjects) && (
+                  <p className="text-slate-400 text-xs mt-0.5">{practicedSubjectsNote(isAllSubjects)}</p>
+                )}
+              </div>
               <div className="space-y-4">
                 {allStats.filter((s) => s.hasContent).map((sStats) => {
                   const subject = subjects.find((s) => s.id === sStats.subjectId);
@@ -193,7 +205,12 @@ export function ProgressScreen() {
 
           {/* Weakest topics */}
           <Card className="p-5 mb-4">
-            <h3 className="font-semibold text-slate-900 mb-3">Weakest Topics</h3>
+            <div className="mb-3">
+              <h3 className="font-semibold text-slate-900">Weakest Topics</h3>
+              {practicedSubjectsNote(isAllSubjects) && (
+                <p className="text-slate-400 text-xs mt-0.5">{practicedSubjectsNote(isAllSubjects)}</p>
+              )}
+            </div>
             {weakTopics.length > 0 ? (
               <div className="space-y-2">
                 {weakTopics.map((w, i) => {
