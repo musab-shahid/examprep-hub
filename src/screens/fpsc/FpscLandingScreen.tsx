@@ -254,14 +254,14 @@ export function FpscLandingScreen() {
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => handleStudySubject(subject.id as SubjectId)}
-                      className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r ${style.gradient} text-white text-sm font-semibold hover:opacity-90 transition-all hover:shadow-md`}
+                      className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r ${style.gradient} text-white text-sm font-semibold hover:opacity-90 transition-all hover:shadow-card-hover`}
                     >
                       Study <ChevronRight className="w-4 h-4" />
                     </button>
                     {questionCount > 0 && (
                       <button
                         onClick={() => handlePracticeSubject(subject.id as SubjectId)}
-                        className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl ${style.tint} ${style.text} text-sm font-semibold hover:opacity-80 transition-all border ${style.border}`}
+                        className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl ${style.tint} ${style.text} text-sm font-semibold hover:opacity-80 transition-all border ${style.border}`}
                       >
                         Practice <ArrowRight className="w-4 h-4" />
                       </button>

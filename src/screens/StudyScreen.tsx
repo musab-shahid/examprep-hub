@@ -140,7 +140,7 @@ export function StudyScreen() {
               </p>
               <button
                 onClick={() => navigate({ screen: 'topic', topicId: continueTopic.id })}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl ${contColor.bar} text-white text-sm font-semibold hover:opacity-90 transition-opacity`}
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl ${contColor.bar} text-white text-sm font-semibold hover:opacity-90 transition-opacity`}
               >
                 Continue Reading <ArrowRight className="w-4 h-4" />
               </button>

@@ -126,7 +126,7 @@ export function ProgressScreen() {
                 </p>
               </div>
               {trendDelta !== null && (
-                <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold ${trendDelta > 0 ? 'bg-emerald-50 text-emerald-600' : trendDelta < 0 ? 'bg-rose-50 text-rose-600' : 'bg-slate-100 text-slate-500'}`}>
+                <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-semibold ${trendDelta > 0 ? 'bg-emerald-50 text-emerald-600' : trendDelta < 0 ? 'bg-rose-50 text-rose-600' : 'bg-slate-100 text-slate-500'}`}>
                   {trendDelta > 0 ? <TrendingUp className="w-3.5 h-3.5" /> : trendDelta < 0 ? <TrendingUp className="w-3.5 h-3.5 rotate-180" /> : null}
                   {trendDelta > 0 ? '+' : ''}{trendDelta}% vs last week
                 </div>

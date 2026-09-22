@@ -345,13 +345,13 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                   </div>
                   <div>
                     <label className="block text-slate-500 text-xs font-medium mb-1.5">Timer</label>
-                    <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
+                    <div className="px-3 py-2 rounded-btn border border-slate-200 bg-slate-50 text-slate-600 text-sm font-medium">
                       {mockTimerMinutes} min (auto)
                     </div>
                   </div>
                   <div>
                     <label className="block text-slate-500 text-xs font-medium mb-1.5">Difficulty</label>
-                    <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
+                    <div className="px-3 py-2 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
                       Auto-mixed
                     </div>
                   </div>
@@ -397,7 +397,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                 </div>
                 <div>
                   <label className="block text-slate-500 text-xs font-medium mb-1.5">Available at this level</label>
-                  <div className="px-3.5 py-2.5 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
+                  <div className="px-3 py-2 rounded-btn border border-slate-200 bg-slate-50 text-slate-500 text-sm font-medium">
                     {challengePool.length} questions
                   </div>
                 </div>
@@ -469,7 +469,7 @@ function Dropdown({ value, options, onChange, ariaLabel }: {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={ariaLabel}
-        className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 transition-colors"
+        className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-btn border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 transition-colors"
       >
         <span>{currentLabel}</span>
         <ChevronDown className={`w-4 h-4 text-slate-400 shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
@@ -493,7 +493,7 @@ function Dropdown({ value, options, onChange, ariaLabel }: {
                 role="option"
                 aria-selected={opt.value === value}
                 tabIndex={-1}
-                className={`w-full flex items-center justify-between px-3.5 py-2.5 text-sm text-left hover:bg-slate-50 transition-colors ${
+                className={`w-full flex items-center justify-between px-3 py-2 text-sm text-left hover:bg-slate-50 transition-colors ${
                   opt.value === value ? 'bg-brand-50 text-brand-700 font-medium' : 'text-slate-700'
                 }`}
               >
@@ -522,7 +522,7 @@ function SimpleModeCard({ icon, iconBg, title, description, bestFor, onClick, di
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
+      className="w-full flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
     >
       <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
         {icon}
@@ -552,7 +552,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
   children: React.ReactNode;
 }) {
   return (
-    <div className={`rounded-2xl bg-white border transition-all ${expanded ? 'border-slate-300 shadow-sm' : 'border-slate-200 hover:border-slate-300 hover:shadow-sm'} ${disabled ? 'opacity-60' : ''}`}>
+    <div className={`rounded-2xl bg-white border transition-all ${expanded ? 'border-slate-300 shadow-card' : 'border-slate-200 hover:border-slate-300 hover:shadow-card-hover'} ${disabled ? 'opacity-60' : ''}`}>
       <button
         onClick={onToggle}
         disabled={disabled}
@@ -577,7 +577,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
             {children}
             <button
               onClick={onStart}
-              className="w-full mt-4 py-2.5 rounded-btn bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5"
+              className="w-full mt-4 py-2 rounded-btn bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors flex items-center justify-center gap-1.5"
             >
               {startLabel}
               <ChevronRight className="w-4 h-4" />

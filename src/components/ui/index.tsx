@@ -387,7 +387,7 @@ export function AchievementBadge({
   if (unlocked) {
     return (
       <div
-        className={`rounded-2xl border p-4 text-center transition-shadow hover:shadow-sm ${
+        className={`rounded-2xl border p-4 text-center transition-shadow shadow-card hover:shadow-card-hover ${
           color ? `${color.tint} border-transparent` : 'bg-emerald-50 border-emerald-200'
         }`}
       >

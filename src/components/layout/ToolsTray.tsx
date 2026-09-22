@@ -194,7 +194,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
             key={t.label}
             type="button"
             onClick={t.onClick}
-            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
+            className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
           >
             <t.icon className="w-4 h-4" />
             {t.label}
@@ -206,7 +206,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
             navigate({ screen: 'fpsc', parent: null });
             onClose();
           }}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
+          className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
         >
           <FileText className="w-4 h-4" />
           FPSC Exam
@@ -217,7 +217,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
             navigate({ screen: 'hat', parent: null });
             onClose();
           }}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
+          className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
         >
           <GraduationCap className="w-4 h-4" />
           HAT Prep

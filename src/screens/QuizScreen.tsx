@@ -787,11 +787,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* Topic + difficulty + source citation */}
       {topicInfo && (
         <div className="flex items-center gap-2 mb-3 flex-wrap">
-          <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+          <span className="text-xs font-medium px-2 py-1 rounded-full bg-slate-100 text-slate-700">
             Topic: {topicInfo.title}
           </span>
           <span
-            className={`text-xs font-medium px-2.5 py-1 rounded-full ${
+            className={`text-xs font-medium px-2 py-1 rounded-full ${
               currentQ.difficulty === 'easy'
                 ? 'bg-emerald-100 text-emerald-700'
                 : currentQ.difficulty === 'medium'

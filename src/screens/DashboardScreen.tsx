@@ -151,7 +151,7 @@ export function DashboardScreen() {
         <p className="text-slate-500 text-sm mb-4">{recSubtext}</p>
         <button
           onClick={recNavigate}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-colors duration-DEFAULT shadow-sm shadow-brand-500/20"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-btn bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-colors duration-DEFAULT shadow-sm shadow-brand-500/20"
         >
           {recAction} <ChevronRight className="w-4 h-4" />
         </button>
@@ -166,7 +166,7 @@ export function DashboardScreen() {
         return (
           <Card key={track.id} className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: `${0.15 + trackIdx * 0.05}s` }}>
             <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${trackTs.gradient} flex items-center justify-center shrink-0 shadow-sm`}>
                   <TrackIcon className="w-4 h-4 text-white" />
                 </div>
@@ -180,7 +180,7 @@ export function DashboardScreen() {
               </button>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
               {trackStats.map((sStats) => {
                 const subject = subjects.find((s) => s.id === sStats.subjectId);
                 if (!subject) return null;
@@ -198,7 +198,7 @@ export function DashboardScreen() {
                       navigate({ screen: 'learn', parent: null });
                     }}
                     disabled={!hasContent}
-                    className="text-left p-3 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="text-left p-3 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <div className="flex items-center gap-2 mb-2">
                       <span className={`w-7 h-7 rounded-md ${colors.bg} flex items-center justify-center shrink-0`}>
@@ -251,7 +251,7 @@ export function DashboardScreen() {
                     <button
                       key={w.topicId}
                       onClick={() => navigate({ screen: 'topic', topicId: w.topicId, parent: null })}
-                      className="w-full flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-white transition-colors text-left"
+                      className="w-full flex items-center justify-between px-2 py-2 rounded-lg hover:bg-white transition-colors text-left"
                     >
                       <div className="flex items-center gap-2 min-w-0">
                         <span className="text-slate-400 text-xs font-bold w-4 shrink-0">{i + 1}</span>
@@ -287,7 +287,7 @@ export function DashboardScreen() {
             <Zap className="w-4 h-4 text-slate-500" />
             <h3 className="font-semibold text-slate-900 text-sm">Quick actions</h3>
           </div>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-2 gap-2">
             <QuickActionTile
               icon={<Zap className="w-5 h-5 text-amber-600" />}
               iconBg="bg-amber-50 border border-amber-200"
@@ -376,7 +376,7 @@ function QuickActionTile({
       className={`flex items-center gap-3 p-3 rounded-xl text-left transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
         dark
           ? 'bg-slate-900 hover:bg-slate-800'
-          : 'bg-slate-50 border border-slate-200 hover:bg-white hover:shadow-sm hover:border-slate-300'
+          : 'bg-slate-50 border border-slate-200 hover:bg-white hover:shadow-card-hover hover:border-slate-300'
       }`}
     >
       <span className={`w-9 h-9 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>

@@ -122,7 +122,7 @@ export function Sidebar() {
               {/* Track header — navigates to track landing page */}
               <button
                 onClick={() => navigate({ screen: landing, parent: null })}
-                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-btn text-sm font-medium transition-all duration-DEFAULT border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+                className={`w-full flex items-center gap-3 px-4 py-2 rounded-btn text-sm font-medium transition-all duration-DEFAULT border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                   isTrackActive
                     ? `${styles.activeBorder} text-white bg-slate-800`
                     : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
@@ -144,7 +144,7 @@ export function Sidebar() {
                     <div key={subject.id}>
                       <button
                         onClick={() => toggleSubject(subject.id)}
-                        className={`w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-DEFAULT border-l-2 ${
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-DEFAULT border-l-2 ${
                           active
                             ? `${colors.borderActive.replace('border-', 'border-l-')} text-white bg-slate-800`
                             : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
@@ -166,7 +166,7 @@ export function Sidebar() {
                               <button
                                 key={stage}
                                 onClick={() => goToStage(stage, subject.id as SubjectId)}
-                                className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-DEFAULT ${
+                                className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-DEFAULT ${
                                   stageActive
                                     ? styles.stageActive
                                     : 'text-slate-500 hover:text-white hover:bg-slate-800'
@@ -185,7 +185,7 @@ export function Sidebar() {
                           {subject.id === 'meteo-climatology' && (
                             <button
                               onClick={() => navigate({ screen: 'cloud-atlas', parent: null })}
-                              className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                              className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                                 currentScreen === 'cloud-atlas'
                                   ? styles.stageActive
                                   : 'text-slate-500 hover:text-white hover:bg-slate-800'
@@ -209,7 +209,7 @@ export function Sidebar() {
         <div className="space-y-0.5">
           <button
             onClick={() => { setActiveSubjectForScreen('search', 'all'); navigate({ screen: 'search', parent: null }); }}
-            className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+            className={`w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
               currentScreen === 'search'
                 ? 'text-white bg-slate-800'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -220,7 +220,7 @@ export function Sidebar() {
           </button>
           <button
             onClick={() => { setActiveSubjectForScreen('practice', 'all'); navigate({ screen: 'practice', mode: 'mock', parent: null }); }}
-            className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+            className={`w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
               route.screen === 'practice' && route.mode === 'mock'
                 ? 'text-white bg-slate-800'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -231,7 +231,7 @@ export function Sidebar() {
           </button>
           <button
             onClick={() => { setActiveSubjectForScreen('progress', 'all'); navigate({ screen: 'progress', parent: null }); }}
-            className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+            className={`w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
               currentScreen === 'progress' && getActiveSubject('progress') === 'all'
                 ? 'text-white bg-slate-800'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -246,7 +246,7 @@ export function Sidebar() {
       <div className="px-3 py-3 border-t border-slate-800 relative">
         <button
           onClick={() => navigate({ screen: 'settings', parent: null })}
-          className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+          className={`w-full flex items-center gap-3 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
             currentScreen === 'settings'
               ? 'text-white bg-slate-800'
               : 'text-slate-400 hover:text-white hover:bg-slate-800'
