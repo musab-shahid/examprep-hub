@@ -56,10 +56,30 @@ let saveTimer: ReturnType<typeof setTimeout> | null = null;
 let pendingData: AppData | null = null;
 const SAVE_DEBOUNCE_MS = 120;
 
+
+/** Drop deprecated TopicProgress fields so new saves stay clean. */
+function sanitizeTopicProgress(p: TopicProgress): TopicProgress {
+  return {
+    lastStudied: p.lastStudied,
+    nextReview: p.nextReview,
+    lastQuizDate: p.lastQuizDate,
+    quizCorrect: p.quizCorrect,
+    quizTotal: p.quizTotal,
+  };
+}
+
+function sanitizeForSave(data: AppData): AppData {
+  const topicProgress: Record<string, TopicProgress> = {};
+  for (const [id, prog] of Object.entries(data.topicProgress ?? {})) {
+    topicProgress[id] = sanitizeTopicProgress(prog);
+  }
+  return { ...data, topicProgress };
+}
+
 function flushSave(): void {
   if (pendingData === null) return;
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(pendingData));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
   } catch {
     // QuotaExceeded or private mode — ignore
   }

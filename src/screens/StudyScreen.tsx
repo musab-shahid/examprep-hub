@@ -451,6 +451,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
                   </tr>
                 </thead>
                 <tbody>
+                  {/* py-2.5: intentional denser content spacing (not chrome 8px grid) */}
                   {topic.comparisonTable.rows.map((row, i) => (
                     <tr key={i} className="border-b border-slate-100 last:border-0">
                       {row.map((cell, j) => (

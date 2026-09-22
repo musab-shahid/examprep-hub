@@ -393,8 +393,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   }, [wrongPool, data.questionResults, mode, topicId, topicIds, scope, subjectId, count, difficulty, initQuiz]);
 
   // Load questions first, then init quiz
+  // Re-runs when quiz params change because initQuiz is memoized on those deps.
   useEffect(() => {
     let cancelled = false;
+    setQuestionsLoadError(false);
+    setRetakeEmpty(false);
     const load = async () => {
       setQuestionsLoading(true);
       try {
@@ -418,6 +421,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     load();
     return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- mode/topicId/scope/subjectId live inside initQuiz
   }, [initQuiz]);
 
   // ── Shared finish helper — side effects only outside setState updaters ──

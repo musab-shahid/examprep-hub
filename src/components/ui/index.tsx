@@ -269,7 +269,7 @@ export function Button({
   type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'onClick' | 'disabled' | 'className'>) {
   const variants: Record<ButtonVariant, string> = {
-    primary: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-sm shadow-brand-500/20',
+    primary: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-sm shadow-brand-500/20', // button chrome, not card elevation
     secondary: 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 active:bg-slate-100',
     ghost: 'text-slate-600 hover:bg-slate-100 active:bg-slate-200',
     danger: 'bg-danger-500 text-white hover:bg-danger-600 active:bg-danger-700 shadow-sm shadow-danger-500/20',
