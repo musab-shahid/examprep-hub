@@ -4,6 +4,8 @@
  *
  * Usage: npx tsx scripts/validate-question-bank.ts
  * Exit 1 on any critical error.
+ * Metadata drift (TOPIC_COUNT_DRIFT / QUESTION_COUNT_DRIFT):
+ *   fix numbers in src/data/sections.ts or the bank — do not ignore in CI.
  */
 
 import { writeFileSync } from 'node:fs';

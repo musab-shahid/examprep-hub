@@ -1,6 +1,6 @@
 /**
  * In-memory router (v1). Deep-link / shareable URLs are intentionally deferred
- * until content + quiz + SR stay solid. Do not add partial URL sync without tests.
+ * until content + quiz + SR stay solid (v1 product decision — M4). Do not add partial URL sync without tests.
  */
 import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';

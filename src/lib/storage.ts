@@ -144,9 +144,22 @@ function normalizeLoaded(parsed: AppData): AppData {
       migrated = true;
     }
   }
-  for (const [tid, prog] of Object.entries(merged.topicProgress)) {
-    if (prog.nextReview) {
-      merged.revisionDates[tid] = prog.nextReview;
+  // Legacy revisionDates → nextReview (one-way). Do not mirror back.
+  for (const [tid, dateStr] of Object.entries(merged.revisionDates ?? {})) {
+    if (!dateStr) continue;
+    const prog = merged.topicProgress[tid];
+    if (prog && !prog.nextReview) {
+      merged.topicProgress[tid] = { ...prog, nextReview: dateStr };
+      migrated = true;
+    } else if (!prog) {
+      merged.topicProgress[tid] = {
+        lastStudied: null,
+        nextReview: dateStr,
+        lastQuizDate: null,
+        quizCorrect: 0,
+        quizTotal: 0,
+      };
+      migrated = true;
     }
   }
   if (migrated) {
@@ -276,7 +289,6 @@ export function markTopicStudied(data: AppData, topicId: string): AppData {
     ...data,
     studiedTopics: [...new Set([...data.studiedTopics, topicId])],
     topicProgress: { ...data.topicProgress, [topicId]: prog },
-    revisionDates: { ...data.revisionDates, [topicId]: prog.nextReview },
     lastOpenedTopic: topicId,
   };
 }
@@ -330,7 +342,6 @@ export function recordQuizResult(
   }
 
   let topicProgress = data.topicProgress;
-  const revisionDates = { ...data.revisionDates };
   for (const [tid, { correct, total }] of Object.entries(topicAnswers)) {
     const prog = { ...getOrCreateProgress({ ...data, topicProgress }, tid) };
     prog.quizCorrect += correct;
@@ -339,7 +350,6 @@ export function recordQuizResult(
     const accuracy = deriveAccuracy(prog.quizCorrect, prog.quizTotal);
     const quizStage = getCurrentStage(prog.nextReview);
     prog.nextReview = computeNextReviewDate(quizStage, accuracy);
-    revisionDates[tid] = prog.nextReview;
     topicProgress = { ...topicProgress, [tid]: prog };
   }
 
@@ -348,7 +358,7 @@ export function recordQuizResult(
     questionResults,
     quizHistory,
     topicProgress,
-    revisionDates,
+    // revisionDates: legacy read-only; not updated on new activity
   };
 }
 
@@ -363,7 +373,7 @@ export function getDueTopics(data: AppData): string[] {
   for (const [topicId, prog] of Object.entries(data.topicProgress)) {
     if (prog.nextReview && parseLocalDate(prog.nextReview) <= today) due.add(topicId);
   }
-  // Also check legacy revisionDates for topics without progress entries
+  // Legacy only: revisionDates for topics that never got a TopicProgress row
   for (const [topicId, dateStr] of Object.entries(data.revisionDates)) {
     if (!data.topicProgress[topicId]?.nextReview && parseLocalDate(dateStr) <= today) due.add(topicId);
   }
