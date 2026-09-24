@@ -1,5 +1,5 @@
 import type { AppData, Topic, Question } from '@/types';
-import { getEffectiveQuizStats, parseLocalDate } from '@/lib/constants';
+import { deriveAccuracy, getEffectiveQuizStats, parseLocalDate, computeMasteryScore } from '@/lib/constants';
 export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQuestions: Question[]) {
   const topicIds = new Set(scopedTopics.map((t) => t.id));
   const questionIds = new Set(scopedQuestions.map((q) => q.id));

@@ -5,7 +5,7 @@ import {
   ChevronRight, ChevronDown, Cloud, MoreHorizontal, FileText,
   Library, Dumbbell,
 } from 'lucide-react';
-import { useRouter } from '@/router';
+import { useRouter, type ScreenName } from '@/router';
 import { examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -303,6 +303,7 @@ export function MobileNav() {
             const active = currentScreen === item.screen;
             const Icon = item.icon;
             const isHat = item.screen === 'hat';
+            const isFpsc = item.screen === 'fpsc';
             const activeColor = isHat ? getTrackStyle('hat').accent : getTrackStyle('fpsc').accent;
             return (
               <button

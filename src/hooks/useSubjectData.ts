@@ -3,11 +3,11 @@ import { useData } from '@/hooks/useData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { sectionMap, sectionsBySubject, sections } from '@/data/sections';
 import { topics, topicsBySubject, getTopic } from '@/data/topics';
-import { questionsByTopic } from '@/data/questions';
+import { allQuestions, questionsByTopic } from '@/data/questions';
 import { subjectMap, subjectsByTrack } from '@/data/subjects';
 import { getFormulasForSubject } from '@/data/formulas';
 import { getOverallStats, getWeakestTopics, getTodayRevision } from '@/lib/stats';
-import { searchTopics } from '@/lib/search';
+import { searchTopics, type SearchResult } from '@/lib/search';
 import {
   loadSubjectTopics,
   loadSubjectQuestions,
@@ -50,7 +50,7 @@ export interface SubjectDataLayer {
   totalFormulas: number;
 
   revisionQueueAll: () => Array<{ topicId: string; subjectId: SubjectId; accuracy: number; dateStr: string }>;
-  searchAll: (query: string) => Array<{ topic: Topic; subjectId: SubjectId; match: string; type: 'topic' | 'formula' }>;
+  searchAll: (query: string) => Array<{ topic: Topic; subjectId: SubjectId; match: string; type: SearchResult['type'] }>;
 
   formulasFor: (id: SubjectId | 'all') => ReturnType<typeof getFormulasForSubject>;
   getTopicById: (topicId: string) => Topic | undefined;

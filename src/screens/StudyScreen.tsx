@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, Check, X, BookA, PenLine, Atom, Lightbulb, AlertCircle } from 'lucide-react';
+import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, Check, X, BookA, PenLine, Atom, Lightbulb, TrendingUp, AlertCircle } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
-import { subjectMap, subjectsByTrack } from '@/data/subjects';
+import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
 import { topicsBySection, getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';

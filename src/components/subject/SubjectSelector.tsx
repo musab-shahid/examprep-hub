@@ -1,6 +1,6 @@
 import { ChevronDown, Check } from 'lucide-react';
 import { useRef, useEffect, useCallback } from 'react';
-import { subjectsByTrack } from '@/data/subjects';
+import { subjects, subjectsByTrack } from '@/data/subjects';
 import { getSubjectStyle } from '@/data/subject-colors';
 import { topicsBySubject } from '@/data/topics';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';

@@ -1,7 +1,7 @@
 import { createContext, useState, useCallback, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId } from '@/types';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
-import { sections } from '@/data/sections';
+import { sections, sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
 
 export interface DataContextValue {

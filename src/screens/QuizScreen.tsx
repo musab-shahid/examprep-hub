@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { CheckCircle, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, HelpCircle } from 'lucide-react';
+import { CheckCircle, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { allQuestions, questionsByTopic } from '@/data/questions';
@@ -82,7 +82,7 @@ function pickQuestions(
   } else if (scope === 'subject' && subjectId) {
     pool = fullPool.filter((q) => sectionMap[q.sectionId]?.subjectId === subjectId);
   } else {
-    const trackSubjectIds = new Set(subjectsByTrack(track).map((s) => s.id));
+    const trackSubjectIds = new Set(subjectsByTrack(track ?? 'fpsc').map((s) => s.id));
     pool = fullPool.filter((q) => trackSubjectIds.has(sectionMap[q.sectionId]?.subjectId));
   }
   if (wrongPool && questionResults) {
@@ -210,7 +210,7 @@ function saveQuizProgress(
   subjectId?: string,
   topicIds?: string[],
   scope?: 'subject' | 'all',
-  count?: number,
+  count?: number | 'all',
   difficulty?: DifficultyFilter,
   timeLimit?: TimeLimitSetting,
   wrongPool?: boolean,
@@ -267,7 +267,6 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const [state, setState] = useState<QuizState | null>(null);
   const [finished, setFinished] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
-  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
   const exitModalRef = useRef<HTMLDivElement>(null);
   const [results, setResults] = useState<ResultsData | null>(null);
 
@@ -793,20 +792,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             </button>
             <Breadcrumbs />
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-slate-500 text-sm font-medium">
-              Q {state.currentIdx + 1} of {state.questions.length}
-            </span>
-            <button
-              type="button"
-              onClick={() => setShowShortcutsHelp((v) => !v)}
-              className="flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors"
-              aria-label="Keyboard shortcuts"
-              aria-expanded={showShortcutsHelp}
-            >
-              <HelpCircle className="w-4 h-4" />
-            </button>
-          </div>
+          <span className="text-slate-500 text-sm font-medium">
+            Q {state.currentIdx + 1} of {state.questions.length}
+          </span>
           {showTimer && (
             <span className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-red-600 font-semibold' : 'text-slate-600'}`}>
               <Clock className="w-4 h-4" />
@@ -821,16 +809,6 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           </p>
         )}
         <ProgressBar value={state.answers.length} max={state.questions.length} color="sky" />
-        {showShortcutsHelp && (
-          <div className="mt-2 rounded-btn border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-            <p className="font-semibold text-slate-800 mb-1">Keyboard shortcuts</p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 list-none p-0 m-0">
-              <li><kbd className="font-mono bg-white border border-slate-200 rounded px-1">1</kbd>–<kbd className="font-mono bg-white border border-slate-200 rounded px-1">9</kbd> / <kbd className="font-mono bg-white border border-slate-200 rounded px-1">A</kbd>–<kbd className="font-mono bg-white border border-slate-200 rounded px-1">D</kbd> Select option</li>
-              <li><kbd className="font-mono bg-white border border-slate-200 rounded px-1">Enter</kbd> Check / Next</li>
-              <li><kbd className="font-mono bg-white border border-slate-200 rounded px-1">Esc</kbd> Exit quiz</li>
-            </ul>
-          </div>
-        )}
       </div>
 
       {/* Topic + difficulty + source citation */}

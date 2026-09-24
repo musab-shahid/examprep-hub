@@ -45,7 +45,7 @@ export function HatLandingScreen() {
   const totalTopics = allHatTopics.length;
   const totalQuestions = allHatQuestions.length;
   const studiedHatTopics = allHatTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
-  const quizTouchedHatTopics = allHatTopics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
+  const quizTouchedHatTopics = allHatTopics.filter((t) => (data.topicProgress[t.id]?.quizAttempts ?? 0) > 0).length;
   const overallProgress = totalTopics > 0 ? Math.round((studiedHatTopics / totalTopics) * 100) : 0;
   const stats = [
     { icon: Layers, label: 'Sections', value: '3', color: ts.statIconColors[0] },
@@ -167,7 +167,7 @@ export function HatLandingScreen() {
           const topics = allHatTopics.filter((t) => t.hatSection === section.id);
           const sectionQuestionCount = hatQuestionsBySection(section.sectionCode).length;
           const studiedCount = topics.filter((t) => data.studiedTopics.includes(t.id)).length;
-          const quizCount = topics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
+          const quizCount = topics.filter((t) => (data.topicProgress[t.id]?.quizAttempts ?? 0) > 0).length;
           const sectionProgress = topics.length > 0 ? Math.round((studiedCount / topics.length) * 100) : 0;
           return (
             <Card

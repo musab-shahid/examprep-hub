@@ -179,7 +179,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                         const studied = data.studiedTopics.includes(topic.id);
                         const status = getTopicStatusFromProgress(studied, progress);
                         const isMastered = status === 'mastered';
-                        const isAttempted = !isMastered && qTotal > 0;
+                        const isAttempted = !isMastered && (progress?.quizTotal ?? 0) > 0;
                         return (
                           <button
                             key={topic.id}

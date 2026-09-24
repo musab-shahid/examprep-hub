@@ -10,7 +10,7 @@ import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSectionAccuracy } from '@/lib/stats';
 import { computeStreak, getWeakTopics, getWeeklyAccuracy, type WeeklyAccuracyPoint } from '@/lib/streak';
-import { computeMasteryScore } from '@/lib/constants';
+import { deriveAccuracy, computeMasteryScore } from '@/lib/constants';
 import { countMasteredTopics } from '@/lib/attention';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge } from '@/components/ui';

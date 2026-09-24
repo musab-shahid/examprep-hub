@@ -1,5 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
+import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 
@@ -25,6 +25,22 @@ export function getBackupRaw(): string | null {
   }
 }
 
+export function downloadBackupFile(): boolean {
+  const raw = getBackupRaw();
+  if (!raw) return false;
+  try {
+    const blob = new Blob([raw], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `examprep-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 const emptyData: AppData = {
   studiedTopics: [],
@@ -61,55 +77,7 @@ function sanitizeForSave(data: AppData): AppData {
   for (const [id, prog] of Object.entries(data.topicProgress ?? {})) {
     topicProgress[id] = sanitizeTopicProgress(prog);
   }
-  // Do not persist legacy revisionDates — migrated into nextReview on load
-  return { ...data, topicProgress, revisionDates: {} };
-}
-
-/** Export current app data (or last good localStorage) as a downloadable JSON file. */
-export function downloadBackupFile(data?: AppData): boolean {
-  try {
-    let raw: string | null = null;
-    if (data) {
-      raw = JSON.stringify(sanitizeForSave(data));
-    } else {
-      raw = localStorage.getItem(STORAGE_KEY) ?? getBackupRaw();
-    }
-    if (!raw) return false;
-    const blob = new Blob([raw], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `examprep-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Import a previously exported JSON backup. Replaces local progress after validation.
- * Returns normalized AppData on success.
- */
-export function importAppDataFromJson(raw: string): { ok: true; data: AppData } | { ok: false; error: string } {
-  try {
-    const parsed = JSON.parse(raw);
-    if (!validateAppData(parsed)) {
-      return { ok: false, error: 'File is not a valid ExamPrep Hub backup.' };
-    }
-    const normalized = normalizeLoaded(parsed as AppData);
-    // Drop legacy revisionDates after migration — nextReview is authoritative
-    const cleaned = sanitizeForSave({ ...normalized, revisionDates: {} });
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
-    } catch {
-      return { ok: false, error: 'Could not write imported data to browser storage.' };
-    }
-    return { ok: true, data: cleaned };
-  } catch {
-    return { ok: false, error: 'Could not read that file. Choose a valid JSON backup.' };
-  }
+  return { ...data, topicProgress };
 }
 
 function flushSave(): void {
