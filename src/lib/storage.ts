@@ -1,5 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
+import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 

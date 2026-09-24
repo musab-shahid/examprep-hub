@@ -8,12 +8,9 @@
 import type { AppData } from '@/types';
 import { getWeakTopics as streakGetWeakTopics } from '@/lib/streak';
 import {
-  MASTERY_ACCURACY_THRESHOLD,
-  MASTERY_MIN_QUIZ_ATTEMPTS,
   getEffectiveQuizStats,
   WEAK_TOPIC_LIMIT,
   WEAK_TOPIC_MIN_ATTEMPTS,
-  deriveAccuracy,
   deriveStatus,
   computeMasteryScore,
   parseLocalDate,
