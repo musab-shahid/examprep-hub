@@ -13,4 +13,22 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react-dom') || id.includes('/react/')) return 'vendor-react';
+            if (id.includes('katex')) return 'vendor-katex';
+            if (id.includes('lucide-react')) return 'vendor-icons';
+            return 'vendor';
+          }
+          // Lazy question banks stay on their own dynamic imports; group shared lib
+          if (id.includes('/src/lib/')) return 'app-lib';
+          if (id.includes('/src/data/') && !id.includes('questions-')) return 'app-data';
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
 });

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, Check, X, BookA, PenLine, Atom, Lightbulb, TrendingUp, AlertCircle } from 'lucide-react';
+import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, Check, X, BookA, PenLine, Atom, Lightbulb, AlertCircle } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';

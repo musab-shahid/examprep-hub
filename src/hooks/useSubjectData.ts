@@ -3,7 +3,7 @@ import { useData } from '@/hooks/useData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { sectionMap, sectionsBySubject, sections } from '@/data/sections';
 import { topics, topicsBySubject, getTopic } from '@/data/topics';
-import { allQuestions, questionsByTopic } from '@/data/questions';
+import { questionsByTopic } from '@/data/questions';
 import { subjectMap, subjectsByTrack } from '@/data/subjects';
 import { getFormulasForSubject } from '@/data/formulas';
 import { getOverallStats, getWeakestTopics, getTodayRevision } from '@/lib/stats';

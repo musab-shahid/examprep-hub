@@ -11,7 +11,7 @@ import { useData } from '@/hooks/useData';
 import { subjects, examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
 import type { SubjectId } from '@/types';
 import { getTopic } from '@/data/topics';
-import { sectionMap, sections } from '@/data/sections';
+import { sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
 import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator } from '@/components/ui';
 import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
