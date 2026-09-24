@@ -32,6 +32,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
   });
   const {
     open, setOpen, closeDropdown, openDropdown, handleTriggerKeyDown, handleOptionKeyDown,
+    triggerRef,
   } = useDropdownKeyboard(enabledOptions.length);
   useEffect(() => {
     if (!open) return;
@@ -56,6 +57,7 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
         <p className="text-slate-500 text-xs font-medium mb-1.5">{label}</p>
       )}
       <button
+        ref={triggerRef}
         onClick={() => {
           if (open) closeDropdown();
           else {

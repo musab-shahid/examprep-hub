@@ -76,8 +76,12 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
     if (selection !== 'all') {
       const track = getTrackForSubject(selection as string);
       if (track !== state.activeTrack) {
-        // Subject belongs to other track — fall back without wiping preference
-        return state.prefersAll ? 'all' : 'all';
+        // Subject belongs to other track — use lastSelected if it matches active track
+        if (state.lastSelected) {
+          const lastTrack = getTrackForSubject(state.lastSelected as string);
+          if (lastTrack === state.activeTrack) return state.lastSelected;
+        }
+        return 'all';
       }
     }
     return selection;

@@ -13,6 +13,7 @@ export type QuizSignatureInput = {
   difficulty?: DifficultyFilter;
   wrongPool?: boolean;
   track?: 'fpsc' | 'hat';
+  timeLimit?: number | 'none' | 'auto' | string;
 };
 
 export function quizSignature(p: QuizSignatureInput): string {
@@ -26,6 +27,7 @@ export function quizSignature(p: QuizSignatureInput): string {
     p.difficulty ?? '',
     p.wrongPool ? '1' : '0',
     p.track ?? '',
+    p.timeLimit === undefined || p.timeLimit === null ? '' : String(p.timeLimit),
   ].join('|');
 }
 

@@ -14,6 +14,7 @@ describe('quiz signature', () => {
 
   it('matches identical configs', () => {
     assert.equal(signaturesMatch(base, { ...base }), true);
+    assert.equal(signaturesMatch(base, { ...base, timeLimit: 60 }), false);
   });
 
   it('differs when mode changes', () => {

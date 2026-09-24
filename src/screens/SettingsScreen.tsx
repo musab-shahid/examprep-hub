@@ -121,29 +121,29 @@ export function SettingsScreen() {
       <div className="grid grid-cols-3 gap-3 mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
         <Card className="p-3">
           <div className="flex items-center gap-1.5 mb-1">
-            <Flame className={`w-4 h-4 ${streak.streak > 0 ? 'text-orange-500' : 'text-slate-400'}`} />
-            <span className="text-slate-400 text-xs font-medium">Streak</span>
+            <Flame className={`w-4 h-4 ${streak.streak > 0 ? 'text-orange-500' : 'text-slate-500'}`} />
+            <span className="text-slate-500 text-xs font-medium">Streak</span>
           </div>
-          <p className="text-xl font-bold text-slate-900 leading-tight">{streak.streak}<span className="text-sm font-normal text-slate-400">d</span></p>
-          <p className="text-slate-400 text-xs mt-0.5 truncate">
+          <p className="text-xl font-bold text-slate-900 leading-tight">{streak.streak}<span className="text-sm font-normal text-slate-500">d</span></p>
+          <p className="text-slate-500 text-xs mt-0.5 truncate">
             {streak.studiedToday ? 'On track' : streak.atRisk ? 'At risk' : 'Start today'}
           </p>
         </Card>
         <Card className="p-3">
           <div className="flex items-center gap-1.5 mb-1">
             <TrendingUp className="w-4 h-4 text-brand-500" />
-            <span className="text-slate-400 text-xs font-medium">Today</span>
+            <span className="text-slate-500 text-xs font-medium">Today</span>
           </div>
           <p className="text-xl font-bold text-slate-900 leading-tight">{today.questionsAnswered}</p>
-          <p className="text-slate-400 text-xs mt-0.5 truncate">{today.quizCount} quizzes</p>
+          <p className="text-slate-500 text-xs mt-0.5 truncate">{today.quizCount} quizzes</p>
         </Card>
         <Card className="p-3">
           <div className="flex items-center gap-1.5 mb-1">
             <Target className="w-4 h-4 text-emerald-500" />
-            <span className="text-slate-400 text-xs font-medium">Week</span>
+            <span className="text-slate-500 text-xs font-medium">Week</span>
           </div>
-          <p className="text-xl font-bold text-slate-900 leading-tight">{week.avgAccuracy}<span className="text-sm font-normal text-slate-400">%</span></p>
-          <p className="text-slate-400 text-xs mt-0.5 truncate">{week.questionsAnswered} answered</p>
+          <p className="text-xl font-bold text-slate-900 leading-tight">{week.avgAccuracy}<span className="text-sm font-normal text-slate-500">%</span></p>
+          <p className="text-slate-500 text-xs mt-0.5 truncate">{week.questionsAnswered} answered</p>
         </Card>
       </div>
 
@@ -192,15 +192,15 @@ export function SettingsScreen() {
                     <TrackIcon className="w-3.5 h-3.5 text-white" />
                   </span>
                   <span className="text-sm font-semibold text-slate-700">{trackMeta.title}</span>
-                  <span className="text-slate-400 text-xs">({trackSubjects.length})</span>
+                  <span className="text-slate-500 text-xs">({trackSubjects.length})</span>
                 </div>
-                <span className={`text-xs font-medium transition-colors ${allTrackSelected ? 'text-sky-600' : 'text-slate-400 group-hover:text-slate-600'}`}>
+                <span className={`text-xs font-medium transition-colors ${allTrackSelected ? 'text-sky-600' : 'text-slate-500 group-hover:text-slate-600'}`}>
                   {allTrackSelected ? 'Clear track' : 'Select track'}
                 </span>
               </button>
 
               {/* Compact table header */}
-              <div className="hidden sm:grid grid-cols-[1fr_50px_50px_50px_24px] gap-2 px-2 pb-1 text-slate-400 text-xs font-medium uppercase tracking-wide">
+              <div className="hidden sm:grid grid-cols-[1fr_50px_50px_50px_24px] gap-2 px-2 pb-1 text-slate-500 text-xs font-medium uppercase tracking-wide">
                 <span>Subject</span>
                 <span className="text-right">Studied</span>
                 <span className="text-right">Answered</span>
@@ -236,7 +236,7 @@ export function SettingsScreen() {
                         {hasData ? stats.questionsAnswered : '—'}
                       </span>
                       <span className={`text-sm text-right tabular-nums font-medium ${
-                        !hasData || stats.accuracy === 0 ? 'text-slate-400'
+                        !hasData || stats.accuracy === 0 ? 'text-slate-500'
                         : stats.accuracy >= 75 ? 'text-emerald-600'
                         : stats.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'
                       }`}>
@@ -307,8 +307,8 @@ export function SettingsScreen() {
           <MiniStat icon={<TrendingUp className="w-4 h-4 text-amber-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />
         </div>
         <div className="flex items-start gap-1.5 mt-3">
-          <Info className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
-          <p className="text-slate-400 text-xs leading-relaxed">
+          <Info className="w-3.5 h-3.5 text-slate-500 shrink-0 mt-0.5" />
+          <p className="text-slate-500 text-xs leading-relaxed">
             Stored locally in your browser. No account or server required.
           </p>
         </div>
@@ -322,7 +322,7 @@ function InfoStat({ icon, value, label }: { icon: React.ReactNode; value: string
     <div className="flex flex-col items-center gap-0.5">
       {icon}
       <p className="text-lg font-bold text-slate-900 font-mono tabular-nums leading-tight">{value}</p>
-      <p className="text-slate-400 text-xs leading-tight">{label}</p>
+      <p className="text-slate-500 text-xs leading-tight">{label}</p>
     </div>
   );
 }
@@ -333,7 +333,7 @@ function MiniStat({ icon, label, value }: { icon: React.ReactNode; label: string
       {icon}
       <div>
         <p className="text-slate-900 text-sm font-bold font-mono tabular-nums leading-tight">{value}</p>
-        <p className="text-slate-400 text-xs leading-tight">{label}</p>
+        <p className="text-slate-500 text-xs leading-tight">{label}</p>
       </div>
     </div>
   );

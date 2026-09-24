@@ -84,10 +84,11 @@ function flushSave(): void {
   if (pendingData === null) return;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
+    pendingData = null;
   } catch {
-    // QuotaExceeded or private mode — ignore
+    lastStorageWarning =
+      'Could not save progress (browser storage may be full). Free space or export a backup — your latest changes may be lost on reload.';
   }
-  pendingData = null;
   saveTimer = null;
 }
 
@@ -274,9 +275,16 @@ export function resetData(): void {
   }
   pendingData = null;
   try {
-    // Backup before wiping
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) localStorage.setItem(BACKUP_KEY, raw);
+    if (raw) {
+      try {
+        localStorage.setItem(BACKUP_KEY, raw);
+      } catch {
+        lastStorageWarning =
+          'Could not create a backup before reset (storage full). Reset cancelled so your data is not lost.';
+        return;
+      }
+    }
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(LEGACY_KEY);
     localStorage.removeItem(STORAGE_KEYS.subjectSelection);
@@ -284,7 +292,7 @@ export function resetData(): void {
     localStorage.removeItem(STORAGE_KEYS.quizProgress);
     localStorage.removeItem(STORAGE_KEYS.sidebarExpanded);
   } catch {
-    // ignore
+    lastStorageWarning = 'Reset failed. Your existing progress was left unchanged.';
   }
 }
 

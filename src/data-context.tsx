@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId } from '@/types';
-import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
+import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData, flushPendingSave } from '@/lib/storage';
 import { sections, sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
 
@@ -33,6 +33,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       saveData(newData);
       return newData;
     });
+    flushPendingSave();
   }, []);
 
   const setLastTopic = useCallback((topicId: string) => {

@@ -304,7 +304,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   useEffect(() => {
     const saved = loadQuizProgress();
     if (saved && saved.answers.length > 0) {
-      const currentSig = quizSignature({ mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, track: activeTrack });
+      const currentSig = quizSignature({ mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, track: activeTrack, timeLimit });
       const savedSig = quizSignature({
         mode: saved.mode,
         topicId: saved.topicId,
@@ -315,6 +315,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         difficulty: saved.difficulty,
         wrongPool: saved.wrongPool,
         track: saved.track,
+        timeLimit: saved.timeLimit,
       });
       if (currentSig === savedSig) {
         setResumeOffer(saved);
@@ -614,6 +615,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     if (finished) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (showExitConfirm) return;
       const s = stateRef.current;
       if (!s || s.questions.length === 0) return;
       const q = s.questions[s.currentIdx];
@@ -645,7 +647,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [finished, handleCheck, handleNext, handleExit, toggleOption]);
+  }, [finished, showExitConfirm, handleCheck, handleNext, handleExit, toggleOption]);
 
   // ── Early returns only AFTER all hooks ──
   const validationError = validateQuizParams({ mode, count, topicId, subjectId });
@@ -796,8 +798,14 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             Q {state.currentIdx + 1} of {state.questions.length}
           </span>
           {showTimer && (
-            <span className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-red-600 font-semibold' : 'text-slate-600'}`}>
-              <Clock className="w-4 h-4" />
+            <span
+              className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-red-600 font-semibold' : 'text-slate-600'}`}
+              role="timer"
+              aria-live={timerUrgent ? 'assertive' : 'off'}
+              aria-atomic="true"
+            >
+              <Clock className="w-4 h-4" aria-hidden />
+              <span className="sr-only">Time remaining </span>
               {Math.floor(displaySeconds / 60)}:{String(displaySeconds % 60).padStart(2, '0')}
             </span>
           )}
@@ -872,7 +880,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                 role={currentQ.type === 'multi' ? 'checkbox' : 'radio'}
                 aria-checked={isSelected}
                 aria-label={`Option ${idx + 1}: ${opt}${ariaExtra}${state.checked && currentQ.type !== 'multi' ? ' — tap to continue' : ''}`}
-                className={`w-full flex items-center gap-3 p-3.5 rounded-btn border-2 text-left transition-all ${bgClass} ${state.checked && currentQ.type !== 'multi' ? 'cursor-pointer' : ''}`}
+                className={`w-full flex items-center gap-3 p-3.5 rounded-btn border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1 text-left transition-all ${bgClass} ${state.checked && currentQ.type !== 'multi' ? 'cursor-pointer' : ''}`}
               >
                 <div
                   className={`w-6 h-6 shrink-0 flex items-center justify-center text-xs font-bold ${
@@ -906,7 +914,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           role="status"
           aria-live="polite"
           onClick={handleNext}
-          title="Tap to continue"
+          title="Tap or press Enter to continue"
         >
           <div className="flex items-center gap-2 mb-3">
             {correctAns ? (
@@ -920,7 +928,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                 <span className="font-semibold text-red-700">Incorrect</span>
               </>
             )}
-            <span className="ml-auto text-xs text-slate-400 font-medium">Tap to continue →</span>
+            <span className="ml-auto text-xs text-slate-400 font-medium">Tap or press Enter to continue →</span>
           </div>
           {!correctAns && (currentQ.type === 'multi') && (
             <div className="mb-3 space-y-1">

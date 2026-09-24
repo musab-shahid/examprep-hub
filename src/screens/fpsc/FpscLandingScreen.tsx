@@ -187,7 +187,7 @@ export function FpscLandingScreen() {
           const topicCount = sd.topicsFor(subject.id as SubjectId).length;
           const questionCount = subjectSections.reduce((sum, s) => sum + s.questionCount, 0);
           const studiedCount = sd.topicsFor(subject.id as SubjectId).filter((t) => data.studiedTopics.includes(t.id)).length;
-          const quizCount = sd.topicsFor(subject.id as SubjectId).filter((t) => (data.topicProgress[t.id]?.quizAttempts ?? 0) > 0).length;
+          const quizCount = sd.topicsFor(subject.id as SubjectId).filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
           const subjectProgress = topicCount > 0 ? Math.round((studiedCount / topicCount) * 100) : 0;
           const description = SUBJECT_DESCRIPTIONS[subject.id] ?? 'FPSC subject preparation.';
 
