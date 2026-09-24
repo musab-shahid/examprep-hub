@@ -12,7 +12,7 @@ import {
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
-import { downloadBackupFile } from '@/lib/storage';
+import { downloadBackupFile, importAppDataFromJson } from '@/lib/storage';
 import { sections } from '@/data/sections';
 import type { SubjectId } from '@/types';
 
@@ -147,14 +147,42 @@ export function SettingsScreen() {
         </Card>
       </div>
 
-      {/* Export progress */}
+      {/* Export / import progress */}
       <Card className="p-4 mb-4">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="flex flex-col gap-3">
           <div>
-            <p className="font-semibold text-slate-900 text-sm">Export progress</p>
-            <p className="text-slate-500 text-xs mt-0.5">Download a JSON backup of your local study data.</p>
+            <p className="font-semibold text-slate-900 text-sm">Backup & restore</p>
+            <p className="text-slate-500 text-xs mt-0.5">
+              Progress is stored in this browser only. Export a JSON file to keep a copy, or import one to restore.
+            </p>
           </div>
-          <Button variant="secondary" onClick={() => downloadBackupFile()}>Download backup</Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="secondary" onClick={() => {
+              const ok = downloadBackupFile(data);
+              if (!ok) window.alert('Nothing to export yet — complete a study session first.');
+            }}>Download backup</Button>
+            <Button variant="secondary" onClick={() => {
+              const input = document.createElement('input');
+              input.type = 'file';
+              input.accept = 'application/json,.json';
+              input.onchange = async () => {
+                const file = input.files?.[0];
+                if (!file) return;
+                try {
+                  const text = await file.text();
+                  const result = importAppDataFromJson(text);
+                  if (!result.ok) {
+                    window.alert(result.error);
+                    return;
+                  }
+                  window.location.reload();
+                } catch {
+                  window.alert('Could not read that file.');
+                }
+              };
+              input.click();
+            }}>Import backup</Button>
+          </div>
         </div>
       </Card>
 
