@@ -1,4 +1,7 @@
-/** Question ID migration aliases (old → {sectionId}-Q{nnn}). */
+/** Question ID migration aliases (old → {sectionId}-Q{nnn}).
+ * One-time migration for localStorage questionResults keys.
+ * Future cleanup: remove this map after users have loaded+re-saved (aliases become dead weight).
+ */
 export const QUESTION_ID_ALIASES: Record<string, string> = {
   'A1-Q001': 'METEO-01-Q001',
   'A1-Q002': 'METEO-01-Q002',

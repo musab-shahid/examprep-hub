@@ -479,7 +479,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high'
 },
 
@@ -852,7 +851,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-q1-arithmetic']
 },
@@ -1246,7 +1244,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-q1-arithmetic', 'hat-q2-commercial']
 },
@@ -1745,7 +1742,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-q1-arithmetic']
 },
@@ -2220,7 +2216,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-q1-arithmetic', 'hat-q4-algebra']
 },
@@ -2585,7 +2580,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-q1-arithmetic']
 },
@@ -2974,7 +2968,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'medium',
   buildsOn: ['hat-q1-arithmetic', 'hat-q2-commercial', 'hat-q6-numbers-sequences']
 },
@@ -3301,7 +3294,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'medium',
   buildsOn: ['hat-q1-arithmetic', 'hat-q2-commercial', 'hat-q3-rate-motion', 'hat-q4-algebra']
 },
@@ -3613,7 +3605,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: [
     'hat-q1-arithmetic',
@@ -3895,7 +3886,6 @@ export const quantitativeTopics: QuantTopic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'quantitative',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: [
     'hat-q1-arithmetic',

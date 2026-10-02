@@ -280,7 +280,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: []
 }, 
@@ -551,7 +550,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating']
 }, 
@@ -837,7 +835,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations']
 }, 
@@ -1112,7 +1109,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations', 'hat-a3-syllogisms']
 },
@@ -1439,7 +1435,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations', 'hat-a3-syllogisms', 'hat-a4-critical-reasoning']
 },
@@ -1740,7 +1735,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations', 'hat-a3-syllogisms', 'hat-a4-critical-reasoning', 'hat-a5-series-coding']
 },
@@ -1990,7 +1984,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations', 'hat-a3-syllogisms', 'hat-a4-critical-reasoning', 'hat-a5-series-coding', 'hat-a6-directions-ranking']
 },
@@ -2219,7 +2212,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
   priority: 'high',
   buildsOn: ['hat-a1-seating', 'hat-a2-blood-relations', 'hat-a3-syllogisms', 'hat-a4-critical-reasoning', 'hat-a5-series-coding', 'hat-a6-directions-ranking', 'hat-a7-grouping-selection']
 },
@@ -2733,7 +2725,6 @@ export const analyticalTopics: Topic[] = [
   content: true,
   examType: 'hat',
   hatSection: 'analytical',
-  examScope: ['bs17'],
 },
 ];
 

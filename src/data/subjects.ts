@@ -61,9 +61,9 @@ export const subjects: SubjectWithMeta[] = [
   { id: 'env-studies', title: 'Environmental Studies', color: 'green', lucideIcon: Leaf, track: 'fpsc' },
   { id: 'research-analysis', title: 'Research & Analysis', color: 'red', lucideIcon: BarChart3, track: 'fpsc' },
   { id: 'english', title: 'English', color: 'pink', lucideIcon: BookOpen, examScope: ['bs17', 'bs16'], track: 'fpsc' },
-  { id: 'hat-verbal', title: 'Verbal Reasoning', color: 'indigo', lucideIcon: MessageSquareText, examScope: ['bs17'], track: 'hat' },
-  { id: 'hat-analytical', title: 'Analytical Reasoning', color: 'emerald', lucideIcon: Puzzle, examScope: ['bs17'], track: 'hat' },
-  { id: 'hat-quantitative', title: 'Quantitative Reasoning', color: 'amber', lucideIcon: Sigma, examScope: ['bs17'], track: 'hat' },
+  { id: 'hat-verbal', title: 'Verbal Reasoning', color: 'indigo', lucideIcon: MessageSquareText, track: 'hat' },
+  { id: 'hat-analytical', title: 'Analytical Reasoning', color: 'emerald', lucideIcon: Puzzle, track: 'hat' },
+  { id: 'hat-quantitative', title: 'Quantitative Reasoning', color: 'amber', lucideIcon: Sigma, track: 'hat' },
 ];
 
 export const subjectMap: Record<string, SubjectWithMeta> = Object.fromEntries(

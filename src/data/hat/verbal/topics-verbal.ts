@@ -129,7 +129,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v2-word-formation',
@@ -301,7 +300,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v3-grammar',
@@ -429,7 +427,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v4-sentence-completion',
@@ -481,7 +478,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v5-reading-comprehension',
@@ -536,7 +532,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v6-idioms',
@@ -1006,7 +1001,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v7-one-word-substitutions',
@@ -1768,7 +1762,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v8-verbal-mock',
@@ -1796,7 +1789,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   },
   {
     id: 'hat-v9-master-sheet',
@@ -1834,7 +1826,6 @@ export const verbalTopics: Topic[] = [
     content: true,
     examType: 'hat',
     hatSection: 'verbal',
-    examScope: ['bs17'],
   }
 ];
 export { verbalTopics as topics };
