@@ -19,247 +19,359 @@ export const topics: Topic[] = [
 // ============================= SECTION PHY-A: Motion & Forces =============================
 
 {
-  id: "phy-kinematics",
+id: "phy-kinematics",
   sectionId: "PHY-01",
   order: 1,
   title: "Kinematics: Distance, Displacement, Speed, Velocity & Acceleration",
-  definition: "Kinematics describes motion using distance, displacement, speed, velocity, and acceleration, without regard to the forces causing it.",
+  definition: "Kinematics describes motion using displacement, velocity, and acceleration without asking what force causes the motion. Mastering the definitions and the constant-acceleration equations is the foundation of almost every FPSC mechanics item.",
   keyFacts: [
-    "Distance: total path length travelled, scalar (no direction)",
-    "Displacement: straight-line distance from start to end point, in a specific direction — a vector",
-    "Speed = distance / time, scalar",
-    "Velocity = displacement / time, vector (has direction)",
-    "Acceleration = change in velocity / time; can be positive (speeding up), negative (slowing down/deceleration), or due to a change in direction alone at constant speed",
-    "On a distance-time graph, the slope is speed; on a velocity-time graph, the slope is acceleration and the area under the curve is displacement"
+    "Distance is scalar (path length); displacement is vector (change in position from start to end)",
+    "Speed is scalar (distance/time); velocity is vector (displacement/time)",
+    "Average velocity = total displacement / total time; instantaneous velocity is velocity at one instant",
+    "Acceleration is rate of change of velocity. The four kinematic equations require constant acceleration",
+    "Key equations: $v = u + at$, $s = ut + \\frac{1},
+  {2}at^2$, $v^2 = u^2 + 2as$, $s = \\frac{(u+v)},
+  {2}t$"
   ],
   explanationSections: [
-    { heading: "Scalar vs. vector quantities", body: "Distance and speed only have magnitude; displacement and velocity also have direction. Two objects can travel the same distance but have very different displacements if their paths differ — e.g. a runner completing one full lap has covered real distance but has zero net displacement, since they end where they started." },
-    { heading: "Reading motion graphs", body: "A steeper slope on a distance-time graph means greater speed; a flat/horizontal section means the object is stationary. On a velocity-time graph, a horizontal line means constant velocity (zero acceleration), and the enclosed area between the line and the time axis gives the total displacement over that interval." }
+    { heading: "Scalars vs vectors in motion", body: "A full lap can mean large distance but zero displacement. Average speed uses distance; average velocity uses displacement — they only match for straight one-way motion without reversal." },
+    { heading: "How FPSC tests kinematics", body: "Typical items give three of $u,v,a,s,t$ under constant $a$. List knowns with a chosen positive direction, then pick the equation that avoids the unknown you do not need." },
+    { heading: "Choosing the right equation", body: "Missing $t$? Use $v^2 = u^2 + 2as$. Missing $v$? Often $s = ut + \\frac{1},
+  {2}at^2$. From rest, set $u = 0$ to simplify." }
   ],
-  formula: {
-    name: "Average velocity and acceleration",
-    expression: "v = Δs / Δt      a = Δv / Δt",
-    variables: [
-      { symbol: "v", meaning: "velocity" },
-      { symbol: "Δs", meaning: "displacement" },
-      { symbol: "Δt", meaning: "time interval" },
-      { symbol: "a", meaning: "acceleration" },
-      { symbol: "Δv", meaning: "change in velocity" }
+  formula: [
+    { name: "Velocity with time", expression: "v = u + at", variables: [{ symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "v", meaning: "final velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "t", meaning: "time (s)" }] },
+    { name: "Displacement with time", expression: "s = ut + (1/2)at²", variables: [{ symbol: "s", meaning: "displacement (m)" }, { symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "t", meaning: "time (s)" }] },
+    { name: "No-time equation", expression: "v² = u² + 2as", variables: [{ symbol: "v", meaning: "final velocity (m/s)" }, { symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "s", meaning: "displacement (m)" }] }
+  ],
+  methodChooser: [
+    { when: "time $t$ is unknown", use: "$v^2 = u^2 + 2as$" },
+    { when: "final speed $v$ is unknown", use: "$s = ut + \\frac{1},
+  {2}at^2$" },
+    { when: "starts from rest", use: "set $u = 0$" },
+    { when: "comes to stop", use: "set $v = 0$; deceleration is negative if forward is positive" }
+  ],
+  limitCases: [
+    { condition: "$a = 0$", result: "constant velocity: $s = ut$" },
+    { condition: "$u = 0$", result: "$v = at$, $s = \\frac{1},
+  {2}at^2$" },
+    { condition: "$v = 0$ (braking)", result: "$s = -u^2/(2a)$ with $a < 0$ if forward positive" }
+  ],
+  comparisonTable: {
+    headers: ["Quantity", "Type", "Uses", "Zero while moving?"],
+    rows: [
+      ["Distance", "Scalar", "Path length", "No"],
+      ["Displacement", "Vector", "Change in position", "Yes (closed path)"],
+      ["Speed", "Scalar", "Distance/time", "Only if not moving"],
+      ["Velocity", "Vector", "Displacement/time", "Yes (closed path average)"]
     ]
-
   },
+  workedExample: [
+    { problem: "A car accelerates from rest at $2\\,\\mathrm{m/s^2}$ for $5\\,\\mathrm{s}$. Find final speed and distance travelled in a straight line.", solution: "$u=0$, $a=2\\,\\mathrm{m/s^2}$, $t=5\\,\\mathrm{s}$. $v=u+at=10\\,\\mathrm{m/s}$. $s=ut+\\frac{1},
+  {2}at^2=25\\,\\mathrm{m}$. Check: $v^2=u^2+2as$ ⇒ $100=100$.", answer: "$10\\,\\mathrm{m/s}$, $25\\,\\mathrm{m}$" },
+    { problem: "A bike at $20\\,\\mathrm{m/s}$ brakes at $4\\,\\mathrm{m/s^2}$ (deceleration). Stopping distance?", solution: "$u=20$, $v=0$, $a=-4$. $0=400+2(-4)s$ ⇒ $s=50\\,\\mathrm{m}$.", answer: "$50\\,\\mathrm{m}$" }
+  ],
+  commonMistakes: [
+    "Confusing distance with displacement (and speed with velocity)",
+    "Using constant-$a$ equations when acceleration is not constant",
+    "Dropping the sign of deceleration",
+    "Using final $v$ in $s=vt$ instead of average velocity",
+    "Swapping $u$ and $v$ when rearranging"
+  ],
   examPoints: [
-    "An object moving at constant speed around a curve is still accelerating, because its direction (and therefore velocity) is continuously changing — a common conceptual trap",
-    "Distance ≥ |displacement| always; they're equal only for straight-line motion in one direction"
+    "Pick a positive direction before assigning signs",
+    "Closed path: displacement can be zero while distance is not",
+    "Missing time → $v^2=u^2+2as$",
+    "Convert km/h to m/s by dividing by 3.6 when needed"
   ],
   relatedTopics: ["phy-newtons-laws", "phy-momentum-impulse"],
-  content: true,
   buildsOn: ["math-8-3", "math-5-4", "phy-units-measurement", "phy-scalars-vectors"],
   leadsTo: ["phy-newtons-laws", "phy-momentum-impulse"],
-  usedIn: ["phy-work-energy", "meteo-static-stability", "meteo-forces-governing-wind", "meteo-scales-of-motion"]
-},
-
-{
-  id: "phy-newtons-laws",
+  usedIn: ["phy-work-energy", "meteo-static-stability", "meteo-forces-governing-wind", "meteo-scales-of-motion"],
+  content: true,
+  },
+  {
+id: "phy-newtons-laws",
   sectionId: "PHY-01",
   order: 2,
   title: "Newton's Three Laws of Motion",
-  definition: "Newton's three laws describe how forces affect the motion of objects: inertia, the relationship between force/mass/acceleration, and action-reaction pairs.",
+  definition: "Newton's laws link force and motion: inertia (1st), $F=ma$ for net force (2nd), and action–reaction pairs on different objects (3rd).",
   keyFacts: [
-    "First Law (Inertia): an object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted on by a net external force",
-    "Second Law: F = ma — net force equals mass times acceleration; acceleration is directly proportional to net force and inversely proportional to mass",
-    "Third Law: for every action force, there is an equal and opposite reaction force, acting on a different object",
-    "Mass is the amount of matter in an object (constant everywhere); weight is the gravitational force on that mass (varies with location) — covered further in the Gravity topic",
-    "Net force is the vector sum of all forces acting on an object; if net force is zero, the object is in equilibrium (constant velocity, possibly zero)"
+    "1st law: constant velocity (including rest) unless net external force acts",
+    "2nd law: $\\vec{F}_{\\mathrm{net}} = m\\vec{a}$ — net force, not a single named force unless it is the only one",
+    "3rd law: forces come in equal–opposite pairs acting on two different objects",
+    "Mass is inertia (kg); weight is gravitational force (N) and can change with $g$",
+    "Equilibrium means $\\vec{F}_{\\mathrm{net}}=0$, so $\\vec{a}=0$ (velocity constant, not necessarily zero)"
   ],
   explanationSections: [
-    { heading: "Why the Third Law doesn't cancel out motion", body: "Action-reaction pairs act on two different objects, not the same one — a book resting on a table exerts a downward force on the table, and the table exerts an equal upward force on the book. These forces don't cancel each other because they act on different objects; what keeps the book still is that the upward force from the table balances the book's own weight, a separate force pair entirely." },
-    { heading: "Second Law as the quantitative core", body: "F = ma is the working equation behind most mechanics problems: doubling the net force on an object doubles its acceleration, while doubling its mass (with the same force) halves the acceleration. This single relationship also underlies momentum and impulse, covered next." }
+    { heading: "Why the 3rd law does not cancel motion", body: "Action and reaction act on different objects. The book–table pair does not cancel the book's weight; the normal force balances weight on the book, while the book pushes the table separately." },
+    { heading: "Net force is the working idea", body: "In $F=ma$, $F$ is the vector sum of all forces. Doubling net force doubles $a$; doubling mass halves $a$ for the same net force." },
+    { heading: "How the exam traps you", body: "Moving at constant speed is allowed with zero net force. 'Equal and opposite' never means both forces act on the same free-body diagram as if they cancel a single object's motion by themselves." }
   ],
-  formula: {
-    name: "Newton's Second Law",
-    expression: "F = m × a",
-    variables: [
-      { symbol: "F", meaning: "net force (Newtons, N)" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "a", meaning: "acceleration (m/s²)" }
+  formula: { name: "Newton's Second Law", expression: "F_net = m × a", variables: [{ symbol: "F_net", meaning: "net force (N)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "a", meaning: "acceleration (m/s²)" }] },
+  methodChooser: [
+    { when: "finding acceleration from forces", use: "draw free-body diagram → sum forces → $a = F_{\\mathrm{net}}/m$" },
+    { when: "object at constant velocity", use: "set $F_{\\mathrm{net}}=0$ (1st law / equilibrium)" },
+    { when: "mass vs weight asked", use: "mass in kg; weight $W=mg$ in newtons" }
+  ],
+  limitCases: [
+    { condition: "$F_{\\mathrm{net}}=0$", result: "$a=0$ — rest or steady velocity" },
+    { condition: "same force, double mass", result: "half the acceleration" }
+  ],
+  comparisonTable: {
+    headers: ["Idea", "Means", "Common error"],
+    rows: [
+      ["Mass", "Amount of matter / inertia (kg)", "Calling mass 'weight'"],
+      ["Weight", "Gravitational force $mg$ (N)", "Treating weight as constant everywhere"],
+      ["3rd law pair", "Equal–opposite on two bodies", "Putting both arrows on one body and cancelling"]
     ]
-
   },
+  workedExample: [
+    { problem: "A $5\\,\\mathrm{kg}$ box is pulled horizontally with $20\\,\\mathrm{N}$. Friction is $5\\,\\mathrm{N}$. Find acceleration.", solution: "$F_{\\mathrm{net}}=20-5=15\\,\\mathrm{N}$. $a=F/m=15/5=3\\,\\mathrm{m/s^2}$.", answer: "$3\\,\\mathrm{m/s^2}$" },
+    { problem: "A $2\\,\\mathrm{kg}$ object moves at constant $4\\,\\mathrm{m/s}$ on a straight line. Net force?", solution: "Constant velocity ⇒ $a=0$ ⇒ $F_{\\mathrm{net}}=0$ (1st law).", answer: "$0\\,\\mathrm{N}$" }
+  ],
+  commonMistakes: [
+    "Using $F=ma$ with one force while ignoring friction or components",
+    "Thinking 3rd-law partners cancel on the same object",
+    "Assuming motion requires a nonzero net force (false at constant velocity)",
+    "Mixing mass (kg) and weight (N)",
+    "Forgetting that $F$ in $F=ma$ is net force"
+  ],
   examPoints: [
-    "'Equal and opposite' in the Third Law refers to forces on two different objects — a frequent exam trap is applying it to a single object's forces",
-    "An object can be moving and still have zero net force acting on it (constant velocity) — this is consistent with, not a violation of, the First Law"
+    "Constant velocity ⇒ net force zero",
+    "3rd law: two objects, not two forces on one free-body diagram cancelling automatically",
+    "Always identify $F_{\\mathrm{net}}$ before computing $a$"
   ],
   relatedTopics: ["phy-kinematics", "phy-gravity-weight-friction", "phy-momentum-impulse"],
-  content: true,
   buildsOn: ["phy-kinematics", "phy-scalars-vectors"],
   leadsTo: ["phy-gravity-weight-friction", "phy-momentum-impulse", "phy-work-energy"],
-  usedIn: ["phy-vector-applications", "meteo-coriolis-effect", "meteo-forces-governing-wind", "earth-f1", "earth-h1"]
-},
-
-{
-  id: "phy-gravity-weight-friction",
+  usedIn: ["phy-vector-applications", "meteo-coriolis-effect", "meteo-forces-governing-wind", "earth-f1", "earth-h1"],
+  content: true,
+  },
+  {
+id: "phy-gravity-weight-friction",
   sectionId: "PHY-01",
   order: 3,
   title: "Gravity, Weight & Friction",
-  definition: "Gravity is the attractive force between masses; weight is the gravitational force on an object's mass; friction is a resistive force opposing relative motion between surfaces in contact.",
+  definition: "Near Earth, weight is $mg$. Friction opposes relative sliding (or impending slide) and is limited by the normal force and the coefficient of friction.",
   keyFacts: [
-    "Weight (W) = mass (m) × gravitational field strength (g); on Earth's surface, g ≈ 9.8 m/s²",
-    "Mass is constant regardless of location; weight changes with the local gravitational field (e.g. an object weighs less on the Moon, where g ≈ 1.6 m/s²)",
-    "Friction opposes relative motion or the tendency of motion between two surfaces in contact",
-    "Static friction acts on objects at rest and prevents motion up to a maximum value; kinetic (sliding) friction acts on objects already moving, and is generally slightly less than the maximum static friction",
-    "Friction depends on the nature of the two surfaces and the normal force pressing them together, not on the apparent contact area"
+    "Weight $W = mg$ with $g \\approx 9.8\\,\\mathrm{m/s^2}$ (often $10$ in MCQs)",
+    "Mass is constant; weight changes if $g$ changes",
+    "Normal force $N$ is perpendicular to the surface",
+    "Kinetic friction $f_k = \\mu_k N$ (opposes sliding); static friction $f_s \\le \\mu_s N$",
+    "Friction direction is opposite the attempted or actual slip — not always 'backward' in word problems without care"
   ],
   explanationSections: [
-    { heading: "Why 'weightless' astronauts still have mass", body: "Astronauts in orbit are in continuous free-fall around Earth, so they experience apparent weightlessness — but their mass, and therefore their inertia and the amount of matter they're made of, is completely unchanged. Weight is the force gravity exerts on that mass; if the local gravitational effect is felt as zero (as in free-fall), weight reads as zero even though mass never disappears." },
-    { heading: "Friction as an everyday necessity, not just a nuisance", body: "Friction is often introduced as something that 'wastes' energy as heat, but it's also what allows walking, driving, and gripping objects — without friction between shoes and the ground, forward push would simply cause slipping rather than propulsion." }
+    { heading: "Weight vs mass", body: "A 60 kg astronaut still has mass 60 kg in orbit but can feel weightless if in free fall with the craft. On Earth, scales read force related to $N$, often calibrated as weight." },
+    { heading: "Friction and the normal force", body: "Larger $N$ allows larger maximum friction. On a horizontal surface with no vertical acceleration, $N=mg$. On slopes, $N=mg\\cos\\theta$ in the simple model." },
+    { heading: "Exam focus", body: "Items mix $W=mg$ with $f=\\mu N$. Check whether the surface is horizontal and whether the object is sliding or at rest." }
   ],
-  formula: {
-    name: "Weight",
-    expression: "W = m × g",
-    variables: [
-      { symbol: "W", meaning: "weight (N)" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "g", meaning: "gravitational field strength (m/s²), ≈9.8 m/s² on Earth" }
+  formula: [
+    { name: "Weight", expression: "W = mg", variables: [{ symbol: "W", meaning: "weight (N)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "g", meaning: "gravitational field strength (m/s²)" }] },
+    { name: "Kinetic friction", expression: "f_k = μ_k N", variables: [{ symbol: "f_k", meaning: "kinetic friction (N)" }, { symbol: "μ_k", meaning: "coefficient of kinetic friction" }, { symbol: "N", meaning: "normal force (N)" }] }
+  ],
+  methodChooser: [
+    { when: "horizontal surface, not accelerating vertically", use: "$N = mg$" },
+    { when: "object sliding", use: "$f = \\mu_k N$ opposite velocity" },
+    { when: "object at rest but may slip", use: "$f_s \\le \\mu_s N$ — use equality only at limiting equilibrium" }
+  ],
+  comparisonTable: {
+    headers: ["Quantity", "Unit", "Depends on g?", "Notes"],
+    rows: [
+      ["Mass", "kg", "No", "Inertia; same everywhere"],
+      ["Weight", "N", "Yes", "$W=mg$"],
+      ["Normal force", "N", "Indirectly", "From surface contact"],
+      ["Friction", "N", "Via N", "Opposes slip; $\\le \\mu N$ static"]
     ]
-
   },
+  workedExample: [
+    { problem: "Mass $10\\,\\mathrm{kg}$ on a horizontal floor; $\\mu_k=0.2$; $g=10\\,\\mathrm{m/s^2}$. Kinetic friction while sliding?", solution: "$N=mg=100\\,\\mathrm{N}$. $f_k=\\mu_k N=0.2\\times100=20\\,\\mathrm{N}$.", answer: "$20\\,\\mathrm{N}$" },
+    { problem: "What is the weight of a $50\\,\\mathrm{kg}$ student? Take $g=10\\,\\mathrm{m/s^2}$.", solution: "$W=mg=50\\times10=500\\,\\mathrm{N}$.", answer: "$500\\,\\mathrm{N}$" }
+  ],
+  commonMistakes: [
+    "Writing friction as $\\mu mg$ without checking that $N=mg$",
+    "Using mass in place of weight in newton-unit answers",
+    "Treating static friction as always $\\mu_s N$ (it can be less)",
+    "Pointing friction in the wrong direction on free-body diagrams"
+  ],
   examPoints: [
-    "Mass is measured in kilograms; weight is a force, measured in Newtons — these units are frequently confused",
-    "Friction always opposes relative motion; it never propels an object forward on its own"
+    "Weight in newtons; mass in kilograms",
+    "Friction needs $N$ first",
+    "MCQs often use $g=10\\,\\mathrm{m/s^2}$ for speed"
   ],
   relatedTopics: ["phy-newtons-laws", "phy-universal-gravitation"],
-  content: true,
   buildsOn: ["phy-newtons-laws"],
   leadsTo: ["phy-universal-gravitation", "phy-momentum-impulse"],
-  usedIn: ["phy-archimedes-principle", "meteo-hydrostatic-equation", "earth-a5"]
-},
-
-{
-  id: "phy-momentum-impulse",
+  usedIn: ["phy-archimedes-principle", "meteo-hydrostatic-equation", "earth-a5"],
+  content: true,
+  },
+  {
+id: "phy-momentum-impulse",
   sectionId: "PHY-01",
   order: 4,
-  title: "Momentum, Impulse & Conservation of Momentum",
-  definition: "Momentum is the product of an object's mass and velocity; impulse is the change in momentum produced by a force acting over time; in a closed system, total momentum is conserved.",
+  title: "Momentum & Impulse",
+  definition: "Momentum $\\vec{p}=m\\vec{v}$ measures motion quantity. Impulse is force applied over time and equals change in momentum.",
   keyFacts: [
-    "Momentum (p) = mass (m) × velocity (v); a vector quantity, measured in kg·m/s",
-    "Impulse (J) = force (F) × time (Δt) the force acts = change in momentum (Δp)",
-    "Conservation of momentum: in a closed system with no external forces, total momentum before an interaction (e.g. a collision) equals total momentum after",
-    "This applies to both elastic collisions (kinetic energy also conserved) and inelastic collisions (kinetic energy is not conserved, but momentum still is)"
+    "Momentum $p = mv$ (vector); unit $\\mathrm{kg\\,m/s}$",
+    "Impulse $J = F_{\\mathrm{avg}}\\Delta t = \\Delta p$",
+    "For a system with no external force, total momentum is conserved",
+    "Same impulse: larger $\\Delta t$ means smaller average force (airbags, crumple zones)",
+    "Elastic vs inelastic collisions: momentum conserved if isolated; kinetic energy only in elastic"
   ],
   explanationSections: [
-    { heading: "Why a longer collision time reduces force", body: "Since impulse (FΔt) equals the change in momentum, and the change in momentum for a given collision is fixed, spreading the same impulse over a longer time (Δt) reduces the average force required. This is the physics behind airbags, crumple zones, and catching a ball with a 'give' in the arm — extending Δt reduces peak force on the body." },
-    { heading: "Momentum conservation in collisions", body: "When two objects collide with no external forces (like friction) interfering, the combined momentum of the system immediately before equals the combined momentum immediately after — even though individual objects' velocities can change dramatically, especially in inelastic collisions where objects stick together." }
+    { heading: "Impulse–momentum theorem", body: "A short, hard hit and a long, soft hit can deliver the same $\\Delta p$ with very different average forces. Exam stories about catching eggs or car safety hinge on increasing $\\Delta t$." },
+    { heading: "Conservation", body: "If external forces are negligible during a quick collision, $m_1u_1+m_2u_2=m_1v_1+m_2v_2$ (1D)." },
+    { heading: "Link to Newton", body: "From $F=ma=m\\Delta v/\\Delta t$, so $F\\Delta t=m\\Delta v=\\Delta p$." }
   ],
-  formula: {
-    name: "Momentum and Impulse",
-    expression: "p = m × v      J = F × Δt = Δp",
-    variables: [
-      { symbol: "p", meaning: "momentum (kg·m/s)" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "v", meaning: "velocity (m/s)" },
-      { symbol: "J", meaning: "impulse (N·s, equivalent to kg·m/s)" },
-      { symbol: "F", meaning: "force (N)" },
-      { symbol: "Δt", meaning: "time interval force acts (s)" }
-    ]
-
-  },
+  formula: [
+    { name: "Momentum", expression: "p = mv", variables: [{ symbol: "p", meaning: "momentum (kg·m/s)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "v", meaning: "velocity (m/s)" }] },
+    { name: "Impulse", expression: "J = F Δt = Δp", variables: [{ symbol: "J", meaning: "impulse (N·s)" }, { symbol: "F", meaning: "average force (N)" }, { symbol: "Δt", meaning: "time interval (s)" }] }
+  ],
+  methodChooser: [
+    { when: "force and time given, find speed change", use: "$F\\Delta t = m\\Delta v$" },
+    { when: "collision, isolated system", use: "conserve total momentum" },
+    { when: "safety / soft landing story", use: "same $\\Delta p$, larger $\\Delta t$ ⇒ smaller $F_{\\mathrm{avg}}$" }
+  ],
+  workedExample: [
+    { problem: "A $0.2\\,\\mathrm{kg}$ ball at $15\\,\\mathrm{m/s}$ is stopped in $0.03\\,\\mathrm{s}$. Average force?", solution: "$\\Delta p = 0 - m v = -3\\,\\mathrm{kg\\,m/s}$. $|F|=|\\Delta p|/\\Delta t=3/0.03=100\\,\\mathrm{N}$.", answer: "$100\\,\\mathrm{N}$ (magnitude)" },
+    { problem: "Two masses $2\\,\\mathrm{kg}$ at $3\\,\\mathrm{m/s}$ and $1\\,\\mathrm{kg}$ at rest stick together. Common speed?", solution: "Inelastic: $(2)(3)+0=(3)v$ ⇒ $v=2\\,\\mathrm{m/s}$.", answer: "$2\\,\\mathrm{m/s}$" }
+  ],
+  commonMistakes: [
+    "Conserving kinetic energy in every collision automatically",
+    "Forgetting momentum is a vector (opposite directions)",
+    "Using $F=ma$ with wrong time interval for average force",
+    "Mixing impulse units (N·s) with energy (J)"
+  ],
   examPoints: [
-    "Momentum is conserved in ALL collisions (elastic and inelastic); kinetic energy is only conserved in elastic collisions — this distinction is frequently tested",
-    "Impulse and momentum share the same units (N·s = kg·m/s), reflecting that impulse literally is a change in momentum"
+    "Impulse = area under F–t graph if given",
+    "Isolated ⇒ momentum conserved",
+    "Soft impact: increase time to reduce force"
   ],
   relatedTopics: ["phy-newtons-laws", "phy-work-energy"],
-  content: true,
   buildsOn: ["phy-newtons-laws", "phy-kinematics"],
   leadsTo: ["phy-work-energy"],
-  usedIn: ["phy-fluid-dynamics"]
-},
-
-// ============================= SECTION PHY-B: Work, Energy & Power =============================
-
-{
-  id: "phy-work-energy",
+  usedIn: ["phy-fluid-dynamics"],
+  content: true,
+  },
+  {
+id: "phy-work-energy",
   sectionId: "PHY-02",
   order: 1,
-  title: "Work, Energy & Conservation of Energy",
-  definition: "Work is done when a force causes displacement in the direction of the force; energy is the capacity to do work, and total energy in a closed system is always conserved even as it changes form.",
+  title: "Work, Energy & Conservation",
+  definition: "Work is force along displacement. Kinetic energy is energy of motion; gravitational potential energy depends on height. The work–energy theorem links net work to $\\Delta KE$.",
   keyFacts: [
-    "Work (W) = Force (F) × displacement (d) × cos(θ), where θ is the angle between the force and the direction of motion; measured in Joules (J)",
-    "No work is done if there is no displacement, or if the force is entirely perpendicular to the motion (θ = 90°, cos90° = 0)",
-    "Kinetic energy (KE) = ½ × mass × velocity² — energy of motion",
-    "Gravitational potential energy (GPE) = mass × g × height — stored energy due to position in a gravitational field",
-    "Elastic potential energy (EPE) = ½ × spring constant × extension² — stored energy in a stretched or compressed elastic object",
-    "Law of Conservation of Energy: energy cannot be created or destroyed, only converted from one form to another; total energy of an isolated system remains constant"
+    "Work $W = Fd\\cos\\theta$ (Joules); only the component of force along displacement does work",
+    "Kinetic energy $KE = \\frac{1},
+  {2}mv^2$",
+    "Near Earth, $\\Delta PE_g = mgh$ (height change)",
+    "Net work = change in kinetic energy",
+    "Mechanical energy conserved if only conservative forces (e.g. gravity) do work — friction removes mechanical energy as heat"
   ],
   explanationSections: [
-    { heading: "Work as energy transfer", body: "Work done on an object is exactly the amount of energy transferred to (or from) it — lifting an object against gravity does work equal to the gravitational potential energy gained, and that energy can later convert back to kinetic energy as the object falls." },
-    { heading: "Energy conversion in a swinging pendulum", body: "A pendulum continuously converts between gravitational potential energy (maximum at the highest points of the swing, where velocity is momentarily zero) and kinetic energy (maximum at the lowest point, where height and therefore GPE is minimum). In an idealized frictionless system, the sum of KE and GPE stays exactly constant throughout the motion." }
+    { heading: "Work is not 'effort'", body: "Holding a heavy bag still does no work on the bag ($d=0$). Carrying at constant height with vertical force and horizontal displacement can mean zero work by that vertical force." },
+    { heading: "Work–energy theorem", body: "Add up work by all forces (or use net force): that total equals $\\Delta KE$. Friction often does negative work and reduces speed." },
+    { heading: "Conservation strategy", body: "If frictionless: $KE_i+PE_i=KE_f+PE_f$. With friction, track energy dissipated separately." }
   ],
-  formula: {
-    name: "Work, Kinetic Energy & Gravitational Potential Energy",
-    expression: "W = F × d × cos(θ)      KE = ½mv²      GPE = mgh",
-    variables: [
-      { symbol: "W", meaning: "work done (J)" },
-      { symbol: "F", meaning: "force (N)" },
-      { symbol: "d", meaning: "displacement (m)" },
-      { symbol: "θ", meaning: "angle between force and displacement" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "v", meaning: "velocity (m/s)" },
-      { symbol: "g", meaning: "gravitational field strength (m/s²)" },
-      { symbol: "h", meaning: "height (m)" }
+  formula: [
+    { name: "Work", expression: "W = Fd cosθ", variables: [{ symbol: "W", meaning: "work (J)" }, { symbol: "F", meaning: "force (N)" }, { symbol: "d", meaning: "displacement (m)" }, { symbol: "θ", meaning: "angle between F and d" }] },
+    { name: "Kinetic energy", expression: "KE = (1/2)mv²", variables: [{ symbol: "m", meaning: "mass (kg)" }, { symbol: "v", meaning: "speed (m/s)" }] },
+    { name: "Gravitational PE change", expression: "ΔPE = mgh", variables: [{ symbol: "m", meaning: "mass (kg)" }, { symbol: "g", meaning: "m/s²" }, { symbol: "h", meaning: "height change (m)" }] }
+  ],
+  methodChooser: [
+    { when: "force and path known", use: "$W=Fd\\cos\\theta$" },
+    { when: "speed change from forces", use: "work–energy: $W_{\\mathrm{net}}=\\Delta KE$" },
+    { when: "height change, no friction", use: "mechanical energy conservation" }
+  ],
+  comparisonTable: {
+    headers: ["Quantity", "Formula", "Unit", "Note"],
+    rows: [
+      ["Work", "$Fd\\cos\\theta$", "J", "Can be negative"],
+      ["KE", "$\\frac{1},
+  {2}mv^2$", "J", "Always ≥ 0"],
+      ["PE (gravity)", "$mgh$", "J", "Depends on reference level"],
+      ["Power", "$W/t$", "W", "See next topic"]
     ]
-
   },
+  workedExample: [
+    { problem: "A $3\\,\\mathrm{kg}$ box is lifted vertically $2\\,\\mathrm{m}$ at constant speed. Work by the lifter? ($g=10$)", solution: "Constant speed ⇒ lift force $=mg=30\\,\\mathrm{N}$. $W=Fd=60\\,\\mathrm{J}$. Also $\\Delta PE=mgh=60\\,\\mathrm{J}$.", answer: "$60\\,\\mathrm{J}$" },
+    { problem: "Net work of $100\\,\\mathrm{J}$ is done on a $5\\,\\mathrm{kg}$ mass starting from rest. Final speed?", solution: "$W=\\Delta KE=\\frac{1},
+  {2}mv^2$ ⇒ $100=\\frac{1},
+  {2}(5)v^2$ ⇒ $v^2=40$ ⇒ $v\\approx 6.3\\,\\mathrm{m/s}$.", answer: "$\\sqrt{40}\\,\\mathrm{m/s}\\approx 6.3\\,\\mathrm{m/s}$" }
+  ],
+  commonMistakes: [
+    "Ignoring $\\cos\\theta$ when force is not along the path",
+    "Using $W=Fd$ for centripetal force on uniform circular motion (that force does no work)",
+    "Forgetting friction's negative work in energy balances",
+    "Treating PE reference as absolute without defining $h=0$"
+  ],
   examPoints: [
-    "Carrying a heavy object at constant height while walking horizontally does zero work on the object in the physics sense, because the force (upward, supporting weight) is perpendicular to the horizontal displacement",
-    "In real (non-ideal) systems, some mechanical energy is always lost to friction/heat, but TOTAL energy (including that heat) is still conserved — the Conservation of Energy law is never violated, only mechanical energy alone appears to decrease"
+    "Work unit joule (J) = N·m",
+    "No displacement ⇒ no work",
+    "Friction typically non-conservative"
   ],
   relatedTopics: ["phy-power-efficiency", "phy-momentum-impulse"],
-  content: true,
   buildsOn: ["phy-newtons-laws", "phy-kinematics", "math-2-3"],
   leadsTo: ["phy-power-efficiency", "phy-thermodynamics-laws"],
-  usedIn: ["phy-heat-transfer-equilibrium", "meteo-heat-transfer", "meteo-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"]
-},
-
-{
-  id: "phy-power-efficiency",
+  usedIn: ["phy-heat-transfer-equilibrium", "meteo-heat-transfer", "meteo-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"],
+  content: true,
+  },
+  {
+id: "phy-power-efficiency",
   sectionId: "PHY-02",
   order: 2,
   title: "Power & Efficiency",
-  definition: "Power is the rate at which work is done or energy is transferred; efficiency is the ratio of useful energy output to total energy input, expressed as a percentage.",
+  definition: "Power is the rate of doing work or transferring energy. Efficiency is useful output energy divided by total input energy.",
   keyFacts: [
-    "Power (P) = Work done (W) / time (t), measured in Watts (W), where 1 Watt = 1 Joule/second",
-    "Power can also be expressed as Force × velocity for objects moving at constant force",
-    "Efficiency = (useful energy output / total energy input) × 100%",
-    "No real machine is 100% efficient — some energy is always converted to non-useful forms, typically heat, due to friction or resistance"
+    "Power $P = W/t = E/t$; unit watt (W) = J/s",
+    "Also $P = Fv$ when force and velocity are along the same line",
+    "Efficiency $\\eta = (E_{\\mathrm{useful}}/E_{\\mathrm{input}})\\times 100\\%$",
+    "No real machine is 100% efficient — some energy becomes waste heat",
+    "Same work in less time means greater power"
   ],
   explanationSections: [
-    { heading: "Power vs. energy — a common confusion", body: "Energy is the total amount of work capable of being done; power is how quickly that work is done. Two machines can do the same total amount of work (same energy), but the one that does it faster has greater power — this distinction is the basis of comparing engines, motors, and appliances." }
+    { heading: "Power vs energy", body: "Energy is the capacity to do work; power is how fast energy is transferred. Two motors can deliver the same energy; the faster one has higher power." },
+    { heading: "Efficiency in MCQs", body: "Useful output is never greater than input. If efficiency is 25%, input energy is four times useful output." },
+    { heading: "Link to circuits", body: "Electrical power $P=IV$ is the same idea: energy per time in another form — see circuits topics." }
   ],
-  formula: {
-    name: "Power and Efficiency",
-    expression: "P = W / t      Efficiency = (useful output / total input) × 100%",
-    variables: [
-      { symbol: "P", meaning: "power (Watts, W)" },
-      { symbol: "W", meaning: "work done (J)" },
-      { symbol: "t", meaning: "time (s)" }
+  formula: [
+    { name: "Power", expression: "P = W/t", variables: [{ symbol: "P", meaning: "power (W)" }, { symbol: "W", meaning: "work or energy (J)" }, { symbol: "t", meaning: "time (s)" }] },
+    { name: "Efficiency", expression: "η = (E_out / E_in) × 100%", variables: [{ symbol: "E_out", meaning: "useful energy output (J)" }, { symbol: "E_in", meaning: "total energy input (J)" }] }
+  ],
+  methodChooser: [
+    { when: "work and time given", use: "$P=W/t$" },
+    { when: "force and constant speed", use: "$P=Fv$" },
+    { when: "useful vs input energy", use: "efficiency ratio × 100%" }
+  ],
+  comparisonTable: {
+    headers: ["Quantity", "Measures", "Unit"],
+    rows: [
+      ["Energy / work", "Total transfer", "J"],
+      ["Power", "Rate of transfer", "W"],
+      ["Efficiency", "Useful fraction", "% (dimensionless ratio)"]
     ]
-
   },
+  workedExample: [
+    { problem: "A machine does $1500\\,\\mathrm{J}$ of work in $5\\,\\mathrm{s}$. Power?", solution: "$P=W/t=1500/5=300\\,\\mathrm{W}$.", answer: "$300\\,\\mathrm{W}$" },
+    { problem: "A motor takes $2000\\,\\mathrm{J}$ and delivers $500\\,\\mathrm{J}$ useful work. Efficiency?", solution: "$\\eta=(500/2000)\\times100\\%=25\\%$.", answer: "$25\\%$" }
+  ],
+  commonMistakes: [
+    "Confusing joules (energy) with watts (power)",
+    "Efficiency > 100% (impossible for passive machines)",
+    "Using $P=Fv$ when force and velocity are not aligned",
+    "Forgetting to convert minutes to seconds in $P=W/t$"
+  ],
   examPoints: [
-    "Efficiency can never exceed 100% for any real machine — a calculated value above 100% signals an error, not an exceptionally good machine",
-    "'Wasted' energy in inefficient machines is not destroyed, only converted to a less useful form (usually heat) — consistent with Conservation of Energy"
+    "1 kW = 1000 W",
+    "Higher power ≠ more total energy unless time is considered",
+    "Efficiency always uses useful output over total input"
   ],
   relatedTopics: ["phy-work-energy"],
-  content: true,
   buildsOn: ["phy-work-energy"],
   leadsTo: [],
-  usedIn: ["env-energy-sources", "phy-circuits-power-energy"]
-},
-
-// ============================= SECTION PHY-C: Matter, Density & Pressure =============================
-
-{
+  usedIn: ["env-energy-sources", "phy-circuits-power-energy"],
+  content: true,
+  },
+  {
   id: "phy-states-of-matter",
   sectionId: "PHY-03",
   order: 1,
@@ -756,80 +868,110 @@ export const topics: Topic[] = [
 },
 
 {
-  id: "phy-current-voltage-resistance",
+id: "phy-current-voltage-resistance",
   sectionId: "PHY-07",
   order: 3,
-  title: "Current, Voltage, Resistance & Ohm's Law",
-  definition: "Electric current is the flow of charge; voltage is the potential difference driving that flow; resistance opposes the flow; Ohm's Law relates the three quantities for many conductors.",
+  title: "Current, Voltage & Resistance (Ohm's Law)",
+  definition: "Electric current is charge flow rate. Voltage is energy per charge. Resistance opposes current. Ohm's law links them for ohmic devices: $V=IR$.",
   keyFacts: [
-    "Current (I) = charge (Q) / time (t), measured in Amperes (A); conventionally defined as the direction positive charge would flow (opposite to actual electron flow in a wire)",
-    "Voltage (V), or potential difference, is measured in Volts and represents the energy given to each unit of charge as it passes through a component",
-    "Resistance (R), measured in Ohms (Ω), describes how much a component opposes current flow",
-    "Ohm's Law: V = I × R, valid for 'ohmic' conductors where resistance stays constant regardless of voltage/current (e.g. most metal wires at constant temperature)",
-    "Resistance in a wire increases with length, decreases with cross-sectional area, and depends on the material's resistivity — and generally increases with temperature for metals"
+    "Current $I = Q/t$; unit ampere (A)",
+    "Voltage (potential difference) unit volt (V)",
+    "Resistance unit ohm ($\\Omega$)",
+    "Ohm's law: $V = IR$ (ohmic resistor at fixed temperature)",
+    "Resistance often rises with temperature for metals"
   ],
   explanationSections: [
-    { heading: "Why current direction is 'backwards' by convention", body: "Conventional current is defined as the direction positive charge would flow, a convention established before electrons (the actual charge carriers in most wires) were discovered to be negatively charged. Electrons therefore physically flow in the opposite direction to conventional current — this doesn't change any of the mathematics, but is worth knowing when reasoning about the underlying physical picture." }
+    { heading: "What each quantity means", body: "Current counts charge per second. Voltage is the 'push' or energy change per coulomb. Resistance is how strongly the device opposes current." },
+    { heading: "Using Ohm's law", body: "Rearrange to $I=V/R$ or $R=V/I$. Only apply when the device is ohmic (linear $V$–$I$)." },
+    { heading: "Exam habits", body: "Keep units consistent (mA → A). Series and parallel come in the next topic — here focus on a single resistor." }
   ],
-  formula: {
-    name: "Ohm's Law",
-    expression: "V = I × R",
-    variables: [
-      { symbol: "V", meaning: "voltage / potential difference (Volts)" },
-      { symbol: "I", meaning: "current (Amperes)" },
-      { symbol: "R", meaning: "resistance (Ohms)" }
-    ]
-
-  },
+  formula: { name: "Ohm's law", expression: "V = I R", variables: [{ symbol: "V", meaning: "voltage (V)" }, { symbol: "I", meaning: "current (A)" }, { symbol: "R", meaning: "resistance (Ω)" }] },
+  methodChooser: [
+    { when: "find current", use: "$I=V/R$" },
+    { when: "find resistance from measurements", use: "$R=V/I$" },
+    { when: "find voltage drop", use: "$V=IR$" }
+  ],
+  workedExample: [
+    { problem: "A $12\\,\\mathrm{V}$ battery drives current through $4\\,\\Omega$. Current?", solution: "$I=V/R=12/4=3\\,\\mathrm{A}$.", answer: "$3\\,\\mathrm{A}$" },
+    { problem: "A lamp takes $0.5\\,\\mathrm{A}$ from $230\\,\\mathrm{V}$. Resistance?", solution: "$R=V/I=230/0.5=460\\,\\Omega$.", answer: "$460\\,\\Omega$" }
+  ],
+  commonMistakes: [
+    "Using $V=IR$ for non-ohmic devices without care",
+    "Leaving current in mA while voltage in V",
+    "Thinking high resistance always means high voltage (depends on current)",
+    "Confusing resistance with resistivity"
+  ],
   examPoints: [
-    "Not all conductors are 'ohmic' — components like filament lamps and diodes have resistance that changes with current/voltage/temperature, so V = IR still applies at any instant, but R itself isn't a fixed constant for these components"
+    "Ohm's law is the default single-resistor tool",
+    "Unit check: V, A, Ω",
+    "Next step: combine resistors in series/parallel"
   ],
   relatedTopics: ["phy-electric-field-potential", "phy-circuits-power-energy"],
-  content: true,
   buildsOn: ["phy-electric-field-potential"],
   leadsTo: ["phy-circuits-power-energy"],
-  usedIn: ["phy-circuits-power-energy", "phy-transformers-ac"]
-},
-
-{
-  id: "phy-circuits-power-energy",
+  usedIn: ["phy-circuits-power-energy", "phy-transformers-ac"],
+  content: true,
+  },
+  {
+id: "phy-circuits-power-energy",
   sectionId: "PHY-07",
   order: 4,
-  title: "Circuits, Electrical Power & Energy",
-  definition: "Circuit components can be connected in series or parallel, each with characteristic current and voltage behavior; electrical power and energy describe the rate and total amount of energy transferred by a circuit.",
+  title: "Circuits: Series, Parallel, Power & Energy",
+  definition: "Series resistors share current; parallel resistors share voltage. Electrical power is energy per time: $P=IV=I^2R=V^2/R$. Energy $E=Pt$.",
   keyFacts: [
-    "Series circuits: components share the same current throughout; total resistance is the sum of individual resistances (R_total = R₁ + R₂ + ...); voltage divides across components",
-    "Parallel circuits: components share the same voltage across each branch; total resistance is found from 1/R_total = 1/R₁ + 1/R₂ + ...; current divides across branches",
-    "Electrical power: P = I × V = I²R = V²/R (all equivalent forms, useful depending on which quantities are known)",
-    "Electrical energy transferred = Power × time (E = Pt), the basis for how electricity usage/billing is calculated (typically in kilowatt-hours)"
+    "Series: $R_{\\mathrm{eq}} = R_1+R_2+\\cdots$; same current through each",
+    "Parallel: $1/R_{\\mathrm{eq}} = 1/R_1+1/R_2+\\cdots$; same voltage across each",
+    "Power $P = IV = I^2R = V^2/R$",
+    "Energy (kWh in households) = power × time",
+    "In series, larger $R$ drops more voltage; in parallel, smaller $R$ draws more current"
   ],
   explanationSections: [
-    { heading: "Why one bulb failing can break a whole series circuit but not a parallel one", body: "In a series circuit, there is only one path for current, so if any single component fails (creating a break), current stops flowing through the entire circuit — all components go out together. In a parallel circuit, each branch is an independent path, so a failure in one branch doesn't interrupt current flow through the others, which is why household wiring uses parallel circuits — one appliance failing shouldn't cut power to the whole house." }
+    { heading: "Series vs parallel intuition", body: "Series is one path — break one bulb and the string fails (ideal simple series). Parallel is multiple paths — one branch can fail while others run." },
+    { heading: "Power formulas", body: "Use $I^2R$ when current is known; $V^2/R$ when voltage is known. For a fixed voltage supply, smaller $R$ means larger power." },
+    { heading: "Exam strategy", body: "First find $R_{\\mathrm{eq}}$, then total current $I_{\\mathrm{tot}}=V/R_{\\mathrm{eq}}$, then branch currents or power as asked." }
   ],
-  formula: {
-    name: "Series/Parallel Resistance & Electrical Power",
-    expression: "Series: R_total = R₁ + R₂ + ...      Parallel: 1/R_total = 1/R₁ + 1/R₂ + ...      P = IV = I²R = V²/R",
-    variables: [
-      { symbol: "R_total", meaning: "total circuit resistance (Ω)" },
-      { symbol: "P", meaning: "electrical power (Watts)" },
-      { symbol: "I", meaning: "current (A)" },
-      { symbol: "V", meaning: "voltage (V)" }
+  formula: [
+    { name: "Series resistance", expression: "R_eq = R₁ + R₂ + …", variables: [{ symbol: "R_eq", meaning: "equivalent resistance (Ω)" }] },
+    { name: "Parallel resistance (two)", expression: "1/R_eq = 1/R₁ + 1/R₂", variables: [{ symbol: "R_eq", meaning: "equivalent resistance (Ω)" }] },
+    { name: "Electrical power", expression: "P = IV = I²R = V²/R", variables: [{ symbol: "P", meaning: "power (W)" }, { symbol: "I", meaning: "current (A)" }, { symbol: "V", meaning: "voltage (V)" }, { symbol: "R", meaning: "resistance (Ω)" }] }
+  ],
+  methodChooser: [
+    { when: "resistors one after another", use: "series: add $R$" },
+    { when: "resistors side by side on same two nodes", use: "parallel: add reciprocals" },
+    { when: "power with known I and R", use: "$P=I^2R$" },
+    { when: "power with known V and R", use: "$P=V^2/R$" }
+  ],
+  comparisonTable: {
+    headers: ["Feature", "Series", "Parallel"],
+    rows: [
+      ["Current", "Same through all", "Splits among branches"],
+      ["Voltage", "Splits across resistors", "Same across branches"],
+      ["R_eq", "Larger than each", "Smaller than smallest"],
+      ["Open one resistor", "Whole series stops", "Other branches can work"]
     ]
-
   },
+  workedExample: [
+    { problem: "Two resistors $3\\,\\Omega$ and $6\\,\\Omega$ in parallel on $12\\,\\mathrm{V}$. Find $R_{\\mathrm{eq}}$ and total current.", solution: "$1/R_{\\mathrm{eq}}=1/3+1/6=1/2$ ⇒ $R_{\\mathrm{eq}}=2\\,\\Omega$. $I=V/R=12/2=6\\,\\mathrm{A}$.", answer: "$2\\,\\Omega$, $6\\,\\mathrm{A}$" },
+    { problem: "A $10\\,\\Omega$ heater on $100\\,\\mathrm{V}$. Power?", solution: "$P=V^2/R=10000/10=1000\\,\\mathrm{W}$.", answer: "$1000\\,\\mathrm{W}$ (1 kW)" }
+  ],
+  commonMistakes: [
+    "Adding parallel resistances as $R_1+R_2$",
+    "Assuming same current in parallel branches",
+    "Using $P=IV$ with total V and a branch I incorrectly",
+    "Forgetting energy = power × time when asked for kWh"
+  ],
   examPoints: [
-    "Series: same current, voltage divides. Parallel: same voltage, current divides — these two rules, correctly matched, resolve nearly all basic circuit analysis questions"
+    "Draw the circuit and mark series vs parallel before calculating",
+    "Three forms of power are equivalent for ohmic $R$",
+    "Household bills use energy, not power alone"
   ],
   relatedTopics: ["phy-current-voltage-resistance", "phy-power-efficiency"],
-  content: true,
   buildsOn: ["phy-current-voltage-resistance", "phy-power-efficiency"],
   leadsTo: ["phy-capacitance", "phy-transformers-ac"],
-  usedIn: ["env-energy-sources"]
-},
-
-// ============================= SECTION PHY-H: Magnetism & Electromagnetism =============================
-
-{
+  usedIn: ["env-energy-sources"],
+  content: true,
+  },
+  {
   id: "phy-magnetic-fields-force",
   sectionId: "PHY-08",
   order: 1,
@@ -938,44 +1080,61 @@ export const topics: Topic[] = [
 // ============================= SECTION PHY-J: Universal Gravitation (low priority) =============================
 
 {
-  id: "phy-universal-gravitation",
+id: "phy-universal-gravitation",
   sectionId: "PHY-10",
   order: 1,
-  title: "Newton's Law of Universal Gravitation",
-  definition: "Newton's Law of Universal Gravitation states that every mass attracts every other mass with a force proportional to the product of their masses and inversely proportional to the square of the distance between them, underlying orbital motion.",
+  title: "Universal Gravitation",
+  definition: "Every mass attracts every other mass with a force proportional to the product of masses and inversely proportional to the square of the separation of centres.",
   keyFacts: [
-    "Gravitational force: F = G × (m₁ × m₂) / r², where G is the universal gravitational constant (≈6.67×10⁻¹¹ N·m²/kg²)",
-    "This single law explains both objects falling to Earth and the orbital motion of planets and satellites — the same force, described at different scales",
-    "Gravitational field strength (g) at a location = GM/r², where M is the mass of the attracting body (e.g. Earth) and r is the distance from its center",
-    "For a stable circular orbit, gravitational force provides exactly the centripetal force needed to keep an orbiting body moving in a curved path rather than a straight line"
+    "$F = G\\frac{m_1 m_2},
+  {r^2}$ with $G$ the universal constant",
+    "Force is always attractive along the line joining centres",
+    "Field strength $g = GM/r^2$ near a spherical mass (outside)",
+    "Weight on Earth is this force for Earth–object pair",
+    "Doubling distance cuts force by 4; tripling cuts by 9"
   ],
   explanationSections: [
-    { heading: "Scope note for this topic", body: "Per the syllabus's own guidance, this topic covers the law itself, gravitational field strength, and the basic concept of orbits — not detailed orbital mechanics (elliptical orbits, Kepler's laws in depth) or broader astrophysics, which are intentionally out of scope for this exam preparation." },
-    { heading: "Same mathematical form as Coulomb's Law", body: "Universal Gravitation shares the same inverse-square structure as Coulomb's Law for electric force (F ∝ 1/r²) — both describe how force weakens rapidly with distance, despite describing entirely different fundamental interactions (gravitational vs. electromagnetic)." }
+    { heading: "Inverse-square idea", body: "The same total 'influence' spreads over a sphere of area $4\\pi r^2$, so strength falls as $1/r^2$. This is the most tested quantitative pattern in this topic." },
+    { heading: "Link to surface gravity", body: "On Earth, $mg = GMm/R^2$ so $g = GM/R^2$. Mass cancels — all objects fall with the same $g$ in vacuum near Earth." },
+    { heading: "Exam comparisons", body: "Ratio problems: $\\frac{F'},
+  {F} = \\frac{m_1'},
+  {m_1}\\frac{m_2'},
+  {m_2}\\frac{r^2},
+  {r'^2}$. Often masses fixed and only $r$ changes." }
   ],
-  formula: {
-    name: "Newton's Law of Universal Gravitation",
-    expression: "F = G × (m₁ × m₂) / r²",
-    variables: [
-      { symbol: "F", meaning: "gravitational force (N)" },
-      { symbol: "G", meaning: "universal gravitational constant (≈6.67×10⁻¹¹ N·m²/kg²)" },
-      { symbol: "m₁, m₂", meaning: "the two masses (kg)" },
-      { symbol: "r", meaning: "distance between the centers of the two masses (m)" }
-    ]
-
-  },
+  formula: { name: "Newton's law of gravitation", expression: "F = G m₁ m₂ / r²", variables: [{ symbol: "F", meaning: "gravitational force (N)" }, { symbol: "G", meaning: "gravitational constant" }, { symbol: "m₁, m₂", meaning: "masses (kg)" }, { symbol: "r", meaning: "centre-to-centre distance (m)" }] },
+  methodChooser: [
+    { when: "ratio of forces when distance changes", use: "$F \\propto 1/r^2$" },
+    { when: "surface g", use: "$g = GM/R^2$" },
+    { when: "both masses and r change", use: "write full ratio with $m$ and $r^2$ factors" }
+  ],
+  limitCases: [
+    { condition: "$r \\to \\infty$", result: "$F \\to 0$" },
+    { condition: "double $r$, same masses", result: "$F$ becomes $F/4$" }
+  ],
+  workedExample: [
+    { problem: "Gravitational force between two masses is $F$ at distance $r$. What is the force at distance $2r$?", solution: "$F' = G\\frac{m_1m_2},
+  {(2r)^2} = F/4$.", answer: "$F/4$" },
+    { problem: "If $r$ is halved, factor by which $F$ changes?", solution: "$r' = r/2$ ⇒ $F' = 4F$ (increases 4×).", answer: "4 times larger" }
+  ],
+  commonMistakes: [
+    "Using $1/r$ instead of $1/r^2$",
+    "Measuring $r$ to the surface incorrectly when centres matter for spheres",
+    "Thinking gravity needs air or contact",
+    "Confusing $G$ with $g$"
+  ],
   examPoints: [
-    "This law and Coulomb's Law both follow an inverse-square relationship — recognizing this shared mathematical pattern is a useful cross-topic exam insight"
+    "Highest-yield skill: inverse-square scaling",
+    "Force mutual: same magnitude on both masses (3rd law)",
+    "Compare with Coulomb's law structure (different constant and charges)"
   ],
   relatedTopics: ["phy-gravity-weight-friction", "phy-electric-charge-coulomb"],
-  content: true,
   buildsOn: ["phy-gravity-weight-friction", "math-3-1"],
   leadsTo: [],
-  usedIn: ["earth-a5"]
-},
-// ============================= SECTION PHY-K: Units, Measurement & Vectors =============================
-
-{
+  usedIn: ["earth-a5"],
+  content: true,
+  },
+  {
   id: "phy-units-measurement",
   sectionId: "PHY-11",
   order: 1,
@@ -1200,7 +1359,8 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Continuity equation & Bernoulli's equation",
-    expression: "A_1 v_1 = A_2 v_2 \\quad P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{constant}",
+    expression: "A_1 v_1 = A_2 v_2 \\quad P + \\frac{1},
+  {2}\\rho v^2 + \\rho g h = \\text{constant}",
     variables: [
       { symbol: "A", meaning: "cross-sectional area (m²)" },
       { symbol: "v", meaning: "fluid speed (m/s)" },
@@ -1247,7 +1407,9 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Fourier's law & Stefan-Boltzmann law",
-    expression: "\\frac{Q}{t} = \\frac{kA\\Delta T}{L} \\quad P = \\sigma \\varepsilon A T^4",
+    expression: "\\frac{Q},
+  {t} = \\frac{kA\\Delta T},
+  {L} \\quad P = \\sigma \\varepsilon A T^4",
     variables: [
       { symbol: "Q/t", meaning: "heat transfer rate (W)" },
       { symbol: "k", meaning: "thermal conductivity (W/m·K)" },
@@ -1295,7 +1457,9 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Kinetic theory: average KE and RMS speed",
-    expression: "\\overline{KE} = \\frac{3}{2} k_B T \\quad v_{rms} = \\sqrt{\\frac{3 k_B T}{m}}",
+    expression: "\\overline{KE} = \\frac{3},
+  {2} k_B T \\quad v_{rms} = \\sqrt{\\frac{3 k_B T},
+  {m}}",
     variables: [
       { symbol: "\\overline{KE}", meaning: "average kinetic energy per molecule (J)" },
       { symbol: "k_B", meaning: "Boltzmann constant (1.38×10⁻²³ J/K)" },
@@ -1341,7 +1505,8 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Doppler effect (source moving, observer stationary)",
-    expression: "f_{obs} = f_{src} \\times \\frac{v}{v \\pm v_{src}}",
+    expression: "f_{obs} = f_{src} \\times \\frac{v},
+  {v \\pm v_{src}}",
     variables: [
       { symbol: "f_{obs}", meaning: "observed frequency (Hz)" },
       { symbol: "f_{src}", meaning: "source frequency (Hz)" },
@@ -1387,7 +1552,11 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Mirror equation & lens equation",
-    expression: "\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u} \\quad m = \\frac{-v}{u}",
+    expression: "\\frac{1},
+  {f} = \\frac{1},
+  {v} + \\frac{1},
+  {u} \\quad m = \\frac{-v},
+  {u}",
     variables: [
       { symbol: "f", meaning: "focal length (m, + for convex, − for concave)" },
       { symbol: "v", meaning: "image distance from mirror/lens (m)" },
@@ -1432,7 +1601,10 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Capacitance, parallel plate, energy stored",
-    expression: "C = \\frac{Q}{V} \\quad C = \\frac{\\varepsilon_0 A}{d} \\quad E = \\frac{1}{2}CV^2",
+    expression: "C = \\frac{Q},
+  {V} \\quad C = \\frac{\\varepsilon_0 A},
+  {d} \\quad E = \\frac{1},
+  {2}CV^2",
     variables: [
       { symbol: "C", meaning: "capacitance (Farads)" },
       { symbol: "Q", meaning: "charge stored (C)" },
@@ -1481,7 +1653,9 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Transformer equations",
-    expression: "\\frac{V_p}{V_s} = \\frac{N_p}{N_s} \\quad V_p I_p = V_s I_s \\text{ (ideal)}",
+    expression: "\\frac{V_p},
+  {V_s} = \\frac{N_p},
+  {N_s} \\quad V_p I_p = V_s I_s \\text{ (ideal)}",
     variables: [
       { symbol: "V_p, V_s", meaning: "primary and secondary voltages" },
       { symbol: "N_p, N_s", meaning: "number of turns in primary and secondary coils" },
@@ -1534,7 +1708,9 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Radioactive decay and half-life",
-    expression: "N(t) = N_0 \\times (\\frac{1}{2})^{t/t_{1/2}} = N_0 e^{-\\lambda t} \\quad t_{1/2} = \\frac{\\ln 2}{\\lambda}",
+    expression: "N(t) = N_0 \\times (\\frac{1},
+  {2})^{t/t_{1/2}} = N_0 e^{-\\lambda t} \\quad t_{1/2} = \\frac{\\ln 2},
+  {\\lambda}",
     variables: [
       { symbol: "N(t)", meaning: "number of nuclei remaining at time t" },
       { symbol: "N_0", meaning: "initial number of nuclei" },
@@ -1580,7 +1756,8 @@ export const topics: Topic[] = [
   ],
   formula: {
     name: "Chain reaction multiplication factor",
-    expression: "k = \\frac{\\text{neutrons in generation } n+1}{\\text{neutrons in generation } n}",
+    expression: "k = \\frac{\\text{neutrons in generation } n+1},
+  {\\text{neutrons in generation } n}",
     variables: [
       { symbol: "k", meaning: "multiplication factor" },
       { symbol: "k = 1", meaning: "critical (steady rate, power plant)" },

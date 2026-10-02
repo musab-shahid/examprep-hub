@@ -56,6 +56,19 @@ export interface ExplanationSection {
   body: string;
 }
 
+
+/** Decision aid: when this situation holds, use this approach/equation. */
+export interface MethodChooserStep {
+  when: string;
+  use: string;
+}
+
+/** Limiting / special cases that clarify a law or formula. */
+export interface LimitCase {
+  condition: string;
+  result: string;
+}
+
 export interface WorkedExample {
   problem: string;
   solution: string;  // Supports $...$ and $$...$$ via MathText
@@ -75,6 +88,10 @@ export interface Topic {
   comparisonTable?: ComparisonTable;
   relatedTopics?: string[];
   workedExample?: WorkedExample | WorkedExample[];
+  /** Equation / method picker for quantitative topics */
+  methodChooser?: MethodChooserStep[];
+  /** Special cases (a=0, open circuit, …) */
+  limitCases?: LimitCase[];
   commonMistakes?: string[];
   priority?: string;
   comparisonTableEras?: ComparisonTable;

@@ -476,6 +476,37 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <ul className="space-y-2">{topic.commonMistakes.map((mistake, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="text-rose-500 font-bold shrink-0">✗</span><MathText text={mistake} /></li>)}</ul>
           </Card>
         )}
+        {topic.methodChooser && topic.methodChooser.length > 0 && (
+          <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Which method / equation?</h3>
+            <ul className="space-y-2">
+              {topic.methodChooser.map((step, i) => (
+                <li key={i} className="text-sm text-slate-800 leading-relaxed">
+                  <span className="font-medium text-sky-800">If </span>
+                  <MathText text={step.when} />
+                  <span className="font-medium text-sky-800"> → </span>
+                  <MathText text={step.use} />
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
+        {topic.limitCases && topic.limitCases.length > 0 && (
+          <Card className="p-5">
+            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Limit cases</h3>
+            <ul className="space-y-2">
+              {topic.limitCases.map((lc, i) => (
+                <li key={i} className="flex gap-2 text-sm text-slate-800 leading-relaxed">
+                  <span className="text-slate-400 shrink-0">•</span>
+                  <span><span className="font-medium"><MathText text={lc.condition} /></span>
+                  <span className="text-slate-500"> → </span>
+                  <MathText text={lc.result} /></span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        )}
+
         {(() => {
           const groups: { label: string; ids: string[]; chipClass: string }[] = [];
           if (topic.buildsOn?.length) groups.push({ label: 'Builds On', ids: topic.buildsOn, chipClass: 'bg-green-50 hover:bg-green-100 text-green-700' });
