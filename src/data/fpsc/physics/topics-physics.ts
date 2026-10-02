@@ -20,7 +20,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-kinematics",
-  sectionId: "PHY-A",
+  sectionId: "PHY-01",
   order: 1,
   title: "Kinematics: Distance, Displacement, Speed, Velocity & Acceleration",
   definition: "Kinematics describes motion using distance, displacement, speed, velocity, and acceleration, without regard to the forces causing it.",
@@ -61,7 +61,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-newtons-laws",
-  sectionId: "PHY-A",
+  sectionId: "PHY-01",
   order: 2,
   title: "Newton's Three Laws of Motion",
   definition: "Newton's three laws describe how forces affect the motion of objects: inertia, the relationship between force/mass/acceleration, and action-reaction pairs.",
@@ -99,7 +99,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-gravity-weight-friction",
-  sectionId: "PHY-A",
+  sectionId: "PHY-01",
   order: 3,
   title: "Gravity, Weight & Friction",
   definition: "Gravity is the attractive force between masses; weight is the gravitational force on an object's mass; friction is a resistive force opposing relative motion between surfaces in contact.",
@@ -137,7 +137,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-momentum-impulse",
-  sectionId: "PHY-A",
+  sectionId: "PHY-01",
   order: 4,
   title: "Momentum, Impulse & Conservation of Momentum",
   definition: "Momentum is the product of an object's mass and velocity; impulse is the change in momentum produced by a force acting over time; in a closed system, total momentum is conserved.",
@@ -179,7 +179,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-work-energy",
-  sectionId: "PHY-B",
+  sectionId: "PHY-02",
   order: 1,
   title: "Work, Energy & Conservation of Energy",
   definition: "Work is done when a force causes displacement in the direction of the force; energy is the capacity to do work, and total energy in a closed system is always conserved even as it changes form.",
@@ -223,7 +223,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-power-efficiency",
-  sectionId: "PHY-B",
+  sectionId: "PHY-02",
   order: 2,
   title: "Power & Efficiency",
   definition: "Power is the rate at which work is done or energy is transferred; efficiency is the ratio of useful energy output to total energy input, expressed as a percentage.",
@@ -261,7 +261,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-states-of-matter",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 1,
   title: "States of Matter",
   definition: "Matter exists primarily in three states — solid, liquid, and gas — distinguished by how tightly and how freely their particles are arranged and able to move.",
@@ -287,7 +287,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-density",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 2,
   title: "Density",
   definition: "Density is the mass of a substance per unit volume, a property that determines whether an object floats or sinks in a given fluid.",
@@ -322,7 +322,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-pressure-fluids",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 3,
   title: "Pressure & Pressure in Fluids",
   definition: "Pressure is force applied per unit area; in fluids, pressure increases with depth and acts equally in all directions at a given point.",
@@ -361,7 +361,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-atmospheric-pressure-physics",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 4,
   title: "Atmospheric Pressure as a Physics Concept",
   definition: "Atmospheric pressure is the force per unit area exerted by the weight of the column of air above a point — a direct application of fluid pressure principles to the air surrounding Earth.",
@@ -388,7 +388,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-temperature-heat",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 1,
   title: "Temperature, Heat & Specific Heat Capacity",
   definition: "Temperature is a measure of the average kinetic energy of particles in a substance; heat is the energy transferred between substances due to a temperature difference; specific heat capacity describes how much energy is needed to change a substance's temperature.",
@@ -424,7 +424,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-thermal-expansion",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 2,
   title: "Thermal Expansion",
   definition: "Thermal expansion is the tendency of matter to increase in volume or length as its temperature rises, because increased particle kinetic energy causes particles to move further apart on average.",
@@ -449,7 +449,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-heat-transfer-equilibrium",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 3,
   title: "Heat Transfer Mechanisms & Thermal Equilibrium",
   definition: "Heat transfers between objects or regions via conduction, convection, and radiation, always flowing from hotter to cooler until thermal equilibrium — equal temperature and no further net heat flow — is reached.",
@@ -476,7 +476,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-thermodynamics-laws",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 4,
   title: "Laws of Thermodynamics, Internal Energy & Latent Heat",
   definition: "The First and Second Laws of Thermodynamics govern how energy is conserved and how heat naturally flows; internal energy is the total kinetic and potential energy of a substance's particles; latent heat is the energy involved in a phase change without a temperature change.",
@@ -518,7 +518,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-wave-properties",
-  sectionId: "PHY-E",
+  sectionId: "PHY-05",
   order: 1,
   title: "Wave Properties",
   definition: "Waves transfer energy from one place to another through a repeating oscillation, characterized by frequency, wavelength, amplitude, and period, related by the universal wave equation.",
@@ -555,7 +555,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-wave-types",
-  sectionId: "PHY-E",
+  sectionId: "PHY-05",
   order: 2,
   title: "Types of Waves",
   definition: "Waves are classified as mechanical or electromagnetic based on whether they require a medium, and as transverse or longitudinal based on the direction of particle oscillation relative to wave travel.",
@@ -580,7 +580,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-sound-waves",
-  sectionId: "PHY-E",
+  sectionId: "PHY-05",
   order: 3,
   title: "Sound Waves",
   definition: "Sound is a longitudinal, mechanical wave produced by vibrating objects, requiring a medium to travel and generally moving faster through denser, more rigid media.",
@@ -608,7 +608,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-reflection-refraction",
-  sectionId: "PHY-F",
+  sectionId: "PHY-06",
   order: 1,
   title: "Reflection & Refraction",
   definition: "Reflection is the bouncing back of light from a surface; refraction is the bending of light as it passes between media of different optical densities, due to a change in speed.",
@@ -643,7 +643,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-diffraction-interference",
-  sectionId: "PHY-F",
+  sectionId: "PHY-06",
   order: 2,
   title: "Diffraction & Interference",
   definition: "Diffraction is the bending/spreading of waves around obstacles or through openings; interference is the combination of two or more waves, producing constructive or destructive effects depending on their relative phase.",
@@ -668,7 +668,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-lenses-mirrors-em-spectrum",
-  sectionId: "PHY-F",
+  sectionId: "PHY-06",
   order: 3,
   title: "Lenses, Mirrors & the Electromagnetic Spectrum",
   definition: "Lenses and mirrors form images by refracting or reflecting light respectively; the electromagnetic spectrum organizes all EM waves by wavelength/frequency, from radio waves to gamma rays.",
@@ -696,7 +696,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-electric-charge-coulomb",
-  sectionId: "PHY-G",
+  sectionId: "PHY-07",
   order: 1,
   title: "Electric Charge & Coulomb's Law",
   definition: "Electric charge is a fundamental property of matter that can be positive or negative; Coulomb's Law describes the force between two charged objects.",
@@ -732,7 +732,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-electric-field-potential",
-  sectionId: "PHY-G",
+  sectionId: "PHY-07",
   order: 2,
   title: "Electric Field & Electric Potential",
   definition: "An electric field is the region around a charge where another charge would experience a force; electric potential describes the potential energy per unit charge at a point in that field.",
@@ -757,7 +757,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-current-voltage-resistance",
-  sectionId: "PHY-G",
+  sectionId: "PHY-07",
   order: 3,
   title: "Current, Voltage, Resistance & Ohm's Law",
   definition: "Electric current is the flow of charge; voltage is the potential difference driving that flow; resistance opposes the flow; Ohm's Law relates the three quantities for many conductors.",
@@ -793,7 +793,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-circuits-power-energy",
-  sectionId: "PHY-G",
+  sectionId: "PHY-07",
   order: 4,
   title: "Circuits, Electrical Power & Energy",
   definition: "Circuit components can be connected in series or parallel, each with characteristic current and voltage behavior; electrical power and energy describe the rate and total amount of energy transferred by a circuit.",
@@ -831,7 +831,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-magnetic-fields-force",
-  sectionId: "PHY-H",
+  sectionId: "PHY-08",
   order: 1,
   title: "Magnetic Fields, Force & Electromagnets",
   definition: "Magnetic fields surround magnets and current-carrying conductors, exerting force on other magnets or moving charges; electromagnets use electric current to produce a controllable magnetic field.",
@@ -857,7 +857,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-electromagnetic-induction",
-  sectionId: "PHY-H",
+  sectionId: "PHY-08",
   order: 2,
   title: "Electromagnetic Induction & EM Waves",
   definition: "Electromagnetic induction is the generation of an electric current from a changing magnetic field, the reverse relationship of how currents produce magnetic fields, and the basis for how electromagnetic waves propagate.",
@@ -884,7 +884,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-atomic-structure",
-  sectionId: "PHY-I",
+  sectionId: "PHY-09",
   order: 1,
   title: "Atomic Structure & the Nucleus",
   definition: "Atoms consist of a dense central nucleus (protons and neutrons) surrounded by orbiting electrons; the number of protons defines an element, while isotopes of the same element vary in neutron number.",
@@ -910,7 +910,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-radioactivity-nuclear",
-  sectionId: "PHY-I",
+  sectionId: "PHY-09",
   order: 2,
   title: "Radioactivity, Nuclear Fission & Fusion",
   definition: "Radioactivity is the spontaneous emission of particles or energy from unstable atomic nuclei; nuclear fission splits heavy nuclei to release energy, while nuclear fusion combines light nuclei, releasing even more energy per unit mass.",
@@ -939,7 +939,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-universal-gravitation",
-  sectionId: "PHY-J",
+  sectionId: "PHY-10",
   order: 1,
   title: "Newton's Law of Universal Gravitation",
   definition: "Newton's Law of Universal Gravitation states that every mass attracts every other mass with a force proportional to the product of their masses and inversely proportional to the square of the distance between them, underlying orbital motion.",
@@ -977,7 +977,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-units-measurement",
-  sectionId: "PHY-K",
+  sectionId: "PHY-11",
   order: 1,
   title: "SI Units, Prefixes & Dimensional Analysis",
   definition: "The Système International (SI) provides seven standardized base units for the fundamental quantities in physics; prefixes extend these to convenient scales, and dimensional analysis uses the units themselves to check whether equations are physically valid.",
@@ -1017,7 +1017,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-scalars-vectors",
-  sectionId: "PHY-K",
+  sectionId: "PHY-11",
   order: 2,
   title: "Scalars vs Vectors: Magnitude and Direction",
   definition: "Scalar quantities have only magnitude; vector quantities have both magnitude and direction. Distinguishing between them is essential for applying the right mathematical operations.",
@@ -1045,7 +1045,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-vector-operations",
-  sectionId: "PHY-K",
+  sectionId: "PHY-11",
   order: 3,
   title: "Vector Operations: Addition, Subtraction & Components",
   definition: "Vectors add and subtract by special rules that respect direction; decomposing vectors into perpendicular components makes calculations tractable.",
@@ -1092,7 +1092,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-vector-applications",
-  sectionId: "PHY-K",
+  sectionId: "PHY-11",
   order: 4,
   title: "Vector Applications: Force, Velocity, Wind & Wave Components",
   definition: "Vectors are applied throughout physics and atmospheric science wherever a quantity has both magnitude and direction — force, velocity, wind, wave direction, and many more.",
@@ -1140,7 +1140,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-archimedes-principle",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 5,
   title: "Archimedes' Principle & Buoyancy",
   definition: "Archimedes' Principle states that any object immersed in a fluid experiences an upward buoyant force equal to the weight of the fluid displaced by the object. This principle explains why some objects float and others sink.",
@@ -1183,7 +1183,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-fluid-dynamics",
-  sectionId: "PHY-C",
+  sectionId: "PHY-03",
   order: 6,
   title: "Bernoulli's Principle & Fluid Dynamics",
   definition: "Fluid dynamics describes fluids in motion. Bernoulli's principle states that in a flowing fluid, regions of higher flow speed have lower pressure. Continuity and Bernoulli's principle together explain many natural and engineered phenomena, from airplane lift to wind patterns.",
@@ -1230,7 +1230,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-heat-transfer-mechanisms",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 5,
   title: "Heat Transfer Mechanisms: Conduction, Convection & Radiation in Detail",
   definition: "Heat transfers by three mechanisms: conduction (through matter), convection (by fluid motion), and radiation (by electromagnetic waves). Each has distinct physics, governing equations, and applications.",
@@ -1278,7 +1278,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-kinetic-theory",
-  sectionId: "PHY-D",
+  sectionId: "PHY-04",
   order: 6,
   title: "Kinetic Theory of Gases",
   definition: "The kinetic theory of gases explains the macroscopic properties of gases (pressure, temperature, volume) in terms of the microscopic motion of countless individual gas molecules — a foundational bridge between thermodynamics and atomic physics.",
@@ -1324,7 +1324,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-doppler-effect",
-  sectionId: "PHY-E",
+  sectionId: "PHY-05",
   order: 4,
   title: "The Doppler Effect & Applications",
   definition: "The Doppler effect is the observed change in frequency of a wave when the source and observer are moving relative to each other. It explains why a siren's pitch changes as it passes you, and underlies technologies from radar to medical ultrasound.",
@@ -1369,7 +1369,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-lens-mirror-imaging",
-  sectionId: "PHY-F",
+  sectionId: "PHY-06",
   order: 4,
   title: "Lens & Mirror Image Formation",
   definition: "Lenses and mirrors form images by refracting or reflecting light according to predictable rules. The image can be characterized by its type (real or virtual), orientation (upright or inverted), and size (magnified, reduced, or same size).",
@@ -1415,7 +1415,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-capacitance",
-  sectionId: "PHY-G",
+  sectionId: "PHY-07",
   order: 5,
   title: "Capacitance & Capacitors",
   definition: "A capacitor is a device that stores electrical energy in an electric field. Capacitance measures a capacitor's ability to store charge per unit voltage. Capacitors are essential components in virtually all electronic circuits.",
@@ -1463,7 +1463,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-transformers-ac",
-  sectionId: "PHY-H",
+  sectionId: "PHY-08",
   order: 3,
   title: "Transformers & AC Power",
   definition: "A transformer uses electromagnetic induction to step AC voltage up or down while changing current inversely. Transformers are essential for efficient electrical power transmission and for adapting voltages to different applications.",
@@ -1517,7 +1517,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-half-life-decay",
-  sectionId: "PHY-I",
+  sectionId: "PHY-09",
   order: 3,
   title: "Half-Life, Decay Constant & Radioactive Dating",
   definition: "Radioactive decay is a random process where unstable nuclei emit radiation over time. The half-life is the time for half the atoms in a sample to decay — a characteristic constant for each radioactive isotope that enables dating ancient materials.",
@@ -1562,7 +1562,7 @@ export const topics: Topic[] = [
 
 {
   id: "phy-fission-chain-reaction",
-  sectionId: "PHY-I",
+  sectionId: "PHY-09",
   order: 4,
   title: "Nuclear Fission, Chain Reactions & Nuclear Power",
   definition: "Nuclear fission is the splitting of heavy atomic nuclei into smaller fragments, releasing energy and additional neutrons that can sustain a chain reaction. This is the physical basis of nuclear power plants and atomic weapons.",

@@ -14,7 +14,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-1",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 1,
   title: "Number Types: Natural, Whole, Integers, Rational, Irrational & Real",
   definition: "A number system is a structured way of representing quantities using a consistent set of symbols, operations, and rules. The real number system is the most commonly used in science and engineering and includes every number that can be placed on a continuous number line.",
@@ -71,7 +71,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-2",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 2,
   title: "Order of Operations (BODMAS / PEMDAS)",
   definition: "The order of operations is a fixed sequence of rules for evaluating mathematical expressions. BODMAS (Brackets, Orders, Division, Multiplication, Addition, Subtraction) and PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction) are the two common names for the same convention.",
@@ -123,7 +123,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-3",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 3,
   title: "Prime Numbers, Factors & Multiples",
   definition: "A prime number is a natural number greater than 1 with exactly two factors: 1 and itself. A composite number has more than two factors. The Fundamental Theorem of Arithmetic states that every integer greater than 1 is either prime or can be expressed uniquely as a product of primes.",
@@ -169,7 +169,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-4",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 4,
   title: "HCF & LCM",
   definition: "The Highest Common Factor (HCF, also called GCD) of two or more numbers is the largest integer that divides each of them exactly. The Least Common Multiple (LCM) is the smallest positive integer that is a multiple of each of them.",
@@ -221,7 +221,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-5",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 5,
   title: "Fractions: Operations, Comparison & Conversion",
   definition: "A fraction represents part of a whole as a ratio. The numerator (top) counts the parts; the denominator (bottom) names the total number of equal parts. Operations on fractions follow specific rules for addition, subtraction, multiplication, and division.",
@@ -267,7 +267,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-6",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 6,
   title: "Decimals, Rounding & Scientific Notation",
   definition: "Decimals are base-10 representations of numbers using a decimal point to separate whole and fractional parts. Rounding reduces precision to a specified number of significant figures or decimal places. Scientific notation expresses numbers as a × 10ⁿ where 1 ≤ a < 10.",
@@ -319,7 +319,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-7",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 7,
   title: "Percentages & Percentage Change",
   definition: "A percentage is a fraction with denominator 100, denoted by the % symbol. Percentage change measures the relative increase or decrease of a quantity, expressed as a percentage of the original value.",
@@ -370,7 +370,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-1-8",
-  sectionId: "MATH-A",
+  sectionId: "MATH-01",
   order: 8,
   title: "Ratios, Proportions & Variation",
   definition: "A ratio compares two quantities. A proportion states that two ratios are equal. Direct variation means two quantities change together at a constant ratio; inverse variation means one increases as the other decreases such that their product is constant.",
@@ -425,7 +425,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-1",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 1,
   title: "Averages & Weighted Averages",
   definition: "An average is a single value that summarizes a set of numbers. The arithmetic mean is the most common average. A weighted average assigns different importance (weights) to each value, producing a single representative number that reflects the relative significance of each input.",
@@ -478,7 +478,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-2",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 2,
   title: "Unit Conversions",
   definition: "Unit conversion is the process of changing a measurement from one unit to another, using the multiplicative relationship between units. It is essential in science, engineering, and meteorology, where different systems (SI, metric, imperial) coexist.",
@@ -522,7 +522,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-3",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 3,
   title: "Algebraic Expressions & Simplification",
   definition: "An algebraic expression combines numbers, variables, and operations. Simplification combines like terms and applies the order of operations to produce the simplest equivalent form.",
@@ -558,7 +558,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-4",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 4,
   title: "Factorization: Common Factor, Grouping & Identities",
   definition: "Factorization rewrites an expression as a product of factors. Common techniques include extracting the greatest common factor (GCF), grouping terms, and applying standard algebraic identities.",
@@ -599,7 +599,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-5",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 5,
   title: "Standard Algebraic Identities",
   definition: "Algebraic identities are equations that hold true for all values of the variables. The standard identities are essential tools for expanding, factoring, and simplifying expressions efficiently.",
@@ -649,7 +649,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-6",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 6,
   title: "Linear Equations in One & Two Variables",
   definition: "A linear equation in one variable is of the form ax + b = 0. A linear equation in two variables is of the form ax + by = c. Both can be solved using inverse operations to isolate the variable(s).",
@@ -691,7 +691,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-2-7",
-  sectionId: "MATH-B",
+  sectionId: "MATH-02",
   order: 7,
   title: "Simultaneous Equations & Linear Inequalities",
   definition: "Simultaneous linear equations are two or more equations in the same variables whose common solution satisfies all equations simultaneously. A linear inequality is a statement that one linear expression is greater than, less than, or equal to another, with a range of solutions.",
@@ -738,7 +738,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-3-1",
-  sectionId: "MATH-C",
+  sectionId: "MATH-03",
   order: 1,
   title: "Exponents & Laws of Exponents",
   definition: "An exponent indicates how many times a number (the base) is multiplied by itself. The laws of exponents provide rules for simplifying expressions involving powers and form the foundation for scientific notation, logarithms, and exponential growth/decay.",
@@ -781,7 +781,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-3-2",
-  sectionId: "MATH-C",
+  sectionId: "MATH-03",
   order: 2,
   title: "Square Roots, Cube Roots & Radicals",
   definition: "A square root of n is a number that, multiplied by itself, gives n. A cube root is a number that, multiplied by itself three times, gives n. Radical notation expresses these operations, and the laws of radicals mirror the laws of exponents.",
@@ -831,7 +831,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-3-3",
-  sectionId: "MATH-C",
+  sectionId: "MATH-03",
   order: 3,
   title: "Logarithms: Definition, Laws & Applications",
   definition: "A logarithm answers the question: 'to what power must the base be raised to get a given number?' Logarithms are the inverse of exponentiation and have critical applications in science, including the Richter scale, pH, sound intensity, and radioactive decay.",
@@ -888,7 +888,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-3-4",
-  sectionId: "MATH-C",
+  sectionId: "MATH-03",
   order: 4,
   title: "Scientific Notation in Practice",
   definition: "Scientific notation expresses a number as a × 10ⁿ where 1 ≤ |a| < 10. It is the standard way to handle very large and very small numbers in science, and the rules for arithmetic in scientific notation are essential for clean calculations.",
@@ -942,7 +942,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-1",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 1,
   title: "Basic Geometry: Points, Lines & Angles",
   definition: "Geometry is the branch of mathematics that studies points, lines, angles, surfaces, and solids. The fundamental building blocks are points (zero-dimensional), lines (one-dimensional), and planes (two-dimensional).",
@@ -988,7 +988,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-2",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 2,
   title: "Triangles & The Pythagorean Theorem",
   definition: "A triangle is a three-sided polygon. Triangles are classified by sides (equilateral, isosceles, scalene) or by angles (acute, right, obtuse). The Pythagorean theorem describes the special relationship between the sides of a right triangle.",
@@ -1040,7 +1040,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-3",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 3,
   title: "Quadrilaterals, Polygons & Angle Sums",
   definition: "A quadrilateral is a four-sided polygon. Different types (squares, rectangles, parallelograms, rhombuses, trapeziums) have specific properties of sides, angles, and diagonals. Polygons are closed plane figures with three or more straight sides.",
@@ -1083,7 +1083,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-4",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 4,
   title: "Circles: Parts, Properties & Formulas",
   definition: "A circle is the set of all points equidistant from a fixed center. The radius, diameter, circumference, and area are related by simple formulas. Circles have unique geometric properties involving chords, arcs, sectors, and tangents.",
@@ -1140,7 +1140,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-5",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 5,
   title: "Perimeter & Area of 2D Shapes",
   definition: "Perimeter is the total length around the boundary of a 2D shape. Area is the measure of the surface enclosed by the shape. The formulas for both depend on the specific shape, and the right formula must be applied to the right shape.",
@@ -1193,7 +1193,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-4-6",
-  sectionId: "MATH-D",
+  sectionId: "MATH-04",
   order: 6,
   title: "Volume & Surface Area of 3D Shapes",
   definition: "Volume measures the 3D space enclosed by a solid. Surface area measures the total area of the outer surface. The formulas depend on the shape — cube, cuboid, cylinder, sphere, cone, or pyramid.",
@@ -1250,7 +1250,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-5-1",
-  sectionId: "MATH-E",
+  sectionId: "MATH-05",
   order: 1,
   title: "Cartesian Plane & Coordinate System",
   definition: "The Cartesian plane is a 2D coordinate system formed by two perpendicular number lines (axes) intersecting at the origin. Every point on the plane is identified by an ordered pair (x, y) of coordinates, where x is the horizontal position and y is the vertical position.",
@@ -1293,7 +1293,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-5-2",
-  sectionId: "MATH-E",
+  sectionId: "MATH-05",
   order: 2,
   title: "Distance, Midpoint & Section Formula",
   definition: "The distance formula computes the straight-line distance between two points on the coordinate plane, derived from the Pythagorean theorem. The midpoint formula gives the point exactly halfway between two points. The section formula generalizes this for any internal division.",
@@ -1343,7 +1343,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-5-3",
-  sectionId: "MATH-E",
+  sectionId: "MATH-05",
   order: 3,
   title: "Slope & Equations of Straight Lines",
   definition: "The slope of a line measures its steepness and direction. The equation of a line describes the relationship between x and y coordinates of all points on the line. Several forms (slope-intercept, point-slope, standard) are used depending on the information available.",
@@ -1396,7 +1396,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-5-4",
-  sectionId: "MATH-E",
+  sectionId: "MATH-05",
   order: 4,
   title: "Graph Reading, Functions & Interpretation",
   definition: "A graph visualizes the relationship between two variables. Interpreting graphs involves reading values, identifying trends, recognizing function types (linear, quadratic, exponential, logarithmic), and understanding the meaning of slope and intercepts in context.",
@@ -1452,7 +1452,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-6-1",
-  sectionId: "MATH-F",
+  sectionId: "MATH-06",
   order: 1,
   title: "Arithmetic Sequences & Series",
   definition: "An arithmetic sequence is a sequence of numbers in which each term differs from the previous by a constant amount called the common difference. An arithmetic series is the sum of the terms of an arithmetic sequence.",
@@ -1506,7 +1506,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-6-2",
-  sectionId: "MATH-F",
+  sectionId: "MATH-06",
   order: 2,
   title: "Geometric Sequences & Series",
   definition: "A geometric sequence is a sequence in which each term is obtained by multiplying the previous term by a fixed non-zero number called the common ratio. A geometric series is the sum of the terms of a geometric sequence.",
@@ -1562,7 +1562,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-6-3",
-  sectionId: "MATH-F",
+  sectionId: "MATH-06",
   order: 3,
   title: "Number Patterns & Series Problems",
   definition: "Number pattern recognition is the skill of identifying the rule that generates a sequence, then using that rule to find missing terms, predict future terms, or compute sums. Patterns may be arithmetic, geometric, or based on other rules (squares, cubes, Fibonacci, etc.).",
@@ -1617,7 +1617,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-7-1",
-  sectionId: "MATH-G",
+  sectionId: "MATH-07",
   order: 1,
   title: "Vectors: Notation, Magnitude, Operations & Components",
   definition: "A vector is a quantity that has both magnitude and direction. Vectors are fundamental in physics (force, velocity, acceleration) and meteorology (wind direction and speed). Geometrically, a vector is represented by a directed line segment; algebraically, by an ordered pair or triple of components.",
@@ -1678,7 +1678,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-8-1",
-  sectionId: "MATH-H",
+  sectionId: "MATH-08",
   order: 1,
   title: "Statistics: Central Tendency & Dispersion",
   definition: "Statistics summarizes data with numerical measures. Central tendency (mean, median, mode) gives a single representative value. Dispersion (range, variance, standard deviation, percentiles) measures how spread out the data are around that center.",
@@ -1733,7 +1733,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-8-2",
-  sectionId: "MATH-H",
+  sectionId: "MATH-08",
   order: 2,
   title: "Basic Probability",
   definition: "Probability quantifies the likelihood of an event on a scale from 0 (impossible) to 1 (certain). It is foundational to statistics, risk analysis, and scientific inference, and uses the relationship between favorable and total outcomes.",
@@ -1788,7 +1788,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-8-3",
-  sectionId: "MATH-H",
+  sectionId: "MATH-08",
   order: 3,
   title: "Speed, Distance & Time",
   definition: "The relationship between speed, distance, and time is one of the most applied in physics and daily life. The fundamental formula $d = vt$ connects all three, with extensions for average speed, relative speed, and unit conversion.",
@@ -1840,7 +1840,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-8-4",
-  sectionId: "MATH-H",
+  sectionId: "MATH-08",
   order: 4,
   title: "Work, Rate & Pipes",
   definition: "Work-rate problems model how long it takes workers (or machines) to complete a task, given their individual rates. The key insight is that combined rates ADD, while combined times do not. Mixture problems (alligation) combine two or more substances in known ratios.",
@@ -1891,7 +1891,7 @@ export const topics: Topic[] = [
 
 {
   id: "math-8-5",
-  sectionId: "MATH-H",
+  sectionId: "MATH-08",
   order: 5,
   title: "Mixtures, Profit/Loss & Interest",
   definition: "Mixture problems involve combining substances of different concentrations. Profit and loss apply percentage calculations to commercial transactions. Simple and compound interest calculate the cost of borrowing or return on saving.",

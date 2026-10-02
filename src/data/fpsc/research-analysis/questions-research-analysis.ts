@@ -12,21 +12,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA1-Q001", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "easy", type: "single",
+{ id: "RA1-Q001", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "easy", type: "single",
   question: "Which step in the scientific method involves formulating a TESTABLE explanation for an observation?",
   options: ["Observation", "Hypothesis", "Prediction", "Conclusion"],
   correctAnswer: 1,
   explanation: "A HYPOTHESIS is a TESTABLE, FALSIFIABLE tentative explanation for an observation. Observation is the starting point (noticing something). Prediction follows from a hypothesis (what you'd expect to see if the hypothesis is true). Conclusion is the final interpretation of experimental results.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q002", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "easy", type: "true_false",
+{ id: "RA1-Q002", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "easy", type: "true_false",
   question: "A scientific hypothesis must be TESTABLE and FALSIFIABLE.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. The hallmark of a scientific hypothesis is that it CAN be proven wrong by evidence. 'It is what it is' or 'supernatural forces did it' are not scientific because they cannot be tested. The hypothesis 'all swans are white' is testable and was falsified when black swans were discovered.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q003", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "easy", type: "single",
+{ id: "RA1-Q003", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "easy", type: "single",
   question: "The variable that the researcher MANIPULATES in an experiment is the:",
   options: ["Independent variable", "Dependent variable", "Controlled variable", "Extraneous variable"],
   correctAnswer: 0,
@@ -34,49 +34,49 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA1-Q004", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+{ id: "RA1-Q004", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
   question: "A scientific LAW is best described as:",
   options: ["A tentative explanation", "A well-supported broad explanation of natural phenomena", "A descriptive generalization about how some aspect of nature behaves", "A simplified representation of a system"],
   correctAnswer: 2,
   explanation: "A scientific LAW is a DESCRIPTIVE GENERALIZATION about how some aspect of the natural world behaves (e.g., Newton's laws of motion, Boyle's law). A THEORY is a well-supported EXPLANATION (broader than a law). A HYPOTHESIS is a tentative explanation (testable). A MODEL is a simplified representation used to make predictions.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q005", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+{ id: "RA1-Q005", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
   question: "DEDUCTIVE reasoning in science is:",
   options: ["From specific observations to general principle", "From general principle to specific prediction", "From data to best explanation", "From theory to data"],
   correctAnswer: 1,
   explanation: "DEDUCTIVE reasoning starts with a general principle and derives specific predictions (top-down: theory → specific test). INDUCTIVE reasoning goes the other way: from specific observations to a general principle. ABDUCTIVE reasoning goes from data to the BEST EXPLANATION among competing possibilities.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q006", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+{ id: "RA1-Q006", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
   question: "The variable that is HELD CONSTANT to isolate the effect of the independent variable is the:",
   options: ["Independent variable", "Dependent variable", "Controlled variable", "Extraneous variable"],
   correctAnswer: 2,
   explanation: "The CONTROLLED variable is held CONSTANT by the researcher (e.g., same soil, same water, same light). This is essential for a fair test — if the controlled variable varied, you couldn't tell whether changes in the dependent variable were caused by the independent variable or by the other varying factor. EXTRANEOUS variables are unintended factors that vary and threaten validity.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q007", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "multi",
+{ id: "RA1-Q007", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT steps in the scientific method? (Select all that apply.)",
   options: ["Observation", "Hypothesis", "Personal opinion", "Experiment", "Replication"],
   correctAnswer: [0, 1, 3, 4],
   explanation: "The scientific method includes: Observation → Hypothesis → Prediction → Experiment → Analysis → Conclusion → Replication. 'Personal opinion' is NOT a step — the method relies on empirical evidence, not opinion. The other four are core steps. Replication (repeating the study) is essential for verifying results.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q008", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "true_false",
+{ id: "RA1-Q008", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "true_false",
   question: "ABDUCTIVE reasoning goes from specific observations to general principle.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. That's INDUCTIVE reasoning. ABDUCTIVE reasoning goes from observations/data to the BEST EXPLANATION among competing possibilities. DEDUCTIVE goes from general principle to specific prediction. INDUCTIVE goes from specific observations to a general principle.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q009", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+{ id: "RA1-Q009", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
   question: "A THEORY in science is best described as:",
   options: ["A tentative guess", "A well-supported, broad EXPLANATION of natural phenomena", "A description of what happens (without explaining why)", "A simplified representation of a system"],
   correctAnswer: 1,
   explanation: "A THEORY is a well-supported, broad EXPLANATION of natural phenomena (e.g., theory of evolution, germ theory of disease, cell theory). Theories are the highest level of scientific understanding — they don't become 'laws' as they mature. A LAW describes (what happens); a THEORY explains (why/how).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q010", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+{ id: "RA1-Q010", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
   question: "In a study of fertilizer effect on plant growth, the plant height is the:",
   options: ["Independent variable", "Dependent variable", "Controlled variable", "Extraneous variable"],
   correctAnswer: 1,
@@ -84,7 +84,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA1-Q011", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "hard", type: "single",
+{ id: "RA1-Q011", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "hard", type: "single",
   question: "Which of the following is NOT a hypothesis (because it is not falsifiable)?",
   options: [
     "Plants given more sunlight will grow taller",
@@ -96,7 +96,7 @@ export const questions: Question[] = [
   explanation: "'Some supernatural force controls the weather' is NOT a valid scientific hypothesis because it is NOT FALSIFIABLE — there is no possible observation that could prove it wrong. The other three are all testable predictions that could be confirmed or refuted by experiment. The hallmark of science is FALSIFIABILITY.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA1-Q012", sectionId: "RA-1", topicId: "ra-scientific-method", difficulty: "hard", type: "multi",
+{ id: "RA1-Q012", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT distinctions in the scientific method? (Select all that apply.)",
   options: [
     "Hypothesis must be testable and falsifiable",
@@ -113,21 +113,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA2-Q001", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "easy", type: "single",
+{ id: "RA2-Q001", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "easy", type: "single",
   question: "Research dealing with NUMBERS and statistics is called:",
   options: ["Qualitative", "Quantitative", "Mixed methods", "Action research"],
   correctAnswer: 1,
   explanation: "QUANTITATIVE research deals with numbers, measurements, and statistical analysis. QUALITATIVE research deals with words, themes, and meanings. MIXED METHODS combines both. ACTION RESEARCH involves the researcher as part of the system being studied with iterative cycles.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q002", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "easy", type: "true_false",
+{ id: "RA2-Q002", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "easy", type: "true_false",
   question: "QUALITATIVE research deals with words, themes, and meanings rather than numbers and statistics.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Qualitative research (interviews, observations, case studies) focuses on words, themes, and meanings. It explores the 'how' and 'why' of phenomena. Quantitative research (surveys, experiments) deals with numbers and statistics. Both are valid scientific approaches.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q003", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "easy", type: "single",
+{ id: "RA2-Q003", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "easy", type: "single",
   question: "An EXPERIMENTAL research design is characterized by:",
   options: [
     "Simply observing what happens naturally",
@@ -140,14 +140,14 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA2-Q004", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "single",
+{ id: "RA2-Q004", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
   question: "In a CROSS-SECTIONAL study, data are collected:",
   options: ["Over many years", "At ONE point in time (snapshot)", "By following the same subjects", "By manipulating variables"],
   correctAnswer: 1,
   explanation: "CROSS-SECTIONAL studies collect data at ONE point in time (a 'snapshot'). LONGITUDINAL studies follow the same subjects over time. The cross-sectional design is quicker and cheaper but cannot establish temporal sequence (what came first).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q005", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "single",
+{ id: "RA2-Q005", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
   question: "STRATIFIED random sampling is best when:",
   options: [
     "The population is homogeneous (all similar)",
@@ -159,35 +159,35 @@ export const questions: Question[] = [
   explanation: "STRATIFIED sampling is best when the population has distinct sub-groups (strata) — e.g., by gender, age, region. You divide into strata, then randomly sample within each. This ensures every sub-group is represented. For homogeneous populations, simple random is better. For geographically spread populations, cluster sampling works well.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q006", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "single",
+{ id: "RA2-Q006", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
   question: "Which sampling method is FASTEST but has the LOWEST rigor/generalizability?",
   options: ["Simple random", "Stratified", "Convenience", "Cluster"],
   correctAnswer: 2,
   explanation: "CONVENIENCE sampling uses whoever is easily available (e.g., students in a classroom, patients at one hospital). It's fast and cheap but has selection bias — the sample may not represent the broader population. Simple random, stratified, and cluster are more rigorous but take more effort.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q007", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "true_false",
+{ id: "RA2-Q007", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "true_false",
   question: "A CENSUS collects data on every member of the population, while a SAMPLE collects data on a subset.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. A census is comprehensive (every member) — e.g., a national census of all citizens. A sample is a subset. Censuses are more accurate but expensive; samples are cheaper but introduce sampling error.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q008", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "true_false",
+{ id: "RA2-Q008", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "true_false",
   question: "LONGITUDINAL studies follow the same subjects over time; CROSS-SECTIONAL studies collect data at one point in time.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Longitudinal = over time (same subjects, multiple measurements). Cross-sectional = snapshot (one point in time). The distinction is important: longitudinal can detect changes over time but takes longer; cross-sectional is faster but can't establish temporal sequence.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q009", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "multi",
+{ id: "RA2-Q009", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT types of research design? (Select all that apply.)",
   options: ["Descriptive", "Exploratory", "Experimental", "Observational"],
   correctAnswer: [0, 1, 2, 3],
   explanation: "All four are valid research designs: Descriptive ('what is'), Exploratory (preliminary), Experimental (manipulation), Observational (no manipulation). Each has its purpose. Experimental is strongest for causation; observational is best for ethical or practical reasons when experimentation isn't possible.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q010", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "medium", type: "single",
+{ id: "RA2-Q010", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
   question: "SELECTION BIAS occurs when:",
   options: [
     "Measurements are inaccurate",
@@ -200,7 +200,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA2-Q011", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "hard", type: "single",
+{ id: "RA2-Q011", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "hard", type: "single",
   question: "Why is sample SIZE important? (Choose the BEST answer.)",
   options: [
     "Larger samples are always more accurate",
@@ -212,7 +212,7 @@ export const questions: Question[] = [
   explanation: "Larger samples reduce RANDOM ERROR (giving more precise estimates — the standard error shrinks as 1/√n). But they CANNOT fix SYSTEMATIC ERROR (bias) — a biased study with a million respondents is still biased. Also, larger samples aren't always 'more accurate' if the measurement is wrong.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA2-Q012", sectionId: "RA-2", topicId: "ra-research-design", difficulty: "hard", type: "multi",
+{ id: "RA2-Q012", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "hard", type: "multi",
   question: "Which of the following are types of BIAS in research? (Select all that apply.)",
   options: ["Selection bias", "Measurement bias", "Recall bias", "Observer bias"],
   correctAnswer: [0, 1, 2, 3],
@@ -224,21 +224,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA3-Q001", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "easy", type: "single",
+{ id: "RA3-Q001", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "easy", type: "single",
   question: "Data that are CATEGORIES (e.g., climate type: tropical/temperate/arid) are called:",
   options: ["Numerical", "Categorical", "Continuous", "Interval"],
   correctAnswer: 1,
   explanation: "CATEGORICAL data are labels or categories (like climate type, gender, blood type). NUMERICAL data are numbers. CONTINUOUS data can take any value (e.g., temperature). The question describes categories — so it's categorical data.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q002", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "easy", type: "true_false",
+{ id: "RA3-Q002", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "easy", type: "true_false",
   question: "DISCRETE data can take any value including fractions and decimals.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. DISCRETE data are countable whole numbers (e.g., number of species, count of patients). CONTINUOUS data can take any value including fractions (e.g., temperature 23.7°C, weight 65.3 kg). The statement is the opposite of correct.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q003", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "easy", type: "single",
+{ id: "RA3-Q003", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "easy", type: "single",
   question: "Temperature in KELVIN is measured on which scale?",
   options: ["Nominal", "Ordinal", "Interval", "Ratio"],
   correctAnswer: 3,
@@ -246,21 +246,21 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA3-Q004", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "single",
+{ id: "RA3-Q004", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "single",
   question: "Which scale of measurement has a TRUE zero?",
   options: ["Nominal", "Ordinal", "Interval", "Ratio"],
   correctAnswer: 3,
   explanation: "Only the RATIO scale has a true zero (0 means absence of the property). Interval scales (e.g., °C temperature) have an arbitrary zero — 0°C doesn't mean 'no temperature'. Nominal has no order; ordinal has order but no equal intervals. Ratio has order, equal intervals, AND a true zero — all operations valid (including × and ÷).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q005", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "single",
+{ id: "RA3-Q005", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "single",
   question: "Satisfaction rating (poor/fair/good/excellent) is measured on which scale?",
   options: ["Nominal", "Ordinal", "Interval", "Ratio"],
   correctAnswer: 1,
   explanation: "ORDINAL scale: categories in a meaningful ORDER, but the gaps between categories are NOT equal (the difference between 'poor' and 'fair' may differ from 'good' to 'excellent'). This is the key distinction: ordinal = ordered but unequal intervals, vs. interval = ordered AND equal intervals but no true zero.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q006", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "single",
+{ id: "RA3-Q006", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "single",
   question: "CONTINUOUS data differ from DISCRETE data in that continuous data:",
   options: [
     "Are always whole numbers",
@@ -272,14 +272,14 @@ export const questions: Question[] = [
   explanation: "CONTINUOUS data can take any value within a range, including fractions and decimals (e.g., temperature 23.7°C, length 1.85 m). DISCRETE data are countable whole numbers (e.g., number of children, count of species). Both are types of quantitative data.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q007", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "true_false",
+{ id: "RA3-Q007", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "true_false",
   question: "On the INTERVAL scale of measurement, 0 means a complete absence of the property being measured.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. On an INTERVAL scale, 0 is ARBITRARY (e.g., 0°C is the freezing point of water, not 'no temperature'). On a RATIO scale, 0 IS a true zero (e.g., 0 K = absolute zero = no thermal energy). The interval vs. ratio distinction is a classic exam point.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q008", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "multi",
+{ id: "RA3-Q008", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT examples of data types? (Select all that apply.)",
   options: [
     "Number of species in a forest (discrete)",
@@ -291,7 +291,7 @@ export const questions: Question[] = [
   explanation: "All four are correct: count of species = discrete quantitative; °C temperature = continuous interval; eye color = categorical nominal; weight in kg = continuous ratio (true zero = no weight). These distinctions appear frequently in exam questions.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q009", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "single",
+{ id: "RA3-Q009", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "single",
   question: "Why is it WRONG to compute a MEAN of nominal data (e.g., 'average climate type')?",
   options: [
     "Mathematical rules forbid it",
@@ -303,7 +303,7 @@ export const questions: Question[] = [
   explanation: "NOMINAL data (like climate type: tropical/temperate/arid) have no meaningful order or numerical value. Computing a 'mean' requires numbers to add and divide. For nominal data, only the MODE (most frequent category) is meaningful as a measure of center. This is a key exam point about choosing the right statistic for the data type.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q010", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "medium", type: "single",
+{ id: "RA3-Q010", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "medium", type: "single",
   question: "Blood type (A, B, AB, O) is measured on which scale?",
   options: ["Nominal", "Ordinal", "Interval", "Ratio"],
   correctAnswer: 0,
@@ -311,7 +311,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA3-Q011", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "hard", type: "single",
+{ id: "RA3-Q011", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "hard", type: "single",
   question: "Why is the scale of measurement important for choosing a statistical test?",
   options: [
     "It doesn't matter — any test works on any data",
@@ -323,7 +323,7 @@ export const questions: Question[] = [
   explanation: "The measurement scale determines which mathematical operations are valid. NOMINAL → only mode, chi-square. ORDINAL → median, rank-order tests. INTERVAL → + and − (means, t-tests, Pearson r). RATIO → all operations including × and ÷ (geometric mean, ratios, logarithms). Using the wrong test for the scale is a common methodological error.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA3-Q012", sectionId: "RA-3", topicId: "ra-data-types", difficulty: "hard", type: "multi",
+{ id: "RA3-Q012", sectionId: "RA-03", topicId: "ra-data-types", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT distinctions between measurement scales? (Select all that apply.)",
   options: [
     "Nominal has no order; ordinal has order but unequal intervals",
@@ -340,21 +340,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA4-Q001", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "single",
+{ id: "RA4-Q001", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "single",
   question: "Which measure of central tendency is ROBUST to outliers?",
   options: ["Mean", "Median", "Mode", "All equally affected"],
   correctAnswer: 1,
   explanation: "The MEDIAN is robust to outliers because it depends on the middle value, not the magnitude of extreme values. The MEAN (average) is sensitive to outliers because one very large or very small value can pull the mean significantly. The MODE is the most frequent value and is not affected by extreme outliers (unless they are the most frequent).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q002", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "true_false",
+{ id: "RA4-Q002", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "true_false",
   question: "The RANGE is calculated as maximum + minimum.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. The RANGE is calculated as maximum MINUS minimum (max − min). It is sensitive to outliers. The INTERQUARTILE RANGE (IQR = Q3 − Q1) is more robust because it ignores the most extreme 25% on each end.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q003", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "single",
+{ id: "RA4-Q003", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "easy", type: "single",
   question: "Which measure of central tendency is calculated as Σxᵢ / n?",
   options: ["Median", "Mode", "Mean", "Range"],
   correctAnswer: 2,
@@ -362,28 +362,28 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA4-Q004", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
+{ id: "RA4-Q004", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
   question: "For a NORMAL (bell-shaped) distribution, approximately what percentage of data falls within 1 standard deviation of the mean?",
   options: ["50%", "68%", "95%", "99.7%"],
   correctAnswer: 1,
   explanation: "The empirical rule (68-95-99.7) states: ~68% within 1 SD, ~95% within 2 SD, ~99.7% within 3 SD of the mean for a normal distribution. This is a frequently-tested fact. 50% is within 0.674 SD (not 1 SD). 95% and 99.7% are 2 and 3 SD respectively.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q005", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
+{ id: "RA4-Q005", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
   question: "The INTERQUARTILE RANGE (IQR) is calculated as:",
   options: ["Q1 − Q0", "Q3 − Q1", "Q4 − Q1", "Mean × 2"],
   correctAnswer: 1,
   explanation: "IQR = Q3 − Q1 (75th percentile minus 25th percentile). It represents the middle 50% of the data and is robust to outliers. It's used to define outliers in box plots: data beyond Q1 − 1.5×IQR or Q3 + 1.5×IQR are considered outliers.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q006", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
+{ id: "RA4-Q006", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
   question: "In a RIGHT-SKEWED distribution:",
   options: ["Mean ≈ Median ≈ Mode", "Mean > Median (positive skew)", "Mean < Median (negative skew)", "All values are equal"],
   correctAnswer: 1,
   explanation: "In a RIGHT-SKEWED distribution (long right tail, e.g., income), the MEAN > MEDIAN. A few high values pull the mean up more than the median. The opposite is true for left-skewed (mean < median). For symmetric distributions, mean ≈ median.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q007", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
+{ id: "RA4-Q007", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
   question: "Variance differs from standard deviation in that:",
   options: [
     "Variance is in the original units; SD is squared",
@@ -395,14 +395,14 @@ export const questions: Question[] = [
   explanation: "Variance is in SQUARED units (e.g., kg² if measuring mass). Standard deviation is the square root of variance, putting it back in the ORIGINAL units (e.g., kg). This makes SD more interpretable. Example: variance of temperature = 25 °C²; SD = 5 °C.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q008", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "true_false",
+{ id: "RA4-Q008", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "true_false",
   question: "The Z-SCORE of a value tells you how many standard deviations it is from the mean.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Z = (x − μ) / σ. A Z-score of 0 means the value equals the mean. Z = +2 means 2 SDs above the mean. Z = -1.5 means 1.5 SDs below the mean. Z-scores are useful for comparing values from different distributions (e.g., test scores from different exams).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q009", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "multi",
+{ id: "RA4-Q009", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT about measures of central tendency? (Select all that apply.)",
   options: [
     "Mean is sensitive to outliers; median is robust",
@@ -414,7 +414,7 @@ export const questions: Question[] = [
   explanation: "(a) Correct: mean is pulled by outliers; median is robust. (b) Correct: mode = most frequent. (c) Correct: symmetric distributions have all three roughly equal. (d) WRONG: mean can only be computed for NUMERICAL data (interval/ratio scales) — you cannot compute a mean of nominal data like climate type or blood type.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q010", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
+{ id: "RA4-Q010", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
   question: "An outlier in a dataset is defined as:",
   options: [
     "Any data point above the mean",
@@ -427,7 +427,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA4-Q011", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "hard", type: "single",
+{ id: "RA4-Q011", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "hard", type: "single",
   question: "Why is the IQR (interquartile range) often preferred over the standard deviation for describing spread?",
   options: [
     "IQR is always larger than SD",
@@ -439,7 +439,7 @@ export const questions: Question[] = [
   explanation: "The IQR is ROBUST to outliers (uses only the middle 50% of data: Q1 to Q3) while the standard deviation is sensitive to extreme values (uses ALL data, including the mean and squared deviations). For skewed or outlier-containing data, IQR + median better represents the typical data than SD + mean. IQR is the basis of box plots.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA4-Q012", sectionId: "RA-4", topicId: "ra-descriptive-statistics", difficulty: "hard", type: "single",
+{ id: "RA4-Q012", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "hard", type: "single",
   question: "Why is reporting the mean WITHOUT the standard deviation often misleading?",
   options: [
     "It is illegal",
@@ -456,21 +456,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA5-Q001", sectionId: "RA-5", topicId: "ra-probability", difficulty: "easy", type: "single",
+{ id: "RA5-Q001", sectionId: "RA-05", topicId: "ra-probability", difficulty: "easy", type: "single",
   question: "The probability of an event that is CERTAIN to occur is:",
   options: ["0", "0.5", "1", "Cannot be determined"],
   correctAnswer: 2,
   explanation: "Probability ranges from 0 (impossible) to 1 (certain). P(sure event) = 1. P(impossible event) = 0. This is the fundamental constraint on all probability values.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q002", sectionId: "RA-5", topicId: "ra-probability", difficulty: "easy", type: "true_false",
+{ id: "RA5-Q002", sectionId: "RA-05", topicId: "ra-probability", difficulty: "easy", type: "true_false",
   question: "EMPIRICAL probability is based on observed data; CLASSICAL probability assumes equally likely outcomes.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Classical probability (P = favorable/total) assumes equally likely outcomes (dice, cards, coins). Empirical probability (P = times occurred / total trials) is based on observed data from experiments or surveys. Subjective probability is based on judgment. The three types reflect different epistemic situations.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q003", sectionId: "RA-5", topicId: "ra-probability", difficulty: "easy", type: "single",
+{ id: "RA5-Q003", sectionId: "RA-05", topicId: "ra-probability", difficulty: "easy", type: "single",
   question: "The probability of rolling a 6 on a fair die is:",
   options: ["1/12", "1/6", "1/3", "1/2"],
   correctAnswer: 1,
@@ -478,7 +478,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA5-Q004", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "single",
+{ id: "RA5-Q004", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
   question: "For two INDEPENDENT events A and B, P(A and B) equals:",
   options: [
     "P(A) + P(B)",
@@ -490,7 +490,7 @@ export const questions: Question[] = [
   explanation: "The MULTIPLICATION RULE for INDEPENDENT events: P(A and B) = P(A) × P(B). This only works when A and B are independent (one doesn't affect the other). For dependent events, you need conditional probability: P(A and B) = P(A) × P(B|A).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q005", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "single",
+{ id: "RA5-Q005", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
   question: "P(A or B) for two MUTUALLY EXCLUSIVE events equals:",
   options: [
     "P(A) + P(B)",
@@ -502,14 +502,14 @@ export const questions: Question[] = [
   explanation: "For MUTUALLY EXCLUSIVE events (cannot both occur): P(A or B) = P(A) + P(B). For NON-mutually-exclusive events, you must subtract the overlap: P(A or B) = P(A) + P(B) − P(A and B). This is the inclusion-exclusion principle. Coin flips, dice rolls are mutually exclusive examples.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q006", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "true_false",
+{ id: "RA5-Q006", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "true_false",
   question: "The COMPLEMENT rule states that P(not A) = 1 − P(A).",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. The complement rule: P(not A) = 1 − P(A). This is the easiest way to solve 'at least one' problems. Example: P(at least one head in 3 coin flips) = 1 − P(no heads) = 1 − (1/2)³ = 1 − 1/8 = 7/8.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q007", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "single",
+{ id: "RA5-Q007", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
   question: "Two events are MUTUALLY EXCLUSIVE when:",
   options: [
     "They often occur together",
@@ -521,7 +521,7 @@ export const questions: Question[] = [
   explanation: "MUTUALLY EXCLUSIVE events CANNOT BOTH OCCUR in the same trial. Rolling a 3 AND a 5 on a single die is impossible. Rolling heads AND tails on a single coin flip is impossible. P(A and B) = 0 for mutually exclusive events. Note: 'mutually exclusive' is different from 'independent' — independent events CAN occur together; mutually exclusive cannot.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q008", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "multi",
+{ id: "RA5-Q008", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT probability rules? (Select all that apply.)",
   options: [
     "0 ≤ P(E) ≤ 1 for any event E",
@@ -533,14 +533,14 @@ export const questions: Question[] = [
   explanation: "(a) Correct: probability is bounded 0-1. (b) Correct: multiplication rule for independent events. (c) Correct: inclusion-exclusion. (d) WRONG: P(sure event) = 1 (not 0). P(impossible event) = 0.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q009", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "single",
+{ id: "RA5-Q009", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
   question: "A die is rolled twice. What is the probability of getting two sixes?",
   options: ["1/12", "1/36", "1/6", "1/72"],
   correctAnswer: 1,
   explanation: "Two independent rolls: P(6 then 6) = (1/6) × (1/6) = 1/36. Each roll is independent (the first doesn't affect the second). The multiplication rule for independent events gives 1/36.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q010", sectionId: "RA-5", topicId: "ra-probability", difficulty: "medium", type: "true_false",
+{ id: "RA5-Q010", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "true_false",
   question: "INDEPENDENT events and MUTUALLY EXCLUSIVE events are the same thing.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -548,14 +548,14 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA5-Q011", sectionId: "RA-5", topicId: "ra-probability", difficulty: "hard", type: "single",
+{ id: "RA5-Q011", sectionId: "RA-05", topicId: "ra-probability", difficulty: "hard", type: "single",
   question: "In a clinical trial, a drug has a 1% side effect rate. If 100 patients take it, what is the probability that at least one has a side effect? (Assume independence.)",
   options: ["1%", "10%", "约 63% (~63.4%)", "99%"],
   correctAnswer: 2,
   explanation: "Use the complement: P(at least one side effect) = 1 − P(none). P(none in 100 patients) = (0.99)^100 ≈ 0.366. So P(at least one) = 1 − 0.366 ≈ 0.634 = 63.4%. This is a common surprise — even a rare event becomes likely with many trials. The exam may test this 'rare event, many trials' intuition.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA5-Q012", sectionId: "RA-5", topicId: "ra-probability", difficulty: "hard", type: "single",
+{ id: "RA5-Q012", sectionId: "RA-05", topicId: "ra-probability", difficulty: "hard", type: "single",
   question: "Why is SUBJECTIVE probability different from CLASSICAL and EMPIRICAL?",
   options: [
     "It uses different math",
@@ -572,21 +572,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA6-Q001", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "easy", type: "single",
+{ id: "RA6-Q001", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "easy", type: "single",
   question: "Which chart is BEST for showing how a variable changes OVER TIME?",
   options: ["Pie chart", "Line chart", "Bar chart", "Histogram"],
   correctAnswer: 1,
   explanation: "A LINE CHART is best for showing trends over time (continuous data on x-axis with time). Pie charts are for parts of a whole. Bar charts compare categories. Histograms show distributions of one continuous variable. The line chart's connecting line emphasizes the temporal trend.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q002", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "easy", type: "true_false",
+{ id: "RA6-Q002", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "easy", type: "true_false",
   question: "A HISTOGRAM is used to show the distribution of a single continuous variable.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. A histogram shows the distribution (shape, center, spread) of one continuous variable (e.g., distribution of rainfall amounts). Bars in a histogram touch (unlike in a bar chart) because they represent continuous intervals. A bar chart, by contrast, shows categories with gaps.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q003", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "easy", type: "single",
+{ id: "RA6-Q003", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "easy", type: "single",
   question: "Which chart is BEST for showing the relationship between TWO continuous variables?",
   options: ["Bar chart", "Histogram", "Scatter plot", "Pie chart"],
   correctAnswer: 2,
@@ -594,7 +594,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA6-Q004", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
+{ id: "RA6-Q004", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
   question: "A PIE chart is most appropriate when:",
   options: [
     "Showing distribution of continuous data",
@@ -606,7 +606,7 @@ export const questions: Question[] = [
   explanation: "A pie chart shows parts of a whole (percentages of a total). It's most effective with few categories (max ~6) — beyond that, slices become too small to read, and a bar chart is better. Pie charts are POOR for showing distributions, trends, or two continuous variables.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q005", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
+{ id: "RA6-Q005", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
   question: "A TRUNCATED y-axis in a graph can mislead because:",
   options: [
     "It makes data look less accurate",
@@ -618,21 +618,21 @@ export const questions: Question[] = [
   explanation: "A truncated y-axis (starting at a non-zero value) makes small differences appear large. Example: a 2mm change in a bar chart's height looks like a 100% increase when the y-axis starts at 90 instead of 0. This is one of the most common misleading techniques. Always check whether the y-axis starts at zero for bar charts.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q006", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "true_false",
+{ id: "RA6-Q006", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "true_false",
   question: "Box plots are useful for showing the distribution of data and identifying outliers.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Box plots show the median, quartiles (Q1, Q3), whiskers, and outliers in a compact form. They're especially useful for comparing distributions between groups. Points beyond the whiskers (typically Q1 − 1.5×IQR or Q3 + 1.5×IQR) are plotted as individual outliers.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q007", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "true_false",
+{ id: "RA6-Q007", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "true_false",
   question: "Using a 3D pie chart with 15 slices is good practice for clarity.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. 3D effects in pie charts DISTORT proportions (the slice at the front looks larger than the one at the back, even if they're the same size). 15 slices is way too many to read. Good practice: 2D pie chart, MAX 6-7 slices, largest slice starting at 12 o'clock. For more categories, use a bar chart instead.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q008", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "multi",
+{ id: "RA6-Q008", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT chart-type choices? (Select all that apply.)",
   options: [
     "Line chart for time series / trends over time",
@@ -644,7 +644,7 @@ export const questions: Question[] = [
   explanation: "All four are correct standard chart-type choices. Line = time/trend. Scatter = 2 continuous variables. Histogram = distribution of 1 continuous variable (bars touch). Bar chart = comparing categories. Choosing the right chart is a fundamental data communication skill.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q009", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
+{ id: "RA6-Q009", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
   question: "Why is a CHOROPLETH map useful for geographic data?",
   options: [
     "It shows time series",
@@ -656,7 +656,7 @@ export const questions: Question[] = [
   explanation: "A CHOROPLETH map color-codes geographic regions (countries, states, districts) by a variable value — e.g., countries shaded by GDP per capita, districts by disease incidence. It's excellent for showing spatial patterns. For point data (e.g., city locations), a different map type is used.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q010", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
+{ id: "RA6-Q010", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "medium", type: "single",
   question: "Which of the following is a key principle of good data visualization?",
   options: [
     "Use 3D effects for visual appeal",
@@ -669,7 +669,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA6-Q011", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "hard", type: "single",
+{ id: "RA6-Q011", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "hard", type: "single",
   question: "A news article claims: 'Crime doubled last year!' but only shows numbers for ONE city. This is an example of:",
   options: [
     "Good data communication",
@@ -681,7 +681,7 @@ export const questions: Question[] = [
   explanation: "CHERRY-PICKED DATA: selecting only the data that supports a claim, while ignoring the broader context. 'Crime doubled in CITY X' might be true while crime fell nationally — without context, the headline is misleading. Critical thinking about data presentation means asking: WHAT'S MISSING? WHAT'S THE BASELINE? IS THIS THE WHOLE PICTURE?",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA6-Q012", sectionId: "RA-6", topicId: "ra-data-visualization", difficulty: "hard", type: "multi",
+{ id: "RA6-Q012", sectionId: "RA-06", topicId: "ra-data-visualization", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT good data visualization practices? (Select all that apply.)",
   options: [
     "Always start bar chart y-axis at 0 (unless clearly noted otherwise)",
@@ -698,21 +698,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA7-Q001", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "easy", type: "single",
+{ id: "RA7-Q001", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "easy", type: "single",
   question: "The correlation coefficient r ranges from:",
   options: ["0 to 1", "-1 to 0", "-1 to +1", "0 to 100"],
   correctAnswer: 2,
   explanation: "r ranges from -1 (perfect negative correlation) to +1 (perfect positive correlation). r = 0 means no LINEAR correlation. This is the most fundamental fact about r. The exam tests this directly.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q002", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "easy", type: "true_false",
+{ id: "RA7-Q002", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "easy", type: "true_false",
   question: "CORRELATION implies CAUSATION.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False — and this is the most important concept in the entire topic. Correlation does NOT imply causation. r = 0.9 between two variables just means they move together; it does NOT mean one causes the other. A third variable (confounder) may cause both, or the correlation may be coincidental. Establishing causation requires a controlled experiment or strong causal inference.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q003", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "easy", type: "single",
+{ id: "RA7-Q003", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "easy", type: "single",
   question: "A positive correlation means:",
   options: [
     "X causes Y",
@@ -725,7 +725,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA7-Q004", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
+{ id: "RA7-Q004", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
   question: "In the linear regression equation y = a + bx, what does b (the slope) represent?",
   options: [
     "The value of y when x = 0",
@@ -737,7 +737,7 @@ export const questions: Question[] = [
   explanation: "The SLOPE b = average change in Y per unit change in X. The INTERCEPT a = value of Y when X = 0 (often not meaningful if X = 0 is outside data range). R² measures strength of fit, not the slope. b ≠ probability.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q005", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
+{ id: "RA7-Q005", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
   question: "A CONFOUNDING variable is:",
   options: [
     "The independent variable",
@@ -749,7 +749,7 @@ export const questions: Question[] = [
   explanation: "A CONFOUNDING variable (Z) is a third variable that causes BOTH X and Y, creating a correlation between X and Y even though X does NOT cause Y. Classic example: ice cream sales and drowning both rise in summer because TEMPERATURE (Z) causes both. Confounding is the most common reason for misleading correlations.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q006", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
+{ id: "RA7-Q006", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
   question: "A study finds r = 0.85 between two variables. This means:",
   options: [
     "X causes Y",
@@ -761,21 +761,21 @@ export const questions: Question[] = [
   explanation: "r = 0.85 indicates a STRONG POSITIVE LINEAR correlation — as X increases, Y tends to increase. It does NOT establish causation (that requires experimental control). The exam often tests: 'r = 0.85 means...' with the correct answer being about CORRELATION, not causation.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q007", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "true_false",
+{ id: "RA7-Q007", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "true_false",
   question: "A correlation of r = 0.9 between ice cream sales and drowning deaths means that eating ice cream causes drowning.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. This is the CLASSIC illustration of correlation ≠ causation. Both ice cream sales and drowning INCREASE in summer because HOT WEATHER (a third variable, the confounder) causes both. The correlation is real but CAUSAL interpretation is wrong. Eating ice cream does not cause drowning. The lesson: ALWAYS look for confounding variables before inferring causation.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q008", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "true_false",
+{ id: "RA7-Q008", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "true_false",
   question: "A NEGATIVE correlation means that as X increases, Y tends to decrease.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. A negative correlation (r < 0) means as X increases, Y tends to decrease (and vice versa). Example: as altitude increases, air pressure decreases. The correlation is descriptive (what tends to happen), not causal.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q009", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "multi",
+{ id: "RA7-Q009", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT statements about correlation? (Select all that apply.)",
   options: [
     "r = 0.9 between X and Y does NOT mean X causes Y",
@@ -787,7 +787,7 @@ export const questions: Question[] = [
   explanation: "(a) Correct: correlation ≠ causation. (b) Correct: confounding is a common reason for spurious correlation. (c) WRONG: r = 0 means NO LINEAR relationship, but a strong NON-LINEAR (e.g., U-shaped) relationship can have r ≈ 0. (d) Correct: reverse causation (Y causes X) is one of three explanations for correlation besides confounding and coincidence.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q010", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
+{ id: "RA7-Q010", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
   question: "What is the formula for the slope b in linear regression?",
   options: [
     "b = r × (s_y / s_x)",
@@ -800,7 +800,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA7-Q011", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "hard", type: "single",
+{ id: "RA7-Q011", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "hard", type: "single",
   question: "Why is R² (coefficient of determination) more useful than r for interpretation?",
   options: [
     "R² is always larger than r",
@@ -812,7 +812,7 @@ export const questions: Question[] = [
   explanation: "R² (coefficient of determination) is the PROPORTION of variance in Y explained by X. It ranges from 0 to 1 and is directly interpretable: R² = 0.7 means 70% of the variance in Y is explained by X. The correlation r is harder to interpret in absolute terms (what does r = 0.6 mean in practical terms?). R² is the square of r (for simple linear regression), but its interpretation is more meaningful.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA7-Q012", sectionId: "RA-7", topicId: "ra-correlation-regression", difficulty: "hard", type: "multi",
+{ id: "RA7-Q012", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT ways to establish causation? (Select all that apply.)",
   options: [
     "A high correlation alone is sufficient",
@@ -829,21 +829,21 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA8-Q001", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "easy", type: "single",
+{ id: "RA8-Q001", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "easy", type: "single",
   question: "A PARAMETER describes a:",
   options: ["Sample", "Population", "Test statistic", "Confidence interval"],
   correctAnswer: 1,
   explanation: "A PARAMETER describes a POPULATION (e.g., μ, σ). A STATISTIC describes a SAMPLE (e.g., x̄, s). Inferential statistics uses sample statistics to estimate population parameters. This is a fundamental distinction tested in every stats exam.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q002", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "easy", type: "true_false",
+{ id: "RA8-Q002", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "easy", type: "true_false",
   question: "Standard Error (SE = s/√n) INCREASES as sample size n increases.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. SE = s/√n DECREASES as n increases. Larger sample → more precise estimate → smaller standard error. This is why larger samples give narrower confidence intervals and more powerful hypothesis tests. The square root relationship means you need 4x the sample size to halve the SE.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q003", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "easy", type: "single",
+{ id: "RA8-Q003", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "easy", type: "single",
   question: "A 95% CONFIDENCE INTERVAL means:",
   options: [
     "There is a 95% probability the true parameter is in this specific interval",
@@ -856,7 +856,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA8-Q004", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
+{ id: "RA8-Q004", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
   question: "The NULL HYPOTHESIS (H₀) typically states:",
   options: [
     "There IS an effect",
@@ -868,7 +868,7 @@ export const questions: Question[] = [
   explanation: "The NULL HYPOTHESIS (H₀) is the DEFAULT assumption: no effect, no difference, no relationship. We then ask: 'If H₀ is true, what's the probability of getting data as extreme as ours?' That's the p-value. If p is small, we REJECT H₀. If p is large, we FAIL TO REJECT H₀ (we never 'accept' H₀).",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q005", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
+{ id: "RA8-Q005", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
   question: "A p-value is best described as:",
   options: [
     "The probability that the null hypothesis is true",
@@ -880,7 +880,7 @@ export const questions: Question[] = [
   explanation: "p-value = P(data | H₀) = probability of getting data as extreme as ours, ASSUMING H₀ is true. Small p → data unlikely under H₀ → reject H₀. The p-value is NOT the probability that H₀ is true (a common misinterpretation). It's a statement about the data, conditional on H₀.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q006", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
+{ id: "RA8-Q006", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
   question: "We REJECT the null hypothesis when:",
   options: [
     "p-value is LARGE (e.g., p > 0.5)",
@@ -892,21 +892,21 @@ export const questions: Question[] = [
   explanation: "Standard decision rule: REJECT H₀ if p < α (where α is typically 0.05). This means the data is unlikely under H₀. If p is large, we FAIL TO REJECT H₀ (we never 'accept' H₀ — we just don't have enough evidence against it). Sample size affects POWER, not the decision rule. Effect size is separate from p-value.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q007", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "true_false",
+{ id: "RA8-Q007", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "true_false",
   question: "A TYPE I error occurs when we reject H₀ when it is actually TRUE (false positive).",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. TYPE I ERROR: rejecting a TRUE null hypothesis (false positive). The probability of Type I error is α (significance level, usually 0.05). TYPE II ERROR: failing to reject a FALSE null hypothesis (false negative). The probability of Type II error is β. POWER = 1 − β. Both error types should be considered in study design.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q008", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
+{ id: "RA8-Q008", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
   question: "Which test is appropriate for comparing the MEANS of TWO groups?",
   options: ["Chi-square test", "t-test", "ANOVA", "Pearson correlation"],
   correctAnswer: 1,
   explanation: "T-TEST: compares the means of TWO groups. ANOVA: compares means of THREE OR MORE groups (extension of t-test). CHI-SQUARE: tests association between CATEGORICAL variables. PEARSON CORRELATION: tests the relationship between two CONTINUOUS variables. The choice depends on your data type and research question.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q009", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "multi",
+{ id: "RA8-Q009", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT statements about hypothesis testing? (Select all that apply.)",
   options: [
     "Reject H₀ if p < α (typically 0.05)",
@@ -918,7 +918,7 @@ export const questions: Question[] = [
   explanation: "(a) Correct: standard decision rule. (b) Correct: p-value = P(data | H₀). (c) Correct: Type I = false positive (reject true H₀). (d) WRONG: a large sample can give a significant p-value for even a TRIVIAL effect (statistical significance ≠ practical significance). The effect size matters too.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q010", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
+{ id: "RA8-Q010", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
   question: "What is STATISTICAL POWER?",
   options: [
     "The probability of rejecting a true H₀",
@@ -931,7 +931,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA8-Q011", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "hard", type: "single",
+{ id: "RA8-Q011", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "hard", type: "single",
   question: "Why is the p-value NOT the probability that H₀ is true?",
   options: [
     "Because p-values are always wrong",
@@ -943,7 +943,7 @@ export const questions: Question[] = [
   explanation: "p-value = P(data | H₀) — the probability of data GIVEN H₀ is true. It is NOT P(H₀ | data) — the probability that H₀ is true given the data. The parameter (e.g., true mean) is a FIXED unknown; the confidence interval either contains it or doesn't. Frequentist statistics doesn't assign probabilities to hypotheses.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA8-Q012", sectionId: "RA-8", topicId: "ra-inferential-stats", difficulty: "hard", type: "multi",
+{ id: "RA8-Q012", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT ways to increase STATISTICAL POWER? (Select all that apply.)",
   options: [
     "Increase sample size (n)",
@@ -960,7 +960,7 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // Easy
-{ id: "RA9-Q001", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "easy", type: "single",
+{ id: "RA9-Q001", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "easy", type: "single",
   question: "INTERNAL VALIDITY refers to:",
   options: [
     "Whether results generalize to other settings",
@@ -972,14 +972,14 @@ export const questions: Question[] = [
   explanation: "INTERNAL VALIDITY is about CAUSE-EFFECT within the study: did the IV actually cause the change in DV, or could a confounder explain it? High internal validity comes from randomization, control of variables, and good design. EXTERNAL VALIDITY is about generalization. RELIABILITY is about consistency.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q002", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "easy", type: "true_false",
+{ id: "RA9-Q002", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "easy", type: "true_false",
   question: "RELIABILITY means consistency of measurement; VALIDITY means accuracy (measuring what you claim).",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Reliability = consistency (same measurement gives same result on repeated trials). Validity = accuracy (the measurement actually captures the concept it claims to measure). A measure can be reliable without being valid (e.g., a broken scale that always reads 100 kg is reliable but not valid). You need BOTH for good measurement.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q003", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "easy", type: "single",
+{ id: "RA9-Q003", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "easy", type: "single",
   question: "EXTERNAL VALIDITY is about:",
   options: [
     "Cause-effect within the study",
@@ -992,14 +992,14 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Medium
-{ id: "RA9-Q004", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "single",
+{ id: "RA9-Q004", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
   question: "RANDOM ERROR reduces:",
   options: ["Accuracy", "Precision", "Both accuracy and precision", "Neither"],
   correctAnswer: 1,
   explanation: "RANDOM ERROR reduces PRECISION (scatter around the true value). SYSTEMATIC ERROR reduces ACCURACY (consistently off in one direction). Random error is reduced by larger samples (SE = s/√n). Systematic error is NOT reduced by larger samples — a biased scale stays biased no matter how many times you weigh. A good study minimizes both.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q005", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "single",
+{ id: "RA9-Q005", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
   question: "TEST-RETEST reliability is assessed by:",
   options: [
     "Using the instrument on the same subjects at DIFFERENT times and seeing if results are similar",
@@ -1011,14 +1011,14 @@ export const questions: Question[] = [
   explanation: "TEST-RETEST reliability: same instrument, same subjects, DIFFERENT TIMES — do results correlate? INTER-RATER reliability: different raters using same instrument — do their scores agree? INTERNAL CONSISTENCY: different items measuring same construct (e.g., Cronbach's alpha). SPLIT-HALF: split items into two halves, compare.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q006", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "true_false",
+{ id: "RA9-Q006", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "true_false",
   question: "A larger sample size can REDUCE systematic error (bias).",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. A larger sample size reduces RANDOM ERROR (improves precision — SE = s/√n shrinks). It does NOT reduce SYSTEMATIC ERROR (bias) — a biased measurement stays biased no matter how many subjects you measure. To reduce systematic error, you need better instruments, better procedures, blinding, calibration, randomization, etc.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q007", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "single",
+{ id: "RA9-Q007", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
   question: "A measurement that is PRECISE but not ACCURATE is:",
   options: [
     "A random scatter of values around the true value",
@@ -1030,7 +1030,7 @@ export const questions: Question[] = [
   explanation: "PRECISE but not ACCURATE: consistent but consistently wrong. Example: a miscalibrated scale that always reads 5 kg too high. ACCURATE but not precise: scattered around the true value (random error). NEITHER: useless. BOTH: ideal.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q008", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "multi",
+{ id: "RA9-Q008", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT about reliability and validity? (Select all that apply.)",
   options: [
     "Reliability is necessary for validity (can't be valid without being reliable)",
@@ -1042,7 +1042,7 @@ export const questions: Question[] = [
   explanation: "All four are correct. (a) Yes: unreliable = inconsistent = can't be valid. (b) Yes: consistent but measuring the wrong thing = reliable but invalid. (c) Yes: that's the definition of validity. (d) Yes: systematic → bias → accuracy; random → noise → precision. These are the four foundational concepts of measurement quality.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q009", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "single",
+{ id: "RA9-Q009", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
   question: "A CONFIRMATION BIAS in research occurs when:",
   options: [
     "The sample is not representative",
@@ -1054,7 +1054,7 @@ export const questions: Question[] = [
   explanation: "CONFIRMATION BIAS is the researcher's tendency to interpret ambiguous data as supporting their hypothesis. Solutions: blind data collection/analysis, pre-registration of hypotheses, independent analysts, adversarial collaboration. SELECTION BIAS = sample not representative. RECALL BIAS = subjects misremember. MEASUREMENT IMPRECISION = random error.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q010", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "medium", type: "single",
+{ id: "RA9-Q010", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
   question: "What is CONSTRUCT VALIDITY?",
   options: [
     "Whether the results generalize",
@@ -1067,7 +1067,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard research methods curriculum" },
 
 // Hard
-{ id: "RA9-Q011", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "hard", type: "single",
+{ id: "RA9-Q011", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "hard", type: "single",
   question: "Why is there often a TENSION between internal and external validity?",
   options: [
     "They are the same thing",
@@ -1079,7 +1079,7 @@ export const questions: Question[] = [
   explanation: "LAB/EXPERIMENTAL studies have HIGH internal validity (tight control, randomization, can establish causation) but often LOW external validity (do the results apply to the real world?). NATURALISTIC/OBSERVATIONAL studies have HIGH external validity (real-world settings) but often LOW internal validity (less control, more confounding). The best research balances both — e.g., well-designed field experiments with ecological validity.",
   sourceCitation: "Standard research methods curriculum" },
 
-{ id: "RA9-Q012", sectionId: "RA-9", topicId: "ra-research-quality", difficulty: "hard", type: "multi",
+{ id: "RA9-Q012", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "hard", type: "multi",
   question: "Which of the following are CORRECT about types of error? (Select all that apply.)",
   options: [
     "Random error reduces precision (scatter); reduced by larger samples",

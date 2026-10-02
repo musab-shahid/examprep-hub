@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const sampleQuestions = [
   {
     id: 'MATH-A1-Q001',
-    sectionId: 'MATH-A',
+    sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'easy',
     type: 'single',
@@ -14,7 +14,7 @@ const sampleQuestions = [
   },
   {
     id: 'MATH-A1-Q002',
-    sectionId: 'MATH-A',
+    sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'easy',
     type: 'true_false',
@@ -23,7 +23,7 @@ const sampleQuestions = [
   },
   {
     id: 'MATH-A1-Q003',
-    sectionId: 'MATH-A',
+    sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'medium',
     type: 'multi',

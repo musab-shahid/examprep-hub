@@ -14,7 +14,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-origin-evolution",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 1,
   title: "Origin & Chemical Evolution of the Atmosphere",
   definition: "Earth's atmosphere evolved through three major stages since the planet's formation ~4.6 billion years ago (BYA): a primitive H/He atmosphere, a secondary outgassed atmosphere, and the modern oxygen-rich atmosphere.",
@@ -44,7 +44,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-composition-today",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 2,
   title: "Composition of Today's Atmosphere",
   definition: "The modern atmosphere consists of permanent (constant) gases, variable gases, and suspended aerosols, together protecting life and maintaining Earth's thermal equilibrium.",
@@ -73,7 +73,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-vertical-structure",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 3,
   title: "Vertical Thermal Structure of the Atmosphere",
   definition: "The atmosphere is divided into four primary layers by how temperature changes with altitude: troposphere, stratosphere, mesosphere, thermosphere, separated by boundaries called 'pauses'.",
@@ -101,7 +101,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-ionosphere-exosphere",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 4,
   title: "The Ionosphere and Exosphere",
   definition: "The ionosphere is an electrically charged region spanning the thermosphere; the exosphere is the outermost, most tenuous layer where gases escape into space.",
@@ -128,7 +128,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-weather-vs-climate",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 5,
   title: "Weather vs. Climate & Climatic Controls",
   definition: "Weather is the transient atmospheric state at a given time and place; climate is the long-term statistical average of weather, typically over 30 years, including seasonal variation and extremes.",
@@ -152,7 +152,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-scales-of-motion",
-  sectionId: "MC-A",
+  sectionId: "METEO-01",
   order: 6,
   title: "Scales of Atmospheric Motion",
   definition: "Atmospheric motion is organized hierarchically by spatial and temporal scale: microscale, mesoscale, synoptic scale, and global (planetary) scale.",
@@ -181,7 +181,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-heat-transfer",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 1,
   title: "Heat Transfer Mechanisms",
   definition: "Heat moves through the atmosphere via four mechanisms: conduction, convection, advection, and radiation.",
@@ -207,7 +207,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-radiation-laws",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 2,
   title: "Radiation Laws",
   definition: "Three physical laws govern how objects emit radiation: Wien's Displacement Law, the Stefan-Boltzmann Law, and Kirchhoff's Law.",
@@ -244,7 +244,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-greenhouse-effect",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 3,
   title: "Greenhouse Effect & Atmospheric Window",
   definition: "Greenhouse gases selectively absorb outgoing longwave terrestrial radiation and re-emit part of it back to the surface, warming Earth well above its radiative equilibrium temperature.",
@@ -272,7 +272,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-lapse-rates",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 4,
   title: "Lapse Rates",
   definition: "Three lapse rates describe temperature change with altitude: the Environmental Lapse Rate (actual), Dry Adiabatic Lapse Rate (unsaturated parcel), and Saturated Adiabatic Lapse Rate (saturated parcel).",
@@ -298,7 +298,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-inversion-mechanics",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 5,
   title: "Temperature Inversions — Mechanics",
   definition: "A temperature inversion occurs when temperature increases with height (∂T/∂z > 0), reversing the normal tropospheric cooling trend and creating a highly stable layer that suppresses vertical mixing.",
@@ -327,7 +327,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-inversion-types",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 6,
   title: "Inversion Types",
   definition: "Five mechanisms produce temperature inversions: radiation (nocturnal), subsidence, frontal, terrain (valley/basin), and capping inversions.",
@@ -354,7 +354,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-coriolis-effect",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 7,
   title: "Coriolis Effect (Force)",
   definition: "The Coriolis effect is an apparent deflection of moving objects (including air and water) when viewed in a rotating reference frame; in meteorology it acts perpendicular to the velocity, to the right in the Northern Hemisphere and to the left in the Southern Hemisphere, and is zero at the equator.",
@@ -405,7 +405,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-static-stability",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 8,
   title: "Static Stability of the Atmosphere",
   definition: "Static stability describes the atmosphere's resistance to vertical displacements of air parcels; it is determined by comparing the environmental lapse rate (ELR) with the dry and saturated adiabatic lapse rates and is quantified by indices such as CAPE and CIN.",
@@ -446,7 +446,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-gas-law",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 9,
   title: "Ideal Gas Law for the Atmosphere",
   definition: "The ideal gas law relates pressure, density and temperature of dry air: p = ρ R_d T, where R_d is the specific gas constant for dry air; it is the foundation for the hydrostatic equation, scale height, and density calculations in meteorology.",
@@ -486,7 +486,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-hydrostatic-equation",
-  sectionId: "MC-B",
+  sectionId: "METEO-02",
   order: 10,
   title: "Hydrostatic Equation",
   definition: "The hydrostatic equation states that the vertical pressure gradient is balanced by the weight of the air: dp/dz = −ρ g. It is an excellent approximation for large-scale motions and is the basis for the hypsometric (thickness) equation and pressure reduction to sea level.",
@@ -527,7 +527,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-forces-governing-wind",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 1,
   title: "Forces Governing Wind Formation",
   definition: "Wind is the horizontal movement of air caused by differences in atmospheric pressure, controlled by four fundamental forces understood through Newton's second law.",
@@ -567,7 +567,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-geostrophic-wind",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 2,
   title: "Geostrophic Wind",
   definition: "Geostrophic wind is a theoretical horizontal wind above the friction layer where the Pressure-Gradient Force and Coriolis Force are in exact balance, producing constant-speed flow parallel to straight isobars.",
@@ -600,7 +600,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-gradient-wind",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 3,
   title: "Gradient Wind",
   definition: "Gradient wind describes upper-level winds following curved paths, where an imbalance between PGF and Coriolis force provides the centripetal acceleration needed for curved motion.",
@@ -636,7 +636,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-jet-stream",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 4,
   title: "Jet Stream Dynamics",
   definition: "Jet streams are narrow, fast-flowing air currents near the tropopause (9–12 km), formed through steep horizontal temperature gradients (Polar Front Jet) and conservation of angular momentum (Subtropical Jet).",
@@ -667,7 +667,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-local-seasonal-winds",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 5,
   title: "Local & Seasonal Wind Systems",
   definition: "Local wind systems — land/sea breeze and mountain/valley breeze — are driven by differential heating and cooling between adjacent surfaces.",
@@ -694,7 +694,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-monsoon-system",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 6,
   title: "The Monsoon Wind System",
   definition: "A monsoon is a seasonal reversal of prevailing winds, driven by differential heating between the Asian landmass and surrounding oceans.",
@@ -717,7 +717,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-global-circulation",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 7,
   title: "Global Atmospheric Circulation (Three-Cell Model)",
   definition: "Earth's general circulation transports heat from the tropics to the poles through three circulation cells per hemisphere: the Hadley Cell, Ferrel Cell, and Polar Cell.",
@@ -745,7 +745,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-rossby-waves",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 8,
   title: "Rossby Waves (Planetary Waves)",
   definition: "Rossby waves are large-scale, meandering waves in the mid-latitude westerlies caused by the conservation of absolute vorticity and the latitudinal variation of the Coriolis parameter (the β-effect); they steer synoptic weather systems and are the primary mechanism of poleward heat transport in the mid-latitudes.",
@@ -780,7 +780,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-upper-air-charts",
-  sectionId: "MC-C",
+  sectionId: "METEO-03",
   order: 9,
   title: "Upper-Air Charts & Constant-Pressure Analysis",
   definition: "Upper-air charts display the height of a constant-pressure surface (or the pressure on a constant-height surface) together with temperature, wind and moisture; the most used levels are 850, 700, 500, 300 and 250 hPa.",
@@ -813,7 +813,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-moisture-metrics",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 1,
   title: "Atmospheric Moisture Metrics",
   definition: "Atmospheric moisture is measured using several complementary metrics: absolute humidity, mixing ratio, vapour pressure, relative humidity, and dew point.",
@@ -845,7 +845,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-adiabatic-cloud-formation",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 2,
   title: "Adiabatic Processes & Cloud Formation",
   definition: "Clouds form as rising air parcels expand and cool adiabatically until reaching saturation at the Lifting Condensation Level (LCL), marking the cloud base.",
@@ -868,7 +868,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-fog-types",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 3,
   title: "Types of Fog",
   definition: "Fog is a cloud at ground level; the four major types are radiation fog, advection fog, upslope fog, and evaporation (mixing) fog.",
@@ -891,7 +891,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-cloud-classification",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 4,
   title: "Cloud Classification — 10 Genera",
   definition: "Clouds are classified into ten basic genera by altitude (high, middle, low, vertical) and appearance (cirriform, stratiform, cumuliform).",
@@ -917,7 +917,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-droplet-microphysics",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 5,
   title: "Microphysics of Cloud Droplet Growth",
   definition: "Cloud droplets (~20 μm) cannot grow to raindrop size (~2,000 μm) through condensation alone because of two competing effects: the curvature effect (barrier) and the solute effect (catalyst).",
@@ -940,7 +940,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-precipitation-processes",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 6,
   title: "Precipitation Processes",
   definition: "Cloud droplets grow large enough to fall as precipitation through two processes: collision-coalescence (warm clouds) and the ice-crystal / Bergeron process (cold, mixed-phase clouds).",
@@ -962,7 +962,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-precipitation-types",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 7,
   title: "Types of Precipitation",
   definition: "Precipitation reaches the surface in five main forms depending on the vertical temperature profile it falls through: rain, snow, sleet, freezing rain, and hail.",
@@ -986,7 +986,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-orographic-rainshadow",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 8,
   title: "Orographic Precipitation & Rain Shadow",
   definition: "When air is forced to rise over a mountain barrier (orographic uplift), it cools and precipitates on the windward slope, then descends dry and warm on the leeward slope, creating a rain shadow.",
@@ -1008,7 +1008,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-global-precip-patterns",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 9,
   title: "Global Precipitation Patterns",
   definition: "Global precipitation distribution is controlled largely by the rising and sinking branches of the three-cell circulation model.",
@@ -1031,7 +1031,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-thermodynamic-diagrams",
-  sectionId: "MC-D",
+  sectionId: "METEO-04",
   order: 10,
   title: "Thermodynamic Diagrams (Skew-T / Log-P, Tephigram)",
   definition: "Thermodynamic diagrams are graphical tools that display temperature, dew-point and wind profiles with height (or pressure) so that stability, cloud levels, CAPE/CIN and precipitation type can be diagnosed at a glance; the skew-T/log-p diagram is the most widely used in operational meteorology.",
@@ -1064,7 +1064,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-air-masses-fronts",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 1,
   title: "Air Masses & Frontal Boundaries",
   definition: "Air masses are large bodies of air with uniform temperature/moisture properties; fronts are the transition zones between air masses of different density.",
@@ -1093,7 +1093,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-cyclones-development",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 2,
   title: "Mid-Latitude Cyclones — Baroclinic Instability & Stages",
   definition: "Mid-latitude cyclones are large low-pressure wave systems developing along the polar front through baroclinic instability, per Polar Front (Norwegian) Theory.",
@@ -1116,7 +1116,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-cyclones-structure",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 3,
   title: "Mid-Latitude Cyclones — Vertical Structure & Conveyor Belt",
   definition: "A mature mid-latitude cyclone requires a specific vertical tilt with height and is described by the three-airstream Conveyor Belt Model.",
@@ -1139,7 +1139,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-thunderstorms",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 4,
   title: "Thunderstorms",
   definition: "Thunderstorms require moist surface air, a conditionally unstable atmosphere, and a lifting trigger; they are classified as ordinary cell, multicell, or supercell based on wind shear and organization.",
@@ -1161,7 +1161,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-tornadoes",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 5,
   title: "Tornadoes",
   definition: "A tornado is a violently rotating column of air in contact with both the ground and a cumulonimbus cloud base, typically produced by supercell thunderstorms.",
@@ -1184,7 +1184,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-tropical-cyclones",
-  sectionId: "MC-E",
+  sectionId: "METEO-05",
   order: 6,
   title: "Tropical Cyclones (Hurricanes/Typhoons)",
   definition: "Tropical cyclones are non-frontal, warm-core low-pressure systems that form over warm ocean waters (>26.5°C) and are powered by latent heat release, unlike frontal mid-latitude cyclones.",
@@ -1212,7 +1212,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-pressure-instruments",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 1,
   title: "Atmospheric Pressure — Barometers",
   definition: "Atmospheric pressure is measured with mercury barometers (balancing a column of mercury against air pressure) and aneroid barometers (a sealed, evacuated flexible metal cell that expands and contracts with pressure changes).",
@@ -1250,7 +1250,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-wind-instruments",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 2,
   title: "Wind Speed & Direction — Anemometers & Wind Vanes",
   definition: "Wind speed is measured by cup or sonic anemometers; wind direction is measured by a wind vane, with winds named for the direction they blow FROM (a 'north wind' comes from the north and moves toward the south).",
@@ -1289,7 +1289,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-humidity-instruments",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 3,
   title: "Humidity — Hygrometers & Psychrometers",
   definition: "Humidity is measured using sling psychrometers (wet-bulb/dry-bulb), hair hygrometers (organic fiber expansion), and electronic hygrometers (capacitance or resistance change in a moisture-sensitive polymer).",
@@ -1332,7 +1332,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-temperature-instruments",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 4,
   title: "Temperature — Thermometers, Thermographs & Thermistors",
   definition: "Surface temperature extremes and current readings are captured using liquid-in-glass thermometers (mercury maximum and alcohol minimum), electronic thermistors (resistance-based), and thermographs (continuous recorders).",
@@ -1370,7 +1370,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-radiosondes",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 5,
   title: "Upper-Air Soundings — Radiosondes & Rawinsondes",
   definition: "Radiosondes are balloon-borne instrument packages providing vertical profiles of temperature, humidity, and pressure up to ~30 km; when ground-tracked to also measure wind, the system is called a rawinsonde. Together they are the primary source of three-dimensional atmospheric observations for NWP and analysis.",
@@ -1409,7 +1409,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-stevenson-screen",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 6,
   title: "Siting Standards — The Stevenson Screen (Instrument Shelter)",
   definition: "The Stevenson Screen is a standardized white, double-roofed, louvered wooden shelter that houses thermometers and hygrometers at meteorological stations to ensure accurate, comparable temperature and humidity measurements worldwide, isolated from solar radiation, ground heating, and precipitation.",
@@ -1447,7 +1447,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-remote-sensing",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 7,
   title: "Remote Sensing — Weather Radar & Satellite Imaging",
   definition: "Remote sensing observes the atmosphere from a distance using weather radar (Doppler and conventional, for precipitation and wind) and satellite imaging (visible, infrared, and water vapor channels, for cloud and moisture patterns at synoptic and global scales).",
@@ -1500,7 +1500,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-ground-aviation-instruments",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 8,
   title: "Ground-Based & Aviation Observation Instruments (Precipitation, Ceiling, Wind, Microburst & Hail)",
   definition: "Additional ground and aviation instruments include precipitation gauges (rain and snow), ceilometers (cloud base height), lidar and wind profilers (vertical wind and aerosol profiles), and specialized sensors for microburst detection and hail identification — together supporting aviation safety and surface weather monitoring.",
@@ -1560,7 +1560,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-aviation-products",
-  sectionId: "MC-F",
+  sectionId: "METEO-06",
   order: 9,
   title: "Aviation Weather Products (METAR, SPECI, TAF, SIGMET, AIRMET)",
   definition: "Aviation weather products are standardized coded messages and forecasts issued for flight operations, providing current conditions (METAR/SPECI), terminal forecasts (TAF), and warnings of significant en-route weather phenomena (SIGMET, AIRMET) — the operational backbone of aviation meteorology.",
@@ -1624,7 +1624,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-koppen-system",
-  sectionId: "MC-G",
+  sectionId: "METEO-07",
   order: 1,
   title: "The Köppen Climate Classification System",
   definition: "Developed by Wladimir Köppen (1884, refined 1918–1936), this system classifies world climates into five major groups (A, B, C, D, E) plus Highland (H), based on monthly and annual temperature and precipitation thresholds, with each boundary tied to natural vegetation distribution.",
@@ -1675,7 +1675,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-global-climate-regions",
-  sectionId: "MC-G",
+  sectionId: "METEO-07",
   order: 2,
   title: "Global Climate Regions — Sketch Summaries",
   definition: "Global climate regions are the geographically coherent large-scale climate zones corresponding to the Köppen major groups — each characterized by distinct temperature and precipitation regimes, dominant weather systems, and associated biomes — forming the basis of world regional climatology.",
@@ -1739,7 +1739,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-thornthwaite-system",
-  sectionId: "MC-G",
+  sectionId: "METEO-07",
   order: 3,
   title: "The Thornthwaite Moisture-Based Classification System",
   definition: "Developed by C.W. Thornthwaite (1931, refined 1948), this system classifies climate by moisture balance rather than temperature alone, using Potential Evapotranspiration (PE) and the Precipitation-Evaporation (P/E) Index — making it particularly useful for agricultural planning, irrigation design, and hydrology.",
@@ -1785,7 +1785,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-pakistan-macroclimate",
-  sectionId: "MC-G",
+  sectionId: "METEO-07",
   order: 4,
   title: "Macro-Climatic Classification of Pakistan",
   definition: "At the macro level, Pakistan falls into two major Köppen groups: Arid/Semi-Arid Basin (Group B) covering most of the country, and Mountainous Highland (Group H) in the north — a classification that reflects the country's position in the subtropical high-pressure belt, the rain-shadow effects of surrounding mountain ranges, and the dominant influence of elevation in the north.",
@@ -1839,7 +1839,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-past-climate-reconstruction",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 1,
   title: "Reconstructing Past Climates",
   definition: "Paleoclimatologists reconstruct past climates using natural proxy data, since climate is not static and Earth's history includes alternating glacial and interglacial periods.",
@@ -1863,7 +1863,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-milankovitch-cycles",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 2,
   title: "Orbital Milankovitch Cycles",
   definition: "Milankovitch cycles are periodic variations in Earth's orbit and axial orientation that alter the seasonal/latitudinal distribution of solar energy, driving long-term glacial-interglacial climate cycles.",
@@ -1885,7 +1885,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-climate-feedbacks",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 3,
   title: "Climate Feedback Mechanisms",
   definition: "Climate feedbacks either reinforce (positive) or weaken (negative) an initial temperature trend; key examples are water vapour-greenhouse feedback, snow-albedo feedback (both positive), and chemical weathering-CO2 feedback (negative).",
@@ -1907,7 +1907,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-radiative-forcing",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 4,
   title: "Radiative Forcing",
   definition: "Radiative forcing is a positive or negative change in net radiant energy at the tropopause that disturbs Earth's radiative equilibrium.",
@@ -1929,7 +1929,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-ipcc-rcps",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 5,
   title: "IPCC Representative Concentration Pathways",
   definition: "The IPCC uses Representative Concentration Pathways (RCPs) to project future climate scenarios based on different radiative forcing targets by 2100.",
@@ -1956,7 +1956,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-solar-volcanic-forcing",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 6,
   title: "Solar and Volcanic Radiative Forcing",
   definition: "Radiative equilibrium can be altered naturally by solar variability (e.g., the Maunder Minimum) and by volcanic sulfate aerosols (e.g., Mount Pinatubo, 1991).",
@@ -1978,7 +1978,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-pakistan-nccp",
-  sectionId: "MC-H",
+  sectionId: "METEO-08",
   order: 7,
   title: "The Pakistan National Climate Change Policy (NCCP) 2012",
   definition: "The NCCP 2012 is Pakistan's policy framework for climate adaptation and resilience, focused on water, food, and energy security, despite Pakistan contributing under 1% of global emissions.",
@@ -2004,7 +2004,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-indian-ocean-monsoon",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 1,
   title: "The Indian Ocean Monsoon System",
   definition: "The Indian Ocean monsoon, driven by continental-scale differential heating, is the primary driver of Pakistan's seasonal weather and water resources — supplying over 70% of the country's annual rainfall during the boreal summer (June–September).",
@@ -2035,7 +2035,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-western-disturbances",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 2,
   title: "Western Disturbances & Winter Rainfall",
   definition: "Western Disturbances (WDs) are mid-latitude cyclonic storms that travel eastward along the subtropical jet stream from the Mediterranean/Caspian/Black Sea region into Pakistan and northern India during boreal winter (November–April), providing the dominant precipitation source for the northern mountains and Balochistan and a critical snowfall source for the Indus basin.",
@@ -2081,7 +2081,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-arabian-sea-cyclones-local",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 3,
   title: "Arabian Sea Cyclones, Summer Heat Low, Dust Storms & Fog",
   definition: "Beyond the dominant monsoon and western-disturbance systems, Pakistan's weather is shaped by several secondary but high-impact phenomena: pre- and post-monsoon tropical cyclones in the Arabian Sea, the persistent summer monsoon heat low over Balochistan, convective dust storms, and winter radiation fog over the Indus plains.",
@@ -2128,7 +2128,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-temp-rainfall-distribution",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 4,
   title: "Temperature and Rainfall Distribution Across Pakistan",
   definition: "Pakistan's temperature and rainfall vary widely by region due to differences in elevation, latitude, and aridity, with PMD records showing an area-weighted mean annual warming of +0.6°C over 1901–2000 and rainfall ranging from <150 mm/year in Balochistan to >1500 mm/year in the northern mountains.",
@@ -2161,7 +2161,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-extreme-events",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 5,
   title: "Extreme Events: GLOFs, Riverine Floods, Droughts & Heat Waves",
   definition: "Pakistan faces recurring climate hazards including Glacial Lake Outburst Floods (GLOFs), riverine floods from monsoon extremes, prolonged droughts, and severe heat waves — all intensified by climate change and posing major risks to Pakistan's water security, food production, infrastructure, and public health.",
@@ -2195,7 +2195,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-pmd-operational",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 6,
   title: "PMD Operational Areas, Regional Responsibilities & Warning Systems",
   definition: "The Pakistan Meteorological Department (PMD) is the national authority for weather and climate services, organized into regional offices responsible for forecasting, warnings, and climate monitoring across Pakistan's diverse climate zones — with specific responsibilities for aviation, agriculture, flood, drought, and GLOF early warning.",
@@ -2238,7 +2238,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-nccp-objectives",
-  sectionId: "MC-I",
+  sectionId: "METEO-09",
   order: 7,
   title: "National Climate Change Policy (NCCP) Objectives",
   definition: "The National Climate Change Policy (NCCP) of 2012, updated periodically, sets specific objectives to address Pakistan's climate vulnerabilities across glacier protection, early warning systems, agriculture, afforestation, energy, and capacity building — providing the framework for climate adaptation and mitigation in Pakistan.",
@@ -2275,7 +2275,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-forecasting-methods",
-  sectionId: "MC-J",
+  sectionId: "METEO-10",
   order: 1,
   title: "Weather Forecasting Methods: Persistence, Climatology, Analog & Trend",
   definition: "Weather forecasting predicts future atmospheric conditions using several foundational methods — persistence, climatology, analog, and trend forecasting — each with distinct strengths and limitations depending on forecast lead time and atmospheric variability.",
@@ -2313,7 +2313,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-nwp-models",
-  sectionId: "MC-J",
+  sectionId: "METEO-10",
   order: 2,
   title: "Numerical Weather Prediction (NWP): Models, Data Assimilation & Ensembles",
   definition: "Numerical Weather Prediction solves the governing equations of atmospheric motion on a grid to predict future weather; it requires data assimilation to initialize the model and ensemble forecasting to quantify forecast uncertainty.",
@@ -2353,7 +2353,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-forecast-skill",
-  sectionId: "MC-J",
+  sectionId: "METEO-10",
   order: 3,
   title: "Forecast Skill, Accuracy & Verification: Anomaly Correlation, RMSE & Threat Score",
   definition: "Forecast verification quantifies how well predictions match observed weather using skill scores like anomaly correlation coefficient, root-mean-square error, and threat score, each measuring different aspects of forecast quality.",
@@ -2394,7 +2394,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-station-model",
-  sectionId: "MC-K",
+  sectionId: "METEO-11",
   order: 1,
   title: "Station Model Reading: Wind Barbs, Pressure Codes & Weather Symbols",
   definition: "A station model is a standardized symbolic plot of surface weather observations at a single location, encoding temperature, dewpoint, pressure (3-digit code), wind (barbs), cloud cover, and present weather in a compact glyph that allows thousands of stations to be plotted on a single synoptic chart.",
@@ -2448,7 +2448,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-isobar-analysis",
-  sectionId: "MC-K",
+  sectionId: "METEO-11",
   order: 2,
   title: "Isobar Analysis: Drawing Rules, Pressure Patterns & Wind Estimation",
   definition: "Isobars are lines of equal sea-level pressure drawn on a surface synoptic chart; their spacing, curvature, and pattern reveal the location of high and low pressure systems, the strength of the pressure gradient, and the implied wind speed and direction.",
@@ -2494,7 +2494,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-airmass-front-id",
-  sectionId: "MC-K",
+  sectionId: "METEO-11",
   order: 3,
   title: "Air Mass & Front Identification on Surface Charts",
   definition: "On a surface synoptic chart, air masses are identified by their source regions and modification histories (temperature, humidity characteristics), while fronts are identified as boundaries where contrasting air masses meet — marked by specific symbols, accompanied by characteristic wind shifts, temperature contrasts, pressure troughs, and precipitation bands.",
@@ -2541,7 +2541,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-lapse-calc",
-  sectionId: "MC-L",
+  sectionId: "METEO-12",
   order: 1,
   title: "Lapse Rate & Stability Calculations: DALR, SALR, ELR and Parcel Ascent",
   definition: "Lapse rate calculations determine atmospheric stability by comparing the environmental lapse rate (ELR) to the dry adiabatic lapse rate (DALR, 9.8°C/km) and the saturated adiabatic lapse rate (SALR, ~6°C/km) — controlling whether a rising parcel accelerates, decelerates, or remains neutral, which determines convection, cloud formation, and precipitation.",
@@ -2605,7 +2605,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-humidity-calc",
-  sectionId: "MC-L",
+  sectionId: "METEO-12",
   order: 2,
   title: "Mixing Ratio, Relative Humidity & Dew-Point Calculations",
   definition: "Quantitative humidity calculations use the actual vapor pressure (e), saturation vapor pressure (es), mixing ratio (w), and relative humidity (RH) to characterize the water vapor content of air — essential for forecasting cloud formation, precipitation, fog, and the lifted condensation level.",
@@ -2685,7 +2685,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-pressure-conversion",
-  sectionId: "MC-L",
+  sectionId: "METEO-12",
   order: 3,
   title: "Pressure Unit Conversions & Hydrostatic Applications",
   definition: "Pressure conversions relate the various units used in meteorology (hectopascals, millibars, inches of mercury, millimeters of mercury, Pascals) and the hydrostatic equation links pressure decrease with height in the atmosphere, allowing estimation of layer thickness, scale height, and the height of standard pressure levels.",
@@ -2752,7 +2752,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-geostrophic-qual",
-  sectionId: "MC-L",
+  sectionId: "METEO-12",
   order: 4,
   title: "Geostrophic Wind Estimation from Isobar Spacing",
   definition: "The geostrophic wind is the theoretical wind that results from exact balance between the pressure-gradient force and the Coriolis force — it blows parallel to straight isobars with low pressure on the left (NH) or right (SH), and its speed is inversely proportional to isobar spacing on a synoptic chart.",
@@ -2818,7 +2818,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-enso-basics",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 1,
   title: "ENSO: El Niño, La Niña and the Walker Circulation",
   definition: "The El Niño-Southern Oscillation (ENSO) is a coupled ocean-atmosphere phenomenon in the tropical Pacific, characterized by sea-surface temperature anomalies (El Niño/La Niña) and corresponding atmospheric pressure oscillations (Southern Oscillation), linked through the Walker Circulation.",
@@ -2872,7 +2872,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-ocean-currents",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 2,
   title: "Ocean Surface Currents & Thermohaline Circulation",
   definition: "Ocean circulation operates on two interconnected scales: wind-driven surface currents (subtropical gyres, western/eastern boundary currents, equatorial currents) operating on months to decades, and the density-driven thermohaline circulation (global conveyor belt) operating on centuries to ~1000 years, redistributing heat, salt, and dissolved gases throughout the world ocean.",
@@ -2923,7 +2923,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-enso-global-impacts",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 3,
   title: "Global Impacts of ENSO: Teleconnections and Regional Effects",
   definition: "ENSO teleconnections are distant atmospheric responses to tropical Pacific SST anomalies, altering temperature and precipitation patterns across the Americas, Asia, Africa, and Australia through Rossby wave propagation and jet-stream modulation.",
@@ -2966,7 +2966,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-iod",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 4,
   title: "Indian Ocean Dipole (IOD): Mechanism and Impacts on South Asia",
   definition: "The Indian Ocean Dipole (IOD) is a coupled ocean-atmosphere mode in the equatorial Indian Ocean, characterized by contrasting SST anomalies between the western basin (eastern Africa) and the southeastern basin (Indonesia/Australia), measured by the Dipole Mode Index (DMI).",
@@ -3017,7 +3017,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-nao-ao",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 5,
   title: "North Atlantic Oscillation (NAO) and Arctic Oscillation (AO)",
   definition: "The North Atlantic Oscillation (NAO) and Arctic Oscillation (AO) are dominant modes of winter climate variability in the Northern Hemisphere, describing pressure-seesaw patterns that control the strength and track of westerly winds and storm systems across the Atlantic and Eurasia.",
@@ -3059,7 +3059,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-mjo",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 6,
   title: "Madden-Julian Oscillation (MJO): Tropical Convection and Sub-seasonal Weather",
   definition: "The Madden-Julian Oscillation (MJO) is an eastward-propagating disturbance of tropical convection, circulation, and rainfall that traverses the equatorial Indian and Pacific Oceans every 30–60 days, making it the dominant mode of sub-seasonal tropical variability.",
@@ -3102,7 +3102,7 @@ export const topics: Topic[] = [
 
 {
   id: "meteo-amoc-slowdown",
-  sectionId: "MC-M",
+  sectionId: "METEO-13",
   order: 7,
   title: "AMOC Slowdown & Climate Impacts",
   definition: "The Atlantic Meridional Overturning Circulation (AMOC) is the Atlantic limb of the global thermohaline conveyor; observational and proxy evidence indicates it has weakened in recent decades, with potential major impacts on European climate, North American sea level and tropical rainfall patterns if the slowdown continues or crosses a tipping point.",

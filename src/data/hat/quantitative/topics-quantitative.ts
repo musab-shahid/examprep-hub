@@ -37,7 +37,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q1-arithmetic',
-  sectionId: 'HATQ-1',
+  sectionId: 'HATQ-01',
   order: 1,
   title: 'Arithmetic Foundations: Numbers, Fractions, Decimals & Percentages',
 
@@ -488,7 +488,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q2-commercial',
-  sectionId: 'HATQ-2',
+  sectionId: 'HATQ-02',
   order: 2,
   title: 'Averages, Profit & Loss, Discount, and Interest',
 
@@ -862,7 +862,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q3-rate-motion',
-  sectionId: 'HATQ-3',
+  sectionId: 'HATQ-03',
   order: 3,
   title: 'Time, Work, Rates, Speed, Boats & Trains',
 
@@ -1256,7 +1256,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q4-algebra',
-  sectionId: 'HATQ-4',
+  sectionId: 'HATQ-04',
   order: 4,
   title: 'Algebra: Expressions, Equations, Quadratics, Polynomials, Exponents & Inequalities',
 
@@ -1754,7 +1754,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q5-geometry',
-  sectionId: 'HATQ-5',
+  sectionId: 'HATQ-05',
   order: 5,
   title: 'Geometry: Angles, Triangles, Circles, Areas, Volumes, Scaling & Coordinate Basics',
 
@@ -2229,7 +2229,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q6-numbers-sequences',
-  sectionId: 'HATQ-6',
+  sectionId: 'HATQ-06',
   order: 6,
   title: 'Number Systems, HCF/LCM, Sequences & Pattern Recognition',
 
@@ -2594,7 +2594,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q7-probability-data',
-  sectionId: 'HATQ-7',
+  sectionId: 'HATQ-07',
   order: 7,
   title: 'Probability, Statistics, Counting, Sets & Data Interpretation',
 
@@ -2984,7 +2984,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q8-applied',
-  sectionId: 'HATQ-8',
+  sectionId: 'HATQ-08',
   order: 8,
   title: 'Applied Word Problems: Ages, Mixtures, Partnership, Clocks',
 
@@ -3311,7 +3311,7 @@ export const quantitativeTopics: QuantTopic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-q9-strategy',
-  sectionId: 'HATQ-9',
+  sectionId: 'HATQ-09',
   order: 9,
   title: 'HAT Quantitative Strategy: Question Recognition, Estimation & Error Analysis',
 

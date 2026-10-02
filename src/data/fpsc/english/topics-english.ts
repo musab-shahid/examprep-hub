@@ -23,7 +23,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-parts-of-speech-and-tenses",
-  sectionId: "ENG-A",
+  sectionId: "ENG-01",
   order: 1,
   title: "Parts of Speech & Tenses",
   definition: "Parts of speech are the eight categories that classify every word in English by its grammatical function. Tenses are verb forms that express WHEN an action or state occurs (past, present, future) AND its aspect (simple, continuous, perfect, perfect continuous) — giving 12 distinct tenses total.",
@@ -67,7 +67,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-agreement-and-articles",
-  sectionId: "ENG-A",
+  sectionId: "ENG-01",
   order: 2,
   title: "Subject-Verb Agreement & Articles",
   definition: "Subject-verb agreement requires the verb to match its subject in number and person (NOT the nearest noun). Articles (a, an, the, zero) specify whether a noun is general, specific, or already-known, and depend on the sound (not letter) that follows them.",
@@ -110,7 +110,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-pronouns-prepositions-conjunctions",
-  sectionId: "ENG-A",
+  sectionId: "ENG-01",
   order: 3,
   title: "Pronouns, Prepositions & Conjunctions",
   definition: "Pronouns replace nouns (and must agree with their antecedents). Prepositions show relationships of time, place, and direction (and form many fixed phrases). Conjunctions join words, phrases, and clauses (coordinating, subordinating, or correlative).",
@@ -154,7 +154,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-modals-voice-narration",
-  sectionId: "ENG-A",
+  sectionId: "ENG-01",
   order: 4,
   title: "Modals, Voice (Active/Passive) & Narration (Direct/Indirect)",
   definition: "Modals are auxiliary verbs (can, could, may, might, must, should, will, would, shall) that express ability, permission, obligation, or probability. Voice shows whether the subject performs (active) or receives (passive) the action. Narration converts direct speech to reported (indirect) speech with tense shift and pronoun/place/time changes.",
@@ -194,7 +194,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-common-errors",
-  sectionId: "ENG-A",
+  sectionId: "ENG-01",
   order: 5,
   title: "Common Errors in English",
   definition: "The most frequently tested grammatical errors in FPSC English papers — the mistakes Pakistani students most often make, and the corrections the exam expects.",
@@ -245,7 +245,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-synonyms-antonyms-confusables",
-  sectionId: "ENG-B",
+  sectionId: "ENG-02",
   order: 1,
   title: "Synonyms, Antonyms & Confusables",
   definition: "Synonyms are words with similar meanings; antonyms are words with opposite meanings. Confusables are word pairs that are easily mistaken for each other (affect/effect, their/there) and require memorization of their distinct uses.",
@@ -291,7 +291,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-idioms-and-phrases",
-  sectionId: "ENG-B",
+  sectionId: "ENG-02",
   order: 2,
   title: "Idioms & Phrases",
   definition: "Idioms are fixed expressions whose meaning cannot be deduced from the individual words. They must be memorized as units. In FPSC English, idioms appear both as vocabulary MCQs ('What does X mean?') and in sentence-completion questions.",
@@ -329,7 +329,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-word-formation-and-context",
-  sectionId: "ENG-B",
+  sectionId: "ENG-02",
   order: 3,
   title: "Word Formation & Contextual Vocabulary",
   definition: "Word formation uses prefixes (anti-, dis-, pre-, hydro-) and suffixes (-tion, -ity, -ology) to build words from roots. Contextual vocabulary tests word meaning in the specific sentence where it appears, which can differ from a word's general meaning.",
@@ -374,7 +374,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-sentence-building-blocks",
-  sectionId: "ENG-C",
+  sectionId: "ENG-03",
   order: 1,
   title: "Building Blocks: Words, Phrases, Clauses & Sentences",
   definition: "Sentences are built from words → phrases → clauses → sentences. Understanding the difference between a phrase (no subject+verb combination) and a clause (has subject+verb) is essential for identifying fragments, run-ons, and proper sentence structure.",
@@ -413,7 +413,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-sentence-types-errors-transformation",
-  sectionId: "ENG-C",
+  sectionId: "ENG-03",
   order: 2,
   title: "Sentence Types, Errors & Transformation",
   definition: "Sentences have structural types (simple/compound/complex/compound-complex) and purpose types (declarative/interrogative/imperative/exclamatory). Common errors include fragments, run-ons, comma splices, subject-verb disagreement, misplaced modifiers, and parallel structure failures. Transformation converts between these forms.",
@@ -456,7 +456,7 @@ export const topics: Topic[] = [
 
 {
   id: "english-sentence-completion-rearrangement",
-  sectionId: "ENG-C",
+  sectionId: "ENG-03",
   order: 3,
   title: "Sentence Completion, Rearrangement & Combining",
   definition: "Sentence completion tests filling blanks with the correct grammatical form. Rearrangement tests ordering jumbled sentences into logical paragraphs. Combining shows how to merge short sentences into smoother, more sophisticated structures using conjunctions and subordination.",

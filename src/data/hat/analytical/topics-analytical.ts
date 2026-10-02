@@ -6,7 +6,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a1-seating',
-  sectionId: 'HATA-1',
+  sectionId: 'HATA-01',
   order: 1,
   title: 'Seating & Arrangement Puzzles',
 
@@ -289,7 +289,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a2-blood-relations',
-  sectionId: 'HATA-2',
+  sectionId: 'HATA-02',
   order: 2,
   title: 'Blood Relations, Family Trees & Pointing',
 
@@ -561,7 +561,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a3-syllogisms',
-  sectionId: 'HATA-3',
+  sectionId: 'HATA-03',
   order: 3,
   title: 'Syllogisms: Venn Diagrams and Logical Conclusions',
 
@@ -846,7 +846,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a4-critical-reasoning',
-  sectionId: 'HATA-4',
+  sectionId: 'HATA-04',
   order: 4,
   title: 'Critical Reasoning: Arguments, Assumptions, Strengtheners & Weakeners',
 
@@ -1122,7 +1122,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a5-series-coding',
-  sectionId: 'HATA-5',
+  sectionId: 'HATA-05',
   order: 5,
   title: 'Series, Coding-Decoding & Patterns',
 
@@ -1449,7 +1449,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a6-directions-ranking',
-  sectionId: 'HATA-6',
+  sectionId: 'HATA-06',
   order: 6,
   title: 'Directions, Ranking & Ordering',
 
@@ -1750,7 +1750,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a7-grouping-selection',
-  sectionId: 'HATA-7',
+  sectionId: 'HATA-07',
   order: 7,
   title: 'Grouping, Selection & Assignment',
 
@@ -2000,7 +2000,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a8-analytical-mock',
-  sectionId: 'HATA-8',
+  sectionId: 'HATA-08',
   order: 8,
   title: 'Analytical Mock Set: Strategy & Error Analysis',
 
@@ -2229,7 +2229,7 @@ export const analyticalTopics: Topic[] = [
 // --------------------------------------------------------------------------
 {
   id: 'hat-a9-master-sheet',
-  sectionId: 'HATA-9',
+  sectionId: 'HATA-09',
   order: 9,
   title: 'Analytical Master Sheet — Last-Day Revision',
 

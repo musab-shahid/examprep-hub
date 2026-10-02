@@ -18,7 +18,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-scientific-method",
-  sectionId: "RA-1",
+  sectionId: "RA-01",
   order: 1,
   title: "Scientific Method",
   definition: "The scientific method is a systematic approach to research involving observation, question, hypothesis, prediction, experiment, analysis, conclusion, and replication. It is designed to minimize bias and produce reliable, verifiable knowledge.",
@@ -66,7 +66,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-research-design",
-  sectionId: "RA-2",
+  sectionId: "RA-02",
   order: 1,
   title: "Research Design",
   definition: "Research design is the plan for how a study will be conducted — including the type of data (quantitative vs qualitative), the approach (descriptive, exploratory, explanatory, experimental, observational), the population and sample, and the sampling method.",
@@ -117,7 +117,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-data-types",
-  sectionId: "RA-3",
+  sectionId: "RA-03",
   order: 1,
   title: "Data Types & Measurement Scales",
   definition: "Data can be classified as qualitative (categories) or quantitative (numbers), and further as categorical/numerical and discrete/continuous. Measurement scales (nominal, ordinal, interval, ratio) determine what statistical operations are valid.",
@@ -163,7 +163,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-descriptive-statistics",
-  sectionId: "RA-4",
+  sectionId: "RA-04",
   order: 1,
   title: "Descriptive Statistics",
   definition: "Descriptive statistics summarize a dataset using measures of central tendency (mean, median, mode), dispersion (range, variance, standard deviation, IQR), and distribution shape. They describe the data you have — unlike inferential statistics, which make claims about a larger population.",
@@ -216,7 +216,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-probability",
-  sectionId: "RA-5",
+  sectionId: "RA-05",
   order: 1,
   title: "Probability",
   definition: "Probability quantifies the likelihood of an event, ranging from 0 (impossible) to 1 (certain). It can be defined classically (theoretical), empirically (relative frequency), or subjectively (judgment).",
@@ -265,7 +265,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-data-visualization",
-  sectionId: "RA-6",
+  sectionId: "RA-06",
   order: 1,
   title: "Data Visualization",
   definition: "Data visualization is the graphical representation of data to communicate patterns, trends, and outliers. Choosing the right chart type and following good design practices is essential for honest, effective communication.",
@@ -313,7 +313,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-correlation-regression",
-  sectionId: "RA-7",
+  sectionId: "RA-07",
   order: 1,
   title: "Correlation & Regression",
   definition: "Correlation measures the strength and direction of a LINEAR relationship between two variables (r ranges from −1 to +1). Regression fits a line to data for prediction. CRITICAL: correlation does NOT imply causation.",
@@ -369,7 +369,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-inferential-stats",
-  sectionId: "RA-8",
+  sectionId: "RA-08",
   order: 1,
   title: "Inferential Statistics (Intro)",
   definition: "Inferential statistics uses sample data to make inferences about a larger population. It includes standard error, confidence intervals, and hypothesis testing — the tools that let us generalize beyond our data.",
@@ -422,7 +422,7 @@ export const topics: Topic[] = [
 
 {
   id: "ra-research-quality",
-  sectionId: "RA-9",
+  sectionId: "RA-09",
   order: 1,
   title: "Research Quality: Validity, Reliability & Error",
   definition: "Research quality depends on validity (does the study measure what it claims to measure and establish cause-effect?), reliability (is the measurement consistent?), and error control (random, systematic, gross).",

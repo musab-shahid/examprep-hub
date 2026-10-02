@@ -3,7 +3,7 @@ import type { Topic } from '@/types';
 export const topics: Topic[] = [
   {
     id: "env-fundamentals-and-sustainability",
-    sectionId: "ENV-1",
+    sectionId: "ENV-01",
     order: 1,
     title: "Environment, Key Distinctions & Sustainability",
     definition: "The environment encompasses all surrounding conditions (physical, chemical, biological) that affect an organism or group. Key distinctions (biotic vs abiotic, ecology vs ecosystem, habitat vs niche) are foundational vocabulary tested in nearly every exam.",
@@ -45,7 +45,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-carry-capacity-and-footprint",
-    sectionId: "ENV-1",
+    sectionId: "ENV-01",
     order: 2,
     title: "Carrying Capacity, Ecological Footprint & Biocapacity",
     definition: "Carrying capacity is the maximum population an environment can sustain indefinitely. Ecological footprint measures the land/water area required to support a person's lifestyle. Biocapacity is Earth's regenerative capacity — when footprint exceeds biocapacity, we are in ecological overshoot.",
@@ -86,7 +86,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-ecosystem-structure-and-energy-flow",
-    sectionId: "ENV-2",
+    sectionId: "ENV-02",
     order: 1,
     title: "Ecosystems: Structure, Food Chains & Energy Flow",
     definition: "An ecosystem is a community of organisms interacting with their physical environment as a functional unit. Energy flows through ecosystems via food chains and webs, decreasing at each level due to the second law of thermodynamics (90% rule).",
@@ -125,7 +125,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-ecological-pyramids",
-    sectionId: "ENV-2",
+    sectionId: "ENV-02",
     order: 2,
     title: "Ecological Pyramids: Numbers, Biomass & Energy",
     definition: "Ecological pyramids are graphical representations of the trophic structure of an ecosystem. Three types exist — pyramid of numbers, pyramid of biomass, and pyramid of energy — each with different shapes and a key rule about when they're inverted.",
@@ -160,7 +160,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-productivity-and-biogeochemical-cycles",
-    sectionId: "ENV-2",
+    sectionId: "ENV-02",
     order: 3,
     title: "Productivity & Biogeochemical Cycles",
     definition: "Primary productivity is the rate at which energy is captured by producers. Biogeochemical cycles describe how essential elements (carbon, nitrogen, water, phosphorus, sulfur) move through ecosystems. The carbon cycle is the most-tested.",
@@ -202,7 +202,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-biodiversity",
-    sectionId: "ENV-3",
+    sectionId: "ENV-03",
     order: 1,
     title: "Biodiversity: Levels, Importance & Hotspots",
     definition: "Biodiversity is the variety of life — measured at three levels (genetic, species, ecosystem). It matters because ecosystems provide services humans depend on, and 'biodiversity hotspots' are regions of exceptional endemism under threat.",
@@ -243,7 +243,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-biodiversity-threats-and-iucn",
-    sectionId: "ENV-3",
+    sectionId: "ENV-03",
     order: 2,
     title: "Threats to Biodiversity & IUCN Red List",
     definition: "Biodiversity faces five major threats (in order of impact) and species are classified by extinction risk on the IUCN Red List. Habitat loss is the single largest driver of biodiversity decline worldwide.",
@@ -284,7 +284,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-conservation-and-extinction",
-    sectionId: "ENV-3",
+    sectionId: "ENV-03",
     order: 3,
     title: "Conservation Strategies & Mass Extinctions",
     definition: "Conservation strategies are either in-situ (protecting species in their natural habitat) or ex-situ (protecting them outside it, e.g. in zoos or seed banks). Earth has experienced 5 background mass extinctions; we are now in the 6th, caused by human activity.",
@@ -322,7 +322,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-natural-resources",
-    sectionId: "ENV-4",
+    sectionId: "ENV-04",
     order: 1,
     title: "Natural Resources: Renewable vs Non-Renewable",
     definition: "Natural resources are materials from the environment that humans use to meet their needs. They are classified as renewable (can be replenished within a human lifespan) or non-renewable (take millions of years to form or cannot be replenished at all). How we use them determines sustainability.",
@@ -361,7 +361,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-resource-conflicts",
-    sectionId: "ENV-4",
+    sectionId: "ENV-04",
     order: 2,
     title: "Resource Conflicts & Forest Resources (Pakistan)",
     definition: "Resource conflicts arise when competing stakeholders want the same limited resource. Pakistan faces several key conflicts — over water (the Indus Waters Treaty with India is the most prominent), forests (logging vs. conservation), minerals, land, and energy — each with social, economic, and environmental dimensions.",
@@ -402,7 +402,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-air-pollution",
-    sectionId: "ENV-5",
+    sectionId: "ENV-05",
     order: 1,
     title: "Air Pollution: Primary & Secondary Pollutants",
     definition: "Air pollution is the contamination of indoor or outdoor air by chemicals, particulates, or biological molecules at concentrations that harm ecosystems, materials, or human health. Pollutants are classified as primary (emitted directly) or secondary (formed in the atmosphere by chemical reactions).",
@@ -444,7 +444,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-water-pollution-and-quality",
-    sectionId: "ENV-5",
+    sectionId: "ENV-05",
     order: 2,
     title: "Water Pollution, BOD/COD/DO & Treatment",
     definition: "Water pollution is the contamination of water bodies (rivers, lakes, oceans, groundwater) with substances that harm human health, ecosystems, or render water unusable. The BOD/COD/DO triangle is the most-tested water quality parameter set in any exam.",
@@ -486,7 +486,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-soil-and-waste",
-    sectionId: "ENV-5",
+    sectionId: "ENV-05",
     order: 3,
     title: "Soil Pollution, Solid & Hazardous Waste",
     definition: "Soil pollution is the contamination of soil with chemicals, waste, or pathogens that harm soil fertility, ecosystems, or human health. Solid and hazardous waste management is critical for urban areas, with a 5Rs hierarchy guiding sustainable practices.",
@@ -525,7 +525,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-energy-sources",
-    sectionId: "ENV-6",
+    sectionId: "ENV-06",
     order: 1,
     title: "Energy Sources & Their Environmental Footprint",
     definition: "Different energy sources have very different environmental, social, and economic impacts across their lifecycle. The energy-climate-environment nexus is a unified system — choices about energy directly affect climate, air quality, water, and ecosystems.",
@@ -570,7 +570,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-climate-change-response",
-    sectionId: "ENV-6",
+    sectionId: "ENV-06",
     order: 2,
     title: "Climate Change: Mitigation, Adaptation & Vulnerability",
     definition: "Climate change response has two main strategies: MITIGATION (reducing greenhouse gas emissions to limit warming) and ADAPTATION (adjusting to the effects of warming that are already happening). Both are needed; they are complementary, not alternatives.",
@@ -611,7 +611,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-international-climate-policy",
-    sectionId: "ENV-6",
+    sectionId: "ENV-06",
     order: 3,
     title: "International Climate Policy (UNFCCC → Paris → COP28)",
     definition: "International climate policy has evolved from the 1992 UNFCCC framework through the 1997 Kyoto Protocol to the 2015 Paris Agreement. Each step established increasingly ambitious targets for limiting global temperature rise.",
@@ -652,7 +652,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-ozone-depletion",
-    sectionId: "ENV-6",
+    sectionId: "ENV-06",
     order: 4,
     title: "Ozone Depletion: CFCs, Montreal Protocol & Recovery",
     definition: "The stratospheric ozone layer protects life from harmful UV-B and UV-C radiation. CFCs (chlorofluorocarbons) released this chlorine that catalytically destroys ozone. The 1987 Montreal Protocol banned CFCs and is considered the most successful international environmental agreement.",
@@ -691,7 +691,7 @@ export const topics: Topic[] = [
   },
   {
     id: "env-pakistan-environmental-context",
-    sectionId: "ENV-6",
+    sectionId: "ENV-06",
     order: 5,
     title: "Pakistan's Environmental Context: Issues & Policy",
     definition: "Pakistan faces interconnected environmental challenges — climate vulnerability, air pollution, water scarcity, biodiversity loss, deforestation, and waste management. The country's environmental policy is shaped by these realities and international commitments.",

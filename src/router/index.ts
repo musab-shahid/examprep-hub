@@ -4,7 +4,7 @@
  */
 import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';
-import { resolveScreen } from '@/router/resolveScreen';
+import { resolveScreen } from './resolveScreen';
 
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 

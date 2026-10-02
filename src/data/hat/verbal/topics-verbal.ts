@@ -3,7 +3,7 @@ import type { Topic } from '@/types';
 export const verbalTopics: Topic[] = [
   {
     id: 'hat-v1-vocabulary',
-    sectionId: 'HATV-1',
+    sectionId: 'HATV-01',
     order: 1,
     title: 'Vocabulary Mastery',
     definition: 'Building word power for HAT Verbal Reasoning. The 100 most frequently tested HAT words, organized into thematic groups, plus memory techniques and common confusions. HAT vocabulary tests recognition of high-frequency academic words, abstract concepts, and advanced vocabulary through synonym, antonym, and meaning-in-context questions.',
@@ -133,7 +133,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v2-word-formation',
-    sectionId: 'HATV-2',
+    sectionId: 'HATV-02',
     order: 2,
     title: 'Word Formation Patterns',
     definition: 'Decoding unknown words through prefixes, suffixes, and roots. The highest-yield topic for HAT — understanding word parts unlocks hundreds of unfamiliar words. This topic covers 40+ prefixes, 30+ suffixes, 40+ roots (Latin, Greek, Anglo-Saxon), and high-yield word families.',
@@ -305,7 +305,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v3-grammar',
-    sectionId: 'HATV-3',
+    sectionId: 'HATV-03',
     order: 3,
     title: 'Grammar Rules',
     definition: 'Grammar Rules — Master the 14 grammar rules that HAT Verbal tests most: subject-verb agreement, tense consistency, pronoun agreement, parallel structure, modifier placement, prepositions, articles, voice, conditionals, confusing words, comparatives, direct/indirect speech, punctuation, and HAT-tested idioms. This topic consolidates the structural rules of English that decide 12-15 questions in every Verbal HAT paper.',
@@ -433,7 +433,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v4-sentence-completion',
-    sectionId: 'HATV-4',
+    sectionId: 'HATV-04',
     order: 4,
     title: 'Sentence Completion',
     definition: 'Fill-in-the-blank questions that test vocabulary in context and logical reasoning using signal-word analysis. The 7-step master method covers reading the full sentence, identifying signal words, determining positive or negative direction, predicting the answer, eliminating wrong options, checking all clues, and verifying in context. Sentence completion makes up roughly 8-10 of the 40 verbal questions in HAT.',
@@ -485,7 +485,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v5-reading-comprehension',
-    sectionId: 'HATV-5',
+    sectionId: 'HATV-05',
     order: 5,
     title: 'Reading Comprehension',
     definition: '7 question types — main idea, detail, inference, tone, vocabulary-in-context, purpose/function, and structure/organization — tested on short to medium passages. Reading comprehension carries the highest weightage in HAT Verbal (about 40% of the verbal section). Passages cover science, history, social science, technology, environment, business, and literature.',
@@ -540,7 +540,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v6-idioms',
-    sectionId: 'HATV-6',
+    sectionId: 'HATV-06',
     order: 6,
     title: 'Idioms & Phrases',
     definition: 'An idiom is a fixed expression whose meaning cannot be deduced from the literal definitions of its individual words — the phrase functions as a single semantic unit with a figurative meaning.',
@@ -1010,7 +1010,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v7-one-word-substitutions',
-    sectionId: 'HATV-7',
+    sectionId: 'HATV-07',
     order: 7,
     title: 'One-Word Substitutions',
     definition: 'Single words that replace phrases or short sentences — making language more precise and sophisticated. Tests vocabulary range, precision, and awareness of specialized terms.',
@@ -1772,7 +1772,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v8-verbal-mock',
-    sectionId: 'HATV-8',
+    sectionId: 'HATV-08',
     order: 8,
     title: 'Verbal Mock Quiz',
     definition: 'Comprehensive practice across all verbal topics — mixed question types with exam-realistic timing.',
@@ -1800,7 +1800,7 @@ export const verbalTopics: Topic[] = [
   },
   {
     id: 'hat-v9-master-sheet',
-    sectionId: 'HATV-9',
+    sectionId: 'HATV-09',
     order: 9,
     title: 'Verbal Master Sheet (Last-Day Revision)',
     definition: 'One-page gist of all Verbal Reasoning. Read this the night before and the morning of the exam. Covers vocabulary strategy, word formation, grammar rules, sentence completion, reading, idioms, and one-word substitutions.',

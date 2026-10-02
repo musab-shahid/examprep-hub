@@ -17,13 +17,13 @@ export interface FormulaEntry {
 }
 
 const METEO_CATEGORY: Record<string, string> = {
-  'MC-A': 'Atmospheric',
-  'MC-B': 'Thermodynamics',
-  'MC-C': 'Wind',
-  'MC-D': 'Thermodynamics',
-  'MC-E': 'Atmospheric',
-  'MC-F': 'Atmospheric',
-  'MC-H': 'Radiation',
+  'METEO-01': 'Atmospheric',
+  'METEO-02': 'Thermodynamics',
+  'METEO-03': 'Wind',
+  'METEO-04': 'Thermodynamics',
+  'METEO-05': 'Atmospheric',
+  'METEO-06': 'Atmospheric',
+  'METEO-08': 'Radiation',
 };
 
 function formulaCategory(topic: Topic): string {

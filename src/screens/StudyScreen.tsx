@@ -151,7 +151,7 @@ export function StudyScreen() {
           {/* Featured links */}
           {subjectId === 'meteo-climatology' && (
             <button
-              onClick={() => navigate({ screen: 'section', sectionId: 'MC-I' })}
+              onClick={() => navigate({ screen: 'section', sectionId: 'METEO-09' })}
               className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 text-white hover:from-sky-600 hover:to-sky-700 transition-colors text-left mb-4"
             >
               <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0"><Map className="w-6 h-6 text-white" /></div>
