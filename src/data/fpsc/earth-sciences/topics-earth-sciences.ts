@@ -2182,7 +2182,7 @@ export const topics: Topic[] = [
       ["Atmosphere", "<0.001", "<0.001%", "~9 days"]
     ]
   },
-  relatedTopics: ["earth-j2", "earth-j3", "earth-e1"],
+  relatedTopics: ["earth-j2", "earth-e1"],
   content: true,
   buildsOn: ["phy-states-of-matter", "phy-heat-transfer-equilibrium"],
   leadsTo: ["earth-j2", "earth-e3"],
@@ -2239,7 +2239,7 @@ export const topics: Topic[] = [
       ["Aquiclude", "Impermeable, blocks flow", "Unfractured granite, halite, unfractured clay"]
     ]
   },
-  relatedTopics: ["earth-j1", "earth-j3", "earth-e5"],
+  relatedTopics: ["earth-j1", "earth-e5"],
   content: true,
   buildsOn: ["earth-j1", "earth-b4", "phy-pressure-fluids", "phy-density"],
   leadsTo: [],
@@ -2295,7 +2295,7 @@ export const topics: Topic[] = [
     "Geophysical data are indirect: must be processed and inverted; solutions are non-unique",
     "Major application areas: oil/gas, mineral, groundwater, environmental, crustal studies, volcanology"
   ],
-  relatedTopics: ["earth-k2", "earth-k3", "earth-k4", "earth-k5", "earth-h2"],
+  relatedTopics: ["earth-k2", "earth-k3", "earth-k4", "earth-h2"],
   content: true,
   buildsOn: ["earth-a3", "phy-units-measurement"],
   leadsTo: ["earth-k2", "earth-k3", "earth-k4"],
