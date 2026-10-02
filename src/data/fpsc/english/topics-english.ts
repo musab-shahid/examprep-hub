@@ -235,7 +235,7 @@ export const topics: Topic[] = [
   examScope: ['bs17', 'bs16'],
   buildsOn: ["english-agreement-and-articles", "english-pronouns-prepositions-conjunctions", "english-modals-voice-narration"],
   leadsTo: ["english-sentence-types-errors-transformation"],
-  usedIn: ["english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "ra-scientific-reporting", "f-aviation-products"]
+  usedIn: ["english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "ra-scientific-reporting", "meteo-aviation-products"]
 }
   
 ,
@@ -364,7 +364,7 @@ export const topics: Topic[] = [
   examScope: ['bs17'],
   buildsOn: ["english-synonyms-antonyms-confusables", "english-idioms-and-phrases"],
   leadsTo: [],
-  usedIn: ["english-sentence-completion-rearrangement", "ra-scientific-reporting", "env-international-climate-policy", "env-ozone-depletion", "h-pakistan-nccp"]
+  usedIn: ["english-sentence-completion-rearrangement", "ra-scientific-reporting", "env-international-climate-policy", "env-ozone-depletion", "meteo-pakistan-nccp"]
 }
 
 ,
@@ -408,7 +408,7 @@ export const topics: Topic[] = [
   examScope: ['bs17', 'bs16'],
   buildsOn: ["english-parts-of-speech-and-tenses", "english-pronouns-prepositions-conjunctions"],
   leadsTo: ["english-sentence-types-errors-transformation"],
-  usedIn: ["english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "ra-scientific-reporting", "env-climate-change-response", "env-international-climate-policy", "i-pmd-operational", "f-aviation-products"]
+  usedIn: ["english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "ra-scientific-reporting", "env-climate-change-response", "env-international-climate-policy", "meteo-pmd-operational", "meteo-aviation-products"]
 },
 
 {

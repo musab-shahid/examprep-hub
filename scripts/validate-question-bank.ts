@@ -218,6 +218,47 @@ async function main() {
     }
   }
 
+
+  // Cross-references on full topic content (relatedTopics / buildsOn / leadsTo / usedIn)
+  const topicLoaders: Record<string, () => Promise<{ topics?: { id: string; relatedTopics?: string[]; buildsOn?: string[]; leadsTo?: string[]; usedIn?: string[] }[] }>> = {
+    'meteo-climatology': () => import('../src/data/fpsc/meteorology/topics-meteorology'),
+    'earth-science': () => import('../src/data/fpsc/earth-sciences/topics-earth-sciences'),
+    'physics': () => import('../src/data/fpsc/physics/topics-physics'),
+    'maths': () => import('../src/data/fpsc/maths/topics-maths'),
+    'english': () => import('../src/data/fpsc/english/topics-english'),
+    'env-studies': () => import('../src/data/fpsc/env-studies/topics-env-studies'),
+    'research-analysis': () => import('../src/data/fpsc/research-analysis/topics-research-analysis'),
+    'hat-verbal': () => import('../src/data/hat/verbal/topics-verbal'),
+    'hat-analytical': () => import('../src/data/hat/analytical/topics-analytical'),
+    'hat-quantitative': () => import('../src/data/hat/quantitative/topics-quantitative'),
+  };
+  const knownTopicIds = new Set(topics.map((t) => t.id));
+  for (const subjectId of activeSubjects as SubjectId[]) {
+    const loader = topicLoaders[subjectId];
+    if (!loader) continue;
+    try {
+      const mod = await loader();
+      for (const topic of mod.topics ?? []) {
+        const fields: [string, string[] | undefined][] = [
+          ['relatedTopics', topic.relatedTopics],
+          ['buildsOn', topic.buildsOn],
+          ['leadsTo', topic.leadsTo],
+          ['usedIn', topic.usedIn],
+        ];
+        for (const [field, refs] of fields) {
+          if (!refs) continue;
+          for (const ref of refs) {
+            if (!knownTopicIds.has(ref)) {
+              add('critical', subjectId, topic.id, 'BROKEN_CROSS_REF', `${field} → unknown topic "${ref}"`);
+            }
+          }
+        }
+      }
+    } catch (e) {
+      add('warning', subjectId, '—', 'TOPIC_LOAD_FAILED', String(e));
+    }
+  }
+
   // Metadata drift: sections.ts topicCount/questionCount must match bank + topic metadata
   const qCountBySection = new Map<string, number>();
   for (const subjectId of activeSubjects as SubjectId[]) {

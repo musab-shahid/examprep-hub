@@ -73,7 +73,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-2-2", "phy-units-measurement", "phy-kinematics"],
   leadsTo: ["earth-a2", "earth-a3"],
-  usedIn: ["b-radiation-laws", "h-milankovitch-cycles", "earth-i1"]
+  usedIn: ["meteo-radiation-laws", "meteo-milankovitch-cycles", "earth-i1"]
 },
 
 
@@ -119,7 +119,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-a1", "phy-magnetic-fields-force"],
   leadsTo: ["earth-a3", "earth-k3"],
-  usedIn: ["a-ionosphere-exosphere", "earth-h2", "earth-k3"]
+  usedIn: ["meteo-ionosphere-exosphere", "earth-h2", "earth-k3"]
 },
 
 
@@ -656,7 +656,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-c1", "phy-radioactivity-nuclear", "phy-half-life-decay", "math-3-1", "math-3-3"],
   leadsTo: ["earth-c3"],
-  usedIn: ["earth-c3", "earth-k4", "h-past-climate-reconstruction", "ra-descriptive-statistics", "ra-correlation-regression", "ra-data-interpretation"]
+  usedIn: ["earth-c3", "earth-k4", "meteo-past-climate-reconstruction", "ra-descriptive-statistics", "ra-correlation-regression", "ra-data-interpretation"]
 },
 
 
@@ -713,7 +713,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-c1", "earth-c2"],
   leadsTo: ["earth-d1"],
-  usedIn: ["h-past-climate-reconstruction", "env-conservation-and-extinction"]
+  usedIn: ["meteo-past-climate-reconstruction", "env-conservation-and-extinction"]
 },
 
 
@@ -1113,7 +1113,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-e2"],
   leadsTo: ["earth-e5"],
-  usedIn: ["i-extreme-events"]
+  usedIn: ["meteo-extreme-events"]
 },
 
 
@@ -1451,7 +1451,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-a4", "earth-b3", "earth-d2", "phy-temperature-heat", "phy-density"],
   leadsTo: ["earth-g2"],
-  usedIn: ["earth-g2", "earth-g3", "h-solar-volcanic-forcing"]
+  usedIn: ["earth-g2", "earth-g3", "meteo-solar-volcanic-forcing"]
 },
 
 
@@ -1574,7 +1574,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-g2"],
   leadsTo: [],
-  usedIn: ["h-solar-volcanic-forcing", "env-climate-change-response"]
+  usedIn: ["meteo-solar-volcanic-forcing", "env-climate-change-response"]
 },
 
 
@@ -2186,7 +2186,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-states-of-matter", "phy-heat-transfer-equilibrium"],
   leadsTo: ["earth-j2", "earth-e3"],
-  usedIn: ["d-moisture-metrics", "d-precipitation-processes", "env-water-pollution-and-quality"]
+  usedIn: ["meteo-moisture-metrics", "meteo-precipitation-processes", "env-water-pollution-and-quality"]
 },
 
 
@@ -2462,7 +2462,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["earth-k1", "earth-c2", "phy-radioactivity-nuclear", "phy-half-life-decay"],
   leadsTo: [],
-  usedIn: ["earth-c2", "h-past-climate-reconstruction", "ra-descriptive-statistics", "ra-data-interpretation"]
+  usedIn: ["earth-c2", "meteo-past-climate-reconstruction", "ra-descriptive-statistics", "ra-data-interpretation"]
 }
 
 

@@ -154,7 +154,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-research-design", "math-1-1", "math-8-1"],
   leadsTo: ["ra-descriptive-statistics", "ra-data-visualization"],
-  usedIn: ["ra-descriptive-statistics", "ra-correlation-regression", "f-radiosondes", "meteo-station-model", "earth-h2"]
+  usedIn: ["ra-descriptive-statistics", "ra-correlation-regression", "meteo-radiosondes", "meteo-station-model", "earth-h2"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -207,7 +207,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-data-types", "math-2-1", "math-8-1"],
   leadsTo: ["ra-data-visualization", "ra-probability"],
-  usedIn: ["ra-correlation-regression", "ra-inferential-stats", "meteo-forecast-skill", "g-pakistan-macroclimate", "i-temp-rainfall-distribution", "env-air-pollution", "earth-h4", "earth-c2"]
+  usedIn: ["ra-correlation-regression", "ra-inferential-stats", "meteo-forecast-skill", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution", "env-air-pollution", "earth-h4", "earth-c2"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -256,7 +256,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "math-8-2"],
   leadsTo: ["ra-inferential-stats"],
-  usedIn: ["ra-inferential-stats", "meteo-forecast-skill", "i-extreme-events"]
+  usedIn: ["ra-inferential-stats", "meteo-forecast-skill", "meteo-extreme-events"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -304,7 +304,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "math-5-4"],
   leadsTo: ["ra-correlation-regression", "ra-data-interpretation"],
-  usedIn: ["ra-data-interpretation", "meteo-isobar-analysis", "d-thermodynamic-diagrams", "c-upper-air-charts", "earth-h2", "earth-h3", "earth-k2", "earth-k3"]
+  usedIn: ["ra-data-interpretation", "meteo-isobar-analysis", "meteo-thermodynamic-diagrams", "meteo-upper-air-charts", "earth-h2", "earth-h3", "earth-k2", "earth-k3"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -360,7 +360,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "ra-data-visualization", "math-5-3"],
   leadsTo: ["ra-inferential-stats", "ra-data-interpretation"],
-  usedIn: ["ra-data-interpretation", "h-radiative-forcing", "h-climate-feedbacks", "i-temp-rainfall-distribution", "earth-h3", "earth-c2"]
+  usedIn: ["ra-data-interpretation", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-temp-rainfall-distribution", "earth-h3", "earth-c2"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -463,7 +463,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-scientific-method", "ra-research-design", "math-1-6"],
   leadsTo: ["ra-data-interpretation", "ra-research-ethics"],
-  usedIn: ["ra-data-interpretation", "f-stevenson-screen", "meteo-forecast-skill", "earth-k2"]
+  usedIn: ["ra-data-interpretation", "meteo-stevenson-screen", "meteo-forecast-skill", "earth-k2"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -509,7 +509,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-data-visualization", "ra-correlation-regression", "ra-research-quality", "ra-inferential-stats"],
   leadsTo: ["ra-scientific-reporting"],
-  usedIn: ["ra-scientific-reporting", "env-climate-change-response", "i-extreme-events", "h-ipcc-rcps", "earth-h3", "earth-h4", "earth-c2", "earth-k2", "earth-i2", "english-sentence-building-blocks"]
+  usedIn: ["ra-scientific-reporting", "env-climate-change-response", "meteo-extreme-events", "meteo-ipcc-rcps", "earth-h3", "earth-h4", "earth-c2", "earth-k2", "earth-i2", "english-sentence-building-blocks"]
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -558,7 +558,7 @@ export const topics: Topic[] = [
   postRestriction: "bs17",
   buildsOn: ["ra-data-interpretation", "ra-scientific-method"],
   leadsTo: ["ra-research-ethics"],
-  usedIn: ["english-parts-of-speech-and-tenses", "english-common-errors", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "i-pmd-operational", "env-climate-change-response", "env-international-climate-policy", "earth-h4", "earth-i2"]
+  usedIn: ["english-parts-of-speech-and-tenses", "english-common-errors", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "meteo-pmd-operational", "env-climate-change-response", "env-international-climate-policy", "earth-h4", "earth-i2"]
 },
 
 // ═══════════════════════════════════════════════════════════════════

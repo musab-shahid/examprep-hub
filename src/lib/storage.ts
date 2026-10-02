@@ -2,6 +2,7 @@ import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode }
 import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
+import { resolveTopicId } from '@/lib/topic-id-aliases';
 
 const STORAGE_KEY = STORAGE_KEYS.appData;
 const LEGACY_KEY = STORAGE_KEYS.legacyAppData;
@@ -160,8 +161,49 @@ function migrateProgress(p: Record<string, unknown>): TopicProgress {
   };
 }
 
+
+/** Remap topic IDs after renames so saved progress follows. */
+function migrateTopicIdKeys(data: AppData): { data: AppData; changed: boolean } {
+  let changed = false;
+  const remap = (id: string): string => {
+    const next = resolveTopicId(id);
+    if (next !== id) changed = true;
+    return next;
+  };
+
+  const topicProgress: Record<string, TopicProgress> = {};
+  for (const [tid, prog] of Object.entries(data.topicProgress ?? {})) {
+    const nid = remap(tid);
+    topicProgress[nid] = topicProgress[nid] ?? prog;
+  }
+
+  const studiedTopics = [...new Set((data.studiedTopics ?? []).map(remap))];
+  const revisionDates: Record<string, string> = {};
+  for (const [tid, dateStr] of Object.entries(data.revisionDates ?? {})) {
+    revisionDates[remap(tid)] = dateStr;
+  }
+
+  const quizHistory = (data.quizHistory ?? []).map((q) =>
+    q.topicId ? { ...q, topicId: remap(q.topicId) } : q,
+  );
+
+  const lastOpenedTopic = data.lastOpenedTopic ? remap(data.lastOpenedTopic) : data.lastOpenedTopic;
+
+  return {
+    data: {
+      ...data,
+      topicProgress,
+      studiedTopics,
+      revisionDates,
+      quizHistory,
+      lastOpenedTopic,
+    },
+    changed,
+  };
+}
+
 function normalizeLoaded(parsed: AppData): AppData {
-  const merged = { ...emptyData, ...parsed };
+  let merged = { ...emptyData, ...parsed };
   let migrated = false;
   for (const [k, v] of Object.entries(merged.topicProgress)) {
     if (v.quizCorrect === undefined && (v.quizAccuracy !== undefined || v.quizAttempts !== undefined || v.attempts !== undefined)) {
@@ -187,8 +229,12 @@ function normalizeLoaded(parsed: AppData): AppData {
       migrated = true;
     }
   }
+  const idMig = migrateTopicIdKeys(merged);
+  merged = idMig.data;
+  if (idMig.changed) migrated = true;
+
   if (migrated) {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(merged)); } catch { /* ignore */ }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(merged))); } catch { /* ignore */ }
   }
   return merged;
 }

@@ -119,7 +119,7 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles", "env-biodiversity"],
     content: true,
-  buildsOn: ["env-fundamentals-and-sustainability", "phy-work-energy", "b-heat-transfer"],
+  buildsOn: ["env-fundamentals-and-sustainability", "phy-work-energy", "meteo-heat-transfer"],
   leadsTo: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles"],
   usedIn: ["env-ecological-pyramids", "env-biodiversity", "env-productivity-and-biogeochemical-cycles"]
   },
@@ -196,9 +196,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
     content: true,
-  buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-ecological-pyramids", "a-composition-today", "earth-j1", "earth-b6"],
+  buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-ecological-pyramids", "meteo-composition-today", "earth-j1", "earth-b6"],
   leadsTo: ["env-biodiversity", "env-air-pollution", "env-water-pollution-and-quality"],
-  usedIn: ["env-air-pollution", "b-greenhouse-effect", "h-radiative-forcing", "env-climate-change-response"]
+  usedIn: ["env-air-pollution", "meteo-greenhouse-effect", "meteo-radiative-forcing", "env-climate-change-response"]
   },
   {
     id: "env-biodiversity",
@@ -438,9 +438,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response", "env-resource-conflicts"],
     content: true,
-  buildsOn: ["a-composition-today", "b-inversion-types", "env-productivity-and-biogeochemical-cycles", "math-1-7", "phy-heat-transfer-mechanisms", "phy-atmospheric-pressure-physics"],
+  buildsOn: ["meteo-composition-today", "meteo-inversion-types", "env-productivity-and-biogeochemical-cycles", "math-1-7", "phy-heat-transfer-mechanisms", "phy-atmospheric-pressure-physics"],
   leadsTo: ["env-water-pollution-and-quality", "env-ozone-depletion"],
-  usedIn: ["env-ozone-depletion", "env-pakistan-environmental-context", "b-inversion-types", "i-arabian-sea-cyclones-local", "ra-descriptive-statistics"]
+  usedIn: ["env-ozone-depletion", "env-pakistan-environmental-context", "meteo-inversion-types", "meteo-arabian-sea-cyclones-local", "ra-descriptive-statistics"]
   },
   {
     id: "env-water-pollution-and-quality",
@@ -480,9 +480,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-threats-and-iucn"],
     content: true,
-  buildsOn: ["env-productivity-and-biogeochemical-cycles", "earth-j1", "earth-j2", "d-moisture-metrics"],
+  buildsOn: ["env-productivity-and-biogeochemical-cycles", "earth-j1", "earth-j2", "meteo-moisture-metrics"],
   leadsTo: ["env-soil-and-waste"],
-  usedIn: ["env-pakistan-environmental-context", "i-extreme-events"]
+  usedIn: ["env-pakistan-environmental-context", "meteo-extreme-events"]
   },
   {
     id: "env-soil-and-waste",
@@ -564,9 +564,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality"],
     content: true,
-  buildsOn: ["env-natural-resources", "phy-work-energy", "phy-power-efficiency", "phy-radioactivity-nuclear", "b-greenhouse-effect"],
+  buildsOn: ["env-natural-resources", "phy-work-energy", "phy-power-efficiency", "phy-radioactivity-nuclear", "meteo-greenhouse-effect"],
   leadsTo: ["env-climate-change-response"],
-  usedIn: ["env-climate-change-response", "h-radiative-forcing", "env-pakistan-environmental-context"]
+  usedIn: ["env-climate-change-response", "meteo-radiative-forcing", "env-pakistan-environmental-context"]
   },
   {
     id: "env-climate-change-response",
@@ -605,9 +605,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-international-climate-policy", "env-energy-sources", "env-ozone-depletion"],
     content: true,
-  buildsOn: ["b-greenhouse-effect", "h-radiative-forcing", "h-climate-feedbacks", "h-ipcc-rcps", "env-energy-sources", "i-extreme-events", "phy-thermodynamics-laws", "phy-heat-transfer-mechanisms"],
+  buildsOn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-energy-sources", "meteo-extreme-events", "phy-thermodynamics-laws", "phy-heat-transfer-mechanisms"],
   leadsTo: ["env-international-climate-policy", "env-pakistan-environmental-context"],
-  usedIn: ["env-international-climate-policy", "h-pakistan-nccp", "i-nccp-objectives", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "ra-scientific-reporting"]
+  usedIn: ["env-international-climate-policy", "meteo-pakistan-nccp", "meteo-nccp-objectives", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "ra-scientific-reporting"]
   },
   {
     id: "env-international-climate-policy",
@@ -646,9 +646,9 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-climate-change-response", "env-ozone-depletion", "env-energy-sources"],
     content: true,
-  buildsOn: ["env-climate-change-response", "h-ipcc-rcps", "h-pakistan-nccp"],
+  buildsOn: ["env-climate-change-response", "meteo-ipcc-rcps", "meteo-pakistan-nccp"],
   leadsTo: ["env-ozone-depletion", "env-pakistan-environmental-context"],
-  usedIn: ["env-pakistan-environmental-context", "i-nccp-objectives", "english-word-formation-and-context", "english-sentence-building-blocks", "ra-scientific-reporting"]
+  usedIn: ["env-pakistan-environmental-context", "meteo-nccp-objectives", "english-word-formation-and-context", "english-sentence-building-blocks", "ra-scientific-reporting"]
   },
   {
     id: "env-ozone-depletion",
@@ -685,7 +685,7 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
-  buildsOn: ["a-composition-today", "a-vertical-structure", "env-air-pollution", "b-radiation-laws"],
+  buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
   leadsTo: [],
   usedIn: ["env-international-climate-policy", "english-word-formation-and-context"]
   },
@@ -729,8 +729,8 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts", "env-biodiversity"],
     content: true,
-  buildsOn: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "g-pakistan-macroclimate", "i-extreme-events", "i-temp-rainfall-distribution", "earth-i1"],
+  buildsOn: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "meteo-pakistan-macroclimate", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "earth-i1"],
   leadsTo: [],
-  usedIn: ["h-pakistan-nccp", "i-pmd-operational", "english-sentence-completion-rearrangement", "ra-scientific-reporting"]
+  usedIn: ["meteo-pakistan-nccp", "meteo-pmd-operational", "english-sentence-completion-rearrangement", "ra-scientific-reporting"]
   }
 ];

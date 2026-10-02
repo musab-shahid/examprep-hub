@@ -314,7 +314,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-5"],
   leadsTo: ["math-3-4", "math-2-2"],
-  usedIn: ["phy-units-measurement", "phy-temperature-heat", "b-radiation-laws", "ra-research-quality"]
+  usedIn: ["phy-units-measurement", "phy-temperature-heat", "meteo-radiation-laws", "ra-research-quality"]
 },
 
 {
@@ -416,7 +416,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-5", "math-1-7"],
   leadsTo: ["math-2-1", "math-2-2", "math-8-3"],
-  usedIn: ["phy-density", "phy-pressure-fluids", "phy-kinematics", "d-moisture-metrics"]
+  usedIn: ["phy-density", "phy-pressure-fluids", "phy-kinematics", "meteo-moisture-metrics"]
 }, 
 
 // ════════════════════════════════════════════════════════════════════
@@ -473,7 +473,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-5", "math-1-7", "math-1-8"],
   leadsTo: ["math-8-1"],
-  usedIn: ["math-8-1", "ra-descriptive-statistics", "g-pakistan-macroclimate"]
+  usedIn: ["math-8-1", "ra-descriptive-statistics", "meteo-pakistan-macroclimate"]
 },
 
 {
@@ -517,7 +517,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-5", "math-1-6", "math-1-8"],
   leadsTo: ["phy-units-measurement"],
-  usedIn: ["phy-units-measurement", "phy-pressure-fluids", "phy-temperature-heat", "f-pressure-instruments", "d-moisture-metrics", "env-air-pollution"]
+  usedIn: ["phy-units-measurement", "phy-pressure-fluids", "phy-temperature-heat", "meteo-pressure-instruments", "meteo-moisture-metrics", "env-air-pollution"]
 },
 
 {
@@ -553,7 +553,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-1", "math-1-2"],
   leadsTo: ["math-2-4", "math-2-5", "math-2-6"],
-  usedIn: ["math-2-7", "math-5-3", "phy-kinematics", "phy-work-energy", "b-gas-law"]
+  usedIn: ["math-2-7", "math-5-3", "phy-kinematics", "phy-work-energy", "meteo-gas-law"]
 },
 
 {
@@ -776,7 +776,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-1", "math-2-3"],
   leadsTo: ["math-3-2", "math-3-3", "math-3-4"],
-  usedIn: ["math-6-2", "phy-radioactivity-nuclear", "phy-half-life-decay", "b-radiation-laws", "earth-c2"]
+  usedIn: ["math-6-2", "phy-radioactivity-nuclear", "phy-half-life-decay", "meteo-radiation-laws", "earth-c2"]
 },
 
 {
@@ -883,7 +883,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-3-1"],
   leadsTo: ["math-3-4"],
-  usedIn: ["phy-sound-waves", "phy-half-life-decay", "earth-h4", "b-radiation-laws"]
+  usedIn: ["phy-sound-waves", "phy-half-life-decay", "earth-h4", "meteo-radiation-laws"]
 },
 
 {
@@ -934,7 +934,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-6", "math-3-1"],
   leadsTo: ["phy-units-measurement"],
-  usedIn: ["phy-units-measurement", "phy-atomic-structure", "a-composition-today", "h-radiative-forcing"]
+  usedIn: ["phy-units-measurement", "phy-atomic-structure", "meteo-composition-today", "meteo-radiative-forcing"]
 }, 
 // ════════════════════════════════════════════════════════════════════
 // SECTION MATH-D: Geometry & Mensuration
@@ -1135,7 +1135,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-4-1"],
   leadsTo: ["math-4-5", "math-4-6"],
-  usedIn: ["phy-wave-properties", "c-global-circulation"]
+  usedIn: ["phy-wave-properties", "meteo-global-circulation"]
 },
 
 {
@@ -1288,7 +1288,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-4-1"],
   leadsTo: ["math-5-2", "math-5-3", "math-7-1"],
-  usedIn: ["phy-scalars-vectors", "phy-vector-operations", "c-upper-air-charts"]
+  usedIn: ["phy-scalars-vectors", "phy-vector-operations", "meteo-upper-air-charts"]
 },
 
 {
@@ -1444,7 +1444,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-5-3", "math-2-1"],
   leadsTo: ["math-8-1"],
-  usedIn: ["phy-kinematics", "ra-data-visualization", "d-thermodynamic-diagrams"]
+  usedIn: ["phy-kinematics", "ra-data-visualization", "meteo-thermodynamic-diagrams"]
 }, 
 // ════════════════════════════════════════════════════════════════════
 // SECTION MATH-F: Sequences, Series & Patterns
@@ -1670,7 +1670,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-5-1", "math-5-2", "math-3-2"],
   leadsTo: ["phy-scalars-vectors", "phy-vector-operations"],
-  usedIn: ["phy-scalars-vectors", "phy-vector-operations", "phy-vector-applications", "phy-kinematics", "phy-newtons-laws", "b-coriolis-effect", "c-forces-governing-wind"]
+  usedIn: ["phy-scalars-vectors", "phy-vector-operations", "phy-vector-applications", "phy-kinematics", "phy-newtons-laws", "meteo-coriolis-effect", "meteo-forces-governing-wind"]
 },
 // ════════════════════════════════════════════════════════════════════
 // SECTION MATH-H: Word Problems & Applications
@@ -1783,7 +1783,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-5", "math-8-1"],
   leadsTo: [],
-  usedIn: ["ra-probability", "i-extreme-events"]
+  usedIn: ["ra-probability", "meteo-extreme-events"]
 },
 
 {
@@ -1835,7 +1835,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-1-8", "math-2-6", "math-2-2"],
   leadsTo: ["phy-kinematics"],
-  usedIn: ["phy-kinematics", "c-forces-governing-wind"]
+  usedIn: ["phy-kinematics", "meteo-forces-governing-wind"]
 },
 
 {

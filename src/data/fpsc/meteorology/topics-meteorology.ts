@@ -13,7 +13,7 @@ export const topics: Topic[] = [
 // ============================= SECTION A =============================
 
 {
-  id: "a-origin-evolution",
+  id: "meteo-origin-evolution",
   sectionId: "MC-A",
   order: 1,
   title: "Origin & Chemical Evolution of the Atmosphere",
@@ -35,15 +35,15 @@ export const topics: Topic[] = [
     "The Great Oxidation Event is linked specifically to cyanobacteria, not later plants",
     "Ozone forms from O2 via UV photolysis, concentrated 15–35 km altitude"
   ],
-  relatedTopics: ["a-composition-today", "a-vertical-structure"],
+  relatedTopics: ["meteo-composition-today", "meteo-vertical-structure"],
   content: true,
   buildsOn: ["phy-states-of-matter", "earth-a4", "earth-g3"],
-  leadsTo: ["a-composition-today"],
-  usedIn: ["a-composition-today", "b-greenhouse-effect", "h-solar-volcanic-forcing"]
+  leadsTo: ["meteo-composition-today"],
+  usedIn: ["meteo-composition-today", "meteo-greenhouse-effect", "meteo-solar-volcanic-forcing"]
 },
 
 {
-  id: "a-composition-today",
+  id: "meteo-composition-today",
   sectionId: "MC-A",
   order: 2,
   title: "Composition of Today's Atmosphere",
@@ -64,15 +64,15 @@ export const topics: Topic[] = [
     "Water vapour is the most powerful greenhouse gas, not CO2 — commonly confused",
     "Near-surface ozone is a pollutant; stratospheric ozone is protective — same molecule, opposite role by altitude"
   ],
-  relatedTopics: ["a-origin-evolution", "b-greenhouse-effect"],
+  relatedTopics: ["meteo-origin-evolution", "meteo-greenhouse-effect"],
   content: true,
-  buildsOn: ["a-origin-evolution", "math-1-7", "math-3-4"],
-  leadsTo: ["a-vertical-structure", "b-greenhouse-effect"],
-  usedIn: ["b-greenhouse-effect", "h-radiative-forcing", "env-air-pollution", "env-ozone-depletion"]
+  buildsOn: ["meteo-origin-evolution", "math-1-7", "math-3-4"],
+  leadsTo: ["meteo-vertical-structure", "meteo-greenhouse-effect"],
+  usedIn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "env-air-pollution", "env-ozone-depletion"]
 },
 
 {
-  id: "a-vertical-structure",
+  id: "meteo-vertical-structure",
   sectionId: "MC-A",
   order: 3,
   title: "Vertical Thermal Structure of the Atmosphere",
@@ -92,15 +92,15 @@ export const topics: Topic[] = [
     "Tropopause height varies with latitude and season — higher/equatorial-summer, lower/polar-winter",
     "Order of layers bottom to top: Troposphere → Stratosphere → Mesosphere → Thermosphere"
   ],
-  relatedTopics: ["a-ionosphere-exosphere", "b-lapse-rates"],
+  relatedTopics: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
   content: true,
-  buildsOn: ["a-composition-today", "phy-temperature-heat", "phy-heat-transfer-mechanisms"],
-  leadsTo: ["a-ionosphere-exosphere", "b-lapse-rates"],
-  usedIn: ["b-lapse-rates", "b-inversion-mechanics", "f-radiosondes", "d-thermodynamic-diagrams", "env-ozone-depletion"]
+  buildsOn: ["meteo-composition-today", "phy-temperature-heat", "phy-heat-transfer-mechanisms"],
+  leadsTo: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
+  usedIn: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-radiosondes", "meteo-thermodynamic-diagrams", "env-ozone-depletion"]
 },
 
 {
-  id: "a-ionosphere-exosphere",
+  id: "meteo-ionosphere-exosphere",
   sectionId: "MC-A",
   order: 4,
   title: "The Ionosphere and Exosphere",
@@ -119,15 +119,15 @@ export const topics: Topic[] = [
     "AM reflects, FM/TV pass through — a frequently tested distinction",
     "The exosphere is where atmospheric gas is finally lost to space"
   ],
-  relatedTopics: ["a-vertical-structure"],
+  relatedTopics: ["meteo-vertical-structure"],
   content: true,
-  buildsOn: ["a-vertical-structure", "phy-electromagnetic-induction", "earth-a2"],
+  buildsOn: ["meteo-vertical-structure", "phy-electromagnetic-induction", "earth-a2"],
   leadsTo: [],
-  usedIn: ["f-remote-sensing"]
+  usedIn: ["meteo-remote-sensing"]
 },
 
 {
-  id: "a-weather-vs-climate",
+  id: "meteo-weather-vs-climate",
   sectionId: "MC-A",
   order: 5,
   title: "Weather vs. Climate & Climatic Controls",
@@ -143,15 +143,15 @@ export const topics: Topic[] = [
   examPoints: [
     "Memorize both lists exactly — 7 weather elements vs. 7 climatic controls is a classic FPSC-style distinction question"
   ],
-  relatedTopics: ["a-scales-of-motion", "meteo-forecasting-methods"],
+  relatedTopics: ["meteo-scales-of-motion", "meteo-forecasting-methods"],
   content: true,
-  buildsOn: ["a-vertical-structure"],
-  leadsTo: ["a-scales-of-motion", "g-koppen-system"],
-  usedIn: ["g-koppen-system", "h-climate-feedbacks", "i-temp-rainfall-distribution", "env-fundamentals-and-sustainability"]
+  buildsOn: ["meteo-vertical-structure"],
+  leadsTo: ["meteo-scales-of-motion", "meteo-koppen-system"],
+  usedIn: ["meteo-koppen-system", "meteo-climate-feedbacks", "meteo-temp-rainfall-distribution", "env-fundamentals-and-sustainability"]
 },
 
 {
-  id: "a-scales-of-motion",
+  id: "meteo-scales-of-motion",
   sectionId: "MC-A",
   order: 6,
   title: "Scales of Atmospheric Motion",
@@ -170,17 +170,17 @@ export const topics: Topic[] = [
     "Tornadoes are mesoscale, NOT synoptic scale — a common trap since tornadoes feel 'severe'/large-scale",
     "Hurricanes and mid-latitude cyclones are synoptic scale"
   ],
-  relatedTopics: ["a-weather-vs-climate", "a-composition-today"],
+  relatedTopics: ["meteo-weather-vs-climate", "meteo-composition-today"],
   content: true,
-  buildsOn: ["a-weather-vs-climate", "phy-kinematics"],
-  leadsTo: ["c-forces-governing-wind", "c-global-circulation"],
-  usedIn: ["c-global-circulation", "c-rossby-waves", "e-cyclones-development"]
+  buildsOn: ["meteo-weather-vs-climate", "phy-kinematics"],
+  leadsTo: ["meteo-forces-governing-wind", "meteo-global-circulation"],
+  usedIn: ["meteo-global-circulation", "meteo-rossby-waves", "meteo-cyclones-development"]
 },
 
 // ============================= SECTION B =============================
 
 {
-  id: "b-heat-transfer",
+  id: "meteo-heat-transfer",
   sectionId: "MC-B",
   order: 1,
   title: "Heat Transfer Mechanisms",
@@ -198,15 +198,15 @@ export const topics: Topic[] = [
     "Radiation is unique: it needs no medium and can cross a vacuum",
     "Warm-air advection = horizontal transport of warm air toward colder latitudes"
   ],
-  relatedTopics: ["b-radiation-laws", "a-scales-of-motion"],
+  relatedTopics: ["meteo-radiation-laws", "meteo-scales-of-motion"],
   content: true,
   buildsOn: ["phy-heat-transfer-equilibrium", "phy-heat-transfer-mechanisms"],
-  leadsTo: ["b-radiation-laws", "b-lapse-rates"],
-  usedIn: ["b-radiation-laws", "b-greenhouse-effect", "d-adiabatic-cloud-formation"]
+  leadsTo: ["meteo-radiation-laws", "meteo-lapse-rates"],
+  usedIn: ["meteo-radiation-laws", "meteo-greenhouse-effect", "meteo-adiabatic-cloud-formation"]
 },
 
 {
-  id: "b-radiation-laws",
+  id: "meteo-radiation-laws",
   sectionId: "MC-B",
   order: 2,
   title: "Radiation Laws",
@@ -235,15 +235,15 @@ export const topics: Topic[] = [
     "T is to the FOURTH power in Stefan-Boltzmann — a small temperature change has a large energy effect",
     "Kirchhoff's Law explains why greenhouse gases (good IR absorbers) are also good IR emitters"
   ],
-  relatedTopics: ["b-greenhouse-effect", "b-heat-transfer", "h-radiative-forcing"],
+  relatedTopics: ["meteo-greenhouse-effect", "meteo-heat-transfer", "meteo-radiative-forcing"],
   content: true,
-  buildsOn: ["b-heat-transfer", "phy-lenses-mirrors-em-spectrum", "math-3-1"],
-  leadsTo: ["b-greenhouse-effect"],
-  usedIn: ["b-greenhouse-effect", "h-radiative-forcing", "f-remote-sensing"]
+  buildsOn: ["meteo-heat-transfer", "phy-lenses-mirrors-em-spectrum", "math-3-1"],
+  leadsTo: ["meteo-greenhouse-effect"],
+  usedIn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-remote-sensing"]
 },
 
 {
-  id: "b-greenhouse-effect",
+  id: "meteo-greenhouse-effect",
   sectionId: "MC-B",
   order: 3,
   title: "Greenhouse Effect & Atmospheric Window",
@@ -263,15 +263,15 @@ export const topics: Topic[] = [
     "The 15°C vs. −18°C figures are a classic exact-number exam question",
     "Clouds close the atmospheric window — the mechanism behind warmer cloudy nights"
   ],
-  relatedTopics: ["b-radiation-laws", "a-composition-today", "h-radiative-forcing"],
+  relatedTopics: ["meteo-radiation-laws", "meteo-composition-today", "meteo-radiative-forcing"],
   content: true,
-  buildsOn: ["b-radiation-laws", "a-composition-today"],
-  leadsTo: ["h-radiative-forcing", "h-climate-feedbacks"],
-  usedIn: ["h-radiative-forcing", "h-climate-feedbacks", "h-ipcc-rcps", "env-climate-change-response", "env-international-climate-policy"]
+  buildsOn: ["meteo-radiation-laws", "meteo-composition-today"],
+  leadsTo: ["meteo-radiative-forcing", "meteo-climate-feedbacks"],
+  usedIn: ["meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-climate-change-response", "env-international-climate-policy"]
 },
 
 {
-  id: "b-lapse-rates",
+  id: "meteo-lapse-rates",
   sectionId: "MC-B",
   order: 4,
   title: "Lapse Rates",
@@ -289,15 +289,15 @@ export const topics: Topic[] = [
     "ELR is measured/variable; DALR and SALR are theoretical/adiabatic",
     "SALR < DALR numerically, because latent heat release slows the cooling"
   ],
-  relatedTopics: ["b-inversion-mechanics", "d-adiabatic-cloud-formation", "b-static-stability", "b-hydrostatic-equation"],
+  relatedTopics: ["meteo-inversion-mechanics", "meteo-adiabatic-cloud-formation", "meteo-static-stability", "meteo-hydrostatic-equation"],
   content: true,
-  buildsOn: ["a-vertical-structure", "b-heat-transfer", "phy-thermodynamics-laws"],
-  leadsTo: ["b-inversion-mechanics", "b-static-stability", "d-adiabatic-cloud-formation"],
-  usedIn: ["b-static-stability", "d-adiabatic-cloud-formation", "meteo-lapse-calc", "d-thermodynamic-diagrams"]
+  buildsOn: ["meteo-vertical-structure", "meteo-heat-transfer", "phy-thermodynamics-laws"],
+  leadsTo: ["meteo-inversion-mechanics", "meteo-static-stability", "meteo-adiabatic-cloud-formation"],
+  usedIn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
 },
 
 {
-  id: "b-inversion-mechanics",
+  id: "meteo-inversion-mechanics",
   sectionId: "MC-B",
   order: 5,
   title: "Temperature Inversions — Mechanics",
@@ -318,15 +318,15 @@ export const topics: Topic[] = [
     headers: ["Condition", "Vertical mixing"],
     rows: [["Normal atmosphere (T decreases with height)", "Greater mixing"], ["Inversion (T increases with height)", "Suppressed mixing"]]
   },
-  relatedTopics: ["b-inversion-types", "b-lapse-rates"],
+  relatedTopics: ["meteo-inversion-types", "meteo-lapse-rates"],
   content: true,
-  buildsOn: ["b-lapse-rates"],
-  leadsTo: ["b-inversion-types"],
-  usedIn: ["b-inversion-types", "d-fog-types", "env-air-pollution"]
+  buildsOn: ["meteo-lapse-rates"],
+  leadsTo: ["meteo-inversion-types"],
+  usedIn: ["meteo-inversion-types", "meteo-fog-types", "env-air-pollution"]
 },
 
 {
-  id: "b-inversion-types",
+  id: "meteo-inversion-types",
   sectionId: "MC-B",
   order: 6,
   title: "Inversion Types",
@@ -345,15 +345,15 @@ export const topics: Topic[] = [
     "Subsidence inversions are linked to persistent, stagnant high-pressure systems — important for air-quality questions",
     "A 'broken cap' explains why capping inversions can precede sudden severe thunderstorm outbreaks"
   ],
-  relatedTopics: ["b-inversion-mechanics", "e-thunderstorms"],
+  relatedTopics: ["meteo-inversion-mechanics", "meteo-thunderstorms"],
   content: true,
-  buildsOn: ["b-inversion-mechanics"],
+  buildsOn: ["meteo-inversion-mechanics"],
   leadsTo: [],
-  usedIn: ["d-fog-types", "env-air-pollution", "i-arabian-sea-cyclones-local"]
+  usedIn: ["meteo-fog-types", "env-air-pollution", "meteo-arabian-sea-cyclones-local"]
 },
 
 {
-  id: "b-coriolis-effect",
+  id: "meteo-coriolis-effect",
   sectionId: "MC-B",
   order: 7,
   title: "Coriolis Effect (Force)",
@@ -396,15 +396,15 @@ export const topics: Topic[] = [
     "Reversing the deflection direction between hemispheres",
     "Confusing Coriolis force with centrifugal force"
   ],
-  relatedTopics: ["c-forces-governing-wind", "c-geostrophic-wind", "c-gradient-wind", "f-wind-instruments"],
+  relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-wind-instruments"],
   content: true,
   buildsOn: ["phy-newtons-laws", "phy-kinematics", "earth-a1", "math-7-1"],
-  leadsTo: ["c-forces-governing-wind", "c-geostrophic-wind"],
-  usedIn: ["c-geostrophic-wind", "c-gradient-wind", "c-global-circulation", "e-tropical-cyclones"]
+  leadsTo: ["meteo-forces-governing-wind", "meteo-geostrophic-wind"],
+  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-global-circulation", "meteo-tropical-cyclones"]
 },
 
 {
-  id: "b-static-stability",
+  id: "meteo-static-stability",
   sectionId: "MC-B",
   order: 8,
   title: "Static Stability of the Atmosphere",
@@ -437,15 +437,15 @@ export const topics: Topic[] = [
     "Assuming conditional instability automatically produces storms — a lifting mechanism past the LFC is still required",
     "Treating CAPE as a forecast of storm occurrence rather than of potential intensity"
   ],
-  relatedTopics: ["b-lapse-rates", "meteo-lapse-calc", "d-adiabatic-cloud-formation", "e-thunderstorms"],
+  relatedTopics: ["meteo-lapse-rates", "meteo-lapse-calc", "meteo-adiabatic-cloud-formation", "meteo-thunderstorms"],
   content: true,
-  buildsOn: ["b-lapse-rates", "phy-archimedes-principle", "phy-thermodynamics-laws"],
-  leadsTo: ["d-adiabatic-cloud-formation", "e-thunderstorms"],
-  usedIn: ["d-adiabatic-cloud-formation", "e-thunderstorms", "meteo-lapse-calc", "d-thermodynamic-diagrams"]
+  buildsOn: ["meteo-lapse-rates", "phy-archimedes-principle", "phy-thermodynamics-laws"],
+  leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-thunderstorms"],
+  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-thunderstorms", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
 },
 
 {
-  id: "b-gas-law",
+  id: "meteo-gas-law",
   sectionId: "MC-B",
   order: 9,
   title: "Ideal Gas Law for the Atmosphere",
@@ -477,15 +477,15 @@ export const topics: Topic[] = [
     "R_d = 287 J kg⁻¹ K⁻¹ is the standard value used in virtually all meteorological calculations",
     "Density decreases as temperature rises or pressure falls — the physical basis of buoyancy"
   ],
-  relatedTopics: ["b-hydrostatic-equation", "meteo-pressure-conversion", "d-moisture-metrics"],
+  relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion", "meteo-moisture-metrics"],
   content: true,
   buildsOn: ["phy-kinetic-theory", "phy-states-of-matter", "math-2-3"],
-  leadsTo: ["b-hydrostatic-equation", "d-moisture-metrics"],
-  usedIn: ["b-hydrostatic-equation", "d-moisture-metrics", "meteo-humidity-calc"]
+  leadsTo: ["meteo-hydrostatic-equation", "meteo-moisture-metrics"],
+  usedIn: ["meteo-hydrostatic-equation", "meteo-moisture-metrics", "meteo-humidity-calc"]
 },
 
 {
-  id: "b-hydrostatic-equation",
+  id: "meteo-hydrostatic-equation",
   sectionId: "MC-B",
   order: 10,
   title: "Hydrostatic Equation",
@@ -516,17 +516,17 @@ export const topics: Topic[] = [
     "1 hPa ≈ 8 m near the surface is the rule-of-thumb conversion used in altimetry and rough calculations",
     "Hypsometric equation: warmer air → greater thickness for the same pressure difference"
   ],
-  relatedTopics: ["b-gas-law", "meteo-pressure-conversion", "c-upper-air-charts", "a-vertical-structure"],
+  relatedTopics: ["meteo-gas-law", "meteo-pressure-conversion", "meteo-upper-air-charts", "meteo-vertical-structure"],
   content: true,
-  buildsOn: ["b-gas-law", "phy-pressure-fluids", "phy-gravity-weight-friction"],
-  leadsTo: ["c-forces-governing-wind", "c-upper-air-charts"],
-  usedIn: ["c-upper-air-charts", "meteo-pressure-conversion", "f-radiosondes"]
+  buildsOn: ["meteo-gas-law", "phy-pressure-fluids", "phy-gravity-weight-friction"],
+  leadsTo: ["meteo-forces-governing-wind", "meteo-upper-air-charts"],
+  usedIn: ["meteo-upper-air-charts", "meteo-pressure-conversion", "meteo-radiosondes"]
 },
 
 // ============================= SECTION C =============================
 
 {
-  id: "c-forces-governing-wind",
+  id: "meteo-forces-governing-wind",
   sectionId: "MC-C",
   order: 1,
   title: "Forces Governing Wind Formation",
@@ -558,15 +558,15 @@ export const topics: Topic[] = [
     headers: ["Force", "Role"],
     rows: [["PGF", "Initiates wind"], ["Coriolis", "Deflects wind"], ["Friction", "Slows wind"]]
   },
-  relatedTopics: ["c-geostrophic-wind", "c-gradient-wind", "b-coriolis-effect", "c-jet-stream"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-coriolis-effect", "meteo-jet-stream"],
   content: true,
-  buildsOn: ["b-coriolis-effect", "b-hydrostatic-equation", "phy-newtons-laws", "phy-vector-operations"],
-  leadsTo: ["c-geostrophic-wind", "c-gradient-wind"],
-  usedIn: ["c-geostrophic-wind", "c-gradient-wind", "c-jet-stream", "meteo-geostrophic-qual"]
+  buildsOn: ["meteo-coriolis-effect", "meteo-hydrostatic-equation", "phy-newtons-laws", "phy-vector-operations"],
+  leadsTo: ["meteo-geostrophic-wind", "meteo-gradient-wind"],
+  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-jet-stream", "meteo-geostrophic-qual"]
 },
 
 {
-  id: "c-geostrophic-wind",
+  id: "meteo-geostrophic-wind",
   sectionId: "MC-C",
   order: 2,
   title: "Geostrophic Wind",
@@ -591,15 +591,15 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Geostrophic wind is theoretical/idealized — it requires straight isobars and no friction, so it's an approximation of real upper-level flow"],
-  relatedTopics: ["c-forces-governing-wind", "c-gradient-wind", "meteo-geostrophic-qual"],
+  relatedTopics: ["meteo-forces-governing-wind", "meteo-gradient-wind", "meteo-geostrophic-qual"],
   content: true,
-  buildsOn: ["c-forces-governing-wind"],
-  leadsTo: ["c-gradient-wind", "c-jet-stream"],
-  usedIn: ["c-jet-stream", "c-upper-air-charts", "meteo-geostrophic-qual", "meteo-isobar-analysis"]
+  buildsOn: ["meteo-forces-governing-wind"],
+  leadsTo: ["meteo-gradient-wind", "meteo-jet-stream"],
+  usedIn: ["meteo-jet-stream", "meteo-upper-air-charts", "meteo-geostrophic-qual", "meteo-isobar-analysis"]
 },
 
 {
-  id: "c-gradient-wind",
+  id: "meteo-gradient-wind",
   sectionId: "MC-C",
   order: 3,
   title: "Gradient Wind",
@@ -627,15 +627,15 @@ export const topics: Topic[] = [
     headers: ["Flow type", "Force balance", "Speed vs. Vg"],
     rows: [["Cyclonic (Low)", "PGF > CF", "Subgeostrophic"], ["Anticyclonic (High)", "CF > PGF", "Supergeostrophic"]]
   },
-  relatedTopics: ["c-geostrophic-wind", "c-jet-stream", "meteo-geostrophic-qual"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-geostrophic-qual"],
   content: true,
-  buildsOn: ["c-geostrophic-wind"],
-  leadsTo: ["c-jet-stream"],
-  usedIn: ["e-cyclones-structure", "e-tropical-cyclones"]
+  buildsOn: ["meteo-geostrophic-wind"],
+  leadsTo: ["meteo-jet-stream"],
+  usedIn: ["meteo-cyclones-structure", "meteo-tropical-cyclones"]
 },
 
 {
-  id: "c-jet-stream",
+  id: "meteo-jet-stream",
   sectionId: "MC-C",
   order: 4,
   title: "Jet Stream Dynamics",
@@ -658,15 +658,15 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Two distinct jet-formation mechanisms — temperature gradient (Polar Front Jet) vs. angular momentum conservation (Subtropical Jet) — are commonly tested separately"],
-  relatedTopics: ["c-gradient-wind", "c-global-circulation", "c-rossby-waves"],
+  relatedTopics: ["meteo-gradient-wind", "meteo-global-circulation", "meteo-rossby-waves"],
   content: true,
-  buildsOn: ["c-geostrophic-wind", "c-global-circulation"],
-  leadsTo: ["c-rossby-waves", "i-western-disturbances"],
-  usedIn: ["c-rossby-waves", "i-western-disturbances", "e-cyclones-development"]
+  buildsOn: ["meteo-geostrophic-wind", "meteo-global-circulation"],
+  leadsTo: ["meteo-rossby-waves", "meteo-western-disturbances"],
+  usedIn: ["meteo-rossby-waves", "meteo-western-disturbances", "meteo-cyclones-development"]
 },
 
 {
-  id: "c-local-seasonal-winds",
+  id: "meteo-local-seasonal-winds",
   sectionId: "MC-C",
   order: 5,
   title: "Local & Seasonal Wind Systems",
@@ -685,15 +685,15 @@ export const topics: Topic[] = [
     headers: ["Wind", "Time", "Direction"],
     rows: [["Sea breeze", "Day", "Sea → Land"], ["Land breeze", "Night", "Land → Sea"], ["Valley breeze (anabatic)", "Day", "Upslope"], ["Mountain breeze (katabatic)", "Night", "Downslope"]]
   },
-  relatedTopics: ["c-monsoon-system", "b-coriolis-effect"],
+  relatedTopics: ["meteo-monsoon-system", "meteo-coriolis-effect"],
   content: true,
-  buildsOn: ["c-forces-governing-wind", "b-heat-transfer"],
-  leadsTo: ["c-monsoon-system"],
-  usedIn: ["c-monsoon-system", "i-arabian-sea-cyclones-local"]
+  buildsOn: ["meteo-forces-governing-wind", "meteo-heat-transfer"],
+  leadsTo: ["meteo-monsoon-system"],
+  usedIn: ["meteo-monsoon-system", "meteo-arabian-sea-cyclones-local"]
 },
 
 {
-  id: "c-monsoon-system",
+  id: "meteo-monsoon-system",
   sectionId: "MC-C",
   order: 6,
   title: "The Monsoon Wind System",
@@ -708,15 +708,15 @@ export const topics: Topic[] = [
     { heading: "Why the summer monsoon self-reinforces", body: "As moist air converges and rises, condensation releases latent heat, which strengthens the low-pressure system further, drawing in even more moisture — a positive feedback loop that intensifies the wet summer monsoon." }
   ],
   examPoints: ["Winter monsoon = dry, driven by the Siberian High; Summer monsoon = wet, driven by the Monsoon Low — do not swap these"],
-  relatedTopics: ["c-local-seasonal-winds", "i-indian-ocean-monsoon", "meteo-enso-basics"],
+  relatedTopics: ["meteo-local-seasonal-winds", "meteo-indian-ocean-monsoon", "meteo-enso-basics"],
   content: true,
-  buildsOn: ["c-local-seasonal-winds", "c-global-circulation"],
-  leadsTo: ["i-indian-ocean-monsoon"],
-  usedIn: ["i-indian-ocean-monsoon", "i-temp-rainfall-distribution", "env-water-pollution-and-quality"]
+  buildsOn: ["meteo-local-seasonal-winds", "meteo-global-circulation"],
+  leadsTo: ["meteo-indian-ocean-monsoon"],
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "env-water-pollution-and-quality"]
 },
 
 {
-  id: "c-global-circulation",
+  id: "meteo-global-circulation",
   sectionId: "MC-C",
   order: 7,
   title: "Global Atmospheric Circulation (Three-Cell Model)",
@@ -736,15 +736,15 @@ export const topics: Topic[] = [
     headers: ["Cell", "Latitude band", "Surface wind produced"],
     rows: [["Hadley", "0°–30°", "Trade winds"], ["Ferrel", "30°–60°", "Westerlies"], ["Polar", "60°–pole", "Polar easterlies"]]
   },
-  relatedTopics: ["c-jet-stream", "d-global-precip-patterns", "c-rossby-waves"],
+  relatedTopics: ["meteo-jet-stream", "meteo-global-precip-patterns", "meteo-rossby-waves"],
   content: true,
-  buildsOn: ["c-forces-governing-wind", "b-coriolis-effect", "a-scales-of-motion"],
-  leadsTo: ["c-rossby-waves", "c-monsoon-system", "d-global-precip-patterns"],
-  usedIn: ["c-rossby-waves", "d-global-precip-patterns", "meteo-enso-basics", "g-global-climate-regions"]
+  buildsOn: ["meteo-forces-governing-wind", "meteo-coriolis-effect", "meteo-scales-of-motion"],
+  leadsTo: ["meteo-rossby-waves", "meteo-monsoon-system", "meteo-global-precip-patterns"],
+  usedIn: ["meteo-rossby-waves", "meteo-global-precip-patterns", "meteo-enso-basics", "meteo-global-climate-regions"]
 },
 
 {
-  id: "c-rossby-waves",
+  id: "meteo-rossby-waves",
   sectionId: "MC-C",
   order: 8,
   title: "Rossby Waves (Planetary Waves)",
@@ -771,15 +771,15 @@ export const topics: Topic[] = [
     "Number of waves around the hemisphere is typically 3–6; higher wave numbers = shorter, faster-moving waves",
     "Blocking occurs when a high-amplitude ridge becomes quasi-stationary"
   ],
-  relatedTopics: ["c-jet-stream", "c-global-circulation", "e-cyclones-development", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development", "meteo-isobar-analysis"],
   content: true,
-  buildsOn: ["c-global-circulation", "c-jet-stream"],
-  leadsTo: ["e-cyclones-development"],
-  usedIn: ["e-cyclones-development", "i-western-disturbances", "meteo-nao-ao"]
+  buildsOn: ["meteo-global-circulation", "meteo-jet-stream"],
+  leadsTo: ["meteo-cyclones-development"],
+  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances", "meteo-nao-ao"]
 },
 
 {
-  id: "c-upper-air-charts",
+  id: "meteo-upper-air-charts",
   sectionId: "MC-C",
   order: 9,
   title: "Upper-Air Charts & Constant-Pressure Analysis",
@@ -802,17 +802,17 @@ export const topics: Topic[] = [
     "Cold air is associated with lower heights (troughs); warm air with higher heights (ridges)",
     "Jet stream is best analysed on 300 or 250 hPa charts"
   ],
-  relatedTopics: ["c-rossby-waves", "c-jet-stream", "meteo-pressure-conversion", "e-cyclones-structure", "f-radiosondes", "b-hydrostatic-equation"],
+  relatedTopics: ["meteo-rossby-waves", "meteo-jet-stream", "meteo-pressure-conversion", "meteo-cyclones-structure", "meteo-radiosondes", "meteo-hydrostatic-equation"],
   content: true,
-  buildsOn: ["b-hydrostatic-equation", "c-geostrophic-wind"],
+  buildsOn: ["meteo-hydrostatic-equation", "meteo-geostrophic-wind"],
   leadsTo: ["meteo-isobar-analysis", "meteo-station-model"],
-  usedIn: ["meteo-isobar-analysis", "f-radiosondes", "e-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
+  usedIn: ["meteo-isobar-analysis", "meteo-radiosondes", "meteo-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
 },
 
 // ============================= SECTION D =============================
 
 {
-  id: "d-moisture-metrics",
+  id: "meteo-moisture-metrics",
   sectionId: "MC-D",
   order: 1,
   title: "Atmospheric Moisture Metrics",
@@ -836,15 +836,15 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Warming air (with constant moisture) decreases RH; cooling increases RH — even though actual water vapour content doesn't change"],
-  relatedTopics: ["d-adiabatic-cloud-formation", "d-fog-types"],
+  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types"],
   content: true,
-  buildsOn: ["b-gas-law", "phy-thermodynamics-laws", "math-1-7"],
-  leadsTo: ["d-adiabatic-cloud-formation", "meteo-humidity-calc"],
-  usedIn: ["d-adiabatic-cloud-formation", "d-fog-types", "meteo-humidity-calc", "f-humidity-instruments"]
+  buildsOn: ["meteo-gas-law", "phy-thermodynamics-laws", "math-1-7"],
+  leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-humidity-calc"],
+  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-fog-types", "meteo-humidity-calc", "meteo-humidity-instruments"]
 },
 
 {
-  id: "d-adiabatic-cloud-formation",
+  id: "meteo-adiabatic-cloud-formation",
   sectionId: "MC-D",
   order: 2,
   title: "Adiabatic Processes & Cloud Formation",
@@ -859,15 +859,15 @@ export const topics: Topic[] = [
     { heading: "From lifting to cloud base", body: "As an unsaturated parcel rises, decreasing pressure causes it to expand and cool at the DALR. Once its temperature falls to the dew point, saturation occurs — this altitude is the LCL, which is physically the flat base seen on cumulus clouds." }
   ],
   examPoints: ["The LCL is the physical explanation for why cumulus clouds often show a flat base at a consistent altitude"],
-  relatedTopics: ["d-moisture-metrics", "b-lapse-rates", "d-thermodynamic-diagrams"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-rates", "meteo-thermodynamic-diagrams"],
   content: true,
-  buildsOn: ["b-lapse-rates", "b-static-stability", "d-moisture-metrics", "phy-thermodynamics-laws"],
-  leadsTo: ["d-cloud-classification", "d-fog-types", "d-droplet-microphysics"],
-  usedIn: ["d-cloud-classification", "d-precipitation-processes", "meteo-lapse-calc", "d-thermodynamic-diagrams"]
+  buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "phy-thermodynamics-laws"],
+  leadsTo: ["meteo-cloud-classification", "meteo-fog-types", "meteo-droplet-microphysics"],
+  usedIn: ["meteo-cloud-classification", "meteo-precipitation-processes", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
 },
 
 {
-  id: "d-fog-types",
+  id: "meteo-fog-types",
   sectionId: "MC-D",
   order: 3,
   title: "Types of Fog",
@@ -882,15 +882,15 @@ export const topics: Topic[] = [
     { heading: "Distinguishing the mechanisms", body: "Radiation and upslope fog form via cooling to the dew point (from the surface or via adiabatic ascent respectively), while advection fog forms by moving warm air over a cold surface. Evaporation fog is the odd one out — it forms by adding moisture rather than cooling." }
   ],
   examPoints: ["Steam fog and frontal fog are both subtypes of evaporation/mixing fog — a detail often missed"],
-  relatedTopics: ["d-moisture-metrics"],
+  relatedTopics: ["meteo-moisture-metrics"],
   content: true,
-  buildsOn: ["d-adiabatic-cloud-formation", "b-inversion-types"],
+  buildsOn: ["meteo-adiabatic-cloud-formation", "meteo-inversion-types"],
   leadsTo: [],
-  usedIn: ["i-arabian-sea-cyclones-local", "f-aviation-products"]
+  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"]
 },
 
 {
-  id: "d-cloud-classification",
+  id: "meteo-cloud-classification",
   sectionId: "MC-D",
   order: 4,
   title: "Cloud Classification — 10 Genera",
@@ -908,15 +908,15 @@ export const topics: Topic[] = [
     { heading: "Vertical Development", body: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain." }
   ],
   examPoints: ["Nimbostratus and Cumulonimbus are the two genera that reliably produce continuous/heavy precipitation; the anvil shape is diagnostic of Cumulonimbus specifically"],
-  relatedTopics: ["d-adiabatic-cloud-formation", "d-fog-types", "d-precipitation-processes", "e-thunderstorms"],
+  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types", "meteo-precipitation-processes", "meteo-thunderstorms"],
   content: true,
-  buildsOn: ["d-adiabatic-cloud-formation"],
-  leadsTo: ["d-droplet-microphysics", "d-precipitation-processes"],
-  usedIn: ["d-precipitation-types", "meteo-station-model", "f-remote-sensing"]
+  buildsOn: ["meteo-adiabatic-cloud-formation"],
+  leadsTo: ["meteo-droplet-microphysics", "meteo-precipitation-processes"],
+  usedIn: ["meteo-precipitation-types", "meteo-station-model", "meteo-remote-sensing"]
 },
 
 {
-  id: "d-droplet-microphysics",
+  id: "meteo-droplet-microphysics",
   sectionId: "MC-D",
   order: 5,
   title: "Microphysics of Cloud Droplet Growth",
@@ -931,15 +931,15 @@ export const topics: Topic[] = [
     { heading: "Why CCN matter", body: "Without soluble condensation nuclei, the curvature effect would prevent tiny droplets from surviving except at unrealistically high supersaturation. CCN allow stable droplet growth at realistic, sub-100% relative humidity, making precipitation possible at all." }
   ],
   examPoints: ["Curvature effect = barrier to growth; Solute effect = catalyst for growth — these two effects are opposites and often confused"],
-  relatedTopics: ["d-precipitation-processes"],
+  relatedTopics: ["meteo-precipitation-processes"],
   content: true,
-  buildsOn: ["d-cloud-classification", "phy-states-of-matter"],
-  leadsTo: ["d-precipitation-processes"],
-  usedIn: ["d-precipitation-processes", "d-precipitation-types"]
+  buildsOn: ["meteo-cloud-classification", "phy-states-of-matter"],
+  leadsTo: ["meteo-precipitation-processes"],
+  usedIn: ["meteo-precipitation-processes", "meteo-precipitation-types"]
 },
 
 {
-  id: "d-precipitation-processes",
+  id: "meteo-precipitation-processes",
   sectionId: "MC-D",
   order: 6,
   title: "Precipitation Processes",
@@ -953,15 +953,15 @@ export const topics: Topic[] = [
     { heading: "Why the Bergeron process works", body: "Because saturation vapour pressure is lower over ice than over liquid water at the same sub-freezing temperature, water vapour continuously moves from supercooled droplets to ice crystals, causing ice crystals to grow rapidly at the expense of the evaporating droplets." }
   ],
   examPoints: ["Collision-coalescence = warm clouds; Bergeron process = cold, mixed-phase clouds — matching mechanism to cloud temperature is a common exam question"],
-  relatedTopics: ["d-droplet-microphysics", "d-precipitation-types", "d-cloud-classification"],
+  relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-cloud-classification"],
   content: true,
-  buildsOn: ["d-droplet-microphysics"],
-  leadsTo: ["d-precipitation-types", "d-orographic-rainshadow"],
-  usedIn: ["d-precipitation-types", "d-global-precip-patterns"]
+  buildsOn: ["meteo-droplet-microphysics"],
+  leadsTo: ["meteo-precipitation-types", "meteo-orographic-rainshadow"],
+  usedIn: ["meteo-precipitation-types", "meteo-global-precip-patterns"]
 },
 
 {
-  id: "d-precipitation-types",
+  id: "meteo-precipitation-types",
   sectionId: "MC-D",
   order: 7,
   title: "Types of Precipitation",
@@ -977,15 +977,15 @@ export const topics: Topic[] = [
     { heading: "Sleet vs. freezing rain", body: "Both involve supercooled or refreezing water, but sleet freezes into solid ice pellets before reaching the ground (implying a deep cold layer near the surface), while freezing rain remains liquid until the instant of surface contact (implying a thin or absent cold layer near the surface)." }
   ],
   examPoints: ["Hail requires strong updrafts and multiple freeze cycles inside cumulonimbus clouds specifically — not any convective cloud"],
-  relatedTopics: ["d-precipitation-processes", "d-cloud-classification"],
+  relatedTopics: ["meteo-precipitation-processes", "meteo-cloud-classification"],
   content: true,
-  buildsOn: ["d-precipitation-processes"],
-  leadsTo: ["d-orographic-rainshadow"],
-  usedIn: ["d-orographic-rainshadow", "i-temp-rainfall-distribution", "f-ground-aviation-instruments"]
+  buildsOn: ["meteo-precipitation-processes"],
+  leadsTo: ["meteo-orographic-rainshadow"],
+  usedIn: ["meteo-orographic-rainshadow", "meteo-temp-rainfall-distribution", "meteo-ground-aviation-instruments"]
 },
 
 {
-  id: "d-orographic-rainshadow",
+  id: "meteo-orographic-rainshadow",
   sectionId: "MC-D",
   order: 8,
   title: "Orographic Precipitation & Rain Shadow",
@@ -999,15 +999,15 @@ export const topics: Topic[] = [
     { heading: "Why the leeward side is drier than the windward side started", body: "The windward air loses moisture as precipitation before crossing the peak. On the way down, it warms via compression, which lowers RH further — combining moisture loss with warming to produce a markedly dry, hot leeward zone." }
   ],
   examPoints: ["The asymmetry (SALR on the way up past the LCL, DALR the entire way down) is why leeward air ends up both drier and often warmer than equivalent windward air at the same elevation"],
-  relatedTopics: ["d-global-precip-patterns", "b-lapse-rates", "c-global-circulation"],
+  relatedTopics: ["meteo-global-precip-patterns", "meteo-lapse-rates", "meteo-global-circulation"],
   content: true,
-  buildsOn: ["d-precipitation-processes", "d-adiabatic-cloud-formation"],
-  leadsTo: ["d-global-precip-patterns"],
-  usedIn: ["i-temp-rainfall-distribution", "g-pakistan-macroclimate"]
+  buildsOn: ["meteo-precipitation-processes", "meteo-adiabatic-cloud-formation"],
+  leadsTo: ["meteo-global-precip-patterns"],
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-macroclimate"]
 },
 
 {
-  id: "d-global-precip-patterns",
+  id: "meteo-global-precip-patterns",
   sectionId: "MC-D",
   order: 9,
   title: "Global Precipitation Patterns",
@@ -1022,15 +1022,15 @@ export const topics: Topic[] = [
     { heading: "Rising air = wet, sinking air = dry", body: "Wherever the three-cell model produces rising air (equator, polar front), moisture-laden air cools and precipitates. Wherever it produces sinking air (30°, poles), compressional warming suppresses cloud formation, producing deserts regardless of latitude." }
   ],
   examPoints: ["Both the subtropics (hot) and the poles (cold) are dry belts, for the same underlying reason: sinking air — a useful pattern-based exam insight"],
-  relatedTopics: ["c-global-circulation", "d-orographic-rainshadow", "c-monsoon-system"],
+  relatedTopics: ["meteo-global-circulation", "meteo-orographic-rainshadow", "meteo-monsoon-system"],
   content: true,
-  buildsOn: ["d-orographic-rainshadow", "c-global-circulation"],
-  leadsTo: ["g-global-climate-regions"],
-  usedIn: ["g-koppen-system", "g-global-climate-regions"]
+  buildsOn: ["meteo-orographic-rainshadow", "meteo-global-circulation"],
+  leadsTo: ["meteo-global-climate-regions"],
+  usedIn: ["meteo-koppen-system", "meteo-global-climate-regions"]
 },
 
 {
-  id: "d-thermodynamic-diagrams",
+  id: "meteo-thermodynamic-diagrams",
   sectionId: "MC-D",
   order: 10,
   title: "Thermodynamic Diagrams (Skew-T / Log-P, Tephigram)",
@@ -1053,17 +1053,17 @@ export const topics: Topic[] = [
     "Large CAPE + small CIN = high thunderstorm potential once a trigger exists",
     "An inversion appears as a layer where temperature increases with height (or decreases very slowly)"
   ],
-  relatedTopics: ["f-radiosondes", "meteo-lapse-calc", "meteo-humidity-calc", "b-static-stability", "d-adiabatic-cloud-formation"],
+  relatedTopics: ["meteo-radiosondes", "meteo-lapse-calc", "meteo-humidity-calc", "meteo-static-stability", "meteo-adiabatic-cloud-formation"],
   content: true,
-  buildsOn: ["b-lapse-rates", "b-static-stability", "d-moisture-metrics", "d-adiabatic-cloud-formation"],
+  buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-lapse-calc"],
-  usedIn: ["meteo-lapse-calc", "f-radiosondes", "e-thunderstorms", "ra-data-visualization", "ra-data-interpretation"]
+  usedIn: ["meteo-lapse-calc", "meteo-radiosondes", "meteo-thunderstorms", "ra-data-visualization", "ra-data-interpretation"]
 },
 
 // ============================= SECTION E =============================
 
 {
-  id: "e-air-masses-fronts",
+  id: "meteo-air-masses-fronts",
   sectionId: "MC-E",
   order: 1,
   title: "Air Masses & Frontal Boundaries",
@@ -1084,15 +1084,15 @@ export const topics: Topic[] = [
     headers: ["Front", "Weather character"],
     rows: [["Cold front", "Sharp, brief, intense"], ["Warm front", "Gradual, widespread, milder"], ["Occluded front", "Warm sector cut off aloft"]]
   },
-  relatedTopics: ["e-cyclones-development", "meteo-airmass-front-id"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-airmass-front-id"],
   content: true,
-  buildsOn: ["d-moisture-metrics", "b-static-stability", "c-forces-governing-wind"],
-  leadsTo: ["e-cyclones-development", "meteo-airmass-front-id"],
-  usedIn: ["e-cyclones-development", "e-cyclones-structure", "meteo-airmass-front-id"]
+  buildsOn: ["meteo-moisture-metrics", "meteo-static-stability", "meteo-forces-governing-wind"],
+  leadsTo: ["meteo-cyclones-development", "meteo-airmass-front-id"],
+  usedIn: ["meteo-cyclones-development", "meteo-cyclones-structure", "meteo-airmass-front-id"]
 },
 
 {
-  id: "e-cyclones-development",
+  id: "meteo-cyclones-development",
   sectionId: "MC-E",
   order: 2,
   title: "Mid-Latitude Cyclones — Baroclinic Instability & Stages",
@@ -1107,15 +1107,15 @@ export const topics: Topic[] = [
     { heading: "How the cyclone intensifies", body: "Sinking cold air deepens the upper-level trough while rising warm air builds the upper-level ridge, amplifying the upper-air wave. This increases upper-level divergence, which lowers surface pressure and intensifies the cyclone until the cold front overtakes the warm front and the system occludes." }
   ],
   examPoints: ["Know the five stages in exact order — a very commonly tested sequence"],
-  relatedTopics: ["e-cyclones-structure", "e-air-masses-fronts", "c-rossby-waves"],
+  relatedTopics: ["meteo-cyclones-structure", "meteo-air-masses-fronts", "meteo-rossby-waves"],
   content: true,
-  buildsOn: ["e-air-masses-fronts", "c-rossby-waves", "c-jet-stream"],
-  leadsTo: ["e-cyclones-structure"],
-  usedIn: ["e-cyclones-structure", "i-western-disturbances"]
+  buildsOn: ["meteo-air-masses-fronts", "meteo-rossby-waves", "meteo-jet-stream"],
+  leadsTo: ["meteo-cyclones-structure"],
+  usedIn: ["meteo-cyclones-structure", "meteo-western-disturbances"]
 },
 
 {
-  id: "e-cyclones-structure",
+  id: "meteo-cyclones-structure",
   sectionId: "MC-E",
   order: 3,
   title: "Mid-Latitude Cyclones — Vertical Structure & Conveyor Belt",
@@ -1130,15 +1130,15 @@ export const topics: Topic[] = [
     { heading: "Conveyor Belt Model — three airstreams", body: "Warm Conveyor Belt: warm, humid air rises along the warm front. Cold Conveyor Belt: cold air moves westward beneath the warm front, then rises and wraps around the low. Dry Conveyor Belt: dry stratospheric air sinks behind the cold front, producing the clear 'dry slot' visible behind the storm on satellite imagery." }
   ],
   examPoints: ["The 'dry slot' seen on satellite images behind a cyclone is produced by the Dry Conveyor Belt specifically"],
-  relatedTopics: ["e-cyclones-development", "c-jet-stream", "c-upper-air-charts"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-jet-stream", "meteo-upper-air-charts"],
   content: true,
-  buildsOn: ["e-cyclones-development"],
+  buildsOn: ["meteo-cyclones-development"],
   leadsTo: [],
-  usedIn: ["i-western-disturbances", "meteo-isobar-analysis", "f-aviation-products"]
+  usedIn: ["meteo-western-disturbances", "meteo-isobar-analysis", "meteo-aviation-products"]
 },
 
 {
-  id: "e-thunderstorms",
+  id: "meteo-thunderstorms",
   sectionId: "MC-E",
   order: 4,
   title: "Thunderstorms",
@@ -1152,15 +1152,15 @@ export const topics: Topic[] = [
     { heading: "Why wind shear determines storm type", body: "Increasing vertical wind shear separates updraft and downdraft, letting the storm sustain itself longer rather than choking on its own rain-cooled air. This progression — weak shear (ordinary cell, self-limiting), moderate shear (multicell, self-regenerating), strong shear (supercell, singular rotating and long-lived) — is the core organizing logic of this topic." }
   ],
   examPoints: ["The three-stage ordinary-cell lifecycle (Cumulus → Mature → Dissipating) is a frequently tested sequence"],
-  relatedTopics: ["e-tornadoes", "b-inversion-types", "b-static-stability", "meteo-station-model"],
+  relatedTopics: ["meteo-tornadoes", "meteo-inversion-types", "meteo-static-stability", "meteo-station-model"],
   content: true,
-  buildsOn: ["b-static-stability", "d-adiabatic-cloud-formation", "d-droplet-microphysics"],
-  leadsTo: ["e-tornadoes"],
-  usedIn: ["e-tornadoes", "i-extreme-events", "f-aviation-products"]
+  buildsOn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-droplet-microphysics"],
+  leadsTo: ["meteo-tornadoes"],
+  usedIn: ["meteo-tornadoes", "meteo-extreme-events", "meteo-aviation-products"]
 },
 
 {
-  id: "e-tornadoes",
+  id: "meteo-tornadoes",
   sectionId: "MC-E",
   order: 5,
   title: "Tornadoes",
@@ -1175,15 +1175,15 @@ export const topics: Topic[] = [
     { heading: "From mesocyclone to tornado", body: "As rain-cooled air from the rear-flank downdraft sinks and pulls the mesocyclone toward the surface, its diameter shrinks. Conservation of angular momentum then forces the rotation to accelerate as the radius decreases, concentrating a broad rotating column into a narrow, violent tornado." }
   ],
   examPoints: ["Know the EF scale wind-speed bands and their damage descriptions — a common direct-recall question"],
-  relatedTopics: ["e-thunderstorms", "c-jet-stream", "f-remote-sensing"],
+  relatedTopics: ["meteo-thunderstorms", "meteo-jet-stream", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["e-thunderstorms"],
+  buildsOn: ["meteo-thunderstorms"],
   leadsTo: [],
-  usedIn: ["i-extreme-events"]
+  usedIn: ["meteo-extreme-events"]
 },
 
 {
-  id: "e-tropical-cyclones",
+  id: "meteo-tropical-cyclones",
   sectionId: "MC-E",
   order: 6,
   title: "Tropical Cyclones (Hurricanes/Typhoons)",
@@ -1202,16 +1202,16 @@ export const topics: Topic[] = [
     headers: ["Feature", "Tropical Cyclone", "Mid-Latitude Cyclone"],
     rows: [["Core", "Warm", "Cold/frontal"], ["Energy source", "Latent heat/ocean", "Baroclinic temperature contrast"], ["Strongest winds", "Near surface", "Aloft (jet stream)"]]
   },
-  relatedTopics: ["e-cyclones-development", "i-arabian-sea-cyclones-local", "meteo-nwp-models", "f-remote-sensing"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-nwp-models", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["b-coriolis-effect", "c-gradient-wind", "d-moisture-metrics", "b-heat-transfer"],
-  leadsTo: ["i-arabian-sea-cyclones-local"],
-  usedIn: ["i-arabian-sea-cyclones-local", "i-extreme-events", "env-climate-change-response"]
+  buildsOn: ["meteo-coriolis-effect", "meteo-gradient-wind", "meteo-moisture-metrics", "meteo-heat-transfer"],
+  leadsTo: ["meteo-arabian-sea-cyclones-local"],
+  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-extreme-events", "env-climate-change-response"]
 },
 // ============================= SECTION F: Meteorological Instruments & Remote Sensing =============================
 
 {
-  id: "f-pressure-instruments",
+  id: "meteo-pressure-instruments",
   sectionId: "MC-F",
   order: 1,
   title: "Atmospheric Pressure — Barometers",
@@ -1241,15 +1241,15 @@ export const topics: Topic[] = [
     "Assuming the 'aneroid cell' contains air — by definition, an aneroid cell is evacuated (aneroid = 'without fluid'); any trapped air would defeat the mechanism",
     "Forgetting that barographs record pressure tendency — a falling barograph trace is a strong indicator of approaching bad weather, often more informative than the absolute pressure value itself"
   ],
-  relatedTopics: ["f-radiosondes", "f-ground-aviation-instruments", "meteo-pressure-conversion", "meteo-station-model", "a-vertical-structure", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-radiosondes", "meteo-ground-aviation-instruments", "meteo-pressure-conversion", "meteo-station-model", "meteo-vertical-structure", "meteo-isobar-analysis"],
   content: true,
-  buildsOn: ["b-hydrostatic-equation", "phy-atmospheric-pressure-physics", "math-2-2"],
-  leadsTo: ["f-radiosondes", "meteo-pressure-conversion"],
-  usedIn: ["meteo-station-model", "meteo-isobar-analysis", "f-aviation-products"]
+  buildsOn: ["meteo-hydrostatic-equation", "phy-atmospheric-pressure-physics", "math-2-2"],
+  leadsTo: ["meteo-radiosondes", "meteo-pressure-conversion"],
+  usedIn: ["meteo-station-model", "meteo-isobar-analysis", "meteo-aviation-products"]
 },
 
 {
-  id: "f-wind-instruments",
+  id: "meteo-wind-instruments",
   sectionId: "MC-F",
   order: 2,
   title: "Wind Speed & Direction — Anemometers & Wind Vanes",
@@ -1280,15 +1280,15 @@ export const topics: Topic[] = [
     "Confusing the cup anemometer rotation mechanism: the cups do NOT face the wind; they are mounted on a horizontal shaft perpendicular to the wind, with the asymmetry of the cups (concave vs. convex drag) causing rotation",
     "Placing wind instruments on rooftops or near buildings: this distorts the measurement; the 10 m standard height and open-exposure rule are essential for representative readings"
   ],
-  relatedTopics: ["f-pressure-instruments", "f-remote-sensing", "meteo-station-model", "meteo-isobar-analysis", "meteo-geostrophic-qual", "b-coriolis-effect"],
+  relatedTopics: ["meteo-pressure-instruments", "meteo-remote-sensing", "meteo-station-model", "meteo-isobar-analysis", "meteo-geostrophic-qual", "meteo-coriolis-effect"],
   content: true,
-  buildsOn: ["c-forces-governing-wind", "phy-vector-applications"],
+  buildsOn: ["meteo-forces-governing-wind", "phy-vector-applications"],
   leadsTo: ["meteo-station-model"],
-  usedIn: ["meteo-station-model", "f-aviation-products"]
+  usedIn: ["meteo-station-model", "meteo-aviation-products"]
 },
 
 {
-  id: "f-humidity-instruments",
+  id: "meteo-humidity-instruments",
   sectionId: "MC-F",
   order: 3,
   title: "Humidity — Hygrometers & Psychrometers",
@@ -1323,15 +1323,15 @@ export const topics: Topic[] = [
     "Thinking the wet-bulb reading depends on the air temperature alone — it depends on humidity too: in dry air, the depression is large and Tw is much lower than T; in humid air, Tw is close to T",
     "Believing hair hygrometers are highly accurate — they are useful but have known limitations: aging, contamination, slow response at low temperatures, and reduced accuracy at humidity extremes"
   ],
-  relatedTopics: ["d-moisture-metrics", "meteo-humidity-calc", "f-temperature-instruments", "f-radiosondes"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-humidity-calc", "meteo-temperature-instruments", "meteo-radiosondes"],
   content: true,
-  buildsOn: ["d-moisture-metrics"],
+  buildsOn: ["meteo-moisture-metrics"],
   leadsTo: ["meteo-humidity-calc"],
-  usedIn: ["meteo-humidity-calc", "f-stevenson-screen"]
+  usedIn: ["meteo-humidity-calc", "meteo-stevenson-screen"]
 },
 
 {
-  id: "f-temperature-instruments",
+  id: "meteo-temperature-instruments",
   sectionId: "MC-F",
   order: 4,
   title: "Temperature — Thermometers, Thermographs & Thermistors",
@@ -1361,15 +1361,15 @@ export const topics: Topic[] = [
     "Thinking alcohol thermometers measure high temperatures accurately — alcohol is less accurate and has higher thermal expansion than mercury at high temperatures, so it is reserved for the low-temperature minimum application",
     "Forgetting the Stevenson screen requirement — a thermometer exposed to direct sun or ground-radiated heat gives readings that are not representative of the true ambient air temperature"
   ],
-  relatedTopics: ["f-humidity-instruments", "f-stevenson-screen", "f-radiosondes", "f-ground-aviation-instruments"],
+  relatedTopics: ["meteo-humidity-instruments", "meteo-stevenson-screen", "meteo-radiosondes", "meteo-ground-aviation-instruments"],
   content: true,
   buildsOn: ["phy-temperature-heat", "math-2-2"],
-  leadsTo: ["f-stevenson-screen"],
-  usedIn: ["f-stevenson-screen", "meteo-station-model"]
+  leadsTo: ["meteo-stevenson-screen"],
+  usedIn: ["meteo-stevenson-screen", "meteo-station-model"]
 },
 
 {
-  id: "f-radiosondes",
+  id: "meteo-radiosondes",
   sectionId: "MC-F",
   order: 5,
   title: "Upper-Air Soundings — Radiosondes & Rawinsondes",
@@ -1400,15 +1400,15 @@ export const topics: Topic[] = [
     "Forgetting the 00Z and 12Z launch times — these are the synoptic hours; NWP initialization depends on data from these specific times",
     "Thinking radiosondes measure wind directly — they do not; wind is inferred from the balloon's position change over time, which requires ground tracking (radar, radio direction finding, or GPS)"
   ],
-  relatedTopics: ["f-pressure-instruments", "f-humidity-instruments", "a-vertical-structure", "meteo-nwp-models", "d-thermodynamic-diagrams", "i-pmd-operational", "meteo-lapse-calc"],
+  relatedTopics: ["meteo-pressure-instruments", "meteo-humidity-instruments", "meteo-vertical-structure", "meteo-nwp-models", "meteo-thermodynamic-diagrams", "meteo-pmd-operational", "meteo-lapse-calc"],
   content: true,
-  buildsOn: ["f-pressure-instruments", "f-temperature-instruments", "f-humidity-instruments", "a-vertical-structure"],
-  leadsTo: ["d-thermodynamic-diagrams", "c-upper-air-charts"],
-  usedIn: ["d-thermodynamic-diagrams", "meteo-lapse-calc", "meteo-nwp-models"]
+  buildsOn: ["meteo-pressure-instruments", "meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-vertical-structure"],
+  leadsTo: ["meteo-thermodynamic-diagrams", "meteo-upper-air-charts"],
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc", "meteo-nwp-models"]
 },
 
 {
-  id: "f-stevenson-screen",
+  id: "meteo-stevenson-screen",
   sectionId: "MC-F",
   order: 6,
   title: "Siting Standards — The Stevenson Screen (Instrument Shelter)",
@@ -1438,15 +1438,15 @@ export const topics: Topic[] = [
     "Placing the screen on concrete, near buildings, or under trees — all of these introduce temperature biases that destroy the comparability of the record with other stations",
     "Forgetting that the screen houses the wet-bulb too — the wet wick must be inside the screen to be properly shielded; a wet-bulb in direct sun would have additional radiative heating that distorts the depression"
   ],
-  relatedTopics: ["f-temperature-instruments", "f-humidity-instruments", "i-pmd-operational", "meteo-station-model"],
+  relatedTopics: ["meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-pmd-operational", "meteo-station-model"],
   content: true,
-  buildsOn: ["f-temperature-instruments", "f-humidity-instruments"],
+  buildsOn: ["meteo-temperature-instruments", "meteo-humidity-instruments"],
   leadsTo: [],
-  usedIn: ["i-pmd-operational", "ra-research-quality"]
+  usedIn: ["meteo-pmd-operational", "ra-research-quality"]
 },
 
 {
-  id: "f-remote-sensing",
+  id: "meteo-remote-sensing",
   sectionId: "MC-F",
   order: 7,
   title: "Remote Sensing — Weather Radar & Satellite Imaging",
@@ -1491,15 +1491,15 @@ export const topics: Topic[] = [
     "Thinking the radar 'sees' wind directly — radar measures only the radial component of motion; rotation must be inferred from a velocity couplet across azimuths",
     "Forgetting that geosynchronous satellites are fixed over the equator — their coverage of high-latitude regions is poor because the Earth curves away from them"
   ],
-  relatedTopics: ["f-radiosondes", "f-ground-aviation-instruments", "meteo-station-model", "meteo-isobar-analysis", "i-pmd-operational", "e-tropical-cyclones"],
+  relatedTopics: ["meteo-radiosondes", "meteo-ground-aviation-instruments", "meteo-station-model", "meteo-isobar-analysis", "meteo-pmd-operational", "meteo-tropical-cyclones"],
   content: true,
-  buildsOn: ["phy-electromagnetic-induction", "phy-lenses-mirrors-em-spectrum", "b-radiation-laws"],
+  buildsOn: ["phy-electromagnetic-induction", "phy-lenses-mirrors-em-spectrum", "meteo-radiation-laws"],
   leadsTo: ["meteo-nwp-models"],
-  usedIn: ["meteo-nwp-models", "e-tropical-cyclones", "i-pmd-operational"]
+  usedIn: ["meteo-nwp-models", "meteo-tropical-cyclones", "meteo-pmd-operational"]
 },
 
 {
-  id: "f-ground-aviation-instruments",
+  id: "meteo-ground-aviation-instruments",
   sectionId: "MC-F",
   order: 8,
   title: "Ground-Based & Aviation Observation Instruments (Precipitation, Ceiling, Wind, Microburst & Hail)",
@@ -1551,15 +1551,15 @@ export const topics: Topic[] = [
     "Forgetting that microbursts are localized and short-lived — they last only 5–15 minutes over a 1–4 km area, making them difficult to detect with point measurements alone; that's why Doppler radar's spatial coverage is essential",
     "Treating dual-pol radar as 'the same' as conventional radar — dual-pol adds polarization information that reveals particle shape (rain, hail, snow, graupel) and improves precipitation type estimation"
   ],
-  relatedTopics: ["f-remote-sensing", "f-aviation-products", "f-radiosondes", "i-pmd-operational"],
+  relatedTopics: ["meteo-remote-sensing", "meteo-aviation-products", "meteo-radiosondes", "meteo-pmd-operational"],
   content: true,
-  buildsOn: ["f-pressure-instruments", "f-wind-instruments", "d-precipitation-types"],
-  leadsTo: ["f-aviation-products"],
-  usedIn: ["f-aviation-products"]
+  buildsOn: ["meteo-pressure-instruments", "meteo-wind-instruments", "meteo-precipitation-types"],
+  leadsTo: ["meteo-aviation-products"],
+  usedIn: ["meteo-aviation-products"]
 },
 
 {
-  id: "f-aviation-products",
+  id: "meteo-aviation-products",
   sectionId: "MC-F",
   order: 9,
   title: "Aviation Weather Products (METAR, SPECI, TAF, SIGMET, AIRMET)",
@@ -1613,17 +1613,17 @@ export const topics: Topic[] = [
     "Confusing QNH and QFE — QNH (sea-level pressure) is the international standard for altimeter setting so the altimeter reads elevation above MSL; QFE (field pressure) makes the altimeter read height above the runway and is rarely used outside of military operations",
     "Decoding wind direction wrong — 27015KT means wind FROM 270° (west), not toward 270°; this is the same convention as surface wind observations"
   ],
-  relatedTopics: ["f-ground-aviation-instruments", "f-remote-sensing", "f-stevenson-screen", "f-wind-instruments", "i-pmd-operational", "meteo-station-model"],
+  relatedTopics: ["meteo-ground-aviation-instruments", "meteo-remote-sensing", "meteo-stevenson-screen", "meteo-wind-instruments", "meteo-pmd-operational", "meteo-station-model"],
   content: true,
-  buildsOn: ["f-ground-aviation-instruments", "meteo-station-model", "e-air-masses-fronts"],
+  buildsOn: ["meteo-ground-aviation-instruments", "meteo-station-model", "meteo-air-masses-fronts"],
   leadsTo: [],
-  usedIn: ["i-pmd-operational", "english-sentence-building-blocks", "english-common-errors", "ra-scientific-reporting"]
+  usedIn: ["meteo-pmd-operational", "english-sentence-building-blocks", "english-common-errors", "ra-scientific-reporting"]
 },
   
 // ============================= SECTION G: Climate Classification & Global/Regional Climate =============================
 
 {
-  id: "g-koppen-system",
+  id: "meteo-koppen-system",
   sectionId: "MC-G",
   order: 1,
   title: "The Köppen Climate Classification System",
@@ -1666,15 +1666,15 @@ export const topics: Topic[] = [
     "Misapplying the C/D boundary: the C/D threshold is the coldest month being −3°C (or below), not the warmest month. The warmest-month criterion (10°C) is for the D/E boundary",
     "Treating H as a 'sixth group' equivalent to A–E — H is separate because it is defined by elevation, not by climate statistics; a highland location can have any of A–E at different elevations within a few km of horizontal distance"
   ],
-  relatedTopics: ["g-global-climate-regions", "g-thornthwaite-system", "g-pakistan-macroclimate", "i-temp-rainfall-distribution"],
+  relatedTopics: ["meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"],
   content: true,
-  buildsOn: ["a-weather-vs-climate", "d-global-precip-patterns"],
-  leadsTo: ["g-global-climate-regions", "g-pakistan-macroclimate"],
-  usedIn: ["g-global-climate-regions", "g-pakistan-macroclimate"]
+  buildsOn: ["meteo-weather-vs-climate", "meteo-global-precip-patterns"],
+  leadsTo: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate"],
+  usedIn: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate"]
 },
 
 {
-  id: "g-global-climate-regions",
+  id: "meteo-global-climate-regions",
   sectionId: "MC-G",
   order: 2,
   title: "Global Climate Regions — Sketch Summaries",
@@ -1730,15 +1730,15 @@ export const topics: Topic[] = [
     "Assuming all deserts are hot — cold deserts (BWk) like the Gobi and Patagonia are dominated by cold winters; the BWh/BWk distinction is important",
     "Believing the world's climate zones are uniform across continents — the same latitude can have very different climates on east vs. west coasts due to ocean currents and prevailing winds (e.g., 35°N west coast = Mediterranean, 35°N east coast = humid subtropical)"
   ],
-  relatedTopics: ["g-koppen-system", "g-thornthwaite-system", "g-pakistan-macroclimate", "i-temp-rainfall-distribution", "c-global-circulation"],
+  relatedTopics: ["meteo-koppen-system", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution", "meteo-global-circulation"],
   content: true,
-  buildsOn: ["g-koppen-system", "c-global-circulation"],
-  leadsTo: ["g-thornthwaite-system"],
-  usedIn: ["g-pakistan-macroclimate"]
+  buildsOn: ["meteo-koppen-system", "meteo-global-circulation"],
+  leadsTo: ["meteo-thornthwaite-system"],
+  usedIn: ["meteo-pakistan-macroclimate"]
 },
 
 {
-  id: "g-thornthwaite-system",
+  id: "meteo-thornthwaite-system",
   sectionId: "MC-G",
   order: 3,
   title: "The Thornthwaite Moisture-Based Classification System",
@@ -1776,15 +1776,15 @@ export const topics: Topic[] = [
     "Using Thornthwaite to identify natural vegetation zones — Thornthwaite is designed for water-resource applications; Köppen (or Holdridge) is the appropriate system for vegetation/ecosystem classification",
     "Forgetting that Thornthwaite's monthly accounting requires soil moisture storage as a parameter — the soil acts as a buffer between wet and dry seasons, and the water balance depends on assumed storage capacity (typically 100 mm for a standard analysis)"
   ],
-  relatedTopics: ["g-koppen-system", "g-pakistan-macroclimate", "d-moisture-metrics", "i-temp-rainfall-distribution"],
+  relatedTopics: ["meteo-koppen-system", "meteo-pakistan-macroclimate", "meteo-moisture-metrics", "meteo-temp-rainfall-distribution"],
   content: true,
-  buildsOn: ["g-koppen-system", "d-moisture-metrics"],
+  buildsOn: ["meteo-koppen-system", "meteo-moisture-metrics"],
   leadsTo: [],
-  usedIn: ["g-pakistan-macroclimate", "env-water-pollution-and-quality"]
+  usedIn: ["meteo-pakistan-macroclimate", "env-water-pollution-and-quality"]
 },
 
 {
-  id: "g-pakistan-macroclimate",
+  id: "meteo-pakistan-macroclimate",
   sectionId: "MC-G",
   order: 4,
   title: "Macro-Climatic Classification of Pakistan",
@@ -1828,17 +1828,17 @@ export const topics: Topic[] = [
     "Underestimating the role of Group H — it is the source of the Indus River, which is the lifeline of Pakistani agriculture, hydropower, and drinking water; without Group H snow and glacier melt, the Indus basin would be far less productive",
     "Assuming all of Pakistan's mountains are in the same climate zone — vertical zonation means that within Group H, you can find B (at the foothills), C (at mid-elevation), D (higher), ET (near the snowline), and EF (at the highest peaks), all within a few km of horizontal distance"
   ],
-  relatedTopics: ["g-koppen-system", "g-global-climate-regions", "g-thornthwaite-system", "i-temp-rainfall-distribution", "i-indian-ocean-monsoon", "i-western-disturbances", "i-extreme-events"],
+  relatedTopics: ["meteo-koppen-system", "meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-temp-rainfall-distribution", "meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-extreme-events"],
   content: true,
-  buildsOn: ["g-koppen-system", "i-temp-rainfall-distribution", "c-monsoon-system"],
-  leadsTo: ["i-temp-rainfall-distribution"],
-  usedIn: ["i-extreme-events", "env-pakistan-environmental-context", "h-pakistan-nccp", "ra-descriptive-statistics"]
+  buildsOn: ["meteo-koppen-system", "meteo-temp-rainfall-distribution", "meteo-monsoon-system"],
+  leadsTo: ["meteo-temp-rainfall-distribution"],
+  usedIn: ["meteo-extreme-events", "env-pakistan-environmental-context", "meteo-pakistan-nccp", "ra-descriptive-statistics"]
 },
 
 // ============================= SECTION H =============================
 
 {
-  id: "h-past-climate-reconstruction",
+  id: "meteo-past-climate-reconstruction",
   sectionId: "MC-H",
   order: 1,
   title: "Reconstructing Past Climates",
@@ -1854,15 +1854,15 @@ export const topics: Topic[] = [
     { heading: "Why tree rings and ice cores are used together", body: "Tree rings offer high-resolution, annually-dated records of temperature/moisture but only span the tree's lifetime, while ice cores extend much further back in time, trapping direct samples of ancient atmospheric composition — together the two proxies cross-validate and extend the paleoclimate record." }
   ],
   examPoints: ["The Little Ice Age dates (1350–1850) and the ~1.0°C/120-year modern warming figure are specific, testable numbers"],
-  relatedTopics: ["h-milankovitch-cycles", "h-solar-volcanic-forcing"],
+  relatedTopics: ["meteo-milankovitch-cycles", "meteo-solar-volcanic-forcing"],
   content: true,
-  buildsOn: ["earth-c2", "earth-c3", "a-weather-vs-climate"],
-  leadsTo: ["h-milankovitch-cycles"],
-  usedIn: ["h-milankovitch-cycles", "h-climate-feedbacks"]
+  buildsOn: ["earth-c2", "earth-c3", "meteo-weather-vs-climate"],
+  leadsTo: ["meteo-milankovitch-cycles"],
+  usedIn: ["meteo-milankovitch-cycles", "meteo-climate-feedbacks"]
 },
 
 {
-  id: "h-milankovitch-cycles",
+  id: "meteo-milankovitch-cycles",
   sectionId: "MC-H",
   order: 2,
   title: "Orbital Milankovitch Cycles",
@@ -1876,15 +1876,15 @@ export const topics: Topic[] = [
     { heading: "Why lower tilt favors ice ages", body: "A minimum axial tilt reduces seasonal contrast at high latitudes, producing cooler summers. Cooler summers fail to fully melt the previous winter's snow accumulation, allowing snow/ice to build up year over year — favoring glacier growth and potential ice-age onset." }
   ],
   examPoints: ["Match each cycle to its exact period: Eccentricity ~100,000 yr, Obliquity ~41,000 yr, Precession ~23,000 yr"],
-  relatedTopics: ["h-past-climate-reconstruction", "h-climate-feedbacks"],
+  relatedTopics: ["meteo-past-climate-reconstruction", "meteo-climate-feedbacks"],
   content: true,
-  buildsOn: ["h-past-climate-reconstruction", "earth-a1"],
-  leadsTo: ["h-climate-feedbacks"],
-  usedIn: ["h-climate-feedbacks", "h-radiative-forcing"]
+  buildsOn: ["meteo-past-climate-reconstruction", "earth-a1"],
+  leadsTo: ["meteo-climate-feedbacks"],
+  usedIn: ["meteo-climate-feedbacks", "meteo-radiative-forcing"]
 },
 
 {
-  id: "h-climate-feedbacks",
+  id: "meteo-climate-feedbacks",
   sectionId: "MC-H",
   order: 3,
   title: "Climate Feedback Mechanisms",
@@ -1898,15 +1898,15 @@ export const topics: Topic[] = [
     { heading: "Positive vs. negative feedback", body: "Positive feedbacks amplify the original temperature change (as with water vapour and snow-albedo), while negative feedbacks oppose and dampen it (as with chemical weathering) — the same warming trigger can be reinforced or counteracted depending on which feedback dominates." }
   ],
   examPoints: ["Two positive feedbacks (water vapour, snow-albedo) vs. one negative (chemical weathering) — know which is which, as this is easy to mix up under exam pressure"],
-  relatedTopics: ["h-radiative-forcing", "b-greenhouse-effect"],
+  relatedTopics: ["meteo-radiative-forcing", "meteo-greenhouse-effect"],
   content: true,
-  buildsOn: ["b-greenhouse-effect", "h-milankovitch-cycles"],
-  leadsTo: ["h-radiative-forcing"],
-  usedIn: ["h-radiative-forcing", "h-ipcc-rcps", "env-climate-change-response", "ra-correlation-regression"]
+  buildsOn: ["meteo-greenhouse-effect", "meteo-milankovitch-cycles"],
+  leadsTo: ["meteo-radiative-forcing"],
+  usedIn: ["meteo-radiative-forcing", "meteo-ipcc-rcps", "env-climate-change-response", "ra-correlation-regression"]
 },
 
 {
-  id: "h-radiative-forcing",
+  id: "meteo-radiative-forcing",
   sectionId: "MC-H",
   order: 4,
   title: "Radiative Forcing",
@@ -1920,15 +1920,15 @@ export const topics: Topic[] = [
     { heading: "Forcing sign convention", body: "A positive forcing agent adds net energy to the Earth system (warming), while a negative forcing agent removes or blocks net energy (cooling) — the same framework used to compare very different sources like greenhouse gases and industrial aerosols on one scale." }
   ],
   examPoints: ["Sulfate aerosols from industrial pollution are a NEGATIVE forcing agent — a common point of confusion since pollution is often (wrongly) assumed to only warm the planet"],
-  relatedTopics: ["h-ipcc-rcps", "h-solar-volcanic-forcing"],
+  relatedTopics: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing"],
   content: true,
-  buildsOn: ["b-greenhouse-effect", "b-radiation-laws", "h-climate-feedbacks"],
-  leadsTo: ["h-ipcc-rcps", "h-solar-volcanic-forcing"],
-  usedIn: ["h-ipcc-rcps", "h-solar-volcanic-forcing", "env-climate-change-response", "ra-correlation-regression", "ra-data-interpretation"]
+  buildsOn: ["meteo-greenhouse-effect", "meteo-radiation-laws", "meteo-climate-feedbacks"],
+  leadsTo: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing"],
+  usedIn: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing", "env-climate-change-response", "ra-correlation-regression", "ra-data-interpretation"]
 },
 
 {
-  id: "h-ipcc-rcps",
+  id: "meteo-ipcc-rcps",
   sectionId: "MC-H",
   order: 5,
   title: "IPCC Representative Concentration Pathways",
@@ -1947,15 +1947,15 @@ export const topics: Topic[] = [
     headers: ["Pathway", "Forcing (W/m²)", "Mean temp rise"],
     rows: [["RCP2.6", "+2.6", "1.0°C"], ["RCP4.5", "+4.5", "1.8°C"], ["RCP6.0", "+6.0", "2.2°C"], ["RCP8.5", "+8.5", "3.7°C"]]
   },
-  relatedTopics: ["h-radiative-forcing"],
+  relatedTopics: ["meteo-radiative-forcing"],
   content: true,
-  buildsOn: ["h-radiative-forcing"],
-  leadsTo: ["h-pakistan-nccp"],
-  usedIn: ["h-pakistan-nccp", "env-climate-change-response", "env-international-climate-policy", "ra-data-interpretation", "ra-scientific-reporting"]
+  buildsOn: ["meteo-radiative-forcing"],
+  leadsTo: ["meteo-pakistan-nccp"],
+  usedIn: ["meteo-pakistan-nccp", "env-climate-change-response", "env-international-climate-policy", "ra-data-interpretation", "ra-scientific-reporting"]
 },
 
 {
-  id: "h-solar-volcanic-forcing",
+  id: "meteo-solar-volcanic-forcing",
   sectionId: "MC-H",
   order: 6,
   title: "Solar and Volcanic Radiative Forcing",
@@ -1969,15 +1969,15 @@ export const topics: Topic[] = [
     { heading: "Why volcanic cooling lasts years, not weeks", body: "Sulfate aerosols form in the stratosphere, which is extremely stable and dry with minimal vertical mixing — unlike the turbulent troposphere, the stratosphere allows these reflective aerosols to persist for years before settling out, prolonging the cooling effect." }
   ],
   examPoints: ["The exact figures — Maunder Minimum dates (1645–1715) and Pinatubo's ~0.5°C cooling over two years — are specific, testable numbers"],
-  relatedTopics: ["h-radiative-forcing", "h-past-climate-reconstruction"],
+  relatedTopics: ["meteo-radiative-forcing", "meteo-past-climate-reconstruction"],
   content: true,
-  buildsOn: ["h-radiative-forcing", "earth-g3", "b-radiation-laws"],
+  buildsOn: ["meteo-radiative-forcing", "earth-g3", "meteo-radiation-laws"],
   leadsTo: [],
-  usedIn: ["h-past-climate-reconstruction"]
+  usedIn: ["meteo-past-climate-reconstruction"]
 },
 
 {
-  id: "h-pakistan-nccp",
+  id: "meteo-pakistan-nccp",
   sectionId: "MC-H",
   order: 7,
   title: "The Pakistan National Climate Change Policy (NCCP) 2012",
@@ -1994,16 +1994,16 @@ export const topics: Topic[] = [
     { heading: "Why the policy centers on adaptation, not just mitigation", body: "Because Pakistan's emissions contribution is minimal but its vulnerability (glacier-fed water systems, heat-exposed agriculture) is high, the NCCP is structured primarily around adapting to unavoidable climate impacts, while still including mitigation measures as a secondary component." }
   ],
   examPoints: ["The '<1% global emissions, highly vulnerable' framing is the key policy-justification fact tested repeatedly across this and Section I"],
-  relatedTopics: ["h-radiative-forcing", "i-nccp-objectives"],
+  relatedTopics: ["meteo-radiative-forcing", "meteo-nccp-objectives"],
   content: true,
-  buildsOn: ["h-ipcc-rcps", "g-pakistan-macroclimate"],
-  leadsTo: ["i-nccp-objectives"],
-  usedIn: ["i-nccp-objectives", "env-climate-change-response", "env-pakistan-environmental-context", "english-word-formation-and-context", "english-sentence-building-blocks"]
+  buildsOn: ["meteo-ipcc-rcps", "meteo-pakistan-macroclimate"],
+  leadsTo: ["meteo-nccp-objectives"],
+  usedIn: ["meteo-nccp-objectives", "env-climate-change-response", "env-pakistan-environmental-context", "english-word-formation-and-context", "english-sentence-building-blocks"]
 },
 // ============================= SECTION I =============================
 
 {
-  id: "i-indian-ocean-monsoon",
+  id: "meteo-indian-ocean-monsoon",
   sectionId: "MC-I",
   order: 1,
   title: "The Indian Ocean Monsoon System",
@@ -2026,15 +2026,15 @@ export const topics: Topic[] = [
     "The Himalayas and Hindu Kush provide the orographic lift that converts moist monsoon flow into heavy rainfall",
     "The winter monsoon (NE winds) is the dry season for most of Pakistan; winter precipitation in the north comes from westerly disturbances, not the monsoon itself"
   ],
-  relatedTopics: ["c-monsoon-system", "i-temp-rainfall-distribution", "i-western-disturbances", "i-arabian-sea-cyclones-local", "meteo-enso-basics", "meteo-iod"],
+  relatedTopics: ["meteo-monsoon-system", "meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-arabian-sea-cyclones-local", "meteo-enso-basics", "meteo-iod"],
   content: true,
-  buildsOn: ["c-monsoon-system", "c-global-circulation", "meteo-iod"],
-  leadsTo: ["i-temp-rainfall-distribution"],
-  usedIn: ["i-temp-rainfall-distribution", "i-extreme-events", "env-water-pollution-and-quality"]
+  buildsOn: ["meteo-monsoon-system", "meteo-global-circulation", "meteo-iod"],
+  leadsTo: ["meteo-temp-rainfall-distribution"],
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events", "env-water-pollution-and-quality"]
 },
 
 {
-  id: "i-western-disturbances",
+  id: "meteo-western-disturbances",
   sectionId: "MC-I",
   order: 2,
   title: "Western Disturbances & Winter Rainfall",
@@ -2072,15 +2072,15 @@ export const topics: Topic[] = [
     "Assuming WDs are weakening with climate change — current evidence suggests WDs are becoming more variable but not systematically weaker; some studies show increased intensity of extreme WD events (cloudbursts, heavy snowfall)",
     "Forgetting the WDs' role for Balochistan — most Balochistan rainfall is from winter WDs, not from the summer monsoon, making WDs the primary water source for that region"
   ],
-  relatedTopics: ["i-indian-ocean-monsoon", "i-temp-rainfall-distribution", "i-extreme-events", "c-jet-stream", "meteo-nao-ao", "e-cyclones-structure"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-jet-stream", "meteo-nao-ao", "meteo-cyclones-structure"],
   content: true,
-  buildsOn: ["c-jet-stream", "c-rossby-waves", "e-cyclones-development"],
-  leadsTo: ["i-temp-rainfall-distribution"],
-  usedIn: ["i-temp-rainfall-distribution", "i-extreme-events"]
+  buildsOn: ["meteo-jet-stream", "meteo-rossby-waves", "meteo-cyclones-development"],
+  leadsTo: ["meteo-temp-rainfall-distribution"],
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events"]
 },
 
 {
-  id: "i-arabian-sea-cyclones-local",
+  id: "meteo-arabian-sea-cyclones-local",
   sectionId: "MC-I",
   order: 3,
   title: "Arabian Sea Cyclones, Summer Heat Low, Dust Storms & Fog",
@@ -2119,15 +2119,15 @@ export const topics: Topic[] = [
     "Assuming dust storms only occur in the pre-monsoon — they can occur any time thunderstorms develop over the arid plains, though they are most common Apr–Jun when surface dust is most available and pre-monsoon heating is strongest",
     "Forgetting that cyclone tracks are not deterministic — Cyclone Vayu (2019) and Cyclone Biparjoy (2023) both threatened the Sindh coast but had very different landfall outcomes; forecasting cyclone tracks remains a high-priority operational challenge"
   ],
-  relatedTopics: ["i-indian-ocean-monsoon", "i-temp-rainfall-distribution", "i-extreme-events", "e-cyclones-structure", "i-western-disturbances", "f-remote-sensing", "meteo-nwp-models"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-cyclones-structure", "meteo-western-disturbances", "meteo-remote-sensing", "meteo-nwp-models"],
   content: true,
-  buildsOn: ["e-tropical-cyclones", "c-local-seasonal-winds", "d-fog-types"],
-  leadsTo: ["i-extreme-events"],
-  usedIn: ["i-extreme-events"]
+  buildsOn: ["meteo-tropical-cyclones", "meteo-local-seasonal-winds", "meteo-fog-types"],
+  leadsTo: ["meteo-extreme-events"],
+  usedIn: ["meteo-extreme-events"]
 },
 
 {
-  id: "i-temp-rainfall-distribution",
+  id: "meteo-temp-rainfall-distribution",
   sectionId: "MC-I",
   order: 4,
   title: "Temperature and Rainfall Distribution Across Pakistan",
@@ -2152,15 +2152,15 @@ export const topics: Topic[] = [
     "Highest summer temperatures: 50°C+ in Jacobabad, Sibi, Dadu (southern Indus plains)",
     "Northern mountains receive both winter (westerly) and summer (monsoon) precipitation — the only region with a dual precipitation regime"
   ],
-  relatedTopics: ["i-indian-ocean-monsoon", "i-western-disturbances", "g-pakistan-macroclimate", "i-extreme-events"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-extreme-events"],
   content: true,
-  buildsOn: ["i-indian-ocean-monsoon", "i-western-disturbances", "g-pakistan-macroclimate", "d-orographic-rainshadow"],
-  leadsTo: ["i-extreme-events"],
-  usedIn: ["i-extreme-events", "env-pakistan-environmental-context", "ra-descriptive-statistics", "ra-correlation-regression"]
+  buildsOn: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-orographic-rainshadow"],
+  leadsTo: ["meteo-extreme-events"],
+  usedIn: ["meteo-extreme-events", "env-pakistan-environmental-context", "ra-descriptive-statistics", "ra-correlation-regression"]
 },
 
 {
-  id: "i-extreme-events",
+  id: "meteo-extreme-events",
   sectionId: "MC-I",
   order: 5,
   title: "Extreme Events: GLOFs, Riverine Floods, Droughts & Heat Waves",
@@ -2186,15 +2186,15 @@ export const topics: Topic[] = [
     "2022 was a compound event: pre-monsoon heat wave + super flood in the same year, illustrating compound climate hazards",
     "Pakistan has ~3000+ glacial lakes, of which ~30+ are classified as potentially dangerous for GLOFs"
   ],
-  relatedTopics: ["i-temp-rainfall-distribution", "i-arabian-sea-cyclones-local", "h-pakistan-nccp", "i-nccp-objectives", "i-indian-ocean-monsoon", "meteo-enso-basics", "meteo-iod"],
+  relatedTopics: ["meteo-temp-rainfall-distribution", "meteo-arabian-sea-cyclones-local", "meteo-pakistan-nccp", "meteo-nccp-objectives", "meteo-indian-ocean-monsoon", "meteo-enso-basics", "meteo-iod"],
   content: true,
-  buildsOn: ["i-temp-rainfall-distribution", "e-tropical-cyclones", "earth-e4"],
-  leadsTo: ["i-pmd-operational"],
+  buildsOn: ["meteo-temp-rainfall-distribution", "meteo-tropical-cyclones", "earth-e4"],
+  leadsTo: ["meteo-pmd-operational"],
   usedIn: ["env-climate-change-response", "env-pakistan-environmental-context", "ra-data-interpretation", "ra-probability", "ra-scientific-reporting"]
 },
 
 {
-  id: "i-pmd-operational",
+  id: "meteo-pmd-operational",
   sectionId: "MC-I",
   order: 6,
   title: "PMD Operational Areas, Regional Responsibilities & Warning Systems",
@@ -2229,15 +2229,15 @@ export const topics: Topic[] = [
     "Believing PMD is a global NWP center — PMD relies on imported model output from ECMWF, GFS, UKMO for medium-range forecasts; its in-house NWP capability (WRF) is limited to short-range regional applications",
     "Underestimating the role of international partnerships in PMD operations — almost all major PMD projects (GLOF monitoring, climate downscaling, radar upgrades) are funded or supported by international agencies"
   ],
-  relatedTopics: ["i-indian-ocean-monsoon", "i-extreme-events", "i-temp-rainfall-distribution", "f-remote-sensing", "meteo-nwp-models", "h-pakistan-nccp"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-remote-sensing", "meteo-nwp-models", "meteo-pakistan-nccp"],
   content: true,
-  buildsOn: ["i-extreme-events", "f-aviation-products", "f-remote-sensing"],
+  buildsOn: ["meteo-extreme-events", "meteo-aviation-products", "meteo-remote-sensing"],
   leadsTo: [],
   usedIn: ["env-pakistan-environmental-context", "english-sentence-building-blocks", "ra-scientific-reporting"]
 },
 
 {
-  id: "i-nccp-objectives",
+  id: "meteo-nccp-objectives",
   sectionId: "MC-I",
   order: 7,
   title: "National Climate Change Policy (NCCP) Objectives",
@@ -2264,9 +2264,9 @@ export const topics: Topic[] = [
     "Energy transition objective: shift toward renewables (hydropower, wind, solar) to meet Paris Agreement commitments",
     "GCISC (Global Change Impact Studies Centre) in Islamabad is Pakistan's main climate research think tank"
   ],
-  relatedTopics: ["h-pakistan-nccp", "i-extreme-events", "i-temp-rainfall-distribution", "i-pmd-operational"],
+  relatedTopics: ["meteo-pakistan-nccp", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-pmd-operational"],
   content: true,
-  buildsOn: ["h-pakistan-nccp"],
+  buildsOn: ["meteo-pakistan-nccp"],
   leadsTo: [],
   usedIn: ["env-international-climate-policy", "env-pakistan-environmental-context"]
 },
@@ -2304,11 +2304,11 @@ export const topics: Topic[] = [
     "Confusing climatology (long-term average) with persistence (current conditions continue) — they are opposite approaches: one ignores current weather, the other ignores historical averages",
     "Assuming the analog method is objective or automated — it requires subjective pattern recognition and is limited by the forecaster's experience and the historical archive's completeness"
   ],
-  relatedTopics: ["meteo-nwp-models", "meteo-forecast-skill", "a-scales-of-motion", "meteo-station-model"],
+  relatedTopics: ["meteo-nwp-models", "meteo-forecast-skill", "meteo-scales-of-motion", "meteo-station-model"],
   content: true,
-  buildsOn: ["a-weather-vs-climate", "meteo-station-model"],
+  buildsOn: ["meteo-weather-vs-climate", "meteo-station-model"],
   leadsTo: ["meteo-nwp-models", "meteo-forecast-skill"],
-  usedIn: ["meteo-nwp-models", "i-pmd-operational"]
+  usedIn: ["meteo-nwp-models", "meteo-pmd-operational"]
 },
 
 {
@@ -2344,11 +2344,11 @@ export const topics: Topic[] = [
     "Confusing data assimilation with the model itself — assimilation produces the initial state; the model evolves it forward in time; they are separate steps",
     "Assuming higher resolution always means a better forecast — regional models inherit boundary-condition errors from their driving global model"
   ],
-  relatedTopics: ["meteo-forecasting-methods", "meteo-forecast-skill", "f-radiosondes", "f-remote-sensing", "meteo-station-model"],
+  relatedTopics: ["meteo-forecasting-methods", "meteo-forecast-skill", "meteo-radiosondes", "meteo-remote-sensing", "meteo-station-model"],
   content: true,
-  buildsOn: ["meteo-forecasting-methods", "f-radiosondes", "f-remote-sensing"],
+  buildsOn: ["meteo-forecasting-methods", "meteo-radiosondes", "meteo-remote-sensing"],
   leadsTo: ["meteo-forecast-skill"],
-  usedIn: ["meteo-forecast-skill", "i-pmd-operational"]
+  usedIn: ["meteo-forecast-skill", "meteo-pmd-operational"]
 },
 
 {
@@ -2388,7 +2388,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["meteo-nwp-models", "math-8-1"],
   leadsTo: [],
-  usedIn: ["ra-research-quality", "ra-inferential-stats", "ra-data-interpretation", "i-pmd-operational"]
+  usedIn: ["ra-research-quality", "ra-inferential-stats", "ra-data-interpretation", "meteo-pmd-operational"]
 },
 // ============================= SECTION METEO-K: Synoptic Practice =============================
 
@@ -2439,11 +2439,11 @@ export const topics: Topic[] = [
     "Forgetting that 'calm' is indicated by a small circle at the station center, not by a missing barb — a missing barb could mean a true calm or a data gap",
     "Misreading the cloud-cover circle: a fully filled circle is overcast (8/8), not 'partly cloudy' — partial fills represent intermediate values (4/8 = half-filled, etc.)"
   ],
-  relatedTopics: ["meteo-isobar-analysis", "meteo-airmass-front-id", "f-remote-sensing", "meteo-nwp-models"],
+  relatedTopics: ["meteo-isobar-analysis", "meteo-airmass-front-id", "meteo-remote-sensing", "meteo-nwp-models"],
   content: true,
-  buildsOn: ["f-pressure-instruments", "f-wind-instruments", "d-cloud-classification"],
+  buildsOn: ["meteo-pressure-instruments", "meteo-wind-instruments", "meteo-cloud-classification"],
   leadsTo: ["meteo-isobar-analysis", "meteo-airmass-front-id"],
-  usedIn: ["meteo-isobar-analysis", "f-aviation-products", "ra-data-types", "ra-data-visualization"]
+  usedIn: ["meteo-isobar-analysis", "meteo-aviation-products", "ra-data-types", "ra-data-visualization"]
 },
 
 {
@@ -2485,11 +2485,11 @@ export const topics: Topic[] = [
     "Forgetting the latitude dependence of geostrophic wind — Vg is inversely proportional to f, so for the same gradient, winds are stronger at lower latitudes (this is why tropical cyclones can have stronger winds than extratropical lows for similar gradients)",
     "Misreading the geostrophic wind direction — the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot's law), not perpendicular to the isobars"
   ],
-  relatedTopics: ["meteo-station-model", "meteo-airmass-front-id", "meteo-geostrophic-qual", "c-geostrophic-wind", "c-rossby-waves"],
+  relatedTopics: ["meteo-station-model", "meteo-airmass-front-id", "meteo-geostrophic-qual", "meteo-geostrophic-wind", "meteo-rossby-waves"],
   content: true,
-  buildsOn: ["meteo-station-model", "c-geostrophic-wind", "c-upper-air-charts"],
+  buildsOn: ["meteo-station-model", "meteo-geostrophic-wind", "meteo-upper-air-charts"],
   leadsTo: ["meteo-geostrophic-qual"],
-  usedIn: ["meteo-geostrophic-qual", "e-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
+  usedIn: ["meteo-geostrophic-qual", "meteo-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
 },
 
 {
@@ -2531,11 +2531,11 @@ export const topics: Topic[] = [
     "Confusing a shear line with a front — a shear line has a wind shift but no temperature or dewpoint contrast; a true front requires both kinematic (wind) and thermodynamic (T, Td) discontinuities",
     "Assuming all fronts produce strong weather — a 'masked front' may have weak temperature contrast if the warm sector has been modified by cold-air advection aloft; the front is still present but harder to identify"
   ],
-  relatedTopics: ["e-air-masses-fronts", "e-cyclones-structure", "meteo-station-model", "meteo-isobar-analysis", "c-rossby-waves", "f-remote-sensing", "meteo-nwp-models"],
+  relatedTopics: ["meteo-air-masses-fronts", "meteo-cyclones-structure", "meteo-station-model", "meteo-isobar-analysis", "meteo-rossby-waves", "meteo-remote-sensing", "meteo-nwp-models"],
   content: true,
-  buildsOn: ["e-air-masses-fronts", "meteo-station-model"],
+  buildsOn: ["meteo-air-masses-fronts", "meteo-station-model"],
   leadsTo: [],
-  usedIn: ["e-cyclones-structure", "f-aviation-products"]
+  usedIn: ["meteo-cyclones-structure", "meteo-aviation-products"]
 },
 // ============================= SECTION METEO-L: Quantitative Meteorology =============================
 
@@ -2596,11 +2596,11 @@ export const topics: Topic[] = [
     "Confusing the LCL with the LFC — the LCL is where condensation begins (cloud base), the LFC is where the parcel becomes positively buoyant (cloud top for the first freely-rising level); cumulus clouds form between the LCL and the LFC even before the LFC is reached",
     "Ignoring the surface dewpoint depression when estimating LCL — the LCL depends on T AND Td, not T alone; a dry surface (large depression) means a high LCL and limited convection"
   ],
-  relatedTopics: ["b-lapse-rates", "b-static-stability", "d-moisture-metrics", "meteo-humidity-calc", "e-air-masses-fronts"],
+  relatedTopics: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "meteo-humidity-calc", "meteo-air-masses-fronts"],
   content: true,
-  buildsOn: ["b-lapse-rates", "b-static-stability", "d-thermodynamic-diagrams"],
+  buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-thermodynamic-diagrams"],
   leadsTo: [],
-  usedIn: ["d-thermodynamic-diagrams", "e-thunderstorms"]
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-thunderstorms"]
 },
 
 {
@@ -2676,11 +2676,11 @@ export const topics: Topic[] = [
     "Confusing specific humidity (q) and mixing ratio (w) — they differ by a small factor (q = w / (1 + w) ≈ w for w < 0.03 kg/kg), and the difference matters in precise calculations but is usually negligible for exam purposes",
     "Assuming w is conserved above the LCL — it is NOT; only the saturation mixing ratio ws is conserved above the LCL, and total water (vapor + liquid) is conserved throughout"
   ],
-  relatedTopics: ["d-moisture-metrics", "meteo-lapse-calc", "d-thermodynamic-diagrams", "meteo-station-model"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-calc", "meteo-thermodynamic-diagrams", "meteo-station-model"],
   content: true,
-  buildsOn: ["d-moisture-metrics", "b-gas-law"],
+  buildsOn: ["meteo-moisture-metrics", "meteo-gas-law"],
   leadsTo: [],
-  usedIn: ["d-adiabatic-cloud-formation", "f-humidity-instruments"]
+  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-humidity-instruments"]
 },
 
 {
@@ -2743,11 +2743,11 @@ export const topics: Topic[] = [
     "Confusing station pressure with MSLP — station pressure is measured; MSLP is reduced to sea level for charting; they differ by 10–200 hPa depending on elevation",
     "Treating scale height as a constant — H = Rd × T / g depends on temperature; H ≈ 8.5 km at 15°C, ≈ 7.5 km at −20°C, ≈ 9.5 km at +35°C"
   ],
-  relatedTopics: ["b-hydrostatic-equation", "b-gas-law", "c-upper-air-charts", "meteo-station-model", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-hydrostatic-equation", "meteo-gas-law", "meteo-upper-air-charts", "meteo-station-model", "meteo-isobar-analysis"],
   content: true,
-  buildsOn: ["b-hydrostatic-equation", "math-2-2", "f-pressure-instruments"],
+  buildsOn: ["meteo-hydrostatic-equation", "math-2-2", "meteo-pressure-instruments"],
   leadsTo: [],
-  usedIn: ["c-upper-air-charts", "meteo-station-model"]
+  usedIn: ["meteo-upper-air-charts", "meteo-station-model"]
 },
 
 {
@@ -2808,11 +2808,11 @@ export const topics: Topic[] = [
     "Treating geostrophic balance as exact — it is an approximation that breaks down near the equator (where f → 0), in regions of strong curvature (where the gradient wind correction matters), and in regions of strong friction (the boundary layer)",
     "Forgetting to convert units — Δp/Δn in Pa/m requires the hPa-to-Pa conversion (1 hPa = 100 Pa); using hPa/m directly gives an answer 100× too small"
   ],
-  relatedTopics: ["c-geostrophic-wind", "b-coriolis-effect", "c-jet-stream", "c-rossby-waves", "meteo-isobar-analysis", "meteo-pressure-conversion"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-coriolis-effect", "meteo-jet-stream", "meteo-rossby-waves", "meteo-isobar-analysis", "meteo-pressure-conversion"],
   content: true,
-  buildsOn: ["c-geostrophic-wind", "meteo-isobar-analysis"],
+  buildsOn: ["meteo-geostrophic-wind", "meteo-isobar-analysis"],
   leadsTo: [],
-  usedIn: ["c-jet-stream", "e-cyclones-structure"]
+  usedIn: ["meteo-jet-stream", "meteo-cyclones-structure"]
 },
 // ============================= SECTION METEO-M: Climate Variability =============================
 
@@ -2863,11 +2863,11 @@ export const topics: Topic[] = [
     "Assuming the SOI is positive during El Niño — it is negative; the sign reversal is a common exam trap because the underlying pressure difference sign and the SOI sign convention are easy to lose track of",
     "Believing ENSO events alternate regularly — they are irregular, with 2–7 year spacing; back-to-back El Niño events (as in 1991–92 and 1993) or back-to-back La Niña events (as in 2020–23) are common"
   ],
-  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-iod", "c-global-circulation", "c-monsoon-system", "i-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-iod", "meteo-global-circulation", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
   content: true,
-  buildsOn: ["c-global-circulation", "b-heat-transfer"],
+  buildsOn: ["meteo-global-circulation", "meteo-heat-transfer"],
   leadsTo: ["meteo-enso-global-impacts", "meteo-iod"],
-  usedIn: ["meteo-enso-global-impacts", "i-indian-ocean-monsoon", "i-extreme-events"]
+  usedIn: ["meteo-enso-global-impacts", "meteo-indian-ocean-monsoon", "meteo-extreme-events"]
 },
 
 {
@@ -2914,9 +2914,9 @@ export const topics: Topic[] = [
     "Assuming the conveyor belt is immune to climate change — paleoclimate records (Heinrich events, Younger Dryas, Dansgaard–Oeschger events) show it has shut down or slowed abruptly in the past when large freshwater pulses disrupted North Atlantic sinking",
     "Forgetting the Antarctic Circumpolar Current — the largest ocean current on Earth (~100–150 Sv), driven by the strongest sustained winds on the planet (Southern Ocean westerlies), and the primary site of global deep-water upwelling"
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-amoc-slowdown", "b-coriolis-effect", "c-global-circulation", "f-remote-sensing"],
+  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-amoc-slowdown", "meteo-coriolis-effect", "meteo-global-circulation", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["c-global-circulation", "phy-fluid-dynamics"],
+  buildsOn: ["meteo-global-circulation", "phy-fluid-dynamics"],
   leadsTo: ["meteo-enso-basics", "meteo-amoc-slowdown"],
   usedIn: ["meteo-enso-basics", "meteo-amoc-slowdown"]
 },
@@ -2957,11 +2957,11 @@ export const topics: Topic[] = [
     "Treating teleconnections as deterministic guarantees rather than probability shifts — this is the most common conceptual error in ENSO impact assessment",
     "Ignoring ENSO's impact on Atlantic hurricanes — El Niño's increased vertical wind shear over the tropical Atlantic suppresses hurricane development; La Niña enhances it"
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-ocean-currents", "meteo-iod", "c-monsoon-system", "i-indian-ocean-monsoon", "i-extreme-events"],
+  relatedTopics: ["meteo-enso-basics", "meteo-ocean-currents", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon", "meteo-extreme-events"],
   content: true,
   buildsOn: ["meteo-enso-basics"],
   leadsTo: [],
-  usedIn: ["i-extreme-events", "i-indian-ocean-monsoon"]
+  usedIn: ["meteo-extreme-events", "meteo-indian-ocean-monsoon"]
 },
 
 {
@@ -3008,11 +3008,11 @@ export const topics: Topic[] = [
     "Treating the DMI as a single-region SST anomaly — it is a difference between two regions, not the anomaly of one",
     "Assuming the IOD and ENSO have the same seasonal cycle — IOD peaks in autumn, ENSO peaks in winter; this timing difference matters for forecasting"
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-ocean-currents", "c-monsoon-system", "i-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-ocean-currents", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
   content: true,
-  buildsOn: ["meteo-enso-basics", "c-monsoon-system"],
+  buildsOn: ["meteo-enso-basics", "meteo-monsoon-system"],
   leadsTo: [],
-  usedIn: ["i-indian-ocean-monsoon", "i-extreme-events"]
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-extreme-events"]
 },
 
 {
@@ -3050,11 +3050,11 @@ export const topics: Topic[] = [
     "Assuming the NAO operates year-round with equal strength — it is primarily a winter phenomenon; summer NAO is much weaker and less well-defined",
     "Overstating the NAO's relevance to Pakistan — the ENSO-monsoon link is far more robust than any NAO-Pakistan teleconnection; WDs are influenced by NAO but the effect is weak and probabilistic"
   ],
-  relatedTopics: ["meteo-enso-global-impacts", "meteo-mjo", "c-jet-stream", "c-global-circulation", "c-rossby-waves", "i-western-disturbances"],
+  relatedTopics: ["meteo-enso-global-impacts", "meteo-mjo", "meteo-jet-stream", "meteo-global-circulation", "meteo-rossby-waves", "meteo-western-disturbances"],
   content: true,
-  buildsOn: ["c-rossby-waves", "c-global-circulation"],
+  buildsOn: ["meteo-rossby-waves", "meteo-global-circulation"],
   leadsTo: [],
-  usedIn: ["i-western-disturbances"]
+  usedIn: ["meteo-western-disturbances"]
 },
 
 {
@@ -3093,11 +3093,11 @@ export const topics: Topic[] = [
     "Treating the MJO as a coupled ocean-atmosphere mode like ENSO — it is primarily an atmospheric wave phenomenon, though it is modulated by underlying SSTs",
     "Assuming the MJO operates year-round with equal strength — it is strongest in boreal winter and spring; during the Asian summer monsoon, the signal is weaker and the monsoon circulation itself is the dominant mode of variability"
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "c-monsoon-system", "i-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
   content: true,
-  buildsOn: ["c-global-circulation", "d-precipitation-processes"],
+  buildsOn: ["meteo-global-circulation", "meteo-precipitation-processes"],
   leadsTo: [],
-  usedIn: ["i-indian-ocean-monsoon", "meteo-enso-basics"]
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-enso-basics"]
 },
 
 {
@@ -3132,11 +3132,11 @@ export const topics: Topic[] = [
     "Equating any AMOC slowdown with immediate collapse — models and theory indicate a range of weakened but still active states",
     "Ignoring the stabilising role of Southern Ocean winds and upwelling"
   ],
-  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "h-climate-feedbacks", "h-radiative-forcing", "g-global-climate-regions"],
+  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-climate-feedbacks", "meteo-radiative-forcing", "meteo-global-climate-regions"],
   content: true,
-  buildsOn: ["meteo-ocean-currents", "h-climate-feedbacks"],
+  buildsOn: ["meteo-ocean-currents", "meteo-climate-feedbacks"],
   leadsTo: [],
-  usedIn: ["h-climate-feedbacks", "h-ipcc-rcps"]
+  usedIn: ["meteo-climate-feedbacks", "meteo-ipcc-rcps"]
 },
 
 ];

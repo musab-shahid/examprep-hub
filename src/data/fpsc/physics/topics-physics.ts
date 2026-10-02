@@ -56,7 +56,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-8-3", "math-5-4", "phy-units-measurement", "phy-scalars-vectors"],
   leadsTo: ["phy-newtons-laws", "phy-momentum-impulse"],
-  usedIn: ["phy-work-energy", "b-static-stability", "c-forces-governing-wind", "a-scales-of-motion"]
+  usedIn: ["phy-work-energy", "meteo-static-stability", "meteo-forces-governing-wind", "meteo-scales-of-motion"]
 },
 
 {
@@ -94,7 +94,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-kinematics", "phy-scalars-vectors"],
   leadsTo: ["phy-gravity-weight-friction", "phy-momentum-impulse", "phy-work-energy"],
-  usedIn: ["phy-vector-applications", "b-coriolis-effect", "c-forces-governing-wind", "earth-f1", "earth-h1"]
+  usedIn: ["phy-vector-applications", "meteo-coriolis-effect", "meteo-forces-governing-wind", "earth-f1", "earth-h1"]
 },
 
 {
@@ -132,7 +132,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-newtons-laws"],
   leadsTo: ["phy-universal-gravitation", "phy-momentum-impulse"],
-  usedIn: ["phy-archimedes-principle", "b-hydrostatic-equation", "earth-a5"]
+  usedIn: ["phy-archimedes-principle", "meteo-hydrostatic-equation", "earth-a5"]
 },
 
 {
@@ -218,7 +218,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-newtons-laws", "phy-kinematics", "math-2-3"],
   leadsTo: ["phy-power-efficiency", "phy-thermodynamics-laws"],
-  usedIn: ["phy-heat-transfer-equilibrium", "b-heat-transfer", "d-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"]
+  usedIn: ["phy-heat-transfer-equilibrium", "meteo-heat-transfer", "meteo-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"]
 },
 
 {
@@ -282,7 +282,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-units-measurement"],
   leadsTo: ["phy-density", "phy-temperature-heat", "phy-kinetic-theory"],
-  usedIn: ["phy-thermodynamics-laws", "d-moisture-metrics", "d-droplet-microphysics"]
+  usedIn: ["phy-thermodynamics-laws", "meteo-moisture-metrics", "meteo-droplet-microphysics"]
 },
 
 {
@@ -317,7 +317,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-states-of-matter", "math-1-8", "math-2-2"],
   leadsTo: ["phy-pressure-fluids", "phy-archimedes-principle"],
-  usedIn: ["phy-atmospheric-pressure-physics", "b-static-stability"]
+  usedIn: ["phy-atmospheric-pressure-physics", "meteo-static-stability"]
 },
 
 {
@@ -352,11 +352,11 @@ export const topics: Topic[] = [
   examPoints: [
     "This topic covers pressure as a general physics concept and fluid statics only. Atmospheric pressure SYSTEMS — pressure-gradient force, isobars, and how pressure differences generate wind — belong to Meteorology, not here; see the linked Meteorology topic for that application."
   ],
-  relatedTopics: ["phy-atmospheric-pressure-physics", "phy-density", "c-forces-governing-wind"],
+  relatedTopics: ["phy-atmospheric-pressure-physics", "phy-density", "meteo-forces-governing-wind"],
   content: true,
   buildsOn: ["phy-density", "phy-units-measurement"],
   leadsTo: ["phy-atmospheric-pressure-physics", "phy-archimedes-principle", "phy-fluid-dynamics"],
-  usedIn: ["b-hydrostatic-equation", "f-pressure-instruments"]
+  usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments"]
 },
 
 {
@@ -377,11 +377,11 @@ export const topics: Topic[] = [
   examPoints: [
     "Standard sea-level pressure (101,325 Pa / 1013.25 mb) is the same number that appears in Meteorology's Forces Governing Wind topic — it's one physical fact used as a starting point in both subjects, not duplicated content"
   ],
-  relatedTopics: ["phy-pressure-fluids", "c-forces-governing-wind"],
+  relatedTopics: ["phy-pressure-fluids", "meteo-forces-governing-wind"],
   content: true,
   buildsOn: ["phy-pressure-fluids", "phy-units-measurement"],
-  leadsTo: ["b-hydrostatic-equation"],
-  usedIn: ["b-hydrostatic-equation", "f-pressure-instruments", "env-air-pollution"]
+  leadsTo: ["meteo-hydrostatic-equation"],
+  usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments", "env-air-pollution"]
 },
 
 // ============================= SECTION PHY-D: Heat & Thermodynamics =============================
@@ -415,11 +415,11 @@ export const topics: Topic[] = [
   examPoints: [
     "Water's high specific heat capacity is why coastal regions have milder temperature swings than inland regions at similar latitudes — the same principle Meteorology applies when discussing land vs. sea thermal contrast in local wind systems"
   ],
-  relatedTopics: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "c-local-seasonal-winds"],
+  relatedTopics: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "meteo-local-seasonal-winds"],
   content: true,
   buildsOn: ["phy-units-measurement", "phy-states-of-matter"],
   leadsTo: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "phy-thermodynamics-laws"],
-  usedIn: ["a-vertical-structure", "b-heat-transfer"]
+  usedIn: ["meteo-vertical-structure", "meteo-heat-transfer"]
 },
 
 {
@@ -467,11 +467,11 @@ export const topics: Topic[] = [
     "Radiation is the only heat-transfer mechanism that works through a vacuum — this single fact explains how the Sun's energy reaches Earth across empty space",
     "The Zeroth Law is what justifies calling a thermometer reading a genuine, comparable 'temperature' at all — without it, temperature comparisons between separate objects wouldn't be logically guaranteed to be consistent"
   ],
-  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "b-heat-transfer"],
+  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "meteo-heat-transfer"],
   content: true,
   buildsOn: ["phy-temperature-heat"],
   leadsTo: ["phy-heat-transfer-mechanisms", "phy-thermodynamics-laws"],
-  usedIn: ["b-heat-transfer", "b-radiation-laws"]
+  usedIn: ["meteo-heat-transfer", "meteo-radiation-laws"]
 },
 
 {
@@ -507,11 +507,11 @@ export const topics: Topic[] = [
     "During a phase change, all added heat energy goes into breaking/forming molecular bonds (changing internal energy's potential component), not into raising temperature — this is why temperature plateaus during melting or boiling",
     "Latent heat of vaporization for water (~2,260 kJ/kg) is roughly seven times larger than its latent heat of fusion (~334 kJ/kg) — boiling water takes far more energy than melting the same mass of ice"
   ],
-  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-states-of-matter", "d-adiabatic-cloud-formation", "b-lapse-rates"],
+  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-states-of-matter", "meteo-adiabatic-cloud-formation", "meteo-lapse-rates"],
   content: true,
   buildsOn: ["phy-work-energy", "phy-temperature-heat", "phy-heat-transfer-equilibrium"],
   leadsTo: ["phy-kinetic-theory"],
-  usedIn: ["b-lapse-rates", "b-static-stability", "d-adiabatic-cloud-formation", "d-moisture-metrics", "env-energy-sources", "env-climate-change-response"]
+  usedIn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-moisture-metrics", "env-energy-sources", "env-climate-change-response"]
 },
 
 // ============================= SECTION PHY-E: Waves & Sound =============================
@@ -550,7 +550,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-3-2", "phy-units-measurement"],
   leadsTo: ["phy-wave-types", "phy-sound-waves"],
-  usedIn: ["phy-electromagnetic-induction", "b-radiation-laws", "earth-h2"]
+  usedIn: ["phy-electromagnetic-induction", "meteo-radiation-laws", "earth-h2"]
 },
 
 {
@@ -663,7 +663,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-reflection-refraction"],
   leadsTo: [],
-  usedIn: ["f-remote-sensing"]
+  usedIn: ["meteo-remote-sensing"]
 },
 
 {
@@ -685,11 +685,11 @@ export const topics: Topic[] = [
   examPoints: [
     "Memorize the EM spectrum order exactly — it's a frequently tested direct-recall sequence: radio → microwave → infrared → visible → ultraviolet → X-ray → gamma ray (increasing frequency/energy, decreasing wavelength)"
   ],
-  relatedTopics: ["phy-reflection-refraction", "phy-wave-types", "f-remote-sensing"],
+  relatedTopics: ["phy-reflection-refraction", "phy-wave-types", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["phy-reflection-refraction"],
   leadsTo: ["phy-lens-mirror-imaging", "phy-electromagnetic-induction"],
-  usedIn: ["b-radiation-laws", "f-remote-sensing"]
+  usedIn: ["meteo-radiation-laws", "meteo-remote-sensing"]
 },
 
 // ============================= SECTION PHY-G: Electricity =============================
@@ -877,7 +877,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-magnetic-fields-force", "phy-lenses-mirrors-em-spectrum"],
   leadsTo: ["phy-transformers-ac"],
-  usedIn: ["b-radiation-laws", "f-remote-sensing", "a-ionosphere-exosphere"]
+  usedIn: ["meteo-radiation-laws", "meteo-remote-sensing", "meteo-ionosphere-exosphere"]
 },
 
 // ============================= SECTION PHY-I: Modern Physics (low priority) =============================
@@ -1012,7 +1012,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["math-2-2", "math-1-6", "math-3-4"],
   leadsTo: ["phy-scalars-vectors", "phy-kinematics", "phy-pressure-fluids"],
-  usedIn: ["phy-temperature-heat", "phy-atmospheric-pressure-physics", "b-hydrostatic-equation", "b-radiation-laws", "f-pressure-instruments"]
+  usedIn: ["phy-temperature-heat", "phy-atmospheric-pressure-physics", "meteo-hydrostatic-equation", "meteo-radiation-laws", "meteo-pressure-instruments"]
 },
 
 {
@@ -1036,11 +1036,11 @@ export const topics: Topic[] = [
     "Treating speed and velocity as identical — speed is a scalar (e.g. 50 km/h), velocity is a vector (e.g. 50 km/h north)",
     "Assuming two vectors with the same magnitude are equal — direction matters equally"
   ],
-  relatedTopics: ["phy-vector-operations", "phy-vector-applications", "c-forces-governing-wind"],
+  relatedTopics: ["phy-vector-operations", "phy-vector-applications", "meteo-forces-governing-wind"],
   content: true,
   buildsOn: ["math-7-1", "phy-units-measurement"],
   leadsTo: ["phy-vector-operations", "phy-kinematics"],
-  usedIn: ["phy-vector-operations", "phy-vector-applications", "phy-newtons-laws", "c-forces-governing-wind", "b-coriolis-effect"]
+  usedIn: ["phy-vector-operations", "phy-vector-applications", "phy-newtons-laws", "meteo-forces-governing-wind", "meteo-coriolis-effect"]
 },
 
 {
@@ -1087,7 +1087,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-scalars-vectors", "math-5-1", "math-5-2"],
   leadsTo: ["phy-vector-applications", "phy-kinematics", "phy-newtons-laws"],
-  usedIn: ["phy-vector-applications", "phy-momentum-impulse", "c-forces-governing-wind"]
+  usedIn: ["phy-vector-applications", "phy-momentum-impulse", "meteo-forces-governing-wind"]
 },
 
 {
@@ -1129,11 +1129,11 @@ export const topics: Topic[] = [
     "Treating wind direction as where it's blowing TOWARD (wrong) rather than where it comes FROM (correct)",
     "Adding wind vector and airplane vector when they point in similar directions, when in fact the headwind/tailwind component should be considered separately"
   ],
-  relatedTopics: ["phy-scalars-vectors", "phy-vector-operations", "phy-newtons-laws", "c-forces-governing-wind"],
+  relatedTopics: ["phy-scalars-vectors", "phy-vector-operations", "phy-newtons-laws", "meteo-forces-governing-wind"],
   content: true,
   buildsOn: ["phy-vector-operations", "phy-newtons-laws"],
-  leadsTo: ["c-forces-governing-wind"],
-  usedIn: ["c-forces-governing-wind", "c-geostrophic-wind", "c-global-circulation"]
+  leadsTo: ["meteo-forces-governing-wind"],
+  usedIn: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-global-circulation"]
 },
 
 // ============================= SECTION PHY-C ADDITIONS: Fluid Dynamics =============================
@@ -1178,7 +1178,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["phy-density", "phy-pressure-fluids", "phy-gravity-weight-friction"],
   leadsTo: ["phy-fluid-dynamics"],
-  usedIn: ["b-static-stability", "d-adiabatic-cloud-formation"]
+  usedIn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation"]
 },
 
 {
@@ -1219,11 +1219,11 @@ export const topics: Topic[] = [
     "Thinking faster flow = higher pressure (it's the opposite: faster flow = LOWER pressure per Bernoulli)",
     "Forgetting that Bernoulli's equation includes THREE terms (pressure, kinetic energy density, potential energy density), not just pressure"
   ],
-  relatedTopics: ["phy-pressure-fluids", "phy-archimedes-principle", "c-jet-stream"],
+  relatedTopics: ["phy-pressure-fluids", "phy-archimedes-principle", "meteo-jet-stream"],
   content: true,
   buildsOn: ["phy-pressure-fluids", "phy-archimedes-principle", "phy-work-energy"],
   leadsTo: [],
-  usedIn: ["c-jet-stream", "meteo-ocean-currents"]
+  usedIn: ["meteo-jet-stream", "meteo-ocean-currents"]
 },
 
 // ============================= SECTION PHY-D ADDITIONS: Heat Transfer Details & Kinetic Theory =============================
@@ -1269,11 +1269,11 @@ export const topics: Topic[] = [
     "Forgetting to use absolute temperature (Kelvin) in Stefan-Boltzmann law, not Celsius",
     "Confusing 'conduction' (molecular collisions) with 'convection' (bulk fluid motion) — conduction can happen in a stationary solid, convection cannot"
   ],
-  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-temperature-heat", "b-heat-transfer", "b-greenhouse-effect"],
+  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-temperature-heat", "meteo-heat-transfer", "meteo-greenhouse-effect"],
   content: true,
   buildsOn: ["phy-heat-transfer-equilibrium"],
-  leadsTo: ["b-heat-transfer"],
-  usedIn: ["b-heat-transfer", "b-radiation-laws", "a-vertical-structure", "env-air-pollution", "env-climate-change-response"]
+  leadsTo: ["meteo-heat-transfer"],
+  usedIn: ["meteo-heat-transfer", "meteo-radiation-laws", "meteo-vertical-structure", "env-air-pollution", "env-climate-change-response"]
 },
 
 {
@@ -1313,11 +1313,11 @@ export const topics: Topic[] = [
     "Confusing 'average speed' with 'root-mean-square speed' — they're slightly different (RMS is always a bit higher due to the squaring emphasizing faster molecules)",
     "Forgetting that 'temperature' in these formulas is always ABSOLUTE (Kelvin), not Celsius or Fahrenheit"
   ],
-  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "phy-pressure-fluids", "b-greenhouse-effect"],
+  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "phy-pressure-fluids", "meteo-greenhouse-effect"],
   content: true,
   buildsOn: ["phy-states-of-matter", "phy-thermodynamics-laws"],
   leadsTo: [],
-  usedIn: ["b-gas-law"]
+  usedIn: ["meteo-gas-law"]
 },
 
 // ============================= SECTION PHY-E ADDITION: Doppler Effect =============================
@@ -1358,11 +1358,11 @@ export const topics: Topic[] = [
     "Confusing source moving toward the observer with observer moving toward the source — the effect is similar but the formulas differ slightly",
     "Thinking the wavelength actually changes — it doesn't, the relative spacing of successive wave crests reaching the observer changes"
   ],
-  relatedTopics: ["phy-wave-properties", "phy-sound-waves", "f-remote-sensing"],
+  relatedTopics: ["phy-wave-properties", "phy-sound-waves", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["phy-sound-waves"],
   leadsTo: [],
-  usedIn: ["f-remote-sensing"]
+  usedIn: ["meteo-remote-sensing"]
 },
 
 // ============================= SECTION PHY-F ADDITION: Lens & Mirror Image Formation =============================
