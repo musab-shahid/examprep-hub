@@ -35,6 +35,12 @@ export const topics: Topic[] = [
     "The Great Oxidation Event is linked specifically to cyanobacteria, not later plants",
     "Ozone forms from O2 via UV photolysis, concentrated 15–35 km altitude"
   ],
+  commonMistakes: [
+    "Thinking today's N2–O2 atmosphere is the original primary atmosphere (H/He was lost early).",
+    "Crediting animals, not photosynthetic organisms, for the rise of oxygen.",
+    "Assuming ozone formed before free O2 was available.",
+    "Mixing secondary volcanic atmosphere with the modern composition.",
+  ],
   relatedTopics: ["meteo-composition-today", "meteo-vertical-structure"],
   content: true,
   buildsOn: ["phy-states-of-matter", "earth-a4", "earth-g3"],
@@ -64,6 +70,12 @@ export const topics: Topic[] = [
     "Water vapour is the most powerful greenhouse gas, not CO2 — commonly confused",
     "Near-surface ozone is a pollutant; stratospheric ozone is protective — same molecule, opposite role by altitude"
   ],
+  commonMistakes: [
+    "Treating water vapor as a fixed percentage like N2 or O2 — it varies strongly.",
+    "Ignoring argon as a major dry-air component after N2 and O2.",
+    "Assuming CO2 is the largest greenhouse gas by concentration (water vapor often dominates locally).",
+    "Confusing permanent gases with variable gases.",
+  ],
   relatedTopics: ["meteo-origin-evolution", "meteo-greenhouse-effect"],
   content: true,
   buildsOn: ["meteo-origin-evolution", "math-1-7", "math-3-4"],
@@ -92,6 +104,12 @@ export const topics: Topic[] = [
     "Tropopause height varies with latitude and season — higher/equatorial-summer, lower/polar-winter",
     "Order of layers bottom to top: Troposphere → Stratosphere → Mesosphere → Thermosphere"
   ],
+  commonMistakes: [
+    "Mixing troposphere and stratosphere temperature trends (troposphere generally cools with height; stratosphere warms).",
+    "Thinking the tropopause is a fixed altitude everywhere.",
+    "Confusing mesosphere and thermosphere temperature behaviour.",
+    "Assuming weather systems occupy the whole atmosphere equally — most weather is tropospheric.",
+  ],
   relatedTopics: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
   content: true,
   buildsOn: ["meteo-composition-today", "phy-temperature-heat", "phy-heat-transfer-mechanisms"],
@@ -119,6 +137,12 @@ export const topics: Topic[] = [
     "AM reflects, FM/TV pass through — a frequently tested distinction",
     "The exosphere is where atmospheric gas is finally lost to space"
   ],
+  commonMistakes: [
+    "Thinking the ionosphere is a separate layer independent of thermosphere altitudes.",
+    "Assuming radio propagation effects only depend on weather, not ionization.",
+    "Confusing exosphere with outer space having zero gravity.",
+    "Mixing aurora mechanisms with ordinary tropospheric storms.",
+  ],
   relatedTopics: ["meteo-vertical-structure"],
   content: true,
   buildsOn: ["meteo-vertical-structure", "phy-electromagnetic-induction", "earth-a2"],
@@ -142,6 +166,12 @@ export const topics: Topic[] = [
   ],
   examPoints: [
     "Memorize both lists exactly — 7 weather elements vs. 7 climatic controls is a classic FPSC-style distinction question"
+  ],
+  commonMistakes: [
+    "Using one extreme weather event alone as proof of climate change without statistics.",
+    "Treating climate as average weather only — variability and extremes matter too.",
+    "Confusing weather forecasts (days) with climate projections (decades).",
+    "Ignoring that local controls (altitude, continentality) shape climate as much as latitude.",
   ],
   relatedTopics: ["meteo-scales-of-motion", "meteo-forecasting-methods"],
   content: true,
@@ -170,6 +200,12 @@ export const topics: Topic[] = [
     "Tornadoes are mesoscale, NOT synoptic scale — a common trap since tornadoes feel 'severe'/large-scale",
     "Hurricanes and mid-latitude cyclones are synoptic scale"
   ],
+  commonMistakes: [
+    "Applying synoptic rules to microscale turbulence without care.",
+    "Thinking the Coriolis force dominates every gust of wind at human scale.",
+    "Mixing temporal and spatial scale labels casually.",
+    "Assuming larger scale always means stronger winds.",
+  ],
   relatedTopics: ["meteo-weather-vs-climate", "meteo-composition-today"],
   content: true,
   buildsOn: ["meteo-weather-vs-climate", "phy-kinematics"],
@@ -197,6 +233,12 @@ export const topics: Topic[] = [
   examPoints: [
     "Radiation is unique: it needs no medium and can cross a vacuum",
     "Warm-air advection = horizontal transport of warm air toward colder latitudes"
+  ],
+  commonMistakes: [
+    "Thinking conduction is the main way the atmosphere is heated aloft — radiation and convection dominate.",
+    "Confusing heat (energy transfer) with temperature.",
+    "Assuming radiation needs air to travel (it does not).",
+    "Ignoring latent heat as a major atmospheric energy pathway.",
   ],
   relatedTopics: ["meteo-radiation-laws", "meteo-scales-of-motion"],
   content: true,
@@ -235,6 +277,19 @@ export const topics: Topic[] = [
     "T is to the FOURTH power in Stefan-Boltzmann — a small temperature change has a large energy effect",
     "Kirchhoff's Law explains why greenhouse gases (good IR absorbers) are also good IR emitters"
   ],
+  commonMistakes: [
+    "Using Celsius in Stefan–Boltzmann or Wien calculations — use kelvin.",
+    "Thinking hotter bodies emit only shorter wavelengths and no longer ones.",
+    "Confusing albedo with emissivity.",
+    "Assuming Earth's emission temperature equals typical surface air temperature without greenhouse effect.",
+  ],
+  workedExample: [
+    {
+      problem: "A black body is at 300 K. Using Stefan–Boltzmann law with σ = 5.67 × 10⁻⁸ W m⁻² K⁻⁴, estimate the emitted flux.",
+      solution: "E = σT⁴ = 5.67e-8 × (300)⁴ = 5.67e-8 × 8.1e8 = 459 W/m² approximately.",
+      answer: "≈ 459 W/m²",
+    },
+  ],
   relatedTopics: ["meteo-greenhouse-effect", "meteo-heat-transfer", "meteo-radiative-forcing"],
   content: true,
   buildsOn: ["meteo-heat-transfer", "phy-lenses-mirrors-em-spectrum", "math-3-1"],
@@ -263,6 +318,12 @@ export const topics: Topic[] = [
     "The 15°C vs. −18°C figures are a classic exact-number exam question",
     "Clouds close the atmospheric window — the mechanism behind warmer cloudy nights"
   ],
+  commonMistakes: [
+    "Calling the greenhouse effect just pollution — the natural effect is essential for habitability.",
+    "Thinking glass greenhouses work mainly by trapping IR the same way gases do (mechanism differs).",
+    "Ignoring water vapor as a greenhouse gas.",
+    "Assuming the atmospheric window means no IR escapes at all.",
+  ],
   relatedTopics: ["meteo-radiation-laws", "meteo-composition-today", "meteo-radiative-forcing"],
   content: true,
   buildsOn: ["meteo-radiation-laws", "meteo-composition-today"],
@@ -288,6 +349,12 @@ export const topics: Topic[] = [
   examPoints: [
     "ELR is measured/variable; DALR and SALR are theoretical/adiabatic",
     "SALR < DALR numerically, because latent heat release slows the cooling"
+  ],
+  commonMistakes: [
+    "Confusing environmental lapse rate with adiabatic lapse rates (DALR/SALR).",
+    "Thinking a steep environmental lapse rate means stability — it often means instability.",
+    "Mixing DALR (~9.8 °C/km) with SALR (smaller when condensation releases heat).",
+    "Assuming lapse rate is constant in every layer of the real atmosphere.",
   ],
   relatedTopics: ["meteo-inversion-mechanics", "meteo-adiabatic-cloud-formation", "meteo-static-stability", "meteo-hydrostatic-equation"],
   content: true,
@@ -318,6 +385,12 @@ export const topics: Topic[] = [
     headers: ["Condition", "Vertical mixing"],
     rows: [["Normal atmosphere (T decreases with height)", "Greater mixing"], ["Inversion (T increases with height)", "Suppressed mixing"]]
   },
+  commonMistakes: [
+    "Thinking inversions always mean clean air — they often trap pollutants by limiting vertical mixing.",
+    "Confusing inversion strength with inversion depth.",
+    "Ignoring nocturnal surface inversions as common, not rare.",
+    "Assuming temperature must increase with height in the entire column, not just a layer.",
+  ],
   relatedTopics: ["meteo-inversion-types", "meteo-lapse-rates"],
   content: true,
   buildsOn: ["meteo-lapse-rates"],
@@ -344,6 +417,12 @@ export const topics: Topic[] = [
   examPoints: [
     "Subsidence inversions are linked to persistent, stagnant high-pressure systems — important for air-quality questions",
     "A 'broken cap' explains why capping inversions can precede sudden severe thunderstorm outbreaks"
+  ],
+  commonMistakes: [
+    "Calling all inversions radiation fog inversions.",
+    "Mixing radiation, advection, subsidence, and frontal inversions.",
+    "Thinking all inversions form only at night.",
+    "Ignoring different forecast implications by type.",
   ],
   relatedTopics: ["meteo-inversion-mechanics", "meteo-thunderstorms"],
   content: true,
@@ -395,6 +474,13 @@ export const topics: Topic[] = [
     "Thinking Coriolis can start the wind — it cannot; PGF is the starter",
     "Reversing the deflection direction between hemispheres",
     "Confusing Coriolis force with centrifugal force"
+  ],
+  workedExample: [
+    {
+      problem: "Compare Coriolis parameter f = 2Ω sin φ at the equator and at 30°N (Ω ≈ 7.29 × 10⁻⁵ s⁻¹).",
+      solution: "At equator sin 0 = 0 ⇒ f = 0. At 30°N, sin 30 = 0.5 ⇒ f ≈ 2 × 7.29e-5 × 0.5 ≈ 7.3 × 10⁻⁵ s⁻¹.",
+      answer: "f(0°) = 0; f(30°N) ≈ 7.3 × 10⁻⁵ s⁻¹",
+    },
   ],
   relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-wind-instruments"],
   content: true,
@@ -477,6 +563,19 @@ export const topics: Topic[] = [
     "R_d = 287 J kg⁻¹ K⁻¹ is the standard value used in virtually all meteorological calculations",
     "Density decreases as temperature rises or pressure falls — the physical basis of buoyancy"
   ],
+  commonMistakes: [
+    "Using °C instead of kelvin in the ideal gas law.",
+    "Treating density as independent of pressure and temperature.",
+    "Forgetting moisture adjustments (e.g. virtual temperature) in some meteorological forms.",
+    "Applying the law without stating which variables are held constant.",
+  ],
+  workedExample: [
+    {
+      problem: "Dry air at 1000 hPa has temperature 290 K. Taking R_d ≈ 287 J kg⁻¹ K⁻¹, estimate density ρ = p/(R_d T). (Use p = 1.0 × 10⁵ Pa.)",
+      solution: "ρ = p/(R_d T) = 1.0e5 / (287 × 290) ≈ 1.0e5 / 83230 ≈ 1.20 kg/m³.",
+      answer: "≈ 1.20 kg/m³",
+    },
+  ],
   relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion", "meteo-moisture-metrics"],
   content: true,
   buildsOn: ["phy-kinetic-theory", "phy-states-of-matter", "math-2-3"],
@@ -515,6 +614,19 @@ export const topics: Topic[] = [
   examPoints: [
     "1 hPa ≈ 8 m near the surface is the rule-of-thumb conversion used in altimetry and rough calculations",
     "Hypsometric equation: warmer air → greater thickness for the same pressure difference"
+  ],
+  commonMistakes: [
+    "Thinking hydrostatic balance means no vertical motion ever — vertical acceleration is small compared with gravity/pressure gradient.",
+    "Mixing geometric height with pressure coordinates casually.",
+    "Ignoring density's role in how fast pressure drops with height.",
+    "Assuming the same scale height for every atmosphere without care.",
+  ],
+  workedExample: [
+    {
+      problem: "Approximate the pressure drop over Δz = 100 m in air of density 1.2 kg/m³. Use Δp ≈ −ρ g Δz with g = 9.8 m/s².",
+      solution: "Δp ≈ −1.2 × 9.8 × 100 ≈ −1176 Pa ≈ −12 hPa.",
+      answer: "≈ −12 hPa over 100 m",
+    },
   ],
   relatedTopics: ["meteo-gas-law", "meteo-pressure-conversion", "meteo-upper-air-charts", "meteo-vertical-structure"],
   content: true,
@@ -558,6 +670,19 @@ export const topics: Topic[] = [
     headers: ["Force", "Role"],
     rows: [["PGF", "Initiates wind"], ["Coriolis", "Deflects wind"], ["Friction", "Slows wind"]]
   },
+  commonMistakes: [
+    "Forcing all forces to matter equally at every scale.",
+    "Thinking pressure gradient force points from low to high pressure.",
+    "Ignoring friction's role in crossing isobars toward low pressure near the surface.",
+    "Mixing centripetal requirement with a separate magical force in curved flow.",
+  ],
+  workedExample: [
+    {
+      problem: "Qualitative: near the surface, why does wind cross isobars toward low pressure?",
+      solution: "Friction slows the wind, weakening Coriolis relative to the pressure-gradient force, so the balance is no longer purely geostrophic and flow gains a component toward low pressure.",
+      answer: "Friction reduces speed → Coriolis weakens → PGF pulls flow toward low",
+    },
+  ],
   relatedTopics: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-coriolis-effect", "meteo-jet-stream"],
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-hydrostatic-equation", "phy-newtons-laws", "phy-vector-operations"],
@@ -591,6 +716,19 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Geostrophic wind is theoretical/idealized — it requires straight isobars and no friction, so it's an approximation of real upper-level flow"],
+  commonMistakes: [
+    "Applying geostrophy at the equator (Coriolis approaches 0).",
+    "Thinking geostrophic wind blows across isobars; it blows parallel to them.",
+    "Ignoring that real surface winds are subgeostrophic due to friction.",
+    "Using geostrophy for small-scale circulations where the Rossby number is large.",
+  ],
+  workedExample: [
+    {
+      problem: "At 45°N, f ≈ 1 × 10⁻⁴ s⁻¹. A geostrophic wind of 20 m/s balances a pressure gradient. If density ρ ≈ 1.2 kg/m³, estimate |∇p| from |∇p| = ρ f V_g.",
+      solution: "|∇p| = 1.2 × 1e-4 × 20 = 0.0024 Pa/m.",
+      answer: "0.0024 Pa/m",
+    },
+  ],
   relatedTopics: ["meteo-forces-governing-wind", "meteo-gradient-wind", "meteo-geostrophic-qual"],
   content: true,
   buildsOn: ["meteo-forces-governing-wind"],
@@ -627,6 +765,19 @@ export const topics: Topic[] = [
     headers: ["Flow type", "Force balance", "Speed vs. Vg"],
     rows: [["Cyclonic (Low)", "PGF > CF", "Subgeostrophic"], ["Anticyclonic (High)", "CF > PGF", "Supergeostrophic"]]
   },
+  commonMistakes: [
+    "Confusing cyclonic vs anticyclonic gradient-wind speed relative to geostrophic.",
+    "Thinking gradient wind always equals geostrophic wind.",
+    "Ignoring curvature of flow/isobars.",
+    "Mixing gradient-wind balance with surface friction effects.",
+  ],
+  workedExample: [
+    {
+      problem: "For the same pressure gradient, is cyclonic gradient wind faster or slower than geostrophic wind in the Northern Hemisphere?",
+      solution: "Around a low, centripetal requirement means gradient wind is subgeostrophic (slower than pure geostrophic for the same |∇p|). Around a high it is supergeostrophic.",
+      answer: "Cyclonic gradient wind is slower than geostrophic (subgeostrophic)",
+    },
+  ],
   relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-geostrophic-qual"],
   content: true,
   buildsOn: ["meteo-geostrophic-wind"],
@@ -658,6 +809,19 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Two distinct jet-formation mechanisms — temperature gradient (Polar Front Jet) vs. angular momentum conservation (Subtropical Jet) — are commonly tested separately"],
+  commonMistakes: [
+    "Thinking the jet is a single fixed tube at one latitude year-round.",
+    "Confusing subtropical and polar-front jets.",
+    "Assuming jet streaks always mean surface storms directly underneath without dynamics.",
+    "Ignoring thermal-wind coupling between temperature gradients and jet strength.",
+  ],
+  workedExample: [
+    {
+      problem: "Thermal wind idea: if cold air is to the north, what is the sense of the westerly jet with height in midlatitudes?",
+      solution: "In the Northern Hemisphere, a horizontal temperature gradient with cold air poleward implies westerly wind increasing with height (thermal wind), supporting midlatitude jets.",
+      answer: "Westerly wind strengthens with height (supports jet)",
+    },
+  ],
   relatedTopics: ["meteo-gradient-wind", "meteo-global-circulation", "meteo-rossby-waves"],
   content: true,
   buildsOn: ["meteo-geostrophic-wind", "meteo-global-circulation"],
@@ -685,6 +849,12 @@ export const topics: Topic[] = [
     headers: ["Wind", "Time", "Direction"],
     rows: [["Sea breeze", "Day", "Sea → Land"], ["Land breeze", "Night", "Land → Sea"], ["Valley breeze (anabatic)", "Day", "Upslope"], ["Mountain breeze (katabatic)", "Night", "Downslope"]]
   },
+  commonMistakes: [
+    "Treating land–sea breeze as a synoptic-scale monsoon.",
+    "Reversing day/night breeze directions.",
+    "Ignoring topography (anabatic/katabatic) vs pure land–sea contrast.",
+    "Assuming local winds ignore larger-scale pressure patterns entirely.",
+  ],
   relatedTopics: ["meteo-monsoon-system", "meteo-coriolis-effect"],
   content: true,
   buildsOn: ["meteo-forces-governing-wind", "meteo-heat-transfer"],
@@ -708,6 +878,12 @@ export const topics: Topic[] = [
     { heading: "Why the summer monsoon self-reinforces", body: "As moist air converges and rises, condensation releases latent heat, which strengthens the low-pressure system further, drawing in even more moisture — a positive feedback loop that intensifies the wet summer monsoon." }
   ],
   examPoints: ["Winter monsoon = dry, driven by the Siberian High; Summer monsoon = wet, driven by the Monsoon Low — do not swap these"],
+  commonMistakes: [
+    "Thinking monsoon is only rain — it is a seasonal wind reversal with wet/dry impacts.",
+    "Crediting only land–sea heating and ignoring orography and ocean conditions.",
+    "Assuming the South Asian monsoon is identical every year.",
+    "Mixing onset date myths with rainfall totals as the only metric.",
+  ],
   relatedTopics: ["meteo-local-seasonal-winds", "meteo-indian-ocean-monsoon", "meteo-enso-basics"],
   content: true,
   buildsOn: ["meteo-local-seasonal-winds", "meteo-global-circulation"],
@@ -736,6 +912,12 @@ export const topics: Topic[] = [
     headers: ["Cell", "Latitude band", "Surface wind produced"],
     rows: [["Hadley", "0°–30°", "Trade winds"], ["Ferrel", "30°–60°", "Westerlies"], ["Polar", "60°–pole", "Polar easterlies"]]
   },
+  commonMistakes: [
+    "Drawing one single Hadley cell from equator to pole (obsolete single-cell picture).",
+    "Confusing trade winds, westerlies, and polar easterlies belts.",
+    "Thinking the ITCZ is fixed on the geographic equator year-round.",
+    "Ignoring seasonal migration of cells and jet features.",
+  ],
   relatedTopics: ["meteo-jet-stream", "meteo-global-precip-patterns", "meteo-rossby-waves"],
   content: true,
   buildsOn: ["meteo-forces-governing-wind", "meteo-coriolis-effect", "meteo-scales-of-motion"],
@@ -771,6 +953,12 @@ export const topics: Topic[] = [
     "Number of waves around the hemisphere is typically 3–6; higher wave numbers = shorter, faster-moving waves",
     "Blocking occurs when a high-amplitude ridge becomes quasi-stationary"
   ],
+  commonMistakes: [
+    "Thinking Rossby waves are ocean-only phenomena.",
+    "Confusing wavelength with phase-speed behaviour.",
+    "Ignoring their role in heat transport and blocking patterns.",
+    "Mixing Rossby waves with ordinary gravity waves.",
+  ],
   relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development", "meteo-isobar-analysis"],
   content: true,
   buildsOn: ["meteo-global-circulation", "meteo-jet-stream"],
@@ -801,6 +989,12 @@ export const topics: Topic[] = [
     "500 hPa troughs steer surface lows; 500 hPa ridges steer surface highs",
     "Cold air is associated with lower heights (troughs); warm air with higher heights (ridges)",
     "Jet stream is best analysed on 300 or 250 hPa charts"
+  ],
+  commonMistakes: [
+    "Reading constant-pressure charts as if they were constant-height maps without care.",
+    "Mixing geopotential height gradients with surface isobars one-to-one.",
+    "Ignoring that troughs/ridges aloft steer surface systems.",
+    "Assuming upper-air data are less important than surface maps for forecasting.",
   ],
   relatedTopics: ["meteo-rossby-waves", "meteo-jet-stream", "meteo-pressure-conversion", "meteo-cyclones-structure", "meteo-radiosondes", "meteo-hydrostatic-equation"],
   content: true,
@@ -836,6 +1030,19 @@ export const topics: Topic[] = [
     ]
   },
   examPoints: ["Warming air (with constant moisture) decreases RH; cooling increases RH — even though actual water vapour content doesn't change"],
+  commonMistakes: [
+    "Confusing relative humidity with absolute/specific humidity.",
+    "Thinking 100% RH always means heavy rain — it means saturation, not precipitation amount.",
+    "Mixing dew point with wet-bulb without knowing which is which.",
+    "Assuming RH alone measures moisture content independent of temperature.",
+  ],
+  workedExample: [
+    {
+      problem: "Air at 30 °C has vapor pressure e = 21 hPa while saturation vapor pressure e_s ≈ 42 hPa. What is relative humidity?",
+      solution: "RH = (e/e_s) × 100% = (21/42) × 100% = 50%.",
+      answer: "50%",
+    },
+  ],
   relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types"],
   content: true,
   buildsOn: ["meteo-gas-law", "phy-thermodynamics-laws", "math-1-7"],
@@ -859,6 +1066,12 @@ export const topics: Topic[] = [
     { heading: "From lifting to cloud base", body: "As an unsaturated parcel rises, decreasing pressure causes it to expand and cool at the DALR. Once its temperature falls to the dew point, saturation occurs — this altitude is the LCL, which is physically the flat base seen on cumulus clouds." }
   ],
   examPoints: ["The LCL is the physical explanation for why cumulus clouds often show a flat base at a consistent altitude"],
+  commonMistakes: [
+    "Thinking clouds form only by nocturnal radiation cooling.",
+    "Ignoring lifting mechanisms (orographic, frontal, convergent, convective).",
+    "Confusing dry and moist adiabatic behaviour once condensation starts.",
+    "Assuming every saturated parcel immediately rains.",
+  ],
   relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-rates", "meteo-thermodynamic-diagrams"],
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "phy-thermodynamics-laws"],
@@ -882,6 +1095,12 @@ export const topics: Topic[] = [
     { heading: "Distinguishing the mechanisms", body: "Radiation and upslope fog form via cooling to the dew point (from the surface or via adiabatic ascent respectively), while advection fog forms by moving warm air over a cold surface. Evaporation fog is the odd one out — it forms by adding moisture rather than cooling." }
   ],
   examPoints: ["Steam fog and frontal fog are both subtypes of evaporation/mixing fog — a detail often missed"],
+  commonMistakes: [
+    "Calling all fog radiation fog.",
+    "Mixing advection fog with steam fog or frontal fog.",
+    "Thinking fog is unrelated to surface-based saturation.",
+    "Ignoring wind and moisture-source differences among types.",
+  ],
   relatedTopics: ["meteo-moisture-metrics"],
   content: true,
   buildsOn: ["meteo-adiabatic-cloud-formation", "meteo-inversion-types"],
@@ -908,6 +1127,12 @@ export const topics: Topic[] = [
     { heading: "Vertical Development", body: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain." }
   ],
   examPoints: ["Nimbostratus and Cumulonimbus are the two genera that reliably produce continuous/heavy precipitation; the anvil shape is diagnostic of Cumulonimbus specifically"],
+  commonMistakes: [
+    "Using only colour to classify clouds — height and form matter.",
+    "Confusing nimbostratus with cumulonimbus.",
+    "Thinking all cumulus produce severe weather.",
+    "Mixing high cirrus (ice) with low stratus (usually liquid).",
+  ],
   relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types", "meteo-precipitation-processes", "meteo-thunderstorms"],
   content: true,
   buildsOn: ["meteo-adiabatic-cloud-formation"],
@@ -931,6 +1156,12 @@ export const topics: Topic[] = [
     { heading: "Why CCN matter", body: "Without soluble condensation nuclei, the curvature effect would prevent tiny droplets from surviving except at unrealistically high supersaturation. CCN allow stable droplet growth at realistic, sub-100% relative humidity, making precipitation possible at all." }
   ],
   examPoints: ["Curvature effect = barrier to growth; Solute effect = catalyst for growth — these two effects are opposites and often confused"],
+  commonMistakes: [
+    "Thinking cloud droplets automatically fall as rain — most are too small.",
+    "Ignoring collision–coalescence vs ice-phase (Bergeron) pathways.",
+    "Assuming pure cloud water always freezes at 0 °C (supercooling is common).",
+    "Mixing condensation nuclei with ice nuclei roles.",
+  ],
   relatedTopics: ["meteo-precipitation-processes"],
   content: true,
   buildsOn: ["meteo-cloud-classification", "phy-states-of-matter"],
@@ -953,6 +1184,12 @@ export const topics: Topic[] = [
     { heading: "Why the Bergeron process works", body: "Because saturation vapour pressure is lower over ice than over liquid water at the same sub-freezing temperature, water vapour continuously moves from supercooled droplets to ice crystals, causing ice crystals to grow rapidly at the expense of the evaporating droplets." }
   ],
   examPoints: ["Collision-coalescence = warm clouds; Bergeron process = cold, mixed-phase clouds — matching mechanism to cloud temperature is a common exam question"],
+  commonMistakes: [
+    "Assuming one process explains all rain worldwide.",
+    "Confusing warm-cloud and cold-cloud mechanisms.",
+    "Thinking intensity equals process type.",
+    "Ignoring orography and convection as enhancers.",
+  ],
   relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-cloud-classification"],
   content: true,
   buildsOn: ["meteo-droplet-microphysics"],
@@ -977,6 +1214,12 @@ export const topics: Topic[] = [
     { heading: "Sleet vs. freezing rain", body: "Both involve supercooled or refreezing water, but sleet freezes into solid ice pellets before reaching the ground (implying a deep cold layer near the surface), while freezing rain remains liquid until the instant of surface contact (implying a thin or absent cold layer near the surface)." }
   ],
   examPoints: ["Hail requires strong updrafts and multiple freeze cycles inside cumulonimbus clouds specifically — not any convective cloud"],
+  commonMistakes: [
+    "Mixing sleet, freezing rain, and snow formation temperature profiles.",
+    "Thinking hail forms in ordinary stratiform rain.",
+    "Assuming rain always starts as liquid at the cloud.",
+    "Ignoring temperature structure between cloud and ground.",
+  ],
   relatedTopics: ["meteo-precipitation-processes", "meteo-cloud-classification"],
   content: true,
   buildsOn: ["meteo-precipitation-processes"],
@@ -999,6 +1242,12 @@ export const topics: Topic[] = [
     { heading: "Why the leeward side is drier than the windward side started", body: "The windward air loses moisture as precipitation before crossing the peak. On the way down, it warms via compression, which lowers RH further — combining moisture loss with warming to produce a markedly dry, hot leeward zone." }
   ],
   examPoints: ["The asymmetry (SALR on the way up past the LCL, DALR the entire way down) is why leeward air ends up both drier and often warmer than equivalent windward air at the same elevation"],
+  commonMistakes: [
+    "Putting the rain shadow on the windward slope.",
+    "Thinking orographic lift cannot produce heavy rain.",
+    "Ignoring rain-shadow aridity downstream of major ranges.",
+    "Assuming all mountains produce the same pattern regardless of wind direction.",
+  ],
   relatedTopics: ["meteo-global-precip-patterns", "meteo-lapse-rates", "meteo-global-circulation"],
   content: true,
   buildsOn: ["meteo-precipitation-processes", "meteo-adiabatic-cloud-formation"],
@@ -1022,6 +1271,12 @@ export const topics: Topic[] = [
     { heading: "Rising air = wet, sinking air = dry", body: "Wherever the three-cell model produces rising air (equator, polar front), moisture-laden air cools and precipitates. Wherever it produces sinking air (30°, poles), compressional warming suppresses cloud formation, producing deserts regardless of latitude." }
   ],
   examPoints: ["Both the subtropics (hot) and the poles (cold) are dry belts, for the same underlying reason: sinking air — a useful pattern-based exam insight"],
+  commonMistakes: [
+    "Assuming rainfall decreases uniformly from equator to poles.",
+    "Ignoring subtropical dry belts under descending Hadley branches.",
+    "Treating ocean vs land precipitation contrasts as negligible.",
+    "Mixing annual totals with seasonality of rain.",
+  ],
   relatedTopics: ["meteo-global-circulation", "meteo-orographic-rainshadow", "meteo-monsoon-system"],
   content: true,
   buildsOn: ["meteo-orographic-rainshadow", "meteo-global-circulation"],
@@ -1052,6 +1307,12 @@ export const topics: Topic[] = [
     "LCL marks cloud base for lifted parcels; LFC marks the start of free convection",
     "Large CAPE + small CIN = high thunderstorm potential once a trigger exists",
     "An inversion appears as a layer where temperature increases with height (or decreases very slowly)"
+  ],
+  commonMistakes: [
+    "Reading Skew-T like a simple T–z graph without understanding skewed coordinates.",
+    "Confusing parcel path with environmental temperature profile.",
+    "Ignoring CAPE/CIN qualitative meaning on the diagram.",
+    "Assuming one diagram type is used worldwide exclusively.",
   ],
   relatedTopics: ["meteo-radiosondes", "meteo-lapse-calc", "meteo-humidity-calc", "meteo-static-stability", "meteo-adiabatic-cloud-formation"],
   content: true,
@@ -1084,6 +1345,12 @@ export const topics: Topic[] = [
     headers: ["Front", "Weather character"],
     rows: [["Cold front", "Sharp, brief, intense"], ["Warm front", "Gradual, widespread, milder"], ["Occluded front", "Warm sector cut off aloft"]]
   },
+  commonMistakes: [
+    "Naming air masses without source-region logic (cP, mT, etc.).",
+    "Thinking fronts have zero width and no vertical structure.",
+    "Mixing cold-front and warm-front weather sequences.",
+    "Assuming all fronts move at the same speed.",
+  ],
   relatedTopics: ["meteo-cyclones-development", "meteo-airmass-front-id"],
   content: true,
   buildsOn: ["meteo-moisture-metrics", "meteo-static-stability", "meteo-forces-governing-wind"],
@@ -1107,6 +1374,12 @@ export const topics: Topic[] = [
     { heading: "How the cyclone intensifies", body: "Sinking cold air deepens the upper-level trough while rising warm air builds the upper-level ridge, amplifying the upper-air wave. This increases upper-level divergence, which lowers surface pressure and intensifies the cyclone until the cold front overtakes the warm front and the system occludes." }
   ],
   examPoints: ["Know the five stages in exact order — a very commonly tested sequence"],
+  commonMistakes: [
+    "Thinking mid-latitude cyclones are the same as tropical cyclones.",
+    "Ignoring baroclinic instability and upper-level support.",
+    "Assuming the classical cyclone model is the only possible evolution.",
+    "Mixing cyclone intensity with hurricane categories.",
+  ],
   relatedTopics: ["meteo-cyclones-structure", "meteo-air-masses-fronts", "meteo-rossby-waves"],
   content: true,
   buildsOn: ["meteo-air-masses-fronts", "meteo-rossby-waves", "meteo-jet-stream"],
@@ -1130,6 +1403,12 @@ export const topics: Topic[] = [
     { heading: "Conveyor Belt Model — three airstreams", body: "Warm Conveyor Belt: warm, humid air rises along the warm front. Cold Conveyor Belt: cold air moves westward beneath the warm front, then rises and wraps around the low. Dry Conveyor Belt: dry stratospheric air sinks behind the cold front, producing the clear 'dry slot' visible behind the storm on satellite imagery." }
   ],
   examPoints: ["The 'dry slot' seen on satellite images behind a cyclone is produced by the Dry Conveyor Belt specifically"],
+  commonMistakes: [
+    "Ignoring vertical tilt of systems in developing stages.",
+    "Thinking conveyor belts are literal physical belts rather than airflow paradigms.",
+    "Assuming surface low and upper trough are always vertically stacked.",
+    "Mixing warm and cold conveyor roles.",
+  ],
   relatedTopics: ["meteo-cyclones-development", "meteo-jet-stream", "meteo-upper-air-charts"],
   content: true,
   buildsOn: ["meteo-cyclones-development"],
@@ -1152,6 +1431,12 @@ export const topics: Topic[] = [
     { heading: "Why wind shear determines storm type", body: "Increasing vertical wind shear separates updraft and downdraft, letting the storm sustain itself longer rather than choking on its own rain-cooled air. This progression — weak shear (ordinary cell, self-limiting), moderate shear (multicell, self-regenerating), strong shear (supercell, singular rotating and long-lived) — is the core organizing logic of this topic." }
   ],
   examPoints: ["The three-stage ordinary-cell lifecycle (Cumulus → Mature → Dissipating) is a frequently tested sequence"],
+  commonMistakes: [
+    "Thinking every thunderstorm is a supercell.",
+    "Ignoring the ingredients: moisture, instability, lift (shear for organization).",
+    "Assuming lightning only occurs with rain at the surface.",
+    "Mixing single-cell, multicell, and squall-line behaviour.",
+  ],
   relatedTopics: ["meteo-tornadoes", "meteo-inversion-types", "meteo-static-stability", "meteo-station-model"],
   content: true,
   buildsOn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-droplet-microphysics"],
@@ -1175,6 +1460,12 @@ export const topics: Topic[] = [
     { heading: "From mesocyclone to tornado", body: "As rain-cooled air from the rear-flank downdraft sinks and pulls the mesocyclone toward the surface, its diameter shrinks. Conservation of angular momentum then forces the rotation to accelerate as the radius decreases, concentrating a broad rotating column into a narrow, violent tornado." }
   ],
   examPoints: ["Know the EF scale wind-speed bands and their damage descriptions — a common direct-recall question"],
+  commonMistakes: [
+    "Thinking all funnel clouds are tornadoes on the ground.",
+    "Assuming tornadoes only form in the US.",
+    "Mixing tornado rating (EF) with storm size alone.",
+    "Ignoring that most strong tornadoes link to supercells but not exclusively.",
+  ],
   relatedTopics: ["meteo-thunderstorms", "meteo-jet-stream", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["meteo-thunderstorms"],
@@ -1202,6 +1493,12 @@ export const topics: Topic[] = [
     headers: ["Feature", "Tropical Cyclone", "Mid-Latitude Cyclone"],
     rows: [["Core", "Warm", "Cold/frontal"], ["Energy source", "Latent heat/ocean", "Baroclinic temperature contrast"], ["Strongest winds", "Near surface", "Aloft (jet stream)"]]
   },
+  commonMistakes: [
+    "Using hurricane/typhoon/cyclone as different storm types rather than regional names.",
+    "Thinking formation needs no Coriolis effect near the equator.",
+    "Ignoring warm SST, moisture, and low shear as ingredients.",
+    "Assuming landfall always destroys the entire circulation equally.",
+  ],
   relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-nwp-models", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-gradient-wind", "meteo-moisture-metrics", "meteo-heat-transfer"],
@@ -1854,6 +2151,12 @@ export const topics: Topic[] = [
     { heading: "Why tree rings and ice cores are used together", body: "Tree rings offer high-resolution, annually-dated records of temperature/moisture but only span the tree's lifetime, while ice cores extend much further back in time, trapping direct samples of ancient atmospheric composition — together the two proxies cross-validate and extend the paleoclimate record." }
   ],
   examPoints: ["The Little Ice Age dates (1350–1850) and the ~1.0°C/120-year modern warming figure are specific, testable numbers"],
+  commonMistakes: [
+    "Treating proxy data as direct thermometer readings without uncertainty.",
+    "Using one proxy to rewrite all of climate history.",
+    "Ignoring resolution differences (tree rings vs deep-sea cores).",
+    "Mixing weather anecdotes with paleoclimate evidence.",
+  ],
   relatedTopics: ["meteo-milankovitch-cycles", "meteo-solar-volcanic-forcing"],
   content: true,
   buildsOn: ["earth-c2", "earth-c3", "meteo-weather-vs-climate"],
@@ -1876,6 +2179,12 @@ export const topics: Topic[] = [
     { heading: "Why lower tilt favors ice ages", body: "A minimum axial tilt reduces seasonal contrast at high latitudes, producing cooler summers. Cooler summers fail to fully melt the previous winter's snow accumulation, allowing snow/ice to build up year over year — favoring glacier growth and potential ice-age onset." }
   ],
   examPoints: ["Match each cycle to its exact period: Eccentricity ~100,000 yr, Obliquity ~41,000 yr, Precession ~23,000 yr"],
+  commonMistakes: [
+    "Thinking Milankovitch cycles alone explain recent decade-scale warming.",
+    "Mixing eccentricity, obliquity, and precession effects.",
+    "Assuming insolation changes are uniform in every season and latitude.",
+    "Ignoring that cycles pace ice ages together with feedbacks.",
+  ],
   relatedTopics: ["meteo-past-climate-reconstruction", "meteo-climate-feedbacks"],
   content: true,
   buildsOn: ["meteo-past-climate-reconstruction", "earth-a1"],
@@ -1898,6 +2207,12 @@ export const topics: Topic[] = [
     { heading: "Positive vs. negative feedback", body: "Positive feedbacks amplify the original temperature change (as with water vapour and snow-albedo), while negative feedbacks oppose and dampen it (as with chemical weathering) — the same warming trigger can be reinforced or counteracted depending on which feedback dominates." }
   ],
   examPoints: ["Two positive feedbacks (water vapour, snow-albedo) vs. one negative (chemical weathering) — know which is which, as this is easy to mix up under exam pressure"],
+  commonMistakes: [
+    "Confusing positive feedback (amplifies) with good and negative with bad.",
+    "Ignoring ice–albedo and water-vapor feedbacks.",
+    "Thinking feedbacks invent energy from nowhere.",
+    "Mixing forcing with feedback.",
+  ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-greenhouse-effect"],
   content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-milankovitch-cycles"],
@@ -1920,6 +2235,12 @@ export const topics: Topic[] = [
     { heading: "Forcing sign convention", body: "A positive forcing agent adds net energy to the Earth system (warming), while a negative forcing agent removes or blocks net energy (cooling) — the same framework used to compare very different sources like greenhouse gases and industrial aerosols on one scale." }
   ],
   examPoints: ["Sulfate aerosols from industrial pollution are a NEGATIVE forcing agent — a common point of confusion since pollution is often (wrongly) assumed to only warm the planet"],
+  commonMistakes: [
+    "Treating all forcings as equally certain.",
+    "Ignoring the sign of forcing (warming vs cooling).",
+    "Mixing concentration change with forcing magnitude casually.",
+    "Assuming forcing equals observed temperature change one-to-one.",
+  ],
   relatedTopics: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing"],
   content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-radiation-laws", "meteo-climate-feedbacks"],
@@ -1947,6 +2268,12 @@ export const topics: Topic[] = [
     headers: ["Pathway", "Forcing (W/m²)", "Mean temp rise"],
     rows: [["RCP2.6", "+2.6", "1.0°C"], ["RCP4.5", "+4.5", "1.8°C"], ["RCP6.0", "+6.0", "2.2°C"], ["RCP8.5", "+8.5", "3.7°C"]]
   },
+  commonMistakes: [
+    "Treating RCPs/SSPs as next-year weather forecasts.",
+    "Ignoring that pathways depend on human emissions choices.",
+    "Mixing RCP labels with exact °C outcomes without scenario context.",
+    "Assuming higher RCP means linearly higher impacts everywhere equally.",
+  ],
   relatedTopics: ["meteo-radiative-forcing"],
   content: true,
   buildsOn: ["meteo-radiative-forcing"],
@@ -1969,6 +2296,12 @@ export const topics: Topic[] = [
     { heading: "Why volcanic cooling lasts years, not weeks", body: "Sulfate aerosols form in the stratosphere, which is extremely stable and dry with minimal vertical mixing — unlike the turbulent troposphere, the stratosphere allows these reflective aerosols to persist for years before settling out, prolonging the cooling effect." }
   ],
   examPoints: ["The exact figures — Maunder Minimum dates (1645–1715) and Pinatubo's ~0.5°C cooling over two years — are specific, testable numbers"],
+  commonMistakes: [
+    "Crediting volcanoes as the main driver of recent long-term global warming.",
+    "Thinking solar variability is zero — it exists but is smaller than recent GHG forcing.",
+    "Mixing aerosol cooling from eruptions with volcanic CO2 at human timescales.",
+    "Ignoring the short lifetime of volcanic stratospheric aerosols.",
+  ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-past-climate-reconstruction"],
   content: true,
   buildsOn: ["meteo-radiative-forcing", "earth-g3", "meteo-radiation-laws"],
@@ -1994,6 +2327,12 @@ export const topics: Topic[] = [
     { heading: "Why the policy centers on adaptation, not just mitigation", body: "Because Pakistan's emissions contribution is minimal but its vulnerability (glacier-fed water systems, heat-exposed agriculture) is high, the NCCP is structured primarily around adapting to unavoidable climate impacts, while still including mitigation measures as a secondary component." }
   ],
   examPoints: ["The '<1% global emissions, highly vulnerable' framing is the key policy-justification fact tested repeatedly across this and Section I"],
+  commonMistakes: [
+    "Treating the NCCP as a substitute for physical climate science basics.",
+    "Ignoring implementation vs policy text.",
+    "Assuming one policy freezes all future adaptation needs.",
+    "Mixing provincial actions with the federal policy framework carelessly.",
+  ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-nccp-objectives"],
   content: true,
   buildsOn: ["meteo-ipcc-rcps", "meteo-pakistan-macroclimate"],
@@ -2025,6 +2364,12 @@ export const topics: Topic[] = [
     "Monsoon onset in Pakistan is typically early July; withdrawal is mid-September — a shorter window than central India (June–September)",
     "The Himalayas and Hindu Kush provide the orographic lift that converts moist monsoon flow into heavy rainfall",
     "The winter monsoon (NE winds) is the dry season for most of Pakistan; winter precipitation in the north comes from westerly disturbances, not the monsoon itself"
+  ],
+  commonMistakes: [
+    "Thinking the monsoon is only an Indian phenomenon.",
+    "Ignoring ENSO and IOD influences on variability.",
+    "Assuming onset and withdrawal dates never vary.",
+    "Mixing Arabian Sea and Bay of Bengal moisture contributions.",
   ],
   relatedTopics: ["meteo-monsoon-system", "meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-arabian-sea-cyclones-local", "meteo-enso-basics", "meteo-iod"],
   content: true,
@@ -2152,6 +2497,12 @@ export const topics: Topic[] = [
     "Highest summer temperatures: 50°C+ in Jacobabad, Sibi, Dadu (southern Indus plains)",
     "Northern mountains receive both winter (westerly) and summer (monsoon) precipitation — the only region with a dual precipitation regime"
   ],
+  commonMistakes: [
+    "Treating Pakistan as climatically uniform.",
+    "Ignoring altitude and continentality in temperature patterns.",
+    "Assuming monsoon rain falls equally in all provinces.",
+    "Mixing annual averages with seasonal extremes.",
+  ],
   relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-extreme-events"],
   content: true,
   buildsOn: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-orographic-rainshadow"],
@@ -2185,6 +2536,12 @@ export const topics: Topic[] = [
     "Severe historical droughts: 1999–2002 (Sindh, Balochistan), 2014–2015, 2018–2019",
     "2022 was a compound event: pre-monsoon heat wave + super flood in the same year, illustrating compound climate hazards",
     "Pakistan has ~3000+ glacial lakes, of which ~30+ are classified as potentially dangerous for GLOFs"
+  ],
+  commonMistakes: [
+    "Attributing every extreme solely to climate change without careful attribution.",
+    "Mixing GLOF, riverine flood, flash flood, and coastal inundation mechanisms.",
+    "Ignoring vulnerability and exposure in disaster impact.",
+    "Assuming drought and heat waves are independent of monsoon variability.",
   ],
   relatedTopics: ["meteo-temp-rainfall-distribution", "meteo-arabian-sea-cyclones-local", "meteo-pakistan-nccp", "meteo-nccp-objectives", "meteo-indian-ocean-monsoon", "meteo-enso-basics", "meteo-iod"],
   content: true,
@@ -2263,6 +2620,12 @@ export const topics: Topic[] = [
     "Heat-resistant and drought-tolerant crop varieties are the primary agricultural adaptation strategy",
     "Energy transition objective: shift toward renewables (hydropower, wind, solar) to meet Paris Agreement commitments",
     "GCISC (Global Change Impact Studies Centre) in Islamabad is Pakistan's main climate research think tank"
+  ],
+  commonMistakes: [
+    "Listing objectives without linking mitigation vs adaptation.",
+    "Assuming policy objectives equal measured outcomes automatically.",
+    "Ignoring cross-sector water–agriculture–energy links.",
+    "Treating NCCP objectives as purely meteorological rather than socio-environmental.",
   ],
   relatedTopics: ["meteo-pakistan-nccp", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-pmd-operational"],
   content: true,
