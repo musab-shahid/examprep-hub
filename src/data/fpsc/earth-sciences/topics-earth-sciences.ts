@@ -69,6 +69,12 @@ export const topics: Topic[] = [
       ["Nutation period", "~18.6 years"]
     ]
   },
+  commonMistakes: [
+    "Treating Earth as a perfect sphere — it is an oblate spheroid (equatorial bulge).",
+    "Confusing solar day (24 h) with sidereal day (~23 h 56 min).",
+    "Thinking seasons are caused by distance from the Sun rather than axial tilt.",
+    "Mixing precession (~26,000 y) with nutation (~18.6 y).",
+  ],
   relatedTopics: ["earth-a2", "earth-a3", "earth-a5"],
   content: true,
   buildsOn: ["math-2-2", "phy-units-measurement", "phy-kinematics"],
@@ -115,6 +121,12 @@ export const topics: Topic[] = [
       ["Magnetic pole drift", "Rate of change of pole position", "—", "Currently ~35–50 km/yr (peak ~55)"]
     ]
   },
+  commonMistakes: [
+    "Believing the magnetic poles coincide exactly with the geographic poles.",
+    "Thinking magnetic north is fixed forever — the field reverses over geologic time.",
+    "Confusing magnetic declination with inclination (dip).",
+    "Assuming a compass always points to geographic north.",
+  ],
   relatedTopics: ["earth-a3", "earth-h1"],
   content: true,
   buildsOn: ["earth-a1", "phy-magnetic-fields-force"],
@@ -170,6 +182,12 @@ export const topics: Topic[] = [
     solution: "S-waves arriving at 60° but not beyond 103° show the S-wave shadow zone begins around 103° — direct evidence of a liquid outer core (S-waves cannot pass through liquids). The weak P-wave at 110° is consistent with the P-wave shadow zone (~103°–140°), caused by refraction of P-waves at the core-mantle boundary (Gutenberg discontinuity). The reappearance of P-waves at 160° means some P-waves can travel through the outer core (since P-waves CAN pass through liquids), but they are refracted and arrive later.",
     answer: "A liquid outer core exists, bounded above by the Gutenberg discontinuity (~2,890 km depth)."
   },
+  commonMistakes: [
+    "Confusing crust thickness under oceans vs continents (oceanic is thinner).",
+    "Mixing Mohorovičić discontinuity (crust–mantle) with Gutenberg (mantle–core).",
+    "Thinking the outer core is solid; it is liquid (no S-wave transmission).",
+    "Assuming density decreases with depth; overall density increases inward.",
+  ],
   relatedTopics: ["earth-a4", "earth-h4"],
   content: true,
   buildsOn: ["earth-a1", "phy-wave-properties", "phy-density"],
@@ -206,6 +224,12 @@ export const topics: Topic[] = [
     "Geothermal gradient is non-linear: steeper near surface, flatter at depth (conduction vs convection)",
     "Most of Earth's present internal heat comes from radioactive decay, not primordial heat",
     "Mantle convection drives plate motion; outer-core convection drives the magnetic field — these are SEPARATE convective systems"
+  ],
+  commonMistakes: [
+    "Treating lithosphere and crust as the same — lithosphere = crust + rigid upper mantle.",
+    "Confusing asthenosphere with the whole mantle; it is the weak, ductile layer below the lithosphere.",
+    "Thinking internal heat comes only from the Sun; Earth has radioactive and primordial heat.",
+    "Assuming the lithosphere is always the same thickness everywhere.",
   ],
   relatedTopics: ["earth-a3", "earth-d1", "earth-d2"],
   content: true,
@@ -261,6 +285,12 @@ export const topics: Topic[] = [
     solution: "g = G × M / r² = (6.674 × 10⁻¹¹) × (5.97 × 10²⁴) / (6.371 × 10⁶)² = (3.984 × 10¹⁴) / (4.059 × 10¹³) ≈ 9.81 m/s².",
     answer: "g ≈ 9.81 m/s²"
   },
+  commonMistakes: [
+    "Confusing mass with weight in gravity discussions.",
+    "Thinking isostasy means the crust floats on the outer core — it is lithosphere on denser mantle.",
+    "Ignoring that gravity anomalies can signal density variations (ores, mountains roots).",
+    "Assuming g is identical at every point on Earth's surface.",
+  ],
   relatedTopics: ["earth-a3", "earth-a4", "earth-d1", "earth-k1"],
   content: true,
   buildsOn: ["earth-a3", "phy-gravity-weight-friction", "phy-universal-gravitation", "phy-archimedes-principle"],
@@ -316,6 +346,12 @@ export const topics: Topic[] = [
       ["Crystal form", "External geometric shape (7 systems)", "Pyrite: cubic"]
     ]
   },
+  commonMistakes: [
+    "Using colour alone to identify minerals — many minerals share colours; use hardness, cleavage, streak.",
+    "Confusing cleavage (break along planes) with fracture (irregular break).",
+    "Thinking hardness is how easily a mineral scratches you — Mohs scale is relative scratch resistance.",
+    "Mixing crystal form with cleavage faces.",
+  ],
   relatedTopics: ["earth-b2", "earth-b3"],
   content: true,
   buildsOn: ["phy-states-of-matter", "phy-density"],
@@ -368,6 +404,12 @@ export const topics: Topic[] = [
       ["Gypsum", "CaSO₄·2H₂O", "2", "1 perfect plane", "Very soft, can be scratched by fingernail"]
     ]
   },
+  commonMistakes: [
+    "Assuming all common minerals are silicates — important non-silicates exist (carbonates, oxides, etc.).",
+    "Confusing quartz (SiO₂) with calcite (CaCO₃) — acid test distinguishes them.",
+    "Thinking feldspars are rare; they are among the most abundant rock-forming minerals.",
+    "Mixing mica cleavage (perfect sheets) with amphibole/pyroxene cleavage angles.",
+  ],
   relatedTopics: ["earth-b1", "earth-b3"],
   content: true,
   buildsOn: ["earth-b1"],
@@ -414,6 +456,12 @@ export const topics: Topic[] = [
       ["Ultramafic", "<45%", "Very dark", "Peridotite", "Komatiite (rare)", "Very hot, fluid"]
     ]
   },
+  commonMistakes: [
+    "Confusing intrusive (plutonic, coarse) with extrusive (volcanic, fine/glassy) textures.",
+    "Thinking granite is extrusive; it is intrusive felsic rock.",
+    "Assuming composition (felsic/mafic) is the same as texture (phaneritic/aphanitic).",
+    "Mixing basalt (mafic, extrusive) with gabbro (mafic, intrusive).",
+  ],
   relatedTopics: ["earth-b1", "earth-b4", "earth-b5"],
   content: true,
   buildsOn: ["earth-b2", "earth-a4"],
@@ -464,6 +512,12 @@ export const topics: Topic[] = [
       ["Organic", "Coal", "Compressed plant material"]
     ]
   },
+  commonMistakes: [
+    "Thinking all sedimentary rocks are clastic — chemical and biochemical sediments also form rocks.",
+    "Confusing sorting with rounding of grains.",
+    "Assuming limestone is always biological; chemical limestones exist too.",
+    "Mixing bedding (layering) with cleavage in deformed rocks.",
+  ],
   relatedTopics: ["earth-b3", "earth-b5", "earth-b6"],
   content: true,
   buildsOn: ["earth-b2", "earth-e1"],
@@ -514,6 +568,12 @@ export const topics: Topic[] = [
       ["Hornfels", "Non-foliated", "Any (contact)", "Variable"]
     ]
   },
+  commonMistakes: [
+    "Thinking metamorphism always means melting — metamorphism is solid-state change; melting produces magma (igneous).",
+    "Confusing foliation with sedimentary bedding.",
+    "Assuming contact metamorphism affects huge regional belts; it is localized near intrusions.",
+    "Mixing slate → phyllite → schist → gneiss grade sequence order.",
+  ],
   relatedTopics: ["earth-b3", "earth-b4", "earth-b6", "earth-f1"],
   content: true,
   buildsOn: ["earth-b2", "earth-a4", "earth-f1"],
@@ -555,6 +615,12 @@ export const topics: Topic[] = [
     solution: "Step 1 — The basalt (igneous) is carried into the subduction zone on the oceanic plate. Step 2 — Under high pressure and water released from the slab, the basalt metamorphoses into greenschist or amphibolite (metamorphic). Step 3 — As the slab descends further, parts of it partially melt. The melt, being more silica-rich than basalt, rises into the overlying continental crust. Step 4 — In the continental crust, the melt cools slowly to form granite (igneous, felsic). The original basalt has now become a granite via metamorphism and remelting.",
     answer: "Basalt (igneous) → amphibolite (metamorphic) → partial melt → granite (igneous)"
   },
+  commonMistakes: [
+    "Treating the rock cycle as strictly one-way; any rock type can transform into any other given the right processes.",
+    "Forgetting that uplift and erosion expose deep rocks at the surface.",
+    "Thinking sedimentary rocks cannot become magma without intermediate steps named — melting can affect any rock.",
+    "Ignoring time and tectonics as drivers of the cycle.",
+  ],
   relatedTopics: ["earth-b3", "earth-b4", "earth-b5", "earth-d1"],
   content: true,
   buildsOn: ["earth-b3", "earth-b4", "earth-b5"],
@@ -607,6 +673,12 @@ export const topics: Topic[] = [
       ["Faunal succession", "Fossils succeed one another in a definite order", "Biostratigraphy and correlation"]
     ]
   },
+  commonMistakes: [
+    "Using superposition without checking for overturned beds.",
+    "Confusing inclusions with cross-cutting relationships.",
+    "Thinking unconformities are always easy to see; they mark missing time, not always dramatic gaps in the field.",
+    "Assuming relative dating gives numerical ages — it only orders events.",
+  ],
   relatedTopics: ["earth-c2", "earth-c3"],
   content: true,
   buildsOn: ["earth-b4"],
@@ -652,6 +724,12 @@ export const topics: Topic[] = [
     solution: "25% remaining = 2 half-lives elapsed (100% → 50% → 25%). Age = 2 × 5,730 = 11,460 years.",
     answer: "11,460 years"
   },
+  commonMistakes: [
+    "Thinking half-life means the sample is gone after two half-lives.",
+    "Using a parent–daughter system that was open to contamination without care.",
+    "Confusing carbon-14 range (organic, thousands of years) with U–Pb for ancient rocks.",
+    "Assuming radiometric dates replace relative dating; they complement it.",
+  ],
   relatedTopics: ["earth-c1", "earth-c3"],
   content: true,
   buildsOn: ["earth-c1", "phy-radioactivity-nuclear", "phy-half-life-decay", "math-3-1", "math-3-3"],
@@ -709,6 +787,12 @@ export const topics: Topic[] = [
       ["Paleozoic", "541–252 Ma", "Cambrian, Ordovician, Silurian, Devonian, Carboniferous, Permian", "Cambrian explosion, fish, land plants, amphibians, reptiles; ends with the largest mass extinction"]
     ]
   },
+  commonMistakes: [
+    "Mixing eras, periods, and epochs hierarchy.",
+    "Thinking the fossil record is complete and continuous everywhere.",
+    "Confusing index fossils (short range, widespread) with any fossil.",
+    "Assuming humans appear at the start of the Phanerozoic.",
+  ],
   relatedTopics: ["earth-c1", "earth-c2"],
   content: true,
   buildsOn: ["earth-c1", "earth-c2"],
@@ -753,6 +837,12 @@ export const topics: Topic[] = [
     "Mesosaurus is the classic fossil used to argue for the South America–Africa connection — it was a freshwater reptile unable to cross oceans",
     "Glossopteris flora is found across all southern Gondwana continents — a key biostratigraphic argument",
     "Pangaea began breaking apart ~200 Ma (Mesozoic); India collided with Asia ~50 Ma to form the Himalayas"
+  ],
+  commonMistakes: [
+    "Crediting Wegener with plate tectonics fully; he proposed continental drift, not the full modern mechanism.",
+    "Thinking continents plough through ocean crust like ships — rejected idea; plates include lithosphere.",
+    "Ignoring fit of coastlines vs continental shelves (better fit at shelves).",
+    "Dismissing all of Wegener's evidence because his driving mechanism was wrong.",
   ],
   relatedTopics: ["earth-d2", "earth-d3", "earth-i1"],
   content: true,
@@ -800,6 +890,12 @@ export const topics: Topic[] = [
       ["Mantle convection drag", "Circulating mantle exerts viscous drag on the base of the plate", "Weakest; long-term, distributed"]
     ]
   },
+  commonMistakes: [
+    "Saying 'crustal plates' when plates are lithospheric (crust + rigid mantle).",
+    "Thinking plates only move at subduction zones; ridges, transforms, and slab pull/ridge push all matter.",
+    "Assuming plate interiors never deform; deformation concentrates at boundaries but interiors can warp.",
+    "Confusing plate tectonics with continental drift only.",
+  ],
   relatedTopics: ["earth-d1", "earth-d3", "earth-d4"],
   content: true,
   buildsOn: ["earth-d1", "earth-a4", "earth-a3"],
@@ -845,6 +941,12 @@ export const topics: Topic[] = [
       ["Transform", "Slide past", "Shallow only", "Rare/none", "San Andreas, Alpine Fault"]
     ]
   },
+  commonMistakes: [
+    "Mixing divergent, convergent, and transform boundary features.",
+    "Thinking all convergent boundaries produce volcanoes the same way (ocean–ocean vs ocean–continent vs continent–continent differ).",
+    "Assuming transform boundaries create/destroy large amounts of crust; they mainly slide.",
+    "Confusing mid-ocean ridges (divergent) with trenches (convergent).",
+  ],
   relatedTopics: ["earth-d1", "earth-d2", "earth-d4", "earth-h1"],
   content: true,
   buildsOn: ["earth-d2"],
@@ -883,6 +985,12 @@ export const topics: Topic[] = [
     "The Wilson cycle describes the repeated opening and closing of ocean basins over hundreds of millions of years",
     "Hawaiian–Emperor bend at ~50 Ma records a major change in Pacific Plate motion",
     "Sea level is controlled by mid-ocean ridge volume (tectonic) and continental ice volume (climatic)"
+  ],
+  commonMistakes: [
+    "Thinking hotspots always sit on plate boundaries — many are intraplate (e.g. Hawaii).",
+    "Assuming hotspot tracks date only volcanism, not plate motion direction.",
+    "Mixing mantle plumes with mid-ocean ridge upwelling as identical processes.",
+    "Ignoring collision orogeny as a major consequence of convergence.",
   ],
   relatedTopics: ["earth-d1", "earth-d2", "earth-d3", "earth-i1"],
   content: true,
@@ -952,6 +1060,12 @@ export const topics: Topic[] = [
       ["Root wedging", "Roots pry rock apart", "Vegetated areas", "Cracked pavements, exposed bedrock"]
     ]
   },
+  commonMistakes: [
+    "Confusing weathering (in-place breakdown) with erosion (transport of material).",
+    "Thinking chemical weathering needs a tropical climate only — it occurs widely with water and acids.",
+    "Ignoring biological weathering (roots, organic acids, burrowing).",
+    "Assuming physical and chemical weathering never work together.",
+  ],
   relatedTopics: ["earth-e2", "earth-e3", "earth-e4", "earth-e5"],
   content: true,
   buildsOn: ["earth-b2", "earth-b6", "phy-temperature-heat"],
@@ -1001,6 +1115,12 @@ export const topics: Topic[] = [
       ["Lahar", "Very fast", "Volcanic ash + water", "Volcanic eruption + ice/snow/rain"]
     ]
   },
+  commonMistakes: [
+    "Using erosion and mass wasting interchangeably.",
+    "Thinking mass wasting requires running water; gravity-driven slope failure can occur with little surface flow.",
+    "Ignoring slope angle, water content, and material strength as controls.",
+    "Assuming all landslides are rapid; creep is slow mass wasting.",
+  ],
   relatedTopics: ["earth-e1", "earth-e3", "earth-e4", "earth-e5"],
   content: true,
   buildsOn: ["earth-e1", "phy-gravity-weight-friction", "earth-a5"],
@@ -1049,6 +1169,12 @@ export const topics: Topic[] = [
       ["Lower (old age)", "Gentle", "Deposition (lateral)", "Wide floodplains, oxbow lakes, levees, deltas"]
     ]
   },
+  commonMistakes: [
+    "Confusing erosion and depositional fluvial landforms (V-valleys vs floodplains/deltas).",
+    "Thinking rivers only erode downstream; they also deposit when competence drops.",
+    "Mixing youth/mature/old stage models as strict laws rather than useful generalizations.",
+    "Assuming meanders only form in soft rock without flow dynamics.",
+  ],
   relatedTopics: ["earth-e1", "earth-e2", "earth-e4", "earth-e5"],
   content: true,
   buildsOn: ["earth-e2", "earth-j1"],
@@ -1109,6 +1235,12 @@ export const topics: Topic[] = [
       ["Pediment", "Desert (erosional)", "Bedrock surface at mountain front, cut by water"]
     ]
   },
+  commonMistakes: [
+    "Confusing glacial erosion (cirques, U-valleys) with deposition (moraines, till).",
+    "Thinking desert landforms are only dunes — deflation, ventifacts, and playas matter too.",
+    "Mixing alpine and continental glaciation scales.",
+    "Assuming wind is the dominant agent everywhere in deserts; water often does major work in rare floods.",
+  ],
   relatedTopics: ["earth-e1", "earth-e2", "earth-e3", "earth-e5"],
   content: true,
   buildsOn: ["earth-e2"],
@@ -1172,6 +1304,12 @@ export const topics: Topic[] = [
       ["Tower karst", "Karst", "Limestone hills left after long-term dissolution of surrounding rock"]
     ]
   },
+  commonMistakes: [
+    "Confusing emergent and submergent coastlines.",
+    "Thinking karst needs any rock — it typically needs soluble rocks like limestone.",
+    "Mixing wave erosion features (cliffs, stacks) with depositional beaches and spits.",
+    "Ignoring sea-level change as a control on coastal morphology.",
+  ],
   relatedTopics: ["earth-e1", "earth-e2", "earth-e3", "earth-e4"],
   content: true,
   buildsOn: ["earth-e2"],
@@ -1233,6 +1371,12 @@ export const topics: Topic[] = [
       ["Fluid content", "High (water)", "Low (dry)"]
     ]
   },
+  commonMistakes: [
+    "Confusing stress (force/area) with strain (deformation response).",
+    "Thinking rocks only break (brittle) — they also fold ductilely at depth/temperature.",
+    "Mixing elastic, ductile, and brittle behaviour regimes.",
+    "Assuming all deformation is permanent; elastic strain can recover.",
+  ],
   relatedTopics: ["earth-f2", "earth-f3", "earth-f4"],
   content: true,
   buildsOn: ["phy-newtons-laws", "phy-work-energy", "earth-a4"],
@@ -1288,6 +1432,12 @@ export const topics: Topic[] = [
       ["Basin", "Doubly plunging syncline", "Youngest"]
     ]
   },
+  commonMistakes: [
+    "Confusing anticline (oldest rocks in core, arches up) with syncline (youngest in core).",
+    "Thinking fold axis and axial plane are the same thing.",
+    "Ignoring plunging folds when interpreting map patterns.",
+    "Assuming folds only form in soft sediments; rocks fold under appropriate conditions.",
+  ],
   relatedTopics: ["earth-f1", "earth-f3", "earth-f4"],
   content: true,
   buildsOn: ["earth-f1"],
@@ -1344,6 +1494,12 @@ export const topics: Topic[] = [
       ["Strike-slip (left-lateral)", "Horizontal, opposite side left", "Shear", "Transform", "North Anatolian Fault, Dead Sea Fault"]
     ]
   },
+  commonMistakes: [
+    "Mixing normal (extension) and reverse/thrust (compression) fault senses.",
+    "Confusing strike-slip with dip-slip motion.",
+    "Thinking thrust faults always have steep dips — many are low-angle.",
+    "Assuming the hanging wall is always upthrown.",
+  ],
   relatedTopics: ["earth-f1", "earth-f2", "earth-f4", "earth-h1"],
   content: true,
   buildsOn: ["earth-f1", "earth-d3"],
@@ -1385,6 +1541,12 @@ export const topics: Topic[] = [
     "Foreland basin: receives sediment eroded from a rising mountain belt",
     "Isostatic rebound: as a mountain belt erodes, it rises to maintain equilibrium with the asthenosphere",
     "Accretionary wedge: sediments scraped off a subducting plate and added to the overriding plate"
+  ],
+  commonMistakes: [
+    "Treating joints as faults with large offset — joints are fractures with little displacement.",
+    "Confusing orogeny with any mountain scenery including purely erosional relief.",
+    "Ignoring that mountain belts record long histories of deformation and magmatism.",
+    "Mixing joint sets with cleavage in metamorphic rocks.",
   ],
   relatedTopics: ["earth-f1", "earth-f2", "earth-f3", "earth-d3", "earth-d4"],
   content: true,
@@ -1447,6 +1609,12 @@ export const topics: Topic[] = [
       ["Ultramafic", "<45%", "1,200–1,600", "Very low", "Very low", "Very effusive", "Komatiite (rare)"]
     ]
   },
+  commonMistakes: [
+    "Using magma and lava interchangeably — lava is magma erupted at the surface.",
+    "Thinking viscosity depends only on temperature, not composition (silica content).",
+    "Assuming all magma is the same temperature and gas content.",
+    "Mixing felsic (high silica, viscous) with mafic (lower silica, more fluid) behaviour.",
+  ],
   relatedTopics: ["earth-g2", "earth-g3", "earth-b3"],
   content: true,
   buildsOn: ["earth-a4", "earth-b3", "earth-d2", "phy-temperature-heat", "phy-density"],
@@ -1505,6 +1673,12 @@ export const topics: Topic[] = [
       ["Caldera", "Large collapse depression", "—", "Felsic (often)", "Catastrophic", "Yellowstone, Crater Lake"]
     ]
   },
+  commonMistakes: [
+    "Matching volcano shape wrongly: shield (fluid mafic) vs stratovolcano (viscous, explosive).",
+    "Thinking all eruptions are explosive.",
+    "Confusing caldera collapse with a simple crater.",
+    "Ignoring tectonic setting (hotspot, arc, rift) as a control on style.",
+  ],
   relatedTopics: ["earth-g1", "earth-g3", "earth-b3"],
   content: true,
   buildsOn: ["earth-g1", "earth-d3"],
@@ -1570,6 +1744,12 @@ export const topics: Topic[] = [
       ["Volcanic gas (CO₂)", "Greenhouse gas over geological time", "Global climate (long term)"]
     ]
   },
+  commonMistakes: [
+    "Focusing only on lava as a hazard — ash, pyroclastic flows, lahars, and gases are often deadlier.",
+    "Thinking volcanic soils and geothermal energy mean volcanoes are only beneficial.",
+    "Confusing pyroclastic flows with ordinary ash fall.",
+    "Ignoring secondary hazards (lahars long after eruption).",
+  ],
   relatedTopics: ["earth-g1", "earth-g2", "earth-e2"],
   content: true,
   buildsOn: ["earth-g2"],
@@ -1628,6 +1808,12 @@ export const topics: Topic[] = [
       ["Explosion", "Nuclear or chemical blast", "Nuclear tests (NTS, DPRK)"]
     ]
   },
+  commonMistakes: [
+    "Confusing focus/hypocenter (source in Earth) with epicenter (surface above focus).",
+    "Thinking all earthquakes occur only at plate boundaries — intraplate events exist.",
+    "Mixing elastic rebound with volcanic tremor causes without context.",
+    "Assuming larger faults always mean larger quakes without slip and area.",
+  ],
   relatedTopics: ["earth-h2", "earth-h3", "earth-h4", "earth-i1"],
   content: true,
   buildsOn: ["earth-d3", "earth-f3", "phy-newtons-laws", "phy-work-energy"],
@@ -1682,6 +1868,12 @@ export const topics: Topic[] = [
       ["Rayleigh wave", "Surface", "Slower than S", "Surface", "Rolling (elliptical)", "Last"]
     ]
   },
+  commonMistakes: [
+    "Confusing P-waves (fastest, travel solids and liquids) with S-waves (shear, not through outer core liquid).",
+    "Thinking surface waves are always the first to arrive — body waves arrive first.",
+    "Mixing Love and Rayleigh surface wave motion.",
+    "Assuming amplitude alone equals magnitude without distance/instrument factors.",
+  ],
   relatedTopics: ["earth-h1", "earth-h3", "earth-a3"],
   content: true,
   buildsOn: ["earth-h1", "phy-wave-properties", "phy-wave-types", "earth-a3"],
@@ -1730,6 +1922,12 @@ export const topics: Topic[] = [
     solution: "The single point of intersection of three circles is the epicenter of the earthquake. The fact that the circles intersect at exactly one point indicates consistent data and a reliable location. If the circles did not intersect precisely (they would form a small triangle instead), the average point of nearest approach would be the best estimate, with some uncertainty.",
     answer: "The earthquake's epicenter is located at the single point where all three circles intersect."
   },
+  commonMistakes: [
+    "Locating an epicenter with a single station — need multiple stations (triangulation).",
+    "Confusing seismograph (instrument) with seismogram (record).",
+    "Ignoring that S–P time gives distance, not direction, from one station.",
+    "Assuming deeper focus always means weaker surface shaking for the same magnitude.",
+  ],
   relatedTopics: ["earth-h1", "earth-h2", "earth-h4"],
   content: true,
   buildsOn: ["earth-h2", "math-5-2", "math-5-3", "ra-data-types"],
@@ -1781,6 +1979,12 @@ export const topics: Topic[] = [
       ["Modified Mercalli (MMI)", "Observed effects and damage (I–XII)", "XII = total destruction", "Hazard maps, building codes"]
     ]
   },
+  commonMistakes: [
+    "Confusing magnitude (energy/size of source) with intensity (shaking/damage at a place).",
+    "Thinking Richter is the only modern scale — moment magnitude (Mw) is widely used.",
+    "Assuming intensity is the same everywhere for one earthquake.",
+    "Mixing logarithmic magnitude steps (≈32× energy per unit magnitude) with linear intuition.",
+  ],
   relatedTopics: ["earth-h1", "earth-h2", "earth-h5", "earth-h6"],
   content: true,
   buildsOn: ["earth-h3", "math-3-3"],
@@ -1840,6 +2044,12 @@ export const topics: Topic[] = [
       ["Intraplate", "Rare, often large", "Unknown; possibly reactivated old faults", "New Madrid 1811–12 (M7+), Bhuj 2001 (M7.7)"]
     ]
   },
+  commonMistakes: [
+    "Thinking tsunamis are tidal waves driven by tides.",
+    "Assuming all undersea quakes make large tsunamis — need significant seafloor displacement.",
+    "Ignoring that tsunami speed is high in deep water and slowing/heightening near shore.",
+    "Believing earthquake distribution is random rather than plate-boundary concentrated.",
+  ],
   relatedTopics: ["earth-h1", "earth-h2", "earth-h4", "earth-h6", "earth-i1"],
   content: true,
   buildsOn: ["earth-h1", "earth-d3", "earth-h4"],
@@ -1896,6 +2106,12 @@ export const topics: Topic[] = [
       ["Fire", "Broken gas lines, electrical shorts", "Automatic gas shutoff valves, fire-resistant design"]
     ]
   },
+  commonMistakes: [
+    "Treating hazard and risk as synonyms — risk includes exposure and vulnerability.",
+    "Thinking prediction of exact time/place is routine; forecasting probabilities and preparedness matter more.",
+    "Ignoring building practice and soft soils as major damage factors.",
+    "Assuming aftershocks are harmless because the mainshock already happened.",
+  ],
   relatedTopics: ["earth-h1", "earth-h4", "earth-h5", "earth-i1"],
   content: true,
   buildsOn: ["earth-h4", "earth-h5"],
@@ -1955,6 +2171,12 @@ export const topics: Topic[] = [
       ["Indus Basin", "Eastern Pakistan", ">5 km alluvial fill", "Foreland basin to the Himalaya-Karakoram"]
     ]
   },
+  commonMistakes: [
+    "Treating Pakistan's geology as a single simple block — it records collision, sutures, and varied terranes.",
+    "Ignoring the role of the Indian–Eurasian collision in Himalayan tectonics.",
+    "Confusing local basin names with plate-scale features.",
+    "Assuming the Makran and Himalayan margins behave identically.",
+  ],
   relatedTopics: ["earth-i2", "earth-i3", "earth-i4", "earth-d1", "earth-d2"],
   // Pakistan Exam Focus summary (high-yield for FPSC)
   pakistanExamFocus: [
@@ -2019,6 +2241,12 @@ export const topics: Topic[] = [
       ["2013", "Awaran (Balochistan)", "M7.7", "~825", "Chaman Fault system; widespread damage"]
     ]
   },
+  commonMistakes: [
+    "Thinking seismic zonation guarantees safety without building codes and site conditions.",
+    "Mixing historical large events without noting different source regions (e.g. 1935 Quetta, 2005 Kashmir, 2013 Awaran).",
+    "Assuming low recent activity means low hazard.",
+    "Ignoring soil amplification in basin cities.",
+  ],
   relatedTopics: ["earth-i1", "earth-i3", "earth-h1", "earth-h5"],
   content: true,
   buildsOn: ["earth-i1", "earth-h4", "earth-h5"],
@@ -2060,6 +2288,12 @@ export const topics: Topic[] = [
     "Makran Subduction Zone: Arabian Plate beneath Eurasian; capable of M8+ megathrust earthquakes",
     "1945 Makran tsunami (from M8.1 quake) reached Karachi and killed several thousand",
     "The Main Karakoram Thrust (MKT) is the northernmost major active thrust in Pakistan"
+  ],
+  commonMistakes: [
+    "Assuming only one fault system matters for Pakistan's hazard.",
+    "Ignoring tsunami potential along the Makran subduction zone.",
+    "Thinking inactive-looking faults cannot slip again.",
+    "Confusing plate boundary distance with zero local fault risk.",
   ],
   relatedTopics: ["earth-i1", "earth-i2", "earth-h5", "earth-f3"],
   content: true,
@@ -2114,6 +2348,12 @@ export const topics: Topic[] = [
       ["Marble & limestone", "Salt Range, KP, Balochistan", "Major export"]
     ]
   },
+  commonMistakes: [
+    "Assuming mineral occurrence equals economic mine — grade, access, and environment matter.",
+    "Mixing metallic, industrial, and energy resources categories.",
+    "Ignoring water and environmental constraints on extraction.",
+    "Treating coal/oil/gas as unlimited domestic solutions without geology limits.",
+  ],
   relatedTopics: ["earth-i1", "earth-i2", "earth-i3", "earth-b2"],
   content: true,
   buildsOn: ["earth-b1", "earth-b3", "earth-i1"],
@@ -2182,6 +2422,12 @@ export const topics: Topic[] = [
       ["Atmosphere", "<0.001", "<0.001%", "~9 days"]
     ]
   },
+  commonMistakes: [
+    "Thinking the hydrologic cycle only involves rain and rivers — groundwater, ice, and atmosphere store/transfer water too.",
+    "Assuming the cycle is closed locally; regions export/import water vapor.",
+    "Ignoring residence time differences (atmosphere vs deep groundwater).",
+    "Confusing evaporation and transpiration roles.",
+  ],
   relatedTopics: ["earth-j2", "earth-e1"],
   content: true,
   buildsOn: ["phy-states-of-matter", "phy-heat-transfer-equilibrium"],
@@ -2239,6 +2485,12 @@ export const topics: Topic[] = [
       ["Aquiclude", "Impermeable, blocks flow", "Unfractured granite, halite, unfractured clay"]
     ]
   },
+  commonMistakes: [
+    "Confusing porosity (void space) with permeability (connected flow).",
+    "Thinking the water table is always flat — it is a surface that follows topography roughly.",
+    "Mixing confined and unconfined aquifers.",
+    "Assuming groundwater is pure and infinite.",
+  ],
   relatedTopics: ["earth-j1", "earth-e5"],
   content: true,
   buildsOn: ["earth-j1", "earth-b4", "phy-pressure-fluids", "phy-density"],
@@ -2295,6 +2547,12 @@ export const topics: Topic[] = [
     "Geophysical data are indirect: must be processed and inverted; solutions are non-unique",
     "Major application areas: oil/gas, mineral, groundwater, environmental, crustal studies, volcanology"
   ],
+  commonMistakes: [
+    "Thinking geophysics only means seismology — gravity, magnetics, electrical, and radiometric methods count.",
+    "Assuming one method always solves every subsurface problem.",
+    "Confusing remote sensing with ground geophysics without context.",
+    "Ignoring that interpretation is non-unique without geological control.",
+  ],
   relatedTopics: ["earth-k2", "earth-k3", "earth-k4", "earth-h2"],
   content: true,
   buildsOn: ["earth-a3", "phy-units-measurement"],
@@ -2341,6 +2599,12 @@ export const topics: Topic[] = [
     solution: "Depth = velocity × one-way time = 3,000 m/s × 1.2 s = 3,600 m. (Or equivalently: depth = (velocity × two-way time) / 2 = (3,000 × 2.4) / 2 = 3,600 m.)",
     answer: "3,600 m"
   },
+  commonMistakes: [
+    "Confusing reflection (echoes from interfaces) with refraction (path bending, critical refraction surveys).",
+    "Thinking seismic velocity always increases with depth — often true but not absolute.",
+    "Mixing earthquake seismology with controlled-source exploration methods casually.",
+    "Assuming high amplitude always means a particular rock type without calibration.",
+  ],
   relatedTopics: ["earth-k1", "earth-k3", "earth-k4", "earth-h2"],
   content: true,
   buildsOn: ["earth-k1", "earth-h2", "phy-wave-properties", "phy-reflection-refraction"],
@@ -2397,6 +2661,12 @@ export const topics: Topic[] = [
       ["Electromagnetic (EM)", "Conductivity via induced currents", "Conductive ore, UXO, environmental", "No ground contact needed"]
     ]
   },
+  commonMistakes: [
+    "Thinking gravity highs always mean ore — density contrasts have many causes.",
+    "Confusing magnetic anomalies with gravity anomalies.",
+    "Ignoring cultural noise and topography in surveys.",
+    "Assuming electrical methods work the same in dry resistive rock and wet conductive ground.",
+  ],
   relatedTopics: ["earth-k1", "earth-k2", "earth-j2"],
   content: true,
   buildsOn: ["earth-k1", "earth-a5", "earth-a2", "phy-gravity-weight-friction", "phy-magnetic-fields-force"],
@@ -2458,6 +2728,12 @@ export const topics: Topic[] = [
       ["Satellite altimetry", "Sea surface height", "Global sea level rise (~3.4 mm/yr)"]
     ]
   },
+  commonMistakes: [
+    "Confusing radiometric dating with radiometric exploration surveys (gamma spectrometry etc.).",
+    "Thinking geodesy only maps coastlines — it measures Earth's shape and crustal motion.",
+    "Mixing GPS positioning with geologic time scales.",
+    "Assuming denser station networks are unnecessary for deformation studies.",
+  ],
   relatedTopics: ["earth-k1", "earth-k2", "earth-k3", "earth-d2", "earth-c2"],
   content: true,
   buildsOn: ["earth-k1", "earth-c2", "phy-radioactivity-nuclear", "phy-half-life-decay"],
