@@ -15,7 +15,7 @@ export const questions: Question[] = [
 // ── Topic earth-a1: Earth's Shape, Size & Motions ──
 
 
-{ id: "EARTH-A1-Q001", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q001", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
   question: "The shape of Earth is best described as:",
   options: ["A perfect sphere", "An oblate spheroid", "A prolate spheroid", "A true ellipsoid with three unequal axes"],
   correctAnswer: 1,
@@ -23,7 +23,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q002", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q002", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
   question: "Which of the following is the correct average (mean) radius of Earth?",
   options: ["6,357 km", "6,371 km", "6,378 km", "6,400 km"],
   correctAnswer: 1,
@@ -31,7 +31,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q003", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q003", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
   question: "Earth's axis is tilted at an angle of approximately:",
   options: ["15.5°", "23.5°", "30°", "45°"],
   correctAnswer: 1,
@@ -39,7 +39,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q004", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "true_false",
+{ id: "EARTH-01-Q004", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "true_false",
   question: "Earth's equatorial diameter is greater than its polar diameter.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -47,7 +47,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q005", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q005", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
   question: "Precession of Earth's axis refers to:",
   options: ["A daily rotation around the polar axis", "A slow conical wobble of the axis over ~26,000 years", "A change in axial tilt from 23.5° to 0°", "The orbital revolution around the Sun"],
   correctAnswer: 1,
@@ -55,7 +55,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q006", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q006", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "hard", type: "single",
   question: "A solar day on Earth is approximately 4 minutes longer than a sidereal day. This is because:",
   options: ["Earth's rotation is slowing due to tidal friction", "Earth's axis is tilted at 23.5°", "Earth moves along its orbit while rotating, requiring extra rotation to bring the Sun back to the same position", "The Sun's apparent diameter changes throughout the year"],
   correctAnswer: 2,
@@ -63,7 +63,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q007", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q007", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "easy", type: "single",
   question: "Earth completes one revolution around the Sun in approximately:",
   options: ["24 hours", "27.3 days", "365.25 days", "26,000 years"],
   correctAnswer: 2,
@@ -71,7 +71,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q008", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q008", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "medium", type: "single",
   question: "Which of the following BEST describes the cause of Earth's oblate spheroid shape?",
   options: ["Tidal forces from the Moon", "Centrifugal force from rotation, greatest at the equator", "Uneven heating by the Sun", "Earth's magnetic field"],
   correctAnswer: 1,
@@ -79,7 +79,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A1-Q009", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q009", sectionId: "EARTH-01", topicId: "earth-a1", difficulty: "hard", type: "single",
   question: "The period of nutation is approximately:",
   options: ["18.6 years", "260 years", "2,600 years", "26,000 years"],
   correctAnswer: 0,
@@ -90,7 +90,7 @@ export const questions: Question[] = [
 // ── Topic earth-a2: Earth's Magnetic Field ──
 
 
-{ id: "EARTH-A2-Q001", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q010", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "easy", type: "single",
   question: "Earth's magnetic field is generated primarily by:",
   options: ["Rotation of the solid inner core", "Movement of molten iron in the outer core", "The lithospheric plates", "Solar radiation interacting with the atmosphere"],
   correctAnswer: 1,
@@ -98,7 +98,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q002", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q011", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
   question: "Magnetic declination is defined as:",
   options: ["The angle the magnetic field makes with the horizontal surface", "The horizontal angle between true north and magnetic north", "The angle between Earth's axis and the ecliptic", "The vertical angle below the horizontal"],
   correctAnswer: 1,
@@ -106,7 +106,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q003", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q012", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
   question: "Magnetic inclination (dip angle) is 0° at the:",
   options: ["Magnetic poles", "Magnetic equator", "Geographic north pole", "Tropic of Cancer"],
   correctAnswer: 1,
@@ -114,7 +114,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q004", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "hard", type: "true_false",
+{ id: "EARTH-01-Q013", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "hard", type: "true_false",
   question: "The Magnetic North Pole of Earth is, in physics terms, actually a magnetic SOUTH pole.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -122,7 +122,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q005", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q014", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
   question: "Which of the following provides the strongest evidence for seafloor spreading?",
   options: ["Submarine canyons", "Symmetric magnetic stripes on either side of mid-ocean ridges", "Ocean trench depth", "Tidal patterns"],
   correctAnswer: 1,
@@ -130,7 +130,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q006", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q015", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "easy", type: "single",
   question: "The most recent reversal of Earth's magnetic field (Brunhes–Matuyama) occurred approximately:",
   options: ["78,000 years ago", "780,000 years ago", "7.8 million years ago", "78 million years ago"],
   correctAnswer: 1,
@@ -138,7 +138,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q007", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q016", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "hard", type: "single",
   question: "Which physical process is the PRIMARY driver of the geodynamo?",
   options: ["Tidal friction from the Moon", "Convection of molten iron in the outer core combined with Earth's rotation", "Solar wind pressure on the magnetosphere", "Precession of Earth's axis"],
   correctAnswer: 1,
@@ -146,7 +146,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A2-Q008", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q017", sectionId: "EARTH-01", topicId: "earth-a2", difficulty: "medium", type: "single",
   question: "The magnetic dipole axis of Earth is tilted from the geographic rotation axis by approximately:",
   options: ["0°", "~5°", "~11°", "~23.5°"],
   correctAnswer: 2,
@@ -157,7 +157,7 @@ export const questions: Question[] = [
 // ── Topic earth-a3: Earth's Internal Structure & Discontinuities ──
 
 
-{ id: "EARTH-A3-Q001", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q018", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "easy", type: "single",
   question: "The boundary between the crust and the upper mantle is called the:",
   options: ["Gutenberg discontinuity", "Mohorovičić discontinuity", "Lehmann discontinuity", "Conrad discontinuity"],
   correctAnswer: 1,
@@ -165,7 +165,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q002", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q019", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
   question: "Which discontinuity marks the boundary between the mantle and the outer core?",
   options: ["Moho", "Gutenberg", "Lehmann", "Repetti"],
   correctAnswer: 1,
@@ -173,7 +173,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q003", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q020", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
   question: "S-waves cannot pass through the outer core, providing evidence that the outer core is:",
   options: ["Solid", "Liquid", "Gas", "Plasma"],
   correctAnswer: 1,
@@ -181,7 +181,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q004", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q021", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "easy", type: "single",
   question: "Which is the deepest layer of Earth's interior?",
   options: ["Outer core", "Lower mantle", "Inner core", "Asthenosphere"],
   correctAnswer: 2,
@@ -189,7 +189,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q005", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q022", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "single",
   question: "The Lehmann discontinuity separates:",
   options: ["Crust and mantle", "Upper and lower mantle", "Outer core and inner core", "Mantle and outer core"],
   correctAnswer: 2,
@@ -197,7 +197,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q006", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q023", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
   question: "The average density of Earth's outer core is closest to:",
   options: ["3.0 g/cm³", "5.5 g/cm³", "11 g/cm³", "13 g/cm³"],
   correctAnswer: 2,
@@ -205,7 +205,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q007", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-01-Q024", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "medium", type: "true_false",
   question: "P-waves can travel through both solids and liquids.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -213,7 +213,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q008", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q025", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
   question: "Earth's S-wave shadow zone, where no direct S-waves arrive, lies between which angular distances from an earthquake's epicentre?",
   options: ["0°–30°", "30°–103°", "103°–180°", "180°–360°"],
   correctAnswer: 2,
@@ -221,7 +221,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A3-Q009", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q026", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
   question: "Arrange the following layers from Earth's surface inward: (i) Lower mantle, (ii) Inner core, (iii) Upper mantle, (iv) Outer core, (v) Crust",
   options: ["v → iii → i → iv → ii", "v → iii → i → ii → iv", "v → i → iii → iv → ii", "iii → v → i → iv → ii"],
   correctAnswer: 0,
@@ -232,7 +232,7 @@ export const questions: Question[] = [
 // ── Topic earth-a4: Lithosphere, Asthenosphere & Internal Heat ──
 
 
-{ id: "EARTH-A4-Q001", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q027", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "easy", type: "single",
   question: "The lithosphere is best described as:",
   options: ["Only the crust", "Only the upper mantle", "The crust plus the uppermost part of the mantle", "The lower mantle only"],
   correctAnswer: 2,
@@ -240,7 +240,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q002", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q028", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
   question: "The asthenosphere is best described as:",
   options: ["Rigid and brittle", "Plastic and capable of slow flow", "A liquid layer like the outer core", "Part of the crust"],
   correctAnswer: 1,
@@ -248,7 +248,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q003", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q029", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
   question: "The average geothermal gradient in the upper crust is approximately:",
   options: ["1 °C/km", "10 °C/km", "25–30 °C/km", "100 °C/km"],
   correctAnswer: 2,
@@ -256,7 +256,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q004", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q030", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
   question: "The primary source of Earth's internal heat today is:",
   options: ["Primordial heat from Earth's formation only", "Tidal friction from the Moon", "Radioactive decay of isotopes in the mantle and crust", "Solar radiation absorbed by the surface"],
   correctAnswer: 2,
@@ -264,7 +264,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q005", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "true_false",
+{ id: "EARTH-01-Q031", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "true_false",
   question: "The lithosphere and the crust refer to exactly the same layer of Earth.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -272,7 +272,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q006", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q032", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "medium", type: "single",
   question: "Mantle convection is the primary driver of:",
   options: ["Earth's magnetic field", "Plate tectonics", "Ocean tides", "Earth's revolution around the Sun"],
   correctAnswer: 1,
@@ -280,7 +280,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q007", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q033", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
   question: "The asthenosphere's ability to flow slowly is primarily due to:",
   options: ["High pressure alone", "A small percentage of partial melt (~1–5%) that allows mineral grains to slide past each other", "The presence of liquid water in pore spaces", "Tidal stresses from the Moon"],
   correctAnswer: 1,
@@ -288,7 +288,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A4-Q008", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q034", sectionId: "EARTH-01", topicId: "earth-a4", difficulty: "hard", type: "single",
   question: "At which location is the lithosphere thinnest?",
   options: ["Beneath ancient continental cratons", "At mid-ocean ridges", "Beneath young mountain belts like the Himalayas", "Beneath old ocean basins"],
   correctAnswer: 1,
@@ -299,7 +299,7 @@ export const questions: Question[] = [
 // ── Topic earth-a5: Gravity & Isostasy ──
 
 
-{ id: "EARTH-A5-Q001", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "easy", type: "single",
+{ id: "EARTH-01-Q035", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "easy", type: "single",
   question: "The average value of gravitational acceleration at Earth's surface is approximately:",
   options: ["9.8 m/s²", "6.67 m/s²", "12.5 m/s²", "1.6 m/s²"],
   correctAnswer: 0,
@@ -307,7 +307,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q002", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q036", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
   question: "On Earth's surface, gravity is strongest at the:",
   options: ["Equator", "Mid-latitudes", "Poles", "It is the same everywhere"],
   correctAnswer: 2,
@@ -315,7 +315,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q003", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q037", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
   question: "Isostasy refers to:",
   options: ["The equal rate of Earth rotation at all latitudes", "The gravitational equilibrium of the crust floating on the mantle", "Equal solar radiation at both poles", "The constant density of Earth's interior"],
   correctAnswer: 1,
@@ -323,7 +323,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q004", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q038", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
   question: "Scandinavia is currently rising by several millimetres per year. This is best explained as:",
   options: ["Tectonic uplift from mantle plumes", "Isostatic rebound after the melting of the last ice age ice sheet", "Sea level fall", "Sediment compaction"],
   correctAnswer: 1,
@@ -331,7 +331,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q005", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "true_false",
+{ id: "EARTH-01-Q039", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "true_false",
   question: "In the Airy model of isostasy, mountains are supported by a thick crustal root extending into the mantle.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -339,7 +339,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q006", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q040", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
   question: "Which two models of isostasy differ in whether mountains are supported by thicker crust or by lower-density crust?",
   options: ["Airy and Pratt", "Wegener and Holmes", "Hutton and Lyell", "Darwin and Wallace"],
   correctAnswer: 0,
@@ -347,7 +347,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q007", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q041", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "hard", type: "single",
   question: "The gravitational acceleration at the equator is approximately 9.78 m/s² and at the poles approximately 9.83 m/s². What is the main reason for this difference?",
   options: ["The Sun's gravity pulls more strongly at the equator", "Centrifugal acceleration from rotation reduces effective gravity at the equator; also, the equator is farther from Earth's centre", "The Earth is slightly denser at the poles", "Magnetic field strength varies with latitude"],
   correctAnswer: 1,
@@ -355,7 +355,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-A5-Q008", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
+{ id: "EARTH-01-Q042", sectionId: "EARTH-01", topicId: "earth-a5", difficulty: "medium", type: "single",
   question: "A positive gravity anomaly over a region most likely indicates:",
   options: ["A body of lower-than-average density below the surface", "A body of higher-than-average density below the surface", "Lower-than-average elevation", "A region of thick sediment"],
   correctAnswer: 1,
@@ -375,7 +375,7 @@ export const questions: Question[] = [
 // ── Topic earth-b1: Minerals: Definition, Properties & Identification ──
 
 
-{ id: "EARTH-B1-Q001", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q001", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "easy", type: "single",
   question: "Which of the following is NOT a requirement for a substance to be classified as a mineral?",
   options: ["Naturally occurring", "Solid", "Organic in origin", "Crystalline structure"],
   correctAnswer: 2,
@@ -383,7 +383,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q002", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q002", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "single",
   question: "On the Mohs hardness scale, which mineral has a hardness of 7?",
   options: ["Calcite", "Feldspar", "Quartz", "Diamond"],
   correctAnswer: 2,
@@ -391,7 +391,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q003", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-02-Q003", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "true_false",
   question: "Streak is generally a more reliable identification property than color.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -399,7 +399,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q004", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q004", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "easy", type: "single",
   question: "Which mineral effervesces (fizzes) vigorously when dilute hydrochloric acid is applied?",
   options: ["Quartz", "Gypsum", "Calcite", "Halite"],
   correctAnswer: 2,
@@ -407,7 +407,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q005", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q005", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "hard", type: "single",
   question: "A mineral breaks along smooth, flat planes that meet at 60° and 120°. This is best described as:",
   options: ["Conchoidal fracture", "Cubic cleavage", "One perfect cleavage plane", "Two cleavages at ~60°/120° (amphibole-style)"],
   correctAnswer: 3,
@@ -415,7 +415,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q006", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q006", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "hard", type: "single",
   question: "Which of the following is NOT a mineral?",
   options: ["Quartz", "Diamond", "Opal", "Halite"],
   correctAnswer: 2,
@@ -423,7 +423,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B1-Q007", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q007", sectionId: "EARTH-02", topicId: "earth-b1", difficulty: "medium", type: "single",
   question: "How many crystal systems are recognized in mineralogy?",
   options: ["5", "6", "7", "12"],
   correctAnswer: 2,
@@ -434,7 +434,7 @@ export const questions: Question[] = [
 // ── Topic earth-b2: Common Rock-Forming Minerals ──
 
 
-{ id: "EARTH-B2-Q001", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q008", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "easy", type: "single",
   question: "Which mineral group is the MOST abundant in Earth's crust?",
   options: ["Quartz", "Feldspar", "Mica", "Calcite"],
   correctAnswer: 1,
@@ -442,7 +442,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q002", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q009", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
   question: "Silicate minerals make up approximately what percentage of Earth's crust?",
   options: ["~10%", "~30%", "~60%", "~90%"],
   correctAnswer: 3,
@@ -450,7 +450,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q003", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q010", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
   question: "Which of the following minerals has NO cleavage and shows conchoidal fracture?",
   options: ["Mica", "Galena", "Quartz", "Calcite"],
   correctAnswer: 2,
@@ -458,7 +458,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q004", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q011", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "hard", type: "single",
   question: "Which mineral is identified by its salty taste and cubic crystal form?",
   options: ["Gypsum", "Halite", "Calcite", "Sulfite"],
   correctAnswer: 1,
@@ -466,7 +466,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q005", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-02-Q012", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "true_false",
   question: "Mica minerals have one perfect cleavage plane and split into thin, transparent sheets.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -474,7 +474,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q006", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q013", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "hard", type: "single",
   question: "Which mineral weathers easily at the surface and is rarely found in sand or sedimentary rocks?",
   options: ["Quartz", "Feldspar", "Olivine", "Muscovite"],
   correctAnswer: 2,
@@ -482,7 +482,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B2-Q007", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q014", sectionId: "EARTH-02", topicId: "earth-b2", difficulty: "medium", type: "single",
   question: "Which mineral has a hardness of 2 on the Mohs scale and can be scratched by a fingernail?",
   options: ["Calcite", "Gypsum", "Halite", "Talc"],
   correctAnswer: 1,
@@ -493,7 +493,7 @@ export const questions: Question[] = [
 // ── Topic earth-b3: Igneous Rocks ──
 
 
-{ id: "EARTH-B3-Q001", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q015", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "easy", type: "single",
   question: "Igneous rocks with coarse-grained (phaneritic) texture formed by:",
   options: ["Rapid cooling at the surface", "Slow cooling at depth", "Contact metamorphism", "Lithification of sediment"],
   correctAnswer: 1,
@@ -501,7 +501,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q002", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q016", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
   question: "Which of the following pairs correctly matches an intrusive igneous rock with its extrusive equivalent?",
   options: ["Granite — Rhyolite", "Basalt — Gabbro", "Gabbro — Granite", "Andesite — Diorite"],
   correctAnswer: 0,
@@ -509,7 +509,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q003", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q017", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
   question: "A felsic igneous rock is generally characterized by:",
   options: ["High silica content, light color, viscous magma", "Low silica content, dark color, fluid magma", "High iron and magnesium, dark color", "No silica, glassy texture"],
   correctAnswer: 0,
@@ -517,7 +517,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q004", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "easy", type: "true_false",
+{ id: "EARTH-02-Q018", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "easy", type: "true_false",
   question: "Basalt is the most common volcanic rock on Earth.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -525,7 +525,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q005", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q019", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "hard", type: "single",
   question: "In Bowen's Reaction Series, which mineral crystallizes at the HIGHEST temperature (first)?",
   options: ["Quartz", "Olivine", "Muscovite", "K-feldspar"],
   correctAnswer: 1,
@@ -533,7 +533,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q006", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q020", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "medium", type: "single",
   question: "A volcanic rock full of small holes (vesicles) formed by gas bubbles is most likely:",
   options: ["Obsidian", "Pumice", "Basalt", "Granite"],
   correctAnswer: 1,
@@ -541,7 +541,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B3-Q007", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q021", sectionId: "EARTH-02", topicId: "earth-b3", difficulty: "hard", type: "single",
   question: "A rock contains large feldspar crystals embedded in a fine-grained dark matrix. This texture is called:",
   options: ["Glassy", "Vesicular", "Porphyritic", "Pyroclastic"],
   correctAnswer: 2,
@@ -552,7 +552,7 @@ export const questions: Question[] = [
 // ── Topic earth-b4: Sedimentary Rocks ──
 
 
-{ id: "EARTH-B4-Q001", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q022", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "easy", type: "single",
   question: "The two main processes that turn loose sediment into sedimentary rock (lithification) are:",
   options: ["Cooling and crystallization", "Compaction and cementation", "Melting and recrystallization", "Heating and pressure"],
   correctAnswer: 1,
@@ -560,7 +560,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q002", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q023", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
   question: "Which of the following is the MOST abundant sedimentary rock?",
   options: ["Sandstone", "Limestone", "Shale", "Conglomerate"],
   correctAnswer: 2,
@@ -568,7 +568,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q003", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q024", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
   question: "A coarse-grained clastic rock with ROUNDED gravel-sized clasts is called:",
   options: ["Breccia", "Conglomerate", "Sandstone", "Shale"],
   correctAnswer: 1,
@@ -576,7 +576,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q004", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "easy", type: "true_false",
+{ id: "EARTH-02-Q025", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "easy", type: "true_false",
   question: "Fossils are most commonly found in sedimentary rocks.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -584,7 +584,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q005", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q026", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "medium", type: "single",
   question: "Coal is an example of which type of sedimentary rock?",
   options: ["Clastic", "Chemical", "Organic (biogenic)", "Pyroclastic"],
   correctAnswer: 2,
@@ -592,7 +592,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q006", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q027", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "hard", type: "single",
   question: "A sandstone with well-sorted, well-rounded grains was most likely:",
   options: ["Deposited rapidly near the source", "Transported over a long distance or worked by persistent currents", "Formed by evaporation of seawater", "Crystallized from a melt"],
   correctAnswer: 1,
@@ -600,7 +600,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B4-Q007", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q028", sectionId: "EARTH-02", topicId: "earth-b4", difficulty: "hard", type: "single",
   question: "Evaporite rocks such as halite and gypsum form by:",
   options: ["Cooling of lava", "Precipitation from evaporating water bodies", "Metamorphism of limestone", "Accumulation of organic material"],
   correctAnswer: 1,
@@ -611,7 +611,7 @@ export const questions: Question[] = [
 // ── Topic earth-b5: Metamorphic Rocks ──
 
 
-{ id: "EARTH-B5-Q001", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q029", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "easy", type: "single",
   question: "Metamorphism differs from melting in that during metamorphism:",
   options: ["The rock becomes magma", "The rock remains solid while minerals recrystallize", "All fossils are preserved", "Only chemical changes occur, not physical"],
   correctAnswer: 1,
@@ -619,7 +619,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q002", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q030", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
   question: "Which metamorphic rock forms from limestone?",
   options: ["Quartzite", "Marble", "Slate", "Gneiss"],
   correctAnswer: 1,
@@ -627,7 +627,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q003", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q031", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
   question: "Foliated metamorphic rocks (slate, schist, gneiss) are characterized by:",
   options: ["Random mineral orientation", "Parallel alignment of platy or elongated minerals", "Absence of any layering", "Glassy texture"],
   correctAnswer: 1,
@@ -635,7 +635,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q004", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q032", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "medium", type: "single",
   question: "Contact metamorphism is most closely associated with:",
   options: ["Mountain building at convergent margins", "Heat from nearby magma intrusions", "High pressure at subduction zones", "Burial in sedimentary basins"],
   correctAnswer: 1,
@@ -643,7 +643,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q005", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q033", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "single",
   question: "The correct order of increasing metamorphic grade (from low to high) for shale-derived rocks is:",
   options: ["Slate → Phyllite → Schist → Gneiss", "Gneiss → Schist → Phyllite → Slate", "Slate → Schist → Gneiss → Phyllite", "Phyllite → Slate → Schist → Gneiss"],
   correctAnswer: 0,
@@ -651,7 +651,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q006", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "true_false",
+{ id: "EARTH-02-Q034", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "true_false",
   question: "Marble is a foliated metamorphic rock.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -659,7 +659,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B5-Q007", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q035", sectionId: "EARTH-02", topicId: "earth-b5", difficulty: "hard", type: "single",
   question: "Which index mineral indicates the HIGHEST metamorphic grade in regional metamorphism?",
   options: ["Chlorite", "Biotite", "Garnet", "Sillimanite"],
   correctAnswer: 3,
@@ -670,7 +670,7 @@ export const questions: Question[] = [
 // ── Topic earth-b6: The Rock Cycle ──
 
 
-{ id: "EARTH-B6-Q001", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "easy", type: "single",
+{ id: "EARTH-02-Q036", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "easy", type: "single",
   question: "The rock cycle is best described as:",
   options: ["A linear sequence from igneous to sedimentary to metamorphic", "A network in which any rock can be transformed into any other rock", "A one-way path that ends with metamorphic rocks", "An event that has occurred only once in Earth's history"],
   correctAnswer: 1,
@@ -678,7 +678,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B6-Q002", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q037", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "single",
   question: "The primary energy sources driving the rock cycle are:",
   options: ["The Sun only", "Earth's internal heat only", "Earth's internal heat and solar energy + gravity", "Tidal forces from the Moon"],
   correctAnswer: 2,
@@ -686,7 +686,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B6-Q003", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "single",
+{ id: "EARTH-02-Q038", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "single",
   question: "Igneous rocks exposed at the surface are most likely to next become:",
   options: ["Metamorphic rocks", "Sediments → sedimentary rocks", "Magma", "Meteorites"],
   correctAnswer: 1,
@@ -694,7 +694,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B6-Q004", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q039", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "hard", type: "single",
   question: "Which statement BEST describes the relationship between plate tectonics and the rock cycle?",
   options: ["They are completely independent processes", "Plate tectonics provides the energy and setting for most rock cycle transformations", "The rock cycle drives plate tectonics", "Plate tectonics only affects igneous rocks"],
   correctAnswer: 1,
@@ -702,7 +702,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B6-Q005", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "hard", type: "single",
+{ id: "EARTH-02-Q040", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "hard", type: "single",
   question: "Which of the following transformations is NOT part of the rock cycle?",
   options: ["Granite weathering to sand, then forming sandstone", "Shale metamorphosing to slate, then schist, then gneiss", "Basalt melting at a subduction zone and rising as granite magma", "Cooling lava to form obsidian, then dissolving completely in the ocean (no trace remains)"],
   correctAnswer: 3,
@@ -710,7 +710,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-B6-Q006", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "true_false",
+{ id: "EARTH-02-Q041", sectionId: "EARTH-02", topicId: "earth-b6", difficulty: "medium", type: "true_false",
   question: "Igneous rocks make up the largest volume of Earth's crust, but sedimentary rocks cover the largest area of the continental surface.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -730,7 +730,7 @@ export const questions: Question[] = [
 // ── Topic earth-c1: Relative Dating & Stratigraphic Principles ──
 
 
-{ id: "EARTH-C1-Q001", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "easy", type: "single",
+{ id: "EARTH-03-Q001", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "easy", type: "single",
   question: "According to the Law of Superposition, in an undisturbed sedimentary sequence:",
   options: ["The oldest layer is at the top", "The oldest layer is at the bottom", "All layers are the same age", "The youngest layer is in the middle"],
   correctAnswer: 1,
@@ -738,7 +738,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q002", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q002", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "single",
   question: "A granite intrusion cuts across a sequence of sedimentary rocks. According to the Principle of Cross-Cutting Relationships, the granite is:",
   options: ["Older than the sedimentary rocks", "Younger than the sedimentary rocks", "The same age as the sedimentary rocks", "Impossible to date by this principle"],
   correctAnswer: 1,
@@ -746,7 +746,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q003", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-03-Q003", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "true_false",
   question: "A granite clast (boulder) embedded in a sandstone indicates that the granite is YOUNGER than the sandstone.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -754,7 +754,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q004", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q004", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "medium", type: "single",
   question: "An angular unconformity is best described as:",
   options: ["A surface between parallel sedimentary beds of different ages", "An erosional surface where tilted or folded rocks lie below horizontal rocks", "A surface within a single rock layer", "A fracture along which rocks have moved"],
   correctAnswer: 1,
@@ -762,7 +762,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q005", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q005", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
   question: "An unconformity represents:",
   options: ["A depositional layer", "A surface representing missing time (non-deposition or erosion)", "A volcanic intrusion", "A type of mineral"],
   correctAnswer: 1,
@@ -770,7 +770,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q006", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q006", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
   question: "Which principle states that sedimentary layers are originally deposited as horizontal sheets?",
   options: ["Superposition", "Original horizontality", "Lateral continuity", "Faunal succession"],
   correctAnswer: 1,
@@ -778,7 +778,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C1-Q007", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q007", sectionId: "EARTH-03", topicId: "earth-c1", difficulty: "hard", type: "single",
   question: "Which relative-dating principle is the foundation of biostratigraphy and intercontinental fossil correlation?",
   options: ["Superposition", "Lateral continuity", "Faunal succession", "Cross-cutting relationships"],
   correctAnswer: 2,
@@ -789,7 +789,7 @@ export const questions: Question[] = [
 // ── Topic earth-c2: Absolute Dating & Radiometric Methods ──
 
 
-{ id: "EARTH-C2-Q001", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "easy", type: "single",
+{ id: "EARTH-03-Q008", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "easy", type: "single",
   question: "What is the half-life of a radioactive isotope?",
   options: ["The time for all parent atoms to decay", "The time for half of the parent atoms to decay to daughter atoms", "The age of the sample", "The ratio of parent to daughter atoms"],
   correctAnswer: 1,
@@ -797,7 +797,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q002", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "easy", type: "single",
+{ id: "EARTH-03-Q009", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "easy", type: "single",
   question: "Which radiometric method is most suitable for dating organic material less than ~50,000 years old?",
   options: ["Uranium–Lead (U-Pb)", "Potassium–Argon (K-Ar)", "Carbon-14 (radiocarbon)", "Rubidium–Strontium (Rb-Sr)"],
   correctAnswer: 2,
@@ -805,7 +805,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q003", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q010", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "single",
   question: "A sample contains 12.5% of its original Carbon-14. The half-life of C-14 is 5,730 years. What is the age of the sample?",
   options: ["5,730 years", "11,460 years", "17,190 years", "22,920 years"],
   correctAnswer: 2,
@@ -813,7 +813,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q004", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q011", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "single",
   question: "Zircon crystals are widely used in U-Pb dating because:",
   options: ["They contain no uranium at all", "They accept uranium but reject lead when they crystallize, so any lead measured is from decay", "They are very soft and easy to dissolve", "They form only in sedimentary rocks"],
   correctAnswer: 1,
@@ -821,7 +821,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q005", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q012", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
   question: "The half-life of a radioactive isotope depends on:",
   options: ["Temperature and pressure of the sample", "Chemical state of the parent element", "The specific isotope — it is a fundamental nuclear property", "The age of the sample"],
   correctAnswer: 2,
@@ -829,7 +829,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q006", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-03-Q013", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "medium", type: "true_false",
   question: "Sedimentary rocks can usually be dated directly by radiometric methods.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -837,7 +837,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q007", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q014", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
   question: "For a radiometric date to be valid, the mineral or rock must have been:",
   options: ["Cooled very slowly", "A closed system since the rock formed (no loss or gain of parent or daughter atoms)", "Submerged in water", "Subjected to high pressure"],
   correctAnswer: 1,
@@ -845,7 +845,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C2-Q008", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q015", sectionId: "EARTH-03", topicId: "earth-c2", difficulty: "hard", type: "single",
   question: "Which method is most appropriate for dating a 3-billion-year-old granite?",
   options: ["Carbon-14 (half-life 5,730 yr)", "Uranium–Lead (U-Pb, half-life 4.47 billion yr)", "Carbon-14 is fine, but takes more sample", "Tritium (H-3)"],
   correctAnswer: 1,
@@ -856,7 +856,7 @@ export const questions: Question[] = [
 // ── Topic earth-c3: The Geological Time Scale & Fossils ──
 
 
-{ id: "EARTH-C3-Q001", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "easy", type: "single",
+{ id: "EARTH-03-Q016", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "easy", type: "single",
   question: "The approximate age of Earth is:",
   options: ["4.6 thousand years", "4.6 million years", "4.6 billion years", "13.8 billion years"],
   correctAnswer: 2,
@@ -864,7 +864,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q002", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q017", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
   question: "Which eon of geological time covers the last 541 million years and contains nearly all fossil evidence of abundant, complex life?",
   options: ["Hadean", "Archean", "Proterozoic", "Phanerozoic"],
   correctAnswer: 3,
@@ -872,7 +872,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q003", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q018", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
   question: "Which era is known as the 'Age of Dinosaurs'?",
   options: ["Paleozoic", "Mesozoic", "Cenozoic", "Proterozoic"],
   correctAnswer: 1,
@@ -880,7 +880,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q004", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
+{ id: "EARTH-03-Q019", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "single",
   question: "An index fossil is best described as:",
   options: ["A fossil of any large organism", "A fossil of a widespread, short-lived species useful for dating and correlation", "The very first fossil of a species ever found", "A fossil preserved in igneous rock"],
   correctAnswer: 1,
@@ -888,7 +888,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q005", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q020", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
   question: "Which mass extinction was the LARGEST in Earth's history, eliminating an estimated 90–96% of marine species?",
   options: ["End-Cretaceous (K-Pg, 66 Ma)", "End-Permian (~252 Ma)", "End-Ordovician (~445 Ma)", "Late Devonian (~375 Ma)"],
   correctAnswer: 1,
@@ -896,7 +896,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q006", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q021", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
   question: "The fossilization of an insect in tree resin is an example of preservation by:",
   options: ["Permineralization", "Carbonization", "Amber entombment", "Mold formation"],
   correctAnswer: 2,
@@ -904,7 +904,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q007", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-03-Q022", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "medium", type: "true_false",
   question: "Fossils of corals in a limestone indicate that the area was once a warm, shallow tropical sea.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -912,7 +912,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-C3-Q008", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
+{ id: "EARTH-03-Q023", sectionId: "EARTH-03", topicId: "earth-c3", difficulty: "hard", type: "single",
   question: "Arrange the Phanerozoic eras from oldest to youngest: (i) Cenozoic, (ii) Mesozoic, (iii) Paleozoic",
   options: ["(i) → (ii) → (iii)", "(ii) → (iii) → (i)", "(iii) → (ii) → (i)", "(i) → (iii) → (ii)"],
   correctAnswer: 2,
@@ -932,7 +932,7 @@ export const questions: Question[] = [
 // ── Topic earth-d1: Continental Drift (Wegener, 1912) ──
 
 
-{ id: "EARTH-D1-Q001", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "easy", type: "single",
+{ id: "EARTH-04-Q001", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "easy", type: "single",
   question: "Who first proposed the hypothesis of continental drift in 1912?",
   options: ["Harry Hess", "Alfred Wegener", "J. Tuzo Wilson", "Fred Vine"],
   correctAnswer: 1,
@@ -940,7 +940,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D1-Q002", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q002", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "single",
   question: "Which fossil was used by Wegener as evidence that South America and Africa were once joined?",
   options: ["Trilobite", "Ammonite", "Mesosaurus", "T. rex"],
   correctAnswer: 2,
@@ -948,7 +948,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D1-Q003", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q003", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "single",
   question: "Pangaea began to break apart approximately:",
   options: ["~4.6 billion years ago", "~540 million years ago", "~200 million years ago", "~10,000 years ago"],
   correctAnswer: 2,
@@ -956,7 +956,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D1-Q004", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-04-Q004", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "medium", type: "true_false",
   question: "Wegener correctly proposed the mechanism by which continents drift.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -964,7 +964,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D1-Q005", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q005", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "hard", type: "single",
   question: "Glacial deposits of the same Permo-Carboniferous age are found in South America, Africa, India, Australia, and Antarctica. This is best explained by:",
   options: ["A global ice age covering all continents", "These continents having been joined together near the South Pole", "Meteoric ice falling uniformly worldwide", "The deposits being formed independently at each location"],
   correctAnswer: 1,
@@ -972,7 +972,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D1-Q006", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q006", sectionId: "EARTH-04", topicId: "earth-d1", difficulty: "hard", type: "single",
   question: "Which present-day mountain belt was once continuous with the Appalachian Mountains but was split apart by the opening of the Atlantic Ocean?",
   options: ["Andes", "Rockies", "Caledonian Mountains (Scotland/Scandinavia)", "Alps"],
   correctAnswer: 2,
@@ -983,7 +983,7 @@ export const questions: Question[] = [
 // ── Topic earth-d2: Plate Tectonic Theory ──
 
 
-{ id: "EARTH-D2-Q001", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "easy", type: "single",
+{ id: "EARTH-04-Q007", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "easy", type: "single",
   question: "Plate tectonics is the modern theory that Earth's lithosphere is divided into:",
   options: ["Two large plates", "Five major continents", "About 15 major plates and many smaller ones", "Continents and ocean basins only"],
   correctAnswer: 2,
@@ -991,7 +991,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q002", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q008", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "single",
   question: "Which of the following is generally considered the STRONGEST driving force of plate motion?",
   options: ["Ridge push", "Slab pull", "Tidal forces", "Earth's rotation"],
   correctAnswer: 1,
@@ -999,7 +999,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q003", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q009", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "single",
   question: "Typical plate speeds are on the order of:",
   options: ["Millimetres per year", "Centimetres to ~15 cm per year", "Metres per year", "Kilometres per year"],
   correctAnswer: 1,
@@ -1007,7 +1007,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q004", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-04-Q010", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "medium", type: "true_false",
   question: "The plate tectonic 'revolution' of the 1960s was triggered by the discovery of seafloor spreading and magnetic stripes on the ocean floor.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1015,7 +1015,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q005", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q011", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
   question: "Which of the following observations does NOT fit the plate tectonic theory?",
   options: ["Magnetic stripes symmetric about mid-ocean ridges", "Earthquakes concentrated along narrow bands (plate boundaries)", "Identical age for all ocean floor rocks worldwide", "The progressive increase in seafloor age away from ridges"],
   correctAnswer: 2,
@@ -1023,7 +1023,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q006", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q012", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
   question: "Hotspots such as Hawaii are believed to be produced by:",
   options: ["Subduction at convergent plate boundaries", "Narrow plumes of hot mantle rising from deep within the Earth", "Transform faulting", "Spreading at mid-ocean ridges"],
   correctAnswer: 1,
@@ -1031,7 +1031,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D2-Q007", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q013", sectionId: "EARTH-04", topicId: "earth-d2", difficulty: "hard", type: "single",
   question: "The Hawaiian–Emperor seamount chain shows a distinct bend at about 50 million years ago. This bend records:",
   options: ["A change in the location of the Hawaiian hotspot", "A major change in direction of the Pacific Plate", "The opening of a new ocean basin", "A meteorite impact"],
   correctAnswer: 1,
@@ -1042,7 +1042,7 @@ export const questions: Question[] = [
 // ── Topic earth-d3: Plate Boundaries ──
 
 
-{ id: "EARTH-D3-Q001", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "easy", type: "single",
+{ id: "EARTH-04-Q014", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "easy", type: "single",
   question: "Which type of plate boundary is associated with the creation of new oceanic crust?",
   options: ["Divergent", "Convergent", "Transform", "All of the above"],
   correctAnswer: 0,
@@ -1050,7 +1050,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q002", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q015", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
   question: "The Andes Mountains were formed primarily by:",
   options: ["Ocean–continent convergence (Nazca Plate subducting beneath South America)", "Continent–continent collision", "Transform faulting", "A continental rift"],
   correctAnswer: 0,
@@ -1058,7 +1058,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q003", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q016", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
   question: "The Himalayas were formed primarily by:",
   options: ["Ocean–continent subduction", "Continent–continent collision between India and Eurasia", "Transform faulting", "A hotspot"],
   correctAnswer: 1,
@@ -1066,7 +1066,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q004", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-04-Q017", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "true_false",
   question: "Deep-focus earthquakes (>300 km) occur only at subduction zones.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1074,7 +1074,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q005", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q018", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "medium", type: "single",
   question: "A volcanic island arc (e.g., Japan, Aleutians) is formed at which type of plate boundary?",
   options: ["Ocean–ocean convergence", "Ocean–continent convergence", "Continent–continent collision", "Transform"],
   correctAnswer: 0,
@@ -1082,7 +1082,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q006", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q019", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
   question: "The San Andreas Fault in California is a classic example of:",
   options: ["A divergent plate boundary", "A convergent plate boundary", "A transform plate boundary", "A subduction zone"],
   correctAnswer: 2,
@@ -1090,7 +1090,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q007", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q020", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
   question: "Continent–continent collisions (e.g., India–Eurasia) generally produce:",
   options: ["Major volcanic arcs", "Deep oceanic trenches", "Fold mountains with relatively little volcanism", "Wide rift valleys"],
   correctAnswer: 2,
@@ -1098,7 +1098,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q008", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q021", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
   question: "Earthquakes along mid-ocean ridges are typically:",
   options: ["Shallow (<70 km)", "Intermediate (70–300 km)", "Deep (300–700 km)", "Mix of all depths"],
   correctAnswer: 0,
@@ -1106,7 +1106,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D3-Q009", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q022", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
   question: "At an ocean–continent convergent boundary, volcanic activity occurs:",
   options: ["On the subducting oceanic plate", "On the overriding continental plate, forming a volcanic mountain range", "In the deep-sea trench", "Only in the back-arc basin"],
   correctAnswer: 1,
@@ -1117,7 +1117,7 @@ export const questions: Question[] = [
 // ── Topic earth-d4: Tectonic Consequences & Hotspots ──
 
 
-{ id: "EARTH-D4-Q001", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q023", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
   question: "The Wilson cycle describes:",
   options: ["The daily rotation of Earth", "The repeated opening and closing of ocean basins over hundreds of millions of years", "The 26,000-year precession cycle", "The 11-year sunspot cycle"],
   correctAnswer: 1,
@@ -1125,7 +1125,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q002", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q024", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
   question: "Which of the following best illustrates an early stage of the Wilson cycle?",
   options: ["The Himalayas", "The East African Rift", "The Mid-Atlantic Ridge", "The San Andreas Fault"],
   correctAnswer: 1,
@@ -1133,7 +1133,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q003", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "easy", type: "true_false",
+{ id: "EARTH-04-Q025", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "easy", type: "true_false",
   question: "Hotspots such as Hawaii are located at plate boundaries.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1141,7 +1141,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q004", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q026", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
   question: "Which of the following does NOT result primarily from plate tectonic processes?",
   options: ["The Andes", "The Himalayas", "The Hawaiian Islands", "The Mid-Atlantic Ridge"],
   correctAnswer: 2,
@@ -1149,7 +1149,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q005", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q027", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
   question: "A chain of progressively older volcanic islands/seamounts, all aligned in the direction of past plate motion, is most likely:",
   options: ["A volcanic island arc above a subduction zone", "A hotspot track", "A mid-ocean ridge segment", "A continental flood basalt province"],
   correctAnswer: 1,
@@ -1157,7 +1157,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q006", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
+{ id: "EARTH-04-Q028", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "medium", type: "single",
   question: "Higher rates of seafloor spreading at mid-ocean ridges tend to:",
   options: ["Lower sea level by displacing less water", "Raise sea level because faster ridges are hotter and more buoyant, displacing more water", "Have no effect on sea level", "Cause widespread glaciation"],
   correctAnswer: 1,
@@ -1165,7 +1165,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-D4-Q007", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q029", sectionId: "EARTH-04", topicId: "earth-d4", difficulty: "hard", type: "single",
   question: "The Red Sea is often cited as an example of:",
   options: ["A mature ocean basin", "A continent–continent collision zone", "An early stage of ocean basin formation (a young rift)", "A transform plate boundary"],
   correctAnswer: 2,
@@ -1185,7 +1185,7 @@ export const questions: Question[] = [
 // ── Topic earth-e1: Weathering: Physical, Chemical & Biological ──
 
 
-{ id: "EARTH-E1-Q001", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q001", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "easy", type: "single",
   question: "Which of the following is the MOST important chemical weathering process on Earth's surface?",
   options: ["Oxidation", "Hydrolysis", "Carbonation", "Solution"],
   correctAnswer: 1,
@@ -1193,7 +1193,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q002", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q002", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "easy", type: "single",
   question: "Frost wedging (freeze–thaw weathering) is most effective in:",
   options: ["Hot, dry deserts", "Cold, alpine climates with frequent freeze-thaw cycles", "Hot, humid tropical rainforests", "Deep ocean basins"],
   correctAnswer: 1,
@@ -1201,7 +1201,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q003", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-05-Q003", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "true_false",
   question: "Exfoliation at Half Dome in Yosemite is caused primarily by oxidation of iron-bearing minerals.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1209,7 +1209,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q004", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q004", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "single",
   question: "Which climate favours the fastest CHEMICAL weathering?",
   options: ["Cold and dry", "Hot and dry", "Hot and wet", "Cold and wet"],
   correctAnswer: 2,
@@ -1217,7 +1217,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q005", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q005", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "hard", type: "single",
   question: "Which reaction best describes the carbonation weathering of limestone?",
   options: ["Fe²⁺ + O₂ → Fe³⁺ (rust)", "CaCO₃ + H₂CO₃ → Ca²⁺ + 2 HCO₃⁻", "2 KAlSi₃O₈ + 2 H₂CO₃ + 9 H₂O → Al₂Si₂O₅(OH)₄ + 2 K⁺ + 2 HCO₃⁻ + 4 H₄SiO₄", "SiO₂ + 2 H₂O → H₄SiO₄"],
   correctAnswer: 1,
@@ -1225,7 +1225,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q006", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q006", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "hard", type: "single",
   question: "Over geological time, the chemical weathering of silicate rocks helps to:",
   options: ["Increase atmospheric CO₂ levels", "Remove CO₂ from the atmosphere, stabilizing climate", "Have no effect on atmospheric CO₂", "Produce volcanic eruptions"],
   correctAnswer: 1,
@@ -1233,7 +1233,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E1-Q007", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q007", sectionId: "EARTH-05", topicId: "earth-e1", difficulty: "medium", type: "single",
   question: "Which of the following is a biological contributor to weathering?",
   options: ["Frost wedging", "Hydrolysis", "Lichen secretion of organic acids", "Salt crystal growth"],
   correctAnswer: 2,
@@ -1244,7 +1244,7 @@ export const questions: Question[] = [
 // ── Topic earth-e2: Erosion & Mass Wasting ──
 
 
-{ id: "EARTH-E2-Q001", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q008", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "easy", type: "single",
   question: "Which of the following is the dominant agent of erosion on continents globally?",
   options: ["Wind", "Glaciers", "Running water (rivers and streams)", "Waves"],
   correctAnswer: 2,
@@ -1252,7 +1252,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q002", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q009", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "single",
   question: "Deflation is a process of wind erosion that refers to:",
   options: ["The sandblasting of rocks by wind-borne particles", "The removal of loose, fine sediment by the wind", "The formation of sand dunes", "The deposition of loess"],
   correctAnswer: 1,
@@ -1260,7 +1260,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q003", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q010", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "single",
   question: "Glacial erosion occurs mainly by which two processes?",
   options: ["Deflation and abrasion", "Plucking and abrasion", "Hydraulic action and solution", "Frost wedging and hydrolysis"],
   correctAnswer: 1,
@@ -1268,7 +1268,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q004", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q011", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "easy", type: "single",
   question: "Which of the following is the SLOWEST form of mass wasting?",
   options: ["Rockfall", "Debris flow", "Soil creep", "Lahar"],
   correctAnswer: 2,
@@ -1276,7 +1276,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q005", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q012", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "hard", type: "single",
   question: "A lahar is best described as:",
   options: ["A type of glacial moraine", "A volcanic mudflow", "A sand dune in a desert", "A coral reef landform"],
   correctAnswer: 1,
@@ -1284,7 +1284,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q006", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q013", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "hard", type: "single",
   question: "Which of the following is NOT a common trigger of mass wasting?",
   options: ["Heavy rainfall", "Earthquakes", "Vegetation removal", "High atmospheric pressure"],
   correctAnswer: 3,
@@ -1292,7 +1292,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E2-Q007", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-05-Q014", sectionId: "EARTH-05", topicId: "earth-e2", difficulty: "medium", type: "true_false",
   question: "Solifluction is the slow flow of saturated soil over impermeable permafrost in cold environments.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1303,7 +1303,7 @@ export const questions: Question[] = [
 // ── Topic earth-e3: Fluvial (River) Landforms ──
 
 
-{ id: "EARTH-E3-Q001", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q015", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "easy", type: "single",
   question: "In the upper course of a river, the dominant landforms are:",
   options: ["Meanders and oxbow lakes", "V-shaped valleys, gorges, and waterfalls", "Deltas and alluvial fans", "Wide floodplains and levees"],
   correctAnswer: 1,
@@ -1311,7 +1311,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q002", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q016", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
   question: "On a meander, erosion occurs on the:",
   options: ["Inner (slip-off) bank", "Outer (cut) bank", "Both banks equally", "Only the river bed, not the banks"],
   correctAnswer: 1,
@@ -1319,7 +1319,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q003", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q017", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
   question: "An oxbow lake forms when:",
   options: ["A river cuts through a mountain range", "A meander is cut off from the main channel and sealed by deposition", "A delta builds up at a river mouth", "A river dries up in a desert"],
   correctAnswer: 1,
@@ -1327,7 +1327,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q004", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q018", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "hard", type: "single",
   question: "Which drainage pattern is most likely to develop on folded sedimentary rocks with alternating hard and soft layers?",
   options: ["Dendritic", "Trellis", "Radial", "Centripetal"],
   correctAnswer: 1,
@@ -1335,7 +1335,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q005", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q019", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "medium", type: "single",
   question: "A radial drainage pattern is most likely to develop on:",
   options: ["A uniform plain", "An isolated dome or volcano", "Folded sedimentary rocks", "A closed lake basin"],
   correctAnswer: 1,
@@ -1343,7 +1343,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q006", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q020", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "hard", type: "single",
   question: "A delta differs from an alluvial fan in that a delta:",
   options: ["Forms at a mountain front", "Forms where a river enters standing water (ocean or lake)", "Is shaped by wind rather than water", "Is always composed of coarse gravel"],
   correctAnswer: 1,
@@ -1351,7 +1351,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E3-Q007", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "easy", type: "true_false",
+{ id: "EARTH-05-Q021", sectionId: "EARTH-05", topicId: "earth-e3", difficulty: "easy", type: "true_false",
   question: "Dendritic drainage patterns are the most common drainage pattern worldwide.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1362,7 +1362,7 @@ export const questions: Question[] = [
 // ── Topic earth-e4: Glacial & Desert (Aeolian) Landforms ──
 
 
-{ id: "EARTH-E4-Q001", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q022", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "easy", type: "single",
   question: "A glacial valley is most likely to have a cross-section that is:",
   options: ["V-shaped", "U-shaped", "Y-shaped", "Perfectly flat-bottomed"],
   correctAnswer: 1,
@@ -1370,7 +1370,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q002", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q023", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
   question: "A bowl-shaped depression at the head of a glacial valley is called a:",
   options: ["Hanging valley", "Cirque", "Arête", "Drumlin"],
   correctAnswer: 1,
@@ -1378,7 +1378,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q003", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q024", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
   question: "The Matterhorn is a famous example of which glacial landform?",
   options: ["Cirque", "Arête", "Horn", "Hanging valley"],
   correctAnswer: 2,
@@ -1386,7 +1386,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q004", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q025", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "single",
   question: "Drumlins are best described as:",
   options: ["Sharp ridges between two cirques", "Streamlined, whale-shaped hills of glacial till aligned with ice flow", "Sinuous ridges of sand and gravel from subglacial streams", "Crescent-shaped sand dunes"],
   correctAnswer: 1,
@@ -1394,7 +1394,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q005", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q026", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "hard", type: "single",
   question: "Which type of sand dune forms in areas with a constant wind direction and LIMITED sand supply?",
   options: ["Star dune", "Longitudinal dune", "Barchan dune", "Transverse dune"],
   correctAnswer: 2,
@@ -1402,7 +1402,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q006", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q027", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "hard", type: "single",
   question: "A terminal moraine is best described as:",
   options: ["A ridge of till marking the farthest advance of a glacier", "A streamlined hill of till aligned with ice flow", "A sinuous ridge of sand and gravel from a subglacial stream", "A bowl-shaped depression at the glacier head"],
   correctAnswer: 0,
@@ -1410,7 +1410,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E4-Q007", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "true_false",
+{ id: "EARTH-05-Q028", sectionId: "EARTH-05", topicId: "earth-e4", difficulty: "medium", type: "true_false",
   question: "Pediments in desert landscapes are formed primarily by wind erosion.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1421,7 +1421,7 @@ export const questions: Question[] = [
 // ── Topic earth-e5: Coastal & Karst Landforms ──
 
 
-{ id: "EARTH-E5-Q001", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q029", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
   question: "The correct sequence of coastal erosional landforms, from earliest to latest, is:",
   options: ["Cave → Arch → Stack → Stump", "Arch → Cave → Stump → Stack", "Stack → Arch → Cave → Stump", "Stump → Stack → Cave → Arch"],
   correctAnswer: 0,
@@ -1429,7 +1429,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E5-Q002", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q030", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
   question: "Coral reefs require which set of conditions to grow?",
   options: ["Cold, deep, turbid water", "Warm, shallow, clear, sunlit water", "Cold, shallow, dark water", "Hot, deep, sediment-rich water"],
   correctAnswer: 1,
@@ -1437,7 +1437,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E5-Q003", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "easy", type: "single",
+{ id: "EARTH-05-Q031", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "easy", type: "single",
   question: "Stalactites and stalagmites are depositional features found in:",
   options: ["River caves cut by water erosion", "Karst caves formed by limestone dissolution", "Volcanic lava tubes", "Glacier ice caves"],
   correctAnswer: 1,
@@ -1445,7 +1445,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E5-Q004", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
+{ id: "EARTH-05-Q032", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "single",
   question: "Which of the following best describes a tombolo?",
   options: ["A long, narrow sand ridge attached to the mainland at one end", "A sand ridge connecting an offshore island to the mainland", "A long, narrow island parallel to the coast", "A coral reef surrounding a lagoon"],
   correctAnswer: 1,
@@ -1453,7 +1453,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E5-Q005", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "hard", type: "single",
+{ id: "EARTH-05-Q033", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "hard", type: "single",
   question: "Tower karst landscapes (e.g., Guilin, China) form by:",
   options: ["Volcanic eruption", "Long-term dissolution of limestone in a humid tropical climate", "Glacial erosion", "Sand dune accumulation"],
   correctAnswer: 1,
@@ -1461,7 +1461,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-E5-Q006", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "true_false",
+{ id: "EARTH-05-Q034", sectionId: "EARTH-05", topicId: "earth-e5", difficulty: "medium", type: "true_false",
   question: "A spit is attached to the mainland at both ends, while a tombolo is attached at one end only.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1481,7 +1481,7 @@ export const questions: Question[] = [
 // ── Topic earth-f1: Stress, Strain & Rock Deformation ──
 
 
-{ id: "EARTH-F1-Q001", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "easy", type: "single",
+{ id: "EARTH-06-Q001", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "easy", type: "single",
   question: "Stress in geology is best defined as:",
   options: ["The change in shape of a rock", "Force per unit area applied to a rock", "The temperature at which a rock deforms", "The rate at which a rock deforms"],
   correctAnswer: 1,
@@ -1489,7 +1489,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q002", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "easy", type: "single",
+{ id: "EARTH-06-Q002", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "easy", type: "single",
   question: "Which type of stress is associated with divergent plate boundaries?",
   options: ["Compressional", "Tensional", "Shear", "Confining"],
   correctAnswer: 1,
@@ -1497,7 +1497,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q003", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-06-Q003", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "true_false",
   question: "Higher temperatures generally make rocks behave more ductilely (plastically).",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1505,7 +1505,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q004", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q004", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "single",
   question: "Earthquakes occur in which zone of the crust?",
   options: ["The ductile (plastic) zone, deep in the crust", "The brittle zone, above the brittle–ductile transition", "Only at the Moho", "Only in oceanic crust"],
   correctAnswer: 1,
@@ -1513,7 +1513,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q005", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q005", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "hard", type: "single",
   question: "Deep-focus earthquakes (up to ~700 km) occur only in:",
   options: ["The lower mantle everywhere", "Cold subducting slabs that remain brittle to great depth", "Hotspots", "Mid-ocean ridges"],
   correctAnswer: 1,
@@ -1521,7 +1521,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q006", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q006", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "hard", type: "single",
   question: "Which combination of conditions favours BRITTLE deformation of rock?",
   options: ["High temperature, high confining pressure, slow strain rate", "Low temperature, low confining pressure, fast strain rate", "High temperature, low confining pressure, slow strain rate", "Low temperature, high confining pressure, fast strain rate"],
   correctAnswer: 1,
@@ -1529,7 +1529,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F1-Q007", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q007", sectionId: "EARTH-06", topicId: "earth-f1", difficulty: "medium", type: "single",
   question: "The brittle–ductile transition in the continental crust is typically found at a depth of:",
   options: ["~1 km", "~10–15 km", "~50–70 km", "~300 km"],
   correctAnswer: 1,
@@ -1540,7 +1540,7 @@ export const questions: Question[] = [
 // ── Topic earth-f2: Folds: Anticlines, Synclines & More ──
 
 
-{ id: "EARTH-F2-Q001", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "easy", type: "single",
+{ id: "EARTH-06-Q008", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "easy", type: "single",
   question: "In an anticline, the OLDEST rocks are found:",
   options: ["At the surface only", "On the limbs", "In the centre (core) of the fold", "At the bottom of a well"],
   correctAnswer: 2,
@@ -1548,7 +1548,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F2-Q002", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q009", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "single",
   question: "A fold whose axial plane is nearly horizontal and in which one limb lies overturned on the other is called:",
   options: ["Chevron fold", "Isoclinal fold", "Recumbent fold", "Plunging fold"],
   correctAnswer: 2,
@@ -1556,7 +1556,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F2-Q003", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-06-Q010", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "true_false",
   question: "Anticlines always form hills and synclines always form valleys.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1564,7 +1564,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F2-Q004", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q011", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "hard", type: "single",
   question: "A plunging fold is one in which:",
   options: ["The fold has been overturned", "The hinge line is tilted into the ground", "The limbs are parallel (isoclinal)", "The fold has recumbent geometry"],
   correctAnswer: 1,
@@ -1572,7 +1572,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F2-Q005", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q012", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "medium", type: "single",
   question: "A geological structure in which the OLDEST rocks are exposed in a circular outcrop pattern, with progressively younger rocks outward, is best described as:",
   options: ["A basin", "A dome", "A monocline", "A thrust fault"],
   correctAnswer: 1,
@@ -1580,7 +1580,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F2-Q006", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q013", sectionId: "EARTH-06", topicId: "earth-f2", difficulty: "hard", type: "single",
   question: "A monocline is best described as:",
   options: ["A doubly plunging anticline", "A one-step bend connecting two horizontal levels", "A fold with two parallel limbs", "A recumbent fold"],
   correctAnswer: 1,
@@ -1591,7 +1591,7 @@ export const questions: Question[] = [
 // ── Topic earth-f3: Faults: Normal, Reverse, Thrust & Strike-Slip ──
 
 
-{ id: "EARTH-F3-Q001", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "easy", type: "single",
+{ id: "EARTH-06-Q014", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "easy", type: "single",
   question: "The hanging wall of a fault is:",
   options: ["The rock below the fault plane", "The rock above the fault plane", "Always on the right side of the fault", "A type of igneous intrusion"],
   correctAnswer: 1,
@@ -1599,7 +1599,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q002", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q015", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
   question: "A normal fault is characterized by:",
   options: ["Hanging wall moving up", "Hanging wall moving down", "Horizontal motion", "No displacement"],
   correctAnswer: 1,
@@ -1607,7 +1607,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q003", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q016", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
   question: "A thrust fault is best described as:",
   options: ["A high-angle reverse fault", "A low-angle reverse fault (dip <30°)", "A strike-slip fault with vertical motion", "A normal fault with horizontal extension"],
   correctAnswer: 1,
@@ -1615,7 +1615,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q004", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q017", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
   question: "The San Andreas Fault in California is best classified as:",
   options: ["A normal fault", "A reverse fault", "A right-lateral strike-slip fault", "A left-lateral strike-slip fault"],
   correctAnswer: 2,
@@ -1623,7 +1623,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q005", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-06-Q018", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "true_false",
   question: "A reverse fault is produced by tensional stress.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1631,7 +1631,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q006", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q019", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
   question: "The North Anatolian Fault in Turkey is an example of:",
   options: ["A normal fault", "A reverse fault", "A right-lateral strike-slip fault", "A left-lateral strike-slip fault"],
   correctAnswer: 3,
@@ -1639,7 +1639,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q007", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q020", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "medium", type: "single",
   question: "Which type of fault is most likely to be found at a continental collision zone?",
   options: ["Normal", "Thrust / reverse", "Transform / strike-slip", "No faults are found at collision zones"],
   correctAnswer: 1,
@@ -1647,7 +1647,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F3-Q008", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q021", sectionId: "EARTH-06", topicId: "earth-f3", difficulty: "hard", type: "single",
   question: "A joint is best described as:",
   options: ["A fracture with significant displacement", "A fracture with no appreciable displacement", "A type of fold", "An igneous intrusion"],
   correctAnswer: 1,
@@ -1658,7 +1658,7 @@ export const questions: Question[] = [
 // ── Topic earth-f4: Joints, Mountain Building & Tectonic Structures ──
 
 
-{ id: "EARTH-F4-Q001", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q022", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "single",
   question: "Columnar jointing, as seen at the Giant's Causeway in Northern Ireland, is produced by:",
   options: ["Tectonic compression", "Cooling and contraction of a thick lava flow", "Frost wedging", "Glacial erosion"],
   correctAnswer: 1,
@@ -1666,7 +1666,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F4-Q002", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "easy", type: "single",
+{ id: "EARTH-06-Q023", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "easy", type: "single",
   question: "Exfoliation joints in granitic landscapes (e.g., Half Dome, Yosemite) are produced by:",
   options: ["Tectonic compression", "Pressure release (unloading) as overlying rock is eroded", "Salt weathering", "Glacial plucking"],
   correctAnswer: 1,
@@ -1674,7 +1674,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F4-Q003", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "true_false",
+{ id: "EARTH-06-Q024", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "true_false",
   question: "A foreland basin typically receives sediment eroded from a nearby rising mountain belt.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1682,7 +1682,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F4-Q004", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q025", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "hard", type: "single",
   question: "Isostatic rebound in a mountain range occurs because:",
   options: ["Magma intrudes at depth and pushes the mountains up", "Erosion removes mass from the top, and the underlying asthenosphere flows back in to maintain equilibrium", "Plate motion compresses the crust", "Sea level falls"],
   correctAnswer: 1,
@@ -1690,7 +1690,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F4-Q005", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "hard", type: "single",
+{ id: "EARTH-06-Q026", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "hard", type: "single",
   question: "An accretionary wedge is best described as:",
   options: ["A mass of sediment and rock scraped off a subducting plate and added to the overriding plate", "A type of mountain range formed at a continental rift", "A pile of volcanic ash from an explosive eruption", "An underwater landslide deposit"],
   correctAnswer: 0,
@@ -1698,7 +1698,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-F4-Q006", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "single",
+{ id: "EARTH-06-Q027", sectionId: "EARTH-06", topicId: "earth-f4", difficulty: "medium", type: "single",
   question: "A typical architecture of a continental collision mountain belt, from the suture outward, includes:",
   options: ["Undeformed foreland, then thrust sheets, then metamorphic core", "Metamorphic core, then thrust sheets, then foreland fold-thrust belt, then foreland basin", "Volcanic arc, then trench, then accretionary wedge", "Sedimentary basin, then volcanic arc, then oceanic trench"],
   correctAnswer: 1,
@@ -1718,7 +1718,7 @@ export const questions: Question[] = [
 // ── Topic earth-g1: Magma vs. Lava, Composition & Properties ──
 
 
-{ id: "EARTH-G1-Q001", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "easy", type: "single",
+{ id: "EARTH-07-Q001", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "easy", type: "single",
   question: "Magma differs from lava in that:",
   options: ["Magma is solid; lava is molten", "Magma is molten rock below the surface; lava is molten rock at the surface", "Magma is felsic; lava is mafic", "Magma is hotter than lava"],
   correctAnswer: 1,
@@ -1726,7 +1726,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G1-Q002", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q002", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "medium", type: "single",
   question: "Which magma type is the LEAST viscous (most fluid)?",
   options: ["Felsic", "Intermediate", "Mafic (basaltic)", "All have similar viscosity"],
   correctAnswer: 2,
@@ -1734,7 +1734,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G1-Q003", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q003", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "medium", type: "single",
   question: "High-viscosity felsic magmas tend to produce which type of eruption?",
   options: ["Effusive (quiet, flowing)", "Highly explosive", "Lava-fountain style", "Underwater pillow eruptions"],
   correctAnswer: 1,
@@ -1742,7 +1742,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G1-Q004", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "easy", type: "true_false",
+{ id: "EARTH-07-Q004", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "easy", type: "true_false",
   question: "Basaltic (mafic) magma is the most common magma type on Earth.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1750,7 +1750,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G1-Q005", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "hard", type: "single",
+{ id: "EARTH-07-Q005", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "hard", type: "single",
   question: "The three main tectonic sources of magma are:",
   options: ["Hotspots only", "Mantle plumes, mid-ocean ridges, subduction zones", "Continental collisions only", "Impacts and bolide events"],
   correctAnswer: 1,
@@ -1758,7 +1758,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G1-Q006", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "hard", type: "single",
+{ id: "EARTH-07-Q006", sectionId: "EARTH-07", topicId: "earth-g1", difficulty: "hard", type: "single",
   question: "As silica content of magma increases, viscosity typically:",
   options: ["Decreases", "Increases", "Stays the same", "First decreases, then increases"],
   correctAnswer: 1,
@@ -1769,7 +1769,7 @@ export const questions: Question[] = [
 // ── Topic earth-g2: Volcano Types & Eruptive Styles ──
 
 
-{ id: "EARTH-G2-Q001", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "easy", type: "single",
+{ id: "EARTH-07-Q007", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "easy", type: "single",
   question: "A shield volcano such as Mauna Loa (Hawaii) is characterised by:",
   options: ["Steep slopes and explosive eruptions", "Gentle slopes and effusive (flowing) basaltic eruptions", "A small cone built of pyroclastic fragments", "A large collapse depression at the summit"],
   correctAnswer: 1,
@@ -1777,7 +1777,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G2-Q002", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q008", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "medium", type: "single",
   question: "A composite (stratovolcano) such as Mt. Fuji is characterised by:",
   options: ["Basaltic lava and gentle slopes", "Layered structure, intermediate to felsic magma, and explosive eruptions", "A large collapse caldera", "A small pyroclastic cone"],
   correctAnswer: 1,
@@ -1785,7 +1785,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G2-Q003", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q009", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "medium", type: "single",
   question: "A caldera (e.g., Yellowstone) is best described as:",
   options: ["A small, steep pyroclastic cone", "A large collapse depression formed when a magma chamber empties", "A volcanic vent on the flank of a larger volcano", "A type of lava flow"],
   correctAnswer: 1,
@@ -1793,7 +1793,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G2-Q004", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "easy", type: "true_false",
+{ id: "EARTH-07-Q010", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "easy", type: "true_false",
   question: "Cinder cones are typically large, long-lived volcanic structures.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1801,7 +1801,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G2-Q005", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "hard", type: "single",
+{ id: "EARTH-07-Q011", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "hard", type: "single",
   question: "Match the eruption style with its correct description:",
   options: ["Hawaiian — huge eruption column > 30 km", "Plinian — effusive lava fountaining", "Surtseyan — explosive water–magma interaction", "Strombolian — collapse of a magma chamber"],
   correctAnswer: 2,
@@ -1809,7 +1809,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G2-Q006", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "hard", type: "single",
+{ id: "EARTH-07-Q012", sectionId: "EARTH-07", topicId: "earth-g2", difficulty: "hard", type: "single",
   question: "Which combination of magma type and volcano type is MOST likely to be found at a subduction zone?",
   options: ["Basaltic magma + shield volcano", "Andesitic magma + composite volcano", "Rhyolitic magma + cinder cone", "Komatiitic magma + lava dome"],
   correctAnswer: 1,
@@ -1820,7 +1820,7 @@ export const questions: Question[] = [
 // ── Topic earth-g3: Volcanic Products, Hazards & Benefits ──
 
 
-{ id: "EARTH-G3-Q001", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "easy", type: "single",
+{ id: "EARTH-07-Q013", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "easy", type: "single",
   question: "Pahoehoe lava is best described as:",
   options: ["Rough, jagged, broken lava blocks", "Smooth, ropy, billowy basaltic lava", "Pillow-shaped masses formed underwater", "Solid rock fragments ejected in explosions"],
   correctAnswer: 1,
@@ -1828,7 +1828,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G3-Q002", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q014", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
   question: "Pillow lava is characteristic of:",
   options: ["Volcanoes in cold polar regions", "Underwater eruptions, such as at mid-ocean ridges", "Subduction-zone composite volcanoes", "Hotspot volcanoes on continents"],
   correctAnswer: 1,
@@ -1836,7 +1836,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G3-Q003", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q015", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
   question: "A pyroclastic flow is best described as:",
   options: ["A slow-moving lava flow", "A hot, fast, ground-hugging mixture of gas and volcanic debris", "A volcanic mudflow in a river valley", "A column of volcanic ash rising high into the atmosphere"],
   correctAnswer: 1,
@@ -1844,7 +1844,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G3-Q004", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-07-Q016", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "true_false",
   question: "A lahar is a volcanic mudflow that can travel tens of kilometres down river valleys.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1852,7 +1852,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G3-Q005", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "hard", type: "single",
+{ id: "EARTH-07-Q017", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "hard", type: "single",
   question: "Which volcanic gas is primarily responsible for short-term global cooling after a major eruption?",
   options: ["CO₂", "SO₂", "H₂O", "HCl"],
   correctAnswer: 1,
@@ -1860,7 +1860,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-G3-Q006", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
+{ id: "EARTH-07-Q018", sectionId: "EARTH-07", topicId: "earth-g3", difficulty: "medium", type: "single",
   question: "Which of the following is NOT a benefit of volcanoes?",
   options: ["Fertile volcanic soils for agriculture", "Geothermal energy (e.g., Iceland)", "Porphyry copper, gold, and silver deposits", "Permanent destruction of nearby land with no recovery"],
   correctAnswer: 3,
@@ -1878,7 +1878,7 @@ export const questions: Question[] = [
 // ── Topic earth-h1: Earthquake Causes, Terminology & Source Mechanics ──
 
 
-{ id: "EARTH-H1-Q001", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q001", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "easy", type: "single",
   question: "The point on Earth's surface directly above the focus of an earthquake is called the:",
   options: ["Hypocenter", "Epicenter", "Focal depth", "Fault trace"],
   correctAnswer: 1,
@@ -1886,7 +1886,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q002", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q002", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
   question: "A 'shallow' earthquake is one with a focal depth of:",
   options: ["< 70 km", "70–300 km", "300–700 km", "More than 700 km"],
   correctAnswer: 0,
@@ -1894,7 +1894,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q003", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "easy", type: "true_false",
+{ id: "EARTH-08-Q003", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "easy", type: "true_false",
   question: "Tectonic earthquakes caused by sudden fault slip are the most common type of earthquake.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1902,7 +1902,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q004", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q004", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "hard", type: "single",
   question: "According to the Elastic Rebound Theory, the sequence of events during an earthquake is:",
   options: ["Rupture → elastic strain → stress → seismic waves", "Stress → elastic strain → sudden slip (rupture) → rebound → seismic waves", "Seismic waves → stress → rupture → rebound", "Rebound → stress → rupture → seismic waves"],
   correctAnswer: 1,
@@ -1910,7 +1910,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q005", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q005", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
   question: "Aftershocks following a mainshock generally:",
   options: ["Increase in frequency over time", "Decrease in frequency over time, following Omori's law", "Are always larger than the mainshock", "Occur only on the opposite side of the fault"],
   correctAnswer: 1,
@@ -1918,7 +1918,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q006", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q006", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "hard", type: "single",
   question: "In the stick-slip mechanism, faults:",
   options: ["Continuously slide without any buildup of stress", "Alternately store strain (stick) and release it suddenly (slip)", "Only release strain during volcanic activity", "Are limited to transform plate boundaries"],
   correctAnswer: 1,
@@ -1926,7 +1926,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H1-Q007", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q007", sectionId: "EARTH-08", topicId: "earth-h1", difficulty: "medium", type: "single",
   question: "Earthquake swarms — sequences of many small earthquakes with no clear mainshock — are commonly associated with:",
   options: ["Transform plate boundaries", "Volcanic or magmatic activity", "Deep mantle plumes only", "Mid-ocean ridges exclusively"],
   correctAnswer: 1,
@@ -1937,7 +1937,7 @@ export const questions: Question[] = [
 // ── Topic earth-h2: Seismic Waves: Body & Surface ──
 
 
-{ id: "EARTH-H2-Q001", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q008", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "easy", type: "single",
   question: "Which seismic wave is the FIRST to arrive at a seismograph station?",
   options: ["S-wave", "Surface wave", "P-wave", "Love wave"],
   correctAnswer: 2,
@@ -1945,7 +1945,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q002", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q009", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
   question: "S-waves cannot pass through the outer core because:",
   options: ["They are too slow", "Liquids do not support shear stress", "The outer core is too dense", "The outer core is too cold"],
   correctAnswer: 1,
@@ -1953,7 +1953,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q003", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q010", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
   question: "Surface waves (Love and Rayleigh) are generally the most damaging because they are:",
   options: ["Fastest", "Highest in frequency", "Largest in amplitude and travel along the surface", "Able to pass through the outer core"],
   correctAnswer: 2,
@@ -1961,7 +1961,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q004", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "easy", type: "true_false",
+{ id: "EARTH-08-Q011", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "easy", type: "true_false",
   question: "P-waves can travel through both solids and liquids.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -1969,7 +1969,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q005", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q012", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
   question: "The S-wave shadow zone (where direct S-waves do not arrive) is located between which angular distances from the epicenter?",
   options: ["0°–30°", "30°–103°", "103°–180°", "180°–360°"],
   correctAnswer: 2,
@@ -1977,7 +1977,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q006", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q013", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
   question: "Love waves and Rayleigh waves are best described as:",
   options: ["Body waves that travel through Earth's interior", "Surface waves that travel along Earth's surface", "Waves that only exist during volcanic eruptions", "Waves generated only by nuclear explosions"],
   correctAnswer: 1,
@@ -1985,7 +1985,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H2-Q007", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q014", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "medium", type: "single",
   question: "A P-wave travels at about 6 km/s in the crust and an S-wave at about 3.5 km/s. How long will the S-wave lag behind the P-wave at a distance of 70 km?",
   options: ["~5 s", "~8 s", "~20 s", "~30 s"],
   correctAnswer: 1,
@@ -1996,7 +1996,7 @@ export const questions: Question[] = [
 // ── Topic earth-h3: Locating Earthquakes & Seismographs ──
 
 
-{ id: "EARTH-H3-Q001", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q015", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "easy", type: "single",
   question: "What is the minimum number of seismograph stations required to locate an earthquake epicenter by triangulation?",
   options: ["1", "2", "3", "5"],
   correctAnswer: 2,
@@ -2004,7 +2004,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H3-Q002", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q016", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "single",
   question: "The P–S time interval on a seismogram is converted to a distance from the epicenter using:",
   options: ["The amplitude of the P-wave", "A pre-computed travel-time curve based on Earth's velocity structure", "The depth of the focus", "The magnitude of the earthquake"],
   correctAnswer: 1,
@@ -2012,7 +2012,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H3-Q003", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-08-Q017", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "true_false",
   question: "A seismograph detects ground motion; a seismogram is the record produced by the seismograph.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2020,7 +2020,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H3-Q004", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q018", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "hard", type: "single",
   question: "A modern broadband seismograph typically uses which design principle?",
   options: ["A heavy mass that moves with the ground", "A suspended mass that tends to stay at rest by inertia while the ground moves beneath it; relative motion is recorded", "A satellite-based laser rangefinder", "An acoustic microphone buried in the ground"],
   correctAnswer: 1,
@@ -2028,7 +2028,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H3-Q005", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q019", sectionId: "EARTH-08", topicId: "earth-h3", difficulty: "medium", type: "single",
   question: "A 'beach-ball' focal mechanism diagram is used to show:",
   options: ["The magnitude of an earthquake", "The fault orientation and slip direction derived from P-wave first motions", "The depth of the focus", "The tsunami risk"],
   correctAnswer: 1,
@@ -2039,7 +2039,7 @@ export const questions: Question[] = [
 // ── Topic earth-h4: Magnitude, Intensity & Seismic Hazard ──
 
 
-{ id: "EARTH-H4-Q001", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q020", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "easy", type: "single",
   question: "The most widely used modern magnitude scale is:",
   options: ["Richter (ML)", "Moment Magnitude (Mw)", "Body-wave magnitude (mb)", "Surface-wave magnitude (Ms)"],
   correctAnswer: 1,
@@ -2047,7 +2047,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q002", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q021", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "single",
   question: "The magnitude scale is logarithmic, with each whole-number step representing approximately how much more released energy?",
   options: ["2× more energy", "10× more energy", "~32× more energy", "100× more energy"],
   correctAnswer: 2,
@@ -2055,7 +2055,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q003", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "true_false",
+{ id: "EARTH-08-Q022", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "true_false",
   question: "Magnitude and intensity are essentially the same measure of an earthquake, just on different scales.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -2063,7 +2063,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q004", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q023", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
   question: "The Richter Magnitude (ML) scale is no longer preferred for large earthquakes because:",
   options: ["It is too complicated to compute", "It saturates for very large events (cannot distinguish M8.3 from M8.9)", "It does not work in oceanic settings", "It only works for shallow earthquakes"],
   correctAnswer: 1,
@@ -2071,7 +2071,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q005", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q024", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
   question: "The seismic moment M₀ is calculated as:",
   options: ["M₀ = log₁₀(amplitude)", "M₀ = μ × A × D (rigidity × rupture area × average slip)", "M₀ = (P-wave delay) × distance", "M₀ = (epicentral distance) / (P-wave speed)"],
   correctAnswer: 1,
@@ -2079,7 +2079,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q006", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q025", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "medium", type: "single",
   question: "On the Modified Mercalli Intensity (MMI) scale, intensity:",
   options: ["Is a single value for the whole earthquake", "Varies with distance from the epicenter and local site conditions", "Is always proportional to magnitude", "Is independent of building construction"],
   correctAnswer: 1,
@@ -2087,7 +2087,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H4-Q007", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q026", sectionId: "EARTH-08", topicId: "earth-h4", difficulty: "hard", type: "single",
   question: "The largest earthquake ever recorded was the 1960 Valdivia event in Chile. Its Moment Magnitude was approximately:",
   options: ["M8.5", "M9.0", "M9.5", "M10.0"],
   correctAnswer: 2,
@@ -2098,7 +2098,7 @@ export const questions: Question[] = [
 // ── Topic earth-h5: Global Earthquake Distribution & Tsunamis ──
 
 
-{ id: "EARTH-H5-Q001", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q027", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "easy", type: "single",
   question: "What percentage of the world's earthquakes occur along the Pacific Ring of Fire?",
   options: ["~10%", "~30%", "~60%", "~90%"],
   correctAnswer: 3,
@@ -2106,7 +2106,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q002", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q028", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
   question: "A tsunami is most commonly generated by:",
   options: ["Strong winds over the ocean surface", "Sudden vertical displacement of the seafloor (e.g., undersea earthquake)", "Tidal forces from the Moon", "Volcanic eruptions on land"],
   correctAnswer: 1,
@@ -2114,7 +2114,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q003", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q029", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
   question: "In the deep ocean, a tsunami wave typically has:",
   options: ["Wavelength < 10 m and speed of a few km/h", "Wavelength of hundreds of km and speed of 500–800 km/h", "Wavelength of a few km and speed of 100 km/h", "No wavelength; it is a single pulse"],
   correctAnswer: 1,
@@ -2122,7 +2122,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q004", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q030", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "hard", type: "single",
   question: "When a tsunami enters shallow coastal water, the wave typically:",
   options: ["Disappears due to friction", "Slows down and its height grows dramatically (shoaling)", "Becomes a single tall wave", "Reflects back to sea"],
   correctAnswer: 1,
@@ -2130,7 +2130,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q005", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "true_false",
+{ id: "EARTH-08-Q031", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "true_false",
   question: "The 2004 Indian Ocean tsunami killed about 230,000 people across 14 countries.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2138,7 +2138,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q006", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q032", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "hard", type: "single",
   question: "DART buoys in tsunami warning systems detect:",
   options: ["Seismic waves from the source earthquake", "Small pressure changes on the seafloor caused by a passing tsunami wave", "The height of waves at the coast", "Tidal cycles"],
   correctAnswer: 1,
@@ -2146,7 +2146,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H5-Q007", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q033", sectionId: "EARTH-08", topicId: "earth-h5", difficulty: "medium", type: "single",
   question: "Most earthquakes are concentrated along:",
   options: ["The centres of continents", "Plate boundaries", "Random locations", "Oceanic islands only"],
   correctAnswer: 1,
@@ -2157,7 +2157,7 @@ export const questions: Question[] = [
 // ── Topic earth-h6: Earthquake Hazards, Risk & Mitigation ──
 
 
-{ id: "EARTH-H6-Q001", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "easy", type: "single",
+{ id: "EARTH-08-Q034", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "easy", type: "single",
   question: "The PRIMARY cause of damage and casualties in most earthquakes is:",
   options: ["Surface rupture along the fault", "Ground shaking", "Tsunamis", "Volcanic eruptions"],
   correctAnswer: 1,
@@ -2165,7 +2165,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q002", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q035", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "single",
   question: "Liquefaction during an earthquake causes:",
   options: ["The soil to harden and become more stable", "Water-saturated sandy soils to lose strength and behave as a liquid", "Rocks to melt", "The water table to drop"],
   correctAnswer: 1,
@@ -2173,7 +2173,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q003", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "single",
+{ id: "EARTH-08-Q036", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "single",
   question: "Base isolation in earthquake-resistant buildings works by:",
   options: ["Strengthening the foundation to bedrock", "Placing the building on flexible pads that decouple it from ground motion", "Adding heavy weights to the roof", "Reinforcing walls with steel beams"],
   correctAnswer: 1,
@@ -2181,7 +2181,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q004", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q037", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
   question: "Earthquake early warning (EEW) systems send an alert to users after detecting:",
   options: ["The first (non-damaging) P-waves, before the slower, more damaging S-waves and surface waves arrive", "The surface waves directly", "Foreshocks that occur hours before the mainshock", "The tsunami at the coast"],
   correctAnswer: 0,
@@ -2189,7 +2189,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q005", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q038", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
   question: "The 1985 Mexico City earthquake killed thousands despite the epicenter being ~400 km away. The main reason was:",
   options: ["The earthquake was unexpectedly large (M8.0+)", "Amplification of seismic waves in soft, water-saturated lake-bed sediments under the city", "A tsunami that struck the coast", "A volcanic eruption that followed the quake"],
   correctAnswer: 1,
@@ -2197,7 +2197,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q006", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "true_false",
+{ id: "EARTH-08-Q039", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "medium", type: "true_false",
   question: "The 1906 San Francisco earthquake caused most of its damage by fire, not by ground shaking.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2205,7 +2205,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-H6-Q007", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q040", sectionId: "EARTH-08", topicId: "earth-h6", difficulty: "hard", type: "single",
   question: "Which earthquake was responsible for the most deaths in the 21st century (as of the 2020s)?",
   options: ["2010 Haiti (M7.0)", "2004 Indian Ocean (M9.1) — the tsunami deaths", "2011 Tōhoku, Japan (M9.1)", "2015 Nepal (M7.8)"],
   correctAnswer: 1,
@@ -2225,7 +2225,7 @@ export const questions: Question[] = [
 // ── Topic earth-i1: Tectonic Setting of Pakistan & Major Geological Features ──
 
 
-{ id: "EARTH-I1-Q001", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q001", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "easy", type: "single",
   question: "Pakistan sits at the active collision zone between which two tectonic plates?",
   options: ["Arabian and Eurasian", "African and Indian", "Indian and Eurasian", "Pacific and North American"],
   correctAnswer: 2,
@@ -2233,7 +2233,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I1-Q002", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q002", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "easy", type: "single",
   question: "Which is the highest peak in Pakistan?",
   options: ["Nanga Parbat (8,126 m)", "Tirich Mir (7,708 m)", "K2 (8,611 m)", "Broad Peak (8,051 m)"],
   correctAnswer: 2,
@@ -2241,7 +2241,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I1-Q003", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q003", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "single",
   question: "Nanga Parbat is one of the fastest-rising mountains on Earth, with an uplift rate of approximately:",
   options: ["~1 mm/yr", "~7 mm/yr", "~30 mm/yr", "~100 mm/yr"],
   correctAnswer: 1,
@@ -2249,7 +2249,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I1-Q004", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q004", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "single",
   question: "The Makran coast of Balochistan is the site of:",
   options: ["A continental collision zone", "An active subduction zone (Arabian Plate beneath Eurasian Plate)", "A transform fault only", "A stable craton"],
   correctAnswer: 1,
@@ -2257,7 +2257,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I1-Q005", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-09-Q005", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "medium", type: "true_false",
   question: "The Salt Range exposes some of the oldest rocks in South Asia, including Precambrian formations.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2265,7 +2265,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I1-Q006", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "hard", type: "single",
+{ id: "EARTH-09-Q006", sectionId: "EARTH-09", topicId: "earth-i1", difficulty: "hard", type: "single",
   question: "The Indus Basin contains sediment fill of up to:",
   options: ["500 m", "1 km", "5 km", "20 km"],
   correctAnswer: 2,
@@ -2276,7 +2276,7 @@ export const questions: Question[] = [
 // ── Topic earth-i2: Seismic Zones of Pakistan & Major Earthquakes ──
 
 
-{ id: "EARTH-I2-Q001", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q007", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "easy", type: "single",
   question: "The 1935 Quetta earthquake in Balochistan had an approximate magnitude of:",
   options: ["M5.5", "M6.5", "M7.7", "M9.0"],
   correctAnswer: 2,
@@ -2284,7 +2284,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I2-Q002", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q008", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
   question: "The 2005 Kashmir (Muzaffarabad) earthquake had an approximate magnitude of:",
   options: ["M5.6", "M6.5", "M7.6", "M8.5"],
   correctAnswer: 2,
@@ -2292,7 +2292,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I2-Q003", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-09-Q009", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "true_false",
   question: "The 1945 Makran earthquake (M8.1) generated a tsunami that affected the Makran coast and Karachi.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2300,7 +2300,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I2-Q004", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "hard", type: "single",
+{ id: "EARTH-09-Q010", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "hard", type: "single",
   question: "Which of the following is the most seismically active region of Pakistan?",
   options: ["Indus Plains", "Thar Desert", "Northern Areas (Gilgit-Baltistan, Chitral)", "Coastal Sindh"],
   correctAnswer: 2,
@@ -2308,7 +2308,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I2-Q005", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q011", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
   question: "The 2013 Awaran earthquake (M7.7) in Balochistan is believed to have occurred on which fault system?",
   options: ["Main Karakoram Thrust", "Chaman Fault system", "Main Central Thrust", "Salt Range Thrust"],
   correctAnswer: 1,
@@ -2316,7 +2316,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I2-Q006", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "hard", type: "single",
+{ id: "EARTH-09-Q012", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "hard", type: "single",
   question: "Why does Karachi have a higher seismic risk than commonly perceived?",
   options: ["It sits directly on a transform fault", "It is within ~150 km of the Makran Subduction Zone and lies on soft, amplifying sediments", "It is in a rift valley", "It is built on volcanic rock"],
   correctAnswer: 1,
@@ -2327,7 +2327,7 @@ export const questions: Question[] = [
 // ── Topic earth-i3: Active Faults of Pakistan & Tsunami Risk ──
 
 
-{ id: "EARTH-I3-Q001", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q013", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "easy", type: "single",
   question: "The Chaman Fault is best described as:",
   options: ["A thrust fault in the Himalayas", "A long left-lateral strike-slip fault in Balochistan", "A subduction zone offshore", "A normal fault in the Indus Plains"],
   correctAnswer: 1,
@@ -2335,7 +2335,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I3-Q002", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q014", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "single",
   question: "The Main Boundary Thrust (MBT) separates:",
   options: ["The Siwalik Hills from older rocks to the north", "The Indian and Arabian plates", "The Indus Basin from the Thar Desert", "The inner and outer core"],
   correctAnswer: 0,
@@ -2343,7 +2343,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I3-Q003", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "hard", type: "single",
+{ id: "EARTH-09-Q015", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "hard", type: "single",
   question: "Why is the Makran Subduction Zone considered particularly hazardous despite producing few recent large earthquakes?",
   options: ["Because it is a divergent boundary", "Because subduction zones can produce M8+ megathrust earthquakes and tsunamis; recurrence intervals may be long (centuries), giving a false sense of safety", "Because it has no seismic monitoring", "Because it is in the middle of a continent"],
   correctAnswer: 1,
@@ -2351,7 +2351,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I3-Q004", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-09-Q016", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "true_false",
   question: "Pakistan's Makran coast is the most tsunami-vulnerable region of the country.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2359,7 +2359,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I3-Q005", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "hard", type: "single",
+{ id: "EARTH-09-Q017", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "hard", type: "single",
   question: "Which is the northernmost major active thrust fault in Pakistan?",
   options: ["Main Boundary Thrust (MBT)", "Main Central Thrust (MCT)", "Main Karakoram Thrust (MKT)", "Chaman Fault"],
   correctAnswer: 2,
@@ -2367,7 +2367,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I3-Q006", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q018", sectionId: "EARTH-09", topicId: "earth-i3", difficulty: "medium", type: "single",
   question: "The Pakistan Meteorological Department (PMD) operates a tsunami warning centre in:",
   options: ["Islamabad", "Lahore", "Karachi", "Peshawar"],
   correctAnswer: 2,
@@ -2378,7 +2378,7 @@ export const questions: Question[] = [
 // ── Topic earth-i4: Mineral & Energy Resources of Pakistan ──
 
 
-{ id: "EARTH-I4-Q001", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q019", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
   question: "The Thar Coalfield in Sindh is significant because:",
   options: ["It produces anthracite coal", "It is one of the world's largest coal deposits (~175 billion tonnes of lignite)", "It is the smallest coalfield in Pakistan", "It is located in Balochistan"],
   correctAnswer: 1,
@@ -2386,7 +2386,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I4-Q002", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q020", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
   question: "Pakistan's largest natural gas field is:",
   options: ["Sui (Balochistan)", "Mazarani (Sindh)", "Meyal (Potwar)", "Kandkot (Sindh)"],
   correctAnswer: 0,
@@ -2394,7 +2394,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I4-Q003", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
+{ id: "EARTH-09-Q021", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "easy", type: "single",
   question: "The Khewra Salt Mine, located in the Salt Range, is:",
   options: ["The smallest salt mine in Pakistan", "The world's second-largest salt mine, also the source of pink Himalayan salt", "Located in Balochistan", "A copper mine"],
   correctAnswer: 1,
@@ -2402,7 +2402,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I4-Q004", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q022", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "medium", type: "single",
   question: "Reko Diq, located in the Chagai Hills of Balochistan, is famous for:",
   options: ["Lignite coal", "One of the world's largest undeveloped copper-gold porphyry deposits", "Major emerald production", "Salt production"],
   correctAnswer: 1,
@@ -2410,7 +2410,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I4-Q005", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q023", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "medium", type: "single",
   question: "The Swat Valley in Khyber Pakhtunkhwa is famous for producing:",
   options: ["Lignite coal", "Chromite", "High-quality emeralds", "Natural gas"],
   correctAnswer: 2,
@@ -2418,7 +2418,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-I4-Q006", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "hard", type: "true_false",
+{ id: "EARTH-09-Q024", sectionId: "EARTH-09", topicId: "earth-i4", difficulty: "hard", type: "true_false",
   question: "The Muslim Bagh area of Balochistan is one of the world's largest chromite producers.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2438,7 +2438,7 @@ export const questions: Question[] = [
 // ── Topic earth-j1: The Hydrologic Cycle (Geological Recap) ──
 
 
-{ id: "EARTH-J1-Q001", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "easy", type: "single",
+{ id: "EARTH-10-Q001", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "easy", type: "single",
   question: "Approximately what percentage of Earth's total water is held in the oceans?",
   options: ["~50%", "~75%", "~97%", "~99.9%"],
   correctAnswer: 2,
@@ -2446,7 +2446,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J1-Q002", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q002", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "single",
   question: "The hydrologic cycle is primarily driven by:",
   options: ["Tidal forces and Earth's rotation", "Solar energy and gravity", "Tectonic activity and volcanism", "Earth's magnetic field"],
   correctAnswer: 1,
@@ -2454,7 +2454,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J1-Q003", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-10-Q003", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "true_false",
   question: "Water in the atmosphere has a residence time of about 9 days, while deep groundwater can be thousands of years old.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2462,7 +2462,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J1-Q004", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q004", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "medium", type: "single",
   question: "The combined flux of water to the atmosphere from evaporation and plant transpiration is called:",
   options: ["Precipitation", "Infiltration", "Evapotranspiration", "Sublimation"],
   correctAnswer: 2,
@@ -2470,7 +2470,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J1-Q005", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "hard", type: "single",
+{ id: "EARTH-10-Q005", sectionId: "EARTH-10", topicId: "earth-j1", difficulty: "hard", type: "single",
   question: "The water cycle is best described as:",
   options: ["An open system that constantly gains water from space", "A closed system in which total water on Earth is essentially constant over human timescales", "A linear system that begins with evaporation and ends with runoff", "A system unique to Earth"],
   correctAnswer: 1,
@@ -2481,7 +2481,7 @@ export const questions: Question[] = [
 // ── Topic earth-j2: Groundwater: Aquifers, Water Tables & Flow ──
 
 
-{ id: "EARTH-J2-Q001", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "easy", type: "single",
+{ id: "EARTH-10-Q006", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "easy", type: "single",
   question: "The water table is best described as:",
   options: ["The top of the unsaturated zone", "The upper surface of the zone of saturation; below it, all pore spaces are filled with water", "The bottom of an aquifer", "A measurement of precipitation"],
   correctAnswer: 1,
@@ -2489,7 +2489,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q002", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q007", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
   question: "An artesian well produces water without pumping because:",
   options: ["The aquifer is unconfined", "The water is heated by a magma chamber", "The water is under pressure in a confined aquifer, and rises above the aquifer when tapped", "The water is being pushed up by a geyser"],
   correctAnswer: 2,
@@ -2497,7 +2497,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q003", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q008", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
   question: "Which of the following best describes the difference between porosity and permeability?",
   options: ["They are the same property", "Porosity is the % of void space; permeability is the ability to transmit fluid through connected voids", "Porosity is for sand; permeability is for clay", "Porosity decreases with depth; permeability increases with depth"],
   correctAnswer: 1,
@@ -2505,7 +2505,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q004", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
+{ id: "EARTH-10-Q009", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
   question: "A shale layer is best described as:",
   options: ["An aquifer (high porosity, high permeability)", "An aquitard or aquiclude (low permeability)", "A karst feature", "An igneous intrusion"],
   correctAnswer: 1,
@@ -2513,7 +2513,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q005", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-10-Q010", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "true_false",
   question: "A cone of depression is a lowering of the water table around a pumping well caused by the rate of pumping exceeding the rate of recharge.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2521,7 +2521,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q006", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
+{ id: "EARTH-10-Q011", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
   question: "Darcy's Law for groundwater flow states:",
   options: ["Q = P / V (pressure divided by velocity)", "Q = K × A × (h/L), where K is hydraulic conductivity, A is cross-sectional area, h is head difference, L is flow length", "Q = A × v (area times velocity, like any volumetric flow)", "F = G × m₁ × m₂ / r² (Newton's law)"],
   correctAnswer: 1,
@@ -2529,7 +2529,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-J2-Q007", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q012", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
   question: "Karst aquifers (formed in limestone) are particularly vulnerable to:",
   options: ["Frost wedging", "Contamination from surface sources, because of rapid groundwater flow through caves and conduits", "High pressure at depth", "Magnetic anomalies"],
   correctAnswer: 1,
@@ -2549,7 +2549,7 @@ export const questions: Question[] = [
 // ── Topic earth-k1: Introduction to Geophysics & Geophysical Methods ──
 
 
-{ id: "EARTH-K1-Q001", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "easy", type: "single",
+{ id: "EARTH-11-Q001", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "easy", type: "single",
   question: "Geophysics is best defined as:",
   options: ["The study of geology using chemistry", "The application of physics to study the Earth", "The study of geography using physics", "The application of geology to engineering"],
   correctAnswer: 1,
@@ -2557,7 +2557,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K1-Q002", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q002", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
   question: "Which geophysical method is the PRIMARY tool for oil and gas exploration?",
   options: ["Gravity", "Magnetic", "Seismic", "Radiometric"],
   correctAnswer: 2,
@@ -2565,7 +2565,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K1-Q003", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "true_false",
+{ id: "EARTH-11-Q003", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "true_false",
   question: "Geophysical data are direct measurements of subsurface rocks and do not require interpretation.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -2573,7 +2573,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K1-Q004", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q004", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
   question: "Each geophysical method exploits a specific physical property contrast. Which match is INCORRECT?",
   options: ["Seismic — contrast in elastic wave speed and density", "Gravity — contrast in density", "Magnetic — contrast in magnetic susceptibility (magnetite content)", "Radiometric — contrast in electrical resistivity"],
   correctAnswer: 3,
@@ -2584,7 +2584,7 @@ export const questions: Question[] = [
 // ── Topic earth-k2: Seismic Method (Reflection & Refraction) ──
 
 
-{ id: "EARTH-K2-Q001", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "easy", type: "single",
+{ id: "EARTH-11-Q005", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "easy", type: "single",
   question: "In seismic reflection surveying, what is the main principle?",
   options: ["Waves travel along a high-velocity layer and refract back to the surface", "Waves reflect off subsurface interfaces and return to receivers at the surface", "Waves are absorbed differently by different rock types", "Waves are generated by earthquakes"],
   correctAnswer: 1,
@@ -2592,7 +2592,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K2-Q002", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q006", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "medium", type: "single",
   question: "A seismic reflector is detected at a two-way travel time of 3.0 s. If the average velocity of the overlying rocks is 2,500 m/s, what is the depth of the reflector?",
   options: ["1,500 m", "3,750 m", "7,500 m", "12,000 m"],
   correctAnswer: 1,
@@ -2600,7 +2600,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K2-Q003", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "medium", type: "true_false",
+{ id: "EARTH-11-Q007", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "medium", type: "true_false",
   question: "3D seismic surveys are the modern standard for oil and gas exploration.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2608,7 +2608,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K2-Q004", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "hard", type: "single",
+{ id: "EARTH-11-Q008", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "hard", type: "single",
   question: "4D seismic refers to:",
   options: ["Seismic in four different directions", "Repeated 3D seismic surveys over time to monitor reservoir changes (e.g., fluid movement, CO₂ injection)", "Seismic with four component waves (P, S, Love, Rayleigh)", "Seismic at four different frequencies"],
   correctAnswer: 1,
@@ -2619,7 +2619,7 @@ export const questions: Question[] = [
 // ── Topic earth-k3: Gravity, Magnetic & Electrical Methods ──
 
 
-{ id: "EARTH-K3-Q001", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "easy", type: "single",
+{ id: "EARTH-11-Q009", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "easy", type: "single",
   question: "The gravity method measures variations in Earth's gravitational field caused by:",
   options: ["Magnetic anomalies in the subsurface", "Density contrasts in subsurface rocks", "Electrical resistivity of the rocks", "Radioactive element content"],
   correctAnswer: 1,
@@ -2627,7 +2627,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K3-Q002", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q010", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "single",
   question: "The magnetic method is particularly useful for:",
   options: ["Measuring the age of rocks", "Locating magnetite-rich ore and mapping basement structure under sediments", "Detecting groundwater in sandstone aquifers", "Determining the depth to the Moho"],
   correctAnswer: 1,
@@ -2635,7 +2635,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K3-Q003", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q011", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "single",
   question: "Which material has the LOWEST electrical resistivity (i.e., is the best conductor)?",
   options: ["Dry granite", "Clean sand and gravel", "Salt water", "Metallic ore"],
   correctAnswer: 3,
@@ -2643,7 +2643,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K3-Q004", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "hard", type: "single",
+{ id: "EARTH-11-Q012", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "hard", type: "single",
   question: "Resistivity surveys are commonly used in groundwater exploration because:",
   options: ["Groundwater is highly radioactive", "Aquifers (sand, gravel) typically have much higher resistivity than surrounding clays and shales", "The method is only sensitive to water content", "Resistivity measures water temperature directly"],
   correctAnswer: 1,
@@ -2654,7 +2654,7 @@ export const questions: Question[] = [
 // ── Topic earth-k4: Radiometric Methods & Geodesy ──
 
 
-{ id: "EARTH-K4-Q001", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "easy", type: "single",
+{ id: "EARTH-11-Q013", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "easy", type: "single",
   question: "Radiometric (gamma-ray) surveys measure the natural radioactivity of rocks from which elements?",
   options: ["Iron and manganese", "Potassium (K), Uranium (U), and Thorium (Th)", "Silicon and oxygen", "Carbon and hydrogen"],
   correctAnswer: 1,
@@ -2662,7 +2662,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K4-Q002", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q014", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "medium", type: "single",
   question: "The GPS (Global Positioning System) is used in geophysics primarily to:",
   options: ["Measure the depth of earthquakes", "Measure precise positions (and hence plate motions, ground deformation) to mm accuracy", "Image the subsurface in 3D", "Detect oil directly"],
   correctAnswer: 1,
@@ -2670,7 +2670,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K4-Q003", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "hard", type: "single",
+{ id: "EARTH-11-Q015", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "hard", type: "single",
   question: "The GRACE satellite mission measures:",
   options: ["Sea surface temperature", "Monthly changes in Earth's gravity field, used to track ice mass loss and groundwater depletion", "Atmospheric CO₂ concentrations", "Earthquake magnitudes in real time"],
   correctAnswer: 1,
@@ -2678,7 +2678,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard Earth science curriculum" },
 
 
-{ id: "EARTH-K4-Q004", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "medium", type: "true_false",
+{ id: "EARTH-11-Q016", sectionId: "EARTH-11", topicId: "earth-k4", difficulty: "medium", type: "true_false",
   question: "Satellite altimetry has measured global sea level rise at approximately 3.4 mm/year over recent decades.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2693,14 +2693,14 @@ export const questions: Question[] = [
 
 // ── Extra for earth-j2: Indus Basin & Karst ──
 
-{ id: "EARTH-J2-Q008", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
+{ id: "EARTH-10-Q013", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "medium", type: "single",
   question: "The Indus Basin aquifer system in Pakistan is best described as:",
   options: ["A crystalline basement aquifer with low yield", "A deep alluvial aquifer (locally >5 km sediment) recharged by rivers and monsoon, currently experiencing widespread water-table decline", "A confined karst aquifer with rapid conduit flow", "A volcanic aquifer limited to northern Pakistan"],
   correctAnswer: 1,
   explanation: "The Indus Basin contains one of the world's largest alluvial aquifer systems. Sediment thickness locally exceeds 5 km. Intensive irrigation pumping has caused widespread declines in the water table and, in coastal areas, saltwater intrusion.",
   sourceCitation: "Standard Earth science curriculum + Pakistan hydrology" },
 
-{ id: "EARTH-J2-Q009", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
+{ id: "EARTH-10-Q014", sectionId: "EARTH-10", topicId: "earth-j2", difficulty: "hard", type: "single",
   question: "Why are karst aquifers particularly vulnerable to contamination?",
   options: ["They have extremely low permeability", "Rapid groundwater flow through caves and conduits provides little natural filtration", "They are always confined and under high pressure", "They contain only saline water"],
   correctAnswer: 1,
@@ -2709,21 +2709,21 @@ export const questions: Question[] = [
 
 // ── Extra geophysics questions ──
 
-{ id: "EARTH-K1-Q005", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
+{ id: "EARTH-11-Q017", sectionId: "EARTH-11", topicId: "earth-k1", difficulty: "medium", type: "single",
   question: "Which geophysical method would be most appropriate for initial reconnaissance of a large copper-gold porphyry deposit such as Reko Diq?",
   options: ["Deep seismic reflection only", "Magnetic and gravity surveys (followed by IP/resistivity)", "Radiometric surveys alone", "Satellite altimetry"],
   correctAnswer: 1,
   explanation: "Porphyry copper-gold systems often have magnetic and density contrasts associated with the intrusive complex and alteration. Magnetic and gravity surveys are efficient for regional targeting; induced polarisation (IP) and resistivity then refine targets because sulphide mineralisation produces strong chargeability responses.",
   sourceCitation: "Standard Earth science curriculum + mineral exploration practice" },
 
-{ id: "EARTH-K2-Q005", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "hard", type: "single",
+{ id: "EARTH-11-Q018", sectionId: "EARTH-11", topicId: "earth-k2", difficulty: "hard", type: "single",
   question: "A seismic reflection survey records a two-way travel time of 2.4 s to a reflector. Average velocity above the reflector is 3,000 m/s. Depth to the reflector is:",
   options: ["1,200 m", "3,600 m", "7,200 m", "14,400 m"],
   correctAnswer: 1,
   explanation: "Depth = velocity × (two-way time / 2) = 3,000 m/s × (2.4 s / 2) = 3,000 × 1.2 = 3,600 m.",
   sourceCitation: "Standard Earth science curriculum" },
 
-{ id: "EARTH-K3-Q005", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "true_false",
+{ id: "EARTH-11-Q019", sectionId: "EARTH-11", topicId: "earth-k3", difficulty: "medium", type: "true_false",
   question: "A positive gravity anomaly is produced by a dense body (e.g., ore deposit or basalt intrusion) relative to surrounding rock.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -2732,7 +2732,7 @@ export const questions: Question[] = [
 
 // ── Match-the-following style (implemented as single-choice with paired options) ──
 
-{ id: "EARTH-H2-Q008", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
+{ id: "EARTH-08-Q041", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "hard", type: "single",
   question: "Match the seismic wave with its characteristic: (1) P-wave (2) S-wave (3) Love wave (4) Rayleigh wave — which pairing is correct?",
   options: [
     "1=shear only, 2=compressional, 3=rolling surface, 4=horizontal surface",
@@ -2746,7 +2746,7 @@ export const questions: Question[] = [
 
 // ── Assertion-Reason style ──
 
-{ id: "EARTH-A3-Q010", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
+{ id: "EARTH-01-Q043", sectionId: "EARTH-01", topicId: "earth-a3", difficulty: "hard", type: "single",
   question: "Assertion (A): S-waves do not pass through the outer core. Reason (R): The outer core is liquid and cannot support shear stress. Choose the correct option:",
   options: [
     "Both A and R are true and R is the correct explanation of A",
@@ -2758,7 +2758,7 @@ export const questions: Question[] = [
   explanation: "Both statements are true and R correctly explains A. S-waves require a solid medium that can support shear; liquids cannot, so the S-wave shadow zone is direct evidence that the outer core is liquid.",
   sourceCitation: "Standard Earth science curriculum" },
 
-{ id: "EARTH-D3-Q010", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
+{ id: "EARTH-04-Q030", sectionId: "EARTH-04", topicId: "earth-d3", difficulty: "hard", type: "single",
   question: "Assertion (A): Continent–continent collisions produce high fold mountains but little volcanism. Reason (R): Both plates are buoyant continental lithosphere that cannot readily subduct to the depths required for flux melting. Choose the correct option:",
   options: [
     "Both A and R are true and R is the correct explanation of A",
@@ -2770,7 +2770,7 @@ export const questions: Question[] = [
   explanation: "Both A and R are true; R is the correct explanation. Without deep subduction of oceanic lithosphere there is no significant release of volatiles to trigger melting of the mantle wedge, hence minimal volcanism (Himalayas, Alps).",
   sourceCitation: "Standard Earth science curriculum" },
 
-{ id: "EARTH-I2-Q007", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
+{ id: "EARTH-09-Q025", sectionId: "EARTH-09", topicId: "earth-i2", difficulty: "medium", type: "single",
   question: "Which statement about the 2005 Kashmir (Muzaffarabad) earthquake is correct?",
   options: [
     "It was M8.1 and generated a major tsunami",

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 /** Minimal inline fixtures — avoids path-alias import of the full bank */
 const sampleQuestions = [
   {
-    id: 'MATH-A1-Q001',
+    id: 'MATH-01-Q001',
     sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'easy',
@@ -13,7 +13,7 @@ const sampleQuestions = [
     correctAnswer: 1,
   },
   {
-    id: 'MATH-A1-Q002',
+    id: 'MATH-01-Q002',
     sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'easy',
@@ -22,7 +22,7 @@ const sampleQuestions = [
     correctAnswer: 0,
   },
   {
-    id: 'MATH-A1-Q003',
+    id: 'MATH-01-Q003',
     sectionId: 'MATH-01',
     topicId: 'math-1-1',
     difficulty: 'medium',

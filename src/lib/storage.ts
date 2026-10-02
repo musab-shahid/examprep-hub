@@ -3,6 +3,7 @@ import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RE
 import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 import { resolveTopicId } from '@/lib/topic-id-aliases';
+import { resolveQuestionId } from '@/lib/question-id-aliases';
 
 const STORAGE_KEY = STORAGE_KEYS.appData;
 const LEGACY_KEY = STORAGE_KEYS.legacyAppData;
@@ -162,6 +163,19 @@ function migrateProgress(p: Record<string, unknown>): TopicProgress {
 }
 
 
+
+function migrateQuestionResults(data: AppData): { data: AppData; changed: boolean } {
+  let changed = false;
+  const questionResults: AppData['questionResults'] = {};
+  for (const [qid, result] of Object.entries(data.questionResults ?? {})) {
+    const nid = resolveQuestionId(qid);
+    if (nid !== qid) changed = true;
+    // Prefer existing entry under new id if both exist
+    questionResults[nid] = questionResults[nid] ?? result;
+  }
+  return { data: { ...data, questionResults }, changed };
+}
+
 /** Remap topic IDs after renames so saved progress follows. */
 function migrateTopicIdKeys(data: AppData): { data: AppData; changed: boolean } {
   let changed = false;
@@ -232,6 +246,9 @@ function normalizeLoaded(parsed: AppData): AppData {
   const idMig = migrateTopicIdKeys(merged);
   merged = idMig.data;
   if (idMig.changed) migrated = true;
+  const qMig = migrateQuestionResults(merged);
+  merged = qMig.data;
+  if (qMig.changed) migrated = true;
 
   if (migrated) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(merged))); } catch { /* ignore */ }

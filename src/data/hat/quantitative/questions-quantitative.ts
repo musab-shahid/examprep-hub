@@ -24,7 +24,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY: Foundation -----
   {
-    id: 'HATQ1-Q01',
+    id: 'HATQ-01-Q001',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentages-core',
     difficulty: 'easy', type: 'single',
     question: 'What is 25% of 480?',
@@ -35,7 +35,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q02',
+    id: 'HATQ-01-Q002',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'easy', type: 'single',
     question: 'Convert 3/8 into a percentage.',
@@ -46,7 +46,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q03',
+    id: 'HATQ-01-Q003',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'easy', type: 'single',
     question: 'Express 0.04 as a percentage.',
@@ -57,7 +57,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q04',
+    id: 'HATQ-01-Q004',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'easy', type: 'single',
     question: 'Calculate 3/4 + 5/6.',
@@ -68,7 +68,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q05',
+    id: 'HATQ-01-Q005',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentages-core',
     difficulty: 'easy', type: 'single',
     question: 'Find 15% of 240.',
@@ -79,7 +79,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q06',
+    id: 'HATQ-01-Q006',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentages-core',
     difficulty: 'easy', type: 'single',
     question: 'A price of Rs 800 increases by 15%. New price?',
@@ -90,7 +90,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q07',
+    id: 'HATQ-01-Q007',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'easy', type: 'single',
     question: 'Divide Rs 720 in the ratio 2:3:4. The middle share is:',
@@ -101,7 +101,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q08',
+    id: 'HATQ-01-Q008',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'easy', type: 'single',
     question: 'If 3:x = 5:20, find x.',
@@ -112,7 +112,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q09',
+    id: 'HATQ-01-Q009',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentages-core',
     difficulty: 'easy', type: 'single',
     question: 'A score of 240 is what percentage of 800?',
@@ -123,7 +123,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q10',
+    id: 'HATQ-01-Q010',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'easy', type: 'single',
     question: 'Convert the recurring decimal 0.272727… into a fraction.',
@@ -136,7 +136,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM: Standard HAT -----
   {
-    id: 'HATQ1-Q11',
+    id: 'HATQ-01-Q011',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'medium', type: 'single',
     question: 'A number is increased by 20% and then decreased by 20%. The net change is:',
@@ -147,7 +147,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q12',
+    id: 'HATQ-01-Q012',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentage-change',
     difficulty: 'medium', type: 'single',
     question: 'A price rises from Rs 500 to Rs 575. What is the percentage increase?',
@@ -158,7 +158,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q13',
+    id: 'HATQ-01-Q013',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'reverse-percentages',
     difficulty: 'medium', type: 'single',
     question: 'After a 30% increase a value is 260. What was the original value?',
@@ -169,7 +169,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q14',
+    id: 'HATQ-01-Q014',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'medium', type: 'single',
     question: 'A price rises by 10% and then rises again by 20%. Total percentage increase?',
@@ -180,7 +180,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q15',
+    id: 'HATQ-01-Q015',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'reverse-percentages',
     difficulty: 'medium', type: 'single',
     question: 'After a 25% discount an item costs Rs 600. What was the original (marked) price?',
@@ -191,7 +191,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q16',
+    id: 'HATQ-01-Q016',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'proportion-variation',
     difficulty: 'medium', type: 'single',
     question: 'If 5 books cost Rs 1500, how much do 8 books cost (same rate)?',
@@ -202,7 +202,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q17',
+    id: 'HATQ-01-Q017',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'proportion-variation',
     difficulty: 'medium', type: 'single',
     question: 'If 6 workers complete a job in 10 days, how many workers are needed to complete it in 4 days?',
@@ -213,7 +213,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q18',
+    id: 'HATQ-01-Q018',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'medium', type: 'single',
     question: 'Boys:girls = 3:5. If there are 40 students, how many are boys?',
@@ -224,7 +224,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q19',
+    id: 'HATQ-01-Q019',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'proportion-variation',
     difficulty: 'medium', type: 'single',
     question: 'A car covers 240 km in 4 hours. At the same speed, how far in 7 hours?',
@@ -235,7 +235,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q20',
+    id: 'HATQ-01-Q020',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'medium', type: 'single',
     question: 'What is 7/12 of 144?',
@@ -246,7 +246,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q21',
+    id: 'HATQ-01-Q021',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'medium', type: 'single',
     question: 'A value increases by 25% then decreases by 20%. Net effect on original?',
@@ -257,7 +257,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q22',
+    id: 'HATQ-01-Q022',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'reverse-percentages',
     difficulty: 'medium', type: 'single',
     question: 'After a 40% decrease a value is 360. What was the original?',
@@ -268,7 +268,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q23',
+    id: 'HATQ-01-Q023',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'medium', type: 'single',
     question: 'If a:b = 2:3 and b:c = 4:5, what is a:c?',
@@ -279,7 +279,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q24',
+    id: 'HATQ-01-Q024',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'fractions-decimals',
     difficulty: 'medium', type: 'single',
     question: 'Simplify: 3/4 × 8/9 ÷ 2/3.',
@@ -292,7 +292,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD: Difficult HAT -----
   {
-    id: 'HATQ1-Q25',
+    id: 'HATQ-01-Q025',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentage-change',
     difficulty: 'hard', type: 'single',
     question: 'A value fell from 400 to 320. Percentage decrease?',
@@ -303,7 +303,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q26',
+    id: 'HATQ-01-Q026',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'reverse-percentages',
     difficulty: 'hard', type: 'single',
     question: 'A population grew by 10% to reach 5500. Original population?',
@@ -314,7 +314,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q27',
+    id: 'HATQ-01-Q027',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'hard', type: 'single',
     question: 'A price drops by 20%, then rises by 25%, then drops by 10%. Final change?',
@@ -325,7 +325,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q28',
+    id: 'HATQ-01-Q028',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'hard', type: 'single',
     question: 'Rs 1200 is divided among A, B, C in the ratio 3:5:7. Difference between C and A?',
@@ -336,7 +336,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q29',
+    id: 'HATQ-01-Q029',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'method-selection',
     difficulty: 'hard', type: 'single',
     question: 'Which statement is correct?',
@@ -347,7 +347,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q30',
+    id: 'HATQ-01-Q030',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'hard', type: 'single',
     question: 'Three successive 10% increases. Net increase?',
@@ -358,7 +358,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-Q31',
+    id: 'HATQ-01-Q031',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'method-selection',
     difficulty: 'hard', type: 'single',
     question: 'If 8 men can do a job in 12 days, working 6 hours per day, how many hours per day must 9 men work to finish in 16 days?',
@@ -371,7 +371,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ1-TF',
+    id: 'HATQ-01-Q032',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'successive-percentages',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: A 50% increase followed by a 50% decrease returns to the original value.',
@@ -382,7 +382,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-TF02',
+    id: 'HATQ-01-Q033',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'percentage-change',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: When calculating percentage change, the original value is the denominator.',
@@ -393,7 +393,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'arithmetic',
   },
   {
-    id: 'HATQ1-TF03',
+    id: 'HATQ-01-Q034',
     sectionId: 'HATQ-01', topicId: 'hat-q1-arithmetic', subtopicId: 'ratios-intro',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: A ratio of 2:5 means the first quantity is 2/5 of the second.',
@@ -410,7 +410,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ2-Q01',
+    id: 'HATQ-02-Q001',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'averages-basic',
     difficulty: 'easy', type: 'single',
     question: 'The average of 8 numbers is 25. Their total is:',
@@ -421,7 +421,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q02',
+    id: 'HATQ-02-Q002',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'easy', type: 'single',
     question: 'CP = Rs 800, sold at 15% profit. SP?',
@@ -432,7 +432,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q03',
+    id: 'HATQ-02-Q003',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'discount',
     difficulty: 'easy', type: 'single',
     question: 'MP = Rs 1000, 20% discount. SP?',
@@ -443,7 +443,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q04',
+    id: 'HATQ-02-Q004',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'simple-interest',
     difficulty: 'easy', type: 'single',
     question: 'SI on Rs 5000 at 8% p.a. for 3 years?',
@@ -454,7 +454,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q05',
+    id: 'HATQ-02-Q005',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'averages-basic',
     difficulty: 'easy', type: 'single',
     question: 'The average of 10 numbers is 50. If one number 80 is replaced by 40, new average?',
@@ -467,7 +467,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ2-Q06',
+    id: 'HATQ-02-Q006',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'averages-basic',
     difficulty: 'medium', type: 'single',
     question: 'Average of 5 numbers is 12. One is removed and the average becomes 10. The removed number is:',
@@ -478,7 +478,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q07',
+    id: 'HATQ-02-Q007',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'weighted-averages',
     difficulty: 'medium', type: 'single',
     question: 'Section A (20 students) averages 65. Section B (30 students) averages 75. Combined average?',
@@ -489,7 +489,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q08',
+    id: 'HATQ-02-Q008',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'medium', type: 'single',
     question: 'An item is sold for Rs 575 at 15% profit. CP?',
@@ -500,7 +500,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q09',
+    id: 'HATQ-02-Q009',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'discount',
     difficulty: 'medium', type: 'single',
     question: 'Successive discounts of 20% and 10% on MP Rs 1000. Final SP?',
@@ -511,7 +511,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q10',
+    id: 'HATQ-02-Q010',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'simple-interest',
     difficulty: 'medium', type: 'single',
     question: 'Rs 2000 amounts to Rs 2400 in 5 years under SI. Rate?',
@@ -522,7 +522,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q11',
+    id: 'HATQ-02-Q011',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'medium', type: 'single',
     question: 'CI on Rs 10000 at 10% p.a. for 2 years?',
@@ -533,7 +533,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q12',
+    id: 'HATQ-02-Q012',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'weighted-averages',
     difficulty: 'medium', type: 'single',
     question: 'Class of 30 averages 70. Five new students average 80. New class average approximately?',
@@ -544,7 +544,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q13',
+    id: 'HATQ-02-Q013',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'discount',
     difficulty: 'medium', type: 'single',
     question: 'Successive discounts 15% and 20%. Equivalent single discount?',
@@ -555,7 +555,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q14',
+    id: 'HATQ-02-Q014',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'weighted-averages',
     difficulty: 'medium', type: 'single',
     question: 'A class of 40 averages 60; another of 60 averages 80. Combined average?',
@@ -566,7 +566,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q15',
+    id: 'HATQ-02-Q015',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'averages-basic',
     difficulty: 'medium', type: 'single',
     question: 'Average of 10 numbers is 20. If 5 is added to each, new average?',
@@ -577,7 +577,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q16',
+    id: 'HATQ-02-Q016',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'simple-interest',
     difficulty: 'medium', type: 'single',
     question: 'At what rate of SI will Rs 4000 amount to Rs 5200 in 5 years?',
@@ -590,7 +590,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ2-Q17',
+    id: 'HATQ-02-Q017',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'hard', type: 'single',
     question: 'Two items sold at Rs 1000 each. One at +20% profit, one at −20% loss. Overall result?',
@@ -601,7 +601,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q18',
+    id: 'HATQ-02-Q018',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'hard', type: 'single',
     question: 'For 2 years, CI − SI equals:',
@@ -612,7 +612,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q19',
+    id: 'HATQ-02-Q019',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'hard', type: 'single',
     question: 'Approximate CI on Rs 5000 at 8% for 3 years (annual compounding)?',
@@ -623,7 +623,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q20',
+    id: 'HATQ-02-Q020',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'averages-basic',
     difficulty: 'hard', type: 'single',
     question: 'The average of 9 numbers is 40. If one number is removed, average becomes 38. The removed number?',
@@ -634,7 +634,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q21',
+    id: 'HATQ-02-Q021',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'hard', type: 'single',
     question: 'An item is sold at Rs 1200 with 20% profit. If sold at Rs 1080, profit/loss?',
@@ -645,7 +645,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q22',
+    id: 'HATQ-02-Q022',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'hard', type: 'single',
     question: 'CI on Rs 8000 at 10% for 2 years compounded half-yearly?',
@@ -656,7 +656,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-Q23',
+    id: 'HATQ-02-Q023',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'hard', type: 'single',
     question: 'A merchant offers 25% discount on marked price and makes 25% profit. If CP is Rs 600, MP?',
@@ -669,7 +669,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ2-TF01',
+    id: 'HATQ-02-Q024',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'profit-loss',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Profit percentage is calculated on selling price.',
@@ -680,7 +680,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-TF02',
+    id: 'HATQ-02-Q025',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'simple-interest',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: SI formula is PRT/100 with T in years.',
@@ -691,7 +691,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'commercial',
   },
   {
-    id: 'HATQ2-TF03',
+    id: 'HATQ-02-Q026',
     sectionId: 'HATQ-02', topicId: 'hat-q2-commercial', subtopicId: 'compound-interest',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: Simple interest always exceeds compound interest for the same principal, rate and time.',
@@ -708,7 +708,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ3-Q01',
+    id: 'HATQ-03-Q001',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'time-work-basics',
     difficulty: 'easy', type: 'single',
     question: 'A finishes a job in 10 days, B in 15. Time together?',
@@ -719,7 +719,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q02',
+    id: 'HATQ-03-Q002',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'speed-distance-time',
     difficulty: 'easy', type: 'single',
     question: 'Car at 60 km/h for 2 h 30 min. Distance?',
@@ -730,7 +730,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q03',
+    id: 'HATQ-03-Q003',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'speed-distance-time',
     difficulty: 'easy', type: 'single',
     question: 'Convert 90 km/h to m/s.',
@@ -741,7 +741,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q04',
+    id: 'HATQ-03-Q004',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'time-work-basics',
     difficulty: 'easy', type: 'single',
     question: 'Work rate of someone who finishes in x days is:',
@@ -752,7 +752,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q05',
+    id: 'HATQ-03-Q005',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'speed-distance-time',
     difficulty: 'easy', type: 'single',
     question: 'km/h to m/s conversion factor is:',
@@ -765,7 +765,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ3-Q06',
+    id: 'HATQ-03-Q006',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'time-work-basics',
     difficulty: 'medium', type: 'single',
     question: 'A + B take 6 days; A alone takes 10. B alone takes:',
@@ -776,7 +776,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q07',
+    id: 'HATQ-03-Q007',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'efficiency',
     difficulty: 'medium', type: 'single',
     question: 'A is twice as efficient as B. A takes 12 days. B takes:',
@@ -787,7 +787,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q08',
+    id: 'HATQ-03-Q008',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'pipes-tanks',
     difficulty: 'medium', type: 'single',
     question: 'Pipe A fills in 6 h, B empties in 12 h. Both open, time to fill?',
@@ -798,7 +798,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q09',
+    id: 'HATQ-03-Q009',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'pipes-tanks',
     difficulty: 'medium', type: 'single',
     question: 'Fillers 6 h and 8 h, outlet 24 h. All open, time to fill?',
@@ -809,7 +809,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q10',
+    id: 'HATQ-03-Q010',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'average-speed',
     difficulty: 'medium', type: 'single',
     question: 'Half distance at 40 km/h, half at 60 km/h. Average speed?',
@@ -820,7 +820,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q11',
+    id: 'HATQ-03-Q011',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'average-speed',
     difficulty: 'medium', type: 'single',
     question: '2 h at 40 km/h and 3 h at 60 km/h. Average speed?',
@@ -831,7 +831,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q12',
+    id: 'HATQ-03-Q012',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'boats-streams',
     difficulty: 'medium', type: 'single',
     question: 'Downstream 12 km/h, upstream 8 km/h. Boat speed in still water?',
@@ -842,7 +842,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q13',
+    id: 'HATQ-03-Q013',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'trains',
     difficulty: 'medium', type: 'single',
     question: '150 m train at 60 km/h crosses a pole. Approximate time?',
@@ -853,7 +853,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q14',
+    id: 'HATQ-03-Q014',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'relative-speed',
     difficulty: 'medium', type: 'single',
     question: 'Man runs 12 km/h. 80 m train passes him in 8 s (same direction). Train speed?',
@@ -864,7 +864,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q15',
+    id: 'HATQ-03-Q015',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'efficiency',
     difficulty: 'medium', type: 'single',
     question: 'A is 50% more efficient than B. B takes 30 days alone. Time together?',
@@ -875,7 +875,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q16',
+    id: 'HATQ-03-Q016',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'trains',
     difficulty: 'medium', type: 'single',
     question: 'When a train crosses a platform, the distance to cover is:',
@@ -886,7 +886,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q17',
+    id: 'HATQ-03-Q017',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'relative-speed',
     difficulty: 'medium', type: 'single',
     question: 'Relative speed same direction equals:',
@@ -899,7 +899,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ3-Q18',
+    id: 'HATQ-03-Q018',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'trains',
     difficulty: 'hard', type: 'single',
     question: '200 m train crosses 100 m platform in 15 s. Speed in km/h?',
@@ -910,7 +910,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q19',
+    id: 'HATQ-03-Q019',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'trains',
     difficulty: 'hard', type: 'single',
     question: 'Trains 100 m and 150 m, opposite directions, 40 and 60 km/h. Time to pass?',
@@ -921,7 +921,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q20',
+    id: 'HATQ-03-Q020',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'boats-streams',
     difficulty: 'hard', type: 'single',
     question: 'Upstream 4 h, downstream 2 h, boat speed 15 km/h. Current speed?',
@@ -932,7 +932,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q21',
+    id: 'HATQ-03-Q021',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'time-work-basics',
     difficulty: 'hard', type: 'single',
     question: 'Two workers with times x and y take together:',
@@ -943,7 +943,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q22',
+    id: 'HATQ-03-Q022',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'trains',
     difficulty: 'hard', type: 'single',
     question: 'Train 250 m, platform 150 m, speed 72 km/h. Time to cross platform?',
@@ -954,7 +954,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q23',
+    id: 'HATQ-03-Q023',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'pipes-tanks',
     difficulty: 'hard', type: 'single',
     question: 'Pipe A fills in 10 min, B in 15 min. C empties in 30 min. All open. Time to fill?',
@@ -965,7 +965,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-Q24',
+    id: 'HATQ-03-Q024',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'average-speed',
     difficulty: 'hard', type: 'single',
     question: 'A vehicle covers 1/3 distance at 20 km/h, 1/3 at 30 km/h, 1/3 at 60 km/h. Average?',
@@ -978,7 +978,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ3-TF01',
+    id: 'HATQ-03-Q025',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'average-speed',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Average speed is always the arithmetic mean of the speeds.',
@@ -989,7 +989,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'rate-motion',
   },
   {
-    id: 'HATQ3-TF02',
+    id: 'HATQ-03-Q026',
     sectionId: 'HATQ-03', topicId: 'hat-q3-rate-motion', subtopicId: 'pipes-tanks',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: Outlet pipes have a positive rate (they add to filling).',
@@ -1006,7 +1006,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ4-Q01',
+    id: 'HATQ-04-Q001',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'expressions-simplification',
     difficulty: 'easy', type: 'single',
     question: 'Simplify 3(2x − 4) − 2(x + 5).',
@@ -1017,7 +1017,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q02',
+    id: 'HATQ-04-Q002',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'linear-equations',
     difficulty: 'easy', type: 'single',
     question: 'Solve 3x + 7 = 22.',
@@ -1028,7 +1028,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q03',
+    id: 'HATQ-04-Q003',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'easy', type: 'single',
     question: 'Solve x² − 5x + 6 = 0.',
@@ -1039,7 +1039,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q04',
+    id: 'HATQ-04-Q004',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'exponents',
     difficulty: 'easy', type: 'single',
     question: 'Simplify 2⁵ × 2³ / 2⁴.',
@@ -1050,7 +1050,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q05',
+    id: 'HATQ-04-Q005',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'exponents',
     difficulty: 'easy', type: 'single',
     question: 'a⁰ equals (a ≠ 0):',
@@ -1061,7 +1061,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q06',
+    id: 'HATQ-04-Q006',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'exponents',
     difficulty: 'easy', type: 'single',
     question: 'a^(−n) equals:',
@@ -1074,7 +1074,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ4-Q07',
+    id: 'HATQ-04-Q007',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'linear-equations',
     difficulty: 'medium', type: 'single',
     question: 'Solve x/3 + 2 = x/2 − 1.',
@@ -1085,7 +1085,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q08',
+    id: 'HATQ-04-Q008',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'simultaneous-equations',
     difficulty: 'medium', type: 'single',
     question: 'Solve 2x + 3y = 12 and x − y = 1.',
@@ -1096,7 +1096,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q09',
+    id: 'HATQ-04-Q009',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'medium', type: 'single',
     question: 'Solve 2x² + 5x − 3 = 0.',
@@ -1107,7 +1107,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q10',
+    id: 'HATQ-04-Q010',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'exponents',
     difficulty: 'medium', type: 'single',
     question: 'Simplify (3²)³ × 3^(−2).',
@@ -1118,7 +1118,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q11',
+    id: 'HATQ-04-Q011',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'inequalities',
     difficulty: 'medium', type: 'single',
     question: 'Solve −3x + 9 > 0.',
@@ -1129,7 +1129,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q12',
+    id: 'HATQ-04-Q012',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'medium', type: 'single',
     question: 'Expand (a + b)² correctly:',
@@ -1140,7 +1140,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q13',
+    id: 'HATQ-04-Q013',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'simultaneous-equations',
     difficulty: 'medium', type: 'single',
     question: 'Solve 3x + 2y = 16 and 5x − 2y = 8.',
@@ -1151,7 +1151,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q14',
+    id: 'HATQ-04-Q014',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'expressions-simplification',
     difficulty: 'medium', type: 'single',
     question: 'Simplify −(x − 3) + 2(5 − x).',
@@ -1162,7 +1162,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q15',
+    id: 'HATQ-04-Q015',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'linear-equations',
     difficulty: 'medium', type: 'single',
     question: 'If 2(x − 3) = 5(x − 2) + 1, find x.',
@@ -1175,7 +1175,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ4-Q16',
+    id: 'HATQ-04-Q016',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'word-to-equation',
     difficulty: 'hard', type: 'single',
     question: 'A is twice as old as B. Five years ago A was three times B. Present ages (A, B)?',
@@ -1186,7 +1186,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q17',
+    id: 'HATQ-04-Q017',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'hard', type: 'single',
     question: 'Sum of roots of ax² + bx + c = 0 is:',
@@ -1197,7 +1197,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q18',
+    id: 'HATQ-04-Q018',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'word-to-equation',
     difficulty: 'hard', type: 'single',
     question: 'In 8 years A will be twice as old as B was 8 years ago. A is now 28. B\'s current age?',
@@ -1208,7 +1208,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q19',
+    id: 'HATQ-04-Q019',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'hard', type: 'single',
     question: 'Discriminant of x² − 6x + 9 = 0 is:',
@@ -1219,7 +1219,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-Q20',
+    id: 'HATQ-04-Q020',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'inequalities',
     difficulty: 'hard', type: 'single',
     question: 'Solve 2(x − 4) > 5x + 1.',
@@ -1232,7 +1232,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ4-TF01',
+    id: 'HATQ-04-Q021',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'inequalities',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Multiplying both sides of an inequality by a negative number reverses the inequality sign.',
@@ -1243,7 +1243,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'algebra',
   },
   {
-    id: 'HATQ4-TF02',
+    id: 'HATQ-04-Q022',
     sectionId: 'HATQ-04', topicId: 'hat-q4-algebra', subtopicId: 'quadratic-equations',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: The quadratic formula gives only one root, never two.',
@@ -1260,7 +1260,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ5-Q01',
+    id: 'HATQ-05-Q001',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'easy', type: 'single',
     question: 'Right triangle legs 6 and 8. Hypotenuse?',
@@ -1271,7 +1271,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q02',
+    id: 'HATQ-05-Q002',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'easy', type: 'single',
     question: 'Triangle angles 50° and 70°. Third angle?',
@@ -1282,7 +1282,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q03',
+    id: 'HATQ-05-Q003',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'quadrilaterals',
     difficulty: 'easy', type: 'single',
     question: 'Rectangle 12 cm by 5 cm. Area and perimeter?',
@@ -1293,7 +1293,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q04',
+    id: 'HATQ-05-Q004',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'circles',
     difficulty: 'easy', type: 'single',
     question: 'Circle r = 7, π = 22/7. Area?',
@@ -1304,7 +1304,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q05',
+    id: 'HATQ-05-Q005',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'easy', type: 'single',
     question: 'Triangle area formula is:',
@@ -1315,7 +1315,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q06',
+    id: 'HATQ-05-Q006',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'scaling',
     difficulty: 'easy', type: 'single',
     question: 'Cube side doubled. Volume scales by:',
@@ -1326,7 +1326,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q07',
+    id: 'HATQ-05-Q007',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'easy', type: 'single',
     question: 'Common Pythagorean triple (not scaled):',
@@ -1339,7 +1339,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ5-Q08',
+    id: 'HATQ-05-Q008',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'quadrilaterals',
     difficulty: 'medium', type: 'single',
     question: 'Trapezium parallel sides 10 and 14, height 5. Area?',
@@ -1350,7 +1350,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q09',
+    id: 'HATQ-05-Q009',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'circles',
     difficulty: 'medium', type: 'single',
     question: 'Sector central angle 90°, r = 14, π = 22/7. Arc length?',
@@ -1361,7 +1361,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q10',
+    id: 'HATQ-05-Q010',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'solids',
     difficulty: 'medium', type: 'single',
     question: 'Cylinder r = 7, h = 10, π = 22/7. Volume?',
@@ -1372,7 +1372,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q11',
+    id: 'HATQ-05-Q011',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'solids',
     difficulty: 'medium', type: 'single',
     question: 'Sphere r = 3. Volume in terms of π?',
@@ -1383,7 +1383,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q12',
+    id: 'HATQ-05-Q012',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'lines-angles',
     difficulty: 'medium', type: 'single',
     question: 'Polygon angle sum for an n-sided polygon is:',
@@ -1394,7 +1394,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q13',
+    id: 'HATQ-05-Q013',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'quadrilaterals',
     difficulty: 'medium', type: 'single',
     question: 'Square side a. Diagonal equals:',
@@ -1405,7 +1405,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q14',
+    id: 'HATQ-05-Q014',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'scaling',
     difficulty: 'medium', type: 'single',
     question: 'When linear dimensions scale by k, areas scale by:',
@@ -1416,7 +1416,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q15',
+    id: 'HATQ-05-Q015',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'circles',
     difficulty: 'medium', type: 'single',
     question: 'Circle r = 7. Circumference? (π = 22/7)',
@@ -1429,7 +1429,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ5-Q16',
+    id: 'HATQ-05-Q016',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'solids',
     difficulty: 'hard', type: 'single',
     question: 'Cylinder r=7, h=10, π=22/7. Total surface area?',
@@ -1440,7 +1440,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q17',
+    id: 'HATQ-05-Q017',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'circles',
     difficulty: 'hard', type: 'single',
     question: 'Sector 90°, r=14, π=22/7. Sector area?',
@@ -1451,7 +1451,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q18',
+    id: 'HATQ-05-Q018',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'hard', type: 'single',
     question: 'Right triangle hypotenuse 13, one leg 5. Other leg?',
@@ -1462,7 +1462,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q19',
+    id: 'HATQ-05-Q019',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'solids',
     difficulty: 'hard', type: 'single',
     question: 'Cone r = 7, h = 24, π = 22/7. Volume?',
@@ -1473,7 +1473,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-Q20',
+    id: 'HATQ-05-Q020',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'scaling',
     difficulty: 'hard', type: 'single',
     question: 'A sphere has radius tripled. New surface area / old surface area?',
@@ -1486,7 +1486,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ5-TF01',
+    id: 'HATQ-05-Q021',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'triangles',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Pythagoras applies to every triangle.',
@@ -1497,7 +1497,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'geometry',
   },
   {
-    id: 'HATQ5-TF02',
+    id: 'HATQ-05-Q022',
     sectionId: 'HATQ-05', topicId: 'hat-q5-geometry', subtopicId: 'scaling',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: If linear dimensions double, area becomes 4× and volume becomes 8×.',
@@ -1514,7 +1514,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ6-Q01',
+    id: 'HATQ-06-Q001',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'factors-multiples',
     difficulty: 'easy', type: 'single',
     question: 'Prime factorization of 180?',
@@ -1525,7 +1525,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q02',
+    id: 'HATQ-06-Q002',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'hcf-lcm',
     difficulty: 'easy', type: 'single',
     question: 'HCF of 12 and 18?',
@@ -1536,7 +1536,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q03',
+    id: 'HATQ-06-Q003',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'hcf-lcm',
     difficulty: 'easy', type: 'single',
     question: 'LCM of 12 and 18?',
@@ -1547,7 +1547,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q04',
+    id: 'HATQ-06-Q004',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'ap',
     difficulty: 'easy', type: 'single',
     question: '10th term of 3, 7, 11, 15, …?',
@@ -1558,7 +1558,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q05',
+    id: 'HATQ-06-Q005',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'pattern-recognition',
     difficulty: 'easy', type: 'single',
     question: 'Next term: 1, 4, 9, 16, 25, …?',
@@ -1569,7 +1569,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q06',
+    id: 'HATQ-06-Q006',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'factors-multiples',
     difficulty: 'easy', type: 'single',
     question: 'Only even prime is:',
@@ -1582,7 +1582,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ6-Q07',
+    id: 'HATQ-06-Q007',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'hcf-lcm',
     difficulty: 'medium', type: 'single',
     question: 'Three bells every 6, 8 and 12 min. Next simultaneous ring after noon?',
@@ -1593,7 +1593,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q08',
+    id: 'HATQ-06-Q008',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'divisibility',
     difficulty: 'medium', type: 'single',
     question: 'Is 7236 divisible by 9?',
@@ -1604,7 +1604,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q09',
+    id: 'HATQ-06-Q009',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'ap',
     difficulty: 'medium', type: 'single',
     question: 'Sum of first 20 terms of 2, 5, 8, 11, …?',
@@ -1615,7 +1615,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q10',
+    id: 'HATQ-06-Q010',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'gp',
     difficulty: 'medium', type: 'single',
     question: '6th term of 2, 6, 18, 54, …?',
@@ -1626,7 +1626,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q11',
+    id: 'HATQ-06-Q011',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'gp',
     difficulty: 'medium', type: 'single',
     question: 'Sum of first 6 terms of 2, 6, 18, 54, …?',
@@ -1637,7 +1637,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q12',
+    id: 'HATQ-06-Q012',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'pattern-recognition',
     difficulty: 'medium', type: 'single',
     question: 'Next term: 2, 5, 10, 17, 26, …?',
@@ -1648,7 +1648,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q13',
+    id: 'HATQ-06-Q013',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'divisibility',
     difficulty: 'medium', type: 'single',
     question: 'Divisibility by 11 uses:',
@@ -1659,7 +1659,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q14',
+    id: 'HATQ-06-Q014',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'hcf-lcm',
     difficulty: 'medium', type: 'single',
     question: 'HCF of 24, 36 and 60?',
@@ -1672,7 +1672,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ6-Q15',
+    id: 'HATQ-06-Q015',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'hcf-lcm',
     difficulty: 'hard', type: 'single',
     question: 'HCF × LCM = product holds for:',
@@ -1683,7 +1683,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q16',
+    id: 'HATQ-06-Q016',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'gp',
     difficulty: 'hard', type: 'single',
     question: 'Infinite GP sum a/(1−r) requires:',
@@ -1694,7 +1694,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q17',
+    id: 'HATQ-06-Q017',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'pattern-recognition',
     difficulty: 'hard', type: 'single',
     question: 'Next term: 1, 8, 27, 64, …?',
@@ -1705,7 +1705,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q18',
+    id: 'HATQ-06-Q018',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'divisibility',
     difficulty: 'hard', type: 'single',
     question: 'What is the largest 4-digit number divisible by both 6 and 9?',
@@ -1716,7 +1716,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-Q19',
+    id: 'HATQ-06-Q019',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'pattern-recognition',
     difficulty: 'hard', type: 'single',
     question: 'Next term: 2, 6, 12, 20, 30, …?',
@@ -1729,7 +1729,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ6-TF01',
+    id: 'HATQ-06-Q020',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'factors-multiples',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: 1 is a prime number.',
@@ -1740,7 +1740,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'numbers',
   },
   {
-    id: 'HATQ6-TF02',
+    id: 'HATQ-06-Q021',
     sectionId: 'HATQ-06', topicId: 'hat-q6-numbers-sequences', subtopicId: 'pattern-recognition',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: Every sequence in HAT is either AP or GP.',
@@ -1757,7 +1757,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ7-Q01',
+    id: 'HATQ-07-Q001',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'probability-basic',
     difficulty: 'easy', type: 'single',
     question: 'Fair die. Probability of an even number?',
@@ -1768,7 +1768,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q02',
+    id: 'HATQ-07-Q002',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'complement',
     difficulty: 'easy', type: 'single',
     question: 'P(rain) = 0.3. P(no rain)?',
@@ -1779,7 +1779,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q03',
+    id: 'HATQ-07-Q003',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'easy', type: 'single',
     question: 'Two fair coins. P(two heads)?',
@@ -1790,7 +1790,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q04',
+    id: 'HATQ-07-Q004',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'mean-median-mode',
     difficulty: 'easy', type: 'single',
     question: 'Mode of 3, 5, 5, 7, 8, 10?',
@@ -1803,7 +1803,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ7-Q05',
+    id: 'HATQ-07-Q005',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'medium', type: 'single',
     question: 'Random card. P(king or queen)?',
@@ -1814,7 +1814,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q06',
+    id: 'HATQ-07-Q006',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'mean-median-mode',
     difficulty: 'medium', type: 'single',
     question: 'Mean of 3, 5, 5, 7, 8, 10?',
@@ -1825,7 +1825,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q07',
+    id: 'HATQ-07-Q007',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'mean-median-mode',
     difficulty: 'medium', type: 'single',
     question: 'Median of 3, 5, 5, 7, 8, 10?',
@@ -1836,7 +1836,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q08',
+    id: 'HATQ-07-Q008',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'permutations-combinations',
     difficulty: 'medium', type: 'single',
     question: '5 people, 3 chairs. Ways to seat them?',
@@ -1847,7 +1847,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q09',
+    id: 'HATQ-07-Q009',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'permutations-combinations',
     difficulty: 'medium', type: 'single',
     question: 'Committee of 3 from 10 people. Ways?',
@@ -1858,7 +1858,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q10',
+    id: 'HATQ-07-Q010',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'sets',
     difficulty: 'medium', type: 'single',
     question: '50 students; 30 Physics, 25 Chemistry, 10 both. At least one subject?',
@@ -1869,7 +1869,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q11',
+    id: 'HATQ-07-Q011',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'data-interpretation',
     difficulty: 'medium', type: 'single',
     question: 'Pie chart: 25% of Rs 4,00,000 on rent. Rent amount?',
@@ -1880,7 +1880,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q12',
+    id: 'HATQ-07-Q012',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'permutations-combinations',
     difficulty: 'medium', type: 'single',
     question: 'nCr equals:',
@@ -1891,7 +1891,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q13',
+    id: 'HATQ-07-Q013',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'mean-median-mode',
     difficulty: 'medium', type: 'single',
     question: 'For median, first you must:',
@@ -1904,7 +1904,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ7-Q14',
+    id: 'HATQ-07-Q014',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'hard', type: 'single',
     question: 'Independent events: how to combine probabilities of both occurring?',
@@ -1915,7 +1915,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q15',
+    id: 'HATQ-07-Q015',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'hard', type: 'single',
     question: 'General addition rule P(A or B) is:',
@@ -1926,7 +1926,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q16',
+    id: 'HATQ-07-Q016',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'sets',
     difficulty: 'hard', type: 'single',
     question: '100 students: 40 cricket, 30 hockey, 20 both. Only cricket?',
@@ -1937,7 +1937,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q17',
+    id: 'HATQ-07-Q017',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'permutations-combinations',
     difficulty: 'hard', type: 'single',
     question: 'How many ways to arrange the letters of "DELHI"?',
@@ -1948,7 +1948,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-Q18',
+    id: 'HATQ-07-Q018',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'hard', type: 'single',
     question: 'Three dice rolled. Probability all show different numbers?',
@@ -1961,7 +1961,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ7-TF01',
+    id: 'HATQ-07-Q019',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'probability-basic',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Probability can be greater than 1.',
@@ -1972,7 +1972,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'probability',
   },
   {
-    id: 'HATQ7-TF02',
+    id: 'HATQ-07-Q020',
     sectionId: 'HATQ-07', topicId: 'hat-q7-probability-data', subtopicId: 'independent-mutually-exclusive',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: Mutually exclusive and independent mean the same thing.',
@@ -1989,7 +1989,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ8-Q01',
+    id: 'HATQ-08-Q001',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'easy', type: 'single',
     question: 'Angle between clock hands at 3:20?',
@@ -2000,7 +2000,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q02',
+    id: 'HATQ-08-Q002',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'easy', type: 'single',
     question: 'Angle at 4:00?',
@@ -2011,7 +2011,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q03',
+    id: 'HATQ-08-Q003',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'partnership',
     difficulty: 'easy', type: 'single',
     question: 'A invests 30000 for 12 months, B 50000 for 12 months. Profit 16000. A\'s share?',
@@ -2022,7 +2022,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q04',
+    id: 'HATQ-08-Q004',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'easy', type: 'single',
     question: 'Angle at 6:00?',
@@ -2035,7 +2035,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ8-Q05',
+    id: 'HATQ-08-Q005',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'ages',
     difficulty: 'medium', type: 'single',
     question: 'A is twice B. Five years ago A was three times B. Present ages (A, B)?',
@@ -2046,7 +2046,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q06',
+    id: 'HATQ-08-Q006',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'mixtures-alligation',
     difficulty: 'medium', type: 'single',
     question: 'Tea at Rs 300/kg mixed with tea at Rs 200/kg for mixture at Rs 240/kg. Ratio cheap:dear?',
@@ -2057,7 +2057,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q07',
+    id: 'HATQ-08-Q007',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'partnership',
     difficulty: 'medium', type: 'single',
     question: 'A invests 20000 for 6 months, B 30000 for 4 months. Profit 2200. B\'s share?',
@@ -2068,7 +2068,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q08',
+    id: 'HATQ-08-Q008',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'medium', type: 'single',
     question: 'Clock angle formula is:',
@@ -2079,7 +2079,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q09',
+    id: 'HATQ-08-Q009',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'ages',
     difficulty: 'medium', type: 'single',
     question: 'Age differences over time:',
@@ -2090,7 +2090,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q10',
+    id: 'HATQ-08-Q010',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'partnership',
     difficulty: 'medium', type: 'single',
     question: 'A invests for 8 months, B for 12 months, equal capital. Profit ratio A:B?',
@@ -2101,7 +2101,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q11',
+    id: 'HATQ-08-Q011',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'mixtures-alligation',
     difficulty: 'medium', type: 'single',
     question: 'Mean price in alligation must:',
@@ -2112,7 +2112,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q12',
+    id: 'HATQ-08-Q012',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'medium', type: 'single',
     question: 'Angle at 9:00?',
@@ -2125,7 +2125,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ8-Q13',
+    id: 'HATQ-08-Q013',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'ages',
     difficulty: 'hard', type: 'single',
     question: 'In 8 years A will be twice as old as B was 8 years ago. A is 28 now. B now?',
@@ -2136,7 +2136,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q14',
+    id: 'HATQ-08-Q014',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'mixtures-alligation',
     difficulty: 'hard', type: 'single',
     question: 'Alligation ratio (cheap:dear) equals:',
@@ -2147,7 +2147,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q15',
+    id: 'HATQ-08-Q015',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'hard', type: 'single',
     question: 'At 2:30 the smaller angle between hands is approximately:',
@@ -2158,7 +2158,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q16',
+    id: 'HATQ-08-Q016',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'ages',
     difficulty: 'hard', type: 'single',
     question: 'Father is 4 times son\'s age. After 5 years, father is 3 times. Present ages?',
@@ -2169,7 +2169,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-Q17',
+    id: 'HATQ-08-Q017',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'partnership',
     difficulty: 'hard', type: 'single',
     question: 'A invests 40000 for 6 months, B 30000 for 8 months, C 20000 for 12 months. Profit 26000. A\'s share?',
@@ -2182,7 +2182,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ8-TF01',
+    id: 'HATQ-08-Q018',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'partnership',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Partnership profit depends only on capital, not on time.',
@@ -2193,7 +2193,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'applied',
   },
   {
-    id: 'HATQ8-TF02',
+    id: 'HATQ-08-Q019',
     sectionId: 'HATQ-08', topicId: 'hat-q8-applied', subtopicId: 'clocks',
     difficulty: 'medium', type: 'true_false',
     question: 'True or False: At 3:15 the clock hands form a 0° angle.',
@@ -2210,7 +2210,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ9-Q01',
+    id: 'HATQ-09-Q001',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'first-pass',
     difficulty: 'easy', type: 'single',
     question: 'On a timed section the best first-pass approach is:',
@@ -2221,7 +2221,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q02',
+    id: 'HATQ-09-Q002',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'estimation-elimination',
     difficulty: 'easy', type: 'single',
     question: 'When options are widely spaced, first:',
@@ -2232,7 +2232,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q03',
+    id: 'HATQ-09-Q003',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'time-management',
     difficulty: 'easy', type: 'single',
     question: '25² equals:',
@@ -2243,7 +2243,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q04',
+    id: 'HATQ-09-Q004',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'time-management',
     difficulty: 'easy', type: 'single',
     question: 'km/h ↔ m/s factors to memorise:',
@@ -2254,7 +2254,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q05',
+    id: 'HATQ-09-Q005',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'time-management',
     difficulty: 'easy', type: 'single',
     question: 'Mental-math daily habit recommended:',
@@ -2267,7 +2267,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ9-Q06',
+    id: 'HATQ-09-Q006',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'error-analysis',
     difficulty: 'medium', type: 'single',
     question: 'Error log categories should include:',
@@ -2278,7 +2278,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q07',
+    id: 'HATQ-09-Q007',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'error-analysis',
     difficulty: 'medium', type: 'single',
     question: 'Prevention rule after using SP as profit base:',
@@ -2289,7 +2289,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q08',
+    id: 'HATQ-09-Q008',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'time-management',
     difficulty: 'medium', type: 'single',
     question: 'Target average time per HAT quantitative question is roughly:',
@@ -2300,7 +2300,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q09',
+    id: 'HATQ-09-Q009',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'error-analysis',
     difficulty: 'medium', type: 'single',
     question: 'After a timed set you should:',
@@ -2311,7 +2311,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'strategy',
   },
   {
-    id: 'HATQ9-Q10',
+    id: 'HATQ-09-Q010',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'substitution',
     difficulty: 'medium', type: 'single',
     question: 'When should you substitute answer choices?',
@@ -2324,7 +2324,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ9-TF01',
+    id: 'HATQ-09-Q011',
     sectionId: 'HATQ-09', topicId: 'hat-q9-strategy', subtopicId: 'substitution',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: You should never substitute answer choices into the question.',
@@ -2341,7 +2341,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- EASY -----
   {
-    id: 'HATQ10-Q01',
+    id: 'HATQ-10-Q001',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-percentages-commercial',
     difficulty: 'easy', type: 'single',
     question: 'Discount percent is calculated on:',
@@ -2352,7 +2352,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q02',
+    id: 'HATQ-10-Q002',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-geometry',
     difficulty: 'easy', type: 'single',
     question: 'Triangle area formula uses:',
@@ -2363,7 +2363,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q03',
+    id: 'HATQ-10-Q003',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-rates-motion',
     difficulty: 'easy', type: 'single',
     question: 'Equal-distance average speed formula:',
@@ -2374,7 +2374,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q04',
+    id: 'HATQ-10-Q004',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-rates-motion',
     difficulty: 'easy', type: 'single',
     question: 'Two workers times x, y together take:',
@@ -2385,7 +2385,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q05',
+    id: 'HATQ-10-Q005',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-applied',
     difficulty: 'easy', type: 'single',
     question: 'Clock angle formula:',
@@ -2396,7 +2396,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q06',
+    id: 'HATQ-10-Q006',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-numbers-sequences',
     difficulty: 'easy', type: 'single',
     question: 'HCF × LCM = product holds for:',
@@ -2409,7 +2409,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- MEDIUM -----
   {
-    id: 'HATQ10-Q07',
+    id: 'HATQ-10-Q007',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-percentages-commercial',
     difficulty: 'medium', type: 'single',
     question: 'CI − SI for 2 years equals:',
@@ -2420,7 +2420,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q08',
+    id: 'HATQ-10-Q008',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-geometry',
     difficulty: 'medium', type: 'single',
     question: 'Linear scale k → volume scales by:',
@@ -2431,7 +2431,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q09',
+    id: 'HATQ-10-Q009',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-final-checklist',
     difficulty: 'medium', type: 'single',
     question: 'Final 30-second check should include:',
@@ -2442,7 +2442,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q10',
+    id: 'HATQ-10-Q010',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-rates-motion',
     difficulty: 'medium', type: 'single',
     question: 'Boat speed in still water (downstream D, upstream U):',
@@ -2455,7 +2455,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- HARD -----
   {
-    id: 'HATQ10-Q11',
+    id: 'HATQ-10-Q011',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-big20-traps',
     difficulty: 'hard', type: 'single',
     question: 'Which is NOT a high-frequency HAT trap?',
@@ -2466,7 +2466,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q12',
+    id: 'HATQ-10-Q012',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-algebra',
     difficulty: 'hard', type: 'single',
     question: 'Quick way to compute (a+b)² when given a²+b²=25 and ab=12:',
@@ -2477,7 +2477,7 @@ export const quantitativeQuestions: Question[] = [
     sourceCitation: 'HAT quantitative', examType: 'hat', hatSection: 'quantitative', hatSubtype: 'master',
   },
   {
-    id: 'HATQ10-Q13',
+    id: 'HATQ-10-Q013',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-percentages-commercial',
     difficulty: 'hard', type: 'single',
     question: 'Quick check for "two items at same SP, one profit %, one loss %":',
@@ -2490,7 +2490,7 @@ export const quantitativeQuestions: Question[] = [
 
   // ----- TRUE/FALSE -----
   {
-    id: 'HATQ10-TF01',
+    id: 'HATQ-10-Q014',
     sectionId: 'HATQ-10', topicId: 'hat-q10-master-sheet', subtopicId: 'master-percentages-commercial',
     difficulty: 'easy', type: 'true_false',
     question: 'True or False: Discount percent is calculated on cost price.',
