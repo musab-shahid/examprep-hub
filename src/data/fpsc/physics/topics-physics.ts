@@ -1,1783 +1,2871 @@
-// topics-physics.ts — FPSC Basics of Physics content bank
-// Source: Standard physics curriculum (FSc/O-Level equivalent) — no single source PDF exists
-// for this subject, so content is drawn from well-established, non-controversial physics fact
-// (Newton's laws, thermodynamics, electromagnetism, etc.), cited generically rather than to a
-// specific page. Scope and depth follow the locked syllabus: comprehensive on core mechanics,
-// energy, heat, waves, electricity and magnetism; deliberately light on Modern Physics and
-// Universal Gravitation per the syllabus's own low-priority flag.
+// topics-physics.ts — FPSC Basics of Physics upgraded study bank
+// Scope: full competitive-exam treatment of core mechanics, energy, fluids, heat,
+// waves, optics, electricity, magnetism and modern physics.
 //
-// Deliberate overlap boundary with Meteorology (see relatedTopics + examPoints for the explicit
-// cross-subject notes): Physics covers the general laws (heat transfer, pressure, radiation,
-// waves); Meteorology covers their atmospheric application (lapse rates, PGF, remote sensing,
-// greenhouse effect). Where a clean 1:1 link exists, relatedTopics points directly at the
-// Meteorology topic id, since the app's topic map is subject-agnostic.
+// Cross-subject boundary: Physics keeps the general laws; Meteorology keeps the
+// atmospheric application. Earth science keeps geophysical/geological uses.
 
 import type { Topic } from '@/types';
 
 export const topics: Topic[] = [
 
-// ============================= SECTION PHY-A: Motion & Forces =============================
+// ============================= SECTION PHY-01: Motion & Forces =============================
 
 {
-id: "phy-kinematics",
+  id: "phy-kinematics",
   sectionId: "PHY-01",
   order: 1,
   title: "Kinematics: Distance, Displacement, Speed, Velocity & Acceleration",
-  definition: "Kinematics describes motion using displacement, velocity, and acceleration without asking what force causes the motion. Mastering the definitions and the constant-acceleration equations is the foundation of almost every FPSC mechanics item.",
+  definition: "Kinematics describes the motion of objects using distance, displacement, speed, velocity and acceleration without explaining the forces that cause the motion.",
   keyFacts: [
-    "Distance is scalar (path length); displacement is vector (change in position from start to end)",
-    "Speed is scalar (distance/time); velocity is vector (displacement/time)",
-    "Average velocity = total displacement / total time; instantaneous velocity is velocity at one instant",
-    "Acceleration is rate of change of velocity. The four kinematic equations require constant acceleration",
-    "Key equations: $v = u + at$, $s = ut + \\frac{1},
-  {2}at^2$, $v^2 = u^2 + 2as$, $s = \\frac{(u+v)},
-  {2}t$"
+    "Distance is the total path length travelled; it is a scalar with SI unit metre (m).",
+    "Displacement is the straight-line change in position from start to finish, including direction; it is a vector with SI unit metre (m).",
+    "Speed = distance / time, a scalar with SI unit m/s.",
+    "Velocity = displacement / time, a vector with SI unit m/s.",
+    "Acceleration = change in velocity / time interval, a vector with SI unit m/s².",
+    "On a distance-time graph, slope = speed; on a velocity-time graph, slope = acceleration and area under graph = displacement.",
+    "Uniform circular motion at constant speed is accelerated motion because velocity direction changes continuously."
   ],
   explanationSections: [
-    { heading: "Scalars vs vectors in motion", body: "A full lap can mean large distance but zero displacement. Average speed uses distance; average velocity uses displacement — they only match for straight one-way motion without reversal." },
-    { heading: "How FPSC tests kinematics", body: "Typical items give three of $u,v,a,s,t$ under constant $a$. List knowns with a chosen positive direction, then pick the equation that avoids the unknown you do not need." },
-    { heading: "Choosing the right equation", body: "Missing $t$? Use $v^2 = u^2 + 2as$. Missing $v$? Often $s = ut + \\frac{1},
-  {2}at^2$. From rest, set $u = 0$ to simplify." }
+    { heading: "Scalar vs vector quantities", body: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has travelled 400 m distance but has zero displacement, because the finish coincides with the start. Two cars may have the same speed but opposite velocities if they move in opposite directions." },
+    { heading: "Reading motion graphs", body: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph, a horizontal line means constant velocity (zero acceleration), an upward slope means speeding up in the positive direction, and the signed area between the line and the time axis gives displacement." },
+    { heading: "Sign conventions for acceleration", body: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A ball thrown upward has negative acceleration (g downward) throughout its flight, even at the instant it is momentarily at rest at the top." },
+    { heading: "How FPSC tests this", body: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v. Always check whether the question gives total path length or net change in position, and whether the object reverses direction." }
   ],
   formula: [
-    { name: "Velocity with time", expression: "v = u + at", variables: [{ symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "v", meaning: "final velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "t", meaning: "time (s)" }] },
-    { name: "Displacement with time", expression: "s = ut + (1/2)at²", variables: [{ symbol: "s", meaning: "displacement (m)" }, { symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "t", meaning: "time (s)" }] },
-    { name: "No-time equation", expression: "v² = u² + 2as", variables: [{ symbol: "v", meaning: "final velocity (m/s)" }, { symbol: "u", meaning: "initial velocity (m/s)" }, { symbol: "a", meaning: "acceleration (m/s²)" }, { symbol: "s", meaning: "displacement (m)" }] }
+    {
+      name: "Average speed and velocity",
+      expression: "v_{avg} = \\frac{\\Delta s}{\\Delta t} \\quad a_{avg} = \\frac{\\Delta v}{\\Delta t}",
+      variables: [
+        { symbol: "v_{avg}", meaning: "average velocity (m/s)" },
+        { symbol: "\\Delta s", meaning: "displacement (m)" },
+        { symbol: "\\Delta t", meaning: "time interval (s)" },
+        { symbol: "a_{avg}", meaning: "average acceleration (m/s²)" },
+        { symbol: "\\Delta v", meaning: "change in velocity (m/s)" }
+      ]
+    }
   ],
-  methodChooser: [
-    { when: "time $t$ is unknown", use: "$v^2 = u^2 + 2as$" },
-    { when: "final speed $v$ is unknown", use: "$s = ut + \\frac{1},
-  {2}at^2$" },
-    { when: "starts from rest", use: "set $u = 0$" },
-    { when: "comes to stop", use: "set $v = 0$; deceleration is negative if forward is positive" }
-  ],
-  limitCases: [
-    { condition: "$a = 0$", result: "constant velocity: $s = ut$" },
-    { condition: "$u = 0$", result: "$v = at$, $s = \\frac{1},
-  {2}at^2$" },
-    { condition: "$v = 0$ (braking)", result: "$s = -u^2/(2a)$ with $a < 0$ if forward positive" }
-  ],
-  comparisonTable: {
-    headers: ["Quantity", "Type", "Uses", "Zero while moving?"],
-    rows: [
-      ["Distance", "Scalar", "Path length", "No"],
-      ["Displacement", "Vector", "Change in position", "Yes (closed path)"],
-      ["Speed", "Scalar", "Distance/time", "Only if not moving"],
-      ["Velocity", "Vector", "Displacement/time", "Yes (closed path average)"]
-    ]
-  },
   workedExample: [
-    { problem: "A car accelerates from rest at $2\\,\\mathrm{m/s^2}$ for $5\\,\\mathrm{s}$. Find final speed and distance travelled in a straight line.", solution: "$u=0$, $a=2\\,\\mathrm{m/s^2}$, $t=5\\,\\mathrm{s}$. $v=u+at=10\\,\\mathrm{m/s}$. $s=ut+\\frac{1},
-  {2}at^2=25\\,\\mathrm{m}$. Check: $v^2=u^2+2as$ ⇒ $100=100$.", answer: "$10\\,\\mathrm{m/s}$, $25\\,\\mathrm{m}$" },
-    { problem: "A bike at $20\\,\\mathrm{m/s}$ brakes at $4\\,\\mathrm{m/s^2}$ (deceleration). Stopping distance?", solution: "$u=20$, $v=0$, $a=-4$. $0=400+2(-4)s$ ⇒ $s=50\\,\\mathrm{m}$.", answer: "$50\\,\\mathrm{m}$" }
+    {
+      problem: "A car travels 120 km north in 2.0 h, then 80 km south in 1.5 h. Find (a) total distance, (b) displacement, (c) average speed, (d) average velocity.",
+      solution: "Take north as positive. (a) Distance = 120 km + 80 km = 200 km. (b) Displacement = +120 km + (−80 km) = +40 km north. (c) Average speed = 200 km / 3.5 h ≈ 57.1 km/h. (d) Average velocity = 40 km north / 3.5 h ≈ 11.4 km/h north.",
+      answer: "Distance = 200 km; displacement = 40 km north; average speed ≈ 57.1 km/h; average velocity ≈ 11.4 km/h north."
+    },
+    {
+      problem: "A train slows from 30 m/s to 10 m/s in 5.0 s. Calculate its average acceleration.",
+      solution: "Using a = (v − u)/t: change in velocity = 10 m/s − 30 m/s = −20 m/s. a = −20 m/s / 5.0 s = −4.0 m/s². The negative sign shows deceleration opposite to the initial motion.",
+      answer: "−4.0 m/s² (or 4.0 m/s² deceleration)."
+    }
   ],
   commonMistakes: [
-    "Confusing distance with displacement (and speed with velocity)",
-    "Using constant-$a$ equations when acceleration is not constant",
-    "Dropping the sign of deceleration",
-    "Using final $v$ in $s=vt$ instead of average velocity",
-    "Swapping $u$ and $v$ when rearranging"
+    "Treating distance and displacement as the same quantity — distance is path length, displacement is net position change.",
+    "Using average speed (total distance/time) when the question asks for average velocity (total displacement/time).",
+    "Confusing initial velocity u with final velocity v in equations.",
+    "Forgetting that acceleration can be caused by a change in direction even when speed is constant.",
+    "Ignoring the sign of acceleration when an object is slowing down in the positive direction."
   ],
   examPoints: [
-    "Pick a positive direction before assigning signs",
-    "Closed path: displacement can be zero while distance is not",
-    "Missing time → $v^2=u^2+2as$",
-    "Convert km/h to m/s by dividing by 3.6 when needed"
+    "Distance is always greater than or equal to the magnitude of displacement; equality holds only for straight-line motion without reversal.",
+    "A velocity-time graph's area gives displacement, not distance; take absolute areas for distance.",
+    "The SI unit of acceleration is m/s², read as 'metres per second squared'.",
+    "FPSC often asks about motion graphs: slope of s-t = speed, slope of v-t = acceleration, area of v-t = displacement."
   ],
-  relatedTopics: ["phy-newtons-laws", "phy-momentum-impulse"],
+  comparisonTable: {
+    headers: ["Quantity", "Type", "Definition", "SI unit", "Direction needed?"],
+    rows: [
+      ["Distance", "Scalar", "Total path length", "m", "No"],
+      ["Displacement", "Vector", "Straight-line change in position", "m", "Yes"],
+      ["Speed", "Scalar", "Distance/time", "m/s", "No"],
+      ["Velocity", "Vector", "Displacement/time", "m/s", "Yes"],
+      ["Acceleration", "Vector", "Change in velocity/time", "m/s²", "Yes"]
+    ]
+  },
+  methodChooser: {
+    title: "Choosing the right kinematic quantity",
+    intro: "For basic kinematics problems, identify exactly what is asked before choosing a formula.",
+    steps: [
+      { condition: "You need how far the object actually travelled", recommendation: "Use distance = speed × time", notes: "scalar; add all segments" },
+      { condition: "You need the net change in position", recommendation: "Use displacement = velocity × time", notes: "vector; watch signs" },
+      { condition: "You need how quickly velocity changes", recommendation: "Use a = (v − u)/t", notes: "sign shows direction of acceleration" },
+      { condition: "A graph is given", recommendation: "Read slopes and areas", notes: "slope of s-t = speed; slope of v-t = acceleration; area of v-t = displacement" }
+    ]
+  },
+  limitCases: [
+    { condition: "a = 0", result: "v is constant", physicalMeaning: "Zero acceleration means uniform velocity (straight-line motion at constant speed)." },
+    { condition: "v = 0 at the top of vertical motion", result: "a is still g downward", physicalMeaning: "Velocity is momentarily zero but acceleration continues to act." }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "A faster car always has a larger displacement than a slower car.",
+      whyStudentsThinkIt: "Everyday language confuses speed with how far you end up from the start.",
+      correctModel: "Displacement depends on net position change, not on speed or path length. A fast car that returns to its start has zero displacement."
+    }
+  ],
+  relatedTopics: ["phy-newtons-laws", "phy-momentum-impulse", "phy-scalars-vectors"],
+  content: true,
   buildsOn: ["math-8-3", "math-5-4", "phy-units-measurement", "phy-scalars-vectors"],
   leadsTo: ["phy-newtons-laws", "phy-momentum-impulse"],
-  usedIn: ["phy-work-energy", "meteo-static-stability", "meteo-forces-governing-wind", "meteo-scales-of-motion"],
-  content: true,
-  },
-  {
-id: "phy-newtons-laws",
+  usedIn: ["phy-work-energy", "meteo-static-stability", "meteo-forces-governing-wind", "meteo-scales-of-motion"]
+},
+
+{
+  id: "phy-newtons-laws",
   sectionId: "PHY-01",
   order: 2,
   title: "Newton's Three Laws of Motion",
-  definition: "Newton's laws link force and motion: inertia (1st), $F=ma$ for net force (2nd), and action–reaction pairs on different objects (3rd).",
+  definition: "Newton's three laws relate the forces acting on an object to its motion: the first law defines inertia, the second links net force to acceleration, and the third states that forces always occur in equal and opposite pairs on different bodies.",
   keyFacts: [
-    "1st law: constant velocity (including rest) unless net external force acts",
-    "2nd law: $\\vec{F}_{\\mathrm{net}} = m\\vec{a}$ — net force, not a single named force unless it is the only one",
-    "3rd law: forces come in equal–opposite pairs acting on two different objects",
-    "Mass is inertia (kg); weight is gravitational force (N) and can change with $g$",
-    "Equilibrium means $\\vec{F}_{\\mathrm{net}}=0$, so $\\vec{a}=0$ (velocity constant, not necessarily zero)"
+    "First Law (Inertia): an object remains at rest or moves with constant velocity unless a net external force acts on it.",
+    "Second Law: net force F = m a; acceleration is in the direction of the net force.",
+    "Third Law: if body A exerts a force on body B, body B exerts an equal and opposite force on body A, acting on a different body.",
+    "Mass is a measure of inertia and is constant everywhere; weight is the gravitational force on that mass and varies with location.",
+    "Net force is the vector sum of all forces on one object; zero net force means equilibrium.",
+    "Action-reaction pairs never act on the same object, so they do not cancel each other."
   ],
   explanationSections: [
-    { heading: "Why the 3rd law does not cancel motion", body: "Action and reaction act on different objects. The book–table pair does not cancel the book's weight; the normal force balances weight on the book, while the book pushes the table separately." },
-    { heading: "Net force is the working idea", body: "In $F=ma$, $F$ is the vector sum of all forces. Doubling net force doubles $a$; doubling mass halves $a$ for the same net force." },
-    { heading: "How the exam traps you", body: "Moving at constant speed is allowed with zero net force. 'Equal and opposite' never means both forces act on the same free-body diagram as if they cancel a single object's motion by themselves." }
+    { heading: "Inertia and the First Law", body: "Inertia is the resistance of an object to changes in its state of motion. A book on a table stays at rest because the net force on it is zero, not because no forces act. A passenger lurches forward when a braking bus slows because the passenger's body tends to keep moving." },
+    { heading: "F = ma as the working equation", body: "The Second Law is the quantitative heart of mechanics. For a fixed mass, doubling the net force doubles the acceleration. For a fixed force, doubling the mass halves the acceleration. Always use net force — the vector sum of all forces acting on the object — not just one applied force." },
+    { heading: "Why action-reaction does not cancel", body: "Action and reaction forces act on different objects. A book on a table pushes down on the table; the table pushes up on the book. These two forces are equal and opposite but cannot cancel because they act on different bodies. The book remains still because the upward normal force from the table balances the book's weight, both acting on the book." },
+    { heading: "Mass vs weight", body: "Mass is an intrinsic property measured in kilograms; weight is a force measured in newtons. A 60 kg person has the same mass on Earth and the Moon, but weighs about 588 N on Earth and only 96 N on the Moon because the Moon's gravitational field is weaker." }
   ],
-  formula: { name: "Newton's Second Law", expression: "F_net = m × a", variables: [{ symbol: "F_net", meaning: "net force (N)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "a", meaning: "acceleration (m/s²)" }] },
-  methodChooser: [
-    { when: "finding acceleration from forces", use: "draw free-body diagram → sum forces → $a = F_{\\mathrm{net}}/m$" },
-    { when: "object at constant velocity", use: "set $F_{\\mathrm{net}}=0$ (1st law / equilibrium)" },
-    { when: "mass vs weight asked", use: "mass in kg; weight $W=mg$ in newtons" }
-  ],
-  limitCases: [
-    { condition: "$F_{\\mathrm{net}}=0$", result: "$a=0$ — rest or steady velocity" },
-    { condition: "same force, double mass", result: "half the acceleration" }
-  ],
-  comparisonTable: {
-    headers: ["Idea", "Means", "Common error"],
-    rows: [
-      ["Mass", "Amount of matter / inertia (kg)", "Calling mass 'weight'"],
-      ["Weight", "Gravitational force $mg$ (N)", "Treating weight as constant everywhere"],
-      ["3rd law pair", "Equal–opposite on two bodies", "Putting both arrows on one body and cancelling"]
+  formula: {
+    name: "Newton's Second Law",
+    expression: "F_{net} = m a",
+    variables: [
+      { symbol: "F_{net}", meaning: "net force (N)" },
+      { symbol: "m", meaning: "mass (kg)" },
+      { symbol: "a", meaning: "acceleration (m/s²)" }
     ]
   },
   workedExample: [
-    { problem: "A $5\\,\\mathrm{kg}$ box is pulled horizontally with $20\\,\\mathrm{N}$. Friction is $5\\,\\mathrm{N}$. Find acceleration.", solution: "$F_{\\mathrm{net}}=20-5=15\\,\\mathrm{N}$. $a=F/m=15/5=3\\,\\mathrm{m/s^2}$.", answer: "$3\\,\\mathrm{m/s^2}$" },
-    { problem: "A $2\\,\\mathrm{kg}$ object moves at constant $4\\,\\mathrm{m/s}$ on a straight line. Net force?", solution: "Constant velocity ⇒ $a=0$ ⇒ $F_{\\mathrm{net}}=0$ (1st law).", answer: "$0\\,\\mathrm{N}$" }
+    {
+      problem: "A 5.0 kg block is pulled horizontally by a 20 N force. A friction force of 5.0 N opposes the motion. Find the acceleration.",
+      solution: "Net force = 20 N − 5.0 N = 15 N. Using F = ma, a = F/m = 15 N / 5.0 kg = 3.0 m/s².",
+      answer: "3.0 m/s² in the direction of the pull."
+    },
+    {
+      problem: "A 1 200 kg car accelerates from rest to 24 m/s in 8.0 s. What average net force acts on it?",
+      solution: "First find acceleration: a = (v − u)/t = (24 m/s − 0)/8.0 s = 3.0 m/s². Then F = ma = 1 200 kg × 3.0 m/s² = 3 600 N.",
+      answer: "3 600 N (or 3.6 kN)."
+    }
   ],
   commonMistakes: [
-    "Using $F=ma$ with one force while ignoring friction or components",
-    "Thinking 3rd-law partners cancel on the same object",
-    "Assuming motion requires a nonzero net force (false at constant velocity)",
-    "Mixing mass (kg) and weight (N)",
-    "Forgetting that $F$ in $F=ma$ is net force"
+    "Thinking that action-reaction forces cancel; they act on different objects.",
+    "Using an individual force instead of the net force in F = ma.",
+    "Confusing mass (kg, constant) with weight (N, location-dependent).",
+    "Believing that a moving object must have a net force on it; constant velocity means zero net force.",
+    "Forgetting that F and a are vectors and must have the same direction."
   ],
   examPoints: [
-    "Constant velocity ⇒ net force zero",
-    "3rd law: two objects, not two forces on one free-body diagram cancelling automatically",
-    "Always identify $F_{\\mathrm{net}}$ before computing $a$"
+    "Third-Law pairs are always the same type of force, equal in magnitude, opposite in direction, and on different bodies.",
+    "If an object moves at constant velocity, the net force is zero even though individual forces may be large.",
+    "Weight = mg; on Earth use g ≈ 9.8 m/s² unless the question states 10 m/s².",
+    "FPSC often tests conceptual Third-Law questions with people, boats, rockets or books on tables."
+  ],
+  limitCases: [
+    { condition: "F_{net} = 0", result: "a = 0", physicalMeaning: "The object is in equilibrium: at rest or moving with constant velocity." },
+    { condition: "Constant mass, F doubled", result: "a doubles", physicalMeaning: "Acceleration is directly proportional to net force." },
+    { condition: "Constant F, m doubled", result: "a halves", physicalMeaning: "Acceleration is inversely proportional to mass." }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "The upward normal force on a book and the downward gravitational force on the book are an action-reaction pair.",
+      whyStudentsThinkIt: "They are equal and opposite, and the book is not moving, so they look like a pair.",
+      correctModel: "Action-reaction pairs act on different objects. The reaction to the table's upward normal force on the book is the book's downward normal force on the table. The forces that balance on the book are both acting on the book."
+    }
   ],
   relatedTopics: ["phy-kinematics", "phy-gravity-weight-friction", "phy-momentum-impulse"],
+  content: true,
   buildsOn: ["phy-kinematics", "phy-scalars-vectors"],
   leadsTo: ["phy-gravity-weight-friction", "phy-momentum-impulse", "phy-work-energy"],
-  usedIn: ["phy-vector-applications", "meteo-coriolis-effect", "meteo-forces-governing-wind", "earth-f1", "earth-h1"],
-  content: true,
-  },
-  {
-id: "phy-gravity-weight-friction",
+  usedIn: ["phy-vector-applications", "meteo-coriolis-effect", "meteo-forces-governing-wind", "earth-f1", "earth-h1"]
+},
+
+{
+  id: "phy-gravity-weight-friction",
   sectionId: "PHY-01",
   order: 3,
   title: "Gravity, Weight & Friction",
-  definition: "Near Earth, weight is $mg$. Friction opposes relative sliding (or impending slide) and is limited by the normal force and the coefficient of friction.",
+  definition: "Gravity is the attractive force between any two masses; weight is the gravitational force exerted on an object by a planet or moon; friction is a contact force that opposes relative motion or attempted motion between surfaces.",
   keyFacts: [
-    "Weight $W = mg$ with $g \\approx 9.8\\,\\mathrm{m/s^2}$ (often $10$ in MCQs)",
-    "Mass is constant; weight changes if $g$ changes",
-    "Normal force $N$ is perpendicular to the surface",
-    "Kinetic friction $f_k = \\mu_k N$ (opposes sliding); static friction $f_s \\le \\mu_s N$",
-    "Friction direction is opposite the attempted or actual slip — not always 'backward' in word problems without care"
+    "Weight W = m g, where g is the gravitational field strength (≈ 9.8 N/kg on Earth).",
+    "Mass is constant everywhere; weight depends on the local value of g.",
+    "Friction always opposes relative motion or the tendency of relative motion.",
+    "Static friction acts on objects at rest and adjusts up to a maximum value; kinetic friction acts on sliding objects.",
+    "The maximum static friction is usually slightly larger than kinetic friction for the same surfaces.",
+    "Friction depends on the nature of the surfaces and the normal force, not on the apparent contact area."
   ],
   explanationSections: [
-    { heading: "Weight vs mass", body: "A 60 kg astronaut still has mass 60 kg in orbit but can feel weightless if in free fall with the craft. On Earth, scales read force related to $N$, often calibrated as weight." },
-    { heading: "Friction and the normal force", body: "Larger $N$ allows larger maximum friction. On a horizontal surface with no vertical acceleration, $N=mg$. On slopes, $N=mg\\cos\\theta$ in the simple model." },
-    { heading: "Exam focus", body: "Items mix $W=mg$ with $f=\\mu N$. Check whether the surface is horizontal and whether the object is sliding or at rest." }
+    { heading: "Weight as a gravitational force", body: "Weight is not a fixed property of an object. A 10 kg object weighs 98 N on Earth but about 16 N on the Moon and about 370 N on Jupiter's surface. Its mass remains 10 kg everywhere. In free fall, an object is weightless because there is no supporting force, but its mass and the gravitational pull on it are unchanged." },
+    { heading: "Static and kinetic friction", body: "If you push a heavy box gently, static friction matches your push and the box does not move. As you push harder, static friction increases only up to a limit. Once motion starts, kinetic friction takes over and is usually slightly smaller, so the box may suddenly feel easier to push." },
+    { heading: "What friction depends on", body: "For dry solid surfaces, friction depends mainly on the materials in contact and the normal force pressing them together. Polishing, lubrication or rolling reduce friction. Contrary to intuition, widening the contact area does not normally increase friction because the pressure decreases proportionally." },
+    { heading: "Friction in FPSC problems", body: "Many problems ask for the net force when friction opposes motion. Subtract the friction force from the applied force before using F = ma. On an incline, resolve the weight into components parallel and perpendicular to the surface; the normal force equals the perpendicular component." }
   ],
-  formula: [
-    { name: "Weight", expression: "W = mg", variables: [{ symbol: "W", meaning: "weight (N)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "g", meaning: "gravitational field strength (m/s²)" }] },
-    { name: "Kinetic friction", expression: "f_k = μ_k N", variables: [{ symbol: "f_k", meaning: "kinetic friction (N)" }, { symbol: "μ_k", meaning: "coefficient of kinetic friction" }, { symbol: "N", meaning: "normal force (N)" }] }
-  ],
-  methodChooser: [
-    { when: "horizontal surface, not accelerating vertically", use: "$N = mg$" },
-    { when: "object sliding", use: "$f = \\mu_k N$ opposite velocity" },
-    { when: "object at rest but may slip", use: "$f_s \\le \\mu_s N$ — use equality only at limiting equilibrium" }
-  ],
-  comparisonTable: {
-    headers: ["Quantity", "Unit", "Depends on g?", "Notes"],
-    rows: [
-      ["Mass", "kg", "No", "Inertia; same everywhere"],
-      ["Weight", "N", "Yes", "$W=mg$"],
-      ["Normal force", "N", "Indirectly", "From surface contact"],
-      ["Friction", "N", "Via N", "Opposes slip; $\\le \\mu N$ static"]
+  formula: {
+    name: "Weight and friction",
+    expression: "W = m g \\quad f_{s,max} = \\mu_s N \\quad f_k = \\mu_k N",
+    variables: [
+      { symbol: "W", meaning: "weight (N)" },
+      { symbol: "m", meaning: "mass (kg)" },
+      { symbol: "g", meaning: "gravitational field strength (N/kg or m/s²)" },
+      { symbol: "\\mu_s", meaning: "coefficient of static friction" },
+      { symbol: "\\mu_k", meaning: "coefficient of kinetic friction" },
+      { symbol: "N", meaning: "normal force (N)" }
     ]
   },
   workedExample: [
-    { problem: "Mass $10\\,\\mathrm{kg}$ on a horizontal floor; $\\mu_k=0.2$; $g=10\\,\\mathrm{m/s^2}$. Kinetic friction while sliding?", solution: "$N=mg=100\\,\\mathrm{N}$. $f_k=\\mu_k N=0.2\\times100=20\\,\\mathrm{N}$.", answer: "$20\\,\\mathrm{N}$" },
-    { problem: "What is the weight of a $50\\,\\mathrm{kg}$ student? Take $g=10\\,\\mathrm{m/s^2}$.", solution: "$W=mg=50\\times10=500\\,\\mathrm{N}$.", answer: "$500\\,\\mathrm{N}$" }
+    {
+      problem: "An astronaut has a mass of 70 kg. Calculate her weight (a) on Earth where g = 9.8 N/kg, and (b) on the Moon where g = 1.6 N/kg.",
+      solution: "(a) W = m g = 70 kg × 9.8 N/kg = 686 N. (b) W = 70 kg × 1.6 N/kg = 112 N.",
+      answer: "686 N on Earth; 112 N on the Moon."
+    },
+    {
+      problem: "A 10 kg box rests on a horizontal floor. The coefficient of static friction is 0.50 and kinetic friction is 0.30. What horizontal force is needed to start the box moving? What force keeps it moving at constant velocity once started?",
+      solution: "Normal force N = weight = m g = 10 kg × 9.8 N/kg = 98 N. Maximum static friction = μs N = 0.50 × 98 N = 49 N, so at least 49 N is needed to start motion. Kinetic friction = μk N = 0.30 × 98 N = 29.4 N; a 29.4 N horizontal force balances friction and keeps velocity constant.",
+      answer: "49 N to start motion; 29.4 N to keep it moving at constant velocity."
+    }
   ],
   commonMistakes: [
-    "Writing friction as $\\mu mg$ without checking that $N=mg$",
-    "Using mass in place of weight in newton-unit answers",
-    "Treating static friction as always $\\mu_s N$ (it can be less)",
-    "Pointing friction in the wrong direction on free-body diagrams"
+    "Saying weight is measured in kilograms; weight is a force, so its unit is the newton.",
+    "Treating friction as a fixed number instead of a force proportional to the normal force.",
+    "Confusing static friction with kinetic friction: static friction can vary, kinetic friction is roughly constant.",
+    "Assuming friction always equals μmg; on an incline the normal force is mg cos θ, not mg.",
+    "Forgetting that friction opposes relative motion, not necessarily the direction of travel (e.g. friction on a car's driven wheels points forward)."
   ],
   examPoints: [
-    "Weight in newtons; mass in kilograms",
-    "Friction needs $N$ first",
-    "MCQs often use $g=10\\,\\mathrm{m/s^2}$ for speed"
+    "Use g = 9.8 m/s² unless the question explicitly uses 10 m/s²; state the value you use.",
+    "On an incline, the component of weight down the slope is mg sin θ and the normal force is mg cos θ.",
+    "Static friction is a maximum value; actual static friction can be anything from zero up to f_s,max.",
+    "Weightlessness in orbit is not absence of gravity; it is absence of a supporting normal force during free fall."
   ],
-  relatedTopics: ["phy-newtons-laws", "phy-universal-gravitation"],
+  comparisonTable: {
+    headers: ["Property", "Mass", "Weight"],
+    rows: [
+      ["Definition", "Amount of matter / inertia", "Gravitational force on mass"],
+      ["SI unit", "kg", "N"],
+      ["Changes with location?", "No", "Yes (depends on g)"],
+      ["Measuring instrument", "Balance", "Spring scale / Newton meter"],
+      ["Type", "Scalar", "Vector (downward)"]
+    ]
+  },
+  relatedTopics: ["phy-newtons-laws", "phy-universal-gravitation", "phy-momentum-impulse", "phy-archimedes-principle"],
+  content: true,
   buildsOn: ["phy-newtons-laws"],
   leadsTo: ["phy-universal-gravitation", "phy-momentum-impulse"],
-  usedIn: ["phy-archimedes-principle", "meteo-hydrostatic-equation", "earth-a5"],
-  content: true,
-  },
-  {
-id: "phy-momentum-impulse",
+  usedIn: ["phy-archimedes-principle", "meteo-hydrostatic-equation", "earth-a5"]
+},
+
+{
+  id: "phy-momentum-impulse",
   sectionId: "PHY-01",
   order: 4,
-  title: "Momentum & Impulse",
-  definition: "Momentum $\\vec{p}=m\\vec{v}$ measures motion quantity. Impulse is force applied over time and equals change in momentum.",
+  title: "Momentum, Impulse & Conservation of Momentum",
+  definition: "Momentum is the product of an object's mass and velocity. Impulse is the product of a force and the time it acts, equal to the change in momentum. In an isolated system, total momentum is conserved during collisions and explosions.",
   keyFacts: [
-    "Momentum $p = mv$ (vector); unit $\\mathrm{kg\\,m/s}$",
-    "Impulse $J = F_{\\mathrm{avg}}\\Delta t = \\Delta p$",
-    "For a system with no external force, total momentum is conserved",
-    "Same impulse: larger $\\Delta t$ means smaller average force (airbags, crumple zones)",
-    "Elastic vs inelastic collisions: momentum conserved if isolated; kinetic energy only in elastic"
+    "Linear momentum p = m v; it is a vector with SI unit kg·m/s.",
+    "Impulse J = F t = Δp = m(v − u); impulse is also a vector.",
+    "For a constant force, impulse equals force multiplied by the time interval.",
+    "The law of conservation of momentum: total momentum before = total momentum after, provided no external net force acts.",
+    "In an elastic collision both momentum and kinetic energy are conserved; in an inelastic collision only momentum is conserved.",
+    "In a perfectly inelastic collision, objects stick together and move with a common velocity after impact."
   ],
   explanationSections: [
-    { heading: "Impulse–momentum theorem", body: "A short, hard hit and a long, soft hit can deliver the same $\\Delta p$ with very different average forces. Exam stories about catching eggs or car safety hinge on increasing $\\Delta t$." },
-    { heading: "Conservation", body: "If external forces are negligible during a quick collision, $m_1u_1+m_2u_2=m_1v_1+m_2v_2$ (1D)." },
-    { heading: "Link to Newton", body: "From $F=ma=m\\Delta v/\\Delta t$, so $F\\Delta t=m\\Delta v=\\Delta p$." }
+    { heading: "Momentum as a measure of motion", body: "A heavy truck moving slowly and a light bullet moving fast can have similar momenta. Because momentum is a vector, two objects moving in opposite directions have opposite momenta. A system with equal and opposite momenta has zero total momentum." },
+    { heading: "Impulse and change in momentum", body: "The same change in momentum can be produced by a large force acting briefly or a small force acting for a long time. Airbags, crumple zones and cushioned floors increase stopping time, reducing peak force while producing the same impulse (change in momentum)." },
+    { heading: "Conservation of momentum", body: "Momentum is conserved because Newton's Third Law makes internal forces in a system cancel in pairs. For collisions, set total momentum before impact equal to total momentum after impact. Include direction with signs. This works for explosions too, where the total initial momentum is zero and the fragments move in opposite directions." },
+    { heading: "Elastic vs inelastic collisions", body: "Most everyday collisions are inelastic because some kinetic energy becomes sound, heat or deformation. Momentum is conserved in both types. Do not assume kinetic energy is conserved unless the question states an elastic collision." }
   ],
   formula: [
-    { name: "Momentum", expression: "p = mv", variables: [{ symbol: "p", meaning: "momentum (kg·m/s)" }, { symbol: "m", meaning: "mass (kg)" }, { symbol: "v", meaning: "velocity (m/s)" }] },
-    { name: "Impulse", expression: "J = F Δt = Δp", variables: [{ symbol: "J", meaning: "impulse (N·s)" }, { symbol: "F", meaning: "average force (N)" }, { symbol: "Δt", meaning: "time interval (s)" }] }
-  ],
-  methodChooser: [
-    { when: "force and time given, find speed change", use: "$F\\Delta t = m\\Delta v$" },
-    { when: "collision, isolated system", use: "conserve total momentum" },
-    { when: "safety / soft landing story", use: "same $\\Delta p$, larger $\\Delta t$ ⇒ smaller $F_{\\mathrm{avg}}$" }
+    {
+      name: "Momentum and impulse",
+      expression: "p = m v \\quad J = F t = \\Delta p = m(v - u)",
+      variables: [
+        { symbol: "p", meaning: "momentum (kg·m/s)" },
+        { symbol: "m", meaning: "mass (kg)" },
+        { symbol: "v", meaning: "velocity (m/s)" },
+        { symbol: "J", meaning: "impulse (N·s or kg·m/s)" },
+        { symbol: "F", meaning: "average net force (N)" },
+        { symbol: "t", meaning: "time (s)" },
+        { symbol: "u", meaning: "initial velocity (m/s)" }
+      ]
+    },
+    {
+      name: "Conservation of momentum",
+      expression: "m_1 u_1 + m_2 u_2 = m_1 v_1 + m_2 v_2",
+      variables: [
+        { symbol: "m_1, m_2", meaning: "masses of the two bodies (kg)" },
+        { symbol: "u_1, u_2", meaning: "velocities before collision (m/s)" },
+        { symbol: "v_1, v_2", meaning: "velocities after collision (m/s)" }
+      ]
+    }
   ],
   workedExample: [
-    { problem: "A $0.2\\,\\mathrm{kg}$ ball at $15\\,\\mathrm{m/s}$ is stopped in $0.03\\,\\mathrm{s}$. Average force?", solution: "$\\Delta p = 0 - m v = -3\\,\\mathrm{kg\\,m/s}$. $|F|=|\\Delta p|/\\Delta t=3/0.03=100\\,\\mathrm{N}$.", answer: "$100\\,\\mathrm{N}$ (magnitude)" },
-    { problem: "Two masses $2\\,\\mathrm{kg}$ at $3\\,\\mathrm{m/s}$ and $1\\,\\mathrm{kg}$ at rest stick together. Common speed?", solution: "Inelastic: $(2)(3)+0=(3)v$ ⇒ $v=2\\,\\mathrm{m/s}$.", answer: "$2\\,\\mathrm{m/s}$" }
+    {
+      problem: "A 0.050 kg bullet moving at 200 m/s strikes a stationary 2.0 kg block and becomes embedded in it. Find the speed of the block and bullet just after impact.",
+      solution: "Momentum before = 0.050 kg × 200 m/s + 2.0 kg × 0 = 10 kg·m/s. After impact total mass = 2.05 kg. Using conservation of momentum: 10 kg·m/s = 2.05 kg × v, so v ≈ 4.88 m/s.",
+      answer: "≈ 4.9 m/s in the original direction of the bullet."
+    },
+    {
+      problem: "A 60 kg sprinter increases her speed from 4.0 m/s to 7.0 m/s in 0.50 s. What average force acts on her?",
+      solution: "Change in momentum = m(v − u) = 60 kg × (7.0 − 4.0) m/s = 180 kg·m/s. Impulse = F t, so F = 180 kg·m/s / 0.50 s = 360 N.",
+      answer: "360 N."
+    }
   ],
   commonMistakes: [
-    "Conserving kinetic energy in every collision automatically",
-    "Forgetting momentum is a vector (opposite directions)",
-    "Using $F=ma$ with wrong time interval for average force",
-    "Mixing impulse units (N·s) with energy (J)"
+    "Forgetting that momentum is a vector and not assigning opposite signs to opposite directions.",
+    "Using conservation of momentum when an external force such as friction is significant.",
+    "Confusing elastic and inelastic collisions: kinetic energy is not conserved in inelastic collisions.",
+    "Adding masses when objects bounce apart instead of applying conservation of momentum separately.",
+    "Using impulse = force alone; it is force × time."
   ],
   examPoints: [
-    "Impulse = area under F–t graph if given",
-    "Isolated ⇒ momentum conserved",
-    "Soft impact: increase time to reduce force"
-  ],
-  relatedTopics: ["phy-newtons-laws", "phy-work-energy"],
-  buildsOn: ["phy-newtons-laws", "phy-kinematics"],
-  leadsTo: ["phy-work-energy"],
-  usedIn: ["phy-fluid-dynamics"],
-  content: true,
-  },
-  {
-id: "phy-work-energy",
-  sectionId: "PHY-02",
-  order: 1,
-  title: "Work, Energy & Conservation",
-  definition: "Work is force along displacement. Kinetic energy is energy of motion; gravitational potential energy depends on height. The work–energy theorem links net work to $\\Delta KE$.",
-  keyFacts: [
-    "Work $W = Fd\\cos\\theta$ (Joules); only the component of force along displacement does work",
-    "Kinetic energy $KE = \\frac{1},
-  {2}mv^2$",
-    "Near Earth, $\\Delta PE_g = mgh$ (height change)",
-    "Net work = change in kinetic energy",
-    "Mechanical energy conserved if only conservative forces (e.g. gravity) do work — friction removes mechanical energy as heat"
-  ],
-  explanationSections: [
-    { heading: "Work is not 'effort'", body: "Holding a heavy bag still does no work on the bag ($d=0$). Carrying at constant height with vertical force and horizontal displacement can mean zero work by that vertical force." },
-    { heading: "Work–energy theorem", body: "Add up work by all forces (or use net force): that total equals $\\Delta KE$. Friction often does negative work and reduces speed." },
-    { heading: "Conservation strategy", body: "If frictionless: $KE_i+PE_i=KE_f+PE_f$. With friction, track energy dissipated separately." }
-  ],
-  formula: [
-    { name: "Work", expression: "W = Fd cosθ", variables: [{ symbol: "W", meaning: "work (J)" }, { symbol: "F", meaning: "force (N)" }, { symbol: "d", meaning: "displacement (m)" }, { symbol: "θ", meaning: "angle between F and d" }] },
-    { name: "Kinetic energy", expression: "KE = (1/2)mv²", variables: [{ symbol: "m", meaning: "mass (kg)" }, { symbol: "v", meaning: "speed (m/s)" }] },
-    { name: "Gravitational PE change", expression: "ΔPE = mgh", variables: [{ symbol: "m", meaning: "mass (kg)" }, { symbol: "g", meaning: "m/s²" }, { symbol: "h", meaning: "height change (m)" }] }
-  ],
-  methodChooser: [
-    { when: "force and path known", use: "$W=Fd\\cos\\theta$" },
-    { when: "speed change from forces", use: "work–energy: $W_{\\mathrm{net}}=\\Delta KE$" },
-    { when: "height change, no friction", use: "mechanical energy conservation" }
-  ],
-  comparisonTable: {
-    headers: ["Quantity", "Formula", "Unit", "Note"],
-    rows: [
-      ["Work", "$Fd\\cos\\theta$", "J", "Can be negative"],
-      ["KE", "$\\frac{1},
-  {2}mv^2$", "J", "Always ≥ 0"],
-      ["PE (gravity)", "$mgh$", "J", "Depends on reference level"],
-      ["Power", "$W/t$", "W", "See next topic"]
-    ]
-  },
-  workedExample: [
-    { problem: "A $3\\,\\mathrm{kg}$ box is lifted vertically $2\\,\\mathrm{m}$ at constant speed. Work by the lifter? ($g=10$)", solution: "Constant speed ⇒ lift force $=mg=30\\,\\mathrm{N}$. $W=Fd=60\\,\\mathrm{J}$. Also $\\Delta PE=mgh=60\\,\\mathrm{J}$.", answer: "$60\\,\\mathrm{J}$" },
-    { problem: "Net work of $100\\,\\mathrm{J}$ is done on a $5\\,\\mathrm{kg}$ mass starting from rest. Final speed?", solution: "$W=\\Delta KE=\\frac{1},
-  {2}mv^2$ ⇒ $100=\\frac{1},
-  {2}(5)v^2$ ⇒ $v^2=40$ ⇒ $v\\approx 6.3\\,\\mathrm{m/s}$.", answer: "$\\sqrt{40}\\,\\mathrm{m/s}\\approx 6.3\\,\\mathrm{m/s}$" }
-  ],
-  commonMistakes: [
-    "Ignoring $\\cos\\theta$ when force is not along the path",
-    "Using $W=Fd$ for centripetal force on uniform circular motion (that force does no work)",
-    "Forgetting friction's negative work in energy balances",
-    "Treating PE reference as absolute without defining $h=0$"
-  ],
-  examPoints: [
-    "Work unit joule (J) = N·m",
-    "No displacement ⇒ no work",
-    "Friction typically non-conservative"
-  ],
-  relatedTopics: ["phy-power-efficiency", "phy-momentum-impulse"],
-  buildsOn: ["phy-newtons-laws", "phy-kinematics", "math-2-3"],
-  leadsTo: ["phy-power-efficiency", "phy-thermodynamics-laws"],
-  usedIn: ["phy-heat-transfer-equilibrium", "meteo-heat-transfer", "meteo-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"],
-  content: true,
-  },
-  {
-id: "phy-power-efficiency",
-  sectionId: "PHY-02",
-  order: 2,
-  title: "Power & Efficiency",
-  definition: "Power is the rate of doing work or transferring energy. Efficiency is useful output energy divided by total input energy.",
-  keyFacts: [
-    "Power $P = W/t = E/t$; unit watt (W) = J/s",
-    "Also $P = Fv$ when force and velocity are along the same line",
-    "Efficiency $\\eta = (E_{\\mathrm{useful}}/E_{\\mathrm{input}})\\times 100\\%$",
-    "No real machine is 100% efficient — some energy becomes waste heat",
-    "Same work in less time means greater power"
-  ],
-  explanationSections: [
-    { heading: "Power vs energy", body: "Energy is the capacity to do work; power is how fast energy is transferred. Two motors can deliver the same energy; the faster one has higher power." },
-    { heading: "Efficiency in MCQs", body: "Useful output is never greater than input. If efficiency is 25%, input energy is four times useful output." },
-    { heading: "Link to circuits", body: "Electrical power $P=IV$ is the same idea: energy per time in another form — see circuits topics." }
-  ],
-  formula: [
-    { name: "Power", expression: "P = W/t", variables: [{ symbol: "P", meaning: "power (W)" }, { symbol: "W", meaning: "work or energy (J)" }, { symbol: "t", meaning: "time (s)" }] },
-    { name: "Efficiency", expression: "η = (E_out / E_in) × 100%", variables: [{ symbol: "E_out", meaning: "useful energy output (J)" }, { symbol: "E_in", meaning: "total energy input (J)" }] }
-  ],
-  methodChooser: [
-    { when: "work and time given", use: "$P=W/t$" },
-    { when: "force and constant speed", use: "$P=Fv$" },
-    { when: "useful vs input energy", use: "efficiency ratio × 100%" }
-  ],
-  comparisonTable: {
-    headers: ["Quantity", "Measures", "Unit"],
-    rows: [
-      ["Energy / work", "Total transfer", "J"],
-      ["Power", "Rate of transfer", "W"],
-      ["Efficiency", "Useful fraction", "% (dimensionless ratio)"]
-    ]
-  },
-  workedExample: [
-    { problem: "A machine does $1500\\,\\mathrm{J}$ of work in $5\\,\\mathrm{s}$. Power?", solution: "$P=W/t=1500/5=300\\,\\mathrm{W}$.", answer: "$300\\,\\mathrm{W}$" },
-    { problem: "A motor takes $2000\\,\\mathrm{J}$ and delivers $500\\,\\mathrm{J}$ useful work. Efficiency?", solution: "$\\eta=(500/2000)\\times100\\%=25\\%$.", answer: "$25\\%$" }
-  ],
-  commonMistakes: [
-    "Confusing joules (energy) with watts (power)",
-    "Efficiency > 100% (impossible for passive machines)",
-    "Using $P=Fv$ when force and velocity are not aligned",
-    "Forgetting to convert minutes to seconds in $P=W/t$"
-  ],
-  examPoints: [
-    "1 kW = 1000 W",
-    "Higher power ≠ more total energy unless time is considered",
-    "Efficiency always uses useful output over total input"
-  ],
-  relatedTopics: ["phy-work-energy"],
-  buildsOn: ["phy-work-energy"],
-  leadsTo: [],
-  usedIn: ["env-energy-sources", "phy-circuits-power-energy"],
-  content: true,
-  },
-  {
-  id: "phy-states-of-matter",
-  sectionId: "PHY-03",
-  order: 1,
-  title: "States of Matter",
-  definition: "Matter exists primarily in three states — solid, liquid, and gas — distinguished by how tightly and how freely their particles are arranged and able to move.",
-  keyFacts: [
-    "Solids: particles tightly packed in a fixed arrangement, vibrate in place, fixed shape and volume",
-    "Liquids: particles close together but able to move past one another, fixed volume but take the shape of their container",
-    "Gases: particles far apart and move freely and rapidly, no fixed shape or volume — expand to fill any container",
-    "Changes of state (melting, freezing, evaporation, condensation, sublimation) involve energy transfer without necessarily changing temperature during the transition itself (latent heat — covered under Thermodynamics)",
-    "A fourth state, plasma, exists at very high energy (ionized gas), but is not typically emphasized at the basics level"
-  ],
-  explanationSections: [
-    { heading: "Why state changes can occur without a temperature change", body: "During a phase change (e.g. ice melting to water at 0°C), energy added goes into breaking/forming the intermolecular bonds that define the state, not into increasing the average kinetic energy of the particles — so temperature can remain constant throughout the transition even as heat is continuously absorbed. This is explored further in the Thermodynamics topic on latent heat." }
-  ],
-  examPoints: [
-    "Temperature stays constant during a phase change at constant pressure (e.g. boiling water stays at 100°C until all the liquid has turned to vapour) — a commonly tested conceptual point"
-  ],
-  relatedTopics: ["phy-density", "phy-thermodynamics-laws"],
-  content: true,
-  buildsOn: ["phy-units-measurement"],
-  leadsTo: ["phy-density", "phy-temperature-heat", "phy-kinetic-theory"],
-  usedIn: ["phy-thermodynamics-laws", "meteo-moisture-metrics", "meteo-droplet-microphysics"]
-},
-
-{
-  id: "phy-density",
-  sectionId: "PHY-03",
-  order: 2,
-  title: "Density",
-  definition: "Density is the mass of a substance per unit volume, a property that determines whether an object floats or sinks in a given fluid.",
-  keyFacts: [
-    "Density (ρ) = mass (m) / volume (V), typically measured in kg/m³ or g/cm³",
-    "An object floats in a fluid if its density is less than the fluid's density, and sinks if its density is greater",
-    "Water's density is approximately 1,000 kg/m³ (1 g/cm³) at standard conditions — a common reference point",
-    "Density generally decreases as temperature increases (thermal expansion increases volume while mass stays constant) — with water being a notable exception near freezing"
-  ],
-  explanationSections: [
-    { heading: "Density and buoyancy", body: "An object's ability to float isn't about its total weight, but about how that mass is distributed relative to volume — a large steel ship floats because its overall shape displaces enough water to make its average density (hull, air-filled spaces, and all) less than water's, even though steel itself is far denser than water." }
-  ],
-  formula: {
-    name: "Density",
-    expression: "ρ = m / V",
-    variables: [
-      { symbol: "ρ", meaning: "density (kg/m³)" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "V", meaning: "volume (m³)" }
-    ]
-
-  },
-  examPoints: [
-    "Density is an intensive property — it doesn't depend on the amount of substance present, only on its composition and state, unlike mass or volume individually"
-  ],
-  relatedTopics: ["phy-states-of-matter", "phy-pressure-fluids"],
-  content: true,
-  buildsOn: ["phy-states-of-matter", "math-1-8", "math-2-2"],
-  leadsTo: ["phy-pressure-fluids", "phy-archimedes-principle"],
-  usedIn: ["phy-atmospheric-pressure-physics", "meteo-static-stability"]
-},
-
-{
-  id: "phy-pressure-fluids",
-  sectionId: "PHY-03",
-  order: 3,
-  title: "Pressure & Pressure in Fluids",
-  definition: "Pressure is force applied per unit area; in fluids, pressure increases with depth and acts equally in all directions at a given point.",
-  keyFacts: [
-    "Pressure (P) = Force (F) / Area (A), measured in Pascals (Pa), where 1 Pa = 1 N/m²",
-    "Pressure in a fluid at rest increases with depth: P = ρgh, where ρ is fluid density, g is gravitational field strength, and h is depth",
-    "Pascal's Principle: pressure applied to an enclosed fluid is transmitted equally throughout the fluid in all directions — the basis of hydraulic systems",
-    "For a given force, spreading it over a larger area reduces pressure, and concentrating it over a smaller area increases pressure"
-  ],
-  explanationSections: [
-    { heading: "Why the same force can feel different depending on area", body: "Standing normally distributes body weight across the full sole of a shoe, producing relatively low pressure on the ground; standing on the point of a stiletto heel concentrates the same weight over a tiny area, producing far higher pressure — pressure, not force alone, is what determines effects like sinking into soft ground or piercing a surface." },
-    { heading: "Pressure and depth in fluids", body: "The deeper a point is within a fluid, the more fluid weight is pressing down from above, so pressure increases linearly with depth. This is why deep-sea divers experience much greater pressure than swimmers near the surface, and why dams are built thicker at the base than at the top." }
-  ],
-  formula: {
-    name: "Pressure and Fluid Pressure",
-    expression: "P = F / A      P(fluid) = ρ × g × h",
-    variables: [
-      { symbol: "P", meaning: "pressure (Pa)" },
-      { symbol: "F", meaning: "force (N)" },
-      { symbol: "A", meaning: "area (m²)" },
-      { symbol: "ρ", meaning: "fluid density (kg/m³)" },
-      { symbol: "g", meaning: "gravitational field strength (m/s²)" },
-      { symbol: "h", meaning: "depth (m)" }
-    ]
-
-  },
-  examPoints: [
-    "This topic covers pressure as a general physics concept and fluid statics only. Atmospheric pressure SYSTEMS — pressure-gradient force, isobars, and how pressure differences generate wind — belong to Meteorology, not here; see the linked Meteorology topic for that application."
-  ],
-  relatedTopics: ["phy-atmospheric-pressure-physics", "phy-density", "meteo-forces-governing-wind"],
-  content: true,
-  buildsOn: ["phy-density", "phy-units-measurement"],
-  leadsTo: ["phy-atmospheric-pressure-physics", "phy-archimedes-principle", "phy-fluid-dynamics"],
-  usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments"]
-},
-
-{
-  id: "phy-atmospheric-pressure-physics",
-  sectionId: "PHY-03",
-  order: 4,
-  title: "Atmospheric Pressure as a Physics Concept",
-  definition: "Atmospheric pressure is the force per unit area exerted by the weight of the column of air above a point — a direct application of fluid pressure principles to the air surrounding Earth.",
-  keyFacts: [
-    "Standard atmospheric pressure at sea level is approximately 101,325 Pa, equivalently 1013.25 mb/hPa or 29.92 in Hg",
-    "Atmospheric pressure decreases with altitude, since there is progressively less air column weight above a higher point",
-    "Because air is compressible (unlike most liquids), the P = ρgh relationship for atmospheric pressure isn't perfectly linear with altitude the way it is for water — but the underlying principle (more overlying mass = more pressure) is the same",
-    "Barometers measure atmospheric pressure using this same fluid-pressure logic (a column of mercury balanced against the weight of the air column above it)"
-  ],
-  explanationSections: [
-    { heading: "Where this topic's scope ends", body: "This topic covers atmospheric pressure purely as an application of physics pressure principles: what it is, why it decreases with altitude, and how it's measured. Everything about WHY atmospheric pressure varies horizontally across the globe, how those horizontal differences create the pressure-gradient force, and how that force drives wind and large-scale circulation is Meteorology content, not Physics — deliberately kept separate to avoid duplicating material across the two subjects." }
-  ],
-  examPoints: [
-    "Standard sea-level pressure (101,325 Pa / 1013.25 mb) is the same number that appears in Meteorology's Forces Governing Wind topic — it's one physical fact used as a starting point in both subjects, not duplicated content"
-  ],
-  relatedTopics: ["phy-pressure-fluids", "meteo-forces-governing-wind"],
-  content: true,
-  buildsOn: ["phy-pressure-fluids", "phy-units-measurement"],
-  leadsTo: ["meteo-hydrostatic-equation"],
-  usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments", "env-air-pollution"]
-},
-
-// ============================= SECTION PHY-D: Heat & Thermodynamics =============================
-
-{
-  id: "phy-temperature-heat",
-  sectionId: "PHY-04",
-  order: 1,
-  title: "Temperature, Heat & Specific Heat Capacity",
-  definition: "Temperature is a measure of the average kinetic energy of particles in a substance; heat is the energy transferred between substances due to a temperature difference; specific heat capacity describes how much energy is needed to change a substance's temperature.",
-  keyFacts: [
-    "Temperature is measured in Celsius (°C), Kelvin (K), or Fahrenheit (°F); the Kelvin scale starts at absolute zero (0 K = −273.15°C), the theoretical point of minimum possible kinetic energy",
-    "Heat is energy in transit due to a temperature difference — it always flows from a hotter object to a cooler one until thermal equilibrium is reached",
-    "Specific heat capacity (c) is the amount of energy required to raise the temperature of 1 kg of a substance by 1°C (or 1 K)",
-    "Water has an unusually high specific heat capacity (~4,200 J/kg°C), meaning it resists temperature change — a fact with major implications for climate moderation near large bodies of water"
-  ],
-  explanationSections: [
-    { heading: "Temperature vs. heat — a critical distinction", body: "Temperature is an intensive property (doesn't depend on amount) describing how energetic particles are on average, while heat is the actual energy transferred and depends on the amount of substance involved. A small cup of boiling water and a full bathtub of warm water can have very different temperatures despite containing similar total heat energy, or similar temperatures despite containing very different total heat energy — the two concepts are related but distinct." }
-  ],
-  formula: {
-    name: "Heat Energy (Specific Heat Capacity)",
-    expression: "Q = m × c × ΔT",
-    variables: [
-      { symbol: "Q", meaning: "heat energy transferred (J)" },
-      { symbol: "m", meaning: "mass (kg)" },
-      { symbol: "c", meaning: "specific heat capacity (J/kg°C)" },
-      { symbol: "ΔT", meaning: "change in temperature (°C or K)" }
-    ]
-
-  },
-  examPoints: [
-    "Water's high specific heat capacity is why coastal regions have milder temperature swings than inland regions at similar latitudes — the same principle Meteorology applies when discussing land vs. sea thermal contrast in local wind systems"
-  ],
-  relatedTopics: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "meteo-local-seasonal-winds"],
-  content: true,
-  buildsOn: ["phy-units-measurement", "phy-states-of-matter"],
-  leadsTo: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "phy-thermodynamics-laws"],
-  usedIn: ["meteo-vertical-structure", "meteo-heat-transfer"]
-},
-
-{
-  id: "phy-thermal-expansion",
-  sectionId: "PHY-04",
-  order: 2,
-  title: "Thermal Expansion",
-  definition: "Thermal expansion is the tendency of matter to increase in volume or length as its temperature rises, because increased particle kinetic energy causes particles to move further apart on average.",
-  keyFacts: [
-    "Most solids, liquids, and gases expand when heated and contract when cooled",
-    "Gases generally expand more than liquids for the same temperature change, and liquids expand more than solids, reflecting how loosely or tightly their particles are bound",
-    "Linear expansion refers to change in length; this is the basis for expansion gaps in bridges, railway tracks, and building materials to prevent buckling in heat",
-    "Water is a notable exception near freezing: it actually expands as it cools from 4°C to 0°C, becoming less dense as it approaches freezing — which is why ice floats"
-  ],
-  explanationSections: [
-    { heading: "Why expansion gaps matter in engineering", body: "Bridges and railway tracks are built with small gaps or expansion joints specifically because materials measurably lengthen in heat and contract in cold; without these gaps, thermal expansion could cause enough compressive stress to buckle or warp the structure over repeated seasonal cycles." }
-  ],
-  examPoints: [
-    "Water's anomalous expansion near freezing (expanding as it cools further toward 0°C) is the reason ice floats on liquid water rather than sinking — a frequently tested exception to the general 'heat = expand, cool = contract' rule"
-  ],
-  relatedTopics: ["phy-temperature-heat", "phy-states-of-matter"],
-  content: true,
-  buildsOn: ["phy-temperature-heat"],
-  leadsTo: [],
-  usedIn: []
-},
-
-{
-  id: "phy-heat-transfer-equilibrium",
-  sectionId: "PHY-04",
-  order: 3,
-  title: "Heat Transfer Mechanisms & Thermal Equilibrium",
-  definition: "Heat transfers between objects or regions via conduction, convection, and radiation, always flowing from hotter to cooler until thermal equilibrium — equal temperature and no further net heat flow — is reached.",
-  keyFacts: [
-    "Conduction: heat transfer through direct contact, via particle-to-particle collisions; most effective in solids, especially metals",
-    "Convection: heat transfer through the bulk movement of a fluid (liquid or gas), as warmer, less dense fluid rises and cooler, denser fluid sinks",
-    "Radiation: heat transfer via electromagnetic waves, requiring no medium — the only mechanism that can transfer heat through a vacuum",
-    "Thermal equilibrium: the state reached when two objects in contact (or radiative exchange) reach the same temperature, at which point net heat flow between them becomes zero",
-    "Zeroth Law of Thermodynamics: if object A is in thermal equilibrium with object B, and B is in thermal equilibrium with object C, then A is also in thermal equilibrium with C — this is the basis for using thermometers as a valid, transitive measure of temperature"
-  ],
-  explanationSections: [
-    { heading: "Why this list looks familiar from Meteorology", body: "These are the exact same three heat-transfer mechanisms and general definitions used in Meteorology's own Heat Transfer topic — that's intentional, not a duplication error. This topic establishes the general physics; Meteorology's version applies these same mechanisms specifically to how the atmosphere is heated (e.g. why conduction only matters within a few centimetres of the ground, or how convection drives thermals and cloud formation). Study the mechanism here, the atmospheric application there." }
-  ],
-  examPoints: [
-    "Radiation is the only heat-transfer mechanism that works through a vacuum — this single fact explains how the Sun's energy reaches Earth across empty space",
-    "The Zeroth Law is what justifies calling a thermometer reading a genuine, comparable 'temperature' at all — without it, temperature comparisons between separate objects wouldn't be logically guaranteed to be consistent"
-  ],
-  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "meteo-heat-transfer"],
-  content: true,
-  buildsOn: ["phy-temperature-heat"],
-  leadsTo: ["phy-heat-transfer-mechanisms", "phy-thermodynamics-laws"],
-  usedIn: ["meteo-heat-transfer", "meteo-radiation-laws"]
-},
-
-{
-  id: "phy-thermodynamics-laws",
-  sectionId: "PHY-04",
-  order: 4,
-  title: "Laws of Thermodynamics, Internal Energy & Latent Heat",
-  definition: "The First and Second Laws of Thermodynamics govern how energy is conserved and how heat naturally flows; internal energy is the total kinetic and potential energy of a substance's particles; latent heat is the energy involved in a phase change without a temperature change.",
-  keyFacts: [
-    "First Law of Thermodynamics: energy cannot be created or destroyed, only converted between forms — a restatement of Conservation of Energy applied specifically to heat and work: ΔU = Q − W (change in internal energy equals heat added minus work done by the system)",
-    "Second Law of Thermodynamics: heat naturally flows from hotter to cooler objects, never spontaneously the reverse, without external work being done; no heat engine can be 100% efficient at converting heat into useful work",
-    "Internal energy is the sum of the kinetic and potential energy of all the particles within a substance — related to, but not identical to, temperature (which reflects only the average kinetic energy)",
-    "Latent heat is the energy absorbed or released during a phase change (melting, freezing, boiling, condensing) at constant temperature: Q = mL, where L is the specific latent heat of the substance/process",
-    "Latent heat of fusion applies to melting/freezing; latent heat of vaporization applies to boiling/condensing, and is typically much larger than latent heat of fusion for the same substance"
-  ],
-  explanationSections: [
-    { heading: "Why the Second Law matters for engines and refrigerators", body: "The Second Law is why no engine can convert 100% of heat input into useful work — some energy is always lost as waste heat to the surroundings, setting a fundamental efficiency ceiling regardless of engineering quality. Refrigerators and air conditioners work by doing external work to force heat to flow 'backward' (cool interior to warm exterior), which the Second Law permits only because external work is being supplied — heat is never spontaneously moving uphill in temperature on its own." },
-    { heading: "Latent heat's atmospheric significance", body: "This is one of the most direct overlaps with Meteorology: the latent heat released when water vapour condenses into liquid cloud droplets is the same physical process described here, and it's the energy source that powers thunderstorms, monsoons, and hurricanes in Meteorology's Adiabatic Processes and Tropical Cyclones topics. The physics (Q = mL) is identical; only the atmospheric-scale application differs." }
-  ],
-  formula: {
-    name: "First Law of Thermodynamics & Latent Heat",
-    expression: "ΔU = Q − W        Q = m × L",
-    variables: [
-      { symbol: "ΔU", meaning: "change in internal energy (J)" },
-      { symbol: "Q", meaning: "heat added to the system (J)" },
-      { symbol: "W", meaning: "work done BY the system (J)" },
-      { symbol: "m", meaning: "mass undergoing phase change (kg)" },
-      { symbol: "L", meaning: "specific latent heat (J/kg)" }
-    ]
-
-  },
-  examPoints: [
-    "During a phase change, all added heat energy goes into breaking/forming molecular bonds (changing internal energy's potential component), not into raising temperature — this is why temperature plateaus during melting or boiling",
-    "Latent heat of vaporization for water (~2,260 kJ/kg) is roughly seven times larger than its latent heat of fusion (~334 kJ/kg) — boiling water takes far more energy than melting the same mass of ice"
-  ],
-  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-states-of-matter", "meteo-adiabatic-cloud-formation", "meteo-lapse-rates"],
-  content: true,
-  buildsOn: ["phy-work-energy", "phy-temperature-heat", "phy-heat-transfer-equilibrium"],
-  leadsTo: ["phy-kinetic-theory"],
-  usedIn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-moisture-metrics", "env-energy-sources", "env-climate-change-response"]
-},
-
-// ============================= SECTION PHY-E: Waves & Sound =============================
-
-{
-  id: "phy-wave-properties",
-  sectionId: "PHY-05",
-  order: 1,
-  title: "Wave Properties",
-  definition: "Waves transfer energy from one place to another through a repeating oscillation, characterized by frequency, wavelength, amplitude, and period, related by the universal wave equation.",
-  keyFacts: [
-    "Frequency (f): number of complete oscillations per second, measured in Hertz (Hz)",
-    "Wavelength (λ): the distance between two equivalent points on consecutive waves (e.g. crest to crest), measured in metres",
-    "Amplitude: the maximum displacement from the equilibrium/rest position, related to the wave's energy — greater amplitude means greater energy carried",
-    "Period (T): the time for one complete oscillation, T = 1/f",
-    "Wave speed (v) = frequency × wavelength — the universal wave equation, applicable to all wave types"
-  ],
-  explanationSections: [
-    { heading: "The relationship between frequency and wavelength", body: "Since wave speed (v = fλ) is often fixed by the medium a wave travels through, frequency and wavelength are inversely related for a given wave speed — a higher-frequency wave in the same medium necessarily has a shorter wavelength, and vice versa. This relationship underlies both the electromagnetic spectrum (Light & Optics topic) and how pitch relates to sound wave properties." }
-  ],
-  formula: {
-    name: "Wave Equation",
-    expression: "v = f × λ        T = 1/f",
-    variables: [
-      { symbol: "v", meaning: "wave speed (m/s)" },
-      { symbol: "f", meaning: "frequency (Hz)" },
-      { symbol: "λ", meaning: "wavelength (m)" },
-      { symbol: "T", meaning: "period (s)" }
-    ]
-
-  },
-  examPoints: [
-    "Amplitude relates to energy/intensity, NOT to frequency or wavelength — these are independent properties, a common point of confusion"
-  ],
-  relatedTopics: ["phy-wave-types", "phy-sound-waves"],
-  content: true,
-  buildsOn: ["math-3-2", "phy-units-measurement"],
-  leadsTo: ["phy-wave-types", "phy-sound-waves"],
-  usedIn: ["phy-electromagnetic-induction", "meteo-radiation-laws", "earth-h2"]
-},
-
-{
-  id: "phy-wave-types",
-  sectionId: "PHY-05",
-  order: 2,
-  title: "Types of Waves",
-  definition: "Waves are classified as mechanical or electromagnetic based on whether they require a medium, and as transverse or longitudinal based on the direction of particle oscillation relative to wave travel.",
-  keyFacts: [
-    "Mechanical waves require a physical medium to travel through (e.g. sound, water waves, seismic waves) and cannot travel through a vacuum",
-    "Electromagnetic (EM) waves require no medium and can travel through a vacuum, since they're oscillations of electric and magnetic fields, not physical particles — travel at the speed of light (~3×10⁸ m/s) in a vacuum",
-    "Transverse waves: particle oscillation is perpendicular to the direction of wave travel (e.g. light, water surface waves)",
-    "Longitudinal waves: particle oscillation is parallel to (along) the direction of wave travel, forming compressions and rarefactions (e.g. sound waves)"
-  ],
-  explanationSections: [
-    { heading: "Why sound can't travel through space", body: "Sound is a mechanical, longitudinal wave that relies on particle-to-particle collisions to propagate — with no particles present in the vacuum of space, there is no medium to carry the compressions and rarefactions, so sound simply cannot travel there. Light and other EM waves have no such requirement, which is why sunlight reaches Earth across empty space but sound from an explosion in space would not." }
-  ],
-  examPoints: [
-    "Mechanical vs. electromagnetic classifies waves by WHETHER they need a medium; transverse vs. longitudinal classifies them by HOW particles oscillate — these are two independent classification systems, not the same distinction restated"
-  ],
-  relatedTopics: ["phy-wave-properties", "phy-sound-waves", "phy-lenses-mirrors-em-spectrum"],
-  content: true,
-  buildsOn: ["phy-wave-properties"],
-  leadsTo: ["phy-sound-waves", "phy-reflection-refraction"],
-  usedIn: ["earth-h2"]
-},
-
-{
-  id: "phy-sound-waves",
-  sectionId: "PHY-05",
-  order: 3,
-  title: "Sound Waves",
-  definition: "Sound is a longitudinal, mechanical wave produced by vibrating objects, requiring a medium to travel and generally moving faster through denser, more rigid media.",
-  keyFacts: [
-    "Speed of sound in air at approximately 20°C is roughly 343 m/s",
-    "Sound travels faster through solids than liquids, and faster through liquids than gases, because particles are more tightly bound and can transmit vibrations more efficiently",
-    "Pitch corresponds to frequency: higher frequency sound is perceived as higher pitch",
-    "Loudness corresponds to amplitude: greater amplitude is perceived as louder sound",
-    "The speed of sound in a given medium generally increases with temperature, since warmer particles move faster and transmit collisions more quickly"
-  ],
-  explanationSections: [
-    { heading: "Why sound is faster in solids than air", body: "Sound propagates through particle collisions; in solids, particles are tightly packed and strongly bonded, so a vibration passes from particle to particle almost immediately. In gases like air, particles are far apart and must physically travel some distance before colliding, slowing the overall propagation of the wave considerably compared to solids." }
-  ],
-  examPoints: [
-    "Sound speed order from fastest to slowest medium: solids > liquids > gases — the reverse of what many students initially assume, since sound seems 'thinner'/easier to imagine in air"
-  ],
-  relatedTopics: ["phy-wave-types", "phy-wave-properties"],
-  content: true,
-  buildsOn: ["phy-wave-properties", "phy-wave-types", "math-3-3"],
-  leadsTo: ["phy-doppler-effect"],
-  usedIn: ["phy-doppler-effect"]
-},
-
-// ============================= SECTION PHY-F: Light & Optics =============================
-
-{
-  id: "phy-reflection-refraction",
-  sectionId: "PHY-06",
-  order: 1,
-  title: "Reflection & Refraction",
-  definition: "Reflection is the bouncing back of light from a surface; refraction is the bending of light as it passes between media of different optical densities, due to a change in speed.",
-  keyFacts: [
-    "Law of Reflection: the angle of incidence equals the angle of reflection, both measured from the normal (a line perpendicular to the surface)",
-    "Refraction occurs because light changes speed when entering a different medium — slowing down when entering a denser medium (e.g. air to water), and speeding up when entering a less dense one",
-    "Light bends toward the normal when slowing down (entering a denser medium), and away from the normal when speeding up (entering a less dense medium)",
-    "Snell's Law relates the angles of incidence and refraction to the refractive indices of the two media: n₁sin(θ₁) = n₂sin(θ₂)"
-  ],
-  explanationSections: [
-    { heading: "Why a straw looks bent in a glass of water", body: "Light travelling from the submerged part of the straw through water then air bends at the water-air boundary due to refraction, since light speeds up moving from the denser water into less-dense air. The eye interprets light as having travelled in a straight line, so the apparent position of the submerged part appears shifted from its true position — creating the visual illusion of a bent straw." }
-  ],
-  formula: {
-    name: "Snell's Law",
-    expression: "n₁ sin(θ₁) = n₂ sin(θ₂)",
-    variables: [
-      { symbol: "n₁, n₂", meaning: "refractive indices of medium 1 and medium 2" },
-      { symbol: "θ₁", meaning: "angle of incidence (from the normal)" },
-      { symbol: "θ₂", meaning: "angle of refraction (from the normal)" }
-    ]
-
-  },
-  examPoints: [
-    "Angles in the Law of Reflection and Snell's Law are always measured from the NORMAL (perpendicular to the surface), not from the surface itself — a frequently made measurement error"
-  ],
-  relatedTopics: ["phy-diffraction-interference", "phy-lenses-mirrors-em-spectrum"],
-  content: true,
-  buildsOn: ["phy-wave-properties", "math-4-1"],
-  leadsTo: ["phy-diffraction-interference", "phy-lenses-mirrors-em-spectrum"],
-  usedIn: ["phy-lens-mirror-imaging", "earth-k2"]
-},
-
-{
-  id: "phy-diffraction-interference",
-  sectionId: "PHY-06",
-  order: 2,
-  title: "Diffraction & Interference",
-  definition: "Diffraction is the bending/spreading of waves around obstacles or through openings; interference is the combination of two or more waves, producing constructive or destructive effects depending on their relative phase.",
-  keyFacts: [
-    "Diffraction is most noticeable when the size of the obstacle or gap is comparable to the wavelength of the wave",
-    "Constructive interference occurs when waves are in phase (crests align with crests), producing a larger combined amplitude",
-    "Destructive interference occurs when waves are out of phase (crest aligns with trough), producing a reduced or cancelled combined amplitude",
-    "Both diffraction and interference are wave-specific phenomena — they don't occur for simple particle behavior, and are used as key evidence for the wave nature of light"
-  ],
-  explanationSections: [
-    { heading: "Why diffraction depends on relative size", body: "A wave passing through a very wide opening (relative to its wavelength) travels through in an essentially straight beam with little visible spreading, while the same wave passing through a narrow gap (comparable to or smaller than its wavelength) spreads out noticeably on the far side — this is why sound (long wavelength) diffracts around corners easily, while visible light (very short wavelength) shows diffraction effects only around correspondingly tiny obstacles or slits." }
-  ],
-  examPoints: [
-    "Interference and diffraction together are the classic experimental evidence (e.g. the double-slit experiment) that light behaves as a wave, not purely as a stream of particles"
-  ],
-  relatedTopics: ["phy-reflection-refraction", "phy-wave-properties"],
-  content: true,
-  buildsOn: ["phy-reflection-refraction"],
-  leadsTo: [],
-  usedIn: ["meteo-remote-sensing"]
-},
-
-{
-  id: "phy-lenses-mirrors-em-spectrum",
-  sectionId: "PHY-06",
-  order: 3,
-  title: "Lenses, Mirrors & the Electromagnetic Spectrum",
-  definition: "Lenses and mirrors form images by refracting or reflecting light respectively; the electromagnetic spectrum organizes all EM waves by wavelength/frequency, from radio waves to gamma rays.",
-  keyFacts: [
-    "Convex (converging) lenses bend light rays inward toward a focal point; concave (diverging) lenses spread light rays outward",
-    "Concave mirrors converge reflected light; convex mirrors diverge reflected light; plane (flat) mirrors produce an upright, same-size virtual image",
-    "The electromagnetic spectrum, ordered from longest wavelength/lowest frequency to shortest wavelength/highest frequency: radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, gamma rays",
-    "Visible light occupies only a very narrow band of the full EM spectrum, roughly 400–700 nanometres in wavelength",
-    "All EM waves travel at the same speed in a vacuum (the speed of light, ~3×10⁸ m/s), differing only in wavelength and frequency, and therefore in energy"
-  ],
-  explanationSections: [
-    { heading: "Why this section stays foundational, not atmospheric", body: "This topic covers the EM spectrum as a physics concept — its ordering, what distinguishes each band, and basic optical behavior of lenses and mirrors. How specific bands (infrared, microwave, visible) are actually used to observe weather — Doppler radar, satellite visible/IR/water-vapour imagery — is Meteorology's Remote Sensing topic, which assumes this physics as its foundation rather than re-explaining it." }
-  ],
-  examPoints: [
-    "Memorize the EM spectrum order exactly — it's a frequently tested direct-recall sequence: radio → microwave → infrared → visible → ultraviolet → X-ray → gamma ray (increasing frequency/energy, decreasing wavelength)"
-  ],
-  relatedTopics: ["phy-reflection-refraction", "phy-wave-types", "meteo-remote-sensing"],
-  content: true,
-  buildsOn: ["phy-reflection-refraction"],
-  leadsTo: ["phy-lens-mirror-imaging", "phy-electromagnetic-induction"],
-  usedIn: ["meteo-radiation-laws", "meteo-remote-sensing"]
-},
-
-// ============================= SECTION PHY-G: Electricity =============================
-
-{
-  id: "phy-electric-charge-coulomb",
-  sectionId: "PHY-07",
-  order: 1,
-  title: "Electric Charge & Coulomb's Law",
-  definition: "Electric charge is a fundamental property of matter that can be positive or negative; Coulomb's Law describes the force between two charged objects.",
-  keyFacts: [
-    "Charge is quantized, existing in discrete multiples of the elementary charge, e ≈ 1.6×10⁻¹⁹ Coulombs (the charge on a single proton or electron)",
-    "Like charges repel; unlike charges attract",
-    "Charge is conserved: it cannot be created or destroyed, only transferred between objects",
-    "Coulomb's Law: the electrostatic force between two point charges is proportional to the product of the charges and inversely proportional to the square of the distance between them"
-  ],
-  explanationSections: [
-    { heading: "The inverse-square relationship", body: "Because Coulomb's Law depends on 1/r², doubling the distance between two charges reduces the force between them to one-quarter of its original value, not half — this rapid fall-off with distance is a pattern shared with Newton's Law of Universal Gravitation, which has the same mathematical form despite describing a completely different force." }
-  ],
-  formula: {
-    name: "Coulomb's Law",
-    expression: "F = k × (q₁ × q₂) / r²",
-    variables: [
-      { symbol: "F", meaning: "electrostatic force (N)" },
-      { symbol: "k", meaning: "Coulomb's constant (≈8.99×10⁹ N·m²/C²)" },
-      { symbol: "q₁, q₂", meaning: "magnitudes of the two charges (C)" },
-      { symbol: "r", meaning: "distance between the charges (m)" }
-    ]
-
-  },
-  examPoints: [
-    "Coulomb's Law and Newton's Law of Universal Gravitation share the same inverse-square mathematical structure — a useful pattern to recognize across topics"
-  ],
-  relatedTopics: ["phy-electric-field-potential", "phy-universal-gravitation"],
-  content: true,
-  buildsOn: ["phy-units-measurement", "math-3-1"],
-  leadsTo: ["phy-electric-field-potential"],
-  usedIn: ["phy-current-voltage-resistance"]
-},
-
-{
-  id: "phy-electric-field-potential",
-  sectionId: "PHY-07",
-  order: 2,
-  title: "Electric Field & Electric Potential",
-  definition: "An electric field is the region around a charge where another charge would experience a force; electric potential describes the potential energy per unit charge at a point in that field.",
-  keyFacts: [
-    "Electric field (E) at a point = Force per unit charge experienced by a small test charge placed there",
-    "Field lines point away from positive charges and toward negative charges, by convention",
-    "Electric potential (V) = work done per unit charge to move a charge from a reference point (usually infinity) to that point, measured in Volts",
-    "Electric potential difference (voltage) between two points drives current flow in a circuit, covered in the next topic"
-  ],
-  explanationSections: [
-    { heading: "Field vs. potential — a force vs. energy distinction", body: "Electric field describes force per unit charge (a vector, with direction), while electric potential describes energy per unit charge (a scalar, no direction) — the two are related (field is the rate of change of potential with position), similar to how force and potential energy are related in gravity, but they answer different questions: 'which way and how hard would a charge be pushed' vs. 'how much energy would a charge have at this point'." }
-  ],
-  examPoints: [
-    "Electric field is a vector (has direction); electric potential is a scalar (no direction) — this distinction mirrors force vs. energy elsewhere in physics"
-  ],
-  relatedTopics: ["phy-electric-charge-coulomb", "phy-current-voltage-resistance"],
-  content: true,
-  buildsOn: ["phy-electric-charge-coulomb"],
-  leadsTo: ["phy-current-voltage-resistance", "phy-capacitance"],
-  usedIn: []
-},
-
-{
-id: "phy-current-voltage-resistance",
-  sectionId: "PHY-07",
-  order: 3,
-  title: "Current, Voltage & Resistance (Ohm's Law)",
-  definition: "Electric current is charge flow rate. Voltage is energy per charge. Resistance opposes current. Ohm's law links them for ohmic devices: $V=IR$.",
-  keyFacts: [
-    "Current $I = Q/t$; unit ampere (A)",
-    "Voltage (potential difference) unit volt (V)",
-    "Resistance unit ohm ($\\Omega$)",
-    "Ohm's law: $V = IR$ (ohmic resistor at fixed temperature)",
-    "Resistance often rises with temperature for metals"
-  ],
-  explanationSections: [
-    { heading: "What each quantity means", body: "Current counts charge per second. Voltage is the 'push' or energy change per coulomb. Resistance is how strongly the device opposes current." },
-    { heading: "Using Ohm's law", body: "Rearrange to $I=V/R$ or $R=V/I$. Only apply when the device is ohmic (linear $V$–$I$)." },
-    { heading: "Exam habits", body: "Keep units consistent (mA → A). Series and parallel come in the next topic — here focus on a single resistor." }
-  ],
-  formula: { name: "Ohm's law", expression: "V = I R", variables: [{ symbol: "V", meaning: "voltage (V)" }, { symbol: "I", meaning: "current (A)" }, { symbol: "R", meaning: "resistance (Ω)" }] },
-  methodChooser: [
-    { when: "find current", use: "$I=V/R$" },
-    { when: "find resistance from measurements", use: "$R=V/I$" },
-    { when: "find voltage drop", use: "$V=IR$" }
-  ],
-  workedExample: [
-    { problem: "A $12\\,\\mathrm{V}$ battery drives current through $4\\,\\Omega$. Current?", solution: "$I=V/R=12/4=3\\,\\mathrm{A}$.", answer: "$3\\,\\mathrm{A}$" },
-    { problem: "A lamp takes $0.5\\,\\mathrm{A}$ from $230\\,\\mathrm{V}$. Resistance?", solution: "$R=V/I=230/0.5=460\\,\\Omega$.", answer: "$460\\,\\Omega$" }
-  ],
-  commonMistakes: [
-    "Using $V=IR$ for non-ohmic devices without care",
-    "Leaving current in mA while voltage in V",
-    "Thinking high resistance always means high voltage (depends on current)",
-    "Confusing resistance with resistivity"
-  ],
-  examPoints: [
-    "Ohm's law is the default single-resistor tool",
-    "Unit check: V, A, Ω",
-    "Next step: combine resistors in series/parallel"
-  ],
-  relatedTopics: ["phy-electric-field-potential", "phy-circuits-power-energy"],
-  buildsOn: ["phy-electric-field-potential"],
-  leadsTo: ["phy-circuits-power-energy"],
-  usedIn: ["phy-circuits-power-energy", "phy-transformers-ac"],
-  content: true,
-  },
-  {
-id: "phy-circuits-power-energy",
-  sectionId: "PHY-07",
-  order: 4,
-  title: "Circuits: Series, Parallel, Power & Energy",
-  definition: "Series resistors share current; parallel resistors share voltage. Electrical power is energy per time: $P=IV=I^2R=V^2/R$. Energy $E=Pt$.",
-  keyFacts: [
-    "Series: $R_{\\mathrm{eq}} = R_1+R_2+\\cdots$; same current through each",
-    "Parallel: $1/R_{\\mathrm{eq}} = 1/R_1+1/R_2+\\cdots$; same voltage across each",
-    "Power $P = IV = I^2R = V^2/R$",
-    "Energy (kWh in households) = power × time",
-    "In series, larger $R$ drops more voltage; in parallel, smaller $R$ draws more current"
-  ],
-  explanationSections: [
-    { heading: "Series vs parallel intuition", body: "Series is one path — break one bulb and the string fails (ideal simple series). Parallel is multiple paths — one branch can fail while others run." },
-    { heading: "Power formulas", body: "Use $I^2R$ when current is known; $V^2/R$ when voltage is known. For a fixed voltage supply, smaller $R$ means larger power." },
-    { heading: "Exam strategy", body: "First find $R_{\\mathrm{eq}}$, then total current $I_{\\mathrm{tot}}=V/R_{\\mathrm{eq}}$, then branch currents or power as asked." }
-  ],
-  formula: [
-    { name: "Series resistance", expression: "R_eq = R₁ + R₂ + …", variables: [{ symbol: "R_eq", meaning: "equivalent resistance (Ω)" }] },
-    { name: "Parallel resistance (two)", expression: "1/R_eq = 1/R₁ + 1/R₂", variables: [{ symbol: "R_eq", meaning: "equivalent resistance (Ω)" }] },
-    { name: "Electrical power", expression: "P = IV = I²R = V²/R", variables: [{ symbol: "P", meaning: "power (W)" }, { symbol: "I", meaning: "current (A)" }, { symbol: "V", meaning: "voltage (V)" }, { symbol: "R", meaning: "resistance (Ω)" }] }
-  ],
-  methodChooser: [
-    { when: "resistors one after another", use: "series: add $R$" },
-    { when: "resistors side by side on same two nodes", use: "parallel: add reciprocals" },
-    { when: "power with known I and R", use: "$P=I^2R$" },
-    { when: "power with known V and R", use: "$P=V^2/R$" }
-  ],
-  comparisonTable: {
-    headers: ["Feature", "Series", "Parallel"],
-    rows: [
-      ["Current", "Same through all", "Splits among branches"],
-      ["Voltage", "Splits across resistors", "Same across branches"],
-      ["R_eq", "Larger than each", "Smaller than smallest"],
-      ["Open one resistor", "Whole series stops", "Other branches can work"]
-    ]
-  },
-  workedExample: [
-    { problem: "Two resistors $3\\,\\Omega$ and $6\\,\\Omega$ in parallel on $12\\,\\mathrm{V}$. Find $R_{\\mathrm{eq}}$ and total current.", solution: "$1/R_{\\mathrm{eq}}=1/3+1/6=1/2$ ⇒ $R_{\\mathrm{eq}}=2\\,\\Omega$. $I=V/R=12/2=6\\,\\mathrm{A}$.", answer: "$2\\,\\Omega$, $6\\,\\mathrm{A}$" },
-    { problem: "A $10\\,\\Omega$ heater on $100\\,\\mathrm{V}$. Power?", solution: "$P=V^2/R=10000/10=1000\\,\\mathrm{W}$.", answer: "$1000\\,\\mathrm{W}$ (1 kW)" }
-  ],
-  commonMistakes: [
-    "Adding parallel resistances as $R_1+R_2$",
-    "Assuming same current in parallel branches",
-    "Using $P=IV$ with total V and a branch I incorrectly",
-    "Forgetting energy = power × time when asked for kWh"
-  ],
-  examPoints: [
-    "Draw the circuit and mark series vs parallel before calculating",
-    "Three forms of power are equivalent for ohmic $R$",
-    "Household bills use energy, not power alone"
-  ],
-  relatedTopics: ["phy-current-voltage-resistance", "phy-power-efficiency"],
-  buildsOn: ["phy-current-voltage-resistance", "phy-power-efficiency"],
-  leadsTo: ["phy-capacitance", "phy-transformers-ac"],
-  usedIn: ["env-energy-sources"],
-  content: true,
-  },
-  {
-  id: "phy-magnetic-fields-force",
-  sectionId: "PHY-08",
-  order: 1,
-  title: "Magnetic Fields, Force & Electromagnets",
-  definition: "Magnetic fields surround magnets and current-carrying conductors, exerting force on other magnets or moving charges; electromagnets use electric current to produce a controllable magnetic field.",
-  keyFacts: [
-    "Magnetic field lines point from the North pole to the South pole outside a magnet, by convention",
-    "Like magnetic poles repel; unlike poles attract — directly analogous to electric charge behavior",
-    "A current-carrying wire produces a circular magnetic field around itself; the field's direction can be found using the right-hand rule",
-    "An electromagnet is created by wrapping a current-carrying coil around a magnetic core (typically iron); its field strength increases with current, number of coil turns, and use of a suitable core material",
-    "Unlike a permanent magnet, an electromagnet's field can be switched on/off and its strength adjusted by controlling the current"
-  ],
-  explanationSections: [
-    { heading: "Why electromagnets are used instead of permanent magnets in many applications", body: "The controllability of electromagnets — switching the field on or off, and adjusting its strength via current — makes them essential for applications like electric motors, MRI machines, and industrial cranes for lifting scrap metal, where a fixed, always-on magnetic field would be far less useful than one that can be precisely controlled." }
-  ],
-  examPoints: [
-    "A magnetic field exists around ANY current-carrying wire, not just around coiled/electromagnet configurations — the coil and core simply concentrate and strengthen the naturally-occurring field"
-  ],
-  relatedTopics: ["phy-electromagnetic-induction"],
-  content: true,
-  buildsOn: ["phy-electric-charge-coulomb"],
-  leadsTo: ["phy-electromagnetic-induction"],
-  usedIn: ["earth-a2", "earth-k3"]
-},
-
-{
-  id: "phy-electromagnetic-induction",
-  sectionId: "PHY-08",
-  order: 2,
-  title: "Electromagnetic Induction & EM Waves",
-  definition: "Electromagnetic induction is the generation of an electric current from a changing magnetic field, the reverse relationship of how currents produce magnetic fields, and the basis for how electromagnetic waves propagate.",
-  keyFacts: [
-    "Faraday's Law: a changing magnetic flux through a conductor (loop or coil) induces an electromotive force (EMF), which drives a current if the circuit is closed",
-    "Lenz's Law: the induced current flows in a direction that opposes the change in magnetic flux that caused it — a specific application of Conservation of Energy to electromagnetic induction",
-    "This is the working principle behind electric generators, which convert mechanical motion (rotating a coil in a magnetic field) into electrical energy",
-    "Electromagnetic waves are self-propagating oscillations of electric and magnetic fields, each field regenerating the other as the wave travels, requiring no medium — connecting directly back to the EM spectrum covered in Light & Optics"
-  ],
-  explanationSections: [
-    { heading: "The symmetry between motors and generators", body: "An electric motor uses current flowing through a magnetic field to produce mechanical motion (force on a current-carrying conductor); a generator does the reverse — uses mechanical motion of a conductor through a magnetic field to induce current. The same physical setup can function as either a motor or a generator depending on whether electrical energy or mechanical energy is being supplied as the input." }
-  ],
-  examPoints: [
-    "Lenz's Law (the induced current opposes the change that created it) is a direct consequence of Conservation of Energy — if the induced current instead reinforced the change, it would be creating energy from nothing"
-  ],
-  relatedTopics: ["phy-magnetic-fields-force", "phy-lenses-mirrors-em-spectrum"],
-  content: true,
-  buildsOn: ["phy-magnetic-fields-force", "phy-lenses-mirrors-em-spectrum"],
-  leadsTo: ["phy-transformers-ac"],
-  usedIn: ["meteo-radiation-laws", "meteo-remote-sensing", "meteo-ionosphere-exosphere"]
-},
-
-// ============================= SECTION PHY-I: Modern Physics (low priority) =============================
-
-{
-  id: "phy-atomic-structure",
-  sectionId: "PHY-09",
-  order: 1,
-  title: "Atomic Structure & the Nucleus",
-  definition: "Atoms consist of a dense central nucleus (protons and neutrons) surrounded by orbiting electrons; the number of protons defines an element, while isotopes of the same element vary in neutron number.",
-  keyFacts: [
-    "Protons: positively charged, found in the nucleus; atomic number = number of protons, defining the element",
-    "Neutrons: no charge (neutral), found in the nucleus alongside protons; mass number = number of protons + neutrons",
-    "Electrons: negatively charged, occupy the space around the nucleus in a neutral atom, equal in number to protons",
-    "Isotopes: atoms of the same element (same proton number) with different numbers of neutrons, and therefore different mass numbers",
-    "The nucleus is extremely small relative to the overall size of the atom, but contains almost all of the atom's mass"
-  ],
-  explanationSections: [
-    { heading: "Scope note for this topic", body: "Per the syllabus's own guidance, this topic covers only the basics of atomic structure needed as a foundation for radioactivity and nuclear reactions — not detailed quantum mechanical models of electron behavior, which fall outside the intended scope for this exam preparation." }
-  ],
-  examPoints: [
-    "Atomic number (protons) defines WHICH element an atom is; mass number (protons + neutrons) can vary between isotopes of the same element"
-  ],
-  relatedTopics: ["phy-radioactivity-nuclear"],
-  content: true,
-  buildsOn: ["phy-units-measurement", "math-3-4"],
-  leadsTo: ["phy-radioactivity-nuclear"],
-  usedIn: ["phy-radioactivity-nuclear"]
-},
-
-{
-  id: "phy-radioactivity-nuclear",
-  sectionId: "PHY-09",
-  order: 2,
-  title: "Radioactivity, Nuclear Fission & Fusion",
-  definition: "Radioactivity is the spontaneous emission of particles or energy from unstable atomic nuclei; nuclear fission splits heavy nuclei to release energy, while nuclear fusion combines light nuclei, releasing even more energy per unit mass.",
-  keyFacts: [
-    "Alpha decay: emission of an alpha particle (2 protons + 2 neutrons, equivalent to a helium nucleus) — least penetrating, stopped by paper or skin",
-    "Beta decay: emission of a beta particle (a high-speed electron or positron) — more penetrating than alpha, stopped by a few mm of aluminium",
-    "Gamma decay: emission of high-energy electromagnetic radiation — most penetrating, requires thick lead or concrete to substantially block",
-    "Nuclear fission: a heavy nucleus (e.g. uranium-235) splits into smaller nuclei when struck by a neutron, releasing energy and additional neutrons that can sustain a chain reaction — the basis of nuclear power plants",
-    "Nuclear fusion: light nuclei (e.g. hydrogen isotopes) combine to form a heavier nucleus, releasing energy — the process that powers the Sun and stars, and releases more energy per unit mass than fission"
-  ],
-  explanationSections: [
-    { heading: "Fission vs. fusion — opposite processes, both releasing energy", body: "Fission releases energy by splitting large, unstable nuclei apart; fusion releases energy by combining small nuclei together. Both processes move toward more stable nuclear configurations (roughly, toward iron on the scale of nuclear stability), which is why both directions — splitting heavy elements or combining light ones — can release energy, despite being opposite operations." }
-  ],
-  examPoints: [
-    "Penetrating power order: alpha (least) < beta < gamma (most) — this ordering is a frequently tested direct-recall fact, along with which material stops each type",
-    "Per the syllabus's own scope guidance, detailed nuclear physics, particle physics, and quantum mechanics are explicitly out of scope here — this topic stays at the basics-recognition level only"
-  ],
-  relatedTopics: ["phy-atomic-structure"],
-  content: true,
-  buildsOn: ["phy-atomic-structure", "math-3-1", "math-3-3"],
-  leadsTo: ["phy-half-life-decay", "phy-fission-chain-reaction"],
-  usedIn: ["earth-a4", "earth-c2", "earth-k4", "env-energy-sources", "env-soil-and-waste"]
-},
-
-// ============================= SECTION PHY-J: Universal Gravitation (low priority) =============================
-
-{
-id: "phy-universal-gravitation",
-  sectionId: "PHY-10",
-  order: 1,
-  title: "Universal Gravitation",
-  definition: "Every mass attracts every other mass with a force proportional to the product of masses and inversely proportional to the square of the separation of centres.",
-  keyFacts: [
-    "$F = G\\frac{m_1 m_2},
-  {r^2}$ with $G$ the universal constant",
-    "Force is always attractive along the line joining centres",
-    "Field strength $g = GM/r^2$ near a spherical mass (outside)",
-    "Weight on Earth is this force for Earth–object pair",
-    "Doubling distance cuts force by 4; tripling cuts by 9"
-  ],
-  explanationSections: [
-    { heading: "Inverse-square idea", body: "The same total 'influence' spreads over a sphere of area $4\\pi r^2$, so strength falls as $1/r^2$. This is the most tested quantitative pattern in this topic." },
-    { heading: "Link to surface gravity", body: "On Earth, $mg = GMm/R^2$ so $g = GM/R^2$. Mass cancels — all objects fall with the same $g$ in vacuum near Earth." },
-    { heading: "Exam comparisons", body: "Ratio problems: $\\frac{F'},
-  {F} = \\frac{m_1'},
-  {m_1}\\frac{m_2'},
-  {m_2}\\frac{r^2},
-  {r'^2}$. Often masses fixed and only $r$ changes." }
-  ],
-  formula: { name: "Newton's law of gravitation", expression: "F = G m₁ m₂ / r²", variables: [{ symbol: "F", meaning: "gravitational force (N)" }, { symbol: "G", meaning: "gravitational constant" }, { symbol: "m₁, m₂", meaning: "masses (kg)" }, { symbol: "r", meaning: "centre-to-centre distance (m)" }] },
-  methodChooser: [
-    { when: "ratio of forces when distance changes", use: "$F \\propto 1/r^2$" },
-    { when: "surface g", use: "$g = GM/R^2$" },
-    { when: "both masses and r change", use: "write full ratio with $m$ and $r^2$ factors" }
+    "Units of momentum and impulse are equivalent: kg·m/s = N·s.",
+    "In collision problems, write momentum for each body before and after, then equate totals.",
+    "For explosions, total initial momentum is usually zero, so the fragments have equal and opposite momenta.",
+    "FPSC often asks for recoil velocity after a gun is fired or for common velocity after a perfectly inelastic collision."
   ],
   limitCases: [
-    { condition: "$r \\to \\infty$", result: "$F \\to 0$" },
-    { condition: "double $r$, same masses", result: "$F$ becomes $F/4$" }
+    { condition: "One object is much more massive than the other", result: "The massive object's velocity changes very little", physicalMeaning: "A truck hit by a cricket ball hardly moves; the ball rebounds with nearly reversed velocity." },
+    { condition: "Perfectly inelastic collision (objects stick)", result: "Maximum kinetic energy is lost while momentum is conserved", physicalMeaning: "Objects share a common final velocity." }
   ],
-  workedExample: [
-    { problem: "Gravitational force between two masses is $F$ at distance $r$. What is the force at distance $2r$?", solution: "$F' = G\\frac{m_1m_2},
-  {(2r)^2} = F/4$.", answer: "$F/4$" },
-    { problem: "If $r$ is halved, factor by which $F$ changes?", solution: "$r' = r/2$ ⇒ $F' = 4F$ (increases 4×).", answer: "4 times larger" }
-  ],
-  commonMistakes: [
-    "Using $1/r$ instead of $1/r^2$",
-    "Measuring $r$ to the surface incorrectly when centres matter for spheres",
-    "Thinking gravity needs air or contact",
-    "Confusing $G$ with $g$"
-  ],
-  examPoints: [
-    "Highest-yield skill: inverse-square scaling",
-    "Force mutual: same magnitude on both masses (3rd law)",
-    "Compare with Coulomb's law structure (different constant and charges)"
-  ],
-  relatedTopics: ["phy-gravity-weight-friction", "phy-electric-charge-coulomb"],
-  buildsOn: ["phy-gravity-weight-friction", "math-3-1"],
-  leadsTo: [],
-  usedIn: ["earth-a5"],
+  relatedTopics: ["phy-newtons-laws", "phy-work-energy", "phy-gravity-weight-friction"],
   content: true,
-  },
+  buildsOn: ["phy-newtons-laws", "phy-kinematics"],
+  leadsTo: ["phy-work-energy"],
+  usedIn: ["phy-fluid-dynamics"]
+},
+
+// ============================= SECTION PHY-02: Work & Energy =============================
   {
-  id: "phy-units-measurement",
-  sectionId: "PHY-11",
-  order: 1,
-  title: "SI Units, Prefixes & Dimensional Analysis",
-  definition: "The Système International (SI) provides seven standardized base units for the fundamental quantities in physics; prefixes extend these to convenient scales, and dimensional analysis uses the units themselves to check whether equations are physically valid.",
-  keyFacts: [
-    "Seven SI base units: metre (m) for length, kilogram (kg) for mass, second (s) for time, ampere (A) for current, kelvin (K) for temperature, mole (mol) for amount, candela (cd) for luminous intensity",
-    "Derived units are built from base units — e.g. newton (N) = kg·m/s², joule (J) = kg·m²/s², watt (W) = J/s, pascal (Pa) = N/m²",
-    "Common SI prefixes (large to small): giga (G, 10⁹), mega (M, 10⁶), kilo (k, 10³), centi (c, 10⁻²), milli (m, 10⁻³), micro (μ, 10⁻⁶), nano (n, 10⁻⁹)",
-    "Dimensional analysis checks equation validity by verifying both sides have the same dimensions (e.g. v = d/t gives m/s on both sides, confirming the equation is dimensionally consistent)",
-    "Unit conversion uses multiplicative ratios equal to 1 (e.g. 1 km = 1000 m, so 5 km × (1000 m / 1 km) = 5000 m)"
-  ],
-  explanationSections: [
-    { heading: "Why SI units matter", body: "Without a standardized system of units, scientific communication and engineering would be nearly impossible — a 'foot' in one country differs from another's, and recipes or formulas using 'cups' or 'pounds' cannot be reliably transferred between systems. The SI system provides a universal, precisely-defined set of units that allow measurements to be compared unambiguously worldwide." },
-    { heading: "Dimensional analysis as an equation-checker", body: "Dimensional analysis is a powerful sanity-check tool: if the dimensions on both sides of an equation don't match, the equation is definitely wrong, regardless of any numerical calculation. For example, if a formula claimed 'force = mass × velocity', the dimensions wouldn't match (N vs. kg·m/s), immediately flagging the error even before plugging in numbers." }
-  ],
-  formula: {
-    name: "Common unit conversions",
-    expression: "1 \\text{ km} = 1000 \\text{ m} \\quad 1 \\text{ h} = 3600 \\text{ s} \\quad 1 \\text{ m/s} = 3.6 \\text{ km/h}",
-    variables: [
-      { symbol: "\\text{km, m, h, s, m/s, km/h}", meaning: "kilometre, metre, hour, second, metres per second, kilometres per hour" }
-    ]
-
+    id: "phy-work-energy",
+    sectionId: "PHY-02",
+    order: 1,
+    title: "Work, Energy & Conservation of Energy",
+    definition: "Work is done when a force causes a displacement in the direction of the force. Energy is the capacity to do work. The work-energy theorem states that net work done equals the change in kinetic energy; in a closed system total mechanical energy is conserved when only conservative forces act.",
+    keyFacts: [
+      "Work W = F s cos θ, where θ is the angle between the force and displacement; SI unit is the joule (J).",
+      "No work is done by a force perpendicular to displacement (θ = 90°, cos θ = 0).",
+      "Kinetic energy KE = ½ m v²; it depends on speed squared.",
+      "Gravitational potential energy near Earth PE = m g h, measured relative to a chosen zero level.",
+      "Work-energy theorem: net work = change in kinetic energy = ΔKE.",
+      "Mechanical energy is conserved if only gravity and elastic forces do work; friction converts mechanical energy to heat."
+    ],
+    explanationSections: [
+      { heading: "When is work done?", body: "A force must produce a displacement in its own direction. Pushing a wall until you are tired does no work on the wall if the wall does not move. Carrying a suitcase horizontally does no work against gravity because the upward force is perpendicular to the horizontal displacement." },
+      { heading: "Kinetic and potential energy", body: "Kinetic energy is energy of motion and is always positive. Gravitational potential energy depends on vertical height relative to a reference point. A book on a shelf has PE relative to the floor; if the floor reference changes, the PE value changes, but changes in PE are physically meaningful." },
+      { heading: "Conservation of mechanical energy", body: "For a falling object or a swinging pendulum with negligible air resistance, KE + PE stays constant. At the highest point PE is maximum and KE is minimum; at the lowest point the reverse is true. Friction or air resistance means mechanical energy is not conserved; the lost energy appears as internal energy (heat) in the object and surroundings." },
+      { heading: "How FPSC tests energy", body: "Common traps include asking for work done by a single force when friction is present, or assuming energy is conserved on rough surfaces. Always identify whether non-conservative forces such as friction do work." }
+    ],
+    formula: [
+      {
+        name: "Work",
+        expression: "W = F s \\cos \\theta",
+        variables: [
+          { symbol: "W", meaning: "work (J)" },
+          { symbol: "F", meaning: "force (N)" },
+          { symbol: "s", meaning: "displacement (m)" },
+          { symbol: "\\theta", meaning: "angle between force and displacement" }
+        ]
+      },
+      {
+        name: "Kinetic and gravitational potential energy",
+        expression: "KE = \\frac{1}{2} m v^2 \\quad PE = m g h",
+        variables: [
+          { symbol: "KE", meaning: "kinetic energy (J)" },
+          { symbol: "PE", meaning: "gravitational potential energy (J)" },
+          { symbol: "m", meaning: "mass (kg)" },
+          { symbol: "v", meaning: "speed (m/s)" },
+          { symbol: "g", meaning: "gravitational field strength (N/kg)" },
+          { symbol: "h", meaning: "vertical height (m)" }
+        ]
+      },
+      {
+        name: "Work-energy theorem",
+        expression: "W_{net} = \\Delta KE = \\frac{1}{2} m v^2 - \\frac{1}{2} m u^2",
+        variables: [
+          { symbol: "W_{net}", meaning: "net work (J)" },
+          { symbol: "u", meaning: "initial speed (m/s)" },
+          { symbol: "v", meaning: "final speed (m/s)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A 2.0 kg box is pushed 5.0 m across a floor by a horizontal force of 12 N. A friction force of 4.0 N opposes the motion. Find (a) work done by the applied force, (b) work done by friction, (c) net work, and (d) the final speed if the box started from rest.",
+        solution: "(a) W_applied = 12 N × 5.0 m = 60 J. (b) W_friction = −4.0 N × 5.0 m = −20 J (negative because friction opposes motion). (c) W_net = 60 J − 20 J = 40 J. (d) Using W_net = ΔKE = ½mv², 40 J = ½ × 2.0 kg × v², so v² = 40 and v = 6.3 m/s.",
+        answer: "W_applied = 60 J; W_friction = −20 J; W_net = 40 J; final speed = 6.3 m/s."
+      },
+      {
+        problem: "A 0.50 kg stone is thrown upward from ground level at 10 m/s. Neglecting air resistance, what is its maximum height?",
+        solution: "At maximum height, kinetic energy is zero. Initial KE = ½ × 0.50 kg × (10 m/s)² = 25 J. This converts entirely to PE = m g h. So 25 J = 0.50 kg × 9.8 N/kg × h, giving h = 25 / 4.9 ≈ 5.1 m.",
+        answer: "≈ 5.1 m."
+      }
+    ],
+    commonMistakes: [
+      "Using the full applied force in the work-energy theorem; use net work.",
+      "Forgetting the cos θ factor when force and displacement are not parallel.",
+      "Assuming mechanical energy is conserved when friction or air resistance is present.",
+      "Using displacement along a slope as h in PE = mgh; h must be the vertical height.",
+      "Confusing work done by gravity with work done by an external agent lifting an object; they have opposite signs."
+    ],
+    examPoints: [
+      "1 J = 1 N·m = 1 kg·m²/s².",
+      "Work is zero when force is perpendicular to displacement.",
+      "On a frictionless incline, speed at the bottom depends only on vertical drop, not on slope angle.",
+      "When friction acts, the work done against friction equals the loss of mechanical energy."
+    ],
+    limitCases: [
+      { condition: "θ = 90°", result: "W = 0", physicalMeaning: "A vertical force does no work during horizontal motion." },
+      { condition: "v = 0", result: "KE = 0", physicalMeaning: "A stationary object has no kinetic energy." },
+      { condition: "Only gravity does work", result: "KE + PE = constant", physicalMeaning: "Mechanical energy is conserved." }
+    ],
+    relatedTopics: ["phy-power-efficiency", "phy-momentum-impulse", "phy-thermodynamics-laws"],
+    content: true,
+    buildsOn: ["phy-newtons-laws", "phy-kinematics", "math-2-3"],
+    leadsTo: ["phy-power-efficiency", "phy-thermodynamics-laws"],
+    usedIn: ["phy-heat-transfer-equilibrium", "meteo-heat-transfer", "meteo-adiabatic-cloud-formation", "env-ecosystem-structure-and-energy-flow", "env-energy-sources"]
   },
-  examPoints: [
-    "Dimensional analysis can catch errors but cannot prove an equation is correct — it only proves it's not obviously wrong",
-    "The SI system has seven BASE units; all other units (newtons, joules, watts, etc.) are DERIVED from combinations of these base units"
-  ],
-  commonMistakes: [
-    "Confusing mass (kg) with weight (N) — mass is a base quantity, weight is a derived force quantity",
-    "Forgetting that dimensional analysis only checks units, not the correctness of the equation itself"
-  ],
-  relatedTopics: ["phy-scalars-vectors", "phy-vector-operations"],
-  content: true,
-  buildsOn: ["math-2-2", "math-1-6", "math-3-4"],
-  leadsTo: ["phy-scalars-vectors", "phy-kinematics", "phy-pressure-fluids"],
-  usedIn: ["phy-temperature-heat", "phy-atmospheric-pressure-physics", "meteo-hydrostatic-equation", "meteo-radiation-laws", "meteo-pressure-instruments"]
-},
 
-{
-  id: "phy-scalars-vectors",
-  sectionId: "PHY-11",
-  order: 2,
-  title: "Scalars vs Vectors: Magnitude and Direction",
-  definition: "Scalar quantities have only magnitude; vector quantities have both magnitude and direction. Distinguishing between them is essential for applying the right mathematical operations.",
-  keyFacts: [
-    "Scalar: has only magnitude (size). Examples: mass, temperature, time, distance, speed, energy",
-    "Vector: has magnitude AND direction. Examples: displacement, velocity, acceleration, force, momentum, weight",
-    "Two vectors are equal only if BOTH their magnitudes and directions match — a 5 N force pointing up is not equal to a 5 N force pointing right",
-    "Vectors can be represented graphically as arrows, where the arrow length represents magnitude and the arrow direction shows direction",
-    "Vector notation: bold (v), arrow above (→v), or with explicit components (vₓ, v_y)"
-  ],
-  explanationSections: [
-    { heading: "Why the distinction matters for operations", body: "You can add scalars directly (3 kg + 5 kg = 8 kg), but you cannot simply add vector magnitudes — a 3 N force up plus a 4 N force right gives a 5 N force at an angle, not 7 N. Vector addition requires special methods (graphical or component-wise) because direction matters as much as magnitude for the result." },
-    { heading: "Why this is essential for meteorology", body: "Meteorology uses vectors extensively — wind velocity (speed AND direction), pressure-gradient force, Coriolis force, and gravity all have both magnitude and direction. Understanding vectors here is the prerequisite for understanding how forces combine to create wind patterns in Meteorology's Forces Governing Wind topic." }
-  ],
-  commonMistakes: [
-    "Treating speed and velocity as identical — speed is a scalar (e.g. 50 km/h), velocity is a vector (e.g. 50 km/h north)",
-    "Assuming two vectors with the same magnitude are equal — direction matters equally"
-  ],
-  relatedTopics: ["phy-vector-operations", "phy-vector-applications", "meteo-forces-governing-wind"],
-  content: true,
-  buildsOn: ["math-7-1", "phy-units-measurement"],
-  leadsTo: ["phy-vector-operations", "phy-kinematics"],
-  usedIn: ["phy-vector-operations", "phy-vector-applications", "phy-newtons-laws", "meteo-forces-governing-wind", "meteo-coriolis-effect"]
-},
-
-{
-  id: "phy-vector-operations",
-  sectionId: "PHY-11",
-  order: 3,
-  title: "Vector Operations: Addition, Subtraction & Components",
-  definition: "Vectors add and subtract by special rules that respect direction; decomposing vectors into perpendicular components makes calculations tractable.",
-  keyFacts: [
-    "Head-to-tail method: place the tail of the second vector at the head of the first; the resultant runs from the tail of the first to the head of the second",
-    "Parallelogram method: complete a parallelogram with both vectors as adjacent sides; the diagonal from the common origin gives the resultant",
-    "Component form: a vector v can be written as vₓ (horizontal) and v_y (vertical) components, where vₓ = v cos(θ) and v_y = v sin(θ) for angle θ from horizontal",
-    "Vector addition via components: add x-components together, add y-components together, then recombine — much simpler than graphical methods for multiple vectors",
-    "Vector subtraction: a − b is equivalent to a + (−b), where −b has the same magnitude as b but opposite direction"
-  ],
-  explanationSections: [
-    { heading: "Why component decomposition is so powerful", body: "Component decomposition turns a 2D vector problem into two simple 1D problems that can be solved with ordinary arithmetic, then recombined. This is the standard approach used in physics, engineering, and meteorology for analysing forces, velocities, and accelerations in any direction." },
-    { heading: "Why component method beats graphical for multiple vectors", body: "Graphical addition (head-to-tail or parallelogram) works well for two vectors, but becomes cumbersome for three or more — drawing accurate angles and lengths is error-prone. Component method scales easily: add all x-components, add all y-components, recombine, regardless of how many vectors are involved." }
-  ],
-  formula: {
-    name: "Vector components and magnitude",
-    expression: "v_x = v \\cos\\theta \\quad v_y = v \\sin\\theta \\quad |\\vec{v}| = \\sqrt{v_x^2 + v_y^2} \\quad \\theta = \\tan^{-1}(v_y / v_x)",
-    variables: [
-      { symbol: "v_x, v_y", meaning: "horizontal and vertical components of vector" },
-      { symbol: "|\\vec{v}|", meaning: "magnitude of the vector" },
-      { symbol: "\\theta", meaning: "angle from horizontal" }
-    ]
-
+  {
+    id: "phy-power-efficiency",
+    sectionId: "PHY-02",
+    order: 2,
+    title: "Power & Efficiency",
+    definition: "Power is the rate at which work is done or energy is transferred. Efficiency is the fraction of useful energy output compared with total energy input, usually expressed as a percentage.",
+    keyFacts: [
+      "Power P = work / time = energy transferred / time; SI unit is the watt (W), where 1 W = 1 J/s.",
+      "A larger power means a given amount of work is done in a shorter time.",
+      "Power can also be written as P = F v when a constant force F moves an object at speed v in the force's direction.",
+      "Efficiency = (useful energy output / total energy input) × 100%.",
+      "No real machine is 100% efficient because some energy is always wasted as heat, sound or friction.",
+      "Energy is conserved overall; efficiency only measures how much input energy is converted to the desired form."
+    ],
+    explanationSections: [
+      { heading: "Power as a rate", body: "Two cranes may lift the same load to the same height, doing the same work, but the more powerful crane finishes faster. Power tells you how quickly energy is transferred, not how much energy is transferred." },
+      { heading: "Useful vs wasted energy", body: "In a car engine, only part of the chemical energy in fuel becomes kinetic energy of the car; the rest heats the engine, exhaust and surroundings. Efficiency is always less than 100% because of these unavoidable losses." },
+      { heading: "The P = F v form", body: "When a vehicle climbs a hill at steady speed, the engine force balances gravity and resistance. A more powerful engine can maintain a higher speed for the same force. This form is useful when time is not directly given." },
+      { heading: "Efficiency calculations", body: "Efficiency compares useful output with total input. If a motor consumes 1 000 J of electrical energy and delivers 750 J of mechanical work, its efficiency is 75%. The wasted 250 J is not destroyed; it becomes heat and sound." }
+    ],
+    formula: [
+      {
+        name: "Power",
+        expression: "P = \\frac{W}{t} = \\frac{E}{t} = F v",
+        variables: [
+          { symbol: "P", meaning: "power (W)" },
+          { symbol: "W", meaning: "work (J)" },
+          { symbol: "E", meaning: "energy transferred (J)" },
+          { symbol: "t", meaning: "time (s)" },
+          { symbol: "F", meaning: "force (N)" },
+          { symbol: "v", meaning: "speed in the force's direction (m/s)" }
+        ]
+      },
+      {
+        name: "Efficiency",
+        expression: "\\eta = \\frac{E_{out}}{E_{in}} \\times 100\\% = \\frac{P_{out}}{P_{in}} \\times 100\\%",
+        variables: [
+          { symbol: "\\eta", meaning: "efficiency (%)" },
+          { symbol: "E_{out}", meaning: "useful energy output (J)" },
+          { symbol: "E_{in}", meaning: "total energy input (J)" },
+          { symbol: "P_{out}", meaning: "useful power output (W)" },
+          { symbol: "P_{in}", meaning: "total power input (W)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A 50 kg student runs up a flight of stairs 4.0 m high in 5.0 s. Calculate his average power output.",
+        solution: "Work done against gravity = m g h = 50 kg × 9.8 N/kg × 4.0 m = 1 960 J. Power = work/time = 1 960 J / 5.0 s = 392 W.",
+        answer: "392 W (about 0.39 kW)."
+      },
+      {
+        problem: "An electric motor uses 2.0 kW of electrical power and delivers 1.5 kW of mechanical power. Calculate its efficiency and the power wasted as heat.",
+        solution: "Efficiency = (1.5 kW / 2.0 kW) × 100% = 75%. Wasted power = 2.0 kW − 1.5 kW = 0.50 kW = 500 W.",
+        answer: "75% efficient; 500 W wasted."
+      }
+    ],
+    commonMistakes: [
+      "Confusing power with energy: power is the rate of energy transfer, not the amount.",
+      "Forgetting that efficiency is always less than 100% for real machines.",
+      "Using input power as output power in efficiency calculations.",
+      "Ignoring the cos θ factor when using P = F v if force and velocity are not parallel.",
+      "Writing efficiency as a decimal and then not multiplying by 100% when the question asks for a percentage."
+    ],
+    examPoints: [
+      "1 kW = 1 000 W; 1 MW = 1 000 000 W.",
+      "Efficiency can be calculated using energy or power because both are rates/amounts over the same time interval.",
+      "The wasted energy is E_in − E_out, not destroyed; it becomes heat/sound.",
+      "Human power output during strenuous exercise is typically a few hundred watts."
+    ],
+    comparisonTable: {
+      headers: ["Quantity", "Definition", "SI unit", "Notes"],
+      rows: [
+        ["Work / Energy", "Force × displacement or capacity to do work", "J", "Scalar"],
+        ["Power", "Work done per unit time", "W (J/s)", "Rate of energy transfer"],
+        ["Efficiency", "Useful output / total input × 100%", "%", "Always ≤ 100%"]
+      ]
+    },
+    relatedTopics: ["phy-work-energy", "phy-circuits-power-energy"],
+    content: true,
+    buildsOn: ["phy-work-energy"],
+    leadsTo: [],
+    usedIn: ["env-energy-sources", "phy-circuits-power-energy"]
   },
-  examPoints: [
-    "Two vectors can produce a zero resultant only if they are equal in magnitude AND opposite in direction",
-    "Components must use the same angle reference — if one vector uses angle from horizontal and another uses angle from vertical, you cannot directly add their components"
-  ],
-  workedExample: {
-    problem: "A boat moves 5 km east and 3 km north. Find the magnitude and direction of its displacement.",
-    solution: "Components: 5 km (east/x-axis) and 3 km (north/y-axis). Magnitude = √(5² + 3²) = √(25+9) = √34 ≈ 5.83 km. Direction: tan⁻¹(3/5) = tan⁻¹(0.6) ≈ 31° north of east.",
-    answer: "5.83 km at 31° north of east"
+
+// ============================= SECTION PHY-03: Fluids =============================
+
+  {
+    id: "phy-states-of-matter",
+    sectionId: "PHY-03",
+    order: 1,
+    title: "States of Matter",
+    definition: "Matter commonly exists as solid, liquid or gas. The state depends on how strongly the particles are held together by intermolecular forces and how much thermal energy they have.",
+    keyFacts: [
+      "Solids have fixed shape and volume; particles vibrate about fixed positions.",
+      "Liquids have fixed volume but take the shape of their container; particles can slide past one another.",
+      "Gases have neither fixed shape nor fixed volume; particles move freely and fill the available space.",
+      "Plasma is an ionised gas found in stars, lightning and fluorescent tubes; it conducts electricity.",
+      "Changes of state (melting, freezing, boiling, condensing, subliming) occur at constant temperature for a pure substance at a given pressure.",
+      "During a change of state, the energy supplied or removed changes potential energy between particles, not their average kinetic energy."
+    ],
+    explanationSections: [
+      { heading: "Why solids keep their shape", body: "In a solid, strong intermolecular forces hold particles in a regular lattice. The particles vibrate but do not move freely, so the solid retains a fixed shape and volume. Heating increases vibration until the solid melts." },
+      { heading: "Liquids and gases compared", body: "A liquid can flow and take the shape of its container because its particles have enough energy to move past one another, but intermolecular attractions still keep them close. In a gas, particles are far apart and move rapidly in random motion; the gas expands to fill space." },
+      { heading: "Change of state and latent heat", body: "When ice melts, the temperature stays at 0 °C until all the ice has turned to water. The supplied thermal energy weakens bonds rather than raising kinetic energy. This is why melting and boiling require latent heat." },
+      { heading: "FPSC angle", body: "Questions often contrast the spacing and motion of particles in solids, liquids and gases, or ask which state has the highest internal energy at the same temperature. Remember that internal energy includes both kinetic and potential energy of particles." }
+    ],
+    commonMistakes: [
+      "Thinking temperature rises during melting or boiling; for a pure substance it stays constant.",
+      "Confusing evaporation (surface, any temperature) with boiling (throughout liquid, at boiling point).",
+      "Assuming a gas has no mass; gases have mass and exert pressure.",
+      "Forgetting that plasma is a distinct state of matter, not just hot gas."
+    ],
+    examPoints: [
+      "Particle spacing: solid < liquid << gas.",
+      "Boiling point depends on pressure; lower pressure means a lower boiling point.",
+      "Sublimation is direct solid → gas (e.g. dry ice, iodine, naphthalene).",
+      "Intermolecular forces are strongest in solids and weakest in gases."
+    ],
+    qualitativeScenarios: [
+      {
+        scenario: "What happens to the temperature of a mixture of ice and water left in a warm room?",
+        answer: "It stays at 0 °C until all the ice melts.",
+        why: "The incoming thermal energy is used as latent heat of fusion to break intermolecular bonds, not to raise kinetic energy (temperature)."
+      }
+    ],
+    relatedTopics: ["phy-density", "phy-temperature-heat", "phy-kinetic-theory"],
+    content: true,
+    buildsOn: ["phy-units-measurement"],
+    leadsTo: ["phy-density", "phy-temperature-heat", "phy-kinetic-theory"],
+    usedIn: ["phy-thermodynamics-laws", "meteo-moisture-metrics", "meteo-droplet-microphysics"]
   },
-  commonMistakes: [
-    "Adding vector magnitudes instead of components: 3 + 4 = 7, NOT 5 (the correct 3-4-5 triangle answer)",
-    "Confusing trig functions: cos for adjacent/hypotenuse, sin for opposite/hypotenuse, tan for opposite/adjacent"
-  ],
-  relatedTopics: ["phy-scalars-vectors", "phy-vector-applications", "phy-newtons-laws"],
-  content: true,
-  buildsOn: ["phy-scalars-vectors", "math-5-1", "math-5-2"],
-  leadsTo: ["phy-vector-applications", "phy-kinematics", "phy-newtons-laws"],
-  usedIn: ["phy-vector-applications", "phy-momentum-impulse", "meteo-forces-governing-wind"]
-},
 
-{
-  id: "phy-vector-applications",
-  sectionId: "PHY-11",
-  order: 4,
-  title: "Vector Applications: Force, Velocity, Wind & Wave Components",
-  definition: "Vectors are applied throughout physics and atmospheric science wherever a quantity has both magnitude and direction — force, velocity, wind, wave direction, and many more.",
-  keyFacts: [
-    "Force vectors combine to give a net (resultant) force, which determines the object's acceleration via F = ma",
-    "Velocity vectors combine when an object moves relative to a moving medium (e.g. an airplane's velocity relative to the ground = airplane's velocity through air + wind velocity)",
-    "Wind has both speed AND direction: 'a 20 km/h wind from the northwest' specifies both magnitude (20) and direction (from NW, blowing toward SE)",
-    "Vector resolution into components is essential for problems involving motion at an angle (e.g. projectile motion, a ball thrown at 30° above horizontal)",
-    "Waves have direction too — wave direction and propagation direction are both vectors, with wave velocity being a vector quantity"
-  ],
-  explanationSections: [
-    { heading: "Why vectors matter in atmospheric science", body: "Wind direction and speed together form a wind vector. Pressure-gradient force, Coriolis force, and friction are all vector forces acting on air parcels. To determine the actual wind direction and speed, meteorologists must add these force vectors — a process that depends entirely on the vector operations covered in the previous topic." },
-    { heading: "Relative motion is a vector problem", body: "An airplane flying 'into a headwind' experiences a different ground speed than its airspeed because the wind vector subtracts from (or adds to) the airplane's velocity vector. Similarly, a swimmer crossing a river must account for the current's vector to actually reach the intended point on the other side." }
-  ],
-  formula: {
-    name: "Relative velocity (general form)",
-    expression: "\\vec{v}_{A/B} = \\vec{v}_A - \\vec{v}_B",
-    variables: [
-      { symbol: "\\vec{v}_{A/B}", meaning: "velocity of A relative to B" },
-      { symbol: "\\vec{v}_A, \\vec{v}_B", meaning: "velocities of A and B in the same reference frame" }
-    ]
-
+  {
+    id: "phy-density",
+    sectionId: "PHY-03",
+    order: 2,
+    title: "Density",
+    definition: "Density is mass per unit volume. It is an intensive property that helps identify substances and explains whether objects float or sink in fluids.",
+    keyFacts: [
+      "Density ρ = mass / volume; SI unit is kg/m³.",
+      "1 g/cm³ = 1 000 kg/m³.",
+      "Density is characteristic of a material, not its total amount.",
+      "An object floats in a fluid if its average density is less than the fluid's density.",
+      "Density decreases when most substances are heated because volume expands while mass stays constant.",
+      "Water is unusual: its density increases slightly as it is cooled from 4 °C to 0 °C, then decreases on freezing."
+    ],
+    explanationSections: [
+      { heading: "Density as a material property", body: "A small iron nail and a large iron anvil have the same density. Density depends on how tightly mass is packed, not on how much material there is. To find density, measure mass and volume, then divide." },
+      { heading: "Floating and sinking", body: "A solid iron block sinks in water because iron is denser than water. A ship made of steel floats because its overall volume contains a lot of air, so its average density is less than water. Ice floats because it is less dense than liquid water." },
+      { heading: "Thermal expansion and density", body: "Heating usually makes a substance expand. Since mass is unchanged, the same mass occupies more volume, so density falls. This is why hot air rises and why warm surface water can sit above cooler water." },
+      { heading: "Exam technique", body: "When a question mixes units (e.g. g and cm³), convert to kg and m³ before using SI formulas, or convert the answer correctly. Remember the factor 1 g/cm³ = 1 000 kg/m³." }
+    ],
+    formula: {
+      name: "Density",
+      expression: "\\rho = \\frac{m}{V}",
+      variables: [
+        { symbol: "\\rho", meaning: "density (kg/m³)" },
+        { symbol: "m", meaning: "mass (kg)" },
+        { symbol: "V", meaning: "volume (m³)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A metal block has a mass of 270 g and a volume of 100 cm³. Calculate its density in kg/m³.",
+        solution: "Mass = 270 g = 0.270 kg. Volume = 100 cm³ = 100 × 10⁻⁶ m³ = 1.0 × 10⁻⁴ m³. Density = 0.270 kg / 1.0 × 10⁻⁴ m³ = 2 700 kg/m³.",
+        answer: "2 700 kg/m³ (aluminium)."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to convert g/cm³ to kg/m³ by multiplying by 1 000.",
+      "Using total mass instead of mass per unit volume.",
+      "Thinking density depends on size; it is an intensive property.",
+      "Confusing density with weight."
+    ],
+    examPoints: [
+      "Density of water is about 1 000 kg/m³ (or 1 g/cm³).",
+      "Objects float when their average density is less than the surrounding fluid.",
+      "When a solid dissolves, the total volume of the solution may not equal the sum of the separate volumes.",
+      "Atmospheric density decreases rapidly with altitude."
+    ],
+    relatedTopics: ["phy-states-of-matter", "phy-pressure-fluids", "phy-archimedes-principle"],
+    content: true,
+    buildsOn: ["phy-states-of-matter", "math-1-8", "math-2-2"],
+    leadsTo: ["phy-pressure-fluids", "phy-archimedes-principle"],
+    usedIn: ["phy-atmospheric-pressure-physics", "meteo-static-stability"]
   },
-  examPoints: [
-    "Wind direction is named for where it COMES FROM (a 'north wind' blows from north toward south) — this is opposite to the direction of motion, a common confusion",
-    "Vector components allow motion at an angle to be split into horizontal and vertical parts, each analyzed independently"
-  ],
-  workedExample: {
-    problem: "An airplane flies at 200 km/h due east relative to the air. A wind blows at 50 km/h from the north. Find the airplane's velocity relative to the ground.",
-    solution: "Airplane's air velocity: 200 km/h east = (200, 0). Wind blows from north to south: 50 km/h south = (0, -50). Ground velocity = airplane + wind = (200, -50). Magnitude = √(200² + 50²) = √(40000 + 2500) = √42500 ≈ 206 km/h. Direction: tan⁻¹(50/200) = tan⁻¹(0.25) ≈ 14° south of east.",
-    answer: "≈206 km/h at 14° south of east"
+
+  {
+    id: "phy-pressure-fluids",
+    sectionId: "PHY-03",
+    order: 3,
+    title: "Pressure & Pressure in Fluids",
+    definition: "Pressure is force per unit area acting perpendicular to a surface. In a fluid, pressure increases with depth and acts equally in all directions at a given point.",
+    keyFacts: [
+      "Pressure P = F / A; SI unit is the pascal (Pa), where 1 Pa = 1 N/m².",
+      "Fluid pressure at depth h is P = ρ g h above the surface pressure.",
+      "Pressure in a liquid depends on density, gravitational field and depth, not on the shape of the container.",
+      "At a given depth, fluid pressure is the same in all directions (Pascal's principle).",
+      "Atmospheric pressure at sea level is about 1.01 × 10⁵ Pa ≈ 101 kPa.",
+      "Gauge pressure measures pressure above atmospheric; absolute pressure = gauge pressure + atmospheric pressure."
+    ],
+    explanationSections: [
+      { heading: "Why pressure increases with depth", body: "The deeper you go in a fluid, the greater the weight of fluid above you. This extra weight produces extra pressure. The pressure depends on the vertical depth, not on the total amount of fluid or the container's shape." },
+      { heading: "Pascal's principle", body: "Pressure applied to an enclosed fluid is transmitted undiminished to every portion of the fluid and to the walls of the container. This principle underlies hydraulic brakes, car jacks and hydraulic presses." },
+      { heading: "Gauge vs absolute pressure", body: "A pressure gauge often reads zero at atmospheric pressure, so it shows gauge pressure. A flat tyre still has atmospheric air inside; its gauge pressure is zero but absolute pressure is about 101 kPa. Divers and engineers must be careful which one a problem asks for." },
+      { heading: "Pressure and area", body: "A sharp knife cuts more easily than a blunt one because the same force is concentrated on a smaller area, giving a larger pressure. Conversely, snowshoes and camel feet spread weight over a large area to reduce pressure on soft ground." }
+    ],
+    formula: [
+      {
+        name: "Pressure",
+        expression: "P = \\frac{F}{A}",
+        variables: [
+          { symbol: "P", meaning: "pressure (Pa)" },
+          { symbol: "F", meaning: "force perpendicular to surface (N)" },
+          { symbol: "A", meaning: "area (m²)" }
+        ]
+      },
+      {
+        name: "Pressure in a fluid at depth",
+        expression: "P = \\rho g h",
+        variables: [
+          { symbol: "\\rho", meaning: "fluid density (kg/m³)" },
+          { symbol: "g", meaning: "gravitational field strength (N/kg)" },
+          { symbol: "h", meaning: "vertical depth (m)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A 60 kg woman stands on one high-heel shoe with a total contact area of 4.0 cm². Calculate the pressure she exerts on the floor.",
+        solution: "Force = weight = m g = 60 kg × 9.8 N/kg = 588 N. Area = 4.0 cm² = 4.0 × 10⁻⁴ m². Pressure = 588 N / 4.0 × 10⁻⁴ m² = 1.47 × 10⁶ Pa.",
+        answer: "1.47 × 10⁶ Pa (about 1.5 MPa)."
+      },
+      {
+        problem: "Calculate the gauge pressure at a depth of 10 m in fresh water (ρ = 1 000 kg/m³). What is the absolute pressure at that depth if atmospheric pressure is 1.0 × 10⁵ Pa?",
+        solution: "Gauge pressure = ρ g h = 1 000 kg/m³ × 9.8 N/kg × 10 m = 9.8 × 10⁴ Pa. Absolute pressure = 9.8 × 10⁴ Pa + 1.0 × 10⁵ Pa = 1.98 × 10⁵ Pa.",
+        answer: "Gauge pressure = 9.8 × 10⁴ Pa; absolute pressure ≈ 2.0 × 10⁵ Pa."
+      }
+    ],
+    commonMistakes: [
+      "Confusing gauge pressure with absolute pressure.",
+      "Using slant depth instead of vertical depth in P = ρgh.",
+      "Forgetting that 1 cm² = 10⁻⁴ m² when converting area.",
+      "Thinking pressure acts in a preferred direction; in a static fluid it acts equally in all directions.",
+      "Adding pressures instead of finding the difference when asked for gauge pressure."
+    ],
+    examPoints: [
+      "1 Pa = 1 N/m²; 1 kPa = 1 000 Pa; 1 MPa = 10⁶ Pa.",
+      "Atmospheric pressure ≈ 1.01 × 10⁵ Pa at sea level.",
+      "Hydraulic systems transmit pressure, not force; output force is multiplied by area ratio.",
+      "Pressure at the same horizontal level in a connected static fluid is the same."
+    ],
+    limitCases: [
+      { condition: "h = 0", result: "P = 0 gauge (or atmospheric absolute)", physicalMeaning: "At the free surface the only pressure is atmospheric." },
+      { condition: "Area A very small", result: "Pressure very large for the same force", physicalMeaning: "Sharp points and stiletto heels produce high pressure." }
+    ],
+    relatedTopics: ["phy-density", "phy-atmospheric-pressure-physics", "phy-archimedes-principle"],
+    content: true,
+    buildsOn: ["phy-density", "phy-units-measurement"],
+    leadsTo: ["phy-atmospheric-pressure-physics", "phy-archimedes-principle", "phy-fluid-dynamics"],
+    usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments"]
   },
-  commonMistakes: [
-    "Treating wind direction as where it's blowing TOWARD (wrong) rather than where it comes FROM (correct)",
-    "Adding wind vector and airplane vector when they point in similar directions, when in fact the headwind/tailwind component should be considered separately"
-  ],
-  relatedTopics: ["phy-scalars-vectors", "phy-vector-operations", "phy-newtons-laws", "meteo-forces-governing-wind"],
-  content: true,
-  buildsOn: ["phy-vector-operations", "phy-newtons-laws"],
-  leadsTo: ["meteo-forces-governing-wind"],
-  usedIn: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-global-circulation"]
-},
 
-// ============================= SECTION PHY-C ADDITIONS: Fluid Dynamics =============================
-
-{
-  id: "phy-archimedes-principle",
-  sectionId: "PHY-03",
-  order: 5,
-  title: "Archimedes' Principle & Buoyancy",
-  definition: "Archimedes' Principle states that any object immersed in a fluid experiences an upward buoyant force equal to the weight of the fluid displaced by the object. This principle explains why some objects float and others sink.",
-  keyFacts: [
-    "Archimedes' Principle: the buoyant force on an object equals the weight of the fluid displaced by the object",
-    "An object floats when its average density is less than the fluid's density; sinks when greater; is neutrally buoyant when equal",
-    "Buoyant force depends only on the volume of fluid displaced, not on the object's mass or composition",
-    "Apparent weight of submerged object = true weight - buoyant force",
-    "A steel ship's hull encloses a large volume of air, making its overall average density (including air) less than water's — enabling it to float despite steel being denser than water"
-  ],
-  explanationSections: [
-    { heading: "Why ships float and rocks sink", body: "A solid steel block sinks because its density (~7,800 kg/m³) is much greater than water's (1,000 kg/m³) — the buoyant force from the small volume of water it displaces is far less than the steel's weight. A steel ship, however, has a hollow hull filled with air, so its overall average density (steel mass / huge total volume) is much less than water's, and it floats." },
-    { heading: "Real-world applications", body: "Submarines control buoyancy by adjusting water in ballast tanks: fill with water to submerge, push water out with compressed air to surface. Hot air balloons rise because the heated air inside is less dense than the surrounding cooler air — the buoyant force exceeds the balloon's total weight. Hydrometers measure fluid density by how deep they sink." }
-  ],
-  formula: {
-    name: "Buoyant force (Archimedes' Principle)",
-    expression: "F_b = \\rho_{fluid} \\times V_{displaced} \\times g",
-    variables: [
-      { symbol: "F_b", meaning: "buoyant force (N)" },
-      { symbol: "\\rho_{fluid}", meaning: "density of the surrounding fluid (kg/m³)" },
-      { symbol: "V_{displaced}", meaning: "volume of fluid displaced (m³)" },
-      { symbol: "g", meaning: "gravitational field strength (m/s²)" }
-    ]
-
+  {
+    id: "phy-atmospheric-pressure-physics",
+    sectionId: "PHY-03",
+    order: 4,
+    title: "Atmospheric Pressure as a Physics Concept",
+    definition: "Atmospheric pressure is the pressure exerted by the weight of the air above a surface. It decreases with altitude because the column of air above becomes shorter and less dense.",
+    keyFacts: [
+      "Atmospheric pressure is caused by the weight of air molecules in Earth's gravitational field.",
+      "Standard atmospheric pressure at sea level is 101 325 Pa, often approximated as 1.01 × 10⁵ Pa.",
+      "Atmospheric pressure decreases with increasing altitude; it is roughly halved about every 5.5 km in the lower atmosphere.",
+      "A barometer measures atmospheric pressure; mercury barometers express pressure in mmHg (760 mmHg ≈ 1 atm).",
+      "An aneroid barometer uses a partially evacuated metal box that bends as pressure changes.",
+      "Pressure differences in the atmosphere drive wind (meteorology treats this in detail)."
+    ],
+    explanationSections: [
+      { heading: "Why the atmosphere exerts pressure", body: "Air has mass. Gravity pulls air molecules downward, so the air above any surface pushes on it. At sea level the weight of the entire air column produces about 101 kPa, equivalent to about 10 N pressing on every square centimetre." },
+      { heading: "Altitude dependence", body: "As altitude increases, there is less air above, so atmospheric pressure falls. The rate of decrease is not uniform because air is compressible and density also decreases with height. This is why mountaintops have lower boiling points for water." },
+      { heading: "Barometers", body: "A mercury barometer balances atmospheric pressure against the pressure due to a column of mercury. At sea level the mercury column is about 760 mm high. Aneroid barometers are more portable and are used in aircraft altimeters and weather stations." },
+      { heading: "Physics vs meteorology", body: "Physics explains the origin of atmospheric pressure and the hydrostatic equation; meteorology applies these to weather systems, pressure gradients and wind. The boundary is clean: learn the general law here, the atmospheric application in Meteorology." }
+    ],
+    formula: {
+      name: "Pressure-altitude relation (approximate)",
+      expression: "\\Delta P \\approx \\rho g \\Delta h",
+      variables: [
+        { symbol: "\\Delta P", meaning: "pressure change (Pa)" },
+        { symbol: "\\rho", meaning: "average air density (kg/m³)" },
+        { symbol: "g", meaning: "gravitational field strength (N/kg)" },
+        { symbol: "\\Delta h", meaning: "vertical height change (m)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "Atmospheric pressure at sea level is 1.01 × 10⁵ Pa. Taking the density of air as 1.2 kg/m³, estimate the pressure difference between sea level and the top of a 300 m hill.",
+        solution: "ΔP = ρ g Δh = 1.2 kg/m³ × 9.8 N/kg × 300 m = 3 528 Pa ≈ 3.5 × 10³ Pa. Pressure at hilltop ≈ 1.01 × 10⁵ Pa − 3.5 × 10³ Pa = 9.75 × 10⁴ Pa.",
+        answer: "≈ 9.75 × 10⁴ Pa (or about 97.5 kPa)."
+      }
+    ],
+    commonMistakes: [
+      "Thinking atmospheric pressure acts only downward; it acts in all directions.",
+      "Confusing pressure units: 1 atm = 101 325 Pa = 760 mmHg.",
+      "Assuming pressure decreases linearly with altitude over large height ranges.",
+      "Forgetting that a barometer measures atmospheric pressure, not wind speed."
+    ],
+    examPoints: [
+      "Atmospheric pressure is due to the weight of air, not because air is 'pushing down' in a special way.",
+      "Standard atmospheric pressure supports a 760 mm mercury column.",
+      "Lower atmospheric pressure at high altitude lowers the boiling point of water.",
+      "Aneroid barometers are used in altimeters because pressure decreases with height."
+    ],
+    relatedTopics: ["phy-pressure-fluids", "meteo-pressure-instruments"],
+    content: true,
+    buildsOn: ["phy-pressure-fluids", "phy-units-measurement"],
+    leadsTo: ["meteo-hydrostatic-equation"],
+    usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments", "env-air-pollution"]
   },
-  examPoints: [
-    "Buoyant force depends on the VOLUME of fluid displaced, not the weight of the object itself",
-    "An object denser than the fluid still experiences buoyant force — but the buoyant force is less than the object's weight, so it sinks"
-  ],
-  commonMistakes: [
-    "Thinking that heavier objects always sink — they do only if their AVERAGE DENSITY exceeds the fluid's, regardless of weight alone",
-    "Confusing 'displaced fluid' with 'displaced water' — Archimedes' principle works for ANY fluid, not just water"
-  ],
-  relatedTopics: ["phy-density", "phy-pressure-fluids", "phy-fluid-dynamics"],
-  content: true,
-  buildsOn: ["phy-density", "phy-pressure-fluids", "phy-gravity-weight-friction"],
-  leadsTo: ["phy-fluid-dynamics"],
-  usedIn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation"]
-},
 
-{
-  id: "phy-fluid-dynamics",
-  sectionId: "PHY-03",
-  order: 6,
-  title: "Bernoulli's Principle & Fluid Dynamics",
-  definition: "Fluid dynamics describes fluids in motion. Bernoulli's principle states that in a flowing fluid, regions of higher flow speed have lower pressure. Continuity and Bernoulli's principle together explain many natural and engineered phenomena, from airplane lift to wind patterns.",
-  keyFacts: [
-    "Continuity equation: A₁v₁ = A₂v₂ — in a pipe with varying cross-section, fluid speed is higher where the area is smaller (volume flow rate is conserved)",
-    "Bernoulli's Principle: in a flowing fluid, regions of higher flow speed have lower pressure, and regions of lower flow speed have higher pressure",
-    "Viscosity: internal friction in fluids that opposes flow; air has low viscosity (flows easily), while honey has high viscosity (flows slowly)",
-    "Laminar flow: smooth, layered flow at low speeds; turbulent flow: chaotic, mixing flow at high speeds (after a critical Reynolds number)",
-    "Atmospheric application: wind blowing across a roof or between buildings creates pressure differences that can lift roofs or cause structural damage"
-  ],
-  explanationSections: [
-    { heading: "Why a Venturi meter works", body: "A Venturi meter has a narrow constriction in a pipe; by the continuity equation, fluid speeds up through the constriction, and by Bernoulli's principle, pressure drops there. Measuring the pressure difference between the wide and narrow sections reveals the flow speed — a non-intrusive way to measure fluid flow used in everything from carburetors to blood flow measurement." },
-    { heading: "How airplane wings generate lift", body: "An airplane wing (airfoil) is curved more on top than bottom, so air flows faster over the top than the bottom. By Bernoulli's principle, faster-moving air above the wing has lower pressure than the slower-moving air below — this pressure difference produces an upward lift force. (Note: this is a simplified explanation; real lift involves Newton's third law and circulation as well.)" }
-  ],
-  formula: {
-    name: "Continuity equation & Bernoulli's equation",
-    expression: "A_1 v_1 = A_2 v_2 \\quad P + \\frac{1},
-  {2}\\rho v^2 + \\rho g h = \\text{constant}",
-    variables: [
-      { symbol: "A", meaning: "cross-sectional area (m²)" },
-      { symbol: "v", meaning: "fluid speed (m/s)" },
-      { symbol: "P", meaning: "pressure (Pa)" },
-      { symbol: "\\rho", meaning: "fluid density (kg/m³)" },
-      { symbol: "g", meaning: "gravitational field strength" },
-      { symbol: "h", meaning: "height (m)" }
-    ]
-
+  {
+    id: "phy-archimedes-principle",
+    sectionId: "PHY-03",
+    order: 5,
+    title: "Archimedes' Principle & Buoyancy",
+    definition: "Archimedes' principle states that the upward buoyant force on a body immersed in a fluid equals the weight of the fluid displaced by the body.",
+    keyFacts: [
+      "Buoyant force F_B = weight of displaced fluid = ρ_fluid V_displaced g.",
+      "The buoyant force acts vertically upward through the centre of buoyancy.",
+      "A body floats if its weight equals the weight of fluid it can displace when fully submerged.",
+      "A floating object displaces a volume of fluid whose weight equals the object's own weight.",
+      "An object sinks if its average density is greater than the fluid's density.",
+      "The principle applies to all fluids, including liquids and gases."
+    ],
+    explanationSections: [
+      { heading: "Why buoyancy occurs", body: "Pressure in a fluid increases with depth. The upward pressure on the bottom of a submerged object is greater than the downward pressure on its top, producing a net upward force. This force equals the weight of the fluid that would occupy the object's volume." },
+      { heading: "Floating condition", body: "An object floats when the buoyant force equals its weight. A floating ship displaces enough water so that the weight of that water equals the ship's weight. If the ship is loaded, it sinks deeper and displaces more water." },
+      { heading: "Apparent weight", body: "When an object is immersed, its apparent weight is its true weight minus the buoyant force. This is why objects feel lighter in water. A spring balance reads less when a mass is submerged." },
+      { heading: "Application to gases", body: "A helium balloon rises because the buoyant force due to the displaced air is greater than the weight of the balloon and helium. Hot-air balloons rise because heated air inside is less dense than the cooler air outside." }
+    ],
+    formula: {
+      name: "Archimedes' principle",
+      expression: "F_B = \\rho_{fluid} \\times V_{displaced} \\times g",
+      variables: [
+        { symbol: "F_B", meaning: "buoyant force (N)" },
+        { symbol: "\\rho_{fluid}", meaning: "density of fluid (kg/m³)" },
+        { symbol: "V_{displaced}", meaning: "volume of displaced fluid (m³)" },
+        { symbol: "g", meaning: "gravitational field strength (N/kg)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A solid metal block of volume 2.0 × 10⁻⁴ m³ is fully immersed in water of density 1 000 kg/m³. Calculate the buoyant force.",
+        solution: "F_B = ρ V g = 1 000 kg/m³ × 2.0 × 10⁻⁴ m³ × 9.8 N/kg = 1.96 N.",
+        answer: "1.96 N upward."
+      },
+      {
+        problem: "A wooden block of volume 5.0 × 10⁻⁴ m³ and density 600 kg/m³ floats in water. What fraction of its volume is submerged?",
+        solution: "Mass of block = 600 kg/m³ × 5.0 × 10⁻⁴ m³ = 0.30 kg. Weight = 0.30 kg × 9.8 N/kg = 2.94 N. For floating, weight of displaced water = 2.94 N, so displaced volume = 2.94 N / (1 000 kg/m³ × 9.8 N/kg) = 3.0 × 10⁻⁴ m³. Fraction submerged = 3.0/5.0 = 0.60.",
+        answer: "60% submerged."
+      }
+    ],
+    commonMistakes: [
+      "Using the density of the object instead of the density of the fluid in the buoyancy formula.",
+      "Forgetting that only the submerged volume displaces fluid.",
+      "Confusing buoyant force with the weight of the object.",
+      "Assuming a floating object displaces its own volume of fluid; it displaces a volume whose weight equals its own weight."
+    ],
+    examPoints: [
+      "Buoyant force depends on fluid density and displaced volume, not on the object's depth once fully submerged.",
+      "Objects float, sink or remain suspended according to whether their average density is less than, greater than or equal to the fluid density.",
+      "Ships float because their average density (steel + air) is less than water.",
+      "Buoyancy explains why it is easier to lift an object underwater."
+    ],
+    qualitativeScenarios: [
+      {
+        scenario: "A block of ice is floating in a glass of water. What happens to the water level when the ice melts?",
+        answer: "The water level stays the same.",
+        why: "The floating ice displaces a volume of water whose weight equals the ice's weight. When it melts, it becomes exactly that volume of water."
+      }
+    ],
+    relatedTopics: ["phy-density", "phy-pressure-fluids", "phy-gravity-weight-friction"],
+    content: true,
+    buildsOn: ["phy-density", "phy-pressure-fluids", "phy-gravity-weight-friction"],
+    leadsTo: ["phy-fluid-dynamics"],
+    usedIn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation"]
   },
-  examPoints: [
-    "Bernoulli's Principle applies to IDEAL fluids (incompressible, non-viscous, steady flow) — real fluids deviate from ideal behavior, especially at high speeds",
-    "Continuity says: narrower section = faster flow. Bernoulli says: faster flow = lower pressure. The two principles work together in many real-world applications."
-  ],
-  commonMistakes: [
-    "Thinking faster flow = higher pressure (it's the opposite: faster flow = LOWER pressure per Bernoulli)",
-    "Forgetting that Bernoulli's equation includes THREE terms (pressure, kinetic energy density, potential energy density), not just pressure"
-  ],
-  relatedTopics: ["phy-pressure-fluids", "phy-archimedes-principle", "meteo-jet-stream"],
-  content: true,
-  buildsOn: ["phy-pressure-fluids", "phy-archimedes-principle", "phy-work-energy"],
-  leadsTo: [],
-  usedIn: ["meteo-jet-stream", "meteo-ocean-currents"]
-},
 
-// ============================= SECTION PHY-D ADDITIONS: Heat Transfer Details & Kinetic Theory =============================
-
-{
-  id: "phy-heat-transfer-mechanisms",
-  sectionId: "PHY-04",
-  order: 5,
-  title: "Heat Transfer Mechanisms: Conduction, Convection & Radiation in Detail",
-  definition: "Heat transfers by three mechanisms: conduction (through matter), convection (by fluid motion), and radiation (by electromagnetic waves). Each has distinct physics, governing equations, and applications.",
-  keyFacts: [
-    "Conduction rate (Fourier's law): Q/t = kAΔT/L — rate depends on thermal conductivity k, cross-sectional area A, temperature difference ΔT, and inversely on thickness L",
-    "Thermal conductivity k varies widely: metals have high k (good conductors), air and insulators have low k (poor conductors, good insulators)",
-    "Convection has two forms: natural (driven by buoyancy from density differences) and forced (driven by fans, pumps, or wind)",
-    "Radiation rate (Stefan-Boltzmann law): P = σAT⁴ — power radiated is proportional to the fourth power of absolute temperature, where σ is the Stefan-Boltzmann constant",
-    "Emissivity (ε) of a surface: a measure of how efficiently it radiates compared to a perfect blackbody (ε = 1); values range from ~0.03 (polished silver) to ~0.95 (matte black paint)"
-  ],
-  explanationSections: [
-    { heading: "Why a metal spoon feels colder than a wooden spoon in the same soup", body: "Both spoons are at the same temperature, but metal has a much higher thermal conductivity than wood, so it conducts heat AWAY from your hand (or rather, your hand transfers heat TO the spoon) much faster. The nerve endings in your hand interpret this rapid heat loss as 'cold', even though the spoon itself isn't actually colder than the wooden one." },
-    { heading: "Why the Sun's radiation dominates Earth's energy budget despite the enormous distance", body: "The Sun's surface temperature (~5,800 K) means its radiated power per unit area scales as T⁴ — quadrupling temperature increases radiation 256-fold. So the Sun's surface radiates enormous energy, and even at 150 million km away, Earth intercepts enough to power weather, life, and almost all atmospheric processes. Without the T⁴ relationship, Earth would receive far less solar energy." }
-  ],
-  formula: {
-    name: "Fourier's law & Stefan-Boltzmann law",
-    expression: "\\frac{Q},
-  {t} = \\frac{kA\\Delta T},
-  {L} \\quad P = \\sigma \\varepsilon A T^4",
-    variables: [
-      { symbol: "Q/t", meaning: "heat transfer rate (W)" },
-      { symbol: "k", meaning: "thermal conductivity (W/m·K)" },
-      { symbol: "A", meaning: "cross-sectional area (m²)" },
-      { symbol: "\\Delta T", meaning: "temperature difference (K)" },
-      { symbol: "L", meaning: "thickness (m)" },
-      { symbol: "P", meaning: "radiated power (W)" },
-      { symbol: "\\sigma", meaning: "Stefan-Boltzmann constant (5.67×10⁻⁸ W/m²·K⁴)" },
-      { symbol: "\\varepsilon", meaning: "emissivity (0 to 1)" },
-      { symbol: "T", meaning: "absolute temperature (K)" }
-    ]
-
+  {
+    id: "phy-fluid-dynamics",
+    sectionId: "PHY-03",
+    order: 6,
+    title: "Bernoulli's Principle & Fluid Dynamics",
+    definition: "Fluid dynamics studies moving fluids. Bernoulli's principle states that for a steady, incompressible, non-viscous flow, an increase in fluid speed occurs together with a decrease in pressure or potential energy per unit volume.",
+    keyFacts: [
+      "The equation of continuity: A₁ v₁ = A₂ v₂ for an incompressible fluid; speed increases when cross-sectional area decreases.",
+      "Bernoulli's principle: where fluid speed is high, pressure is low, and vice versa.",
+      "Bernoulli's equation: P + ½ρv² + ρgh = constant along a streamline.",
+      "The principle applies best to steady, non-turbulent, low-viscosity flows.",
+      "Lift on an aircraft wing is partly explained by lower pressure above the wing where air moves faster.",
+      "A Venturi meter uses a constriction to measure flow speed from pressure difference."
+    ],
+    explanationSections: [
+      { heading: "Continuity: narrowing speeds up flow", body: "For an incompressible fluid, the volume flow rate is constant. If a pipe narrows, the same volume must pass through a smaller area each second, so the fluid must speed up. This is why water shoots faster from a narrow nozzle." },
+      { heading: "Bernoulli's principle qualitatively", body: "Faster-moving fluid has lower pressure sideways because some of the pressure energy has been converted to kinetic energy. This explains why a sheet of paper lifts when you blow over it, why shower curtains move inward and why aircraft wings generate lift." },
+      { heading: "Limitations", body: "Bernoulli's principle ignores viscosity, turbulence and compressibility. It is a good approximation for water and for air at low speeds, but not for supersonic flight or very viscous fluids like honey." },
+      { heading: "FPSC-style applications", body: "Expect qualitative questions: a ping-pong ball stays in an upward air jet because low pressure on the sides traps it; a fast-moving train creates low pressure that can pull objects toward the track. Numerical Bernoulli problems at FPSC level are usually simple." }
+    ],
+    formula: [
+      {
+        name: "Equation of continuity",
+        expression: "A_1 v_1 = A_2 v_2",
+        variables: [
+          { symbol: "A", meaning: "cross-sectional area (m²)" },
+          { symbol: "v", meaning: "fluid speed (m/s)" }
+        ]
+      },
+      {
+        name: "Bernoulli's equation",
+        expression: "P + \\frac{1}{2} \\rho v^2 + \\rho g h = \\text{constant}",
+        variables: [
+          { symbol: "P", meaning: "pressure (Pa)" },
+          { symbol: "\\rho", meaning: "fluid density (kg/m³)" },
+          { symbol: "v", meaning: "speed (m/s)" },
+          { symbol: "g", meaning: "gravitational field strength (N/kg)" },
+          { symbol: "h", meaning: "height (m)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "Water flows through a pipe of cross-sectional area 8.0 cm² at 2.0 m/s. The pipe narrows to 4.0 cm². What is the speed in the narrow section?",
+        solution: "Using A₁v₁ = A₂v₂: 8.0 cm² × 2.0 m/s = 4.0 cm² × v₂, so v₂ = (8.0 × 2.0)/4.0 = 4.0 m/s.",
+        answer: "4.0 m/s."
+      }
+    ],
+    commonMistakes: [
+      "Applying Bernoulli's principle to turbulent or viscous flows without caution.",
+      "Thinking pressure always pushes a fluid; pressure gradients cause acceleration.",
+      "Confusing speed with pressure: high speed means lower pressure, not higher.",
+      "Forgetting that Bernoulli's equation applies along a streamline."
+    ],
+    examPoints: [
+      "Equation of continuity is essentially conservation of volume for incompressible flow.",
+      "Bernoulli's principle explains lift, spray atomisers, Venturi meters and fast-train suction.",
+      "Pressure is lower where streamlines are closer together (higher speed).",
+      "Real fluids have viscosity, which causes energy losses and is ignored in ideal Bernoulli flow."
+    ],
+    relatedTopics: ["phy-pressure-fluids", "phy-momentum-impulse", "phy-archimedes-principle"],
+    content: true,
+    buildsOn: ["phy-pressure-fluids", "phy-momentum-impulse"],
+    leadsTo: [],
+    usedIn: ["meteo-adiabatic-cloud-formation"]
   },
-  examPoints: [
-    "Stefan-Boltzmann law: doubling absolute temperature increases radiated power 16-fold (2⁴), not 2-fold — the fourth-power dependence is critical",
-    "Conduction requires a medium; convection requires a fluid; radiation requires neither — only radiation works through vacuum"
-  ],
-  commonMistakes: [
-    "Forgetting to use absolute temperature (Kelvin) in Stefan-Boltzmann law, not Celsius",
-    "Confusing 'conduction' (molecular collisions) with 'convection' (bulk fluid motion) — conduction can happen in a stationary solid, convection cannot"
-  ],
-  relatedTopics: ["phy-heat-transfer-equilibrium", "phy-temperature-heat", "meteo-heat-transfer", "meteo-greenhouse-effect"],
-  content: true,
-  buildsOn: ["phy-heat-transfer-equilibrium"],
-  leadsTo: ["meteo-heat-transfer"],
-  usedIn: ["meteo-heat-transfer", "meteo-radiation-laws", "meteo-vertical-structure", "env-air-pollution", "env-climate-change-response"]
-},
 
-{
-  id: "phy-kinetic-theory",
-  sectionId: "PHY-04",
-  order: 6,
-  title: "Kinetic Theory of Gases",
-  definition: "The kinetic theory of gases explains the macroscopic properties of gases (pressure, temperature, volume) in terms of the microscopic motion of countless individual gas molecules — a foundational bridge between thermodynamics and atomic physics.",
-  keyFacts: [
-    "Basic assumptions: gas consists of a huge number of molecules in random motion, molecules are point-like (volume negligible compared to container), collisions are perfectly elastic, no intermolecular forces except during collisions",
-    "Average kinetic energy of gas molecules is directly proportional to absolute temperature: KE_avg = (3/2)kT, where k is Boltzmann's constant",
-    "Pressure of a gas arises from molecules colliding with the container walls: greater molecular speed (higher T) or more molecules (higher density) means more frequent, harder collisions = higher pressure",
-    "Root-mean-square speed: v_rms = √(3kT/m) — at a given temperature, lighter molecules move faster than heavier ones (e.g. hydrogen faster than oxygen)",
-    "Absolute zero (0 K) is the temperature at which (classically) all molecular motion ceases; the gas exerts zero pressure at this theoretical limit"
-  ],
-  explanationSections: [
-    { heading: "Why temperature is really about molecular motion", body: "Kinetic theory reveals that temperature is not a fundamental 'amount of heat' but a measure of the average kinetic energy of the random molecular motion. Heating a gas speeds up its molecules; cooling slows them down. Absolute zero is the temperature where, classically, molecular motion would stop entirely — though quantum mechanics tells us there's still a tiny zero-point energy." },
-    { heading: "Why a balloon shrinks when cooled", body: "Cool a gas and its molecules slow down (lower KE). They collide with the walls less often and less forcefully, so pressure drops. If the balloon isn't sealed, air flows out until internal pressure matches external — but with a flexible sealed balloon (like a hot-air balloon cooling), the lower internal pressure allows the atmospheric pressure outside to compress the balloon, making it shrink visibly." }
-  ],
-  formula: {
-    name: "Kinetic theory: average KE and RMS speed",
-    expression: "\\overline{KE} = \\frac{3},
-  {2} k_B T \\quad v_{rms} = \\sqrt{\\frac{3 k_B T},
-  {m}}",
-    variables: [
-      { symbol: "\\overline{KE}", meaning: "average kinetic energy per molecule (J)" },
-      { symbol: "k_B", meaning: "Boltzmann constant (1.38×10⁻²³ J/K)" },
-      { symbol: "T", meaning: "absolute temperature (K)" },
-      { symbol: "v_{rms}", meaning: "root-mean-square speed of molecules (m/s)" },
-      { symbol: "m", meaning: "mass of one molecule (kg)" }
-    ]
+// ============================= SECTION PHY-04: Heat =============================
 
+  {
+    id: "phy-temperature-heat",
+    sectionId: "PHY-04",
+    order: 1,
+    title: "Temperature, Heat & Specific Heat Capacity",
+    definition: "Temperature is a measure of the average kinetic energy of the particles in a substance. Heat is energy transferred from a hotter body to a colder body because of the temperature difference. Specific heat capacity is the amount of heat needed to raise the temperature of 1 kg of a substance by 1 °C.",
+    keyFacts: [
+      "Temperature is measured in °C or K; it indicates hotness, not total energy content.",
+      "Heat is energy in transit; SI unit is the joule (J).",
+      "Specific heat capacity c: Q = m c ΔT; SI unit J/(kg·°C).",
+      "Water has a very high specific heat capacity (~4 200 J/(kg·°C)), so it resists temperature changes.",
+      "Heat flows spontaneously from higher temperature to lower temperature until thermal equilibrium is reached.",
+      "The amount of heat needed to change temperature depends on mass, specific heat capacity and temperature change."
+    ],
+    explanationSections: [
+      { heading: "Heat vs temperature", body: "A cup of coffee at 80 °C has a higher temperature than a swimming pool at 25 °C, but the pool contains far more internal energy because it has much more mass. Temperature measures the average kinetic energy per particle; heat is the energy transferred due to a temperature difference." },
+      { heading: "Specific heat capacity", body: "Substances with high specific heat capacity need a lot of heat for a small temperature rise. Water's high value moderates coastal climates: the sea warms slowly by day and cools slowly by night. Metals heat and cool quickly because their specific heat capacities are low." },
+      { heading: "Thermal equilibrium", body: "When two bodies are in contact, heat flows from the hotter to the colder until their temperatures become equal. At equilibrium, there is no net heat flow, although particles still exchange energy randomly." },
+      { heading: "Method of mixtures", body: "In a calorimetry problem, heat lost by the hot body equals heat gained by the cold body and container, assuming no heat escapes. Write Q_lost = Q_gained, substitute Q = mcΔT for each part, and solve for the unknown temperature." }
+    ],
+    formula: {
+      name: "Specific heat capacity",
+      expression: "Q = m c \\Delta T",
+      variables: [
+        { symbol: "Q", meaning: "heat transferred (J)" },
+        { symbol: "m", meaning: "mass (kg)" },
+        { symbol: "c", meaning: "specific heat capacity (J/(kg·°C))" },
+        { symbol: "\\Delta T", meaning: "temperature change (°C or K)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "How much heat is needed to raise the temperature of 0.50 kg of water from 20 °C to 80 °C? (c_water = 4 200 J/(kg·°C).)",
+        solution: "ΔT = 80 °C − 20 °C = 60 °C. Q = m c ΔT = 0.50 kg × 4 200 J/(kg·°C) × 60 °C = 126 000 J.",
+        answer: "126 kJ."
+      },
+      {
+        problem: "A 0.20 kg metal block at 100 °C is dropped into 0.50 kg of water at 20 °C. The final temperature is 24 °C. Calculate the specific heat capacity of the metal, neglecting heat losses.",
+        solution: "Heat lost by metal = m_m c_m (100 − 24). Heat gained by water = 0.50 × 4 200 × (24 − 20) = 8 400 J. So 0.20 × c_m × 76 = 8 400, giving c_m = 8 400 / 15.2 ≈ 553 J/(kg·°C).",
+        answer: "≈ 550 J/(kg·°C)."
+      }
+    ],
+    commonMistakes: [
+      "Using heat and temperature as synonyms; heat is energy transfer, temperature is a property.",
+      "Forgetting that ΔT is the same in °C and K, so no conversion is needed for differences.",
+      "Using the wrong specific heat capacity (e.g. water value for a metal).",
+      "Ignoring the mass of the container in calorimetry problems when it is given.",
+      "Adding initial temperatures instead of finding the equilibrium temperature."
+    ],
+    examPoints: [
+      "Water's specific heat capacity is about 4 200 J/(kg·°C); most metals are much lower.",
+      "In an isolated mixture, heat lost = heat gained.",
+      "Temperature differences have the same numerical value in °C and K.",
+      "High specific heat capacity means the substance changes temperature slowly."
+    ],
+    comparisonTable: {
+      headers: ["Concept", "Temperature", "Heat"],
+      rows: [
+        ["Meaning", "Average kinetic energy per particle", "Energy transferred due to ΔT"],
+        ["SI unit", "°C or K", "J"],
+        ["Type", "Intensive property", "Energy in transit"],
+        ["Depends on mass?", "No", "Yes"],
+        ["Measured by", "Thermometer", "Calorimetry"]
+      ]
+    },
+    misconceptionRemediation: [
+      {
+        misconception: "A bucket of cold water and a cup of hot water mixed must give a temperature exactly halfway between the two.",
+        whyStudentsThinkIt: "The halfway value is the simple average of the two temperatures.",
+        correctModel: "The equilibrium temperature depends on the masses and specific heat capacities. Heat lost by hot water equals heat gained by cold water, and if masses differ, the final temperature is weighted toward the larger mass."
+      }
+    ],
+    relatedTopics: ["phy-states-of-matter", "phy-thermal-expansion", "phy-thermodynamics-laws"],
+    content: true,
+    buildsOn: ["phy-states-of-matter", "phy-units-measurement", "math-2-2"],
+    leadsTo: ["phy-thermal-expansion", "phy-heat-transfer-equilibrium", "phy-thermodynamics-laws"],
+    usedIn: ["phy-heat-transfer-mechanisms", "meteo-heat-transfer", "meteo-lapse-rates", "env-climate-change-response"]
   },
-  examPoints: [
-    "At the same temperature, lighter gas molecules move FASTER on average than heavier ones — this is why hydrogen escapes Earth's atmosphere more easily than oxygen or nitrogen",
-    "The relationship KE ∝ T means absolute zero (0 K) corresponds to zero molecular kinetic energy — the lowest possible temperature"
-  ],
-  commonMistakes: [
-    "Confusing 'average speed' with 'root-mean-square speed' — they're slightly different (RMS is always a bit higher due to the squaring emphasizing faster molecules)",
-    "Forgetting that 'temperature' in these formulas is always ABSOLUTE (Kelvin), not Celsius or Fahrenheit"
-  ],
-  relatedTopics: ["phy-temperature-heat", "phy-thermodynamics-laws", "phy-pressure-fluids", "meteo-greenhouse-effect"],
-  content: true,
-  buildsOn: ["phy-states-of-matter", "phy-thermodynamics-laws"],
-  leadsTo: [],
-  usedIn: ["meteo-gas-law"]
-},
 
-// ============================= SECTION PHY-E ADDITION: Doppler Effect =============================
-
-{
-  id: "phy-doppler-effect",
-  sectionId: "PHY-05",
-  order: 4,
-  title: "The Doppler Effect & Applications",
-  definition: "The Doppler effect is the observed change in frequency of a wave when the source and observer are moving relative to each other. It explains why a siren's pitch changes as it passes you, and underlies technologies from radar to medical ultrasound.",
-  keyFacts: [
-    "Doppler effect: when source and observer move closer, observed frequency is HIGHER than emitted; when moving apart, observed frequency is LOWER",
-    "For a stationary observer and moving source: f_observed = f_source × (v_wave / (v_wave ± v_source)), with + sign for source moving away, − for approaching",
-    "Magnitude of the effect depends on the ratio of relative speed to wave speed: small ratio = small shift, large ratio = large shift",
-    "Applications: Doppler radar (weather, speed guns), medical ultrasound, astronomy (redshift/blueshift of stars), sonar",
-    "Redshift: light from stars moving away from us is shifted to longer (redder) wavelengths; blueshift: approaching stars are shifted to shorter (bluer) wavelengths — key evidence for the expanding universe"
-  ],
-  explanationSections: [
-    { heading: "Why a siren's pitch changes as it passes you", body: "As a stationary observer, you hear sound waves emitted by the siren at their actual frequency only when the siren is at rest relative to you. As the siren approaches, each successive sound wave is emitted from a position slightly closer to you than the previous one, so the wave crests reach you more frequently — higher pitch. As the siren moves away, the opposite happens — lower pitch. The amount of shift is small for everyday speeds but large for fast-moving sources like racing cars." },
-    { heading: "Why this matters for meteorology", body: "Doppler radar is the foundation of modern weather radar — it doesn't just measure where rain is, it measures how fast raindrops are moving toward or away from the radar. From this, meteorologists infer wind speed and direction, identify rotation in storms (a key tornado signature), and detect the mesocyclones that precede severe weather." }
-  ],
-  formula: {
-    name: "Doppler effect (source moving, observer stationary)",
-    expression: "f_{obs} = f_{src} \\times \\frac{v},
-  {v \\pm v_{src}}",
-    variables: [
-      { symbol: "f_{obs}", meaning: "observed frequency (Hz)" },
-      { symbol: "f_{src}", meaning: "source frequency (Hz)" },
-      { symbol: "v", meaning: "wave speed (m/s)" },
-      { symbol: "v_{src}", meaning: "source speed (m/s); + for receding, − for approaching" }
-    ]
-
+  {
+    id: "phy-thermal-expansion",
+    sectionId: "PHY-04",
+    order: 2,
+    title: "Thermal Expansion",
+    definition: "Most substances expand when heated and contract when cooled. Thermal expansion is the increase in length, area or volume of a material due to a rise in temperature.",
+    keyFacts: [
+      "Linear expansion: ΔL = α L₀ ΔT, where α is the coefficient of linear expansion.",
+      "Volume expansion: ΔV = β V₀ ΔT, where β ≈ 3α for isotropic solids.",
+      "Gases expand much more than solids or liquids for the same temperature rise.",
+      "Thermal expansion is used in bimetallic strips, thermometers and expansion joints.",
+      "Water contracts as it cools from 4 °C to 0 °C, then expands on freezing; this is anomalous behaviour.",
+      "Expansion must be allowed for in bridges, railway tracks and pipelines."
+    ],
+    explanationSections: [
+      { heading: "Why expansion occurs", body: "When heated, particles vibrate with greater amplitude. On average, they take up slightly more space, making the material expand. In solids the expansion is small but significant over large structures." },
+      { heading: "Linear, area and volume expansion", body: "For a rod, length increases proportionally to temperature change. For a sheet, area increases approximately as ΔA = 2α A₀ ΔT. For a solid block, volume increases as ΔV = 3α V₀ ΔT. Liquids expand in volume only." },
+      { heading: "Anomalous expansion of water", body: "Water contracts as it cools from room temperature to 4 °C, reaching maximum density at 4 °C. Below 4 °C it expands as it approaches freezing. This is why ice floats and why deep lakes stay near 4 °C in winter." },
+      { heading: "Practical applications", body: "Bimetallic strips bend when heated because the two metals expand by different amounts, making them useful in thermostats. Expansion gaps in railway tracks and bridges prevent buckling in hot weather." }
+    ],
+    formula: {
+      name: "Linear and volume expansion",
+      expression: "\\Delta L = \\alpha L_0 \\Delta T \\quad \\Delta V = \\beta V_0 \\Delta T",
+      variables: [
+        { symbol: "\\Delta L", meaning: "change in length (m)" },
+        { symbol: "\\alpha", meaning: "coefficient of linear expansion (°C⁻¹ or K⁻¹)" },
+        { symbol: "L_0", meaning: "original length (m)" },
+        { symbol: "\\Delta T", meaning: "temperature change (°C or K)" },
+        { symbol: "\\Delta V", meaning: "change in volume (m³)" },
+        { symbol: "\\beta", meaning: "coefficient of volume expansion (≈ 3α for solids)" },
+        { symbol: "V_0", meaning: "original volume (m³)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A steel railway track is 20 m long at 10 °C. If the coefficient of linear expansion of steel is 1.2 × 10⁻⁵ °C⁻¹, how much longer is the track on a 40 °C day?",
+        solution: "ΔL = α L₀ ΔT = 1.2 × 10⁻⁵ °C⁻¹ × 20 m × (40 − 10) °C = 7.2 × 10⁻³ m.",
+        answer: "7.2 mm longer."
+      }
+    ],
+    commonMistakes: [
+      "Using Celsius temperature instead of temperature change in expansion formulas.",
+      "Confusing linear expansion with volume expansion.",
+      "Forgetting that β ≈ 3α for isotropic solids.",
+      "Assuming all substances expand on heating; water below 4 °C contracts."
+    ],
+    examPoints: [
+      "Expansion gaps prevent buckling of rails and bridges.",
+      "A bimetallic strip bends toward the metal with the lower expansion coefficient when heated.",
+      "Water has its maximum density at 4 °C.",
+      "Gases have much larger expansion coefficients than solids and liquids."
+    ],
+    relatedTopics: ["phy-temperature-heat", "phy-heat-transfer-equilibrium"],
+    content: true,
+    buildsOn: ["phy-temperature-heat"],
+    leadsTo: [],
+    usedIn: ["meteo-lapse-rates", "env-climate-change-response"]
   },
-  examPoints: [
-    "The Doppler effect requires relative motion between source and observer — if both are stationary, the observed frequency equals the source frequency",
-    "Doppler shift in light (redshift/blueshift) gave astronomers evidence that the universe is expanding — Edwin Hubble's key 1929 discovery"
-  ],
-  commonMistakes: [
-    "Confusing source moving toward the observer with observer moving toward the source — the effect is similar but the formulas differ slightly",
-    "Thinking the wavelength actually changes — it doesn't, the relative spacing of successive wave crests reaching the observer changes"
-  ],
-  relatedTopics: ["phy-wave-properties", "phy-sound-waves", "meteo-remote-sensing"],
-  content: true,
-  buildsOn: ["phy-sound-waves"],
-  leadsTo: [],
-  usedIn: ["meteo-remote-sensing"]
-},
 
-// ============================= SECTION PHY-F ADDITION: Lens & Mirror Image Formation =============================
-
-{
-  id: "phy-lens-mirror-imaging",
-  sectionId: "PHY-06",
-  order: 4,
-  title: "Lens & Mirror Image Formation",
-  definition: "Lenses and mirrors form images by refracting or reflecting light according to predictable rules. The image can be characterized by its type (real or virtual), orientation (upright or inverted), and size (magnified, reduced, or same size).",
-  keyFacts: [
-    "Real image: formed by actual convergence of light rays, can be projected onto a screen; always inverted relative to object",
-    "Virtual image: formed where light rays APPEAR to diverge from, cannot be projected; always upright relative to object",
-    "Convex (converging) lens: converges parallel light to a focal point on the far side; can form real or virtual images depending on object distance",
-    "Concave (diverging) lens: diverges parallel light as if from a focal point on the same side as the object; always forms virtual, upright, reduced images",
-    "Concave mirror: converges light; forms real, inverted images (when object is beyond focal point) or virtual, upright, magnified images (when object is within focal length — used as makeup/shaving mirrors)",
-    "Mirror equation: 1/f = 1/v + 1/u, where f = focal length, v = image distance, u = object distance (sign convention: distances measured in front of mirror are positive)"
-  ],
-  explanationSections: [
-    { heading: "Why magnifying mirrors work", body: "A concave (curved-in) makeup or shaving mirror has a focal length such that your face sits WITHIN the focal length. Light from your face reflects and diverges, but your eye traces the diverging rays back to a virtual point behind the mirror — producing a virtual, upright, magnified image. Stand farther back (beyond the focal point) and the same mirror gives a real, inverted image." },
-    { heading: "Why convex mirrors are used for car side mirrors", body: "Convex (curved-out) mirrors always form virtual, upright, reduced images. This makes objects appear smaller and farther away than they are, but the trade-off is a much wider field of view — critical for car side mirrors to show more of the road behind. Most have the warning: 'Objects in mirror are closer than they appear.'" }
-  ],
-  formula: {
-    name: "Mirror equation & lens equation",
-    expression: "\\frac{1},
-  {f} = \\frac{1},
-  {v} + \\frac{1},
-  {u} \\quad m = \\frac{-v},
-  {u}",
-    variables: [
-      { symbol: "f", meaning: "focal length (m, + for convex, − for concave)" },
-      { symbol: "v", meaning: "image distance from mirror/lens (m)" },
-      { symbol: "u", meaning: "object distance from mirror/lens (m)" },
-      { symbol: "m", meaning: "magnification (negative = inverted)" }
-    ]
-
+  {
+    id: "phy-heat-transfer-equilibrium",
+    sectionId: "PHY-04",
+    order: 3,
+    title: "Heat Transfer Mechanisms & Thermal Equilibrium",
+    definition: "Heat can be transferred by conduction, convection and radiation. Thermal equilibrium is reached when two bodies in contact have the same temperature and there is no net heat flow between them.",
+    keyFacts: [
+      "Conduction transfers heat through particle collisions without bulk movement of the material.",
+      "Convection transfers heat by the bulk movement of a fluid; hot fluid rises, cool fluid sinks.",
+      "Radiation transfers heat as electromagnetic waves and can travel through a vacuum.",
+      "Good conductors are usually metals; insulators trap heat by reducing conduction and convection.",
+      "A body emits and absorbs radiation continuously; net heat transfer depends on temperature difference.",
+      "Thermal equilibrium means equal temperature, not necessarily equal internal energy."
+    ],
+    explanationSections: [
+      { heading: "Conduction", body: "In solids, vibrating particles pass kinetic energy to neighbours. Metals conduct well because free electrons carry energy rapidly. Wood, plastic and air are poor conductors. A metal spoon in hot soup heats up quickly at the handle; a wooden spoon does not." },
+      { heading: "Convection", body: "When a fluid is heated, it usually expands, becomes less dense and rises. Cooler, denser fluid sinks to take its place, creating a convection current. This is how room heaters warm air, how sea breezes form and how magma moves in the mantle." },
+      { heading: "Radiation", body: "All objects emit infrared radiation because of their temperature. The hotter the object, the more radiation it emits and the shorter the average wavelength. Radiation does not need a medium, so the Sun warms Earth across empty space." },
+      { heading: "Reaching thermal equilibrium", body: "When a hot object is placed in contact with a cold one, heat flows until both reach the same temperature. At equilibrium, individual particles still exchange energy, but the average energy per particle is the same, so there is no net flow." }
+    ],
+    commonMistakes: [
+      "Thinking cold objects 'give out cold'; cold objects absorb heat from warmer surroundings.",
+      "Confusing conduction with convection; conduction needs no bulk motion.",
+      "Believing radiation only comes from very hot objects; all objects emit radiation.",
+      "Assuming thermal equilibrium means equal heat content; it means equal temperature."
+    ],
+    examPoints: [
+      "Metals feel cold because they conduct heat away from your hand quickly.",
+      "Vacuum flasks reduce all three heat transfer mechanisms: vacuum stops conduction/convection, silvering reduces radiation.",
+      "The colour and texture of a surface affect radiation absorption/emission; dull black surfaces are good absorbers and emitters.",
+      "Convection is the main heat transfer mechanism in the atmosphere and oceans."
+    ],
+    comparisonTable: {
+      headers: ["Mechanism", "Medium needed?", "How it transfers", "Examples"],
+      rows: [
+        ["Conduction", "Yes (solids/liquids/gases)", "Particle collisions", "Metal spoon in hot soup"],
+        ["Convection", "Yes (fluids)", "Bulk movement of fluid", "Sea breeze, boiling water"],
+        ["Radiation", "No", "Electromagnetic waves", "Sun's heat, infrared heater"]
+      ]
+    },
+    relatedTopics: ["phy-temperature-heat", "phy-heat-transfer-mechanisms"],
+    content: true,
+    buildsOn: ["phy-temperature-heat", "phy-work-energy"],
+    leadsTo: ["phy-heat-transfer-mechanisms"],
+    usedIn: ["meteo-heat-transfer", "meteo-radiation-laws", "env-climate-change-response"]
   },
-  examPoints: [
-    "The sign convention matters: object distance is always positive (object in front of mirror), but focal length sign depends on whether the mirror/lens converges or diverges light",
-    "A real image can be projected on a screen; a virtual image cannot — a fundamental distinction with practical consequences"
-  ],
-  commonMistakes: [
-    "Forgetting that virtual images are always upright, real images are always inverted — this is a reliable rule regardless of mirror/lens type",
-    "Mixing up the sign of magnification: negative m = inverted image, positive m = upright image"
-  ],
-  relatedTopics: ["phy-reflection-refraction", "phy-lenses-mirrors-em-spectrum"],
-  content: true,
-  buildsOn: ["phy-lenses-mirrors-em-spectrum"],
-  leadsTo: [],
-  usedIn: []
-},
 
-// ============================= SECTION PHY-G ADDITION: Capacitance =============================
-
-{
-  id: "phy-capacitance",
-  sectionId: "PHY-07",
-  order: 5,
-  title: "Capacitance & Capacitors",
-  definition: "A capacitor is a device that stores electrical energy in an electric field. Capacitance measures a capacitor's ability to store charge per unit voltage. Capacitors are essential components in virtually all electronic circuits.",
-  keyFacts: [
-    "Capacitance C = charge Q / voltage V, measured in Farads (F); 1 Farad = 1 Coulomb/Volt",
-    "A capacitor consists of two conducting plates separated by an insulator (dielectric); when voltage is applied, equal and opposite charges accumulate on the plates",
-    "Parallel plate capacitor: C = ε₀A/d, where A is plate area, d is plate separation, ε₀ is the permittivity of free space",
-    "Energy stored in a charged capacitor: E = ½CV² = ½QV = Q²/(2C)",
-    "Capacitors in circuits block DC (steady current) but pass AC (changing current) — this is the basis of filtering, timing circuits, and AC coupling"
-  ],
-  explanationSections: [
-    { heading: "Why a capacitor stores energy", body: "When a voltage is applied across a capacitor, electrons accumulate on one plate (making it negative) and are repelled from the other (making it positive). This charge separation creates an electric field between the plates, and energy is stored in that field. Disconnect the source, and the capacitor can hold its charge for a long time (slowly leaking through the dielectric and any connected circuit)." },
-    { heading: "Why capacitors block DC but pass AC", body: "Direct current (DC) is a steady flow — once a capacitor charges to the source voltage, no more current flows. Alternating current (AC) constantly changes direction and magnitude, so the capacitor must constantly charge and discharge — current effectively flows 'through' it (via the charging/discharging process, not actual electron flow across the gap). This frequency-dependent behavior is what makes capacitors useful as filters and in tuning circuits." }
-  ],
-  formula: {
-    name: "Capacitance, parallel plate, energy stored",
-    expression: "C = \\frac{Q},
-  {V} \\quad C = \\frac{\\varepsilon_0 A},
-  {d} \\quad E = \\frac{1},
-  {2}CV^2",
-    variables: [
-      { symbol: "C", meaning: "capacitance (Farads)" },
-      { symbol: "Q", meaning: "charge stored (C)" },
-      { symbol: "V", meaning: "voltage across capacitor (V)" },
-      { symbol: "\\varepsilon_0", meaning: "permittivity of free space (8.85×10⁻¹² F/m)" },
-      { symbol: "A", meaning: "plate area (m²)" },
-      { symbol: "d", meaning: "plate separation (m)" },
-      { symbol: "E", meaning: "energy stored (J)" }
-    ]
-
+  {
+    id: "phy-thermodynamics-laws",
+    sectionId: "PHY-04",
+    order: 4,
+    title: "Laws of Thermodynamics, Internal Energy & Latent Heat",
+    definition: "Thermodynamics describes how energy is exchanged as heat and work. The first law states that the change in internal energy equals heat added minus work done by the system. The second law says heat naturally flows from hot to cold. Latent heat is the energy absorbed or released during a change of state at constant temperature.",
+    keyFacts: [
+      "Internal energy is the total kinetic and potential energy of all particles in a system.",
+      "First Law: ΔU = Q − W, where Q is heat added to the system and W is work done by the system.",
+      "Second Law: heat cannot spontaneously flow from a colder body to a hotter body; natural processes increase total entropy.",
+      "Latent heat of fusion L_f: energy needed to melt 1 kg of solid at its melting point.",
+      "Latent heat of vaporisation L_v: energy needed to boil 1 kg of liquid at its boiling point.",
+      "During melting or boiling, temperature stays constant while internal energy increases."
+    ],
+    explanationSections: [
+      { heading: "Internal energy", body: "Internal energy includes the kinetic energy of particles (related to temperature) and the potential energy stored in intermolecular bonds. Heating a solid raises its temperature by increasing kinetic energy; melting it increases potential energy by breaking bonds while temperature stays fixed." },
+      { heading: "First Law of Thermodynamics", body: "The first law is conservation of energy for thermal systems. If you heat a gas (Q positive) and it expands, doing work on its surroundings (W positive), the change in internal energy is Q − W. If the gas is compressed (work done on it), W is negative and internal energy rises more." },
+      { heading: "Second Law and direction of heat flow", body: "Heat naturally flows from hot to cold. A refrigerator can move heat from cold to hot, but only by doing work. The second law also means no heat engine can be 100% efficient because some heat must be rejected to a cold reservoir." },
+      { heading: "Latent heat", body: "Boiling water at 100 °C stays at 100 °C while energy goes into separating molecules against intermolecular forces. The large latent heat of vaporisation of water makes it an effective coolant: sweating removes a lot of heat when sweat evaporates." }
+    ],
+    formula: [
+      {
+        name: "First Law of Thermodynamics",
+        expression: "\\Delta U = Q - W",
+        variables: [
+          { symbol: "\\Delta U", meaning: "change in internal energy (J)" },
+          { symbol: "Q", meaning: "heat added to system (J)" },
+          { symbol: "W", meaning: "work done by system (J)" }
+        ]
+      },
+      {
+        name: "Latent heat",
+        expression: "Q = m L",
+        variables: [
+          { symbol: "Q", meaning: "heat transferred (J)" },
+          { symbol: "m", meaning: "mass (kg)" },
+          { symbol: "L", meaning: "specific latent heat (J/kg)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "How much heat is needed to melt 0.20 kg of ice at 0 °C? (L_f for ice = 3.34 × 10⁵ J/kg.)",
+        solution: "Q = m L_f = 0.20 kg × 3.34 × 10⁵ J/kg = 6.68 × 10⁴ J.",
+        answer: "66.8 kJ."
+      },
+      {
+        problem: "Steam at 100 °C condenses on a burn. Calculate the energy released when 2.0 g of steam condenses. (L_v for water = 2.26 × 10⁶ J/kg.)",
+        solution: "Mass = 2.0 g = 0.0020 kg. Q = m L_v = 0.0020 kg × 2.26 × 10⁶ J/kg = 4.52 × 10³ J.",
+        answer: "4.52 kJ released."
+      }
+    ],
+    commonMistakes: [
+      "Confusing Q = mcΔT with Q = mL; the first changes temperature, the second changes state.",
+      "Thinking temperature changes during a phase change; it stays constant for a pure substance at fixed pressure.",
+      "Using the wrong latent heat (fusion vs vaporisation).",
+      "Forgetting the sign convention in the First Law (W is work done by the system).",
+      "Assuming the Second Law forbids refrigerators; it only says they need external work."
+    ],
+    examPoints: [
+      "Latent heat of vaporisation of water is much larger than its latent heat of fusion.",
+      "Steam burns are worse than boiling-water burns because of the extra latent heat released on condensation.",
+      "The First Law is conservation of energy; the Second Law sets the direction of natural heat flow.",
+      "Internal energy of an ideal gas depends only on temperature."
+    ],
+    limitCases: [
+      { condition: "Q = 0 (adiabatic)", result: "ΔU = −W", physicalMeaning: "Work done by the gas comes from its internal energy, so it cools." },
+      { condition: "W = 0 (constant volume)", result: "ΔU = Q", physicalMeaning: "All heat added changes internal energy." }
+    ],
+    relatedTopics: ["phy-temperature-heat", "phy-work-energy", "phy-states-of-matter"],
+    content: true,
+    buildsOn: ["phy-work-energy", "phy-states-of-matter", "phy-temperature-heat"],
+    leadsTo: [],
+    usedIn: ["meteo-adiabatic-cloud-formation", "env-energy-sources"]
   },
-  examPoints: [
-    "Capacitance depends on geometry (plate area, separation) and the dielectric material, NOT on the voltage applied or charge stored",
-    "1 Farad is a HUGE unit — typical capacitors are in microfarads (μF) or picofarads (pF)"
-  ],
-  commonMistakes: [
-    "Confusing capacitance (capacity to store charge, measured in F) with charge itself (measured in C) — these are different quantities",
-    "Thinking a fully-charged capacitor has current flowing through it — in DC steady state, no current flows; energy is stored in the electric field, not in current"
-  ],
-  relatedTopics: ["phy-electric-field-potential", "phy-current-voltage-resistance", "phy-electromagnetic-induction"],
-  content: true,
-  buildsOn: ["phy-electric-field-potential"],
-  leadsTo: [],
-  usedIn: []
-},
 
-// ============================= SECTION PHY-H ADDITION: Transformers =============================
-
-{
-  id: "phy-transformers-ac",
-  sectionId: "PHY-08",
-  order: 3,
-  title: "Transformers & AC Power",
-  definition: "A transformer uses electromagnetic induction to step AC voltage up or down while changing current inversely. Transformers are essential for efficient electrical power transmission and for adapting voltages to different applications.",
-  keyFacts: [
-    "Transformer equation: V_p / V_s = N_p / N_s, where V = voltage, N = number of coil turns, p = primary (input), s = secondary (output)",
-    "Step-up transformer: more turns on secondary (N_s > N_p) → output voltage higher than input; used to increase voltage for long-distance power transmission",
-    "Step-down transformer: fewer turns on secondary (N_s < N_p) → output voltage lower than input; used to reduce household mains voltage (e.g. 230V to 12V for phone chargers)",
-    "In an ideal transformer (100% efficient): V_p × I_p = V_s × I_s (power in = power out), so stepping up voltage steps down current proportionally",
-    "Real transformers have small losses (resistive heating in coils, eddy currents in core, hysteresis) — typical efficiency 95-99% for large power transformers",
-    "Transformers only work with AC (changing current) because DC would produce a constant magnetic flux with no changing flux, hence no induced EMF in the secondary"
-  ],
-  explanationSections: [
-    { heading: "Why power grids step up voltage for transmission", body: "Power lost in transmission lines is P_loss = I²R, so reducing current reduces loss dramatically. For the same power delivered (P = VI), stepping up voltage by 10× reduces current by 10× and transmission losses by 100×. Transformers at power stations step voltage up to hundreds of kV for long-distance lines; local substations then step it back down to household voltages (120V/230V) for safe use." },
-    { heading: "Why transformers only work with AC", body: "A transformer needs a CHANGING magnetic flux in its core to induce an EMF in the secondary coil (Faraday's Law). AC constantly varies, producing the needed changing flux. DC, once steady, produces a constant flux with no induced secondary EMF. This is why every device that plugs into a wall outlet (which provides AC) can use a transformer-based power supply, while DC circuits need different voltage-regulation methods." }
-  ],
-  formula: {
-    name: "Transformer equations",
-    expression: "\\frac{V_p},
-  {V_s} = \\frac{N_p},
-  {N_s} \\quad V_p I_p = V_s I_s \\text{ (ideal)}",
-    variables: [
-      { symbol: "V_p, V_s", meaning: "primary and secondary voltages" },
-      { symbol: "N_p, N_s", meaning: "number of turns in primary and secondary coils" },
-      { symbol: "I_p, I_s", meaning: "primary and secondary currents" }
-    ]
-
+  {
+    id: "phy-heat-transfer-mechanisms",
+    sectionId: "PHY-04",
+    order: 5,
+    title: "Heat Transfer Mechanisms: Conduction, Convection & Radiation in Detail",
+    definition: "Heat transfer occurs through three distinct physical mechanisms. Conduction requires matter and transfers energy through collisions; convection requires a fluid and transfers energy through bulk motion; radiation requires no medium and transfers energy as electromagnetic waves.",
+    keyFacts: [
+      "Conduction is fastest in solids, especially metals with free electrons.",
+      "Convection currents transfer heat in fluids and drive weather and ocean circulation.",
+      "Radiation intensity follows the Stefan-Boltzmann law: power radiated ∝ T⁴ for a perfect black body.",
+      "Good absorbers of radiation are also good emitters (Kirchhoff's radiation law).", 
+      "A vacuum prevents conduction and convection but not radiation.",
+      "Greenhouse gases absorb outgoing infrared radiation, warming the atmosphere."
+    ],
+    explanationSections: [
+      { heading: "Conduction in metals vs insulators", body: "Metals have free electrons that move quickly and carry kinetic energy from hot to cold regions. In insulators, only vibrating atoms pass energy along, which is slower. This is why a metal door handle feels colder than a wooden door at the same air temperature." },
+      { heading: "Convection cells", body: "In a heated room, warm air near a radiator rises, spreads across the ceiling, cools, sinks and returns to be reheated, forming a convection cell. Similar cells drive Hadley, Ferrel and Polar circulation in the atmosphere." },
+      { heading: "Radiation and temperature", body: "Hotter objects radiate more intensely and at shorter wavelengths. A red-hot poker is cooler than a white-hot one. The Sun emits mostly visible and ultraviolet; Earth emits infrared." },
+      { heading: "Earth's energy balance", body: "Earth absorbs solar radiation and emits infrared radiation. Greenhouse gases absorb some outgoing infrared and re-radiate it back downward, keeping the surface warmer than it would be otherwise. This is the natural greenhouse effect; human activity enhances it." }
+    ],
+    commonMistakes: [
+      "Thinking radiation requires a medium; it travels through vacuum.",
+      "Confusing the greenhouse effect with the ozone layer; they involve different processes.",
+      "Assuming shiny surfaces are good absorbers; they are good reflectors and poor absorbers.",
+      "Forgetting that convection cannot occur in solids."
+    ],
+    examPoints: [
+      "The three mechanisms often act together; identify the dominant one in each situation.",
+      "Radiation is the only heat transfer mechanism that works in a vacuum.",
+      "Dull black surfaces are good absorbers and emitters; polished silver surfaces are poor absorbers/emitters.",
+      "Meteorology applies these mechanisms to lapse rates, convection and the greenhouse effect."
+    ],
+    comparisonTable: {
+      headers: ["Mechanism", "Requires medium?", "Particle movement", "Vacuum works?", "Key examples"],
+      rows: [
+        ["Conduction", "Yes", "Vibrations/collisions, no bulk flow", "No", "Metal rod heated at one end"],
+        ["Convection", "Yes (fluid)", "Bulk fluid motion", "No", "Boiling water, atmospheric circulation"],
+        ["Radiation", "No", "None (EM waves)", "Yes", "Sunlight, infrared heaters"]
+      ]
+    },
+    relatedTopics: ["phy-temperature-heat", "phy-heat-transfer-equilibrium", "meteo-greenhouse-effect"],
+    content: true,
+    buildsOn: ["phy-heat-transfer-equilibrium", "phy-temperature-heat"],
+    leadsTo: [],
+    usedIn: ["meteo-heat-transfer", "meteo-radiation-laws", "env-climate-change-response"]
   },
-  examPoints: [
-    "In an ideal transformer, stepping UP voltage steps DOWN current proportionally (and vice versa) — power is conserved",
-    "Transformers are why AC became the standard for power grids, not DC — DC cannot be easily transformed to different voltages for efficient long-distance transmission"
-  ],
-  commonMistakes: [
-    "Thinking transformers work with DC — they don't, because DC produces no changing magnetic flux",
-    "Forgetting that stepping up voltage steps down current (and vice versa) — they are inversely related when power is conserved"
-  ],
-  relatedTopics: ["phy-electromagnetic-induction", "phy-circuits-power-energy", "phy-current-voltage-resistance"],
-  content: true,
-  buildsOn: ["phy-electromagnetic-induction", "phy-circuits-power-energy"],
-  leadsTo: [],
-  usedIn: ["env-energy-sources"]
-},
 
-// ============================= SECTION PHY-D ADDITION 2: Kinetic Theory of Heat =============================
-
-// (Already added in Batch 3 — keeping this slot empty by skipping)
-
-// (No additional topic here — Kinetic Theory was added in Batch 3)
-
-// Note: Above comment is intentional, no actual topic object here.
-// The next two topics are for PHY-I expansion only.
-
-// ============================= SECTION PHY-I ADDITION: Half-Life & Radioactive Decay =============================
-
-{
-  id: "phy-half-life-decay",
-  sectionId: "PHY-09",
-  order: 3,
-  title: "Half-Life, Decay Constant & Radioactive Dating",
-  definition: "Radioactive decay is a random process where unstable nuclei emit radiation over time. The half-life is the time for half the atoms in a sample to decay — a characteristic constant for each radioactive isotope that enables dating ancient materials.",
-  keyFacts: [
-    "Half-life (t₁/₂): time for half the radioactive nuclei in a sample to decay; constant for each isotope regardless of initial amount or conditions",
-    "After n half-lives, the fraction remaining is (1/2)ⁿ; after 1 half-life = 50%, after 2 = 25%, after 3 = 12.5%, etc.",
-    "Decay constant λ: related to half-life by t₁/₂ = ln2/λ ≈ 0.693/λ",
-    "Exponential decay: N(t) = N₀ × e^(-λt), where N₀ is the initial number of nuclei and N(t) is the number remaining at time t",
-    "Radiocarbon dating: uses carbon-14's half-life (~5,730 years) to date once-living organic materials up to about 50,000 years old; other isotopes date different ranges (e.g. potassium-argon for millions of years)"
-  ],
-  explanationSections: [
-    { heading: "Why half-life is constant regardless of sample size", body: "Radioactive decay is a random process where each atom has a fixed probability of decaying per unit time, but no memory of when it might decay. This means the DECAY RATE (decays per second) is proportional to how many atoms remain. If you start with 1000 atoms, you lose 50% in one half-life; if you start with 1000 billion, you still lose 50% in one half-life. The same fraction always decays in the same time — the half-life is independent of sample size." },
-    { heading: "How carbon dating works", body: "While alive, organisms constantly exchange carbon with the environment, maintaining a constant ratio of radioactive carbon-14 to stable carbon-12. After death, no new carbon is taken in, and the C-14 decays with its 5,730-year half-life. By measuring the remaining C-14 to C-12 ratio in an artifact, scientists can estimate when the organism died. Limitations: only works for once-living things, only for materials <50,000 years old, and requires calibration for atmospheric C-14 levels over time." }
-  ],
-  formula: {
-    name: "Radioactive decay and half-life",
-    expression: "N(t) = N_0 \\times (\\frac{1},
-  {2})^{t/t_{1/2}} = N_0 e^{-\\lambda t} \\quad t_{1/2} = \\frac{\\ln 2},
-  {\\lambda}",
-    variables: [
-      { symbol: "N(t)", meaning: "number of nuclei remaining at time t" },
-      { symbol: "N_0", meaning: "initial number of nuclei" },
-      { symbol: "t_{1/2}", meaning: "half-life (s, min, years depending on isotope)" },
-      { symbol: "\\lambda", meaning: "decay constant (per unit time)" }
-    ]
-
+  {
+    id: "phy-kinetic-theory",
+    sectionId: "PHY-04",
+    order: 6,
+    title: "Kinetic Theory of Gases",
+    definition: "The kinetic theory models a gas as a large number of tiny particles moving randomly and colliding elastically with each other and the walls of their container. Pressure arises from collisions with the walls, and temperature is proportional to the average kinetic energy of the particles.",
+    keyFacts: [
+      "Gas pressure is caused by the force exerted by particles colliding with container walls.",
+      "Temperature (in kelvin) is proportional to the average kinetic energy of the gas particles.",
+      "At the same temperature, all ideal-gas particles have the same average kinetic energy, regardless of mass.",
+      "For an ideal gas: PV = nRT, where n is amount of substance and R is the universal gas constant.",
+      "Boyle's law: P ∝ 1/V at constant temperature.",
+      "Charles's law: V ∝ T at constant pressure; pressure law: P ∝ T at constant volume."
+    ],
+    explanationSections: [
+      { heading: "Pressure from collisions", body: "Each gas particle collision with a wall exerts a tiny force. With billions of particles colliding every second, the average force is steady and produces measurable pressure. Faster particles or more particles mean more frequent, harder collisions and higher pressure." },
+      { heading: "Temperature and kinetic energy", body: "Raising the temperature increases the average kinetic energy of particles. At the same temperature, light hydrogen molecules move faster than heavy oxygen molecules, but their average kinetic energies are equal. Absolute zero is the temperature at which particle motion is minimum." },
+      { heading: "Ideal gas assumptions", body: "An ideal gas consists of point particles that move randomly and collide elastically, with no intermolecular forces except during collisions. Real gases approximate ideal behaviour best at low pressure and high temperature." },
+      { heading: "Connecting to meteorology", body: "The ideal gas law explains why warm air at constant pressure expands and becomes less dense, leading to rising motion and cloud formation. It underlies the gas law topic in Meteorology." }
+    ],
+    formula: [
+      {
+        name: "Ideal gas equation",
+        expression: "P V = n R T",
+        variables: [
+          { symbol: "P", meaning: "pressure (Pa)" },
+          { symbol: "V", meaning: "volume (m³)" },
+          { symbol: "n", meaning: "amount of gas (mol)" },
+          { symbol: "R", meaning: "universal gas constant (8.314 J/(mol·K))" },
+          { symbol: "T", meaning: "absolute temperature (K)" }
+        ]
+      },
+      {
+        name: "Gas laws",
+        expression: "P V = \\text{constant (constant T)} \\quad \\frac{V}{T} = \\text{constant (constant P)} \\quad \\frac{P}{T} = \\text{constant (constant V)}",
+        variables: [
+          { symbol: "P", meaning: "pressure" },
+          { symbol: "V", meaning: "volume" },
+          { symbol: "T", meaning: "absolute temperature" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A fixed mass of gas occupies 2.0 dm³ at 300 K. If the pressure is kept constant and the temperature is raised to 400 K, what is the new volume?",
+        solution: "Using Charles's law V/T = constant: V₁/T₁ = V₂/T₂. So 2.0/300 = V₂/400, giving V₂ = 2.0 × 400 / 300 ≈ 2.67 dm³.",
+        answer: "≈ 2.7 dm³."
+      }
+    ],
+    commonMistakes: [
+      "Using Celsius instead of kelvin in gas-law calculations.",
+      "Confusing average speed with average kinetic energy; at the same T, KE is equal but speed depends on mass.",
+      "Assuming real gases are always ideal; ideal behaviour breaks down at high pressure or low temperature.",
+      "Forgetting that absolute zero is 0 K, not 0 °C."
+    ],
+    examPoints: [
+      "Temperature in gas-law equations must be in kelvin (K = °C + 273.15).",
+      "Boyle's law gives a hyperbolic P-V graph at constant temperature.",
+      "Doubling absolute temperature at constant volume doubles the pressure.",
+      "The kinetic theory links microscopic particle motion to macroscopic pressure and temperature."
+    ],
+    relatedTopics: ["phy-states-of-matter", "phy-temperature-heat", "meteo-gas-law"],
+    content: true,
+    buildsOn: ["phy-states-of-matter", "phy-temperature-heat"],
+    leadsTo: [],
+    usedIn: ["phy-thermodynamics-laws", "meteo-gas-law"]
   },
-  examPoints: [
-    "Half-life is independent of initial amount — a sample of any size loses half its radioactivity in one half-life",
-    "After 10 half-lives, less than 0.1% of the original sample remains — a practical limit for detection"
-  ],
-  commonMistakes: [
-    "Thinking the whole sample eventually decays — radioactive decay is exponential, never reaching zero; mathematically, it approaches but never reaches zero",
-    "Confusing 'half-life' (time for half to decay) with 'average lifetime' (which is 1/λ = t₁/₂ / ln2 ≈ 1.44 × t₁/₂ — the average lifetime is LONGER than the half-life)"
-  ],
-  relatedTopics: ["phy-radioactivity-nuclear", "phy-atomic-structure"],
-  content: true,
-  buildsOn: ["phy-radioactivity-nuclear", "math-3-1", "math-6-2"],
-  leadsTo: [],
-  usedIn: ["earth-c2", "earth-k4"]
-},
 
-// ============================= SECTION PHY-I ADDITION: Fission & Chain Reactions =============================
+// ============================= SECTION PHY-05: Waves =============================
 
-{
-  id: "phy-fission-chain-reaction",
-  sectionId: "PHY-09",
-  order: 4,
-  title: "Nuclear Fission, Chain Reactions & Nuclear Power",
-  definition: "Nuclear fission is the splitting of heavy atomic nuclei into smaller fragments, releasing energy and additional neutrons that can sustain a chain reaction. This is the physical basis of nuclear power plants and atomic weapons.",
-  keyFacts: [
-    "Fission process: a heavy nucleus (typically U-235) absorbs a slow neutron, becomes unstable, and splits into two smaller nuclei + 2-3 free neutrons + energy",
-    "Chain reaction: the neutrons released by one fission can trigger further fissions in nearby nuclei; sustained when at least one neutron from each fission causes another fission (critical mass)",
-    "Critical mass: minimum amount of fissile material needed to sustain a chain reaction; below this, neutrons escape before causing enough new fissions",
-    "Moderator: material (e.g. water, graphite) that slows down fission neutrons to speeds optimal for causing further fissions in U-235",
-    "Control rods: rods of neutron-absorbing material (e.g. boron, cadmium) inserted into the reactor to absorb excess neutrons and control the reaction rate",
-    "Nuclear power plant: controlled chain reaction produces heat, which boils water to make steam, which drives turbines connected to generators producing electricity"
-  ],
-  explanationSections: [
-    { heading: "Why a chain reaction can be self-sustaining or explosive", body: "If each fission produces on average one neutron that causes another fission, the chain reaction proceeds at a constant rate (steady power output — what a power plant wants). If more than one neutron per fission causes another fission, the reaction rate grows exponentially (an explosion). Control rods absorb the right number of neutrons to keep the reaction at exactly one neutron per fission — a delicate balance that requires continuous monitoring and adjustment." },
-    { heading: "How a nuclear power plant differs from an atomic bomb", body: "A power plant uses control rods, low-enriched uranium (3-5% U-235), and careful design to keep the chain reaction at a steady, controlled rate producing steady heat. A bomb uses highly enriched uranium (>90% U-235) and no control mechanism, so the chain reaction grows exponentially in microseconds, releasing enormous energy in an uncontrolled explosion. Both rely on the same nuclear physics, but the engineering and geometry differ dramatically." }
-  ],
-  formula: {
-    name: "Chain reaction multiplication factor",
-    expression: "k = \\frac{\\text{neutrons in generation } n+1},
-  {\\text{neutrons in generation } n}",
-    variables: [
-      { symbol: "k", meaning: "multiplication factor" },
-      { symbol: "k = 1", meaning: "critical (steady rate, power plant)" },
-      { symbol: "k < 1", meaning: "subcritical (reaction dies out)" },
-      { symbol: "k > 1", meaning: "supercritical (reaction grows — uncontrolled if no controls)" }
-    ]
-
+  {
+    id: "phy-wave-properties",
+    sectionId: "PHY-05",
+    order: 1,
+    title: "Wave Properties",
+    definition: "A wave is a disturbance that transfers energy from one place to another without permanently displacing the medium. Mechanical waves need a medium; electromagnetic waves do not.",
+    keyFacts: [
+      "Wavelength λ is the distance between two consecutive identical points on a wave, measured in metres.",
+      "Frequency f is the number of complete waves passing a point per second, measured in hertz (Hz).",
+      "Wave speed v = f λ; it depends on the medium, not on f or λ individually for a given medium.",
+      "Amplitude is the maximum displacement from the rest position; it is related to wave energy.",
+      "Period T = 1/f is the time for one complete wave to pass a point.",
+      "The wave equation relates speed, frequency and wavelength: v = fλ."
+    ],
+    explanationSections: [
+      { heading: "Wave speed depends on the medium", body: "Sound travels faster through steel than air because particles in steel are closer and stiffer. Light slows down when entering glass from air. For a given medium, if frequency increases, wavelength decreases so that the product fλ stays constant." },
+      { heading: "Amplitude and energy", body: "A loud sound has large amplitude; a bright light has large amplitude. Energy carried by a wave is proportional to amplitude squared. Doubling the amplitude quadruples the energy." },
+      { heading: "Graphs of waves", body: "A displacement-distance graph shows the shape of the wave at one instant. A displacement-time graph shows how one point oscillates. The wavelength is read from the first graph; the period from the second." },
+      { heading: "FPSC traps", body: "Students often confuse frequency with speed or loudness with speed. A high-pitched sound has high frequency and short wavelength, but its speed in air is the same as a low-pitched sound at the same temperature." }
+    ],
+    formula: {
+      name: "Wave equation",
+      expression: "v = f \\lambda = \\frac{\\lambda}{T}",
+      variables: [
+        { symbol: "v", meaning: "wave speed (m/s)" },
+        { symbol: "f", meaning: "frequency (Hz)" },
+        { symbol: "\\lambda", meaning: "wavelength (m)" },
+        { symbol: "T", meaning: "period (s)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A wave has a frequency of 5.0 Hz and a wavelength of 0.40 m. Calculate its speed.",
+        solution: "v = fλ = 5.0 Hz × 0.40 m = 2.0 m/s.",
+        answer: "2.0 m/s."
+      },
+      {
+        problem: "A sound wave of speed 340 m/s has a frequency of 850 Hz. Find its wavelength.",
+        solution: "λ = v/f = 340 m/s / 850 Hz = 0.40 m.",
+        answer: "0.40 m."
+      }
+    ],
+    commonMistakes: [
+      "Confusing frequency with speed.",
+      "Thinking amplitude affects wave speed; speed depends on the medium.",
+      "Using the wrong graph to find wavelength or period.",
+      "Forgetting that v = fλ applies to all waves."
+    ],
+    examPoints: [
+      "Wave speed is determined by the medium, not by amplitude or frequency.",
+      "For a fixed medium, doubling frequency halves wavelength.",
+      "Amplitude is measured from rest position to crest, not crest to trough.",
+      "1 Hz = 1 cycle per second."
+    ],
+    limitCases: [
+      { condition: "f = 0", result: "No wave; only a static displacement", physicalMeaning: "Zero frequency means no oscillation and no travelling wave." },
+      { condition: "λ very short", result: "High frequency for the same speed", physicalMeaning: "High-pitched sound or high-energy radiation." }
+    ],
+    relatedTopics: ["phy-wave-types", "phy-sound-waves", "phy-doppler-effect", "phy-reflection-refraction"],
+    content: true,
+    buildsOn: ["phy-scalars-vectors", "math-4-4"],
+    leadsTo: ["phy-wave-types", "phy-sound-waves", "phy-doppler-effect", "phy-reflection-refraction"],
+    usedIn: ["meteo-radiation-laws", "meteo-remote-sensing"]
   },
-  examPoints: [
-    "Critical mass is about shape AND material — a sphere has the least surface area for a given volume, minimizing neutron escape, which is why nuclear material is shaped into spheres",
-    "Nuclear power plants are NOT at risk of 'exploding like a bomb' — the geometry, enrichment, and control systems make runaway reactions physically prevented by design"
-  ],
-  commonMistakes: [
-    "Thinking nuclear reactors can explode like atomic bombs — they can't, due to low enrichment and geometry; worst case is a meltdown (overheating and fuel damage), not a nuclear explosion",
-    "Confusing the role of moderators (slow down neutrons) with control rods (absorb neutrons) — they have opposite effects on the chain reaction"
-  ],
-  relatedTopics: ["phy-radioactivity-nuclear", "phy-half-life-decay", "phy-atomic-structure"],
-  content: true,
-  buildsOn: ["phy-radioactivity-nuclear"],
-  leadsTo: [],
-  usedIn: ["env-energy-sources"]
-}
-];
+
+  {
+    id: "phy-wave-types",
+    sectionId: "PHY-05",
+    order: 2,
+    title: "Types of Waves",
+    definition: "Waves are classified by how particles of the medium move relative to the wave direction. In transverse waves the oscillation is perpendicular to the direction of travel; in longitudinal waves it is parallel.",
+    keyFacts: [
+      "Transverse waves: particle displacement is perpendicular to wave direction; examples include waves on a string and electromagnetic waves.",
+      "Longitudinal waves: particle displacement is parallel to wave direction; examples include sound in air and compression waves in a spring.",
+      "Transverse waves have crests and troughs; longitudinal waves have compressions and rarefactions.",
+      "Electromagnetic waves are transverse and can travel through a vacuum.",
+      "Mechanical waves need a material medium; they can be transverse or longitudinal.",
+      "Surface water waves are a mixture of transverse and longitudinal motion."
+    ],
+    explanationSections: [
+      { heading: "Transverse waves", body: "Imagine shaking a rope up and down. The wave travels horizontally while each piece of rope moves vertically. Light and other electromagnetic waves are transverse, with electric and magnetic fields oscillating perpendicular to the direction of travel." },
+      { heading: "Longitudinal waves", body: "In a sound wave, air particles oscillate back and forth along the direction the sound travels. Regions of compression have higher pressure and density; rarefactions have lower pressure and density." },
+      { heading: "Mechanical vs electromagnetic", body: "Mechanical waves need a medium because they move by disturbing particles. Electromagnetic waves are self-propagating oscillations of electric and magnetic fields and travel through empty space at about 3 × 10⁸ m/s." },
+      { heading: "Exam clues", body: "If a question asks about compressions and rarefactions, it is longitudinal. If it asks about crests, troughs or polarisation, it is transverse. Only transverse waves can be polarised." }
+    ],
+    commonMistakes: [
+      "Thinking sound is a transverse wave; it is longitudinal.",
+      "Confusing compressions with crests.",
+      "Believing all waves need a medium; electromagnetic waves do not.",
+      "Forgetting that water surface waves are neither purely transverse nor purely longitudinal."
+    ],
+    examPoints: [
+      "Sound is a longitudinal mechanical wave.",
+      "Light is a transverse electromagnetic wave.",
+      "Only transverse waves can be polarised.",
+      "In a longitudinal wave, the distance between two consecutive compressions is one wavelength."
+    ],
+    comparisonTable: {
+      headers: ["Feature", "Transverse wave", "Longitudinal wave"],
+      rows: [
+        ["Particle motion", "Perpendicular to wave direction", "Parallel to wave direction"],
+        ["Pattern", "Crests and troughs", "Compressions and rarefactions"],
+        ["Examples", "Light, waves on a string", "Sound, compression in a spring"],
+        ["Can be polarised?", "Yes", "No"],
+        ["Need medium?", "Mechanical ones do; EM does not", "Yes"]
+      ]
+    },
+    relatedTopics: ["phy-wave-properties", "phy-sound-waves", "phy-reflection-refraction"],
+    content: true,
+    buildsOn: ["phy-wave-properties"],
+    leadsTo: ["phy-sound-waves", "phy-doppler-effect"],
+    usedIn: ["meteo-scales-of-motion", "earth-h2"]
+  },
+
+  {
+    id: "phy-sound-waves",
+    sectionId: "PHY-05",
+    order: 3,
+    title: "Sound Waves",
+    definition: "Sound is a longitudinal mechanical wave that travels through a medium as a series of compressions and rarefactions. It requires a material medium and cannot travel through a vacuum.",
+    keyFacts: [
+      "Sound is produced by vibrating objects and travels as a longitudinal wave.",
+      "The speed of sound in air at room temperature is about 340 m/s.",
+      "Sound travels faster in solids and liquids than in gases because particles are closer together.",
+      "Pitch is determined by frequency; loudness is determined by amplitude.",
+      "The audible range for humans is roughly 20 Hz to 20 000 Hz.",
+      "Ultrasound has frequency above 20 000 Hz; infrasound below 20 Hz."
+    ],
+    explanationSections: [
+      { heading: "How sound travels", body: "A vibrating source pushes neighbouring air molecules together, creating a compression. The compressed region expands into the next region, leaving a rarefaction behind. The disturbance travels while individual air molecules oscillate about fixed positions." },
+      { heading: "Pitch, loudness and quality", body: "Pitch corresponds to frequency: a whistle has high pitch, a drum has low pitch. Loudness corresponds to amplitude and is measured on a logarithmic scale (decibels). The same note played on a piano and a flute sounds different because of harmonics, called quality or timbre." },
+      { heading: "Speed of sound in different media", body: "Sound travels about 15 times faster through steel than through air and about 4 times faster through water than air. This is because particles in solids and liquids are closer and more strongly coupled, so vibrations transfer faster." },
+      { heading: "Echoes and reverberation", body: "An echo is a reflected sound heard distinctly after a delay. The minimum delay the human ear notices is about 0.1 s, so an echo requires a reflecting surface roughly 17 m away. Reverberation is multiple rapid reflections that blur the sound." }
+    ],
+    formula: {
+      name: "Speed, distance and echo time",
+      expression: "v = \\frac{2d}{t}",
+      variables: [
+        { symbol: "v", meaning: "speed of sound (m/s)" },
+        { symbol: "d", meaning: "distance to reflecting surface (m)" },
+        { symbol: "t", meaning: "time interval for echo (s)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A person stands 85 m from a cliff and shouts. How long after the shout does she hear the echo? (Speed of sound = 340 m/s.)",
+        solution: "The sound travels to the cliff and back: total distance = 2 × 85 m = 170 m. Time = distance/speed = 170 m / 340 m/s = 0.50 s.",
+        answer: "0.50 s."
+      }
+    ],
+    commonMistakes: [
+      "Thinking sound can travel through a vacuum; it cannot.",
+      "Confusing loudness (amplitude) with pitch (frequency).",
+      "Using one-way distance instead of round-trip distance in echo problems.",
+      "Believing sound travels faster in air than in water or steel."
+    ],
+    examPoints: [
+      "Speed of sound in air ≈ 340 m/s at room temperature.",
+      "Sound is fastest in solids, then liquids, then gases.",
+      "Frequency determines pitch; amplitude determines loudness.",
+      "Echoes are used in sonar, ultrasound imaging and depth sounding."
+    ],
+    relatedTopics: ["phy-wave-properties", "phy-wave-types", "phy-doppler-effect"],
+    content: true,
+    buildsOn: ["phy-wave-properties", "phy-wave-types"],
+    leadsTo: ["phy-doppler-effect"],
+    usedIn: ["meteo-remote-sensing", "env-air-pollution"]
+  },
+
+  {
+    id: "phy-doppler-effect",
+    sectionId: "PHY-05",
+    order: 4,
+    title: "The Doppler Effect & Applications",
+    definition: "The Doppler effect is the change in frequency or wavelength of a wave in relation to an observer who is moving relative to the wave source.",
+    keyFacts: [
+      "When a source moves toward an observer, the observed frequency increases and wavelength decreases.",
+      "When a source moves away from an observer, the observed frequency decreases and wavelength increases.",
+      "The effect applies to sound, light and all waves.",
+      "The speed of the wave in the medium does not change; only the observed frequency changes.",
+      "A sonic boom occurs when a source travels faster than the speed of sound.",
+      "Redshift in light from distant galaxies is evidence that the universe is expanding."
+    ],
+    explanationSections: [
+      { heading: "Sound example", body: "An ambulance siren sounds higher pitched as it approaches because the sound waves in front of it are compressed, shortening wavelength and raising frequency. As it passes and moves away, the waves behind it are stretched, lowering the frequency. The siren itself has not changed; only the observer's measurement has." },
+      { heading: "Light and redshift", body: "Light from a receding star or galaxy is shifted toward longer wavelengths (red end of the spectrum). This redshift is key evidence for the expansion of the universe. Approaching sources show blueshift." },
+      { heading: "Speed of wave vs observed frequency", body: "The Doppler effect does not change the speed of the wave in the medium. It changes how many wave crests reach the observer each second. For sound, the speed in air is still about 340 m/s regardless of source motion." },
+      { heading: "Applications", body: "Police radar guns, weather Doppler radar, medical ultrasound and astronomy all use the Doppler effect. In meteorology, Doppler radar measures wind speed by detecting frequency shifts from moving raindrops." }
+    ],
+    formula: {
+      name: "Doppler effect for sound (source moving)",
+      expression: "f' = f \\left( \\frac{v}{v \\pm v_s} \\right)",
+      variables: [
+        { symbol: "f'", meaning: "observed frequency (Hz)" },
+        { symbol: "f", meaning: "source frequency (Hz)" },
+        { symbol: "v", meaning: "speed of sound in medium (m/s)" },
+        { symbol: "v_s", meaning: "speed of source (m/s)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A siren emits sound at 500 Hz. An observer is standing by the road as an ambulance passes at 30 m/s. What frequency does the observer hear (a) before the ambulance passes and (b) after it passes? (Speed of sound = 340 m/s.)",
+        solution: "(a) Approaching: f' = f × v/(v − v_s) = 500 × 340/(340 − 30) = 500 × 340/310 ≈ 548 Hz. (b) Receding: f' = 500 × 340/(340 + 30) = 500 × 340/370 ≈ 459 Hz.",
+        answer: "Approaching ≈ 548 Hz; receding ≈ 459 Hz."
+      }
+    ],
+    commonMistakes: [
+      "Thinking the speed of the wave changes; only observed frequency changes.",
+      "Using the wrong sign in the denominator (minus for approaching, plus for receding).",
+      "Confusing redshift (receding, lower frequency) with blueshift (approaching, higher frequency).",
+      "Applying the moving-observer formula when the source is moving."
+    ],
+    examPoints: [
+      "Approaching source → higher observed frequency; receding source → lower observed frequency.",
+      "The Doppler effect applies to all waves, including light.",
+      "Redshift of distant galaxies supports the expanding universe.",
+      "Doppler radar is used in meteorology to measure wind and precipitation motion."
+    ],
+    qualitativeScenarios: [
+      {
+        scenario: "What happens to the observed pitch of a train whistle as the train passes a stationary observer?",
+        answer: "The pitch drops suddenly as the train passes.",
+        why: "Before passing, compressed waves raise frequency; after passing, stretched waves lower frequency."
+      }
+    ],
+    relatedTopics: ["phy-wave-properties", "phy-sound-waves", "meteo-remote-sensing"],
+    content: true,
+    buildsOn: ["phy-wave-properties", "phy-sound-waves"],
+    leadsTo: [],
+    usedIn: ["meteo-remote-sensing", "env-air-pollution"]
+  },
+
+// ============================= SECTION PHY-06: Optics =============================
+
+  {
+    id: "phy-reflection-refraction",
+    sectionId: "PHY-06",
+    order: 1,
+    title: "Reflection & Refraction",
+    definition: "Reflection is the bouncing back of light from a surface; refraction is the bending of light as it passes from one transparent medium into another because its speed changes.",
+    keyFacts: [
+      "Law of reflection: angle of incidence equals angle of reflection, measured from the normal.",
+      "Refraction occurs because light changes speed when it enters a different medium.",
+      "When light enters an optically denser medium it bends toward the normal; when entering a less dense medium it bends away.",
+      "Refractive index n = speed of light in vacuum / speed of light in the medium; n ≥ 1.",
+      "Snell's law: n₁ sin θ₁ = n₂ sin θ₂.",
+      "Total internal reflection occurs when light travels from a denser to a less dense medium and the angle of incidence exceeds the critical angle."
+    ],
+    explanationSections: [
+      { heading: "Reflection", body: "A smooth surface such as a mirror reflects parallel light rays in one direction, producing a clear image. A rough surface scatters light in many directions, causing diffuse reflection, which is why paper looks white from any angle." },
+      { heading: "Refraction", body: "Light slows down in glass or water. When a ray enters such a medium at an angle, the part that enters first slows down first, bending the ray toward the normal. Upon exiting, the reverse happens and the ray bends away from the normal." },
+      { heading: "Total internal reflection", body: "When light inside glass strikes the glass-air boundary at a large angle, it can be completely reflected back into the glass. This principle is used in optical fibres, prismatic binoculars and diamonds, where the critical angle is small because of the high refractive index." },
+      { heading: "Real-world examples", body: "A swimming pool looks shallower than it is because light from the bottom bends away from the normal as it leaves the water. A straw in a glass of water appears bent at the surface. Mirages and atmospheric refraction make the Sun visible slightly after it has geometrically set." }
+    ],
+    formula: [
+      {
+        name: "Snell's law",
+        expression: "n_1 \\sin \\theta_1 = n_2 \\sin \\theta_2",
+        variables: [
+          { symbol: "n_1, n_2", meaning: "refractive indices of the two media" },
+          { symbol: "\\theta_1", meaning: "angle of incidence (to normal)" },
+          { symbol: "\\theta_2", meaning: "angle of refraction (to normal)" }
+        ]
+      },
+      {
+        name: "Critical angle",
+        expression: "\\sin \\theta_c = \\frac{n_2}{n_1} \\quad (n_1 > n_2)",
+        variables: [
+          { symbol: "\\theta_c", meaning: "critical angle" },
+          { symbol: "n_1", meaning: "refractive index of denser medium" },
+          { symbol: "n_2", meaning: "refractive index of less dense medium" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "Light passes from air (n = 1.0) into glass (n = 1.5) at an angle of incidence of 30°. Calculate the angle of refraction.",
+        solution: "Using Snell's law: 1.0 × sin 30° = 1.5 × sin θ₂. sin 30° = 0.50, so sin θ₂ = 0.50/1.5 = 0.333. θ₂ = sin⁻¹(0.333) ≈ 19.5°.",
+        answer: "≈ 19.5°."
+      },
+      {
+        problem: "Calculate the critical angle for light going from glass (n = 1.5) to air (n = 1.0).",
+        solution: "sin θ_c = n_air/n_glass = 1.0/1.5 = 0.667. θ_c = sin⁻¹(0.667) ≈ 41.8°.",
+        answer: "≈ 42°."
+      }
+    ],
+    commonMistakes: [
+      "Measuring angles of incidence and refraction from the surface instead of the normal.",
+      "Forgetting that light bends toward the normal when entering a denser medium.",
+      "Confusing the critical angle formula (sin θ_c = n₂/n₁ with n₂ < n₁).",
+      "Thinking refraction changes the frequency of light; frequency stays constant, wavelength changes."
+    ],
+    examPoints: [
+      "Angles in reflection and refraction are always measured from the normal.",
+      "A higher refractive index means a lower speed of light in the medium.",
+      "Total internal reflection only happens when going from denser to less dense medium.",
+      "Optical fibres use total internal reflection to transmit light with little loss."
+    ],
+    relatedTopics: ["phy-wave-properties", "phy-lens-mirror-imaging", "phy-lenses-mirrors-em-spectrum"],
+    content: true,
+    buildsOn: ["phy-wave-properties", "math-4-1"],
+    leadsTo: ["phy-diffraction-interference", "phy-lens-mirror-imaging", "phy-lenses-mirrors-em-spectrum"],
+    usedIn: ["meteo-remote-sensing", "earth-k2"]
+  },
+
+  {
+    id: "phy-diffraction-interference",
+    sectionId: "PHY-06",
+    order: 2,
+    title: "Diffraction & Interference",
+    definition: "Diffraction is the spreading of waves when they pass through an aperture or around an obstacle. Interference occurs when two or more waves superpose to produce a resultant wave of greater or smaller amplitude.",
+    keyFacts: [
+      "Diffraction is most noticeable when the gap or obstacle size is comparable to the wavelength.",
+      "Constructive interference occurs when waves meet in phase; destructive interference when they meet out of phase by half a wavelength.",
+      "Young's double-slit experiment shows that light produces an interference pattern, demonstrating its wave nature.",
+      "Bright fringes occur when path difference = nλ; dark fringes when path difference = (n + ½)λ.",
+      "Thin-film interference produces colours in soap bubbles and oil slicks.",
+      "Diffraction limits the resolution of optical instruments."
+    ],
+    explanationSections: [
+      { heading: "Diffraction", body: "When waves pass through a narrow slit, they spread out. Sound bends around doorways because its wavelength is similar to the doorway width. Light has a very short wavelength, so it diffracts only through very narrow slits or around sharp edges." },
+      { heading: "Interference", body: "When two coherent waves meet, their displacements add. If crest meets crest, the result is a larger wave (constructive interference). If crest meets trough, they cancel (destructive interference). The pattern depends on the path difference between the waves." },
+      { heading: "Young's double slits", body: "A single light source illuminates two closely spaced slits. The slits act as coherent sources. On a distant screen, bright and dark fringes appear because the path difference to the screen varies with angle. This was crucial evidence for the wave theory of light." },
+      { heading: "Everyday examples", body: "CDs and DVDs show rainbow colours because the closely spaced tracks diffract light. Soap films show colours because light reflected from the front and back surfaces interferes." }
+    ],
+    formula: {
+      name: "Double-slit fringe spacing",
+      expression: "\\Delta y = \\frac{\\lambda D}{d}",
+      variables: [
+        { symbol: "\\Delta y", meaning: "fringe separation (m)" },
+        { symbol: "\\lambda", meaning: "wavelength of light (m)" },
+        { symbol: "D", meaning: "distance from slits to screen (m)" },
+        { symbol: "d", meaning: "slit separation (m)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "In a double-slit experiment, light of wavelength 600 nm passes through slits 0.20 mm apart. The screen is 1.5 m away. Calculate the separation of adjacent bright fringes.",
+        solution: "λ = 600 nm = 6.0 × 10⁻⁷ m; d = 0.20 mm = 2.0 × 10⁻⁴ m. Δy = λD/d = (6.0 × 10⁻⁷ × 1.5) / 2.0 × 10⁻⁴ = 4.5 × 10⁻³ m.",
+        answer: "4.5 mm."
+      }
+    ],
+    commonMistakes: [
+      "Confusing diffraction with refraction.",
+      "Forgetting that interference needs coherent sources (same frequency and constant phase difference).",
+      "Using wrong units for wavelength or slit separation in the double-slit formula.",
+      "Thinking destructive interference destroys energy; energy is redistributed, not lost."
+    ],
+    examPoints: [
+      "Diffraction and interference are wave properties; their observation supports the wave model of light.",
+      "Longer wavelengths diffract more than shorter wavelengths.",
+      "Bright fringes: path difference = nλ; dark fringes: path difference = (n + ½)λ.",
+      "Interference is used in thin-film coatings and anti-reflection lenses."
+    ],
+    relatedTopics: ["phy-wave-properties", "phy-reflection-refraction", "phy-lenses-mirrors-em-spectrum"],
+    content: true,
+    buildsOn: ["phy-wave-properties", "phy-reflection-refraction"],
+    leadsTo: [],
+    usedIn: ["meteo-remote-sensing"]
+  },
+
+  {
+    id: "phy-lenses-mirrors-em-spectrum",
+    sectionId: "PHY-06",
+    order: 3,
+    title: "Lenses, Mirrors & the Electromagnetic Spectrum",
+    definition: "Lenses refract light to converge or diverge rays; mirrors reflect light. The electromagnetic spectrum arranges all electromagnetic waves by wavelength and frequency, from radio waves to gamma rays.",
+    keyFacts: [
+      "A convex (converging) lens is thicker in the middle and brings parallel rays to a real focus.",
+      "A concave (diverging) lens is thinner in the middle and makes parallel rays appear to diverge from a virtual focus.",
+      "A concave mirror converges light; a convex mirror diverges light.",
+      "The focal length f is the distance from the lens or mirror to the principal focus.",
+      "The electromagnetic spectrum, in order of increasing frequency: radio, microwave, infrared, visible, ultraviolet, X-ray, gamma ray.",
+      "All electromagnetic waves travel at about 3 × 10⁸ m/s in a vacuum."
+    ],
+    explanationSections: [
+      { heading: "Converging and diverging lenses", body: "A convex lens bends incoming rays toward the principal axis. Parallel rays from a distant object meet at the focal point on the opposite side. A concave lens bends rays away from the axis; the focal point is on the same side as the incoming light and is virtual." },
+      { heading: "Mirror shapes", body: "A concave mirror reflects parallel rays to a real focus, so it is used in telescopes and shaving mirrors. A convex mirror always produces a diminished, upright, virtual image, giving a wide field of view for car wing mirrors and shop security mirrors." },
+      { heading: "Electromagnetic spectrum", body: "All EM waves are transverse and consist of oscillating electric and magnetic fields. Frequency and wavelength are inversely related: c = fλ. Higher frequency means higher photon energy and greater potential to ionise matter." },
+      { heading: "Practical uses", body: "Radio and microwaves carry communications. Infrared is felt as heat. Visible light enables sight. Ultraviolet causes tanning and vitamin D production but can damage skin. X-rays image bones. Gamma rays are used in radiotherapy and arise in nuclear reactions." }
+    ],
+    formula: {
+      name: "Lens and mirror power",
+      expression: "P = \\frac{1}{f}",
+      variables: [
+        { symbol: "P", meaning: "power (dioptres, D)" },
+        { symbol: "f", meaning: "focal length (m)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A convex lens has a focal length of 20 cm. What is its power in dioptres?",
+        solution: "f = 20 cm = 0.20 m. P = 1/f = 1/0.20 = 5.0 D.",
+        answer: "5.0 D."
+      }
+    ],
+    commonMistakes: [
+      "Confusing convex and concave lenses; convex converges, concave diverges.",
+      "Thinking all mirrors invert images; plane mirrors produce laterally inverted virtual images.",
+      "Confusing the order of the electromagnetic spectrum.",
+      "Believing EM waves of different frequencies travel at different speeds in a vacuum."
+    ],
+    examPoints: [
+      "Convex lenses and concave mirrors converge light; concave lenses and convex mirrors diverge light.",
+      "Power in dioptres is the reciprocal of focal length in metres.",
+      "Visible light ranges roughly from 400 nm (violet) to 700 nm (red).",
+      "Gamma rays have the highest frequency and energy; radio waves the lowest."
+    ],
+    comparisonTable: {
+      headers: ["Optical element", "Effect on parallel rays", "Typical image type", "Common use"],
+      rows: [
+        ["Convex lens", "Converge", "Real or virtual depending on object distance", "Camera, magnifying glass"],
+        ["Concave lens", "Diverge", "Virtual, upright, diminished", "Correcting short sight"],
+        ["Concave mirror", "Converge", "Real or virtual", "Telescope, shaving mirror"],
+        ["Convex mirror", "Diverge", "Virtual, upright, diminished", "Car wing mirror"]
+      ]
+    },
+    relatedTopics: ["phy-reflection-refraction", "phy-lens-mirror-imaging", "phy-wave-properties"],
+    content: true,
+    buildsOn: ["phy-reflection-refraction"],
+    leadsTo: ["phy-lens-mirror-imaging"],
+    usedIn: ["meteo-remote-sensing"]
+  },
+
+  {
+    id: "phy-lens-mirror-imaging",
+    sectionId: "PHY-06",
+    order: 4,
+    title: "Lens & Mirror Image Formation",
+    definition: "The position, size and nature of an image formed by a lens or mirror can be found using ray diagrams or the mirror/lens formula. Images may be real or virtual, upright or inverted, magnified or diminished.",
+    keyFacts: [
+      "Lens formula: 1/f = 1/v + 1/u, where u is object distance, v is image distance and f is focal length.",
+      "Mirror formula: 1/f = 1/v + 1/u (same sign convention as lenses in most FPSC courses).",
+      "Magnification m = v/u = image height / object height.",
+      "Real images can be projected on a screen; virtual images cannot.",
+      "For a converging lens, objects beyond 2F produce real, inverted, diminished images between F and 2F.",
+      "For a diverging lens or convex mirror, the image is always virtual, upright and diminished."
+    ],
+    explanationSections: [
+      { heading: "Sign convention", body: "Use the real-is-positive convention commonly taught in FSc/O-Level: real objects and real images have positive distances on the incident-light side and image side respectively. Virtual images have negative image distances. A positive focal length is converging; a negative focal length is diverging. Always state your convention." },
+      { heading: "Ray diagrams", body: "For a converging lens, draw a ray parallel to the axis refracting through the far focus, and a ray through the optical centre continuing straight. Their intersection locates the image. For mirrors, a ray parallel to the axis reflects through (or appears to come from) the focus." },
+      { heading: "Real vs virtual images", body: "A real image forms where light rays actually converge; it can be projected on a screen. A virtual image forms where rays only appear to diverge from; it is seen by looking through the lens or into the mirror." },
+      { heading: "Image characteristics by position", body: "For a converging lens: object at infinity → image at focus; beyond 2F → real, inverted, diminished; at 2F → real, inverted, same size; between F and 2F → real, inverted, magnified; inside F → virtual, upright, magnified." }
+    ],
+    formula: [
+      {
+        name: "Mirror / lens formula",
+        expression: "\\frac{1}{f} = \\frac{1}{v} + \\frac{1}{u}",
+        variables: [
+          { symbol: "f", meaning: "focal length (m)" },
+          { symbol: "v", meaning: "image distance (m)" },
+          { symbol: "u", meaning: "object distance (m)" }
+        ]
+      },
+      {
+        name: "Linear magnification",
+        expression: "m = \\frac{v}{u} = \\frac{h_i}{h_o}",
+        variables: [
+          { symbol: "m", meaning: "magnification" },
+          { symbol: "h_i", meaning: "image height (m)" },
+          { symbol: "h_o", meaning: "object height (m)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "An object is placed 30 cm from a converging lens of focal length 10 cm. Find the image position and magnification.",
+        solution: "1/f = 1/v + 1/u → 1/10 = 1/v + 1/30. 1/v = 1/10 − 1/30 = (3 − 1)/30 = 2/30 = 1/15. So v = 15 cm. Magnification m = v/u = 15/30 = 0.5.",
+        answer: "Image is 15 cm from the lens on the opposite side; magnification = 0.5 (real, inverted, diminished)."
+      },
+      {
+        problem: "A concave mirror has focal length 12 cm. An object is placed 8 cm from the mirror. Describe the image.",
+        solution: "1/f = 1/v + 1/u → 1/12 = 1/v + 1/8. 1/v = 1/12 − 1/8 = (2 − 3)/24 = −1/24. So v = −24 cm. The negative image distance means the image is virtual. Magnification m = v/u = (−24)/8 = −3 (upright and magnified by factor 3).",
+        answer: "Virtual, upright, magnified, 24 cm behind the mirror."
+      }
+    ],
+    commonMistakes: [
+      "Mixing up object distance u and image distance v.",
+      "Using the wrong sign for virtual image distances or diverging focal lengths.",
+      "Thinking magnification greater than 1 always means the image is larger; check sign for orientation.",
+      "Forgetting that a negative magnification means an inverted image."
+    ],
+    examPoints: [
+      "Real images are inverted; virtual images are upright for single lenses/mirrors.",
+      "A converging lens produces a virtual image only when the object is inside the focal length.",
+      "Magnification m = image height / object height; |m| > 1 means enlarged.",
+      "Sign conventions vary between textbooks; be consistent."
+    ],
+    comparisonTable: {
+      headers: ["Property", "Real image", "Virtual image"],
+      rows: [
+        ["Formed where", "Light rays actually converge", "Rays only appear to diverge"],
+        ["Can be projected?", "Yes", "No"],
+        ["Orientation (single lens/mirror)", "Inverted", "Upright"],
+        ["Example", "Image on a cinema screen", "Image in a plane mirror"]
+      ]
+    },
+    misconceptionRemediation: [
+      {
+        misconception: "Virtual images are not 'real' so they cannot be seen.",
+        whyStudentsThinkIt: "The word 'virtual' suggests imaginary.",
+        correctModel: "Virtual images are seen clearly by the eye or camera because the eye traces diverging rays back to a point. They simply cannot be projected on a screen placed at that point."
+      }
+    ],
+    relatedTopics: ["phy-reflection-refraction", "phy-lenses-mirrors-em-spectrum"],
+    content: true,
+    buildsOn: ["phy-reflection-refraction", "phy-lenses-mirrors-em-spectrum"],
+    leadsTo: [],
+    usedIn: ["meteo-remote-sensing"]
+  },
+
+// ============================= SECTION PHY-07: Electricity =============================
+
+  {
+    id: "phy-electric-charge-coulomb",
+    sectionId: "PHY-07",
+    order: 1,
+    title: "Electric Charge & Coulomb's Law",
+    definition: "Electric charge is a fundamental property of matter that causes it to experience a force in an electric field. Coulomb's law gives the force between two point charges.",
+    keyFacts: [
+      "There are two types of charge: positive and negative; like charges repel, opposite charges attract.",
+      "Charge is conserved and quantised; the elementary charge e ≈ 1.6 × 10⁻¹⁹ C.",
+      "SI unit of charge is the coulomb (C).",
+      "Coulomb's law: F = k q₁ q₂ / r², where k ≈ 9.0 × 10⁹ N·m²/C².",
+      "The force is inversely proportional to the square of the distance between the charges.",
+      "An electrostatic conductor allows charge to move; an insulator does not."
+    ],
+    explanationSections: [
+      { heading: "Charge transfer", body: "Objects become charged by gaining or losing electrons. Rubbing a rod with cloth can transfer electrons, leaving one object positively charged and the other negatively charged. Charge is always conserved in these processes." },
+      { heading: "Coulomb's law", body: "The electrostatic force between two point charges is proportional to the product of the charges and inversely proportional to the square of their separation. The force is attractive for opposite charges and repulsive for like charges. It acts along the line joining the charges." },
+      { heading: "Conductors and insulators", body: "In conductors such as metals, electrons move freely, so charge spreads out. In insulators, electrons are tightly bound to atoms. Charging by induction uses a conductor's mobile charges without direct contact." },
+      { heading: "Inverse-square pattern", body: "Doubling the distance between two charges reduces the force to one-quarter. Halving the distance quadruples the force. This inverse-square dependence is shared by gravity and electric force, but electric force can be attractive or repulsive." }
+    ],
+    formula: {
+      name: "Coulomb's law",
+      expression: "F = \\frac{k q_1 q_2}{r^2}",
+      variables: [
+        { symbol: "F", meaning: "electrostatic force (N)" },
+        { symbol: "k", meaning: "Coulomb constant, ≈ 9.0 × 10⁹ N·m²/C²" },
+        { symbol: "q_1, q_2", meaning: "charges (C)" },
+        { symbol: "r", meaning: "separation between charges (m)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "Two point charges of +2.0 µC and +3.0 µC are 0.30 m apart in air. Calculate the force between them.",
+        solution: "q₁ = 2.0 × 10⁻⁶ C, q₂ = 3.0 × 10⁻⁶ C. F = (9.0 × 10⁹ × 2.0 × 10⁻⁶ × 3.0 × 10⁻⁶) / (0.30)² = 0.054 / 0.09 = 0.60 N.",
+        answer: "0.60 N repulsive."
+      },
+      {
+        problem: "The force between two charges is 8.0 N when they are 0.20 m apart. What is the force when the distance is doubled?",
+        solution: "Force is inversely proportional to distance squared. Doubling the distance reduces force by 2² = 4. New force = 8.0 N / 4 = 2.0 N.",
+        answer: "2.0 N."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting that like charges repel and opposite charges attract.",
+      "Using distance in cm instead of metres in Coulomb's law.",
+      "Confusing microcoulombs (µC) with coulombs.",
+      "Treating Coulomb's law as one-dimensional when charges can attract or repel along a line."
+    ],
+    examPoints: [
+      "Elementary charge e ≈ 1.6 × 10⁻¹⁹ C; an electron has charge −e, a proton +e.",
+      "Coulomb's force follows an inverse-square law.",
+      "Charge is conserved; it cannot be created or destroyed, only transferred.",
+      "Insulators can be charged by friction; conductors can be charged by induction."
+    ],
+    limitCases: [
+      { condition: "r → ∞", result: "F → 0", physicalMeaning: "Very distant charges exert negligible force on each other." },
+      { condition: "r → 0", result: "F becomes very large", physicalMeaning: "Coulomb's law applies to point charges; at very small separations other effects matter." }
+    ],
+    relatedTopics: ["phy-electric-field-potential", "phy-current-voltage-resistance", "phy-universal-gravitation"],
+    content: true,
+    buildsOn: ["phy-units-measurement", "math-3-1"],
+    leadsTo: ["phy-electric-field-potential"],
+    usedIn: ["phy-current-voltage-resistance"]
+  },
+
+  {
+    id: "phy-electric-field-potential",
+    sectionId: "PHY-07",
+    order: 2,
+    title: "Electric Field & Electric Potential",
+    definition: "An electric field is a region where a charged particle experiences a force. Electric potential is the potential energy per unit charge at a point in the field.",
+    keyFacts: [
+      "Electric field strength E = F/q; SI unit N/C or V/m.",
+      "Electric field lines point away from positive charges and toward negative charges.",
+      "The density of field lines indicates field strength.",
+      "Electric potential V = potential energy per unit charge; SI unit volt (V), where 1 V = 1 J/C.",
+      "For a point charge, field strength E = kQ/r² and potential V = kQ/r.",
+      "A positive charge moves from high potential to low potential if free."
+    ],
+    explanationSections: [
+      { heading: "Field as a force per unit charge", body: "Electric field strength tells you the force that would act on a small positive test charge placed at a point. A negative charge experiences a force in the opposite direction to the field." },
+      { heading: "Field lines", body: "Field lines show the direction of force on a positive charge. They never cross, because a charge cannot experience two force directions at one point. Closer lines mean a stronger field." },
+      { heading: "Electric potential", body: "Potential measures how much potential energy each coulomb of charge has. A 9 V battery gives each coulomb 9 J of energy. Positive charges tend to move from high potential to low potential; negative charges move the other way." },
+      { heading: "Uniform fields", body: "Between two parallel charged plates, the electric field is approximately uniform. In a uniform field E, the potential difference between plates separated by distance d is V = E d." }
+    ],
+    formula: [
+      {
+        name: "Electric field strength",
+        expression: "E = \\frac{F}{q} = \\frac{k Q}{r^2}",
+        variables: [
+          { symbol: "E", meaning: "electric field strength (N/C or V/m)" },
+          { symbol: "F", meaning: "force on charge (N)" },
+          { symbol: "q", meaning: "test charge (C)" },
+          { symbol: "Q", meaning: "source charge (C)" },
+          { symbol: "r", meaning: "distance from source charge (m)" }
+        ]
+      },
+      {
+        name: "Uniform field between parallel plates",
+        expression: "E = \\frac{V}{d}",
+        variables: [
+          { symbol: "E", meaning: "electric field strength (V/m)" },
+          { symbol: "V", meaning: "potential difference between plates (V)" },
+          { symbol: "d", meaning: "plate separation (m)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A charge of +4.0 µC experiences a force of 0.20 N in an electric field. What is the field strength?",
+        solution: "E = F/q = 0.20 N / 4.0 × 10⁻⁶ C = 5.0 × 10⁴ N/C.",
+        answer: "5.0 × 10⁴ N/C (or V/m)."
+      },
+      {
+        problem: "Two parallel plates are 2.0 cm apart and have a potential difference of 400 V. Calculate the electric field between them.",
+        solution: "d = 2.0 cm = 0.020 m. E = V/d = 400 V / 0.020 m = 2.0 × 10⁴ V/m.",
+        answer: "2.0 × 10⁴ V/m."
+      }
+    ],
+    commonMistakes: [
+      "Confusing electric field with electric potential; field is force per charge, potential is energy per charge.",
+      "Forgetting field direction is defined for a positive test charge.",
+      "Using total distance instead of perpendicular plate separation in E = V/d.",
+      "Thinking electric potential is a vector; it is a scalar."
+    ],
+    examPoints: [
+      "1 V = 1 J/C; field can be measured in N/C or V/m.",
+      "Field lines are closer together where the field is stronger.",
+      "In a uniform field, E = V/d.",
+      "A charge released in an electric field gains kinetic energy equal to qV."
+    ],
+    relatedTopics: ["phy-electric-charge-coulomb", "phy-current-voltage-resistance", "phy-capacitance"],
+    content: true,
+    buildsOn: ["phy-electric-charge-coulomb"],
+    leadsTo: ["phy-current-voltage-resistance", "phy-capacitance"],
+    usedIn: ["phy-circuits-power-energy"]
+  },
+
+  {
+    id: "phy-current-voltage-resistance",
+    sectionId: "PHY-07",
+    order: 3,
+    title: "Current, Voltage, Resistance & Ohm's Law",
+    definition: "Electric current is the rate of flow of charge. Voltage is the energy transferred per unit charge. Resistance measures how much a component opposes current. Ohm's law states that current is proportional to voltage for a conductor at constant temperature.",
+    keyFacts: [
+      "Current I = Q/t; SI unit ampere (A), where 1 A = 1 C/s.",
+      "Voltage (potential difference) V = W/Q; SI unit volt (V), where 1 V = 1 J/C.",
+      "Resistance R = V/I; SI unit ohm (Ω).",
+      "Ohm's law: V = I R, for a metallic conductor at constant temperature.",
+      "Current is the same at all points in a series circuit.",
+      "The sum of potential differences across components in series equals the supply voltage."
+    ],
+    explanationSections: [
+      { heading: "Current as flow of charge", body: "In a metal, current is the drift of free electrons. The direction of conventional current is from positive to negative, opposite to the electron flow. In a circuit, charge is already present everywhere; the battery provides the energy that drives it around." },
+      { heading: "Voltage as energy per charge", body: "A 12 V battery gives 12 joules of energy to each coulomb of charge that passes through it. Voltage is not a force or a current; it is the driving energy for charge." },
+      { heading: "Resistance", body: "Resistance arises from collisions between charge carriers and the lattice of the conductor. Thinner, longer and hotter wires have higher resistance. Materials with constant resistance obey Ohm's law and give a straight-line I-V graph through the origin." },
+      { heading: "Series and parallel at a glance", body: "In series, current is the same everywhere and voltages add. In parallel, voltage is the same across each branch and currents add. These rules are the starting point for almost all circuit calculations." }
+    ],
+    formula: [
+      {
+        name: "Current, voltage and resistance",
+        expression: "I = \\frac{Q}{t} \\quad V = \\frac{W}{Q} \\quad R = \\frac{V}{I}",
+        variables: [
+          { symbol: "I", meaning: "current (A)" },
+          { symbol: "Q", meaning: "charge (C)" },
+          { symbol: "t", meaning: "time (s)" },
+          { symbol: "V", meaning: "potential difference (V)" },
+          { symbol: "W", meaning: "energy (J)" },
+          { symbol: "R", meaning: "resistance (Ω)" }
+        ]
+      },
+      {
+        name: "Ohm's law",
+        expression: "V = I R",
+        variables: [
+          { symbol: "V", meaning: "voltage (V)" },
+          { symbol: "I", meaning: "current (A)" },
+          { symbol: "R", meaning: "resistance (Ω)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A current of 0.50 A flows through a 12 Ω resistor. Find the potential difference across it.",
+        solution: "V = I R = 0.50 A × 12 Ω = 6.0 V.",
+        answer: "6.0 V."
+      },
+      {
+        problem: "How much charge passes through a component in 2.0 minutes when the current is 0.30 A?",
+        solution: "t = 2.0 min = 120 s. Q = I t = 0.30 A × 120 s = 36 C.",
+        answer: "36 C."
+      }
+    ],
+    commonMistakes: [
+      "Confusing current with voltage; current is flow, voltage is the push.",
+      "Assuming all conductors obey Ohm's law; filament lamps and diodes do not.",
+      "Using total resistance in parallel as the sum of resistances; it is not.",
+      "Forgetting that current is the same in series but splits in parallel."
+    ],
+    examPoints: [
+      "1 A = 1 C/s; 1 V = 1 J/C; 1 Ω = 1 V/A.",
+      "Ohm's law applies only when temperature (and hence resistance) is constant.",
+      "Conventional current flows from positive terminal to negative terminal.",
+      "Electrons flow in the opposite direction to conventional current."
+    ],
+    methodChooser: {
+      title: "Circuit quantity to find",
+      intro: "Start by identifying whether the circuit is series, parallel or mixed, then choose the appropriate rule.",
+      steps: [
+        { condition: "Unknown is current through a resistor", recommendation: "Use I = V/R", notes: "Use the voltage across that resistor" },
+        { condition: "Unknown is voltage across a resistor", recommendation: "Use V = IR", notes: "Use the current through that resistor" },
+        { condition: "Resistors in series", recommendation: "R_total = R₁ + R₂ + ...", notes: "Current is the same through all" },
+        { condition: "Resistors in parallel", recommendation: "1/R_total = 1/R₁ + 1/R₂ + ...", notes: "Voltage is the same across all" }
+      ]
+    },
+    relatedTopics: ["phy-electric-charge-coulomb", "phy-electric-field-potential", "phy-circuits-power-energy"],
+    content: true,
+    buildsOn: ["phy-electric-field-potential", "phy-units-measurement"],
+    leadsTo: ["phy-circuits-power-energy"],
+    usedIn: ["phy-circuits-power-energy", "phy-transformers-ac"]
+  },
+
+  {
+    id: "phy-circuits-power-energy",
+    sectionId: "PHY-07",
+    order: 4,
+    title: "Circuits, Electrical Power & Energy",
+    definition: "An electric circuit provides a closed path for current. Electrical power is the rate at which a device transfers energy. Energy transferred equals power multiplied by time.",
+    keyFacts: [
+      "In a series circuit, current is the same everywhere and total resistance is the sum of individual resistances.",
+      "In a parallel circuit, voltage is the same across each branch and total current is the sum of branch currents.",
+      "Power in a resistor can be written as P = IV, P = I²R or P = V²/R.",
+      "Electrical energy E = P t; domestic energy is often measured in kilowatt-hours (kWh).",
+      "1 kWh = 3.6 × 10⁶ J.",
+      "Fuses and circuit breakers protect circuits by breaking the current when it exceeds a safe value."
+    ],
+    explanationSections: [
+      { heading: "Series circuits", body: "Components are connected end-to-end, so there is only one path for current. If one component fails, the circuit is broken. The total resistance increases as more resistors are added, reducing the current from a given supply." },
+      { heading: "Parallel circuits", body: "Components are connected across common points, so each branch has the full supply voltage. Adding more branches increases total current but does not affect the voltage across existing branches. Household circuits are wired in parallel so each appliance receives the same voltage." },
+      { heading: "Power forms", body: "P = IV is the general definition. Using Ohm's law, it becomes I²R or V²/R for resistors. Use whichever form matches the known quantities. For example, if current and resistance are known, P = I²R avoids calculating voltage first." },
+      { heading: "Energy and cost", body: "Electricity meters measure energy in kilowatt-hours. To find cost, multiply energy in kWh by the price per kWh. Remember that power in kW is power in W divided by 1 000." }
+    ],
+    formula: [
+      {
+        name: "Series and parallel resistance",
+        expression: "R_{series} = R_1 + R_2 + \\dots \\quad \\frac{1}{R_{parallel}} = \\frac{1}{R_1} + \\frac{1}{R_2} + \\dots",
+        variables: [
+          { symbol: "R_{series}", meaning: "total resistance in series (Ω)" },
+          { symbol: "R_{parallel}", meaning: "total resistance in parallel (Ω)" },
+          { symbol: "R_1, R_2", meaning: "individual resistances (Ω)" }
+        ]
+      },
+      {
+        name: "Electrical power and energy",
+        expression: "P = I V = I^2 R = \\frac{V^2}{R} \\quad E = P t",
+        variables: [
+          { symbol: "P", meaning: "power (W)" },
+          { symbol: "E", meaning: "energy (J or kWh)" },
+          { symbol: "t", meaning: "time (s or h)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A 60 W lamp is connected to 240 V. Calculate (a) the current it draws and (b) its resistance.",
+        solution: "(a) I = P/V = 60 W / 240 V = 0.25 A. (b) R = V/I = 240 V / 0.25 A = 960 Ω (or R = V²/P = 240²/60 = 960 Ω).",
+        answer: "0.25 A; 960 Ω."
+      },
+      {
+        problem: "Two resistors of 4.0 Ω and 6.0 Ω are connected in parallel across a 12 V battery. Find the total current drawn from the battery.",
+        solution: "1/R_total = 1/4.0 + 1/6.0 = (3 + 2)/12 = 5/12, so R_total = 12/5 = 2.4 Ω. Total current I = V/R_total = 12 V / 2.4 Ω = 5.0 A.",
+        answer: "5.0 A."
+      }
+    ],
+    commonMistakes: [
+      "Adding resistances in parallel instead of using reciprocals.",
+      "Using total voltage with one resistor's current in series without first finding that current.",
+      "Confusing power with energy; power is the rate of energy transfer.",
+      "Forgetting to convert watts to kilowatts when calculating kWh."
+    ],
+    examPoints: [
+      "Household appliances are connected in parallel to the mains.",
+      "Total resistance in parallel is always less than the smallest individual resistance.",
+      "1 kWh = 3.6 MJ.",
+      "A fuse rating should be slightly higher than the normal operating current."
+    ],
+    comparisonTable: {
+      headers: ["Feature", "Series circuit", "Parallel circuit"],
+      rows: [
+        ["Current", "Same everywhere", "Splits between branches"],
+        ["Voltage", "Shared between components", "Same across each branch"],
+        ["Total resistance", "R_total = R₁ + R₂ + ...", "1/R_total = 1/R₁ + 1/R₂ + ..."],
+        ["If one component fails", "Circuit breaks", "Other branches keep working"],
+        ["Domestic use?", "Rare", "Standard wiring"]
+      ]
+    },
+    methodChooser: {
+      title: "Which power formula to use",
+      intro: "Choose the form of P = IV that avoids unnecessary intermediate steps.",
+      steps: [
+        { condition: "Current and voltage known", recommendation: "P = IV", notes: "Most direct" },
+        { condition: "Current and resistance known", recommendation: "P = I²R", notes: "Avoids finding V" },
+        { condition: "Voltage and resistance known", recommendation: "P = V²/R", notes: "Avoids finding I" },
+        { condition: "Energy consumed over time", recommendation: "E = Pt", notes: "Use kW and hours for kWh" }
+      ]
+    },
+    relatedTopics: ["phy-current-voltage-resistance", "phy-power-efficiency", "phy-transformers-ac"],
+    content: true,
+    buildsOn: ["phy-current-voltage-resistance", "phy-work-energy", "phy-power-efficiency"],
+    leadsTo: ["phy-transformers-ac"],
+    usedIn: ["env-energy-sources"]
+  },
+
+  {
+    id: "phy-capacitance",
+    sectionId: "PHY-07",
+    order: 5,
+    title: "Capacitance & Capacitors",
+    definition: "A capacitor stores electric charge and energy in an electric field between two conductors separated by an insulator. Capacitance measures how much charge a capacitor stores per volt of potential difference.",
+    keyFacts: [
+      "Capacitance C = Q/V; SI unit is the farad (F), where 1 F = 1 C/V.",
+      "Common subunits: µF (10⁻⁶ F), nF (10⁻⁹ F), pF (10⁻¹² F).",
+      "Energy stored in a charged capacitor: E = ½ QV = ½ CV² = ½ Q²/C.",
+      "Capacitors block direct current but allow alternating current to pass in AC circuits.",
+      "In a charging/discharging RC circuit, the time constant τ = RC.",
+      "Capacitors are used in smoothing circuits, camera flashes and tuning circuits."
+    ],
+    explanationSections: [
+      { heading: "How a capacitor stores energy", body: "When connected to a battery, charge builds up on the capacitor plates. Positive charge accumulates on one plate and negative charge on the other, creating an electric field between them. Energy is stored in this field. Removing the battery leaves the charge in place until a path is provided." },
+      { heading: "Capacitance", body: "A capacitor with large capacitance stores more charge for the same voltage. Capacitance depends on plate area, plate separation and the material between the plates. Larger plates and smaller separation give larger capacitance." },
+      { heading: "Charging and discharging", body: "When a capacitor charges through a resistor, current is initially high and then falls as the capacitor voltage approaches the supply voltage. The product RC gives the time constant: after one time constant the capacitor has charged to about 63% of the supply voltage." },
+      { heading: "AC behaviour", body: "A capacitor continuously charges and discharges in an AC circuit, so current appears to flow. The opposition to AC is called capacitive reactance, which decreases as frequency increases." }
+    ],
+    formula: [
+      {
+        name: "Capacitance and stored energy",
+        expression: "C = \\frac{Q}{V} \\quad E = \\frac{1}{2} Q V = \\frac{1}{2} C V^2",
+        variables: [
+          { symbol: "C", meaning: "capacitance (F)" },
+          { symbol: "Q", meaning: "charge (C)" },
+          { symbol: "V", meaning: "potential difference (V)" },
+          { symbol: "E", meaning: "stored energy (J)" }
+        ]
+      },
+      {
+        name: "RC time constant",
+        expression: "\\tau = R C",
+        variables: [
+          { symbol: "\\tau", meaning: "time constant (s)" },
+          { symbol: "R", meaning: "resistance (Ω)" },
+          { symbol: "C", meaning: "capacitance (F)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A 100 µF capacitor is connected to a 12 V battery. How much charge is stored, and how much energy is stored?",
+        solution: "C = 100 µF = 1.0 × 10⁻⁴ F. Q = CV = 1.0 × 10⁻⁴ F × 12 V = 1.2 × 10⁻³ C. E = ½CV² = 0.5 × 1.0 × 10⁻⁴ × 12² = 7.2 × 10⁻³ J.",
+        answer: "Q = 1.2 mC; E = 7.2 mJ."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting that capacitors store energy, not charge permanently; they discharge through a resistor.",
+      "Using Q = CV without converting microfarads to farads.",
+      "Confusing capacitance with the charge stored; capacitance is charge per volt.",
+      "Thinking capacitors pass DC; they block steady DC after charging."
+    ],
+    examPoints: [
+      "1 farad is very large; practical capacitors are usually µF, nF or pF.",
+      "Energy stored in a capacitor is proportional to V², so doubling voltage quadruples stored energy.",
+      "Capacitors are used for energy storage, smoothing and timing circuits.",
+      "In an RC circuit, after τ seconds the capacitor is about 63% charged; after 5τ it is effectively fully charged."
+    ],
+    relatedTopics: ["phy-electric-field-potential", "phy-current-voltage-resistance"],
+    content: true,
+    buildsOn: ["phy-electric-field-potential"],
+    leadsTo: [],
+    usedIn: ["phy-circuits-power-energy"]
+  },
+
+// ============================= SECTION PHY-08: Magnetism =============================
+
+  {
+    id: "phy-magnetic-fields-force",
+    sectionId: "PHY-08",
+    order: 1,
+    title: "Magnetic Fields, Force & Electromagnets",
+    definition: "A magnetic field is a region where a moving charge or a magnetic material experiences a force. Magnetic field lines emerge from north poles and enter south poles. An electromagnet is a coil of wire carrying a current, which produces a magnetic field similar to a bar magnet.",
+    keyFacts: [
+      "Magnetic field lines go from north pole to south pole outside a magnet.",
+      "Like poles repel; unlike poles attract.",
+      "A current-carrying conductor produces a circular magnetic field around it.",
+      "The right-hand grip rule gives the field direction around a straight current-carrying wire.",
+      "A force acts on a current-carrying conductor placed perpendicular to a magnetic field: F = B I L.",
+      "An electromagnet's strength increases with current, number of turns and presence of a soft iron core."
+    ],
+    explanationSections: [
+      { heading: "Magnetic fields around magnets", body: "A bar magnet has a north pole and a south pole. Magnetic field lines leave the north pole, curve around outside the magnet and enter the south pole. The field is strongest where the lines are closest together, near the poles." },
+      { heading: "Magnetic field due to current", body: "An electric current creates a magnetic field. For a straight wire, the field lines are circles centred on the wire. For a coil or solenoid, the field inside is nearly uniform and similar to a bar magnet; the end where field lines emerge is the north pole." },
+      { heading: "Force on a current-carrying conductor", body: "When a wire carrying current is placed in a magnetic field, the wire experiences a force. The force is greatest when the wire is perpendicular to the field and zero when parallel. Fleming's left-hand rule gives the direction of the force: First finger = Field, seCond finger = Current, thuMb = Motion." },
+      { heading: "Electromagnets", body: "A coil of wire wound on a soft iron core becomes a strong magnet when current flows. Soft iron loses its magnetism quickly when the current stops, making electromagnets useful in relays, cranes, loudspeakers and MRI machines." }
+    ],
+    formula: {
+      name: "Force on a current-carrying conductor",
+      expression: "F = B I L \\sin \\theta",
+      variables: [
+        { symbol: "F", meaning: "force (N)" },
+        { symbol: "B", meaning: "magnetic flux density (T)" },
+        { symbol: "I", meaning: "current (A)" },
+        { symbol: "L", meaning: "length of conductor in field (m)" },
+        { symbol: "\\theta", meaning: "angle between conductor and field" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A 0.25 m wire carries a current of 3.0 A perpendicular to a uniform magnetic field of 0.40 T. Calculate the force on the wire.",
+        solution: "F = BIL = 0.40 T × 3.0 A × 0.25 m = 0.30 N.",
+        answer: "0.30 N."
+      }
+    ],
+    commonMistakes: [
+      "Confusing the right-hand grip rule (field around a wire) with Fleming's left-hand rule (force on a wire).",
+      "Forgetting that magnetic field lines form closed loops from north to south outside and south to north inside the magnet.",
+      "Using total wire length instead of the length actually in the magnetic field.",
+      "Thinking electromagnets retain strong magnetism after current is switched off; they use soft iron precisely because it does not."
+    ],
+    examPoints: [
+      "1 tesla (T) is the SI unit of magnetic flux density.",
+      "Fleming's left-hand rule: Field (first), Current (second), Motion (thumb).",
+      "A current-carrying coil behaves like a bar magnet; reversing current reverses polarity.",
+      "Electromagnets are stronger if the current is larger, there are more turns, or a soft iron core is used."
+    ],
+    relatedTopics: ["phy-current-voltage-resistance", "phy-electromagnetic-induction", "phy-transformers-ac"],
+    content: true,
+    buildsOn: ["phy-current-voltage-resistance", "phy-electric-charge-coulomb"],
+    leadsTo: ["phy-electromagnetic-induction"],
+    usedIn: ["phy-transformers-ac"]
+  },
+
+  {
+    id: "phy-electromagnetic-induction",
+    sectionId: "PHY-08",
+    order: 2,
+    title: "Electromagnetic Induction & EM Waves",
+    definition: "Electromagnetic induction is the production of an electromotive force (emf) across a conductor when it experiences a changing magnetic field. Electromagnetic waves are self-propagating waves of oscillating electric and magnetic fields.",
+    keyFacts: [
+      "An induced emf is produced whenever there is a change in magnetic flux linkage through a circuit.",
+      "Faraday's law: induced emf is proportional to the rate of change of magnetic flux linkage.",
+      "Lenz's law: the induced current flows in a direction that opposes the change producing it.",
+      "Moving a magnet into a coil induces an emf; moving it out induces an emf in the opposite direction.",
+      "A generator converts mechanical energy into electrical energy by electromagnetic induction.",
+      "Electromagnetic waves are transverse and travel at about 3 × 10⁸ m/s in a vacuum."
+    ],
+    explanationSections: [
+      { heading: "What causes induction", body: "To induce an emf, the magnetic field through a coil must change. This can happen by moving a magnet, moving the coil, changing the current in a nearby circuit or rotating a coil in a magnetic field. Stationary magnet and stationary coil produce no emf." },
+      { heading: "Faraday's and Lenz's laws", body: "Faraday's law tells us how much emf is induced: faster change means larger emf. Lenz's law tells us the direction: the induced current creates a magnetic field that opposes the motion or change. This opposition is a consequence of conservation of energy." },
+      { heading: "Generators and dynamos", body: "A coil rotating in a magnetic field has a continuously changing flux linkage, producing an alternating emf. This is the working principle of power-station generators and bicycle dynamos. Faster rotation or stronger fields give larger peak voltage." },
+      { heading: "Electromagnetic waves", body: "A changing electric field generates a changing magnetic field, and vice versa. The result is a self-sustaining wave that needs no medium. The spectrum ranges from low-frequency radio waves to high-frequency gamma rays; all travel at the speed of light in a vacuum." }
+    ],
+    formula: {
+      name: "Transformer emf equation",
+      expression: "\\frac{V_s}{V_p} = \\frac{N_s}{N_p}",
+      variables: [
+        { symbol: "V_s", meaning: "secondary voltage (V)" },
+        { symbol: "V_p", meaning: "primary voltage (V)" },
+        { symbol: "N_s", meaning: "number of turns on secondary coil" },
+        { symbol: "N_p", meaning: "number of turns on primary coil" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A magnet is moved into a coil of 200 turns, producing an average induced emf of 0.80 V. If the same magnet is moved in half the time, what is the new average emf?",
+        solution: "Induced emf is proportional to rate of change of flux. Halving the time doubles the rate, so the emf doubles: 2 × 0.80 V = 1.60 V.",
+        answer: "1.60 V."
+      }
+    ],
+    commonMistakes: [
+      "Thinking an emf is induced by a steady magnetic field; a changing field is required.",
+      "Forgetting Lenz's law direction; the induced effect opposes the change.",
+      "Confusing electromagnetic induction with the magnetic force on a current-carrying wire.",
+      "Believing electromagnetic waves need a medium; they travel through a vacuum."
+    ],
+    examPoints: [
+      "Faraday's law gives the size of induced emf; Lenz's law gives its direction.",
+      "Transformers work only with alternating current, not steady DC.",
+      "All electromagnetic waves travel at c ≈ 3.0 × 10⁸ m/s in a vacuum.",
+      "EM waves are transverse and consist of oscillating electric and magnetic fields."
+    ],
+    qualitativeScenarios: [
+      {
+        scenario: "What happens to the induced current when a magnet is pulled out of a coil more quickly?",
+        answer: "The induced current increases.",
+        why: "A faster change of magnetic flux linkage produces a larger induced emf, and therefore a larger current for a given circuit resistance."
+      }
+    ],
+    relatedTopics: ["phy-magnetic-fields-force", "phy-wave-properties", "phy-transformers-ac"],
+    content: true,
+    buildsOn: ["phy-magnetic-fields-force", "phy-wave-properties"],
+    leadsTo: ["phy-transformers-ac"],
+    usedIn: ["env-energy-sources"]
+  },
+
+  {
+    id: "phy-transformers-ac",
+    sectionId: "PHY-08",
+    order: 3,
+    title: "Transformers & AC Power",
+    definition: "A transformer changes an alternating voltage from one value to another using electromagnetic induction. It consists of primary and secondary coils wound on a soft iron core.",
+    keyFacts: [
+      "A step-up transformer increases voltage and decreases current; a step-down transformer decreases voltage and increases current.",
+      "For an ideal transformer: V_p/V_s = N_p/N_s = I_s/I_p.",
+      "Transformers work only with AC because they need a changing magnetic flux.",
+      "Efficiency is high but not 100% due to resistive heating, eddy currents and hysteresis losses.",
+      "High-voltage transmission reduces current and therefore reduces power loss in cables (P_loss = I²R).",
+      "National grids use step-up transformers before transmission and step-down transformers before distribution."
+    ],
+    explanationSections: [
+      { heading: "How a transformer works", body: "An alternating current in the primary coil produces a changing magnetic field in the iron core. This changing field links the secondary coil and induces an alternating emf. The ratio of secondary to primary voltage equals the ratio of turns." },
+      { heading: "Step-up and step-down", body: "If the secondary has more turns than the primary, the secondary voltage is higher (step-up). To conserve power, the secondary current is lower. Step-down transformers do the reverse and are used to convert high transmission voltage to safer household voltage." },
+      { heading: "Why AC is used", body: "A transformer needs a changing magnetic flux, so it requires alternating current. Direct current would produce a steady field and no induced emf in the secondary. This is why mains electricity is AC." },
+      { heading: "Power transmission", body: "Power loss in cables is I²R. By transmitting at high voltage, the current is reduced for the same power, cutting cable losses dramatically. Step-down transformers then reduce voltage at substations and local transformers." }
+    ],
+    formula: {
+      name: "Transformer equation",
+      expression: "\\frac{V_s}{V_p} = \\frac{N_s}{N_p} = \\frac{I_p}{I_s}",
+      variables: [
+        { symbol: "V_p, V_s", meaning: "primary and secondary voltages (V)" },
+        { symbol: "N_p, N_s", meaning: "primary and secondary turns" },
+        { symbol: "I_p, I_s", meaning: "primary and secondary currents (A)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A transformer has 100 primary turns and 2 000 secondary turns. The primary voltage is 240 V. Calculate the secondary voltage. If the primary current is 5.0 A and the transformer is 100% efficient, what is the secondary current?",
+        solution: "V_s = V_p × (N_s/N_p) = 240 V × (2 000/100) = 4 800 V. For an ideal transformer, V_p I_p = V_s I_s, so I_s = (240 V × 5.0 A) / 4 800 V = 0.25 A.",
+        answer: "Secondary voltage = 4 800 V; secondary current = 0.25 A."
+      }
+    ],
+    commonMistakes: [
+      "Trying to use a transformer with DC supply; transformers need AC.",
+      "Confusing step-up and step-down turn ratios.",
+      "Forgetting that ideal transformer power input equals power output.",
+      "Assuming transformers are 100% efficient in real problems unless told so."
+    ],
+    examPoints: [
+      "Step-up: N_s > N_p, V_s > V_p, I_s < I_p.",
+      "Step-down: N_s < N_p, V_s < V_p, I_s > I_p.",
+      "High-voltage transmission reduces I²R losses.",
+      "Real transformers have losses from resistance, eddy currents and core hysteresis."
+    ],
+    relatedTopics: ["phy-electromagnetic-induction", "phy-circuits-power-energy"],
+    content: true,
+    buildsOn: ["phy-electromagnetic-induction", "phy-circuits-power-energy"],
+    leadsTo: [],
+    usedIn: ["env-energy-sources"]
+  },
+
+// ============================= SECTION PHY-09: Modern Physics =============================
+
+  {
+    id: "phy-atomic-structure",
+    sectionId: "PHY-09",
+    order: 1,
+    title: "Atomic Structure & the Nucleus",
+    definition: "An atom consists of a small, dense, positively charged nucleus surrounded by electrons. The nucleus contains protons and neutrons; the number of protons defines the element.",
+    keyFacts: [
+      "Protons have charge +e and mass ≈ 1 u; neutrons are neutral and mass ≈ 1 u; electrons have charge −e and much smaller mass.",
+      "Atomic number Z = number of protons; mass number A = protons + neutrons.",
+      "Isotopes of an element have the same Z but different numbers of neutrons.",
+      "Electrons occupy energy levels or shells around the nucleus.",
+      "The Rutherford scattering experiment showed that the atom has a small, dense nucleus.",
+      "Bohr's model explained atomic spectra by quantised electron orbits."
+    ],
+    explanationSections: [
+      { heading: "Nuclear notation", body: "A nucleus is written as ᴬ_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton number). For example, ¹⁴_₆C has 6 protons and 8 neutrons." },
+      { heading: "Isotopes", body: "Isotopes have the same number of protons and therefore the same chemical properties, but different numbers of neutrons. Hydrogen-1, deuterium and tritium are isotopes of hydrogen. Some isotopes are stable; others are radioactive." },
+      { heading: "Rutherford's experiment", body: "Alpha particles fired at a thin gold foil were mostly undeflected, but a few bounced back. Rutherford concluded that the atom's mass and positive charge are concentrated in a tiny nucleus, with electrons orbiting at relatively large distances." },
+      { heading: "Energy levels", body: "Electrons in an atom can occupy only certain allowed energy levels. When an electron drops from a higher level to a lower one, a photon is emitted with energy equal to the difference between the levels. This produces line spectra." }
+    ],
+    commonMistakes: [
+      "Confusing atomic number with mass number.",
+      "Thinking the mass number counts electrons.",
+      "Confusing isotopes with ions; isotopes differ in neutron number, ions differ in electron number.",
+      "Believing Rutherford discovered the electron; he discovered the nucleus."
+    ],
+    examPoints: [
+      "Number of neutrons = A − Z.",
+      "The nucleus occupies a tiny fraction of the atom's volume but contains nearly all its mass.",
+      "Isotopes have identical chemical behaviour because chemistry depends on electrons, not neutrons.",
+      "Line spectra provide evidence for discrete electron energy levels."
+    ],
+    relatedTopics: ["phy-radioactivity-nuclear", "phy-half-life-decay", "phy-fission-chain-reaction"],
+    content: true,
+    buildsOn: ["phy-units-measurement", "math-3-4"],
+    leadsTo: ["phy-radioactivity-nuclear"],
+    usedIn: ["phy-half-life-decay", "phy-fission-chain-reaction"]
+  },
+
+  {
+    id: "phy-radioactivity-nuclear",
+    sectionId: "PHY-09",
+    order: 2,
+    title: "Radioactivity, Nuclear Fission & Fusion",
+    definition: "Radioactivity is the spontaneous decay of unstable nuclei, emitting radiation. Nuclear fission is the splitting of a heavy nucleus into smaller nuclei, releasing energy. Nuclear fusion is the joining of light nuclei to form a heavier nucleus, also releasing energy.",
+    keyFacts: [
+      "Alpha (α) radiation consists of helium nuclei (2 protons + 2 neutrons); it is least penetrating and most ionising.",
+      "Beta (β) radiation consists of fast electrons (or positrons); it is moderately penetrating and ionising.",
+      "Gamma (γ) radiation is high-energy electromagnetic radiation; it is most penetrating and least ionising.",
+      "Radioactive decay is random and spontaneous; it cannot be speeded up or slowed down by chemical or physical means.",
+      "In fission, a heavy nucleus such as uranium-235 splits when hit by a neutron, releasing more neutrons and energy.",
+      "In fusion, light nuclei such as hydrogen isotopes combine at very high temperature and pressure, as in the Sun."
+    ],
+    explanationSections: [
+      { heading: "Alpha, beta and gamma", body: "Alpha particles are relatively heavy and slow, so they ionise matter strongly but are stopped by paper or a few centimetres of air. Beta particles are lighter and faster, stopped by a few millimetres of aluminium. Gamma rays are uncharged electromagnetic waves and require thick lead or concrete to reduce their intensity significantly." },
+      { heading: "Nuclear equations", body: "In nuclear equations, both mass number A and atomic number Z must balance. In alpha decay, A decreases by 4 and Z decreases by 2. In beta-minus decay, A stays the same and Z increases by 1 because a neutron becomes a proton and an electron." },
+      { heading: "Fission chain reaction", body: "When uranium-235 absorbs a neutron, it splits into two smaller nuclei plus two or three neutrons. These neutrons can cause further fissions, producing a chain reaction. Control rods in a reactor absorb excess neutrons to keep the reaction steady." },
+      { heading: "Fusion", body: "Fusion releases more energy per kilogram of fuel than fission and produces less radioactive waste, but it requires extremely high temperatures and pressures to overcome electrostatic repulsion between nuclei. Controlled fusion is still a major research goal." }
+    ],
+    formula: {
+      name: "Mass-energy equivalence",
+      expression: "E = \\Delta m c^2",
+      variables: [
+        { symbol: "E", meaning: "energy released (J)" },
+        { symbol: "\\Delta m", meaning: "mass defect (kg)" },
+        { symbol: "c", meaning: "speed of light in vacuum (m/s)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "In a fission reaction, 0.0010 kg of matter is converted into energy. Calculate the energy released.",
+        solution: "E = Δm c² = 0.0010 kg × (3.0 × 10⁸ m/s)² = 0.0010 × 9.0 × 10¹⁶ = 9.0 × 10¹³ J.",
+        answer: "9.0 × 10¹³ J."
+      }
+    ],
+    commonMistakes: [
+      "Confusing alpha particles with helium atoms; alpha particles are helium nuclei (He²⁺).",
+      "Forgetting to balance both mass number and atomic number in nuclear equations.",
+      "Thinking chemical treatment can change the rate of radioactive decay.",
+      "Confusing fission (splitting heavy nuclei) with fusion (joining light nuclei)."
+    ],
+    examPoints: [
+      "Penetration: α < β < γ; ionising power: α > β > γ.",
+      "In β⁻ decay, a neutron → proton + electron + antineutrino; Z increases by 1, A unchanged.",
+      "Nuclear reactions release energy because the total mass of products is slightly less than reactants (mass defect).",
+      "Control rods regulate fission by absorbing neutrons."
+    ],
+    comparisonTable: {
+      headers: ["Radiation", "Nature", "Charge", "Penetration", "Ionisation"],
+      rows: [
+        ["Alpha (α)", "Helium nucleus", "+2e", "Stopped by paper", "Strong"],
+        ["Beta (β)", "Fast electron", "−e", "Stopped by a few mm Al", "Moderate"],
+        ["Gamma (γ)", "EM wave", "0", "Reduced by thick lead", "Weak"]
+      ]
+    },
+    relatedTopics: ["phy-atomic-structure", "phy-half-life-decay", "phy-fission-chain-reaction"],
+    content: true,
+    buildsOn: ["phy-atomic-structure", "math-3-1"],
+    leadsTo: ["phy-half-life-decay", "phy-fission-chain-reaction"],
+    usedIn: ["earth-c2"]
+  },
+
+  {
+    id: "phy-half-life-decay",
+    sectionId: "PHY-09",
+    order: 3,
+    title: "Half-Life, Decay Constant & Radioactive Dating",
+    definition: "The half-life of a radioactive isotope is the time taken for half of the radioactive nuclei in a sample to decay. The decay constant λ is the probability of decay per unit time and is related to half-life by t½ = ln 2/λ.",
+    keyFacts: [
+      "Half-life is constant for a given isotope and is unaffected by temperature, pressure or chemical state.",
+      "After n half-lives, the fraction remaining is (1/2)ⁿ.",
+      "Activity A = λN, where N is the number of undecayed nuclei.",
+      "Carbon-14 dating uses the known half-life of ¹⁴C (about 5 730 years) to estimate the age of organic material.",
+      "Radioactive dating of rocks uses long-lived isotopes such as uranium-238.",
+      "The exponential decay curve never reaches zero; it approaches it asymptotically."
+    ],
+    explanationSections: [
+      { heading: "Meaning of half-life", body: "Half-life is a statistical property of a large number of nuclei. We cannot predict when an individual nucleus will decay, but we can say that after one half-life about half of a large sample remains undecayed. After two half-lives, one-quarter remains, and so on." },
+      { heading: "Decay constant", body: "The decay constant λ tells us the fraction of nuclei expected to decay per unit time. A large λ means a short half-life and rapid decay. The relationship t½ = 0.693/λ is useful for converting between the two quantities." },
+      { heading: "Radioactive dating", body: "Living things absorb carbon-14 while alive. After death, the ¹⁴C decays with a half-life of 5 730 years. By comparing the remaining ¹⁴C activity to that in living material, archaeologists estimate age. For much older rocks, uranium-lead dating is used." },
+      { heading: "Exponential decay", body: "Radioactive decay follows N = N₀ e^−λt. The curve falls rapidly at first and then more slowly. This is why small samples can still be hazardous long after their initial activity has fallen." }
+    ],
+    formula: [
+      {
+        name: "Half-life relation",
+        expression: "t_{1/2} = \\frac{\\ln 2}{\\lambda} \\approx \\frac{0.693}{\\lambda}",
+        variables: [
+          { symbol: "t_{1/2}", meaning: "half-life (s)" },
+          { symbol: "\\lambda", meaning: "decay constant (s⁻¹)" }
+        ]
+      },
+      {
+        name: "Remaining activity / nuclei",
+        expression: "N = N_0 \\left(\\frac{1}{2}\\right)^{t/t_{1/2}} \\quad A = A_0 \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}",
+        variables: [
+          { symbol: "N", meaning: "number of nuclei remaining" },
+          { symbol: "N_0", meaning: "initial number of nuclei" },
+          { symbol: "A", meaning: "activity remaining" },
+          { symbol: "A_0", meaning: "initial activity" },
+          { symbol: "t", meaning: "elapsed time" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A radioactive sample has a half-life of 8 days. What fraction remains after 24 days?",
+        solution: "Number of half-lives = 24/8 = 3. Fraction remaining = (1/2)³ = 1/8.",
+        answer: "1/8 of the original sample."
+      },
+      {
+        problem: "The activity of a sample falls from 800 Bq to 100 Bq. How many half-lives have passed?",
+        solution: "800 → 400 → 200 → 100, which is 3 halvings. So 3 half-lives have passed.",
+        answer: "3 half-lives."
+      }
+    ],
+    commonMistakes: [
+      "Thinking half-life means half the time for all nuclei to decay.",
+      "Confusing the number of half-lives with the fraction remaining.",
+      "Forgetting that radioactive decay is exponential, not linear.",
+      "Believing half-life can be changed by heating or chemical reaction."
+    ],
+    examPoints: [
+      "After n half-lives, remaining fraction = (1/2)ⁿ.",
+      "Half-life is a property of the isotope, not the sample size.",
+      "Carbon-14 half-life ≈ 5 730 years; used for dating organic remains up to about 50 000 years.",
+      "Activity is measured in becquerels (Bq); 1 Bq = 1 decay per second."
+    ],
+    misconceptionRemediation: [
+      {
+        misconception: "After two half-lives, all the radioactive material has decayed.",
+        whyStudentsThinkIt: "'Half' suggests something is gone, so two halves might mean all gone.",
+        correctModel: "After one half-life half remains; after two half-lives half of that half, or one-quarter, remains. Decay continues exponentially."
+      }
+    ],
+    relatedTopics: ["phy-atomic-structure", "phy-radioactivity-nuclear"],
+    content: true,
+    buildsOn: ["phy-radioactivity-nuclear", "math-3-1", "math-3-3"],
+    leadsTo: [],
+    usedIn: ["earth-c2"]
+  },
+
+  {
+    id: "phy-fission-chain-reaction",
+    sectionId: "PHY-09",
+    order: 4,
+    title: "Nuclear Fission, Chain Reactions & Nuclear Power",
+    definition: "Nuclear fission is the splitting of a heavy nucleus into two or more smaller nuclei, accompanied by the release of energy and neutrons. A chain reaction occurs when the released neutrons cause further fissions.",
+    keyFacts: [
+      "Uranium-235 and plutonium-239 are common fissile fuels.",
+      "A neutron-induced fission releases about 200 MeV of energy per fission.",
+      "A controlled chain reaction occurs in a nuclear reactor; an uncontrolled chain reaction occurs in a nuclear bomb.",
+      "Moderators such as graphite or heavy water slow neutrons to increase the probability of fission.",
+      "Control rods absorb neutrons to regulate the reaction rate.",
+      "Nuclear waste remains radioactive and must be stored safely for long periods."
+    ],
+    explanationSections: [
+      { heading: "Energy from fission", body: "The total mass of the fission products and released neutrons is slightly less than the mass of the original nucleus plus neutron. This mass difference is converted to energy via E = mc², mostly as kinetic energy of the fragments, which becomes heat." },
+      { heading: "Chain reaction", body: "One fission releases two or three neutrons. If at least one neutron on average causes another fission, the reaction is self-sustaining. In a bomb, the reaction runs away; in a reactor, control rods keep exactly one neutron per fission causing another fission." },
+      { heading: "Reactor components", body: "Fuel rods contain enriched uranium. A moderator slows fast neutrons so they are more likely to cause fission. Coolant removes heat to generate steam and drive turbines. A containment structure prevents radiation release." },
+      { heading: "Pros and cons", body: "Nuclear power produces large amounts of energy without CO₂ emissions during operation, but it produces radioactive waste, carries accident risk and has high construction costs. FPSC questions often test safety, waste and chain-reaction concepts rather than detailed engineering." }
+    ],
+    formula: {
+      name: "Energy from mass defect",
+      expression: "E = \\Delta m c^2",
+      variables: [
+        { symbol: "E", meaning: "energy released (J)" },
+        { symbol: "\\Delta m", meaning: "mass defect (kg)" },
+        { symbol: "c", meaning: "speed of light (m/s)" }
+      ]
+    },
+    workedExample: [
+      {
+        problem: "A nuclear reactor produces energy from fission reactions, each releasing 200 MeV. If 1 MeV = 1.6 × 10⁻¹³ J, how many fissions per second are needed to produce 1 000 MW of thermal power?",
+        solution: "Energy per fission = 200 × 1.6 × 10⁻¹³ J = 3.2 × 10⁻¹¹ J. Power = 1 000 MW = 1.0 × 10⁹ J/s. Number of fissions per second = 1.0 × 10⁹ / 3.2 × 10⁻¹¹ ≈ 3.1 × 10¹⁹.",
+        answer: "≈ 3 × 10¹⁹ fissions per second."
+      }
+    ],
+    commonMistakes: [
+      "Confusing fission with fusion.",
+      "Thinking the moderator speeds up neutrons; it slows them.",
+      "Believing control rods speed up the reaction; they absorb neutrons and slow it.",
+      "Forgetting that the mass-energy relation applies to the small mass defect, not the whole nucleus."
+    ],
+    examPoints: [
+      "Fission releases energy because the binding energy per nucleon increases for medium-mass products.",
+      "Control rods regulate reaction rate by absorbing neutrons.",
+      "Moderators slow neutrons to thermal speeds for efficient U-235 fission.",
+      "Nuclear power plants use heat from fission to produce steam and drive turbines."
+    ],
+    relatedTopics: ["phy-atomic-structure", "phy-radioactivity-nuclear"],
+    content: true,
+    buildsOn: ["phy-radioactivity-nuclear", "phy-atomic-structure"],
+    leadsTo: [],
+    usedIn: ["env-energy-sources"]
+  },
+
+// ============================= SECTION PHY-10: Gravity =============================
+
+  {
+    id: "phy-universal-gravitation",
+    sectionId: "PHY-10",
+    order: 1,
+    title: "Newton's Law of Universal Gravitation",
+    definition: "Every particle of matter in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres.",
+    keyFacts: [
+      "Universal gravitation: F = G m₁ m₂ / r², where G ≈ 6.67 × 10⁻¹¹ N·m²/kg².",
+      "The force is always attractive and acts along the line joining the centres of the two masses.",
+      "Gravitational field strength g at a point is the force per unit mass: g = GM/r².",
+      "Weight W = m g is the gravitational force on a mass near a planet or moon.",
+      "The acceleration due to gravity on Earth's surface is approximately 9.8 m/s².",
+      "Satellites orbit because their horizontal speed is large enough that they continuously fall toward Earth but miss it."
+    ],
+    explanationSections: [
+      { heading: "Inverse-square law", body: "The gravitational force between two masses weakens rapidly with distance. If the distance between their centres doubles, the force becomes one-quarter. If the distance triples, the force becomes one-ninth. This is why astronauts in low orbit still feel most of Earth's gravity, while distant spacecraft feel very little." },
+      { heading: "Gravitational field strength", body: "The value of g at a planet's surface depends on the planet's mass and radius. More massive planets have stronger g; larger planets (for the same mass) have weaker surface g. This is why Jupiter's surface gravity is much greater than Mercury's." },
+      { heading: "Weight on other bodies", body: "Your mass is the same everywhere, but your weight changes because g changes. On the Moon, g ≈ 1.6 N/kg, so a 60 kg person weighs about 96 N instead of 588 N on Earth." },
+      { heading: "Satellite motion", body: "A satellite in a stable orbit is in free fall. Gravity provides the centripetal force needed for circular motion. For a given orbital radius, there is one specific speed that produces a circular orbit. Higher orbits have lower orbital speeds and longer periods." }
+    ],
+    formula: [
+      {
+        name: "Newton's law of gravitation",
+        expression: "F = \\frac{G m_1 m_2}{r^2}",
+        variables: [
+          { symbol: "F", meaning: "gravitational force (N)" },
+          { symbol: "G", meaning: "gravitational constant (N·m²/kg²)" },
+          { symbol: "m_1, m_2", meaning: "masses (kg)" },
+          { symbol: "r", meaning: "distance between centres (m)" }
+        ]
+      },
+      {
+        name: "Gravitational field strength",
+        expression: "g = \\frac{G M}{r^2}",
+        variables: [
+          { symbol: "g", meaning: "gravitational field strength (N/kg)" },
+          { symbol: "G", meaning: "gravitational constant" },
+          { symbol: "M", meaning: "mass of planet or body (kg)" },
+          { symbol: "r", meaning: "distance from centre (m)" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "Calculate the gravitational force between two 1.0 kg masses placed 0.50 m apart.",
+        solution: "F = G m₁ m₂ / r² = 6.67 × 10⁻¹¹ × 1.0 × 1.0 / (0.50)² = 6.67 × 10⁻¹¹ / 0.25 = 2.67 × 10⁻¹⁰ N.",
+        answer: "2.7 × 10⁻¹⁰ N."
+      },
+      {
+        problem: "The gravitational field strength at the surface of a planet of mass 6.0 × 10²⁴ kg and radius 6.4 × 10⁶ m is approximately what value?",
+        solution: "g = GM/r² = (6.67 × 10⁻¹¹ × 6.0 × 10²⁴) / (6.4 × 10⁶)² = 4.0 × 10¹⁴ / 4.096 × 10¹³ ≈ 9.77 N/kg.",
+        answer: "≈ 9.8 N/kg."
+      }
+    ],
+    commonMistakes: [
+      "Using surface-to-surface distance instead of centre-to-centre distance.",
+      "Confusing mass with weight.",
+      "Forgetting that G is very small, so ordinary objects attract each other negligibly.",
+      "Thinking orbiting astronauts experience zero gravity; they are in free fall, not free of gravity."
+    ],
+    examPoints: [
+      "G ≈ 6.67 × 10⁻¹¹ N·m²/kg²; it is a universal constant.",
+      "Gravity is an inverse-square force.",
+      "g = GM/r²; at a planet's surface r is the planet's radius.",
+      "Weight varies with location; mass does not."
+    ],
+    limitCases: [
+      { condition: "r → ∞", result: "F → 0", physicalMeaning: "Gravitational force becomes negligible at very large distances." },
+      { condition: "One mass is doubled", result: "F doubles", physicalMeaning: "Force is directly proportional to each mass." },
+      { condition: "r doubles", result: "F becomes one-quarter", physicalMeaning: "Inverse-square dependence." }
+    ],
+    relatedTopics: ["phy-gravity-weight-friction", "phy-kinematics"],
+    content: true,
+    buildsOn: ["phy-gravity-weight-friction", "math-3-1"],
+    leadsTo: [],
+    usedIn: ["earth-a5"]
+  },
+
+// ============================= SECTION PHY-11: Measurement & Vectors =============================
+
+  {
+    id: "phy-units-measurement",
+    sectionId: "PHY-11",
+    order: 1,
+    title: "SI Units, Prefixes & Dimensional Analysis",
+    definition: "The International System of Units (SI) provides standard units for physical quantities. Prefixes such as kilo-, milli- and micro- denote multiples or fractions of units. Dimensional analysis checks that equations are consistent by comparing units.",
+    keyFacts: [
+      "The seven SI base units include metre (m), kilogram (kg), second (s), ampere (A), kelvin (K), mole (mol) and candela (cd).",
+      "Derived units include newton (N = kg·m/s²), joule (J = N·m) and watt (W = J/s).",
+      "Common prefixes: kilo (k) = 10³, centi (c) = 10⁻², milli (m) = 10⁻³, micro (µ) = 10⁻⁶, nano (n) = 10⁻⁹.",
+      "Dimensional analysis can verify formulas and convert units.",
+      "A quantity with units can never be added to a quantity with different units.",
+      "When solving problems, convert all quantities to base or consistent derived units before substituting."
+    ],
+    explanationSections: [
+      { heading: "Base and derived units", body: "Base units are defined independently. Derived units are combinations of base units. For example, speed is m/s, force is kg·m/s² and pressure is kg/(m·s²). Knowing these combinations helps check equations." },
+      { heading: "Using prefixes", body: "A milligram is 10⁻³ g and a kilometre is 10³ m. Be careful with squared or cubed units: 1 cm² = (10⁻² m)² = 10⁻⁴ m², and 1 cm³ = 10⁻⁶ m³. These conversions are a frequent source of error." },
+      { heading: "Dimensional analysis", body: "If a formula claims F = m v, check units: left side is kg·m/s², right side is kg·m/s. They do not match, so the formula is wrong. Dimensional analysis does not prove a formula is right, but it can prove it wrong." },
+      { heading: "Significant figures", body: "Final answers should be given to a sensible number of significant figures, usually matching the least precise given value. In competitive exams, choosing the correct option often depends on rounding carefully." }
+    ],
+    workedExample: [
+      {
+        problem: "Show that the units of kinetic energy, ½mv², are equivalent to joules.",
+        solution: "[m] = kg, [v] = m/s, so [mv²] = kg × (m/s)² = kg·m²/s². A joule is N·m = (kg·m/s²) × m = kg·m²/s². The units match.",
+        answer: "Units are consistent: kg·m²/s² = J."
+      },
+      {
+        problem: "Convert 5.0 g/cm³ to kg/m³.",
+        solution: "1 g = 10⁻³ kg and 1 cm³ = 10⁻⁶ m³. So 5.0 g/cm³ = 5.0 × 10⁻³ kg / 10⁻⁶ m³ = 5.0 × 10³ kg/m³.",
+        answer: "5 000 kg/m³."
+      }
+    ],
+    commonMistakes: [
+      "Forgetting to convert prefixes before substituting into formulas.",
+      "Squaring or cubing prefix conversions incorrectly.",
+      "Adding quantities with different units.",
+      "Giving answers with too many significant figures."
+    ],
+    examPoints: [
+      "Always write units in final answers.",
+      "The SI unit of pressure is the pascal (Pa = N/m²).",
+      "1 litre = 1 000 cm³ = 10⁻³ m³.",
+      "Dimensional analysis is a quick way to eliminate wrong formulas in MCQs."
+    ],
+    relatedTopics: ["phy-scalars-vectors", "phy-kinematics", "phy-density"],
+    content: true,
+    buildsOn: ["math-2-2", "math-1-6", "math-3-4"],
+    leadsTo: ["phy-scalars-vectors", "phy-kinematics", "phy-pressure-fluids"],
+    usedIn: ["phy-temperature-heat", "phy-atmospheric-pressure-physics", "meteo-hydrostatic-equation", "meteo-radiation-laws", "meteo-pressure-instruments"]
+  },
+
+  {
+    id: "phy-scalars-vectors",
+    sectionId: "PHY-11",
+    order: 2,
+    title: "Scalars vs Vectors: Magnitude and Direction",
+    definition: "Scalars are quantities that have only magnitude. Vectors have both magnitude and direction and obey the rules of vector addition.",
+    keyFacts: [
+      "Scalars: distance, speed, mass, time, temperature, energy, power, pressure, density.",
+      "Vectors: displacement, velocity, acceleration, force, momentum, weight, electric field, magnetic field.",
+      "A vector is represented by an arrow whose length shows magnitude and whose direction shows the vector's direction.",
+      "Two vectors are equal if they have the same magnitude and direction, regardless of where they are drawn.",
+      "The negative of a vector has the same magnitude but opposite direction.",
+      "Adding a vector to its negative gives the zero vector."
+    ],
+    explanationSections: [
+      { heading: "Why direction matters", body: "A displacement of 5 km north is different from 5 km east, even though both have magnitude 5 km. A force of 10 N upward has a different effect from 10 N downward. Direction is part of the physical meaning of a vector." },
+      { heading: "Representing vectors", body: "A vector arrow points in the direction of the quantity. The arrow's length is drawn to scale to represent magnitude. In equations, vectors may be written in bold (F) or with an arrow (F⃗)." },
+      { heading: "Adding and subtracting", body: "Vectors are added by placing them tip-to-tail. The resultant runs from the tail of the first to the tip of the last. Subtracting a vector is the same as adding its negative. These operations are essential for finding net force, resultant velocity and total displacement." },
+      { heading: "Common scalar/vector pairs", body: "Distance (scalar) and displacement (vector); speed (scalar) and velocity (vector); mass (scalar) and weight (vector). Recognising the pair prevents sign and direction errors." }
+    ],
+    commonMistakes: [
+      "Calling a vector negative because its magnitude is small; negative means opposite direction.",
+      "Trying to add vectors as ordinary numbers without considering direction.",
+      "Confusing speed (scalar) with velocity (vector).",
+      "Treating weight as a scalar; it is a force and therefore a vector."
+    ],
+    examPoints: [
+      "Always check whether a quantity needs a direction before answering.",
+      "Resultant displacement can be zero even when distance travelled is large.",
+      "Vectors are added geometrically, not algebraically unless components are used.",
+      "The zero vector has zero magnitude and no defined direction."
+    ],
+    comparisonTable: {
+      headers: ["Quantity", "Scalar or vector?", "Notes"],
+      rows: [
+        ["Distance", "Scalar", "Path length"],
+        ["Displacement", "Vector", "Net position change"],
+        ["Speed", "Scalar", "Distance/time"],
+        ["Velocity", "Vector", "Displacement/time"],
+        ["Mass", "Scalar", "Amount of matter"],
+        ["Weight", "Vector", "Gravitational force"],
+        ["Force", "Vector", "Push or pull"],
+        ["Energy", "Scalar", "Capacity to do work"]
+      ]
+    },
+    relatedTopics: ["phy-units-measurement", "phy-vector-operations", "phy-kinematics"],
+    content: true,
+    buildsOn: ["math-7-1", "phy-units-measurement"],
+    leadsTo: ["phy-vector-operations", "phy-kinematics"],
+    usedIn: ["phy-vector-operations", "phy-vector-applications", "phy-newtons-laws", "meteo-forces-governing-wind", "meteo-coriolis-effect"]
+  },
+
+  {
+    id: "phy-vector-operations",
+    sectionId: "PHY-11",
+    order: 3,
+    title: "Vector Operations: Addition, Subtraction & Components",
+    definition: "Vector addition combines two or more vectors into a single resultant vector. Vectors can be resolved into perpendicular components, usually horizontal and vertical, which simplifies calculations.",
+    keyFacts: [
+      "The resultant of two vectors can be found by the parallelogram method or the tip-to-tail method.",
+      "For perpendicular vectors, the magnitude of the resultant is √(a² + b²) and the direction is tan⁻¹(b/a).",
+      "A vector can be resolved into components: A_x = A cos θ and A_y = A sin θ, where θ is the angle with the x-axis.",
+      "To add vectors analytically, add their corresponding components.",
+      "The component of a vector along a direction is found using cos θ for the adjacent component.",
+      "Resolving is essential for problems involving inclined planes, projectiles and forces at angles."
+    ],
+    explanationSections: [
+      { heading: "Tip-to-tail addition", body: "To add vectors A and B, place the tail of B at the tip of A. The resultant R runs from the tail of A to the tip of B. This works for any number of vectors and is the basis of graphical vector addition." },
+      { heading: "Parallelogram rule", body: "Draw the two vectors from the same point and complete the parallelogram. The diagonal from the common starting point is the resultant. This is equivalent to the tip-to-tail method." },
+      { heading: "Resolving into components", body: "A vector at an angle can be split into perpendicular parts. If a force F acts at angle θ above the horizontal, its horizontal component is F cos θ and its vertical component is F sin θ. Components are scalars with signs." },
+      { heading: "Analytical addition", body: "Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = √(R_x² + R_y²) and θ = tan⁻¹(R_y/R_x). This method is precise and avoids scale-drawing errors." }
+    ],
+    formula: [
+      {
+        name: "Components and resultant",
+        expression: "A_x = A \\cos \\theta \\quad A_y = A \\sin \\theta \\quad R = \\sqrt{R_x^2 + R_y^2} \\quad \\theta = \\tan^{-1}\\left(\\frac{R_y}{R_x}\\right)",
+        variables: [
+          { symbol: "A_x, A_y", meaning: "x and y components of vector A" },
+          { symbol: "A", meaning: "magnitude of vector A" },
+          { symbol: "\\theta", meaning: "angle with x-axis" },
+          { symbol: "R", meaning: "resultant magnitude" },
+          { symbol: "R_x, R_y", meaning: "sum of x and y components" }
+        ]
+      }
+    ],
+    workedExample: [
+      {
+        problem: "A force of 50 N acts at 37° above the horizontal. Find its horizontal and vertical components.",
+        solution: "F_x = 50 cos 37° ≈ 50 × 0.80 = 40 N. F_y = 50 sin 37° ≈ 50 × 0.60 = 30 N.",
+        answer: "Horizontal component = 40 N; vertical component = 30 N."
+      },
+      {
+        problem: "A displacement of 3.0 m east is followed by a displacement of 4.0 m north. Find the magnitude and direction of the resultant displacement.",
+        solution: "R = √(3.0² + 4.0²) = 5.0 m. θ = tan⁻¹(4.0/3.0) ≈ 53° north of east.",
+        answer: "5.0 m at 53° north of east."
+      }
+    ],
+    commonMistakes: [
+      "Using sin instead of cos for the adjacent component.",
+      "Forgetting to square and sum components before taking the square root.",
+      "Using the wrong angle in component calculations.",
+      "Adding magnitudes directly when vectors are not parallel."
+    ],
+    examPoints: [
+      "Always draw a diagram before resolving vectors.",
+      "For a vector at angle θ to the x-axis, x-component = A cos θ and y-component = A sin θ.",
+      "The resultant of two perpendicular vectors is the hypotenuse of a right triangle.",
+      "Vector subtraction A − B is equivalent to A + (−B)."
+    ],
+    relatedTopics: ["phy-scalars-vectors", "phy-vector-applications", "phy-newtons-laws"],
+    content: true,
+    buildsOn: ["phy-scalars-vectors", "math-5-1", "math-5-2"],
+    leadsTo: ["phy-vector-applications", "phy-kinematics", "phy-newtons-laws"],
+    usedIn: ["phy-vector-applications", "phy-momentum-impulse", "meteo-forces-governing-wind"]
+  },
+
+  {
+    id: "phy-vector-applications",
+    sectionId: "PHY-11",
+    order: 4,
+    title: "Vector Applications: Force, Velocity, Wind & Wave Components",
+    definition: "Vector components are used to analyse forces, velocities and other directed quantities in two or three dimensions. This is essential for problems involving inclined planes, projectiles, wind components and wave forces.",
+    keyFacts: [
+      "On an inclined plane, weight has components mg sin θ parallel to the plane and mg cos θ perpendicular to the plane.",
+      "Projectile motion is analysed separately in horizontal (constant velocity) and vertical (constant acceleration g) components.",
+      "Wind velocity can be resolved into components along chosen axes.",
+      "The resultant of several forces gives the net force that determines acceleration via F = ma.",
+      "Vector diagrams are powerful tools for solving equilibrium problems.",
+      "Lami's theorem can be used for three forces in equilibrium."
+    ],
+    explanationSections: [
+      { heading: "Inclined planes", body: "A block on a slope is pulled downward by a component of its weight along the slope: mg sin θ. The normal force from the slope balances the perpendicular component mg cos θ. Friction, if present, acts up the slope opposing motion." },
+      { heading: "Projectile motion", body: "The horizontal motion of a projectile has constant velocity (ignoring air resistance), while the vertical motion has constant downward acceleration g. The two motions are independent. The time of flight depends only on vertical motion." },
+      { heading: "Wind and current problems", body: "A plane's velocity relative to the ground is the vector sum of its velocity relative to the air and the wind velocity. Similarly, a boat's velocity relative to the shore is the vector sum of its velocity in still water and the current velocity." },
+      { heading: "Equilibrium", body: "When the vector sum of all forces on an object is zero, the object is in equilibrium. Draw the force polygon; if it closes, the forces balance. This is used for suspended signs, towed objects and structural problems." }
+    ],
+    workedExample: [
+      {
+        problem: "A 10 kg block rests on a smooth slope inclined at 30° to the horizontal. Find the component of its weight (a) down the slope and (b) perpendicular to the slope.",
+        solution: "Weight W = mg = 10 × 9.8 = 98 N. Component down slope = W sin 30° = 98 × 0.50 = 49 N. Component perpendicular = W cos 30° = 98 × 0.866 ≈ 84.9 N.",
+        answer: "49 N down the slope; 84.9 N perpendicular into the slope."
+      },
+      {
+        problem: "An aircraft can fly at 200 m/s in still air. It heads due north but a wind of 50 m/s blows from west to east. Find the aircraft's resultant velocity.",
+        solution: "The wind adds an eastward component of 50 m/s. Resultant speed = √(200² + 50²) = √(40 000 + 2 500) = √42 500 ≈ 206 m/s. Direction θ = tan⁻¹(50/200) ≈ 14° east of north.",
+        answer: "≈ 206 m/s at 14° east of north."
+      }
+    ],
+    commonMistakes: [
+      "Using the wrong trig ratio for inclined-plane components.",
+      "Treating horizontal and vertical projectile motions as connected by time but forgetting they share the same time of flight.",
+      "Forgetting to add wind/current as a vector, not a scalar.",
+      "Drawing the normal force perpendicular to the surface but then using mg for it."
+    ],
+    examPoints: [
+      "On a slope: parallel component = mg sin θ; perpendicular component = mg cos θ.",
+      "Projectile range is maximum at 45° for a given launch speed (ignoring air resistance).",
+      "Resultant velocity is found by vector addition of all velocity contributions.",
+      "For equilibrium, the vector sum of forces and the vector sum of torques must both be zero."
+    ],
+    relatedTopics: ["phy-vector-operations", "phy-newtons-laws", "phy-kinematics"],
+    content: true,
+    buildsOn: ["phy-vector-operations", "phy-newtons-laws"],
+    leadsTo: ["meteo-forces-governing-wind"],
+    usedIn: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-global-circulation"]
+  }
+]

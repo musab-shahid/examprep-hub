@@ -57,16 +57,41 @@ export interface ExplanationSection {
 }
 
 
-/** Decision aid: when this situation holds, use this approach/equation. */
+/** Decision aid step (simple form). */
 export interface MethodChooserStep {
-  when: string;
-  use: string;
+  when?: string;
+  use?: string;
+  condition?: string;
+  recommendation?: string;
+  notes?: string;
+}
+
+/** Full method-chooser block with title and steps. */
+export interface MethodChooser {
+  title?: string;
+  intro?: string;
+  steps: MethodChooserStep[];
 }
 
 /** Limiting / special cases that clarify a law or formula. */
 export interface LimitCase {
   condition: string;
   result: string;
+  physicalMeaning?: string;
+}
+
+/** Named misconception with correction. */
+export interface MisconceptionRemediation {
+  misconception: string;
+  whyStudentsThinkIt: string;
+  correctModel: string;
+}
+
+/** Qualitative what-if scenario. */
+export interface QualitativeScenario {
+  scenario: string;
+  answer: string;
+  why: string;
 }
 
 export interface WorkedExample {
@@ -89,9 +114,11 @@ export interface Topic {
   relatedTopics?: string[];
   workedExample?: WorkedExample | WorkedExample[];
   /** Equation / method picker for quantitative topics */
-  methodChooser?: MethodChooserStep[];
+  methodChooser?: MethodChooser | MethodChooserStep[];
   /** Special cases (a=0, open circuit, …) */
   limitCases?: LimitCase[];
+  misconceptionRemediation?: MisconceptionRemediation[];
+  qualitativeScenarios?: QualitativeScenario[];
   commonMistakes?: string[];
   priority?: string;
   comparisonTableEras?: ComparisonTable;

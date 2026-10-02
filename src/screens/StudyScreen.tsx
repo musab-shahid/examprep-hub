@@ -476,34 +476,77 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <ul className="space-y-2">{topic.commonMistakes.map((mistake, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="text-rose-500 font-bold shrink-0">✗</span><MathText text={mistake} /></li>)}</ul>
           </Card>
         )}
-        {topic.methodChooser && topic.methodChooser.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Which method / equation?</h3>
-            <ul className="space-y-2">
-              {topic.methodChooser.map((step, i) => (
-                <li key={i} className="text-sm text-slate-800 leading-relaxed">
-                  <span className="font-medium text-sky-800">If </span>
-                  <MathText text={step.when} />
-                  <span className="font-medium text-sky-800"> → </span>
-                  <MathText text={step.use} />
-                </li>
-              ))}
-            </ul>
-          </Card>
-        )}
+        {topic.methodChooser && (() => {
+          const chooser = topic.methodChooser;
+          const steps = Array.isArray(chooser) ? chooser : chooser.steps;
+          const title = Array.isArray(chooser) ? 'Which method / equation?' : (chooser.title ?? 'Which method / equation?');
+          const intro = Array.isArray(chooser) ? undefined : chooser.intro;
+          if (!steps?.length) return null;
+          return (
+            <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+              <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{title}</h3>
+              {intro && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={intro} /></p>}
+              <ul className="space-y-2">
+                {steps.map((step, i) => {
+                  const when = step.when ?? step.condition ?? '';
+                  const use = step.use ?? step.recommendation ?? '';
+                  return (
+                    <li key={i} className="text-sm text-slate-800 leading-relaxed">
+                      <span className="font-medium text-sky-800">If </span>
+                      <MathText text={when} />
+                      <span className="font-medium text-sky-800"> → </span>
+                      <MathText text={use} />
+                      {step.notes && <span className="block text-slate-500 text-xs mt-0.5"><MathText text={step.notes} /></span>}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Card>
+          );
+        })()}
         {topic.limitCases && topic.limitCases.length > 0 && (
           <Card className="p-5">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Limit cases</h3>
             <ul className="space-y-2">
               {topic.limitCases.map((lc, i) => (
-                <li key={i} className="flex gap-2 text-sm text-slate-800 leading-relaxed">
-                  <span className="text-slate-400 shrink-0">•</span>
-                  <span><span className="font-medium"><MathText text={lc.condition} /></span>
+                <li key={i} className="text-sm text-slate-800 leading-relaxed">
+                  <span className="font-medium"><MathText text={lc.condition} /></span>
                   <span className="text-slate-500"> → </span>
-                  <MathText text={lc.result} /></span>
+                  <MathText text={lc.result} />
+                  {lc.physicalMeaning && (
+                    <span className="block text-slate-500 text-xs mt-0.5"><MathText text={lc.physicalMeaning} /></span>
+                  )}
                 </li>
               ))}
             </ul>
+          </Card>
+        )}
+        {topic.misconceptionRemediation && topic.misconceptionRemediation.length > 0 && (
+          <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/40">
+            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Misconceptions</h3>
+            <div className="space-y-4">
+              {topic.misconceptionRemediation.map((m, i) => (
+                <div key={i} className="space-y-1">
+                  <p className="text-sm font-medium text-amber-900"><span className="text-amber-600">✗ </span><MathText text={m.misconception} /></p>
+                  <p className="text-xs text-slate-600 leading-relaxed"><span className="font-medium">Why it feels right: </span><MathText text={m.whyStudentsThinkIt} /></p>
+                  <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Correct model: </span><MathText text={m.correctModel} /></p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+        {topic.qualitativeScenarios && topic.qualitativeScenarios.length > 0 && (
+          <Card className="p-5 border-l-4 border-l-violet-500 bg-violet-50/30">
+            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Think it through</h3>
+            <div className="space-y-4">
+              {topic.qualitativeScenarios.map((q, i) => (
+                <div key={i} className="space-y-1">
+                  <p className="text-sm font-medium text-slate-900"><MathText text={q.scenario} /></p>
+                  <p className="text-sm text-violet-800"><span className="font-medium">Answer: </span><MathText text={q.answer} /></p>
+                  <p className="text-xs text-slate-600 leading-relaxed"><MathText text={q.why} /></p>
+                </div>
+              ))}
+            </div>
           </Card>
         )}
 
