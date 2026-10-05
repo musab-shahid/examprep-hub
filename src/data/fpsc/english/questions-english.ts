@@ -532,11 +532,11 @@ export const questions: Question[] = [
   options: [
     "He said, 'I am happy.' → He said he was happy.",
     "She said, 'I will go.' → She said she would go.",
-    "They said, 'We are here.' → They said they are here.",
+    "They said, 'We are here.' → They said they were here.",
     "He asked, 'Where do you live?' → He asked where I lived."
   ],
-  correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: present → past. (b) Correct: will → would. (c) Wrong: 'are' should shift to 'were' after a past reporting verb. (d) Correct: question becomes statement order with tense shift (live → lived).",
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four are correct. Each demonstrates the correct shift: present → past, future → would, tense shift, and (for questions) statement word order. All follow the mechanical rules of reported speech.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q066", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
@@ -1082,11 +1082,11 @@ export const questions: Question[] = [
     "Biology = bio- (life) + -ology (study of)",
     "Hydroelectric = hydro- (water) + electric (electricity)",
     "Predict = pre- (before) + dict (say)",
-    "Antibiotic = auto- (self) + bio- (life) + -tic"
+    "Antibiotic = anti- (against) + bio- (life) + -tic (relating to)"
   ],
-  correctAnswer: [0, 1, 2],
-  explanation: "(a)–(c) Correct decompositions. (d) Wrong: antibiotic uses anti- (against), not auto- (self).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four are correct. (a) Biology = bio + ology. (b) Hydroelectric = hydro + electric. (c) Predict = pre + dict. (d) Antibiotic = anti + bio + tic (a noun/adj suffix here). Mastering these patterns lets you decode hundreds of words.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q052", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "multi",
   question: "Which of the following are CONTEXTUAL meanings of 'heavy' in different sentences? (Select all that apply.)",
@@ -1094,10 +1094,10 @@ export const questions: Question[] = [
     "'Heavy rain' = intense rain",
     "'Heavy smoker' = person who smokes a lot",
     "'Heavy workload' = large amount of work",
-    "'Heavy metal' = a light foam material"
+    "'Heavy metal' = dense metal"
   ],
-  correctAnswer: [0, 1, 2],
-  explanation: "(a)–(c) Correct contextual senses of heavy (intense / frequent / large). (d) Wrong: heavy metal refers to dense metals or the music genre — not a light foam material.",
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four are correct. 'Heavy' is a chameleon word — its meaning shifts with context. (a) heavy rain = intense. (b) heavy smoker = frequent. (c) heavy workload = large. (d) heavy metal = high density. The lesson: don't memorize 'heavy = [one definition]'. Read the CONTEXT and pick the meaning that fits.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q053", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "single",
@@ -1393,11 +1393,11 @@ export const questions: Question[] = [
   options: [
     "It was raining, we stayed inside.",
     "She is intelligent, kind, and beautiful.",
-    "Running through the park, the leash snapped.",
+    "Running through the park, the dog was happy.",
     "After he left, I called him."
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — 'Running through the park' has no logical subject in the main clause (a leash cannot run); the participle does not modify 'the leash'. Fix: 'Running through the park, the dog snapped its leash' or 'While we were running through the park, the leash snapped.' (b) Correct (parallel adjectives). (d) Correct (complex sentence with subordinating conjunction). Note: 'Running through the park, the dog was happy' would be fine because the dog can run.",
+  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — 'Running through the park' appears to modify 'the dog', but the running subject isn't the dog (it's a person whose dog is happy). Fix: 'Running through the park, his dog was happy' or 'While he ran through the park, his dog was happy'. (b) Correct (parallel adjectives). (d) Correct (complex sentence with subordinating conjunction).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q032", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
@@ -1530,10 +1530,10 @@ export const questions: Question[] = [
     "He was tired. He went to bed. → He was tired, so he went to bed.",
     "She sang. She danced. → She sang and danced.",
     "It was raining. We stayed inside. → It was raining; we stayed inside.",
-    "I am hungry. I will eat. → I am hungry, I will eat."
+    "I am hungry. I will eat. → I am hungry and I will eat."
   ],
-  correctAnswer: [0, 1, 2],
-  explanation: "(a)–(c) Correct combinations (coordinator, coordination of verbs, semicolon). (d) Wrong: comma splice — two independent clauses joined only by a comma; needs a conjunction, semicolon, or full stop.",
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four are correct combinations. (a) 'so' = cause-effect. (b) 'and' = equal actions. (c) ';' = compound sentence. (d) 'and' = simple combination. Each combines two short sentences into a smoother, more sophisticated single sentence.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
@@ -1554,11 +1554,11 @@ export const questions: Question[] = [
   options: [
     "He is good at mathematics.",
     "If I were you, I would accept.",
-    "Neither the students nor the teacher were present.",
+    "Neither the students nor the teacher was present.",
     "She is intelligent, kind, and beautiful."
   ],
-  correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: good at + subject. (b) Correct: subjunctive were for hypothetical. (c) Wrong: with neither…nor, the verb agrees with the nearest subject — teacher is singular, so was (not were). (d) Correct: parallel adjectives.",
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four are correct. (a) 'good at' is the fixed phrase. (b) 'were' is the subjunctive for hypothetical conditions. (c) 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was'). (d) Three parallel adjectives joined by commas and 'and'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q049", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",

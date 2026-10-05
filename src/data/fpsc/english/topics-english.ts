@@ -157,17 +157,6 @@ export const topics: Topic[] = [
     '"The team of scientists are working together" — singular or plural both acceptable depending on meaning; safer rewrite: "The members of the team of scientists are working together" if plurality intended.',
     '"The news are fake" → "The news IS fake" (news is uncountable).'
   ],
-
-  comparisonTable: {
-    headers: ["Article", "Use", "Example"],
-    rows: [
-      ["a", "First mention; consonant sound", "a university"],
-      ["an", "First mention; vowel sound", "an hour / an MBA"],
-      ["the", "Specific or unique", "the Indus / the sun"],
-      ["zero", "General plural / many proper names", "Meteorologists study climate"]
-    ]
-  },
-
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-pronouns-prepositions-conjunctions'
@@ -344,25 +333,6 @@ export const topics: Topic[] = [
     '"The accident was happened" → "The accident happened" (happen is intransitive — no passive form exists).',
     '"He said me that he would come" → "He told me that he would come".'
   ],
-
-  workedExample: [
-    {
-      problem: "Change to passive: 'The committee approved the report.'",
-      solution: "Object 'the report' becomes subject. Verb becomes was + past participle. Agent optional.",
-      answer: "The report was approved (by the committee)."
-    },
-    {
-      problem: "Report: He said, 'I am preparing the forecast.' (past reporting verb)",
-      solution: "Past reporting verb shifts present continuous to past continuous; I becomes he.",
-      answer: "He said (that) he was preparing the forecast."
-    },
-    {
-      problem: "Modal perfect for past regret: 'You ___ checked the data before submitting.'",
-      solution: "Past regret about something not done → should have + past participle.",
-      answer: "should have checked"
-    }
-  ],
-
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-common-errors',
@@ -458,25 +428,6 @@ export const topics: Topic[] = [
     '"The team comprises of five members" → "The team comprises five members".',
     '"He lay down on the bed to sleep" (correct intransitive, past) vs "He laid the book on the table" (correct transitive).'
   ],
-
-  workedExample: [
-    {
-      problem: "Correct: 'She discussed about the budget.'",
-      solution: "Discuss is transitive — no about.",
-      answer: "She discussed the budget."
-    },
-    {
-      problem: "Correct: 'I have less books than you.'",
-      solution: "Books are countable → fewer.",
-      answer: "I have fewer books than you."
-    },
-    {
-      problem: "Correct: 'He is senior than me.'",
-      solution: "Senior takes to, not than.",
-      answer: "He is senior to me."
-    }
-  ],
-
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-agreement-and-articles',
@@ -590,50 +541,6 @@ export const topics: Topic[] = [
       explanation: 'COMPLEMENT = complete (go well together, supplement); COMPLIMENT = praise (say something nice). Paint goes well with vegetables; it doesn\'t praise them. The two words differ by an "i" but mean completely different things.'
     }
   ],
-
-  vocabularyGroups: [
-    {
-      title: "Classic confusables",
-      description: "Pairs FPSC loves: similar form, different use.",
-      words: [
-        { word: "affect", definition: "Verb: to influence", synonym: "influence", antonym: "ignore", example: "Drought will affect crops.", difficulty: "easy", notes: "Usually a verb" },
-        { word: "effect", definition: "Noun: result", synonym: "result", example: "The effect of the policy was clear.", difficulty: "easy", notes: "Usually a noun" },
-        { word: "principal", definition: "Main; head of a school", synonym: "chief", example: "The principal reason is cost.", difficulty: "easy" },
-        { word: "principle", definition: "A rule or moral standard", synonym: "rule", example: "She refused on principle.", difficulty: "easy" },
-        { word: "stationary", definition: "Not moving", synonym: "still", antonym: "moving", example: "The car was stationary.", difficulty: "medium" },
-        { word: "stationery", definition: "Writing materials", example: "Buy stationery for the office.", difficulty: "medium" },
-        { word: "adapt", definition: "Adjust to new conditions", synonym: "adjust", example: "Plants adapt to climate.", difficulty: "medium" },
-        { word: "adopt", definition: "Take up or accept", synonym: "embrace", example: "The board adopted the plan.", difficulty: "medium" },
-        { word: "allude", definition: "Refer indirectly", synonym: "hint", example: "He alluded to past failures.", difficulty: "hard" },
-        { word: "elude", definition: "Escape or avoid", synonym: "evade", example: "The answer eluded him.", difficulty: "hard" }
-      ]
-    },
-    {
-      title: "Weather and science MCQ words",
-      description: "High-yield adjectives and verbs.",
-      words: [
-        { word: "humid", definition: "Containing moisture", synonym: "damp", antonym: "arid", example: "A humid climate.", difficulty: "easy" },
-        { word: "arid", definition: "Very dry", synonym: "parched", antonym: "humid", example: "Arid zones get little rain.", difficulty: "easy" },
-        { word: "abate", definition: "Become less intense", synonym: "subside", antonym: "intensify", example: "The storm abated.", difficulty: "medium" },
-        { word: "mitigate", definition: "Make less severe", synonym: "lessen", antonym: "worsen", example: "Policies to mitigate risk.", difficulty: "medium" },
-        { word: "empirical", definition: "Based on observation or experiment", synonym: "observed", antonym: "theoretical", example: "Empirical data support the claim.", difficulty: "hard" },
-        { word: "turbulent", definition: "Chaotic; not calm", synonym: "unsettled", antonym: "calm", example: "Turbulent airflow.", difficulty: "medium" }
-      ]
-    },
-    {
-      title: "Synonym drill set",
-      description: "Common nearest-meaning targets.",
-      words: [
-        { word: "benevolent", definition: "Kind; well-meaning", synonym: "kind", antonym: "cruel", difficulty: "medium" },
-        { word: "candid", definition: "Frank; honest", synonym: "frank", antonym: "evasive", difficulty: "medium" },
-        { word: "scarce", definition: "In short supply", synonym: "rare", antonym: "abundant", difficulty: "easy" },
-        { word: "robust", definition: "Strong; sturdy", synonym: "strong", antonym: "fragile", difficulty: "medium" },
-        { word: "precise", definition: "Exact", synonym: "accurate", antonym: "vague", difficulty: "easy" },
-        { word: "adverse", definition: "Harmful; unfavourable", synonym: "unfavourable", antonym: "favourable", difficulty: "medium" }
-      ]
-    }
-  ],
-
   relatedTopics: [
     'english-idioms-and-phrases',
     'english-word-formation-and-context',
@@ -747,43 +654,6 @@ export const topics: Topic[] = [
       explanation: 'Many test items flip the idiom with negation. Read for "did not", "never", "no longer" — they invert the meaning.'
     }
   ],
-
-  idiomGroups: [
-    {
-      title: "Everyday FPSC favourites",
-      description: "High-frequency idioms that appear as direct meaning MCQs.",
-      idioms: [
-        { idiom: "A blessing in disguise", meaning: "Something that seems bad but has a good result", example: "Losing that job was a blessing in disguise — she found a better one." },
-        { idiom: "Once in a blue moon", meaning: "Very rarely", example: "He visits his village once in a blue moon." },
-        { idiom: "Burn the midnight oil", meaning: "Work late into the night", example: "Students burn the midnight oil before exams." },
-        { idiom: "Bite the bullet", meaning: "Face a difficult situation bravely", example: "He bit the bullet and admitted his mistake." },
-        { idiom: "Hit the nail on the head", meaning: "Describe exactly what is causing a situation", example: "Her analysis hit the nail on the head." },
-        { idiom: "A piece of cake", meaning: "Very easy", example: "The first paper was a piece of cake." }
-      ]
-    },
-    {
-      title: "Weather and situation idioms",
-      description: "Often tested because of figurative weather language.",
-      idioms: [
-        { idiom: "Under the weather", meaning: "Slightly ill", example: "I am feeling under the weather today." },
-        { idiom: "A storm in a teacup", meaning: "A big fuss about a small problem", example: "The argument was a storm in a teacup." },
-        { idiom: "Every cloud has a silver lining", meaning: "There is something good even in bad situations", example: "Every cloud has a silver lining; the delay saved us money." },
-        { idiom: "Fair-weather friend", meaning: "Someone who is a friend only when life is easy", example: "He proved a fair-weather friend during the crisis." },
-        { idiom: "Rain on someone's parade", meaning: "Spoil someone's plans or pleasure", example: "Don't rain on her parade — let her enjoy the award." }
-      ]
-    },
-    {
-      title: "Work and effort",
-      description: "Idioms about effort, risk, and results.",
-      idioms: [
-        { idiom: "Go the extra mile", meaning: "Make a special extra effort", example: "Good officers go the extra mile for the public." },
-        { idiom: "Cut corners", meaning: "Do something the cheapest or easiest way, often poorly", example: "The contractor cut corners and the bridge failed." },
-        { idiom: "Back to square one", meaning: "Back to the starting point after failure", example: "The deal collapsed, so we are back to square one." },
-        { idiom: "On the back burner", meaning: "Postponed; given low priority", example: "The project is on the back burner until next year." }
-      ]
-    }
-  ],
-
   relatedTopics: [
     'english-synonyms-antonyms-confusables',
     'english-word-formation-and-context'
@@ -973,17 +843,6 @@ export const topics: Topic[] = [
       explanation: 'Two different clauses. (1) "who studied the data" is DEFINING — it narrows down "scientists" (which ones? the ones who studied → define) → NO commas. (2) "who studied the data" is NON-DEFINING — it just adds info (we already know which scientists) → COMMAS on both sides. Choose one; don\'t add a comma mid-defining clause.'
     }
   ],
-
-  comparisonTable: {
-    headers: ["Feature", "Phrase", "Clause"],
-    rows: [
-      ["Subject + verb?", "No", "Yes"],
-      ["Full sentence?", "No", "Independent clause can"],
-      ["Example", "in the morning", "She runs / when it rains"],
-      ["Exam tip", "No finite verb → phrase", "Subject + finite verb → clause"]
-    ]
-  },
-
   relatedTopics: [
     'english-sentence-types-errors-transformation',
     'english-sentence-completion-rearrangement',
