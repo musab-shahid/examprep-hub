@@ -53,6 +53,55 @@ function shuffleArray<T>(arr: T[]): T[] {
   return a;
 }
 
+/**
+ * Session-stable option order: order[i] = original bank index of the option
+ * shown at display position i. Remaps correctAnswer so grading stays correct.
+ */
+function applyOptionOrder(q: Question, order: number[]): Question {
+  if (!q.options?.length || order.length !== q.options.length) return q;
+  const options = order.map((oi) => q.options[oi]);
+  const inv: number[] = new Array(order.length);
+  order.forEach((oi, newIdx) => {
+    inv[oi] = newIdx;
+  });
+
+  let correctAnswer: number | number[];
+  if (q.type === 'matching' && Array.isArray(q.correctAnswer)) {
+    // correctAnswer[i] = matchOptions index for options[i]; permute with options
+    correctAnswer = order.map((oi) => (q.correctAnswer as number[])[oi]);
+  } else if (Array.isArray(q.correctAnswer)) {
+    correctAnswer = (q.correctAnswer as number[])
+      .map((oi) => inv[oi])
+      .filter((n) => n !== undefined)
+      .sort((a, b) => a - b);
+  } else {
+    correctAnswer = inv[q.correctAnswer as number] ?? q.correctAnswer;
+  }
+  return { ...q, options, correctAnswer };
+}
+
+function shuffleQuestionOptions(q: Question): { question: Question; order: number[] } {
+  if (!q.options || q.options.length < 2) {
+    return { question: q, order: (q.options ?? []).map((_, i) => i) };
+  }
+  const order = shuffleArray(q.options.map((_, i) => i));
+  return { question: applyOptionOrder(q, order), order };
+}
+
+function applySavedOptionOrders(
+  questions: Question[],
+  questionIds: string[],
+  optionOrders?: number[][],
+): Question[] {
+  return questions.map((q, i) => {
+    const order = optionOrders?.[i];
+    if (!order || order.length !== q.options.length) return q;
+    // Defensive: skip invalid permutations
+    if (new Set(order).size !== order.length) return q;
+    return applyOptionOrder(q, order);
+  });
+}
+
 function pickQuestions(
   mode: PracticeMode,
   topicId?: string,
@@ -152,6 +201,8 @@ type AnswerRecord = {
 
 interface QuizState {
   questions: Question[];
+  /** Parallel to questions: order[i] = original option index at display slot i */
+  optionOrders: number[][];
   currentIdx: number;
   selectedIndices: number[];
   checked: boolean;
@@ -189,6 +240,8 @@ const QUIZ_PROGRESS_KEY = 'examprep-quiz-progress';
 
 interface SavedQuizProgress {
   questionIds: string[];
+  /** Parallel to questionIds; session-stable option permutation */
+  optionOrders?: number[][];
   answers: AnswerRecord[];
   currentIdx: number;
   mode: PracticeMode;
@@ -219,6 +272,7 @@ function saveQuizProgress(
   try {
     const progress: SavedQuizProgress = {
       questionIds: state.questions.map((q) => q.id),
+      optionOrders: state.optionOrders,
       answers: state.answers,
       currentIdx: state.currentIdx,
       mode,
@@ -294,8 +348,14 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
-    const qs = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current);
-    setState({ questions: qs, currentIdx: 0, selectedIndices: [], checked: false, answers: [], startTime: Date.now(), elapsed: 0 });
+    const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current);
+    const optionOrders: number[][] = [];
+    const qs = pool.map((q) => {
+      const { question, order } = shuffleQuestionOptions(q);
+      optionOrders.push(order);
+      return question;
+    });
+    setState({ questions: qs, optionOrders, currentIdx: 0, selectedIndices: [], checked: false, answers: [], startTime: Date.now(), elapsed: 0 });
     setFinished(false);
     setResults(null);
   }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool]);
@@ -354,16 +414,23 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     }
     const allQs = allQuestions();
     const qMap = new Map(allQs.map((q) => [q.id, q]));
-    const restoredQuestions = saved.questionIds.map((id) => qMap.get(id)).filter((q): q is Question => q !== undefined);
-    if (restoredQuestions.length === 0) {
+    const bankQuestions = saved.questionIds.map((id) => qMap.get(id)).filter((q): q is Question => q !== undefined);
+    if (bankQuestions.length === 0) {
       clearQuizProgress();
       setQuestionsLoading(false);
       initQuiz();
       return;
     }
+    // Restore session option order (legacy saves without optionOrders keep bank order)
+    const restoredQuestions = applySavedOptionOrders(bankQuestions, saved.questionIds, saved.optionOrders);
+    const optionOrders =
+      saved.optionOrders && saved.optionOrders.length === restoredQuestions.length
+        ? saved.optionOrders
+        : restoredQuestions.map((q) => q.options.map((_, i) => i));
     recordedRef.current = false;
     setState({
       questions: restoredQuestions,
+      optionOrders,
       currentIdx: Math.min(saved.currentIdx, restoredQuestions.length - 1),
       selectedIndices: [],
       checked: false,
