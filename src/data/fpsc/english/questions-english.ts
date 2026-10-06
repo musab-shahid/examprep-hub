@@ -532,11 +532,11 @@ export const questions: Question[] = [
   options: [
     "He said, 'I am happy.' → He said he was happy.",
     "She said, 'I will go.' → She said she would go.",
-    "They said, 'We are here.' → They said they were here.",
+    "They said, 'We are here.' → They said they are here.",
     "He asked, 'Where do you live?' → He asked where I lived."
   ],
-  correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. Each demonstrates the correct shift: present → past, future → would, tense shift, and (for questions) statement word order. All follow the mechanical rules of reported speech.",
+  correctAnswer: [0, 1, 3],
+  explanation: "(a) Correct: present → past. (b) Correct: will → would. (c) Wrong: after a past reporting verb, are should shift to were. (d) Correct: question becomes statement order with tense shift.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q066", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
@@ -1082,10 +1082,10 @@ export const questions: Question[] = [
     "Biology = bio- (life) + -ology (study of)",
     "Hydroelectric = hydro- (water) + electric (electricity)",
     "Predict = pre- (before) + dict (say)",
-    "Antibiotic = anti- (against) + bio- (life) + -tic (relating to)"
+    "Antibiotic = auto- (self) + bio- (life) + -tic"
   ],
-  correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) Biology = bio + ology. (b) Hydroelectric = hydro + electric. (c) Predict = pre + dict. (d) Antibiotic = anti + bio + tic (a noun/adj suffix here). Mastering these patterns lets you decode hundreds of words.",
+  correctAnswer: [0, 1, 2],
+  explanation: "(a)–(c) Correct. (d) Wrong: antibiotic uses anti- (against), not auto- (self).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q052", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "multi",
@@ -1094,10 +1094,10 @@ export const questions: Question[] = [
     "'Heavy rain' = intense rain",
     "'Heavy smoker' = person who smokes a lot",
     "'Heavy workload' = large amount of work",
-    "'Heavy metal' = dense metal"
+    "'Heavy metal' = a light foam material"
   ],
-  correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. 'Heavy' is a chameleon word — its meaning shifts with context. (a) heavy rain = intense. (b) heavy smoker = frequent. (c) heavy workload = large. (d) heavy metal = high density. The lesson: don't memorize 'heavy = [one definition]'. Read the CONTEXT and pick the meaning that fits.",
+  correctAnswer: [0, 1, 2],
+  explanation: "(a)–(c) Correct contextual senses. (d) Wrong: heavy metal is a dense metal or music genre, not a light foam.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q053", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "single",
@@ -1393,11 +1393,11 @@ export const questions: Question[] = [
   options: [
     "It was raining, we stayed inside.",
     "She is intelligent, kind, and beautiful.",
-    "Running through the park, the dog was happy.",
+    "Running through the park, the leash snapped.",
     "After he left, I called him."
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — 'Running through the park' appears to modify 'the dog', but the running subject isn't the dog (it's a person whose dog is happy). Fix: 'Running through the park, his dog was happy' or 'While he ran through the park, his dog was happy'. (b) Correct (parallel adjectives). (d) Correct (complex sentence with subordinating conjunction).",
+  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — a leash cannot run; the participle has no logical subject in the main clause. Fix: 'While we were running through the park, the leash snapped' or 'Running through the park, the dog snapped its leash.' (b) Correct (parallel adjectives). (d) Correct (complex sentence). Note: 'Running through the park, the dog was happy' would be grammatical because the dog can run.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q032", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
@@ -1530,10 +1530,10 @@ export const questions: Question[] = [
     "He was tired. He went to bed. → He was tired, so he went to bed.",
     "She sang. She danced. → She sang and danced.",
     "It was raining. We stayed inside. → It was raining; we stayed inside.",
-    "I am hungry. I will eat. → I am hungry and I will eat."
+    "I am hungry. I will eat. → I am hungry, I will eat."
   ],
-  correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct combinations. (a) 'so' = cause-effect. (b) 'and' = equal actions. (c) ';' = compound sentence. (d) 'and' = simple combination. Each combines two short sentences into a smoother, more sophisticated single sentence.",
+  correctAnswer: [0, 1, 2],
+  explanation: "(a)–(c) Correct. (d) Wrong: comma splice — needs a conjunction, semicolon, or full stop.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
@@ -1972,11 +1972,11 @@ export const questions: Question[] = [
   options: [
     "She said, 'I can swim.' → She said she could swim.",
     "He said, 'I may leave early.' → He said he might leave early.",
-    "They said, 'We must go now.' → They said they must go then. (must often unchanged for obligation)",
-    "She said, 'I am here now.' → She said she is here now."
+    "They said, 'We must go now.' → They said they must go now.",
+    "She said, 'I am here now.' → She said she was there then."
   ],
-  correctAnswer: [0, 1, 2],
-  explanation: "(a)–(b) Correct modal shifts (can→could, may→might). (c) Acceptable: must for present obligation is often kept; now→then is correct. (d) Wrong: am→was and now→then after a past reporting verb.",
+  correctAnswer: [0, 1, 3],
+  explanation: "(a) can → could. (b) may → might. (c) Wrong: time adverb now should shift to then (even when must is kept for obligation). (d) Correct: am → was, here → there, now → then.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // --- Articles / zero article / geography ---
