@@ -1,17 +1,7 @@
 // topics-english.ts — FPSC English content bank
-// Covers Grammar & Usage (Module A) for both BS-17 and BS-16.
-// Vocabulary (Module B) and Sentence Structuring (Module C) 
-// are in subsequent batches.
-//
-// Question types per topic follow the natural grammar style:
-// - "Find the error in this sentence"
-// - "Choose the correct form"
-// - "Identify the part of speech"
-// - "Fill in the blank"
-// etc.
-//
-// Module D (integrated practice) is embedded across questions, 
-// not as a separate topic.
+// Module A: Grammar & Usage (5 topics, BS-17 & BS-16)
+// Module B: Vocabulary (3 topics, BS-17)
+// Module C: Sentence Structuring (3 topics, BS-17 & BS-16)
 
 import type { Topic } from '@/types';
 
