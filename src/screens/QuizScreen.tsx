@@ -187,8 +187,13 @@ function isCorrect(question: Question, selectedIndex: number[]): boolean {
   }
   if (question.type === 'matching') {
     const correct = question.correctAnswer as number[];
+    // Dense check: sparse holes are skipped by Array#every and would false-pass
     if (selectedIndex.length !== correct.length) return false;
-    return selectedIndex.every((v, i) => v === correct[i]);
+    for (let i = 0; i < correct.length; i++) {
+      const v = selectedIndex[i];
+      if (v === undefined || v === null || v < 0 || v !== correct[i]) return false;
+    }
+    return true;
   }
   return selectedIndex.length === 1 && selectedIndex[0] === question.correctAnswer;
 }
@@ -647,7 +652,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       const matchIdx = idx % 100;
       setState((prev) => {
         if (!prev || prev.checked) return prev;
-        const next = [...prev.selectedIndices];
+        // Keep a dense array so length/every/some never skip holes
+        const next =
+          prev.selectedIndices.length === q.options.length
+            ? [...prev.selectedIndices]
+            : Array.from({ length: q.options.length }, () => -1);
         next[optionIdx] = matchIdx;
         return { ...prev, selectedIndices: next };
       });
@@ -1052,7 +1061,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* Action buttons */}
       <div className="flex gap-3">
         {!state.checked ? (
-          <Button onClick={handleCheck} disabled={state.selectedIndices.length === 0 || (currentQ.type === 'matching' && state.selectedIndices.some((i) => i === undefined || i === null))} className="flex-1">
+          <Button onClick={handleCheck} disabled={state.selectedIndices.length === 0 || (currentQ.type === 'matching' && (state.selectedIndices.length !== currentQ.options.length || state.selectedIndices.some((i) => i === undefined || i === null || i < 0)))} className="flex-1">
             Check Answer
           </Button>
         ) : (

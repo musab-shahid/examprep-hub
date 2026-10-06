@@ -781,9 +781,9 @@ export const questions: Question[] = [
 
 { id: "MATH-02-Q010", sectionId: "MATH-02", topicId: "math-2-1", difficulty: "medium", type: "single",
   question: "A weighted mean has three values with weights 2, 3, and 5. If the values are 80, 70, and 60 respectively, what is the weighted mean?",
-  options: ["65", "68", "70", "75"],
+  options: ["65", "67", "70", "75"],
   correctAnswer: 1,
-  explanation: "Weighted sum = 80×2 + 70×3 + 60×5 = 160 + 210 + 300 = 670. Total weight = 2 + 3 + 5 = 10. Weighted mean = 670/10 = 67. (Not 68 — recalculate: 670/10 = 67.) Note: corrected answer is 67.",
+  explanation: "Weighted sum = 80×2 + 70×3 + 60×5 = 160 + 210 + 300 = 670. Total weight = 2 + 3 + 5 = 10. Weighted mean = 670/10 = 67.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-02-Q011", sectionId: "MATH-02", topicId: "math-2-1", difficulty: "hard", type: "single",
@@ -935,9 +935,9 @@ export const questions: Question[] = [
 
 { id: "MATH-02-Q031", sectionId: "MATH-02", topicId: "math-2-3", difficulty: "hard", type: "single",
   question: "Simplify: 2(3a - 5b) - 3(2a + 4b) + 4(a - b)",
-  options: ["4a - 26b", "4a - 26b", "4a + 26b", "-4a - 26b"],
+  options: ["4a - 26b", "2a - 26b", "4a + 26b", "-4a - 26b"],
   correctAnswer: 0,
-  explanation: "Distribute: 6a − 10b − 6a − 12b + 4a − 4b. Combine: (6a − 6a + 4a) + (−10b − 12b − 4b) = 4a − 26b.",
+  explanation: "Distribute: 6a − 10b − 6a − 12b + 4a − 4b. Combine like terms: (6a − 6a + 4a) + (−10b − 12b − 4b) = 4a − 26b.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-02-Q032", sectionId: "MATH-02", topicId: "math-2-3", difficulty: "hard", type: "single",
@@ -1369,9 +1369,9 @@ export const questions: Question[] = [
 
 { id: "MATH-03-Q009", sectionId: "MATH-03", topicId: "math-3-1", difficulty: "hard", type: "single",
   question: "Simplify: (a²b³)² / (ab)²",
-  options: ["a²b⁴", "a³b⁵", "a²b⁴", "a⁴b⁶"],
+  options: ["a²b⁴", "a³b⁵", "a⁴b⁴", "a⁴b⁶"],
   correctAnswer: 0,
-  explanation: "Numerator: (a²b³)² = a⁴b⁶. Denominator: (ab)² = a²b². Divide: a^(4-2) · b^(6-2) = a²b⁴.",
+  explanation: "Numerator: (a²b³)² = a⁴b⁶. Denominator: (ab)² = a²b². Divide: a^(4−2)·b^(6−2) = a²b⁴.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-03-Q010", sectionId: "MATH-03", topicId: "math-3-1", difficulty: "hard", type: "single",
@@ -3066,9 +3066,9 @@ export const questions: Question[] = [
 
 { id: "MATH-08-Q022", sectionId: "MATH-08", topicId: "math-8-2", difficulty: "hard", type: "single",
   question: "A bag has 6 red, 4 blue balls. Two balls are drawn WITH replacement. What is P(one red, one blue in any order)?",
-  options: ["12/50", "24/100", "12/25", "All of the above"],
-  correctAnswer: 3,
-  explanation: "P(red then blue) = (6/10)(4/10) = 24/100. P(blue then red) = (4/10)(6/10) = 24/100. Total = 48/100 = 12/25. So 12/25, 24/100, and 12/50 are all equivalent expressions of this probability (12/50 = 24/100 = 12/25). All three are correct.",
+  options: ["12/50", "24/100", "12/25", "1/2"],
+  correctAnswer: 2,
+  explanation: "P(RB) = (6/10)(4/10) = 24/100. P(BR) = (4/10)(6/10) = 24/100. Total = 48/100 = 12/25. Note: 24/100 is only one order; 12/50 = 0.24 is not equal to 12/25 = 0.48.",
   sourceCitation: "Standard mathematics curriculum" },
 
 { id: "MATH-08-Q023", sectionId: "MATH-08", topicId: "math-8-2", difficulty: "hard", type: "single",
