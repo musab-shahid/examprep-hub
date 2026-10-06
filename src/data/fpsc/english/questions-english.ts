@@ -1554,11 +1554,11 @@ export const questions: Question[] = [
   options: [
     "He is good at mathematics.",
     "If I were you, I would accept.",
-    "Neither the students nor the teacher was present.",
+    "Neither the students nor the teacher were present.",
     "She is intelligent, kind, and beautiful."
   ],
-  correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) 'good at' is the fixed phrase. (b) 'were' is the subjunctive for hypothetical conditions. (c) 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was'). (d) Three parallel adjectives joined by commas and 'and'.",
+  correctAnswer: [0, 1, 3],
+  explanation: "(a) Correct: good at + subject. (b) Correct: subjunctive were for hypothetical. (c) Wrong: with neither…nor the verb agrees with the nearest subject — teacher is singular, so was (not were). (d) Correct: parallel adjectives.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q049", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
@@ -1584,5 +1584,320 @@ export const questions: Question[] = [
   correctAnswer: 3,
   explanation: "All three are valid. (a) Uses coordination with parallel verbs ('saw' and 'understood'). (b) Uses a present participle ('understanding') as adverbial modifier. (c) Uses a different participle placement ('Entering the room'). Each combines the three short sentences into a smoother single sentence. There are usually multiple correct combinations — pick the one that flows most naturally.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] }
+
+
+
+// ═══════════════════════════════════════════════════════════════════
+// ALIGNMENT PASS — items tied to upgraded topic examPoints / mistakes
+// ═══════════════════════════════════════════════════════════════════
+
+// --- ENG-01: stative verbs, for/since, who/whom, between/among ---
+{ id: "ENG-01-Q083", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which sentence is CORRECT with a stative verb?",
+  options: [
+    "I am knowing the answer to this question.",
+    "I know the answer to this question.",
+    "She is owning two cars.",
+    "They are preferring tea to coffee."
+  ],
+  correctAnswer: 1,
+  explanation: "Stative verbs (know, own, prefer, believe, seem) describe states, not actions, and normally reject continuous forms. 'I know' is correct; the continuous versions are classic errors.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q084", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct pair: duration versus starting point.",
+  options: [
+    "I have lived here since five years. / I have lived here for 2010.",
+    "I have lived here for five years. / I have lived here since 2010.",
+    "I live here for five years. / I live here since 2010.",
+    "I am living here since five years. / I am living here for 2010."
+  ],
+  correctAnswer: 1,
+  explanation: "for + duration (five years); since + starting point (2010). Present perfect is the natural tense when the situation continues to the present.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q085", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Choose the best form: 'Hardly _____ the house when it started to rain.'",
+  options: [
+    "I left",
+    "I had left",
+    "had I left",
+    "I have left"
+  ],
+  correctAnswer: 2,
+  explanation: "After negative adverbials like Hardly / Scarcely / No sooner at the start, invert auxiliary and subject: Hardly had I left… Past perfect marks the earlier action.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q086", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct form: 'To _____ did you give the report?'",
+  options: ["who", "whom", "whose", "which"],
+  correctAnswer: 1,
+  explanation: "Whom is the object form (test: you give the report to him → whom). Who is subject; whose is possessive.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q087", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
+  question: "Choose the correct preposition: 'The secret was shared _____ the two officers only.'",
+  options: ["among", "between", "in", "with"],
+  correctAnswer: 1,
+  explanation: "between for two parties; among for more than two. Here there are exactly two officers.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q088", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Which sentence is CORRECT?",
+  options: [
+    "Although he is tired, but he continued working.",
+    "Although he is tired, he continued working.",
+    "Although he is tired, so he continued working.",
+    "Although he is tired, yet but he continued working."
+  ],
+  correctAnswer: 1,
+  explanation: "Although already marks contrast — do not add but or so. One subordinating conjunction is enough.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q089", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Each of the stations have a backup generator.",
+    "Each of the stations has a backup generator.",
+    "Each of the stations have backup generators.",
+    "Each of the stations are having a backup generator."
+  ],
+  correctAnswer: 1,
+  explanation: "Each is singular; the verb agrees with each, not with stations inside the of-phrase: Each … has.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q090", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the sentence that correctly expresses past regret:",
+  options: [
+    "You must check the data before submitting.",
+    "You should have checked the data before submitting.",
+    "You should check the data before submitting.",
+    "You must have check the data before submitting."
+  ],
+  correctAnswer: 1,
+  explanation: "Past regret about something not done uses should have + past participle. must have = deduction about the past, not advice/regret.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q091", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The new law will effect farmers in rural areas.",
+    "The new law will affect farmers in rural areas.",
+    "The new law will affect on farmers in rural areas.",
+    "The new law will effect on farmers in rural areas."
+  ],
+  correctAnswer: 1,
+  explanation: "Affect is the usual verb (to influence). Effect is usually a noun (result). No extra on after affect.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q092", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "There are less candidates this year than last year.",
+    "There are fewer candidates this year than last year.",
+    "There is fewer candidates this year than last year.",
+    "There is less candidates this year than last year."
+  ],
+  correctAnswer: 1,
+  explanation: "Candidates are countable → fewer (not less). Less is for uncountable nouns (less time, less water).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// --- ENG-02: idioms + confusables aligned to upgraded B1/B2 lists ---
+{ id: "ENG-02-Q055", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "easy", type: "single",
+  question: "What does the idiom 'BURY THE HATCHET' mean?",
+  options: [
+    "Hide a weapon",
+    "Make peace after a conflict",
+    "Start a fight",
+    "Dig for treasure"
+  ],
+  correctAnswer: 1,
+  explanation: "Bury the hatchet = end a quarrel and make peace (figurative). Not a literal hatchet.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q056", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "What does the idiom 'A FAIR-WEATHER FRIEND' mean?",
+  options: [
+    "A friend who likes outdoor weather",
+    "A friend who is loyal only when life is easy",
+    "A friend who forecasts the weather",
+    "A friend who visits only in summer"
+  ],
+  correctAnswer: 1,
+  explanation: "A fair-weather friend supports you only in good times, not in difficulty.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q057", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "easy", type: "single",
+  question: "What does the idiom 'SPILL THE BEANS' mean?",
+  options: [
+    "Cook a meal carelessly",
+    "Reveal a secret",
+    "Waste food",
+    "Start a business"
+  ],
+  correctAnswer: 1,
+  explanation: "Spill the beans = reveal a secret (same practical meaning as let the cat out of the bag).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q058", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "What does the idiom 'CUT CORNERS' mean?",
+  options: [
+    "Take a shorter walking route only",
+    "Do something the cheapest or easiest way, often poorly",
+    "Fold paper carefully",
+    "Win a race at the last moment"
+  ],
+  correctAnswer: 1,
+  explanation: "Cut corners = save time or money by skipping proper steps, often lowering quality.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q059", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "What does the idiom 'BACK TO SQUARE ONE' mean?",
+  options: [
+    "Return to the first house on a street",
+    "Back to the starting point after a failure",
+    "Win the first round of a game",
+    "Begin a square dance"
+  ],
+  correctAnswer: 1,
+  explanation: "Back to square one = have to start again after a plan fails.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q060", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "easy", type: "single",
+  question: "What does the idiom 'A PIECE OF CAKE' mean?",
+  options: [
+    "A dessert portion",
+    "Something very easy",
+    "An expensive gift",
+    "A difficult puzzle"
+  ],
+  correctAnswer: 1,
+  explanation: "A piece of cake = very easy (figurative).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q061", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The species will adopt to the new climate within a decade.",
+    "The species will adapt to the new climate within a decade.",
+    "The species will adept to the new climate within a decade.",
+    "The species will adopt with the new climate within a decade."
+  ],
+  correctAnswer: 1,
+  explanation: "Adapt = adjust to conditions. Adopt = take up (a plan, child, policy). Adept = skilled (adjective).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q062", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "hard", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "In his speech he eluded to last year's failures.",
+    "In his speech he alluded to last year's failures.",
+    "In his speech he allured to last year's failures.",
+    "In his speech he eluded last year's failures carefully to the audience."
+  ],
+  correctAnswer: 1,
+  explanation: "Allude (to) = refer indirectly. Elude = escape or avoid. Different meanings; only alluded to fits.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q063", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "single",
+  question: "Choose the synonym of 'SCARCE':",
+  options: ["abundant", "rare", "obvious", "permanent"],
+  correctAnswer: 1,
+  explanation: "Scarce = in short supply; rare. Abundant is an antonym.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q064", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "hard", type: "single",
+  question: "The study is EMPIRICAL. 'Empirical' most nearly means:",
+  options: [
+    "Based on pure theory only",
+    "Based on observation or experiment",
+    "Illegal under statute",
+    "Written in an imperial style"
+  ],
+  correctAnswer: 1,
+  explanation: "Empirical = grounded in observation or experiment, not speculation alone.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q065", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "single",
+  question: "Choose the antonym of 'ADVERSE' (as in 'adverse weather'):",
+  options: ["unfavourable", "harmful", "favourable", "severe"],
+  correctAnswer: 2,
+  explanation: "Adverse = unfavourable or harmful. The antonym is favourable.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q066", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "medium", type: "single",
+  question: "The prefix in 'ANTISOCIAL' most nearly means:",
+  options: ["with", "against / opposite", "before", "across"],
+  correctAnswer: 1,
+  explanation: "anti- = against or opposite (antibiotic, antisocial, anti-clockwise).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+// --- ENG-03: phrase/clause, appositive, parallel structure ---
+{ id: "ENG-03-Q051", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
+  question: "Which of the following is a PHRASE (not a clause)?",
+  options: [
+    "When the rain stopped",
+    "Because the data were incomplete",
+    "Along the river bank",
+    "The committee adjourned"
+  ],
+  correctAnswer: 2,
+  explanation: "Along the river bank has no subject–finite-verb pair → phrase. The others are clauses (conjunction + subject + verb, or independent clause).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q052", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
+  question: "In 'Meteorology, the study of weather, is essential for aviation,' the words 'the study of weather' form:",
+  options: [
+    "A subordinate clause",
+    "An appositive phrase",
+    "A coordinating conjunction",
+    "A main verb phrase"
+  ],
+  correctAnswer: 1,
+  explanation: "An appositive renames a noun next to it. 'the study of weather' renames Meteorology.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q053", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
+  question: "Which sentence has FAULTY parallelism?",
+  options: [
+    "She likes hiking, swimming, and cycling.",
+    "She likes hiking, to swim, and cycling.",
+    "She likes to hike, to swim, and to cycle.",
+    "She likes hiking, swimming, and reading."
+  ],
+  correctAnswer: 1,
+  explanation: "Lists need the same grammatical form. Mixing gerund (hiking) with infinitive (to swim) breaks parallel structure.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q054", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
+  question: "Which sentence contains a DANGLING MODIFIER?",
+  options: [
+    "Running through the park, the dog chased the ball.",
+    "Running through the park, the leash snapped.",
+    "After he finished the report, Ali went home.",
+    "Tired but happy, the team celebrated the win."
+  ],
+  correctAnswer: 1,
+  explanation: "A leash cannot run — the participial phrase has no logical subject in the main clause. In (a) the dog can run; (c)–(d) subjects match the modifiers.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q055", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
+  question: "Which sentence is the best TOPIC sentence for a paragraph about urban flooding?",
+  options: [
+    "This has caused severe damage to low-lying neighbourhoods.",
+    "They often overflow after intense monsoon rains.",
+    "Urban flooding is becoming more frequent in major Pakistani cities.",
+    "For example, last year's rains closed several underpasses."
+  ],
+  correctAnswer: 2,
+  explanation: "A topic sentence is general and does not begin with a referring pronoun (This/They) or a narrow example. (c) states the main claim; others depend on prior context.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q056", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
+  question: "Complete: 'The experiment failed _____ the equipment was poorly calibrated.'",
+  options: ["so", "because", "although", "therefore"],
+  correctAnswer: 1,
+  explanation: "Because introduces the cause. So/therefore would need different clause order; although marks contrast, not cause.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 ];

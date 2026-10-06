@@ -53,9 +53,9 @@ export const sections: Section[] = [
   { id: 'MATH-08', subjectId: 'maths', title: 'Word Problems & Applications', topicCount: 5, questionCount: 61 },
 
   // ── English ──
-  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 82 },
-  { id: 'ENG-02', subjectId: 'english', title: 'Vocabulary', topicCount: 3, questionCount: 54 },
-  { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 50 },
+  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 92 },
+  { id: 'ENG-02', subjectId: 'english', title: 'Vocabulary', topicCount: 3, questionCount: 66 },
+  { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 56 },
 
   // ── Environmental Studies ──
   { id: 'ENV-01', subjectId: 'env-studies', title: 'Environmental Fundamentals', topicCount: 2, questionCount: 32 },
