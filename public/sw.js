@@ -1,9 +1,17 @@
-const CACHE = 'examprep-v2';
+const CACHE = 'examprep-v3';
 const PRECACHE = ['/', '/index.html', '/manifest.json', '/favicon.svg'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
-  self.skipWaiting();
+  // Only skip waiting on first install (no existing controller).
+  // On updates, wait for the user to confirm via postMessage({ type: 'SKIP_WAITING' }).
+  if (!self.clients.claim) return;
+});
+
+self.addEventListener('message', (e) => {
+  if (e.data && e.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
 
 self.addEventListener('activate', (e) => {

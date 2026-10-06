@@ -17,6 +17,7 @@ import { SettingsScreen } from '@/screens/SettingsScreen';
 import { HatLandingScreen } from '@/screens/hat/HatLandingScreen';
 import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
 import { InstallPrompt } from '@/components/InstallPrompt';
+import { UpdatePrompt } from '@/components/UpdatePrompt';
 import { sectionMap } from '@/data/sections';
 import { getTopic } from '@/data/topics';
 import { subjectMap } from '@/data/subjects';
@@ -200,6 +201,7 @@ function AppContent() {
         </main>
       </div>
       <MobileNav />
+      <UpdatePrompt />
       <InstallPrompt />
     </div>
   );
