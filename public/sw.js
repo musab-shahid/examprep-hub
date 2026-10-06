@@ -3,9 +3,9 @@ const PRECACHE = ['/', '/index.html', '/manifest.json', '/favicon.svg'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
-  // Only skip waiting on first install (no existing controller).
-  // On updates, wait for the user to confirm via postMessage({ type: 'SKIP_WAITING' }).
-  if (!self.clients.claim) return;
+  // Don't skipWaiting on install — the app shows an "Update available — Restart"
+  // banner and sends SKIP_WAITING via postMessage when the user confirms.
+  // On first visit with no controller, the SW activates on the next navigation.
 });
 
 self.addEventListener('message', (e) => {

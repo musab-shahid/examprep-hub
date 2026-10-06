@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { CheckCircle2, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
+import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { allQuestions, questionsByTopic } from '@/data/questions';
@@ -976,11 +976,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                       : 'bg-slate-100 text-slate-500'
                   }`}
                 >
-                  {currentQ.type === 'multi' ? (isSelected ? '\u2713' : '') : String.fromCharCode(65 + idx)}
+                  {currentQ.type === 'multi' ? (isSelected ? <Check className="w-3 h-3" /> : '') : String.fromCharCode(65 + idx)}
                 </div>
                 <span className="text-slate-800 text-sm flex-1">{opt}</span>
-                {state.checked && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
-                {state.checked && isSelected && !isCorrectOption && <XCircle className="w-5 h-5 text-red-500 shrink-0" />}
+                {state.checked && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0" />}
+                {state.checked && isSelected && !isCorrectOption && <XCircle className="w-5 h-5 text-danger-500 shrink-0" />}
               </button>
             );
           })}
@@ -1000,12 +1000,12 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           <div className="flex items-center gap-2 mb-3">
             {correctAns ? (
               <>
-                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                <CheckCircle2 className="w-5 h-5 text-success-500" />
                 <span className="font-semibold text-emerald-700">Correct!</span>
               </>
             ) : (
               <>
-                <XCircle className="w-5 h-5 text-red-500" />
+                <XCircle className="w-5 h-5 text-danger-500" />
                 <span className="font-semibold text-red-700">Incorrect</span>
               </>
             )}
@@ -1094,7 +1094,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-btn bg-amber-100 flex items-center justify-center shrink-0">
-                <AlertTriangle className="w-5 h-5 text-amber-600" />
+                <AlertTriangle className="w-5 h-5 text-warning-500" />
               </div>
               <h3 id="exit-modal-title" className="font-bold text-slate-900 text-lg">Exit quiz?</h3>
             </div>
@@ -1231,9 +1231,9 @@ function QuizResults({
                   <div key={t.topicId} className="flex items-center justify-between">
                     <div className="flex items-center gap-2 min-w-0">
                       {t.accuracy >= 70 ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-success-500 shrink-0" />
                       ) : (
-                        <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
+                        <AlertTriangle className="w-4 h-4 text-warning-500 shrink-0" />
                       )}
                       <span className="text-slate-700 text-sm truncate">{topicInfo.title}</span>
                     </div>
@@ -1414,9 +1414,9 @@ function QuizResults({
                   <div key={q.id} id={`review-q-${idx}`} className="border-b border-slate-100 pb-3 last:border-b-0 last:pb-0 scroll-mt-2">
                     <div className="flex items-start gap-2 mb-1">
                       {isOk ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-success-500 mt-0.5 shrink-0" />
                       ) : (
-                        <XCircle className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
+                        <XCircle className="w-4 h-4 text-danger-500 mt-0.5 shrink-0" />
                       )}
                       <p className="text-sm text-slate-700 flex-1">
                         <span className="text-slate-400 font-medium mr-1">Q{idx + 1}.</span>
@@ -1495,8 +1495,8 @@ function MatchingOptions({ question, selectedIndices, checked, onSelect }: {
                 <option key={mIdx} value={mIdx}>{mOpt}</option>
               ))}
             </select>
-            {checked && isCorrectMatch && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
-            {checked && !isCorrectMatch && selectedMatch !== undefined && <XCircle className="w-5 h-5 text-red-500 shrink-0" />}
+            {checked && isCorrectMatch && <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0" />}
+            {checked && !isCorrectMatch && selectedMatch !== undefined && <XCircle className="w-5 h-5 text-danger-500 shrink-0" />}
           </div>
         );
       })}

@@ -424,7 +424,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                   return (
                     <div key={i} className="flex items-center justify-between">
                       <div className="flex items-center gap-3 min-w-0">
-                        <CheckCircle2 className={`w-5 h-5 shrink-0 ${pct >= 75 ? 'text-emerald-500' : pct >= 50 ? 'text-amber-500' : 'text-red-500'}`} />
+                        <CheckCircle2 className={`w-5 h-5 shrink-0 ${pct >= 75 ? 'text-success-500' : pct >= 50 ? 'text-warning-500' : 'text-danger-500'}`} />
                         <div className="min-w-0">
                           <p className="text-slate-800 text-sm font-medium truncate">{modeLabel}</p>
                           <p className="text-slate-500 text-xs">{relativeDate(quiz.date)} · {subjLabel}{diffLabel}</p>

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
+import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -457,7 +457,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.examPoints && topic.examPoints.length > 0 && (
           <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/50">
             <div className="flex items-center gap-2 mb-3"><span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Exam Points</span></div>
-            <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="text-amber-500 font-bold shrink-0">★</span>{point}</li>)}</ul>
+            <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" />{point}</li>)}</ul>
           </Card>
         )}
         {topic.comparisonTable && (
@@ -495,7 +495,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.commonMistakes && topic.commonMistakes.length > 0 && (
           <Card className="p-5 border-l-4 border-l-rose-500 bg-rose-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-rose-700 font-semibold text-sm uppercase tracking-wide">Common Mistakes</span></div>
-            <ul className="space-y-2">{topic.commonMistakes.map((mistake, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="text-rose-500 font-bold shrink-0">✗</span><MathText text={mistake} /></li>)}</ul>
+            <ul className="space-y-2">{topic.commonMistakes.map((mistake, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" /><MathText text={mistake} /></li>)}</ul>
           </Card>
         )}
         {topic.methodChooser && (() => {
@@ -549,7 +549,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <div className="space-y-4">
               {topic.misconceptionRemediation.map((m, i) => (
                 <div key={i} className="space-y-1">
-                  <p className="text-sm font-medium text-amber-900"><span className="text-amber-600">✗ </span><MathText text={m.misconception} /></p>
+                  <p className="text-sm font-medium text-amber-900"><XCircle className="inline w-3.5 h-3.5 text-danger-500 -mt-0.5 mr-1" /><MathText text={m.misconception} /></p>
                   <p className="text-xs text-slate-600 leading-relaxed"><span className="font-medium">Why it feels right: </span><MathText text={m.whyStudentsThinkIt} /></p>
                   <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Correct model: </span><MathText text={m.correctModel} /></p>
                 </div>
@@ -1024,12 +1024,12 @@ function GrammarRulesBlock({ groups, expandedGroups, onToggleGroup }: {
                         <p className="text-slate-600 text-sm mt-1">{rule.description}</p>
                         <div className="mt-1.5 space-y-1">
                           <div className="flex items-start gap-1.5">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 text-success-500 mt-0.5 shrink-0" />
                             <p className="text-emerald-800 text-xs">{rule.correctExample}</p>
                           </div>
                           {rule.incorrectExample !== '—' && rule.incorrectExample !== '— (context-dependent)' && (
                             <div className="flex items-start gap-1.5">
-                              <XCircle className="w-3.5 h-3.5 text-rose-600 mt-0.5 shrink-0" />
+                              <XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" />
                               <p className="text-rose-800 text-xs line-through">{rule.incorrectExample}</p>
                             </div>
                           )}

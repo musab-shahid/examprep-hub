@@ -1,8 +1,9 @@
 import {
-  Trash2, GraduationCap, Flame, TrendingUp, BookOpen, Brain, Target,
+  Trash2, Library, Flame, TrendingUp, BookOpen, Brain, Target,
   Check, CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
+  Download, Share,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import {
@@ -16,12 +17,28 @@ import { downloadBackupFile } from '@/lib/storage';
 import { sections } from '@/data/sections';
 import type { SubjectId } from '@/types';
 
+function isStandalone(): boolean {
+  return window.matchMedia('(display-mode: standalone)').matches ||
+    (window.navigator as unknown as { standalone?: boolean }).standalone === true;
+}
+
+function isIOS(): boolean {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as unknown as { MSStream?: unknown }).MSStream;
+}
+
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+
 export function SettingsScreen() {
   const { data, reset, resetSubjects } = useData();
   const sd = useSubjectData();
   const [selectedSubjects, setSelectedSubjects] = useState<Set<SubjectId>>(new Set());
   const [confirming, setConfirming] = useState(false);
   const [resetDone, setResetDone] = useState<string | null>(null);
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [showInstall, setShowInstall] = useState(false);
 
   const streak = computeStreak(data);
   const today = getTodayActivity(data);
@@ -85,6 +102,30 @@ export function SettingsScreen() {
     setConfirming(false);
   };
 
+  // Install prompt capture for Settings fallback (audit I2)
+  useEffect(() => {
+    if (isStandalone()) { setShowInstall(false); return; }
+    if (isIOS()) { setShowInstall(true); return; }
+
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e as BeforeInstallPromptEvent);
+      setShowInstall(true);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstall = async () => {
+    if (!deferredPrompt) return;
+    await deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted' || outcome === 'dismissed') {
+      setDeferredPrompt(null);
+      setShowInstall(false);
+    }
+  };
+
   return (
     <PageContainer>
       <div className="mb-6 animate-fade-in-up">
@@ -94,7 +135,7 @@ export function SettingsScreen() {
 
       {resetDone && (
         <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2 animate-fade-in-up">
-          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+          <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0" />
           <p className="text-emerald-800 text-sm font-medium">{resetDone}</p>
         </div>
       )}
@@ -102,8 +143,8 @@ export function SettingsScreen() {
       {/* App info — global totals across both tracks */}
       <Card className="p-5 mb-4 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-card bg-gradient-to-br from-brand-500 to-blue-600 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">
-            <GraduationCap className="w-7 h-7 text-white" />
+          <div className="w-12 h-12 rounded-card bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">
+            <Library className="w-7 h-7 text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-slate-900 text-base leading-tight">ExamPrep Hub</p>
@@ -157,6 +198,38 @@ export function SettingsScreen() {
           <Button variant="secondary" onClick={() => downloadBackupFile()}>Download backup</Button>
         </div>
       </Card>
+
+      {/* Install app — fallback for users who never saw the banner (audit I2) */}
+      {showInstall && (
+        <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm">
+              <Download className="w-5 h-5 text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-slate-900 text-sm">Install app</p>
+              {deferredPrompt ? (
+                <>
+                  <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
+                    Add ExamPrep Hub to your home screen for quick access. Pages you've already opened work offline.
+                  </p>
+                  <button
+                    onClick={handleInstall}
+                    className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    Install
+                  </button>
+                </>
+              ) : (
+                <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
+                  Tap the <Share className="inline w-3 h-3 -mt-0.5 text-brand-600" /> Share button in your browser, then choose <strong className="font-semibold text-slate-700">Add to Home Screen</strong>.
+                </p>
+              )}
+            </div>
+          </div>
+        </Card>
+      )}
 
       {/* Per-subject data management — grouped by exam track */}
       <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>

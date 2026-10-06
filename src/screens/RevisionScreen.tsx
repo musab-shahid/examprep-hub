@@ -127,7 +127,7 @@ export function RevisionScreen() {
               {groups.high.length > 0 && (
                 <RevisionGroup
                   title="High Priority"
-                  icon={<AlertTriangle className="w-5 h-5 text-red-500" />}
+                  icon={<AlertTriangle className="w-5 h-5 text-danger-500" />}
                   items={groups.high}
                   onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
                 />
@@ -137,7 +137,7 @@ export function RevisionScreen() {
               {groups.review.length > 0 && (
                 <RevisionGroup
                   title="Review"
-                  icon={<Clock className="w-5 h-5 text-amber-500" />}
+                  icon={<Clock className="w-5 h-5 text-warning-500" />}
                   items={groups.review}
                   onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
                 />
@@ -147,7 +147,7 @@ export function RevisionScreen() {
               {groups.refresh.length > 0 && (
                 <RevisionGroup
                   title="Refresh"
-                  icon={<CheckCircle2 className="w-5 h-5 text-emerald-500" />}
+                  icon={<CheckCircle2 className="w-5 h-5 text-success-500" />}
                   items={groups.refresh}
                   onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
                 />
