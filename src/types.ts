@@ -119,7 +119,7 @@ export interface Topic {
   limitCases?: LimitCase[];
   misconceptionRemediation?: MisconceptionRemediation[];
   qualitativeScenarios?: QualitativeScenario[];
-  commonMistakes?: string[];
+  commonMistakes?: Array<string | { mistake: string; correction: string; explanation: string }>;
   priority?: string;
   comparisonTableEras?: ComparisonTable;
   comparisonTableHazards?: ComparisonTable;

@@ -495,7 +495,19 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.commonMistakes && topic.commonMistakes.length > 0 && (
           <Card className="p-5 border-l-4 border-l-rose-500 bg-rose-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-rose-700 font-semibold text-sm uppercase tracking-wide">Common Mistakes</span></div>
-            <ul className="space-y-2">{topic.commonMistakes.map((mistake, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" /><MathText text={mistake} /></li>)}</ul>
+            <ul className="space-y-3">{topic.commonMistakes.map((mistake, i) => {
+              if (typeof mistake === 'string') {
+                return <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" /><MathText text={mistake} /></li>;
+              }
+              const m = mistake as { mistake: string; correction: string; explanation: string };
+              return (
+                <li key={i} className="text-sm leading-relaxed space-y-1">
+                  <div className="flex items-start gap-2"><XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" /><span className="text-danger-700 line-through"><MathText text={m.mistake} /></span></div>
+                  <div className="flex items-start gap-2 pl-5"><span className="text-success-700 font-medium"><MathText text={m.correction} /></span></div>
+                  <p className="pl-5 text-slate-500 text-xs"><MathText text={m.explanation} /></p>
+                </li>
+              );
+            })}</ul>
           </Card>
         )}
         {topic.methodChooser && (() => {
