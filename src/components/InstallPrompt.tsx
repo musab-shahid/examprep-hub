@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Download, X, GraduationCap, Share } from 'lucide-react';
+import { Download, X, Library, Share } from 'lucide-react';
 
 const DISMISS_KEY = 'pwa-install-dismissed';
 
@@ -70,8 +70,8 @@ export function InstallPrompt() {
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up">
         <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-brand-700 flex items-center justify-center shrink-0 shadow-md">
-              <GraduationCap className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
+              <Library className="w-5 h-5 text-white" />
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold text-slate-900 text-sm">Add to Home Screen</h3>
@@ -100,8 +100,8 @@ export function InstallPrompt() {
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up">
       <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-brand-700 flex items-center justify-center shrink-0 shadow-md">
-            <GraduationCap className="w-5 h-5 text-white" />
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
+            <Library className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-slate-900 text-sm">Add to Home Screen</h3>
