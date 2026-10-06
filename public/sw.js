@@ -28,6 +28,11 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
 
+  // Never cache the service worker script itself or the manifest
+  if (url.pathname === '/sw.js' || url.pathname === '/manifest.json') {
+    return;
+  }
+
   // Network-first for navigation requests so users always get the latest HTML
   if (req.mode === 'navigate') {
     e.respondWith(
