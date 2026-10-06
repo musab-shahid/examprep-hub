@@ -3,7 +3,7 @@ import {
   Home, BookOpen, Brain, RotateCcw, Calculator, BarChart3,
   Search, Clock, Settings as SettingsIcon, GraduationCap,
   ChevronRight, ChevronDown, Cloud, MoreHorizontal, FileText,
-  Library, Dumbbell,
+  Dumbbell,
 } from 'lucide-react';
 import { useRouter, type ScreenName } from '@/router';
 import { examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
@@ -85,8 +85,8 @@ export function Sidebar() {
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-glow-brand">
-            <Library className="w-6 h-6 text-white" />
+          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-sky-500 to-brand-700 flex items-center justify-center shrink-0 shadow-glow-brand">
+            <GraduationCap className="w-6 h-6 text-white" />
           </div>
           <div className="min-w-0">
             <h1 className="text-white font-bold text-lg leading-tight">ExamPrep Hub</h1>
