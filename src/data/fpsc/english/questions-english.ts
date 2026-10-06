@@ -1900,4 +1900,355 @@ export const questions: Question[] = [
   explanation: "Because introduces the cause. So/therefore would need different clause order; although marks contrast, not cause.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
+
+
+// ═══════════════════════════════════════════════════════════════════
+// WAVE 2 — voice/narration, articles/geography, idiom-in-context
+// ═══════════════════════════════════════════════════════════════════
+
+// --- Voice & narration transforms ---
+{ id: "ENG-01-Q093", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Transform to passive: 'The meteorologists issued a severe weather warning.'",
+  options: [
+    "A severe weather warning was issued by the meteorologists.",
+    "A severe weather warning is issued by the meteorologists.",
+    "A severe weather warning has issued by the meteorologists.",
+    "The meteorologists were issued a severe weather warning."
+  ],
+  correctAnswer: 0,
+  explanation: "Object becomes subject; past simple active → was/were + past participle; agent optional with by. Issued (past) → was issued.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q094", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "Transform to passive: 'They are updating the climate model every month.'",
+  options: [
+    "The climate model is updating every month.",
+    "The climate model is being updated every month.",
+    "The climate model has been updating every month.",
+    "The climate model was being update every month."
+  ],
+  correctAnswer: 1,
+  explanation: "Present continuous passive = is/are being + past participle. 'is updating' is still active; 'was being update' is ungrammatical.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q095", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Transform to active: 'The samples were analysed by the laboratory.'",
+  options: [
+    "The laboratory analysed the samples.",
+    "The laboratory was analysed the samples.",
+    "The samples analysed the laboratory.",
+    "The laboratory has analyse the samples."
+  ],
+  correctAnswer: 0,
+  explanation: "Agent 'the laboratory' becomes subject; was/were + past participle → simple past active: analysed.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q096", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "Report the speech: She said, 'I finished the assignment yesterday.'",
+  options: [
+    "She said that she finished the assignment yesterday.",
+    "She said that she had finished the assignment the day before.",
+    "She said that she has finished the assignment yesterday.",
+    "She said that I had finished the assignment the day before."
+  ],
+  correctAnswer: 1,
+  explanation: "Past reporting verb shifts past simple → past perfect; yesterday → the day before; I → she.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q097", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Report the question: He asked, 'Where does the river begin?'",
+  options: [
+    "He asked where does the river begin.",
+    "He asked where the river began.",
+    "He asked where did the river begin.",
+    "He asked that where the river begins."
+  ],
+  correctAnswer: 1,
+  explanation: "Reported questions use statement word order (no does/did inversion) and tense shift: does begin → began.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q098", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
+  question: "Which reported-speech transformations are CORRECT? (Select all that apply.)",
+  options: [
+    "She said, 'I can swim.' → She said she could swim.",
+    "He said, 'I may leave early.' → He said he might leave early.",
+    "They said, 'We must go now.' → They said they must go then. (must often unchanged for obligation)",
+    "She said, 'I am here now.' → She said she is here now."
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "(a)–(b) Correct modal shifts (can→could, may→might). (c) Acceptable: must for present obligation is often kept; now→then is correct. (d) Wrong: am→was and now→then after a past reporting verb.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// --- Articles / zero article / geography ---
+{ id: "ENG-01-Q099", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Choose the correct article usage:",
+  options: [
+    "She visited United States last year.",
+    "She visited the United States last year.",
+    "She visited a United States last year.",
+    "She visited an United States last year."
+  ],
+  correctAnswer: 1,
+  explanation: "Country names that are plural or include a common noun take the: the United States, the United Kingdom, the Netherlands.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q100", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The Pakistan is a federal republic.",
+    "Pakistan is a federal republic.",
+    "A Pakistan is a federal republic.",
+    "An Pakistan is a federal republic."
+  ],
+  correctAnswer: 1,
+  explanation: "Most singular country names take zero article: Pakistan, India, China. (Contrast: the USA, the UK.)",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q101", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "Choose the correct article: '_____ Himalayas form a natural barrier in the north.'",
+  options: ["A", "An", "The", "Zero article (no word)"],
+  correctAnswer: 2,
+  explanation: "Mountain ranges take the: the Himalayas, the Alps, the Andes.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q102", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which noun phrases correctly use the / zero article? (Select all that apply.)",
+  options: [
+    "the Indus",
+    "Ø Mount Everest",
+    "the Mount Everest",
+    "Ø Lake Superior"
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "Rivers take the (the Indus). Single peaks and most lakes take zero article (Mount Everest, Lake Superior). 'the Mount Everest' is wrong.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// --- More grammar from upgraded module A ---
+{ id: "ENG-01-Q103", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "She is believing every rumour she hears.",
+    "She believes every rumour she hears.",
+    "She has believing every rumour she hears.",
+    "She be believing every rumour she hears."
+  ],
+  correctAnswer: 1,
+  explanation: "Believe is stative and resists continuous aspect in this sense: She believes…",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q104", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Choose the correct form: 'This is the first time I _____ (see) a tornado warning for this district.'",
+  options: ["saw", "see", "have seen", "had see"],
+  correctAnswer: 2,
+  explanation: "This is the first time + present perfect: have seen. The experience connects to now.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q105", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "She is married with a geologist.",
+    "She is married to a geologist.",
+    "She is married by a geologist.",
+    "She is married from a geologist."
+  ],
+  correctAnswer: 1,
+  explanation: "Fixed phrase: married to (not with/by/from).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q106", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He returned back the files after the audit.",
+    "He returned the files after the audit.",
+    "He returned again back the files after the audit.",
+    "He returned back files after the audit."
+  ],
+  correctAnswer: 1,
+  explanation: "Return already means 'give/send back' — do not add redundant back.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// --- Idiom-in-context (not pure definition MCQs) ---
+{ id: "ENG-02-Q067", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "In the sentence 'After months of arguing, the two departments finally buried the hatchet,' the idiom means they:",
+  options: [
+    "Hid evidence of the dispute",
+    "Ended the conflict and made peace",
+    "Started a new formal investigation",
+    "Moved their offices underground"
+  ],
+  correctAnswer: 1,
+  explanation: "Context (after months of arguing + finally) points to ending the quarrel. Bury the hatchet = make peace.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q068", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "Choose the best idiom: 'When the budget was cut, several _____ disappeared and stopped returning calls.'",
+  options: [
+    "fair-weather friends",
+    "silver linings",
+    "midnight oils",
+    "blue moons"
+  ],
+  correctAnswer: 0,
+  explanation: "Fair-weather friends stay only when conditions are easy; a budget cut is a test of loyalty.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q069", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "hard", type: "single",
+  question: "In 'Please don't spill the beans before the official announcement,' the speaker is asking someone not to:",
+  options: [
+    "Waste food at the reception",
+    "Reveal the secret early",
+    "Cancel the announcement",
+    "Criticise the official policy"
+  ],
+  correctAnswer: 1,
+  explanation: "Spill the beans = reveal a secret. Context (before the official announcement) confirms confidentiality.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q070", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "Choose the best idiom: 'The contractor _____ on safety checks, and the bridge failed inspection.'",
+  options: [
+    "hit the nail on the head",
+    "cut corners",
+    "broke the ice",
+    "saw eye to eye"
+  ],
+  correctAnswer: 1,
+  explanation: "Cut corners = skip proper steps to save effort/cost — fits failed safety checks.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q071", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "hard", type: "single",
+  question: "In 'The talks collapsed, so negotiators are back to square one,' the phrase means:",
+  options: [
+    "They moved to a better starting offer",
+    "They must start the process again",
+    "They won the first round",
+    "They postponed the talks indefinitely"
+  ],
+  correctAnswer: 1,
+  explanation: "Back to square one = return to the starting point after failure (talks collapsed).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q072", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "medium", type: "single",
+  question: "Choose the best completion: 'Losing that job was _____; she found a better post within a month.'",
+  options: [
+    "a storm in a teacup",
+    "a blessing in disguise",
+    "beating around the bush",
+    "adding fuel to the fire"
+  ],
+  correctAnswer: 1,
+  explanation: "A blessing in disguise = an apparent setback that leads to a good outcome.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q073", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "easy", type: "single",
+  question: "In 'He goes to his ancestral village once in a blue moon,' the idiom stresses that visits are:",
+  options: ["weekly", "very rare", "mandatory", "secret"],
+  correctAnswer: 1,
+  explanation: "Once in a blue moon = very rarely.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+// --- Confusables & vocab in context ---
+{ id: "ENG-02-Q074", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "single",
+  question: "Choose the correct word: 'The board will _____ a new attendance policy next week.'",
+  options: ["adapt", "adopt", "adept", "adopted"],
+  correctAnswer: 1,
+  explanation: "Adopt a policy = formally take it up. Adapt = adjust; adept = skilled.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q075", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "hard", type: "single",
+  question: "Choose the correct word: 'The exact figure continues to _____ the analysts.'",
+  options: ["allude", "elude", "illude", "collude"],
+  correctAnswer: 1,
+  explanation: "Elude = escape understanding or capture. Allude = refer indirectly (allude to).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q076", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "medium", type: "single",
+  question: "In 'Turbulent airflow made the flight rough,' turbulent is closest to:",
+  options: ["calm", "chaotic / unsettled", "invisible", "fragrant"],
+  correctAnswer: 1,
+  explanation: "Turbulent = disordered, not smooth — opposite of calm.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q077", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "easy", type: "single",
+  question: "Choose the antonym of 'CANDID':",
+  options: ["frank", "honest", "evasive", "open"],
+  correctAnswer: 2,
+  explanation: "Candid = frank/honest. Evasive is the clearest antonym among the options.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+{ id: "ENG-02-Q078", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "medium", type: "single",
+  question: "In 'A sense of urgency permeated the control room,' permeated most nearly means:",
+  options: ["left immediately", "spread throughout", "was banned from", "was measured precisely"],
+  correctAnswer: 1,
+  explanation: "Permeate = spread through or pervade an entire space.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
+
+// --- Sentence structure wave 2 ---
+{ id: "ENG-03-Q057", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "hard", type: "single",
+  question: "Identify the independent clause: 'Although the radar failed, the flight continued under visual rules.'",
+  options: [
+    "Although the radar failed",
+    "the flight continued under visual rules",
+    "under visual rules",
+    "Although the radar failed, the flight"
+  ],
+  correctAnswer: 1,
+  explanation: "The independent clause can stand alone: the flight continued under visual rules. 'Although…' is subordinate.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q058", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
+  question: "Which is the best fix for the comma splice: 'The model was incomplete, we delayed publication.'?",
+  options: [
+    "The model was incomplete, we delayed publication.",
+    "The model was incomplete; we delayed publication.",
+    "The model was incomplete we delayed publication.",
+    "The model was incomplete, delayed publication."
+  ],
+  correctAnswer: 1,
+  explanation: "Two independent clauses need a semicolon, a period, or a comma + coordinating conjunction — not a bare comma.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q059", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
+  question: "Transform to passive without changing meaning: 'Someone has stolen the research laptop.'",
+  options: [
+    "The research laptop has stolen.",
+    "The research laptop has been stolen.",
+    "The research laptop was being stolen.",
+    "The research laptop is steal."
+  ],
+  correctAnswer: 1,
+  explanation: "Present perfect passive = has/have been + past participle. Agent 'someone' is omitted.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q060", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
+  question: "Combine with a relative clause: 'The officer filed the report. The report was incomplete.'",
+  options: [
+    "The officer filed the report was incomplete.",
+    "The officer filed the report which was incomplete.",
+    "The officer filed the report, the report was incomplete.",
+    "Filing the report, the report was incomplete."
+  ],
+  correctAnswer: 1,
+  explanation: "A relative clause (which was incomplete) attaches cleanly to report. (a) lacks a relative word; (c) is a comma splice; (d) dangles.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q061", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
+  question: "Rearrange: (a) As a result, emergency services were put on alert. (b) Satellite imagery showed a rapid intensification. (c) The cyclone approached the coast overnight.",
+  options: [
+    "c, b, a (approach → imagery → alert)",
+    "a, b, c (alert → imagery → approach)",
+    "b, a, c (imagery → alert → approach)",
+    "c, a, b (approach → alert → imagery)"
+  ],
+  correctAnswer: 0,
+  explanation: "Chronology/cause: cyclone approaches → imagery shows intensification → as a result, services alerted. 'As a result' must follow a cause.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-03-Q062", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
+  question: "Complete: '_____ the data were incomplete, the team published a preliminary note.'",
+  options: ["Because", "Although", "Therefore", "So"],
+  correctAnswer: 1,
+  explanation: "Although marks contrast (incomplete data vs still publishing). Because would reverse the logic; therefore/so are not subordinators in this slot.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
 ];
