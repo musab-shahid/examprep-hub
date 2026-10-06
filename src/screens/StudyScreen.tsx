@@ -15,7 +15,7 @@ import { MathText } from '@/components/MathText';
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
-import type { SubjectId, Topic, Question } from '@/types';
+import type { SubjectId, Topic, Question, MethodChooser, ComparisonTable as ComparisonTableType } from '@/types';
 import { getTopicStatusFromProgress } from '@/lib/constants';
 
 // ---- Learn Landing ----
@@ -460,36 +460,20 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" />{point}</li>)}</ul>
           </Card>
         )}
-        {topic.comparisonTable && (
-          <Card className="p-5 overflow-hidden">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Comparison</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200">
-                    {topic.comparisonTable.headers.map((h, i) => (
-                      <th key={i} className="text-left py-2 px-3 font-semibold text-slate-900"><MathText text={h} /></th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* py-2.5: intentional denser content spacing (not chrome 8px grid) */}
-                  {topic.comparisonTable.rows.map((row, i) => (
-                    <tr key={i} className="border-b border-slate-100 last:border-0">
-                      {row.map((cell, j) => (
-                        <td key={j} className={`py-2.5 px-3 ${j === 0 ? 'font-medium text-slate-900' : 'text-slate-600'}`}><MathText text={cell} /></td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        )}
+        {topic.comparisonTable && <ComparisonTableBlock table={topic.comparisonTable} />}
+        {topic.comparisonTableEras && <ComparisonTableBlock table={topic.comparisonTableEras} />}
+        {topic.comparisonTableEras2 && <ComparisonTableBlock table={topic.comparisonTableEras2} />}
+        {topic.comparisonTableHazards && <ComparisonTableBlock table={topic.comparisonTableHazards} />}
         {topic.workedExample && (() => { const examples = Array.isArray(topic.workedExample) ? topic.workedExample : [topic.workedExample]; return examples.map((ex, ei) => (
           <Card key={ei} className="p-5 border-l-4 border-l-emerald-500 bg-emerald-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-emerald-700 font-semibold text-sm uppercase tracking-wide">Worked Example{examples.length > 1 ? ` ${ei + 1}` : ''}</span></div>
-            <div className="space-y-3"><div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Problem</p><p className="text-slate-800 text-base leading-relaxed"><MathText text={ex.problem} /></p></div><div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Solution</p><p className="text-slate-700 text-sm leading-relaxed"><MathText text={ex.solution} /></p></div><div className="pt-2 border-t border-emerald-200"><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Answer</p><p className="text-emerald-800 text-base font-semibold"><MathText text={ex.answer} /></p></div></div>
+            <div className="space-y-3">
+              <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Problem</p><p className="text-slate-800 text-base leading-relaxed"><MathText text={ex.problem} /></p></div>
+              {ex.solution && <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Solution</p><p className="text-slate-700 text-sm leading-relaxed"><MathText text={ex.solution} /></p></div>}
+              {ex.solutionSteps && <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Solution</p><div className="space-y-2">{Object.entries(ex.solutionSteps).map(([key, val]) => <div key={key}><p className="text-slate-900 text-sm font-medium"><MathText text={key} /></p><p className="text-slate-600 text-sm leading-relaxed"><MathText text={val} /></p></div>)}</div></div>}
+              {ex.answer && <div className="pt-2 border-t border-emerald-200"><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Answer</p><p className="text-emerald-800 text-base font-semibold"><MathText text={ex.answer} /></p></div>}
+              {ex.takeaway && <div className="pt-2 border-t border-emerald-200"><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Takeaway</p><p className="text-emerald-800 text-sm leading-relaxed"><MathText text={ex.takeaway} /></p></div>}
+            </div>
           </Card>
         )); })()}
         {topic.commonMistakes && topic.commonMistakes.length > 0 && (
@@ -512,46 +496,76 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         )}
         {topic.methodChooser && (() => {
           const chooser = topic.methodChooser;
-          const steps = Array.isArray(chooser) ? chooser : chooser.steps;
-          const title = Array.isArray(chooser) ? 'Which method / equation?' : (chooser.title ?? 'Which method / equation?');
-          const intro = Array.isArray(chooser) ? undefined : chooser.intro;
-          if (!steps?.length) return null;
+          const isStepsForm = Array.isArray(chooser) || (chooser as MethodChooser).steps;
+          if (isStepsForm) {
+            const steps = Array.isArray(chooser) ? chooser : (chooser as MethodChooser).steps!;
+            const title = Array.isArray(chooser) ? 'Which method / equation?' : ((chooser as MethodChooser).title ?? 'Which method / equation?');
+            const intro = Array.isArray(chooser) ? undefined : (chooser as MethodChooser).intro;
+            if (!steps?.length) return null;
+            return (
+              <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+                <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{title}</h3>
+                {intro && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={intro} /></p>}
+                <ul className="space-y-2">
+                  {steps.map((step, i) => {
+                    const when = step.when ?? step.condition ?? '';
+                    const use = step.use ?? step.recommendation ?? '';
+                    return (
+                      <li key={i} className="text-sm text-slate-800 leading-relaxed">
+                        <span className="font-medium text-sky-800">If </span>
+                        <MathText text={when} />
+                        <span className="font-medium text-sky-800"> → </span>
+                        <MathText text={use} />
+                        {step.notes && <span className="block text-slate-500 text-xs mt-0.5"><MathText text={step.notes} /></span>}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Card>
+            );
+          }
+          const mc = chooser as MethodChooser;
+          if (!mc.options?.length) return null;
           return (
             <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
-              <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{title}</h3>
-              {intro && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={intro} /></p>}
-              <ul className="space-y-2">
-                {steps.map((step, i) => {
-                  const when = step.when ?? step.condition ?? '';
-                  const use = step.use ?? step.recommendation ?? '';
-                  return (
-                    <li key={i} className="text-sm text-slate-800 leading-relaxed">
-                      <span className="font-medium text-sky-800">If </span>
-                      <MathText text={when} />
-                      <span className="font-medium text-sky-800"> → </span>
-                      <MathText text={use} />
-                      {step.notes && <span className="block text-slate-500 text-xs mt-0.5"><MathText text={step.notes} /></span>}
-                    </li>
-                  );
-                })}
-              </ul>
+              <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">Which method / equation?</h3>
+              {mc.scenario && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={mc.scenario} /></p>}
+              <div className="space-y-3">
+                {mc.options.map((opt, i) => (
+                  <div key={i} className="space-y-1">
+                    {opt.name && <p className="text-sm font-semibold text-sky-800"><MathText text={opt.name} /></p>}
+                    {opt.when && <p className="text-xs text-slate-500 leading-relaxed"><span className="font-medium">When: </span><MathText text={opt.when} /></p>}
+                    {opt.steps && <ul className="space-y-1 pl-4">{opt.steps.map((s, si) => <li key={si} className="text-xs text-slate-700 leading-relaxed list-disc"><MathText text={s} /></li>)}</ul>}
+                  </div>
+                ))}
+              </div>
+              {mc.recommendation && <p className="mt-3 pt-2 border-t border-sky-200 text-xs text-slate-600 leading-relaxed"><span className="font-medium text-sky-800">Recommendation: </span><MathText text={mc.recommendation} /></p>}
             </Card>
           );
         })()}
         {topic.limitCases && topic.limitCases.length > 0 && (
           <Card className="p-5">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Limit cases</h3>
-            <ul className="space-y-2">
-              {topic.limitCases.map((lc, i) => (
-                <li key={i} className="text-sm text-slate-800 leading-relaxed">
-                  <span className="font-medium"><MathText text={lc.condition} /></span>
-                  <span className="text-slate-500"> → </span>
-                  <MathText text={lc.result} />
-                  {lc.physicalMeaning && (
-                    <span className="block text-slate-500 text-xs mt-0.5"><MathText text={lc.physicalMeaning} /></span>
-                  )}
-                </li>
-              ))}
+            <ul className="space-y-3">
+              {topic.limitCases.map((lc, i) => {
+                if (lc.condition) {
+                  return (
+                    <li key={i} className="text-sm text-slate-800 leading-relaxed">
+                      <span className="font-medium"><MathText text={lc.condition} /></span>
+                      <span className="text-slate-500"> → </span>
+                      <MathText text={lc.result ?? ''} />
+                      {lc.physicalMeaning && <span className="block text-slate-500 text-xs mt-0.5"><MathText text={lc.physicalMeaning} /></span>}
+                    </li>
+                  );
+                }
+                return (
+                  <li key={i} className="text-sm text-slate-800 leading-relaxed space-y-1">
+                    {lc.case && <p className="font-medium text-slate-900"><MathText text={lc.case} /></p>}
+                    {lc.example && <p className="text-slate-600 text-xs italic"><MathText text={lc.example} /></p>}
+                    {lc.resolution && <p className="text-slate-700"><MathText text={lc.resolution} /></p>}
+                  </li>
+                );
+              })}
             </ul>
           </Card>
         )}
@@ -562,8 +576,10 @@ export function TopicScreen({ topicId }: { topicId: string }) {
               {topic.misconceptionRemediation.map((m, i) => (
                 <div key={i} className="space-y-1">
                   <p className="text-sm font-medium text-amber-900"><XCircle className="inline w-3.5 h-3.5 text-danger-500 -mt-0.5 mr-1" /><MathText text={m.misconception} /></p>
-                  <p className="text-xs text-slate-600 leading-relaxed"><span className="font-medium">Why it feels right: </span><MathText text={m.whyStudentsThinkIt} /></p>
-                  <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Correct model: </span><MathText text={m.correctModel} /></p>
+                  {m.whyStudentsThinkIt && <p className="text-xs text-slate-600 leading-relaxed"><span className="font-medium">Why it feels right: </span><MathText text={m.whyStudentsThinkIt} /></p>}
+                  {m.correctModel && <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Correct model: </span><MathText text={m.correctModel} /></p>}
+                  {m.remedy && <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Remedy: </span><MathText text={m.remedy} /></p>}
+                  {m.drill && <p className="text-xs text-slate-500 leading-relaxed mt-1 pl-3 border-l-2 border-amber-200"><MathText text={m.drill} /></p>}
                 </div>
               ))}
             </div>
@@ -578,6 +594,20 @@ export function TopicScreen({ topicId }: { topicId: string }) {
                   <p className="text-sm font-medium text-slate-900"><MathText text={q.scenario} /></p>
                   <p className="text-sm text-violet-800"><span className="font-medium">Answer: </span><MathText text={q.answer} /></p>
                   <p className="text-xs text-slate-600 leading-relaxed"><MathText text={q.why} /></p>
+                </div>
+              ))}
+            </div>
+          </Card>
+        )}
+        {Array.isArray(topic.postRestriction) && topic.postRestriction.length > 0 && (
+          <Card className="p-5 border-l-4 border-l-rose-400 bg-rose-50/30">
+            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Post-Restriction Rules</h3>
+            <div className="space-y-3">
+              {topic.postRestriction.map((r, i) => (
+                <div key={i} className="space-y-1">
+                  <p className="text-sm font-medium text-rose-800"><MathText text={r.rule} /></p>
+                  <p className="text-xs text-slate-600 leading-relaxed"><MathText text={r.restriction} /></p>
+                  <p className="text-xs text-slate-500 leading-relaxed"><span className="font-medium">Consequence: </span><MathText text={r.consequence} /></p>
                 </div>
               ))}
             </div>
@@ -1157,6 +1187,67 @@ function QuantFormulasBlock({ formulas }: { formulas: QuantFormulaEntry[] }) {
             {f.note && <p className="text-slate-400 text-xs mt-1">{f.note}</p>}
           </div>
         ))}
+      </div>
+    </Card>
+  );
+}
+
+function ComparisonTableBlock({ table }: { table: ComparisonTableType }) {
+  const isMatrixRows = table.rows.length > 0 && !Array.isArray(table.rows[0]);
+  if (isMatrixRows) {
+    const matrixRows = table.rows as Array<Record<string, string>>;
+    const headers = Object.keys(matrixRows[0] || {});
+    return (
+      <Card className="p-5 overflow-hidden">
+        {table.title && <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">{table.title}</h3>}
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-slate-200">
+                {headers.map((h, i) => (
+                  <th key={i} className={`text-left py-2 px-3 font-semibold text-slate-900 ${i === 0 ? 'min-w-[120px]' : ''}`}><MathText text={h} /></th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {matrixRows.map((row, i) => (
+                <tr key={i} className="border-b border-slate-100 last:border-0">
+                  {headers.map((h, j) => (
+                    <td key={j} className={`py-2.5 px-3 ${j === 0 ? 'font-medium text-slate-900' : 'text-slate-600'}`}><MathText text={row[h] ?? ''} /></td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Card>
+    );
+  }
+  const arrayRows = table.rows as string[][];
+  return (
+    <Card className="p-5 overflow-hidden">
+      {table.title && <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">{table.title}</h3>}
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          {table.headers && (
+            <thead>
+              <tr className="border-b border-slate-200">
+                {table.headers.map((h, i) => (
+                  <th key={i} className="text-left py-2 px-3 font-semibold text-slate-900"><MathText text={h} /></th>
+                ))}
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {arrayRows.map((row, i) => (
+              <tr key={i} className="border-b border-slate-100 last:border-0">
+                {row.map((cell, j) => (
+                  <td key={j} className={`py-2.5 px-3 ${j === 0 ? 'font-medium text-slate-900' : 'text-slate-600'}`}><MathText text={cell} /></td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </Card>
   );

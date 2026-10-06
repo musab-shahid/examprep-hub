@@ -1287,7 +1287,7 @@ export const topics: Topic[] = [
     ]
   },
 
-  comparisonTableEras_2: {
+  comparisonTableEras2: {
     title: '4 Classic Errors — Side-by-Side Comparison',
     rows: [
       {

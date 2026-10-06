@@ -47,8 +47,9 @@ export interface Formula {
 }
 
 export interface ComparisonTable {
-  headers: string[];
-  rows: string[][];
+  headers?: string[];
+  rows: string[][] | Array<Record<string, string>>;
+  title?: string;
 }
 
 export interface ExplanationSection {
@@ -67,24 +68,38 @@ export interface MethodChooserStep {
 }
 
 /** Full method-chooser block with title and steps. */
+export interface MethodChooserOption {
+  name?: string;
+  when?: string;
+  steps?: string[];
+}
+
 export interface MethodChooser {
   title?: string;
   intro?: string;
-  steps: MethodChooserStep[];
+  steps?: MethodChooserStep[];
+  scenario?: string;
+  options?: MethodChooserOption[];
+  recommendation?: string;
 }
 
 /** Limiting / special cases that clarify a law or formula. */
 export interface LimitCase {
-  condition: string;
-  result: string;
+  condition?: string;
+  result?: string;
   physicalMeaning?: string;
+  case?: string;
+  example?: string;
+  resolution?: string;
 }
 
 /** Named misconception with correction. */
 export interface MisconceptionRemediation {
   misconception: string;
-  whyStudentsThinkIt: string;
-  correctModel: string;
+  whyStudentsThinkIt?: string;
+  correctModel?: string;
+  remedy?: string;
+  drill?: string;
 }
 
 /** Qualitative what-if scenario. */
@@ -96,8 +111,11 @@ export interface QualitativeScenario {
 
 export interface WorkedExample {
   problem: string;
-  solution: string;  // Supports $...$ and $$...$$ via MathText
-  answer: string;
+  solution?: string;  // Supports $...$ and $...$ via MathText
+  answer?: string;
+  takeaway?: string;
+  /** English-style: keyed solution steps */
+  solutionSteps?: Record<string, string>;
 }
 
 export interface Topic {
@@ -122,10 +140,11 @@ export interface Topic {
   commonMistakes?: Array<string | { mistake: string; correction: string; explanation: string }>;
   priority?: string;
   comparisonTableEras?: ComparisonTable;
+  comparisonTableEras2?: ComparisonTable;
   comparisonTableHazards?: ComparisonTable;
   pakistanExamFocus?: string[];
   content: boolean;
-  postRestriction?: 'bs17' | 'bs16' | 'all';
+  postRestriction?: 'bs17' | 'bs16' | 'all' | Array<{ rule: string; restriction: string; consequence: string }>;
   examScope?: ('bs17' | 'bs16')[];
   buildsOn?: string[];
   leadsTo?: string[];
