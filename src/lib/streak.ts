@@ -117,8 +117,11 @@ export function getWeeklyAccuracy(data: AppData, weeks = 8, scopedSubjectIds?: S
   for (let w = weeks - 1; w >= 0; w--) {
     const weekStart = new Date(now);
     weekStart.setDate(weekStart.getDate() - w * 7 - 6);
+    weekStart.setHours(0, 0, 0, 0);
     const weekEnd = new Date(now);
     weekEnd.setDate(weekEnd.getDate() - w * 7);
+    // Inclusive end-of-day so quizzes taken today count in "This week"
+    weekEnd.setHours(23, 59, 59, 999);
     const weekQuizzes = data.quizHistory.filter((q) => {
       if (scopedSubjectIds && (!q.subjectId || !scopedSubjectIds.has(q.subjectId))) return false;
       const d = new Date(q.date);

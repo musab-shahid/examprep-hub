@@ -305,6 +305,11 @@ export interface TopicProgress {
   lastStudied: string | null;
   /** Authoritative next review (YYYY-MM-DD local). Single schedule. */
   nextReview: string | null;
+  /**
+   * Explicit SR stage index into REVIEW_STAGES_DAYS (0..n-1), or -1 / omit if never scheduled.
+   * Prefer this over inferring stage from nextReview (overdue dates must not demote).
+   */
+  reviewStage?: number;
   lastQuizDate: string | null;
   /** Lifetime totals (volume / history). Prefer recentSessions for mastery accuracy. */
   quizCorrect: number;

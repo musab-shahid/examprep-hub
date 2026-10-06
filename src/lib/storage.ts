@@ -1,6 +1,6 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
 import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
-import { getCurrentStage, computeNextReviewDate } from '@/lib/spaced-repetition';
+import { resolveReviewStage, nextStageAfterReview, reviewDateForStage } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 import { resolveTopicId } from '@/lib/topic-id-aliases';
 import { resolveQuestionId } from '@/lib/question-id-aliases';
@@ -68,6 +68,9 @@ function sanitizeTopicProgress(p: TopicProgress): TopicProgress {
     quizCorrect: p.quizCorrect,
     quizTotal: p.quizTotal,
   };
+  if (typeof p.reviewStage === 'number') {
+    clean.reviewStage = p.reviewStage;
+  }
   if (p.recentSessions && p.recentSessions.length > 0) {
     clean.recentSessions = p.recentSessions.slice(-RECENT_QUIZ_SESSION_WINDOW);
   }
@@ -153,9 +156,11 @@ function migrateProgress(p: Record<string, unknown>): TopicProgress {
   const quizAttempts = typeof p.quizAttempts === 'number' ? p.quizAttempts : (typeof p.attempts === 'number' ? p.attempts : 0);
   const quizAccuracyPct = typeof p.quizAccuracy === 'number' ? p.quizAccuracy : (typeof p.accuracy === 'number' ? p.accuracy : 0);
   const quizCorrect = Math.round((quizAccuracyPct / 100) * quizAttempts);
+  const reviewStage = typeof p.reviewStage === 'number' ? p.reviewStage : undefined;
   return {
     lastStudied: (p.lastStudied as string | null) ?? null,
     nextReview: (p.nextReview as string | null) ?? (p.quizNextReview as string | null) ?? null,
+    reviewStage,
     lastQuizDate: (p.lastQuizDate as string | null) ?? null,
     quizCorrect,
     quizTotal: quizAttempts,
@@ -376,10 +381,12 @@ export function getOrCreateProgress(data: AppData, topicId: string): TopicProgre
 
 export function markTopicStudied(data: AppData, topicId: string): AppData {
   const prog = { ...getOrCreateProgress(data, topicId) };
-  const currentStage = getCurrentStage(prog.nextReview);
+  const currentStage = resolveReviewStage(prog.reviewStage, prog.nextReview);
   const accuracy = getEffectiveQuizStats(prog).accuracy;
+  const nextStage = nextStageAfterReview(currentStage, accuracy);
   prog.lastStudied = new Date().toISOString();
-  prog.nextReview = computeNextReviewDate(currentStage, accuracy);
+  prog.reviewStage = nextStage;
+  prog.nextReview = reviewDateForStage(nextStage);
   return {
     ...data,
     studiedTopics: [...new Set([...data.studiedTopics, topicId])],
@@ -445,8 +452,10 @@ export function recordQuizResult(
     const prev = prog.recentSessions ?? [];
     prog.recentSessions = [...prev, { correct, total, at: now }].slice(-RECENT_QUIZ_SESSION_WINDOW);
     const accuracy = getEffectiveQuizStats(prog).accuracy;
-    const quizStage = getCurrentStage(prog.nextReview);
-    prog.nextReview = computeNextReviewDate(quizStage, accuracy);
+    const quizStage = resolveReviewStage(prog.reviewStage, prog.nextReview);
+    const nextStage = nextStageAfterReview(quizStage, accuracy);
+    prog.reviewStage = nextStage;
+    prog.nextReview = reviewDateForStage(nextStage);
     topicProgress = { ...topicProgress, [tid]: prog };
   }
 

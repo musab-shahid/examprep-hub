@@ -87,13 +87,15 @@ export function useSubjectData(): SubjectDataLayer {
     [trackSubjectIds],
   );
 
-  // Track which subjects have been loaded into cache
+  // Resync loadedSubjects to current track's cache on track switch (never keep other-track ids)
   useEffect(() => {
     const loaded = new Set<string>();
     for (const id of trackSubjectIdList) {
-      if (getCachedTopics(id)) loaded.add(id);
+      if (getCachedTopics(id) !== undefined || getCachedQuestions(id) !== undefined) {
+        loaded.add(id);
+      }
     }
-    if (loaded.size > 0) setLoadedSubjects(loaded);
+    setLoadedSubjects(loaded);
   }, [trackSubjectIdList]);
 
   const topicsFor = useCallback((id: SubjectId | 'all'): Topic[] => {
@@ -273,9 +275,13 @@ export function useSubjectData(): SubjectDataLayer {
   }, [trackSubjectIdList]);
 
   const isLoaded = useCallback((id: SubjectId | 'all') => {
-    if (id === 'all') return trackSubjectIdList.every((s) => getCachedTopics(s) !== undefined);
-    return getCachedTopics(id) !== undefined;
-  }, [trackSubjectIdList]);
+    if (id === 'all') {
+      return trackSubjectIdList.every(
+        (s) => loadedSubjects.has(s) || getCachedTopics(s) !== undefined,
+      );
+    }
+    return loadedSubjects.has(id) || getCachedTopics(id) !== undefined;
+  }, [trackSubjectIdList, loadedSubjects]);
 
   const isQuestionsReady = useCallback((id: SubjectId | 'all') => {
     if (id === 'all') return trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined);

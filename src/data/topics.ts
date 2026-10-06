@@ -17,6 +17,7 @@ export const topics: Topic[] = topicMetadata.map((m) => ({
   title: m.title,
   content: m.content,
   postRestriction: m.postRestriction,
+  examScope: m.examScope,
 }));
 
 export const topicMap: Record<string, Topic> = Object.fromEntries(

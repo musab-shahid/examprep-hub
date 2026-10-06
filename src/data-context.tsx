@@ -25,6 +25,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
       saveData(newData);
       return newData;
     });
+    // Critical path: do not rely only on debounce if the tab closes immediately
+    flushPendingSave();
   }, []);
 
   const recordQuiz = useCallback((topicId: string | null, answers: { questionId: string; correct: boolean }[], questions: Question[], mode: PracticeMode, subjectId?: string, difficultyFilter?: DifficultyFilter) => {
