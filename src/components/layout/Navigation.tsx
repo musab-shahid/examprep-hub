@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import {
   Home, BookOpen, Brain, RotateCcw, Calculator, BarChart3,
-  Search, Clock, Settings as SettingsIcon, GraduationCap,
+  Search, Clock, Settings as SettingsIcon, GraduationCap, Trophy,
   ChevronRight, ChevronDown, Cloud, MoreHorizontal, FileText,
   Dumbbell,
 } from 'lucide-react';
@@ -274,7 +274,7 @@ export function MobileNav() {
   const navItems = [
     { icon: Home, label: 'Home', screen: 'home' as ScreenName, onClick: () => navigate({ screen: 'home', parent: null }) },
     { icon: FileText, label: 'FPSC', screen: 'fpsc' as ScreenName, onClick: () => navigate({ screen: 'fpsc', parent: null }) },
-    { icon: GraduationCap, label: 'HAT', screen: 'hat' as ScreenName, onClick: () => navigate({ screen: 'hat', parent: null }) },
+    { icon: Trophy, label: 'HAT', screen: 'hat' as ScreenName, onClick: () => navigate({ screen: 'hat', parent: null }) },
     { icon: Dumbbell, label: 'Practice', screen: 'practice' as ScreenName, onClick: () => goToStage('practice') },
   ];
   const reviewDue = (() => {

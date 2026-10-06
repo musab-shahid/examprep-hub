@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GraduationCap, Clock, BookOpen, Brain, Calculator, ChevronRight, ArrowRight, Sparkles, Target, TrendingUp, Layers } from 'lucide-react';
+import { Trophy, Clock, BookOpen, Brain, Calculator, ChevronRight, ArrowRight, Sparkles, Target, TrendingUp, Layers } from 'lucide-react';
 import { useRouter } from '@/router';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { HAT_SECTIONS, HAT_EXAM_DURATION_MINUTES, HAT_TOTAL_QUESTIONS, HAT_PASSING_SCORE } from '@/data/hat/hat-meta';
@@ -75,7 +75,7 @@ export function HatLandingScreen() {
           <div className="relative">
             <div className="flex items-center gap-3 mb-4">
               <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
-                <GraduationCap className="w-7 h-7 text-white" />
+                <Trophy className="w-7 h-7 text-white" />
               </div>
               <div>
                 <h1 className="text-2xl sm:text-3xl font-bold text-white">HAT Prep</h1>
@@ -165,7 +165,7 @@ export function HatLandingScreen() {
             <span className="text-slate-600 text-sm font-medium">{HAT_TOTAL_QUESTIONS} total Qs</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <GraduationCap className="w-4 h-4 text-slate-400" />
+            <Trophy className="w-4 h-4 text-slate-400" />
             <span className="text-slate-600 text-sm font-medium">Pass: {HAT_PASSING_SCORE}/100</span>
           </div>
         </div>

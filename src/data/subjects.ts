@@ -1,5 +1,5 @@
 import type { Subject } from '@/types';
-import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, GraduationCap, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
+import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, Trophy, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type ExamTrack = 'fpsc' | 'hat';
@@ -31,7 +31,7 @@ export const examTracks: ExamTrackMeta[] = [
     title: 'HAT Exam',
     shortTitle: 'HAT',
     description: 'Higher Education Aptitude Test — reasoning-based examination',
-    icon: GraduationCap,
+    icon: Trophy,
     color: 'indigo',
     accent: 'from-indigo-500 to-blue-600', // matches getTrackStyle('hat').gradient
   },

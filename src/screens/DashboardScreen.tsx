@@ -1,6 +1,6 @@
 import { getAttentionItems, getDashboardRecommendation } from '@/lib/attention';
 import {
-  Zap, ChevronRight, GraduationCap, Clock,
+  Zap, ChevronRight, Trophy, Clock,
   AlertTriangle, Target, Flame, TrendingUp, Brain,
   RotateCcw, BarChart3, FileText, Sparkles,
 } from 'lucide-react';
@@ -142,7 +142,7 @@ export function DashboardScreen() {
       {examTracks.map((track, trackIdx) => {
         const trackStats = statsByTrack[track.id];
         const trackTs = getTrackStyle(track.id);
-        const TrackIcon = track.id === 'fpsc' ? FileText : GraduationCap;
+        const TrackIcon = track.id === 'fpsc' ? FileText : Trophy;
 
         return (
           <Card key={track.id} className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: `${0.15 + trackIdx * 0.05}s` }}>
@@ -284,14 +284,14 @@ export function DashboardScreen() {
               onClick={() => navigate({ screen: 'practice', parent: null })}
             />
             <QuickActionTile
-              icon={<FileText className="w-5 h-5 text-brand-600" />}
-              iconBg="bg-brand-50 border border-brand-200"
+              icon={<FileText className="w-5 h-5 text-sky-600" />}
+              iconBg="bg-sky-50 border border-sky-200"
               title="FPSC Exam"
               subtitle="7 subjects"
               onClick={() => navigate({ screen: 'fpsc', parent: null })}
             />
             <QuickActionTile
-              icon={<GraduationCap className="w-5 h-5 text-indigo-600" />}
+              icon={<Trophy className="w-5 h-5 text-indigo-600" />}
               iconBg="bg-indigo-50 border border-indigo-200"
               title="HAT Prep"
               subtitle="3 modules"

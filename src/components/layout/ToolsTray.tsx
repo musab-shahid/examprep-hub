@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import {
   Search, Clock, Settings as SettingsIcon, BookOpen, Brain, RotateCcw,
-  Calculator, BarChart3, X, GraduationCap, FileText,
+  Calculator, BarChart3, X, Trophy, FileText,
 } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -157,7 +157,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
                   }}
                   className={rowClass}
                 >
-                  <FileText className="w-5 h-5 text-brand-600 shrink-0" />
+                  <FileText className="w-5 h-5 text-sky-600 shrink-0" />
                   <span className="text-slate-800 font-medium text-sm">FPSC Exam</span>
                 </button>
                 <button
@@ -168,7 +168,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
                   }}
                   className={rowClass}
                 >
-                  <GraduationCap className="w-5 h-5 text-indigo-600 shrink-0" />
+                  <Trophy className="w-5 h-5 text-indigo-600 shrink-0" />
                   <span className="text-slate-800 font-medium text-sm">HAT Prep</span>
                 </button>
                 {tools.map((t) => (
@@ -219,7 +219,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
           }}
           className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-700 transition-colors text-left text-sm"
         >
-          <GraduationCap className="w-4 h-4" />
+          <Trophy className="w-4 h-4" />
           HAT Prep
         </button>
       </div>
