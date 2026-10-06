@@ -10,9 +10,10 @@
   </defs>
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
   <g filter="url(#shadow)" fill="none" stroke="white" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M128 372V196l128-68 128 68v176"/>
-    <path d="M128 372h256"/>
-    <path d="M224 372v-96h64v96"/>
-    <path d="M128 248h256"/>
+    <path d="M160 160v192"/>
+    <path d="M256 160v192"/>
+    <path d="M352 160v192"/>
+    <path d="M136 352h240"/>
+    <path d="M136 160h240"/>
   </g>
 </svg>
