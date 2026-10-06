@@ -1,3 +1,4 @@
+import { sectionMap } from '@/data/sections';
 import type { AppData, Topic, Question } from '@/types';
 import { getEffectiveQuizStats, parseLocalDate } from '@/lib/constants';
 export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQuestions: Question[]) {
@@ -5,11 +6,27 @@ export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQues
   const questionIds = new Set(scopedQuestions.map((q) => q.id));
   const studiedCount = data.studiedTopics.filter((id) => topicIds.has(id)).length;
   const totalTopics = scopedTopics.length;
-  const questionResults = Object.entries(data.questionResults)
-    .filter(([id]) => questionIds.has(id))
-    .map(([, r]) => r);
-  const questionsAnswered = questionResults.length;
-  const correctCount = questionResults.filter((r) => r.correct).length;
+  // Prefer quizHistory volume (every attempt) over latest-only questionResults
+  const scopedHistory = (data.quizHistory ?? []).filter((h) => {
+    if (h.topicId && topicIds.has(h.topicId)) return true;
+    if (h.subjectId && scopedTopics.some((t) => sectionMap[t.sectionId]?.subjectId === h.subjectId)) return true;
+    // Topic-less history: include if any answered id is in scope (legacy)
+    return false;
+  });
+  let questionsAnswered = 0;
+  let correctCount = 0;
+  if (scopedHistory.length > 0) {
+    for (const h of scopedHistory) {
+      questionsAnswered += h.total;
+      correctCount += h.score;
+    }
+  } else {
+    const questionResults = Object.entries(data.questionResults)
+      .filter(([id]) => questionIds.has(id))
+      .map(([, r]) => r);
+    questionsAnswered = questionResults.length;
+    correctCount = questionResults.filter((r) => r.correct).length;
+  }
   const accuracy = questionsAnswered > 0 ? Math.round((correctCount / questionsAnswered) * 100) : 0;
   const quizProgress = Object.entries(data.topicProgress)
     .filter(([id, p]) => topicIds.has(id) && getEffectiveQuizStats(p).total > 0)

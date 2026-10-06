@@ -252,7 +252,18 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
   const section = sectionMap[sectionId];
   const sectionTopics = topicsBySection(sectionId);
 
-  if (!section) return <EmptyState title="Section not found" message="This section does not exist." />;
+  if (!section) {
+    return (
+      <PageContainer>
+        <BackButton />
+        <EmptyState
+          title="Section not found"
+          message="This section does not exist or was removed."
+          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
+        />
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer>
@@ -352,7 +363,18 @@ export function TopicScreen({ topicId }: { topicId: string }) {
       </Card>
     </PageContainer>
   );
-  if (!topic) return <EmptyState title="Topic not found" message="This topic does not exist." />;
+  if (!topic) {
+    return (
+      <PageContainer>
+        <BackButton />
+        <EmptyState
+          title="Topic not found"
+          message="This topic does not exist or was removed."
+          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
+        />
+      </PageContainer>
+    );
+  }
 
   const isStudied = data.studiedTopics.includes(topicId);
 

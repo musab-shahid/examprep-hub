@@ -248,6 +248,8 @@ interface SavedQuizProgress {
   /** Parallel to questionIds; session-stable option permutation */
   optionOrders?: number[][];
   answers: AnswerRecord[];
+  /** Seconds already elapsed when progress was saved (timer resume) */
+  elapsedSeconds?: number;
   currentIdx: number;
   mode: PracticeMode;
   topicId?: string;
@@ -279,6 +281,7 @@ function saveQuizProgress(
       questionIds: state.questions.map((q) => q.id),
       optionOrders: state.optionOrders,
       answers: state.answers,
+      elapsedSeconds: state.elapsed,
       currentIdx: state.currentIdx,
       mode,
       topicId,
@@ -433,6 +436,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         ? saved.optionOrders
         : restoredQuestions.map((q) => q.options.map((_, i) => i));
     recordedRef.current = false;
+    const resumedElapsed = Math.max(0, saved.elapsedSeconds ?? 0);
     setState({
       questions: restoredQuestions,
       optionOrders,
@@ -440,8 +444,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       selectedIndices: [],
       checked: false,
       answers: saved.answers,
-      startTime: Date.now(),
-      elapsed: 0,
+      // Back-date startTime so the interval picks up remaining time correctly
+      startTime: Date.now() - resumedElapsed * 1000,
+      elapsed: resumedElapsed,
     });
     setFinished(false);
     setResults(null);

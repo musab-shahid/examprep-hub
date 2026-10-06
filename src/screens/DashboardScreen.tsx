@@ -310,7 +310,7 @@ export function DashboardScreen() {
               title="Mock Exam"
               subtitle="Full simulation"
               onClick={() => navigate({ screen: 'practice', mode: 'mock', parent: null })}
-              disabled={sd.totalQuestions < 30}
+              disabled={(sd.statsFor('all').totalQuestions) < 30}
               dark
             />
           </div>

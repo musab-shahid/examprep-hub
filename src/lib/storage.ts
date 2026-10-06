@@ -381,12 +381,13 @@ export function getOrCreateProgress(data: AppData, topicId: string): TopicProgre
 
 export function markTopicStudied(data: AppData, topicId: string): AppData {
   const prog = { ...getOrCreateProgress(data, topicId) };
-  const currentStage = resolveReviewStage(prog.reviewStage, prog.nextReview);
-  const accuracy = getEffectiveQuizStats(prog).accuracy;
-  const nextStage = nextStageAfterReview(currentStage, accuracy);
   prog.lastStudied = new Date().toISOString();
-  prog.reviewStage = nextStage;
-  prog.nextReview = reviewDateForStage(nextStage);
+  // Passive study must not advance SR stages (that requires a quiz).
+  // Only seed an initial nextReview if the topic has never been scheduled.
+  if (!prog.nextReview) {
+    prog.reviewStage = 0;
+    prog.nextReview = reviewDateForStage(0);
+  }
   return {
     ...data,
     studiedTopics: [...new Set([...data.studiedTopics, topicId])],
@@ -413,10 +414,12 @@ export function recordQuizResult(
   for (const a of answers) {
     const secId = qSectionMap.get(a.questionId);
     const qSubjectId = secId ? sectionMap[secId]?.subjectId : undefined;
+    const prev = questionResults[a.questionId];
     questionResults[a.questionId] = {
       correct: a.correct,
       timestamp: now,
       subjectId: qSubjectId ?? subjectId,
+      attempts: (prev?.attempts ?? 0) + 1,
     };
   }
 

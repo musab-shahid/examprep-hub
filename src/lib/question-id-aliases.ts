@@ -2,6 +2,12 @@
  * One-time migration for localStorage questionResults keys.
  * Future cleanup: remove this map after users have loaded+re-saved (aliases become dead weight).
  */
+/**
+ * Gaps such as HATV1-Q09, HATV1-Q21/Q22, HATV2-Q22/Q23, HATV3-Q39/Q40, HATV7-Q10
+ * are intentional: those legacy items were removed in the renumber, not renames.
+ * Progress for deleted question IDs cannot be mapped to a living item and is dropped
+ * when results are filtered against the current bank.
+ */
 export const QUESTION_ID_ALIASES: Record<string, string> = {
   'A1-Q001': 'METEO-01-Q001',
   'A1-Q002': 'METEO-01-Q002',

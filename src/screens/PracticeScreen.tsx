@@ -111,6 +111,8 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
 
   const pool = useMemo(() => sd.questionsFor(subjectId), [subjectId, sd]);
   const totalAvailable = pool.length;
+  /** Metadata-backed count so mock gating matches Dashboard before banks finish loading */
+  const authoredQuestionCount = sd.statsFor(subjectId).totalQuestions;
 
   const wrongPool = useMemo(() => {
     const wrongIds = new Set(
@@ -230,7 +232,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
   }
 
   // --- Default: mode cards ---
-  const mockDisabled = totalAvailable < 30;
+  const mockDisabled = authoredQuestionCount < 30;
   const challengeDisabled = challengePool.length === 0;
   const reviewDisabled = wrongPool.length === 0;
   const mockTimerMinutes = computeMockTimerMinutes(prefs.mockCount);
@@ -321,12 +323,12 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
               icon={<GraduationCap className="w-5 h-5" />}
               iconBg="bg-slate-900 text-brand-400"
               title="Mock Exam"
-              description={mockDisabled ? `Need at least 30 questions — only ${totalAvailable} available` : `${prefs.mockCount} questions, exam simulation`}
+              description={mockDisabled ? `Need at least 30 questions — only ${authoredQuestionCount} available` : `${prefs.mockCount} questions, exam simulation`}
               bestFor="exam simulation"
               expanded={expandedMode === 'mock'}
               onToggle={() => toggleExpand('mock')}
               disabled={mockDisabled}
-              disabledNote={mockDisabled ? `Need at least 30 questions for a meaningful mock exam (currently ${totalAvailable})` : undefined}
+              disabledNote={mockDisabled ? `Need at least 30 questions for a meaningful mock exam (currently ${authoredQuestionCount})` : undefined}
               onStart={startMock}
               startLabel="Start Mock"
             >

@@ -1,6 +1,10 @@
 /**
  * Topic ID migration aliases (old → new).
  * Applied on load so localStorage progress survives renames.
+ *
+ * Currently Meteorology only (pre-prefix letter ids → meteo-*). Other subjects
+ * have used stable ids since ship; if a future rename lands, add aliases here
+ * in the same file — do not invent maps without a real rename.
  */
 export const TOPIC_ID_ALIASES: Record<string, string> = {
   'a-composition-today': 'meteo-composition-today',

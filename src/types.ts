@@ -335,6 +335,8 @@ export interface QuestionResult {
   correct: boolean;
   timestamp: number;
   subjectId?: string;
+  /** Times this question was answered (latest outcome still in `correct`). */
+  attempts?: number;
 }
 
 export type PracticeMode = 'topic' | 'quick' | 'mock' | 'review' | 'challenge';
