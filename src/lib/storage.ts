@@ -82,7 +82,8 @@ function sanitizeForSave(data: AppData): AppData {
   for (const [id, prog] of Object.entries(data.topicProgress ?? {})) {
     topicProgress[id] = sanitizeTopicProgress(prog);
   }
-  return { ...data, topicProgress };
+  // revisionDates is legacy read-only; never persist a live mirror
+  return { ...data, topicProgress, revisionDates: {} };
 }
 
 function flushSave(): void {
@@ -248,6 +249,8 @@ function normalizeLoaded(parsed: AppData): AppData {
       migrated = true;
     }
   }
+  // Drop dead mirror field from runtime model (migration already applied)
+  merged.revisionDates = {};
   const idMig = migrateTopicIdKeys(merged);
   merged = idMig.data;
   if (idMig.changed) migrated = true;

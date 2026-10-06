@@ -27,7 +27,8 @@ import type { SubjectId } from '@/types';
 /** Canonical track ids. Keep in sync with @/data/subjects ExamTrack. */
 export type ExamTrackId = DataExamTrack; // 'fpsc' | 'hat'
 
-export type ExamTrackMeta = {
+/** UI chrome for a track (gradients, labels). Not the same as subjects.ExamTrackMeta. */
+export type TrackChromeMeta = {
   id: ExamTrackId;
   /** Short UI label, e.g. "FPSC Subjects" / "HAT Modules" */
   label: string;
@@ -47,7 +48,7 @@ export type TrackSubjectRef = {
 
 // ── Static meta (UI-facing; not content) ──
 
-const TRACK_META: Record<ExamTrackId, ExamTrackMeta> = {
+const TRACK_META: Record<ExamTrackId, TrackChromeMeta> = {
   fpsc: {
     id: 'fpsc',
     label: 'FPSC Subjects',
@@ -65,7 +66,7 @@ const TRACK_META: Record<ExamTrackId, ExamTrackMeta> = {
 };
 
 /** Ordered list of tracks (same order as data layer). */
-export function getExamTracks(): ExamTrackMeta[] {
+export function getExamTracks(): TrackChromeMeta[] {
   // Prefer data module order if present; fall back to TRACK_META keys
   if (Array.isArray(dataExamTracks) && dataExamTracks.length > 0) {
     return dataExamTracks.map((t) => TRACK_META[t.id as ExamTrackId] ?? {
@@ -79,7 +80,7 @@ export function getExamTracks(): ExamTrackMeta[] {
   return Object.values(TRACK_META);
 }
 
-export function getTrackMeta(track: ExamTrackId): ExamTrackMeta {
+export function getTrackMeta(track: ExamTrackId): TrackChromeMeta {
   return TRACK_META[track] ?? TRACK_META.fpsc;
 }
 

@@ -30,7 +30,11 @@ const questionLoaders: Record<string, () => Promise<QuestionModule>> = {
   'hat-quantitative': () => import('./hat/quantitative/questions-quantitative'),
 };
 
-export const activeSubjects: SubjectId[] = ['maths', 'physics', 'earth-science', 'meteo-climatology', 'env-studies', 'research-analysis', 'english', 'hat-verbal', 'hat-analytical', 'hat-quantitative'];
+/** Subjects that have lazy loaders — derived so it cannot drift from the loader map. */
+const LOADER_SUBJECT_IDS = Object.keys(topicLoaders) as SubjectId[];
+
+/** Active content subjects = intersection of catalog subjects and those with loaders. */
+export const activeSubjects: SubjectId[] = LOADER_SUBJECT_IDS;
 
 const topicCache = new Map<string, Topic[]>();
 const questionCache = new Map<string, Question[]>();

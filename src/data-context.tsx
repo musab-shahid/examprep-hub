@@ -20,30 +20,36 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
 
   const markStudied = useCallback((topicId: string) => {
+    let next: AppData | null = null;
     setData((prev) => {
-      const newData = markTopicStudied(prev, topicId);
-      saveData(newData);
-      return newData;
+      next = markTopicStudied(prev, topicId);
+      return next;
     });
-    // Critical path: do not rely only on debounce if the tab closes immediately
-    flushPendingSave();
+    if (next) {
+      saveData(next);
+      flushPendingSave();
+    }
   }, []);
 
   const recordQuiz = useCallback((topicId: string | null, answers: { questionId: string; correct: boolean }[], questions: Question[], mode: PracticeMode, subjectId?: string, difficultyFilter?: DifficultyFilter) => {
+    let next: AppData | null = null;
     setData((prev) => {
-      const newData = recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter);
-      saveData(newData);
-      return newData;
+      next = recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter);
+      return next;
     });
-    flushPendingSave();
+    if (next) {
+      saveData(next);
+      flushPendingSave();
+    }
   }, []);
 
   const setLastTopic = useCallback((topicId: string) => {
+    let next: AppData | null = null;
     setData((prev) => {
-      const newData = setLastOpenedTopic(prev, topicId);
-      saveData(newData);
-      return newData;
+      next = setLastOpenedTopic(prev, topicId);
+      return next;
     });
+    if (next) saveData(next);
   }, []);
 
   const reset = useCallback(() => {
@@ -52,6 +58,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const resetSubjects = useCallback((subjectIds: SubjectId[]) => {
+    let next: AppData | null = null;
     setData((prev) => {
       const subjectIdSet = new Set(subjectIds);
       const subjectSectionIds = new Set(
@@ -61,7 +68,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         topics.filter((t) => subjectSectionIds.has(t.sectionId)).map((t) => t.id)
       );
 
-      const newData: AppData = {
+      next = {
         studiedTopics: prev.studiedTopics.filter((tid) => !subjectTopicIds.has(tid)),
         topicProgress: Object.fromEntries(
           Object.entries(prev.topicProgress).filter(([tid]) => !subjectTopicIds.has(tid))
@@ -77,15 +84,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
           if (q.topicId && subjectTopicIds.has(q.topicId)) return false;
           return true;
         }),
-        revisionDates: Object.fromEntries(
-          Object.entries(prev.revisionDates).filter(([tid]) => !subjectTopicIds.has(tid))
-        ),
+        revisionDates: {},
         lastOpenedTopic: subjectTopicIds.has(prev.lastOpenedTopic) ? '' : prev.lastOpenedTopic,
       };
 
-      saveData(newData);
-      return newData;
+      return next;
     });
+    if (next) {
+      saveData(next);
+      flushPendingSave();
+    }
   }, []);
 
   return (

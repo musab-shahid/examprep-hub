@@ -2975,10 +2975,10 @@ export const questions: Question[] = [
   sourceCitation: "Standard statistics curriculum" },
 
 { id: "MATH-08-Q010", sectionId: "MATH-08", topicId: "math-8-1", difficulty: "hard", type: "single",
-  question: "The mean of a dataset is 25. If every value is multiplied by 4, what is the new mean?",
-  options: ["25", "29", "100", "125"],
+  question: "The mean of a dataset is 40. If 6 is added to every value, what is the new mean?",
+  options: ["34", "40", "46", "240"],
   correctAnswer: 2,
-  explanation: "Multiplying every value by 4 multiplies the sum by 4, but n is unchanged. New mean = 4 × 25 = 100. Similarly, adding a constant c shifts the mean by c.",
+  explanation: "Adding a constant c to every value shifts the mean by c. New mean = 40 + 6 = 46. (Multiplying by a constant multiplies the mean; adding shifts it.)",
   sourceCitation: "Standard statistics curriculum" },
 
 { id: "MATH-08-Q011", sectionId: "MATH-08", topicId: "math-8-1", difficulty: "hard", type: "single",

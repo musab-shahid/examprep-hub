@@ -161,12 +161,15 @@ export function ProgressBar({
   color = 'sky',
   colorClass,
   size = 'md',
+  ariaLabel,
 }: {
   value: number;
   max?: number;
   color?: 'sky' | 'green' | 'amber' | 'red';
   colorClass?: string;
   size?: 'sm' | 'md' | 'lg';
+  /** Accessible name — defaults to "X% complete"; pass e.g. "X% accuracy" for non-completion bars */
+  ariaLabel?: string;
 }) {
   const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0;
   const colors = {
@@ -184,7 +187,7 @@ export function ProgressBar({
       aria-valuenow={pct}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label={`${pct}% complete`}
+      aria-label={ariaLabel ?? `${pct}% complete`}
     >
       <div
         className={`h-full ${fillClass} rounded-full transition-all duration-slow ease-out`}
