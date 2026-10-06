@@ -295,7 +295,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
             {/* Quick Practice */}
             <SimpleModeCard
               icon={<Zap className="w-5 h-5" />}
-              iconBg="bg-amber-100 text-amber-600"
+              iconBg="bg-warning-100 text-warning-600"
               title="Quick Practice"
               description="Random 10 questions, no timer"
               bestFor="daily warm-up"
@@ -362,7 +362,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
             {/* Review Wrong Answers */}
             <SimpleModeCard
               icon={<RotateCcw className="w-5 h-5" />}
-              iconBg="bg-rose-100 text-rose-600"
+              iconBg="bg-danger-100 text-danger-600"
               title="Review Wrong Answers"
               description={reviewDisabled ? "Re-attempt questions you got wrong" : `All ${wrongPool.length} wrong answers available`}
               bestFor="closing knowledge gaps"
@@ -430,7 +430,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                           <p className="text-slate-500 text-xs">{relativeDate(quiz.date)} · {subjLabel}{diffLabel}</p>
                         </div>
                       </div>
-                      <span className={`text-sm font-bold shrink-0 ${pct >= 75 ? 'text-emerald-600' : pct >= 50 ? 'text-amber-600' : 'text-red-600'}`}>
+                      <span className={`text-sm font-bold shrink-0 ${pct >= 75 ? 'text-success-600' : pct >= 50 ? 'text-warning-600' : 'text-danger-600'}`}>
                         {quiz.score}/{quiz.total} ({pct}%)
                       </span>
                     </div>

@@ -286,7 +286,7 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
                 <span className="text-slate-400 text-xs font-bold w-6 shrink-0">{topic.order}</span>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-slate-900 text-sm sm:text-base truncate">{topic.title}</p>
-                  {topic.content ? <span className="text-emerald-600 text-xs font-medium">Content available</span> : <span className="text-slate-400 text-xs">Content coming soon</span>}
+                  {topic.content ? <span className="text-success-600 text-xs font-medium">Content available</span> : <span className="text-slate-400 text-xs">Content coming soon</span>}
                 </div>
                 <TopicStatusIcon status={status} />
                 <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
@@ -402,7 +402,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
       <div className="mb-6">
         <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{topic.title}</h1>
-        {isStudied && <span className="inline-flex items-center gap-1 text-emerald-600 text-sm font-medium mt-2"><BookOpen className="w-4 h-4" /> Studied</span>}
+        {isStudied && <span className="inline-flex items-center gap-1 text-success-600 text-sm font-medium mt-2"><BookOpen className="w-4 h-4" /> Studied</span>}
       </div>
       <div className="space-y-4">
         {topic.definition && (
@@ -456,7 +456,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         )}
         {topic.examPoints && topic.examPoints.length > 0 && (
           <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/50">
-            <div className="flex items-center gap-2 mb-3"><span className="text-amber-600 font-semibold text-sm uppercase tracking-wide">Exam Points</span></div>
+            <div className="flex items-center gap-2 mb-3"><span className="text-warning-600 font-semibold text-sm uppercase tracking-wide">Exam Points</span></div>
             <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" />{point}</li>)}</ul>
           </Card>
         )}
@@ -782,10 +782,10 @@ function VocabularyGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                         <p className="text-slate-600 text-sm mt-0.5">{item.definition}</p>
                         <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1">
                           {item.synonym && item.synonym !== '—' && (
-                            <span className="text-xs text-slate-500"><span className="font-medium text-emerald-600">Syn:</span> {item.synonym}</span>
+                            <span className="text-xs text-slate-500"><span className="font-medium text-success-600">Syn:</span> {item.synonym}</span>
                           )}
                           {item.antonym && item.antonym !== '—' && (
-                            <span className="text-xs text-slate-500"><span className="font-medium text-rose-600">Ant:</span> {item.antonym}</span>
+                            <span className="text-xs text-slate-500"><span className="font-medium text-danger-600">Ant:</span> {item.antonym}</span>
                           )}
                         </div>
                         {item.example && (
@@ -991,7 +991,7 @@ function GrammarRulesBlock({ groups, expandedGroups, onToggleGroup }: {
   return (
     <Card className="p-5">
       <div className="flex items-center gap-2 mb-4">
-        <Sparkles className="w-5 h-5 text-amber-600" />
+        <Sparkles className="w-5 h-5 text-warning-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Grammar Rules by Category</h3>
       </div>
       <div className="space-y-3">
@@ -1008,7 +1008,7 @@ function GrammarRulesBlock({ groups, expandedGroups, onToggleGroup }: {
                   <p className="text-slate-500 text-xs mt-0.5">{group.description}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-medium text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full tabular-nums">{group.rules.length}</span>
+                  <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums">{group.rules.length}</span>
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                 </div>
               </button>
@@ -1072,7 +1072,7 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
   return (
     <Card className="p-5">
       <div className="flex items-center gap-2 mb-4">
-        <GraduationCap className="w-5 h-5 text-amber-600" />
+        <GraduationCap className="w-5 h-5 text-warning-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Subtopics</h3>
       </div>
       <div className="space-y-3">
@@ -1089,7 +1089,7 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                   <p className="text-slate-500 text-xs mt-0.5">{sub.summary}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-medium text-amber-600 bg-amber-100 px-2 py-0.5 rounded-full tabular-nums">{sub.examples.length}</span>
+                  <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums">{sub.examples.length}</span>
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                 </div>
               </button>
@@ -1117,7 +1117,7 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                     )}
                     {sub.traps.length > 0 && (
                       <div className="rounded-lg bg-rose-50/60 p-3">
-                        <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-rose-600" /><span className="text-xs font-semibold text-rose-700 uppercase tracking-wide">Traps</span></div>
+                        <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-danger-600" /><span className="text-xs font-semibold text-danger-700 uppercase tracking-wide">Traps</span></div>
                         <ul className="space-y-1">{sub.traps.map((t, ti) => <li key={ti} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" /><MathText text={t} /></li>)}</ul>
                       </div>
                     )}

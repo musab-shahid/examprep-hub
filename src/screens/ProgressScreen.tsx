@@ -126,7 +126,7 @@ export function ProgressScreen() {
                 </p>
               </div>
               {trendDelta !== null && (
-                <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-semibold ${trendDelta > 0 ? 'bg-emerald-50 text-emerald-600' : trendDelta < 0 ? 'bg-rose-50 text-rose-600' : 'bg-slate-100 text-slate-500'}`}>
+                <div className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-semibold ${trendDelta > 0 ? 'bg-success-50 text-success-600' : trendDelta < 0 ? 'bg-danger-50 text-danger-600' : 'bg-slate-100 text-slate-500'}`}>
                   {trendDelta > 0 ? <TrendingUp className="w-3.5 h-3.5" /> : trendDelta < 0 ? <TrendingUp className="w-3.5 h-3.5 rotate-180" /> : null}
                   {trendDelta > 0 ? '+' : ''}{trendDelta}% vs last week
                 </div>
@@ -137,7 +137,7 @@ export function ProgressScreen() {
                 <AccuracyChart data={weeklyData} />
                 {bestWeek && bestWeek.accuracy !== null && (
                   <div className="flex items-center gap-1.5 mt-3 text-xs text-slate-500">
-                    <Award className="w-3.5 h-3.5 text-amber-500" />
+                    <Award className="w-3.5 h-3.5 text-warning-500" />
                     Best week: <span className="font-semibold text-slate-700">{bestWeek.label}{bestWeek.subLabel ? `–${bestWeek.subLabel}` : ''}</span> at <span className="font-semibold text-slate-700">{bestWeek.accuracy}%</span>
                   </div>
                 )}
@@ -225,7 +225,7 @@ export function ProgressScreen() {
                         {color && <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color.dot }} />}
                         <span className="text-slate-700 text-sm truncate">{topic.title}</span>
                       </div>
-                      <span className={`text-sm font-bold shrink-0 ml-2 ${w.accuracy < 60 ? 'text-red-500' : 'text-amber-500'}`}>{w.accuracy}%</span>
+                      <span className={`text-sm font-bold shrink-0 ml-2 ${w.accuracy < 60 ? 'text-danger-500' : 'text-warning-500'}`}>{w.accuracy}%</span>
                     </div>
                   );
                 })}
@@ -417,8 +417,8 @@ function StatCard({ icon, label, value, sub, color }: { icon: React.ReactNode; l
   const colors = {
     sky: 'bg-brand-100 text-brand-600',
     slate: 'bg-slate-100 text-slate-600',
-    amber: 'bg-amber-100 text-amber-600',
-    green: 'bg-emerald-100 text-emerald-600',
+    amber: 'bg-warning-100 text-warning-600',
+    green: 'bg-success-100 text-success-600',
   };
   return (
     <Card className="p-4">

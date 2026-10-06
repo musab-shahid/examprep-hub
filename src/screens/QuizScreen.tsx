@@ -880,7 +880,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           </span>
           {showTimer && (
             <span
-              className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-red-600 font-semibold' : 'text-slate-600'}`}
+              className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-danger-600 font-semibold' : 'text-slate-600'}`}
               role="timer"
               aria-live={timerUrgent ? 'assertive' : 'off'}
               aria-atomic="true"
@@ -1015,13 +1015,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             <div className="mb-3 space-y-1">
               <p className="text-slate-600 text-sm">
                 You answered:{' '}
-                <span className="font-medium text-red-600">
+                <span className="font-medium text-danger-600">
                   {state.selectedIndices.map((i) => currentQ.options[i]).join(', ') || 'None'}
                 </span>
               </p>
               <p className="text-slate-600 text-sm">
                 Correct answer(s):{' '}
-                <span className="font-medium text-emerald-600">
+                <span className="font-medium text-success-600">
                   {(currentQ.correctAnswer as number[]).map((i) => currentQ.options[i]).join(', ')}
                 </span>
               </p>
@@ -1031,13 +1031,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             <div className="mb-3 space-y-1">
               <p className="text-slate-600 text-sm">
                 You matched:{' '}
-                <span className="font-medium text-red-600">
+                <span className="font-medium text-danger-600">
                   {currentQ.options.map((opt, i) => `${opt} → ${currentQ.matchOptions?.[state.selectedIndices[i] ?? -1] ?? '—'}`).join(', ')}
                 </span>
               </p>
               <p className="text-slate-600 text-sm">
                 Correct matches:{' '}
-                <span className="font-medium text-emerald-600">
+                <span className="font-medium text-success-600">
                   {currentQ.options.map((opt, i) => `${opt} → ${currentQ.matchOptions?.[(currentQ.correctAnswer as number[])[i]] ?? '—'}`).join(', ')}
                 </span>
               </p>
@@ -1047,13 +1047,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             <div className="mb-3 space-y-1">
               <p className="text-slate-600 text-sm">
                 You answered:{' '}
-                <span className="font-medium text-red-600">
+                <span className="font-medium text-danger-600">
                   {currentQ.options[state.selectedIndices[0]] ?? 'None'}
                 </span>
               </p>
               <p className="text-slate-600 text-sm">
                 Correct answer:{' '}
-                <span className="font-medium text-emerald-600">
+                <span className="font-medium text-success-600">
                   {currentQ.options[currentQ.correctAnswer as number]}
                 </span>
               </p>
@@ -1239,7 +1239,7 @@ function QuizResults({
                     </div>
                     <span
                       className={`text-sm font-bold shrink-0 ml-2 ${
-                        t.accuracy >= 75 ? 'text-emerald-600' : t.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'
+                        t.accuracy >= 75 ? 'text-success-600' : t.accuracy >= 50 ? 'text-warning-600' : 'text-danger-600'
                       }`}
                     >
                       {t.accuracy}%
@@ -1262,7 +1262,7 @@ function QuizResults({
                   <p className="text-xs text-slate-500 capitalize">{diff}</p>
                   <p
                     className={`text-lg font-bold ${
-                      dPct >= 75 ? 'text-emerald-600' : dPct >= 50 ? 'text-amber-600' : 'text-red-600'
+                      dPct >= 75 ? 'text-success-600' : dPct >= 50 ? 'text-warning-600' : 'text-danger-600'
                     }`}
                   >
                     {dPct}%
@@ -1293,7 +1293,7 @@ function QuizResults({
                   <p className="text-slate-500 text-xs mt-1 mb-2">Practice 5 questions on this topic</p>
                   <button
                     onClick={() => onPracticeTopic(t.topicId)}
-                    className="inline-flex items-center gap-1 text-red-600 text-sm font-medium hover:text-red-700"
+                    className="inline-flex items-center gap-1 text-danger-600 text-sm font-medium hover:text-danger-700"
                   >
                     <Target className="w-4 h-4" /> Practice this topic
                   </button>
@@ -1308,7 +1308,7 @@ function QuizResults({
                 <p className="text-slate-500 text-xs mt-1 mb-2">Re-read the material to strengthen understanding</p>
                 <button
                   onClick={() => onNavigateToTopic(t.topicId)}
-                  className="inline-flex items-center gap-1 text-amber-600 text-sm font-medium hover:text-amber-700"
+                  className="inline-flex items-center gap-1 text-warning-600 text-sm font-medium hover:text-warning-700"
                 >
                   <BookOpen className="w-4 h-4" /> Re-read topic
                 </button>
@@ -1426,10 +1426,10 @@ function QuizResults({
                     {!isOk && (
                       <div className="ml-6 text-xs text-slate-500 space-y-0.5">
                         <p>
-                          Your answer: <span className="text-red-600 font-medium">{yourText}</span>
+                          Your answer: <span className="text-danger-600 font-medium">{yourText}</span>
                         </p>
                         <p>
-                          Correct: <span className="text-emerald-600 font-medium">{correctText}</span>
+                          Correct: <span className="text-success-600 font-medium">{correctText}</span>
                         </p>
                       </div>
                     )}

@@ -5,6 +5,9 @@ import { swPrecachePlugin } from './vite-sw-plugin.js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify('1.1.0'),
+  },
   plugins: [react(), swPrecachePlugin()],
   resolve: {
     alias: {

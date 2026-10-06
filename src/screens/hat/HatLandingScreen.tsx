@@ -113,7 +113,7 @@ export function HatLandingScreen() {
             <div className="flex items-center gap-3 text-sm">
               <span className={`${ts.accent} font-bold`}>{studiedHatTopics}/{totalTopics} studied</span>
               {quizTouchedHatTopics > 0 && (
-                <span className="text-amber-600 font-bold">{quizTouchedHatTopics} practiced</span>
+                <span className="text-warning-600 font-bold">{quizTouchedHatTopics} practiced</span>
               )}
             </div>
           </div>
@@ -214,7 +214,7 @@ export function HatLandingScreen() {
                       </span>
                     )}
                     {quizCount > 0 && (
-                      <span className="text-xs font-medium text-amber-600">
+                      <span className="text-xs font-medium text-warning-600">
                         {quizCount} practiced
                       </span>
                     )}

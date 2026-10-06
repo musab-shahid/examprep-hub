@@ -121,7 +121,7 @@ export function FpscLandingScreen() {
             <div className="flex items-center gap-3 text-sm">
               <span className={`${ts.accent} font-bold`}>{studiedFpscTopics}/{totalTopics} studied</span>
               {quizTouchedFpscTopics > 0 && (
-                <span className="text-amber-600 font-bold">{quizTouchedFpscTopics} practiced</span>
+                <span className="text-warning-600 font-bold">{quizTouchedFpscTopics} practiced</span>
               )}
             </div>
           </div>
@@ -146,7 +146,7 @@ export function FpscLandingScreen() {
             onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors"
           >
-            <Zap className="w-5 h-5 text-amber-600" />
+            <Zap className="w-5 h-5 text-warning-600" />
             <span className="text-sm font-semibold text-slate-900">Quick Practice</span>
             <span className="text-slate-500 text-xs">10 Qs · 5 min</span>
           </button>
@@ -154,7 +154,7 @@ export function FpscLandingScreen() {
             onClick={() => navigate({ screen: 'review', parent: null })}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
-            <RotateCcw className="w-5 h-5 text-emerald-600" />
+            <RotateCcw className="w-5 h-5 text-success-600" />
             <span className="text-sm font-semibold text-slate-900">Review</span>
             <span className="text-slate-500 text-xs">Spaced repetition</span>
           </button>
@@ -232,7 +232,7 @@ export function FpscLandingScreen() {
                       </span>
                     )}
                     {quizCount > 0 && (
-                      <span className="text-xs font-medium text-amber-600">
+                      <span className="text-xs font-medium text-warning-600">
                         {quizCount} practiced
                       </span>
                     )}

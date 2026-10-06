@@ -152,7 +152,19 @@ function AppContent() {
   }, []);
 
   const [storageWarning, setStorageWarning] = useState<string | null>(() => consumeStorageWarning());
+  const [isOffline, setIsOffline] = useState(!navigator.onLine);
   const hasBackup = Boolean(getBackupRaw());
+
+  useEffect(() => {
+    const onOnline = () => setIsOffline(false);
+    const onOffline = () => setIsOffline(true);
+    window.addEventListener('online', onOnline);
+    window.addEventListener('offline', onOffline);
+    return () => {
+      window.removeEventListener('online', onOnline);
+      window.removeEventListener('offline', onOffline);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-pattern-topo">
@@ -203,7 +215,7 @@ function AppContent() {
       </div>
       <MobileNav />
       <OfflineIndicator />
-      <UpdatePrompt />
+      <UpdatePrompt offlineVisible={isOffline} />
       <InstallPrompt />
     </div>
   );

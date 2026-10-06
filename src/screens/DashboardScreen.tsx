@@ -117,8 +117,8 @@ export function DashboardScreen() {
         <div className="grid grid-cols-4 gap-2 pt-3 border-t border-brand-100">
           <HeroStat icon={<Flame className="w-4 h-4 text-orange-500" />} value={`${streakInfo.streak}`} label="streak" />
           <HeroStat icon={<Brain className="w-4 h-4 text-violet-500" />} value={`${todayActivity.questionsAnswered}`} label="today" />
-          <HeroStat icon={<TrendingUp className="w-4 h-4 text-emerald-500" />} value={`${weekActivity.avgAccuracy}%`} label="week acc" />
-          <HeroStat icon={<RotateCcw className="w-4 h-4 text-amber-500" />} value={`${reviewDue.length}`} label="due" />
+          <HeroStat icon={<TrendingUp className="w-4 h-4 text-success-500" />} value={`${weekActivity.avgAccuracy}%`} label="week acc" />
+          <HeroStat icon={<RotateCcw className="w-4 h-4 text-warning-500" />} value={`${reviewDue.length}`} label="due" />
         </div>
       </Card>
 
@@ -195,7 +195,7 @@ export function DashboardScreen() {
                         <div className="flex items-center justify-between text-xs">
                           <span className={color.text}>{studiedPct}%</span>
                           {sStats.accuracy > 0 && (
-                            <span className={`font-mono tabular-nums ${sStats.accuracy >= 75 ? 'text-emerald-600' : sStats.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'}`}>
+                            <span className={`font-mono tabular-nums ${sStats.accuracy >= 75 ? 'text-success-600' : sStats.accuracy >= 50 ? 'text-warning-600' : 'text-danger-600'}`}>
                               {sStats.accuracy}% acc
                             </span>
                           )}
@@ -217,7 +217,7 @@ export function DashboardScreen() {
         {/* Weak Areas — 2 cols */}
         <Card className="p-4 bg-amber-50/50 border-amber-200 lg:col-span-2">
           <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle className="w-4 h-4 text-amber-500" />
+            <AlertTriangle className="w-4 h-4 text-warning-500" />
             <h3 className="font-semibold text-slate-900 text-sm">Areas needing attention</h3>
           </div>
           {weakTopics.length > 0 ? (
@@ -239,7 +239,7 @@ export function DashboardScreen() {
                         {color && <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color.dot }} />}
                         <span className="text-slate-700 text-sm font-medium truncate">{topic.title}</span>
                       </div>
-                      <span className={`text-sm font-bold shrink-0 ml-2 ${w.accuracy < 60 ? 'text-red-500' : 'text-amber-500'}`}>
+                      <span className={`text-sm font-bold shrink-0 ml-2 ${w.accuracy < 60 ? 'text-danger-500' : 'text-warning-500'}`}>
                         {w.accuracy}%
                       </span>
                     </button>
@@ -270,7 +270,7 @@ export function DashboardScreen() {
           </div>
           <div className="grid grid-cols-2 gap-2">
             <QuickActionTile
-              icon={<Zap className="w-5 h-5 text-amber-600" />}
+              icon={<Zap className="w-5 h-5 text-warning-600" />}
               iconBg="bg-amber-50 border border-amber-200"
               title="Quick Practice"
               subtitle="10 questions"
@@ -298,7 +298,7 @@ export function DashboardScreen() {
               onClick={() => navigate({ screen: 'hat', parent: null })}
             />
             <QuickActionTile
-              icon={<RotateCcw className="w-5 h-5 text-emerald-600" />}
+              icon={<RotateCcw className="w-5 h-5 text-success-600" />}
               iconBg="bg-emerald-50 border border-emerald-200"
               title="Review Queue"
               subtitle={`${reviewDue.length} due`}

@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { RefreshCw, X } from 'lucide-react';
 
-export function UpdatePrompt() {
+export function UpdatePrompt({ offlineVisible = false }: { offlineVisible?: boolean }) {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const registrationRef = useRef<ServiceWorkerRegistration | null>(null);
 
@@ -76,15 +76,15 @@ export function UpdatePrompt() {
   if (!updateAvailable) return null;
 
   return (
-    <div className="fixed top-0 inset-x-0 z-[60] animate-fade-in-up">
+    <div className="fixed top-0 inset-x-0 z-[60] animate-fade-in-up" style={{ top: offlineVisible ? '2.5rem' : 0 }}>
       <div className="mx-auto max-w-md px-4 pt-[env(safe-area-inset-top)]">
         <div className="rounded-b-2xl border border-b-0 border-slate-200 bg-white shadow-lg px-4 py-3 flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm">
             <RefreshCw className="w-4 h-4 text-white" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-900 text-sm">Update available</p>
-            <p className="text-slate-500 text-xs mt-0.5">A new version of ExamPrep Hub is ready.</p>
+            <p className="font-semibold text-slate-900 text-sm">Update available <span className="text-slate-400 font-normal">v{__APP_VERSION__}</span></p>
+            <p className="text-slate-500 text-xs mt-0.5">A new version of ExamPrep Hub is ready. Restart to get the latest questions and fixes.</p>
           </div>
           <button
             onClick={handleUpdate}

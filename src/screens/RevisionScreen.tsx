@@ -186,7 +186,7 @@ function RevisionGroup({ title, icon, items, onOpen }: {
               <button onClick={() => onOpen(item.topicId)} className="w-full text-left">
                 <div className="flex items-center justify-between gap-3 mb-2">
                   <p className="font-medium text-slate-900 text-sm truncate flex-1">{topic.title}</p>
-                  <span className={`text-sm font-bold shrink-0 ${item.accuracy < 60 ? 'text-red-500' : item.accuracy < 75 ? 'text-amber-500' : 'text-emerald-500'}`}>
+                  <span className={`text-sm font-bold shrink-0 ${item.accuracy < 60 ? 'text-danger-500' : item.accuracy < 75 ? 'text-warning-500' : 'text-success-500'}`}>
                     {item.accuracy}%
                   </span>
                 </div>

@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js').catch((err) => {
-      if (import.meta.env.DEV) console.warn('[SW] registration failed:', err);
+      console.error('[ExamPrep] Service worker registration failed. Offline support may not work.', err);
     });
   });
 }
