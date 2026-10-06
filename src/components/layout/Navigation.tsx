@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  Home, BookOpen, Brain, RotateCcw, Calculator, BarChart3,
+  Home, BookCopy, Brain, RotateCcw, Sigma, TrendingUp,
   Search, Clock, Settings as SettingsIcon, Trophy, Library,
   ChevronRight, ChevronDown, Cloud, MoreHorizontal, FileText,
   Dumbbell,
@@ -20,12 +20,12 @@ import type { SubjectId } from '@/types';
 
 const SIDEBAR_EXPANDED_KEY = STORAGE_KEYS.sidebarExpanded;
 
-const stageIcons: Record<StageScreen, typeof BookOpen> = {
-  learn: BookOpen,
+const stageIcons: Record<StageScreen, typeof BookCopy> = {
+  learn: BookCopy,
   practice: Brain,
   review: RotateCcw,
-  formulas: Calculator,
-  progress: BarChart3,
+  formulas: Sigma,
+  progress: TrendingUp,
   search: Search,
 };
 
@@ -237,7 +237,7 @@ export function Sidebar() {
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
-            <BarChart3 className="w-5 h-5 shrink-0" />
+            <TrendingUp className="w-5 h-5 shrink-0" />
             Progress
           </button>
         </div>

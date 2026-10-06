@@ -1,6 +1,6 @@
 import {
   Trash2, GraduationCap, Flame, TrendingUp, BookOpen, Brain, Target,
-  Check, Minus, AlertTriangle, FileText, Database, Info,
+  Check, CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useData } from '@/hooks/useData';
@@ -94,7 +94,7 @@ export function SettingsScreen() {
 
       {resetDone && (
         <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2 animate-fade-in-up">
-          <Check className="w-5 h-5 text-emerald-600 shrink-0" />
+          <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
           <p className="text-emerald-800 text-sm font-medium">{resetDone}</p>
         </div>
       )}

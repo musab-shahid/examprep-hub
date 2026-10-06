@@ -1,4 +1,4 @@
-import { RotateCcw, AlertTriangle, Clock, CheckCircle, GraduationCap, Dumbbell } from 'lucide-react';
+import { RotateCcw, AlertTriangle, Clock, CheckCircle2, GraduationCap, Dumbbell } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -147,7 +147,7 @@ export function RevisionScreen() {
               {groups.refresh.length > 0 && (
                 <RevisionGroup
                   title="Refresh"
-                  icon={<CheckCircle className="w-5 h-5 text-emerald-500" />}
+                  icon={<CheckCircle2 className="w-5 h-5 text-emerald-500" />}
                   items={groups.refresh}
                   onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
                 />

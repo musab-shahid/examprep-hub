@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useDropdownKeyboard } from '@/hooks/useDropdownKeyboard';
-import { Zap, Target, RotateCcw, ChevronRight, ArrowLeft, GraduationCap, CheckCircle, Dumbbell, ChevronDown, Check, AlertTriangle } from 'lucide-react';
+import { Zap, Target, RotateCcw, ChevronRight, ArrowLeft, GraduationCap, CheckCircle2, Dumbbell, ChevronDown, Check, AlertTriangle } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -203,7 +203,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                                     : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
                             }`}
                           >
-                            {isMastered && !selected && <CheckCircle size={14} className="shrink-0" />}
+                            {isMastered && !selected && <CheckCircle2 size={14} className="shrink-0" />}
                             {isAttempted && !selected && <RotateCcw size={14} className="shrink-0" />}
                             {topic.title}
                           </button>
@@ -424,7 +424,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                   return (
                     <div key={i} className="flex items-center justify-between">
                       <div className="flex items-center gap-3 min-w-0">
-                        <CheckCircle className={`w-5 h-5 shrink-0 ${pct >= 75 ? 'text-emerald-500' : pct >= 50 ? 'text-amber-500' : 'text-red-500'}`} />
+                        <CheckCircle2 className={`w-5 h-5 shrink-0 ${pct >= 75 ? 'text-emerald-500' : pct >= 50 ? 'text-amber-500' : 'text-red-500'}`} />
                         <div className="min-w-0">
                           <p className="text-slate-800 text-sm font-medium truncate">{modeLabel}</p>
                           <p className="text-slate-500 text-xs">{relativeDate(quiz.date)} · {subjLabel}{diffLabel}</p>

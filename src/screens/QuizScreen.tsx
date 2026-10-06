@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { CheckCircle, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { allQuestions, questionsByTopic } from '@/data/questions';
@@ -821,7 +821,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           <EmptyState
             title="No wrong answers left"
             message="You've answered all previously wrong questions correctly. Great job!"
-            icon={<CheckCircle className="w-12 h-12" />}
+            icon={<CheckCircle2 className="w-12 h-12" />}
           />
           <div className="flex justify-center mt-4">
             <Button onClick={() => navigate({ screen: 'practice', parent: null })}>Back to Practice</Button>
@@ -979,7 +979,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                   {currentQ.type === 'multi' ? (isSelected ? '\u2713' : '') : String.fromCharCode(65 + idx)}
                 </div>
                 <span className="text-slate-800 text-sm flex-1">{opt}</span>
-                {state.checked && isCorrectOption && <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />}
+                {state.checked && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
                 {state.checked && isSelected && !isCorrectOption && <XCircle className="w-5 h-5 text-red-500 shrink-0" />}
               </button>
             );
@@ -1000,7 +1000,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           <div className="flex items-center gap-2 mb-3">
             {correctAns ? (
               <>
-                <CheckCircle className="w-5 h-5 text-emerald-500" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                 <span className="font-semibold text-emerald-700">Correct!</span>
               </>
             ) : (
@@ -1231,7 +1231,7 @@ function QuizResults({
                   <div key={t.topicId} className="flex items-center justify-between">
                     <div className="flex items-center gap-2 min-w-0">
                       {t.accuracy >= 70 ? (
-                        <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                       ) : (
                         <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
                       )}
@@ -1414,7 +1414,7 @@ function QuizResults({
                   <div key={q.id} id={`review-q-${idx}`} className="border-b border-slate-100 pb-3 last:border-b-0 last:pb-0 scroll-mt-2">
                     <div className="flex items-start gap-2 mb-1">
                       {isOk ? (
-                        <CheckCircle className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
                       ) : (
                         <XCircle className="w-4 h-4 text-red-500 mt-0.5 shrink-0" />
                       )}
@@ -1495,7 +1495,7 @@ function MatchingOptions({ question, selectedIndices, checked, onSelect }: {
                 <option key={mIdx} value={mIdx}>{mOpt}</option>
               ))}
             </select>
-            {checked && isCorrectMatch && <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0" />}
+            {checked && isCorrectMatch && <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />}
             {checked && !isCorrectMatch && selectedMatch !== undefined && <XCircle className="w-5 h-5 text-red-500 shrink-0" />}
           </div>
         );

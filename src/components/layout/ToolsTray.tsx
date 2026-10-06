@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import {
-  Search, Clock, Settings as SettingsIcon, BookOpen, Brain, RotateCcw,
-  Calculator, BarChart3, X, Trophy, FileText,
+  Search, Clock, Settings as SettingsIcon, BookCopy, Brain, RotateCcw,
+  Sigma, TrendingUp, X, Trophy, FileText, BarChart3,
 } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -79,11 +79,11 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
   ];
 
   const mobileStages = [
-    { icon: BookOpen, label: 'Learn', stage: 'learn' as StageScreen },
+    { icon: BookCopy, label: 'Learn', stage: 'learn' as StageScreen },
     { icon: Brain, label: 'Practice', stage: 'practice' as StageScreen },
     { icon: RotateCcw, label: 'Review', stage: 'review' as StageScreen },
-    { icon: Calculator, label: 'Formulas', stage: 'formulas' as StageScreen },
-    { icon: BarChart3, label: 'Progress', stage: 'progress' as StageScreen },
+    { icon: Sigma, label: 'Formulas', stage: 'formulas' as StageScreen },
+    { icon: TrendingUp, label: 'Progress', stage: 'progress' as StageScreen },
   ];
 
   const rowClass =
