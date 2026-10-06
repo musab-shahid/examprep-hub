@@ -1533,5 +1533,4 @@ export const questions: Question[] = [
   correctAnswer: 3,
   explanation: "All three are valid combinations using different techniques. (a) COORDINATION with parallel verbs ('saw' and 'understood') — same subject 'She' shared. (b) Present PARTICIPLE ('understanding') as adverbial modifier — same subject. (c) Different participle placement ('Entering the room') at the START — requires grammatical subject that performs the action ('she' does enter) → no dangling. Apply the same-subject test: all three sentences have 'She' as subject → multiple techniques are viable. Choose the one that flows most naturally; there is usually more than one correct answer.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] }
-
 ];
