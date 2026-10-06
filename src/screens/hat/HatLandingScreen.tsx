@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GraduationCap, Clock, BookOpen, Brain, Calculator, ChevronRight, ArrowRight, Sparkles, Target, TrendingUp, Layers } from 'lucide-react';
 import { useRouter } from '@/router';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { HAT_SECTIONS, HAT_EXAM_DURATION_MINUTES, HAT_TOTAL_QUESTIONS, HAT_PASSING_SCORE } from '@/data/hat/hat-meta';
-import { allHatTopics, allHatQuestions, hatQuestionsBySection } from '@/data/hat';
+import { loadAllHatTopics, loadAllHatQuestions } from '@/data/hat';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { getSubjectsForTrack } from '@/lib/exam-track';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
-import type { SubjectId } from '@/types';
+import type { Topic, Question, SubjectId } from '@/types';
 
 const SECTION_ICONS = {
   verbal: BookOpen,
@@ -33,6 +33,17 @@ export function HatLandingScreen() {
   useEffect(() => { setActiveTrack('hat'); }, [setActiveTrack]);
   const { data } = useData();
   const ts = getTrackStyle('hat');
+
+  const [hatTopics, setHatTopics] = useState<Topic[]>([]);
+  const [hatQuestions, setHatQuestions] = useState<Question[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    Promise.all([loadAllHatTopics(), loadAllHatQuestions()]).then(([t, q]) => {
+      if (active) { setHatTopics(t); setHatQuestions(q); }
+    });
+    return () => { active = false; };
+  }, []);
   const handleStudySection = (sectionCode: string) => {
     setActiveSubjectForScreen('learn', subjectIdForHatSection(sectionCode));
     navigate({ screen: 'learn', parent: currentRoute });
@@ -42,10 +53,10 @@ export function HatLandingScreen() {
     navigate({ screen: 'practice', parent: currentRoute });
   };
   const sectionEntries = Object.values(HAT_SECTIONS);
-  const totalTopics = allHatTopics.length;
-  const totalQuestions = allHatQuestions.length;
-  const studiedHatTopics = allHatTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
-  const quizTouchedHatTopics = allHatTopics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
+  const totalTopics = hatTopics.length;
+  const totalQuestions = hatQuestions.length;
+  const studiedHatTopics = hatTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
+  const quizTouchedHatTopics = hatTopics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
   const overallProgress = totalTopics > 0 ? Math.round((studiedHatTopics / totalTopics) * 100) : 0;
   const stats = [
     { icon: Layers, label: 'Sections', value: '3', color: ts.statIconColors[0] },
@@ -164,8 +175,8 @@ export function HatLandingScreen() {
         {sectionEntries.map((section, idx) => {
           const style = getSubjectStyle(`hat-${section.id}`);
           const Icon = SECTION_ICONS[section.id];
-          const topics = allHatTopics.filter((t) => t.hatSection === section.id);
-          const sectionQuestionCount = hatQuestionsBySection(section.sectionCode).length;
+          const topics = hatTopics.filter((t) => t.hatSection === section.id);
+          const sectionQuestionCount = hatQuestions.filter((q) => q.sectionId === section.sectionCode || q.sectionId.startsWith(section.sectionCode + '-')).length;
           const studiedCount = topics.filter((t) => data.studiedTopics.includes(t.id)).length;
           const quizCount = topics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
           const sectionProgress = topics.length > 0 ? Math.round((studiedCount / topics.length) * 100) : 0;
