@@ -38,6 +38,13 @@ export function UpdatePrompt({ offlineVisible = false }: { offlineVisible?: bool
 
     checkForUpdates();
 
+    // Force an update check on mount — the registration in main.tsx may have
+    // already found a new SW before our updatefound listener was attached.
+    // Calling reg.update() re-checks and re-triggers updatefound if needed.
+    if (registrationRef.current) {
+      registrationRef.current.update().catch(() => {});
+    }
+
     // Check for updates when the tab becomes visible
     const onVisibility = () => {
       if (document.visibilityState === 'visible') {

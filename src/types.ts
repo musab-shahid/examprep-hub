@@ -111,10 +111,10 @@ export interface QualitativeScenario {
 
 export interface WorkedExample {
   problem: string;
-  solution?: string;  // Supports $...$ and $...$ via MathText
+  solution?: string | Record<string, string>;  // Supports $...$ and $...$ via MathText
   answer?: string;
   takeaway?: string;
-  /** English-style: keyed solution steps */
+  /** English-style: keyed solution steps (alias for object-form solution) */
   solutionSteps?: Record<string, string>;
 }
 
