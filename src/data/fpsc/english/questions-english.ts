@@ -1113,99 +1113,85 @@ export const questions: Question[] = [
   correctAnswer: 1,
   explanation: "'Ostensible' means 'apparent, stated, professed' — the REASON GIVEN, often not the real one. The budget review was the STATED reason; the real reason was personnel changes. From Latin 'ostendere' (to show). Often used with 'ostensible reason/purpose'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
-
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Building Blocks
+// TOPIC: Building Blocks (aligned with upgraded topic)
 // ═══════════════════════════════════════════════════════════════════
-
 // Easy
 { id: "ENG-03-Q001", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "easy", type: "single",
   question: "Which of the following is a PHRASE (not a clause)?",
   options: ["The dog barks", "The barking dog", "She runs quickly", "They left early"],
   correctAnswer: 1,
-  explanation: "'The barking dog' is a phrase — it has a noun (dog) but NO VERB. The others all have both subject and verb. Phrase test: does it have a subject AND a verb? If not, it's a phrase.",
+  explanation: "'The barking dog' is a PHRASE. The phrase-vs-clause test asks two questions: (1) Is there a SUBJECT? (2) Is there a FINITE VERB (one that changes with tense: is/was/will be)? 'The barking dog' has a noun but NO finite verb — 'barking' is an -ing participle, not a finite verb. The other three all have subject + finite verb (barks, runs, left) → clauses. Rule: phrase = missing subject OR finite verb OR both; clause = has both.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q002", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "easy", type: "single",
   question: "Which of the following is a CLAUSE?",
   options: ["Running through the park", "In the morning", "The sun rises", "Very quickly"],
   correctAnswer: 2,
-  explanation: "'The sun rises' is a clause — it has subject (sun) and verb (rises). The others are phrases (running = participial, in the morning = prepositional, very quickly = adverbial). Phrases have no subject-verb combination; clauses do.",
+  explanation: "'The sun rises' is a CLAUSE — subject (sun) + finite verb (rises, changes with tense: rise/rose/rising). The others are phrases: 'Running through the park' = participial (verb-ing + modifiers, no subject), 'In the morning' = prepositional (preposition + noun), 'Very quickly' = adverbial (no verb). Apply the phrase-vs-clause test: both subject and finite verb present → clause.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q003", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "easy", type: "true_false",
-  question: "A sentence fragment is a group of words punctuated as a sentence but lacking a complete thought (usually missing a subject or verb or dependent clause).",
+  question: "A sentence fragment is a group of words punctuated as a sentence but missing one of: a subject, a finite verb, or independence (the ability to stand alone).",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. A fragment looks like a sentence (capital letter, period) but lacks what a sentence needs: a complete thought with both a subject and a verb (or a dependent clause attached to an independent one).",
+  explanation: "True. Three fragment types exist: (1) participial phrase fragment — 'Running through the field.' (no subject + no finite verb); (2) prepositional phrase fragment — 'In the morning.' (no subject + no finite verb); (3) dependent clause fragment — 'Because the storm was severe.' (HAS subject + finite verb but cannot stand alone because of the subordinator). All three look like sentences (capital + period) but lack what a sentence needs.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Medium
 { id: "ENG-03-Q004", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Identify the type of phrase: 'in the morning'",
   options: ["Noun phrase", "Verb phrase", "Prepositional phrase", "Adjective phrase"],
   correctAnswer: 2,
-  explanation: "'In the morning' is a prepositional phrase — it begins with the preposition 'in' and ends with the noun phrase 'the morning'. The pattern is: preposition + noun (phrase).",
+  explanation: "'In the morning' is a PREPOSITIONAL phrase — it begins with the preposition 'in' and ends with the noun phrase 'the morning'. The pattern is: preposition + noun (phrase). The other options don't fit: it isn't a noun phrase itself (no noun as the main word), isn't a verb phrase (no verb with tense), and doesn't describe a noun (so not adjective).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q005", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Which of the following is an INDEPENDENT (main) clause?",
   options: ["Because it rained heavily", "When the bell rings", "The students left", "Although she was tired"],
   correctAnswer: 2,
-  explanation: "'The students left' is an independent clause — it has a subject (students), a verb (left), and expresses a complete thought on its own. The other three are DEPENDENT clauses (begin with subordinating conjunctions: because, when, although) and cannot stand alone as sentences.",
+  explanation: "'The students left' is an INDEPENDENT clause — it has a subject (students) + finite verb (left) AND can stand alone as a complete sentence. The other three are DEPENDENT clauses: each begins with a subordinator (because, when, although) and CANNOT stand alone. Apply the stand-alone test: can the unit stand alone and make complete sense? 'The students left' → yes (independent); 'Because it rained heavily' → no (dependent).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q006", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Identify the subordinate clause: 'The book that I borrowed was excellent.'",
   options: ["The book", "was excellent", "that I borrowed", "I borrowed"],
   correctAnswer: 2,
-  explanation: "'That I borrowed' is a subordinate (adjective/relative) clause. It modifies the noun 'book'. It has subject (I) + verb (borrowed), but it begins with the relative pronoun 'that' and cannot stand alone as a sentence.",
+  explanation: "'That I borrowed' is a DEPENDENT (subordinate) clause — specifically a RELATIVE clause. It modifies the noun 'book' (tells us WHICH book). It has subject (I) + finite verb (borrowed), but it begins with the relative pronoun 'that' and cannot stand alone as a sentence. Function test: does it modify a noun? Yes → RELATIVE clause. Does it answer when/why/how? No → not adverbial. Does it act as subject/object? No → not a noun clause.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q007", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Identify the participial phrase: 'Running quickly, she caught the bus.'",
   options: ["Running quickly", "she caught the bus", "the bus", "quickly"],
   correctAnswer: 0,
-  explanation: "'Running quickly' is a participial phrase (begins with -ing form of a verb, 'running'). It acts as an adjective/adverbial modifier, modifying 'she'. Note: it's a phrase (not a clause) because it has no subject.",
+  explanation: "'Running quickly' is a PARTICIPIAL phrase (begins with -ing form of a verb, 'running', and includes modifiers). It acts as an adjective/adverbial modifier describing 'she'. Crucially, it is a PHRASE — not a clause — because it has no subject of its own. Contrast with a gerund phrase: 'Running marathons is fun' — 'Running marathons' is a GERUND because it acts as a noun (subject of 'is fun'). The test: substitute 'it' — 'It is fun' works → gerund.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q008", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Which sentence contains a FRAGMENT?",
   options: ["She walked to the store.", "Because it was raining heavily.", "I enjoy reading books.", "He plays football every weekend."],
   correctAnswer: 1,
-  explanation: "'Because it was raining heavily' is a fragment — it's a dependent clause (begins with 'because') that cannot stand alone as a sentence. The other three are all complete independent sentences.",
+  explanation: "'Because it was raining heavily' is a FRAGMENT — it is a DEPENDENT clause (begins with the subordinator 'because'). The phrase-vs-clause test confirms it has both subject (it) and finite verb (was raining), so it IS a clause, but the subordinator means it CANNOT stand alone. Apply the diagnostic: phrase or dependent clause + punctuated as a sentence = fragment. Fix: attach to a main clause — 'Because it was raining heavily, the match was cancelled' OR remove the subordinator — 'It was raining heavily, so the match was cancelled'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q009", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "single",
   question: "Identify the infinitive phrase: 'To understand the problem, we need more data.'",
   options: ["To understand the problem", "we need", "more data", "the problem"],
   correctAnswer: 0,
-  explanation: "'To understand the problem' is an infinitive phrase — it begins with 'to' + base form of verb ('understand') + complement ('the problem'). The pattern is: to + verb (+ object/complement). It acts as an adverbial modifier of the main clause.",
+  explanation: "'To understand the problem' is an INFINITIVE phrase — it begins with 'to' + base form of verb ('understand') + complement ('the problem'). The pattern is: to + verb (+ object/complement). It acts as an adverbial modifier of the main clause. Tip to distinguish from a prepositional phrase: 'to + verb' = infinitive ('to understand', 'to predict'); 'to + noun' = prepositional ('to the office', 'to him').",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q010", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "true_false",
-  question: "An APPOSITIVE phrase renames or explains a noun next to it (e.g., 'Meteorology, the study of weather, ...').",
+  question: "In a defining relative clause, no commas are used; in a non-defining relative clause, commas on BOTH sides are required.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. An appositive is a noun (or noun phrase) placed next to another noun to rename or explain it. 'Meteorology, the study of weather' — 'the study of weather' is an appositive renaming 'Meteorology'. Usually set off by commas.",
+  explanation: "True. Apply the REMOVAL TEST: (1) DEFINING (no commas) — the clause narrows down WHICH noun is meant; removing it changes the meaning. 'The scientists who studied the data concluded…' (which ones? the ones who studied → defines). (2) NON-DEFINING (commas on both sides) — the clause just adds extra info; removing it does NOT change the meaning. 'The scientists, who studied the data, concluded…' (we already know which scientists). Choose one form deliberately; don't mix them.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q011", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "true_false",
   question: "A gerund phrase uses the -ing form of a verb to function as a noun (e.g., 'Swimming is good exercise').",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. A gerund is the -ing form of a verb used as a noun. 'Swimming' is the subject of 'is good exercise'. Distinguish from a participial phrase, which uses -ing as an adjective (e.g., 'The swimming dog' = dog that is swimming).",
+  explanation: "True. A GERUND is the -ing form of a verb used as a NOUN. 'Swimming' is the subject of 'is good exercise'. The substitute-IT test confirms: 'It is good exercise' works → 'Swimming' is a noun (gerund). Distinguish from a PARTICIPLE, which uses -ing as an ADJECTIVE modifying a noun: 'The swimming dog' = the dog that is swimming. 'The dog' (not 'it') replaces 'the swimming dog' → 'swimming' is a participle, not a gerund.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q012", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "true_false",
   question: "'The scientist running the experiment' is a complete sentence.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'The scientist running the experiment' is a FRAGMENT. 'Running the experiment' is a participial phrase (modifying 'scientist'). There's no main verb for 'scientist' — 'running' is part of the phrase, not a main verb. Fix: 'The scientist WAS running the experiment' (adds main verb 'was').",
+  explanation: "False. 'The scientist running the experiment' is a FRAGMENT. Apply the diagnostic — 'running the experiment' is a participial phrase (verb-ing + modifiers, no finite verb of its own). 'Running' is NOT a finite verb (it is an -ing participle that cannot stand alone as a predicate). So the unit has 'The scientist' (noun) + a participial phrase → no finite verb for 'scientist' → FRAGMENT. Fix: add a finite verb — 'The scientist WAS running the experiment' OR attach to a main clause — 'The scientist, running the experiment, made a discovery'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q013", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "medium", type: "multi",
-  question: "Which of the following are PHRASES (no subject-verb combination)? (Select all that apply.)",
+  question: "Which of the following are PHRASES (no subject + finite verb combination)? (Select all that apply.)",
   options: [
     "The heavy rain",
     "Running through the field",
@@ -1213,9 +1199,8 @@ export const questions: Question[] = [
     "In the morning"
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Noun phrase: 'The heavy rain' — no verb. (b) Participial phrase: 'Running through the field' — no subject. (d) Prepositional phrase: 'In the morning' — no verb. (c) Wrong: 'The dog barks loudly' = subject 'dog' + verb 'barks' + adverb 'loudly' = CLAUSE.",
+  explanation: "Apply the phrase-vs-clause test to each. (a) 'The heavy rain' — noun + adjective; no verb → NOUN PHRASE. (b) 'Running through the field' — verb-ing + modifiers; no subject + no finite verb → PARTICIPIAL PHRASE. (d) 'In the morning' — preposition + noun; no verb → PREPOSITIONAL PHRASE. (c) 'The dog barks loudly' — subject 'dog' + finite verb 'barks' (changes tense: barked/barking) + adverb → CLAUSE. Phrase = missing subject, missing finite verb, or both.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Hard
 { id: "ENG-03-Q014", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "hard", type: "multi",
   question: "Which of the following are FRAGMENTS that need to be fixed? (Select all that apply.)",
@@ -1226,16 +1211,14 @@ export const questions: Question[] = [
     "Running quickly through the park."
   ],
   correctAnswer: [0, 2, 3],
-  explanation: "(a) Fragment: dependent clause starting with 'because' — needs main clause to complete. (c) Fragment: prepositional phrase modifying 'scientist' — no verb for 'scientist'. (d) Fragment: participial phrase — no subject. (b) Complete sentence with subject + verb + modifier.",
+  explanation: "Three fragment types. (a) DEPENDENT CLAUSE fragment — 'Because' is a subordinator; HAS subject + finite verb but cannot stand alone. Fix: attach to an independent clause — 'Because the storm was severe, schools closed'. (c) NOUN + PREPOSITIONAL PHRASE fragment — no finite verb. Fix: add a verb — 'The scientist with expertise in climate change GAVE the lecture'. (d) PARTICIPIAL PHRASE fragment — no subject + no finite verb. Fix: attach to a main clause — 'Running quickly through the park, she caught the bus'. (b) is a complete sentence (subject + verb + modifier).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q015", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "hard", type: "single",
   question: "Identify the type of subordinate clause in: 'Whether he comes or not is unclear.'",
   options: ["Adverbial", "Adjective/relative", "Noun", "Conjunctive"],
   correctAnswer: 2,
-  explanation: "'Whether he comes or not' is a NOUN clause — it acts as the SUBJECT of the main verb 'is unclear'. Noun clauses can be replaced by 'it' (it is unclear = whether he comes or not is the subject). Adverbial clauses modify verbs; adjective/relative clauses modify nouns.",
+  explanation: "'Whether he comes or not' is a NOUN clause — it acts as the SUBJECT of the main verb 'is unclear'. Apply the function test for subordinate clauses: (1) Does it modify a noun? → RELATIVE/ADJECTIVE. (2) Does it answer when/why/how/condition? → ADVERBIAL. (3) Does it act as subject or object of the main verb? → NOUN clause. Substitute 'it' to confirm: 'It is unclear' works → 'Whether he comes or not' = subject = noun clause. Adverbial clauses modify verbs; relative clauses modify nouns.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q016", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "hard", type: "single",
   question: "Choose the sentence where the phrase type is correctly identified:",
   options: [
@@ -1245,35 +1228,31 @@ export const questions: Question[] = [
     "'To succeed takes effort.' → 'To succeed' is a participial phrase here."
   ],
   correctAnswer: 2,
-  explanation: "(c) is correct: 'swimming' is a gerund (verb-ing used as noun) — object of the preposition 'at'. (a) Wrong: 'In the morning' is a prepositional phrase, not noun. (b) Wrong: 'running' here is a PARTICIPLE (adjective modifying 'water'), not a gerund. (d) Wrong: 'To succeed' is an INFINITIVE phrase, not participial.",
+  explanation: "(c) is correct: 'swimming' is a GERUND (verb-ing used as noun) — object of the preposition 'at'. Apply the substitute-IT test: 'She is good at it' works → 'swimming' is a noun (gerund). (a) Wrong: 'In the morning' is a PREPOSITIONAL phrase (preposition 'in' + noun phrase 'the morning'), not a noun phrase. (b) Wrong: 'running' here is a PARTICIPLE (adjective modifying 'water') — substitute IT fails: 'The it water was cold' doesn't work. (d) Wrong: 'To succeed' is an INFINITIVE phrase (to + verb 'succeed'), not participial.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Sentence Types, Errors & Transformation
+// TOPIC: Sentence Types, Errors & Transformation (aligned)
 // ═══════════════════════════════════════════════════════════════════
-
 // Easy
 { id: "ENG-03-Q017", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "easy", type: "single",
   question: "Which of the following is a COMPOUND sentence?",
   options: ["The rain fell.", "Because the rain fell, the crops grew.", "The rain fell, and the crops grew.", "The rain that fell was heavy."],
   correctAnswer: 2,
-  explanation: "'The rain fell, and the crops grew' is COMPOUND — two INDEPENDENT clauses joined by the coordinating conjunction 'and'. (a) is simple (one clause). (b) is complex (independent + dependent). (d) is also complex (independent + relative clause).",
+  explanation: "'The rain fell, and the crops grew' is COMPOUND — two INDEPENDENT clauses joined by the coordinating conjunction 'and' (a FANBOYS). Apply the structure classifier: count ICs and DCs. (a) 'The rain fell' = 1 IC + 0 DC → SIMPLE. (b) 'Because the rain fell, the crops grew' = 1 IC ('the crops grew') + 1 DC ('Because the rain fell') → COMPLEX. (c) 'The rain fell' + 'the crops grew' = 2 ICs + 0 DC → COMPOUND. (d) 'The rain that fell' (DC) + 'was heavy' (IC) → COMPLEX.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q018", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "easy", type: "single",
   question: "Which of the following is a COMPLEX sentence?",
   options: ["I came, I saw, I conquered.", "Because it rained, we stayed home.", "She sang and danced.", "He left."],
   correctAnswer: 1,
-  explanation: "'Because it rained, we stayed home' is COMPLEX — one INDEPENDENT clause ('we stayed home') + one DEPENDENT clause ('Because it rained'). (a) is compound (three independent clauses). (c) is simple. (d) is simple.",
+  explanation: "'Because it rained, we stayed home' is COMPLEX — one INDEPENDENT clause ('we stayed home') + one DEPENDENT clause ('Because it rained'). Apply the structure classifier: 1 IC + 1 DC = COMPLEX. (a) Three independent clauses joined by commas = COMPOUND with 3 ICs. (c) 'She sang and danced' has a compound VERB but one subject + one IC = SIMPLE. (d) 'He left' = 1 IC + 0 DC = SIMPLE. The dependent clause in (b) is ADVERBIAL — it answers WHY.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q019", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "easy", type: "true_false",
-  question: "A run-on sentence occurs when two independent clauses are joined without proper punctuation or conjunction.",
+  question: "A run-on sentence occurs when two independent clauses are joined without any punctuation or conjunction.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. A run-on (also called 'fused sentence') occurs when two independent clauses are written together with no punctuation or only a comma. Example: 'It was raining we stayed inside' = run-on. Fix with a period, semicolon, or conjunction.",
+  explanation: "True. A RUN-ON (also called a fused sentence) occurs when two independent clauses are written together with NO punctuation and NO conjunction. Example: 'It was raining we stayed inside' = run-on (no comma, no conjunction). Compare with COMMA SPLICE: 'It was raining, we stayed inside' (only a comma — still wrong). Three fixes for both: (1) period — form two sentences; (2) semicolon — closely related clauses; (3) comma + FANBOYS — for/and/nor/but/or/yet/so.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Medium
 { id: "ENG-03-Q020", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Fix the comma splice: 'It was raining, we stayed inside.'",
@@ -1284,9 +1263,8 @@ export const questions: Question[] = [
     "All of the above are correct fixes."
   ],
   correctAnswer: 3,
-  explanation: "All three options fix the comma splice by replacing the comma with proper punctuation or a conjunction. (a) adds 'and'. (b) uses a semicolon. (c) uses a period (two sentences). All are valid; the original comma was wrong.",
+  explanation: "All three options fix the comma splice by replacing the comma with proper punctuation or a coordinating conjunction. Apply the comma-test: a comma between TWO independent clauses alone is WRONG (comma splice). Three valid fixes: (a) comma + FANBOYS ('and') — joins two ICs properly; (b) semicolon — closely related ICs; (c) period — form two separate sentences. Choose the fix that best matches the intended rhythm and relationship.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q021", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Choose the correct version (no misplaced modifier):",
   options: [
@@ -1296,9 +1274,8 @@ export const questions: Question[] = [
     "He crossed quickly, running the finish line."
   ],
   correctAnswer: 1,
-  explanation: "The original (a) has a misplaced modifier: 'Running quickly' should modify the runner, but it appears next to 'finish line' (the thing crossed), creating ambiguity. (b) fixes it by placing 'he' (the runner) next to the modifier. (c) is awkward. (d) is confusing.",
+  explanation: "The original (a) has a DANGLING modifier: 'Running quickly' should modify a person who runs, but the main clause's subject is 'the finish line' (which does not run). The phrase appears to attach to the wrong noun. Apply the diagnostic: ask who/what does the modifier attach to? Nothing logical → dangling. (b) Fixes it by placing 'he' (the runner) as the main clause's subject — now 'Running quickly' correctly modifies the doer. (c) is awkward. (d) breaks the meaning. Rule: participial phrase at the START requires a grammatical subject that can logically perform the action.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q022", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Choose the sentence with PARALLEL structure:",
   options: [
@@ -1308,16 +1285,14 @@ export const questions: Question[] = [
     "Both B and C are parallel."
   ],
   correctAnswer: 3,
-  explanation: "Parallel structure requires the same grammatical form for list items. (b) 'swimming, running, biking' = all gerunds ✓ parallel. (c) 'to swim, to run, to bike' = all infinitives ✓ also parallel. (a) is NOT parallel: it mixes 2 gerunds ('swimming', 'biking') with 1 infinitive ('to run'). Since both (b) and (c) are parallel, option (d) 'Both B and C are parallel' is the correct answer.",
+  explanation: "Parallel structure requires the SAME grammatical form for list items. Apply the test: replace one item with 'and the other thing' and check if grammar still works. (b) 'swimming, running, biking' = all GERUNDS ✓ parallel. (c) 'to swim, to run, to bike' = all INFINITIVES ✓ also parallel. (a) is NOT parallel: it mixes two gerunds ('swimming', 'biking') with one infinitive ('to run'). Test fails: 'He likes swimming, to run, and the other thing' → grammar breaks. Since (b) and (c) both pass the test, (d) is correct.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q023", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Which sentence type by PURPOSE is: 'What a beautiful day!'",
   options: ["Declarative", "Interrogative", "Imperative", "Exclamatory"],
   correctAnswer: 3,
-  explanation: "'What a beautiful day!' is EXCLAMATORY — it expresses strong emotion and ends with an exclamation mark. Declarative = statement. Interrogative = question. Imperative = command. Exclamatory = strong feeling.",
+  explanation: "'What a beautiful day!' is EXCLAMATORY — it expresses strong emotion, ends with an exclamation mark, and begins with 'What'. The four purpose types: DECLARATIVE = statement, period ('The day is beautiful'); INTERROGATIVE = question, question mark ('Is the day beautiful?'); IMPERATIVE = command, usually period, subject 'you' implied ('Enjoy the day'); EXCLAMATORY = strong feeling, exclamation mark, often begins with 'What/How' ('What a beautiful day!').",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q024", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Choose the COMPOUND-COMPLEX sentence:",
   options: [
@@ -1327,9 +1302,8 @@ export const questions: Question[] = [
     "The rain fell."
   ],
   correctAnswer: 0,
-  explanation: "'When the rain fell, the crops grew, and the farmers smiled' is COMPOUND-COMPLEX: one DEPENDENT clause ('When the rain fell') + two INDEPENDENT clauses ('the crops grew', 'the farmers smiled') joined by a coordinating conjunction. (b) is compound. (c) is complex. (d) is simple.",
+  explanation: "'When the rain fell, the crops grew, and the farmers smiled' is COMPOUND-COMPLEX: one DEPENDENT clause ('When the rain fell') + two INDEPENDENT clauses ('the crops grew', 'the farmers smiled') joined by coordinating conjunction 'and'. Apply the structure classifier: 2+ ICs + 1+ DC = COMPOUND-COMPLEX. (b) 2 ICs + 0 DC = COMPOUND. (c) 1 IC + 1 DC = COMPLEX. (d) 1 IC + 0 DC = SIMPLE. The pattern requires BOTH a coordinator AND a subordinator.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q025", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Transform to passive: 'The scientists collected the data.'",
   options: [
@@ -1339,9 +1313,8 @@ export const questions: Question[] = [
     "The data is collected the scientists."
   ],
   correctAnswer: 0,
-  explanation: "Passive: 'The data' (object → subject) + 'was collected' (be + past participle) + 'by the scientists' (agent). 'Data' is singular (treated as a single entity), so 'was', not 'were'.",
+  explanation: "Apply the ACTIVE → PASSIVE transformation in order. (1) Identify the object: 'the data'. (2) Move the object to subject position: 'The data...'. (3) Change the verb to be + past participle: 'was collected' (past tense 'collected' → 'was collected'). (5) Optional 'by + agent': 'by the scientists'. Tense is preserved (past → was/were); meaning is preserved. Note: 'data' is singular in formal usage, so 'was', not 'were'. (c) Wrong verb form. (d) Missing 'by' and wrong form.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q026", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
   question: "Which sentence has a MISPLACED MODIFIER?",
   options: [
@@ -1351,30 +1324,26 @@ export const questions: Question[] = [
     "She drove the entire distance, almost."
   ],
   correctAnswer: 0,
-  explanation: "'She almost drove the entire distance' means she drove nearly all the way but didn't quite finish. 'She drove almost the entire distance' is the intended meaning. The modifier 'almost' was misplaced — it should be next to 'entire distance', not 'drove'.",
+  explanation: "Apply the placement test: where is the modifier relative to the word it modifies? (a) 'She almost drove the entire distance' means she nearly started driving but didn't quite finish — wrong meaning. (b) 'She drove almost the entire distance' — modifier 'almost' placed next to 'entire distance' (correct); means she drove nearly all the way. The modifier 'almost' is MISPLACED in (a) — it sits next to 'drove' instead of 'entire distance'. Rule: physical proximity between modifier and the word it modifies = clarity.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q027", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "true_false",
   question: "'He is intelligent, kind, and has beauty' is parallel.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. The list mixes forms: 'intelligent' and 'kind' are ADJECTIVES, but 'has beauty' is VERB + NOUN. Parallel fix: 'He is intelligent, kind, and beautiful' (all adjectives) OR 'He has intelligence, kindness, and beauty' (all nouns).",
+  explanation: "False. The list mixes forms: 'intelligent' and 'kind' are ADJECTIVES, but 'has beauty' is VERB + NOUN. Apply the parallelism test: replace one item with 'and the other thing' — 'He is intelligent, kind, and the other thing' → grammar breaks. The items are NOT parallel. Two parallel fixes: 'He is intelligent, kind, and beautiful' (all adjectives — sharing the verb 'is') OR 'He has intelligence, kindness, and beauty' (all nouns — sharing the verb 'has'). Rule: items in a list must share the same grammatical shape.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q028", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "true_false",
   question: "A comma splice (two independent clauses joined by only a comma) is grammatically incorrect.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. A comma alone is too weak to join two independent clauses. Fix: use a period (two sentences), a semicolon, or a coordinating conjunction (and, but, or, nor, for, so, yet).",
+  explanation: "True. A comma alone is too weak to join two independent clauses. Apply the comma-test: are BOTH units independent? If yes → comma splice. If one is dependent → normal punctuation. Three valid fixes: (1) PERIOD — form two sentences; (2) SEMICOLON — for closely related clauses; (3) COMMA + FANBOYS (for/and/nor/but/or/yet/so) — comma PRECEDES the conjunction. The original 'It was raining, we stayed inside' is wrong because both 'It was raining' and 'we stayed inside' are independent clauses.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q029", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "true_false",
   question: "An imperative sentence gives a command or makes a request (e.g., 'Close the door.').",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. Imperative sentences give commands, make requests, or offer invitations. They typically have an implied subject 'you' and end with a period or exclamation mark. Examples: 'Close the door.' / 'Please be quiet.' / 'Have a seat.'",
+  explanation: "True. IMPERATIVE sentences give commands, make requests, or offer invitations. They typically have an IMPLIED subject 'you' (you close the door) and end with a period or exclamation mark. Examples: 'Close the door.' (command) / 'Please be quiet.' (request) / 'Have a seat.' (invitation). Note the structural feature: no explicit subject — the imperative is identified by its base-verb opening + intended command/request meaning.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q030", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT transformations from simple to complex? (Select all that apply.)",
   options: [
@@ -1384,9 +1353,8 @@ export const questions: Question[] = [
     "He is rich. He is unhappy. → Although he is rich, he is unhappy."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: simple to complex with infinitive 'to continue' (result clause). (b) Correct: two simple sentences combined via subordinate conjunction 'because'. (c) Wrong: this is a comma splice, not a complex sentence (no subordinator). (d) Correct: two simple sentences combined via concessive subordinator 'although'.",
+  explanation: "Transformation rule: change the FORM but preserve the MEANING. (a) Correct: simple sentence is expanded with an infinitive phrase 'to continue' acting as a result complement — still one IC but extended; considered a complex structure with the infinitive phrase as a non-finite dependent element. (b) Correct: two simple sentences joined via SUBORDINATOR 'because' → 1 IC + 1 DC = COMPLEX. (c) Wrong: comma alone joining two ICs = COMMA SPLICE, not complex. (d) Correct: two simple sentences joined via SUBORDINATOR 'although' (concessive) → 1 IC + 1 DC = COMPLEX.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Hard
 { id: "ENG-03-Q031", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "multi",
   question: "Which of the following sentences contain errors? (Select all that apply.)",
@@ -1397,9 +1365,8 @@ export const questions: Question[] = [
     "After he left, I called him."
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — 'Running through the park' appears to modify 'the dog', but the running subject isn't the dog (it's a person whose dog is happy). Fix: 'Running through the park, his dog was happy' or 'While he ran through the park, his dog was happy'. (b) Correct (parallel adjectives). (d) Correct (complex sentence with subordinating conjunction).",
+  explanation: "(a) Error: COMMA SPLICE — 'It was raining' (IC) and 'we stayed inside' (IC) joined by only a comma. Apply the comma-test: both units are independent → comma splice. Three fixes: period, semicolon, or comma + FANBOYS. (c) Error: DANGLING/MISPLACED MODIFIER — 'Running through the park' requires a subject who runs (a person), but the main clause's subject is 'the dog'. The modifier has no logical subject in the main clause → dangling. Fix: 'Running through the park, his dog was happy' OR 'While he ran through the park, his dog was happy'. (b) Correct — three parallel adjectives sharing the verb 'is'. (d) Correct — complex sentence with subordinator 'After'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q032", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
   question: "Identify the BEST combination of the three sentences: (a) She opened the door. (b) The room was full of smoke. (c) She called the fire department immediately.",
   options: [
@@ -1409,9 +1376,8 @@ export const questions: Question[] = [
     "a, c, b (opened, called, smoke)"
   ],
   correctAnswer: 0,
-  explanation: "Logical sequence: (a) She opened the door → (b) The room was full of smoke (consequence of opening) → (c) She called the fire department immediately (response to seeing smoke). The actions must follow the discovery. (a)→(b)→(c) is the only natural causal/temporal order.",
+  explanation: "Logical CAUSE-EFFECT / TEMPORAL sequence: (a) She opened the door → (b) The room was full of smoke (consequence of opening) → (c) She called the fire department immediately (response to seeing smoke). The actions must follow the discovery. (a)→(b)→(c) is the only natural causal/temporal order. The sequence makes physical sense: you must open BEFORE seeing smoke, and you must see smoke BEFORE calling. The 'immediately' in (c) marks it as the last action.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q033", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
   question: "Transform to active voice: 'The book was read by the child.'",
   options: [
@@ -1421,50 +1387,44 @@ export const questions: Question[] = [
     "The child has read the book."
   ],
   correctAnswer: 0,
-  explanation: "Active: 'The child' (agent, by → subject) + 'read' (past tense, from past participle) + 'the book' (object). The past tense 'was read' becomes simple past 'read' (pronounced 'red').",
+  explanation: "Apply the PASSIVE → ACTIVE transformation in reverse. (1) Identify the agent in the 'by + agent' phrase: 'the child'. (2) Move the agent to subject position: 'The child...'. (3) Change the verb from 'be + past participle' ('was read') back to its active base form ('read') in the same tense. (4) Move the original subject ('The book') to object position: 'the book'. Tense is preserved (past simple → past simple); meaning is preserved. The past participle 'read' becomes 'read' (pronounced 'red').",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Completion, Rearrangement & Combining
+// TOPIC: Completion, Rearrangement & Combining (aligned)
 // ═══════════════════════════════════════════════════════════════════
-
 // Easy
 { id: "ENG-03-Q034", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "easy", type: "single",
   question: "Complete: 'She is good _____ mathematics.' Choose the correct preposition:",
   options: ["in", "at", "on", "for"],
   correctAnswer: 1,
-  explanation: "'Good AT mathematics' is the fixed phrase. 'Good in' is sometimes used informally but is nonstandard. 'Good on' and 'good for' are wrong preposition choices for this meaning.",
+  explanation: "Apply the four completion filters in order. (1) Grammar/slot: a preposition is required. (2) Agreement: any preposition agrees grammatically. (3) Word class: only prepositions fit. (4) CONTEXT logic: 'good AT mathematics' is the fixed phrase — meaning 'skilled in'. 'Good in' is non-standard; 'good on' and 'good for' are wrong preposition choices for this meaning. Filter 4 (context) eliminates the decoys.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q035", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "easy", type: "single",
   question: "Complete: 'He has been working here _____ 2015.' Choose the correct preposition:",
   options: ["for", "since", "from", "during"],
   correctAnswer: 1,
-  explanation: "'Since 2015' is correct for an action that started in 2015 and continues. 'For' would require a duration (e.g., 'for 9 years'). 'Since' marks a specific point in the past; 'for' marks a duration.",
+  explanation: "Apply the four completion filters. (1) Grammar: preposition slot. (2) Agreement: any fits. (3) Word class: only prepositions fit. (4) CONTEXT: 'since 2015' is correct for an action that STARTED at a specific point in the past and CONTINUES to the present (perfect continuous tense). Rule: 'since' + SPECIFIC POINT IN TIME (since 2015, since Monday); 'for' + DURATION (for 9 years, for a long time). 'From' and 'during' don't fit the present-perfect-continuous construction.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q036", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "easy", type: "true_false",
-  question: "In rearrangement questions, the topic sentence usually has no referring pronouns (it, they, this, these).",
+  question: "In rearrangement questions, the topic sentence usually has no referring pronouns (it, they, this, these) because there is nothing earlier for them to refer to.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. The topic sentence introduces the main idea and doesn't refer to anything prior. Sentences with referring pronouns (this, they, it) come AFTER the sentences that establish what they refer to. The topic sentence is usually the most general, with details, examples, and conclusions following.",
+  explanation: "True. The TOPIC sentence introduces the main idea and cannot refer backward to anything. Sentences with referring pronouns ('This...', 'These...', 'It...', 'They...') MUST come AFTER the sentences that establish what they refer to. Apply the pronoun-chain rule: locate the sentence with the antecedent (the noun being referred to) and place the referring sentence after. The topic sentence is usually the most GENERAL statement with no backward links.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Medium
 { id: "ENG-03-Q037", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Complete: 'If I _____ (be) you, I would go.' Choose the correct form:",
   options: ["am", "was", "were", "have been"],
   correctAnswer: 2,
-  explanation: "In the subjunctive mood (used in 'if' clauses for hypothetical/unreal conditions), we use 'were' for all subjects: 'If I were you...', 'If he were here...', 'If they were ready...'. 'Was' is technically acceptable in informal usage but 'were' is the standard form.",
+  explanation: "Apply the four completion filters. (1) Grammar: a finite verb is required. (2) Agreement: 'I' as subject; (3) Word class: verb in past subjunctive. (4) CONTEXT: 'If I WERE you' uses the SUBJUNCTIVE mood for hypothetical/unreal conditions (the speaker is NOT you). Standard subjunctive uses 'were' for ALL subjects in 'if' clauses for unreal conditions: 'If I were...', 'If he were...', 'If they were...'. 'Was' is informal but non-standard; 'am' and 'have been' are wrong mood/tense for this hypothetical structure.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q038", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Rearrange into correct order: (a) Finally, the experiment was completed. (b) The scientists worked for months. (c) They had hoped for success. (d) The results were promising.",
   options: ["c, b, a, d", "b, c, a, d", "a, b, c, d", "b, a, c, d"],
   correctAnswer: 0,
-  explanation: "Logical order: (c) They had hoped for success (background/expectation) → (b) The scientists worked for months (action) → (a) Finally, the experiment was completed (conclusion/result) → (d) The results were promising (follow-up detail). Time markers like 'finally' indicate it comes after other steps.",
+  explanation: "Apply the rearrangement signals. (2) No-PRONOUN rule: (c) starts with no pronoun — could be topic. (a) starts with 'Finally' — must come AFTER other steps. Order: (c) They had hoped for success (background/expectation — topic sentence, no pronoun) → (b) The scientists worked for months (action, same subject 'scientists/they' as (c) — pronoun chain confirms (c) precedes (b)) → (a) Finally, the experiment was completed (conclusion, marked by 'Finally') → (d) The results were promising (follow-up detail, no backward pronoun).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q039", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Combine into ONE sentence: 'He is intelligent. He is hardworking. He is successful.'",
   options: [
@@ -1474,23 +1434,20 @@ export const questions: Question[] = [
     "Both A and C are correct."
   ],
   correctAnswer: 0,
-  explanation: "Parallel structure with adjectives: 'intelligent, hardworking, successful' — three adjectives joined by commas and 'and'. (b) and (c) are wrong because they include 'is' which breaks the parallel list. The subject 'He' is shared and the verb 'is' is implied for all three adjectives.",
+  explanation: "Apply the parallelism test: all items in a list must share the SAME grammatical form. (a) 'intelligent, hardworking, successful' = three ADJECTIVES joined by commas and 'and' — all share the implied verb 'is'. Parallel ✓. (b) Wrong: repeats 'is' for each item — breaks parallelism. (c) Wrong: mixes 'is intelligent' (adjective) with 'is hardworking' (redundant verb) and 'successful' (bare adjective) — breaks parallelism. The subject 'He' and the verb 'is' are shared across the list.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q040", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Complete: 'She studied hard _____ she might pass the exam.' Choose the correct conjunction:",
   options: ["because", "although", "so that", "unless"],
   correctAnswer: 2,
-  explanation: "'So that' introduces a PURPOSE clause — the reason she studied was IN ORDER TO pass. 'Because' introduces cause (but the cause-effect is reversed here). 'Although' is contrast. 'Unless' is conditional. The purpose is clear from the structure.",
+  explanation: "Apply the four completion filters. (1) Grammar: conjunction slot. (2) Agreement: any fits. (3) Word class: only conjunctions fit. (4) CONTEXT: 'SO THAT' introduces a PURPOSE clause — the reason she studied was IN ORDER TO pass. 'Because' introduces cause (but here the cause-effect relationship is reversed: studying is the action, passing is the goal). 'Although' = contrast (she studied hard BUT might still fail — wrong meaning). 'Unless' = conditional (if not) — wrong meaning here.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q041", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Complete: 'Neither the teacher nor the students _____ prepared.' Choose the correct verb:",
   options: ["is", "are", "was", "has"],
   correctAnswer: 1,
-  explanation: "With 'neither...nor', the verb agrees with the NEAREST subject. 'Students' is plural and nearest, so the verb is 'are'. The plural 'are' applies to the whole compound subject.",
+  explanation: "Apply the four completion filters. (1) Grammar: finite verb slot. (2) Agreement: with 'neither...nor', the verb agrees with the NEAREST subject. (3) Word class: verb in plural form. (4) CONTEXT: 'students' is plural AND nearest to the verb — so the verb must be 'are'. Rule: 'neither A nor B' / 'either A or B' — verb agrees with the NEAREST subject (B). 'Is' and 'was' are singular (wrong). 'Has' is singular and wrong form for plural subject. Answer: 'are'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q042", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
   question: "Combine: 'The door was open. I entered.' Use a participle:",
   options: [
@@ -1500,30 +1457,26 @@ export const questions: Question[] = [
     "The open door I entered."
   ],
   correctAnswer: 0,
-  explanation: "'The door being open, I entered' uses a participial phrase (with 'being' = present participle of 'be') as an adverbial modifier, equivalent to 'Since the door was open, I entered'. This combines the two short sentences into one smoother sentence.",
+  explanation: "Apply the combining-technique choice. (a) Uses an ABSOLUTE participial phrase ('The door being open') as an adverbial modifier — equivalent to 'Since the door was open, I entered'. Same-subject test: NOT required here (absolute construction uses different subjects). (b) Uses an adjective ('open') to combine — different technique (relative/adjective). (c) Wrong: 'Entering the door' implies the door enters itself (dangling participle). (d) Fragment-like — incomplete. The participial phrase technique often uses 'being' or 'having been' for state descriptions.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q043", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "true_false",
   question: "Rearrangement questions are usually ordered from general (topic sentence) to specific (details) or chronologically (time order).",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. Paragraphs are typically organized either: (1) general-to-specific (topic sentence introduces the main idea, then details follow), or (2) chronologically (events in time order, marked by 'then', 'later', 'finally'). Both patterns appear in FPSC rearrangements.",
+  explanation: "True. Two dominant paragraph patterns in rearrangements. (1) GENERAL-TO-SPECIFIC — topic sentence introduces the main idea, then details and examples follow. (2) CHRONOLOGICAL — events in time order, marked by 'then', 'later', 'subsequently', 'finally'. Both patterns appear in FPSC rearrangements. Apply the five-pattern framework: chronological, cause-effect, problem-solution, compare-contrast, general-to-specific. Identifying the dominant pattern tells you the correct order even before reading each sentence in detail.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q044", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "true_false",
   question: "Time/place markers like 'now' typically appear in the LAST sentence of a paragraph, not the first.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'Now' typically appears in the topic/first sentence (it sets the time/place context). Sentences AFTER use 'then', 'later', 'subsequently', 'finally'. A sentence starting with 'now' is a topic sentence signal.",
+  explanation: "False. 'Now' typically appears in the TOPIC/FIRST sentence — it sets the time/place context for the paragraph. Sentences AFTER use forward time markers like 'then', 'later', 'subsequently', 'finally'. Apply the no-pronoun rule combined with time-marker signals: a sentence starting with 'Now' or 'Today' is a topic sentence signal. Common topic-sentence openers: 'Now', 'Today', 'Recently', 'In recent years', 'Scientists have long observed that...'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q045", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "true_false",
   question: "When combining sentences with 'although', the result is a COMPLEX sentence (one independent + one dependent clause).",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. 'Although' is a SUBORDINATING conjunction. It introduces a dependent clause. Result: complex sentence. 'Although it rained, we went out' = complex (one independent 'we went out' + one dependent 'Although it rained').",
+  explanation: "True. 'Although' is a SUBORDINATING conjunction — it introduces a dependent clause. Result: COMPLEX sentence. Apply the structure classifier: 'Although it rained, we went out' = 1 IC ('we went out') + 1 DC ('Although it rained') → COMPLEX. Subordinators (because, although, when, if, while, since, after, before) all create dependent clauses, which automatically make the sentence complex when paired with one IC.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q046", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "multi",
   question: "Which of the following are CORRECT sentence combinations? (Select all that apply.)",
   options: [
@@ -1533,9 +1486,8 @@ export const questions: Question[] = [
     "I am hungry. I will eat. → I am hungry and I will eat."
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct combinations. (a) 'so' = cause-effect. (b) 'and' = equal actions. (c) ';' = compound sentence. (d) 'and' = simple combination. Each combines two short sentences into a smoother, more sophisticated single sentence.",
+  explanation: "All four are valid combinations using different techniques. (a) 'SO' = cause-effect subordinator → COMPLEX. (b) 'AND' between compound verbs (same subject) → still SIMPLE with compound predicate. (c) ';' = closely related ICs → COMPOUND. (d) 'AND' joining two ICs → COMPOUND. Each combines two short sentences into a smoother single sentence. The 'best' technique depends on the intended relationship (cause-effect → subordinator; equal actions → coordination; closely related → semicolon).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 // Hard
 { id: "ENG-03-Q047", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
   question: "Rearrange into correct order: (a) This is because of the new policy. (b) Many companies have adopted flexible work hours. (c) Employees report higher satisfaction. (d) The trend is growing rapidly.",
@@ -1546,9 +1498,8 @@ export const questions: Question[] = [
     "d, b, a, c (trend → companies → policy → satisfaction)"
   ],
   correctAnswer: 0,
-  explanation: "Logical flow: (b) Many companies have adopted flexible work hours (general trend) → (a) This is because of the new policy (cause of trend) → (c) Employees report higher satisfaction (effect of trend) → (d) The trend is growing rapidly (current development). The pronoun 'This' in (a) refers to the trend in (b), so (a) must come after (b).",
+  explanation: "Apply the rearrangement signals together. (b) starts without a referring pronoun → candidate for topic. (a) starts with 'This' → must follow the sentence containing the antecedent. The pronoun 'This' in (a) refers to the trend established in (b) → (b) precedes (a). Connector signal: 'because of the new policy' in (a) explains WHY companies adopted → cause-effect flows b→a. Then (c) satisfaction is the EFFECT of the policy → follows (a). Then (d) trend growing is the current development → final. Order: b → a → c → d.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q048", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "multi",
   question: "Which of the following sentences are CORRECT? (Select all that apply.)",
   options: [
@@ -1558,9 +1509,8 @@ export const questions: Question[] = [
     "She is intelligent, kind, and beautiful."
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) 'good at' is the fixed phrase. (b) 'were' is the subjunctive for hypothetical conditions. (c) 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was'). (d) Three parallel adjectives joined by commas and 'and'.",
+  explanation: "All four are correct. (a) 'good AT' is the fixed preposition phrase — completed correctly. (b) 'were' is the subjunctive for hypothetical 'if' conditions — completed correctly. (c) 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was') — completed correctly. (d) Three parallel ADJECTIVES joined by commas and 'and', all sharing 'is' — passes the parallelism test. Each sentence passes its relevant completion filter (grammar + agreement + word class + context).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q049", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
   question: "Rearrange into correct order: (a) However, some studies have questioned this view. (b) Climate change is widely accepted as a real phenomenon. (c) The scientific consensus remains strong. (d) Critics point to gaps in the data.",
   options: [
@@ -1570,9 +1520,8 @@ export const questions: Question[] = [
     "c, b, a, d (consensus → accepted → some question → gaps)"
   ],
   correctAnswer: 0,
-  explanation: "Logical flow: (b) Climate change is accepted (main claim, general) → (c) Scientific consensus is strong (supporting detail) → (a) However, some studies question this (contrast — introduced by 'However') → (d) Critics point to gaps in data (specific criticism). The 'However' in (a) signals it follows the established consensus, and (d) expands on the criticism with specific detail.",
+  explanation: "Apply the rearrangement signals together. (b) is the topic — no referring pronoun, general claim ('widely accepted'). (c) supports (b) with detail ('consensus remains strong'). (a) starts with 'HOWEVER' → signals a CONTRAST to the preceding positive statements (b + c) → must follow them. (d) expands on (a) with specific criticism ('gaps in the data') → follows (a). Order: b (topic) → c (support) → a (contrast) → d (specific criticism). All three signals — topic rule, connector signals ('However'), pronoun chains — converge on the same arrangement.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
 { id: "ENG-03-Q050", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
   question: "Combine the best way: 'She entered the room. She saw the broken glass. She understood what had happened.'",
   options: [
@@ -1582,7 +1531,7 @@ export const questions: Question[] = [
     "All of the above are valid combinations."
   ],
   correctAnswer: 3,
-  explanation: "All three are valid. (a) Uses coordination with parallel verbs ('saw' and 'understood'). (b) Uses a present participle ('understanding') as adverbial modifier. (c) Uses a different participle placement ('Entering the room'). Each combines the three short sentences into a smoother single sentence. There are usually multiple correct combinations — pick the one that flows most naturally.",
+  explanation: "All three are valid combinations using different techniques. (a) COORDINATION with parallel verbs ('saw' and 'understood') — same subject 'She' shared. (b) Present PARTICIPLE ('understanding') as adverbial modifier — same subject. (c) Different participle placement ('Entering the room') at the START — requires grammatical subject that performs the action ('she' does enter) → no dangling. Apply the same-subject test: all three sentences have 'She' as subject → multiple techniques are viable. Choose the one that flows most naturally; there is usually more than one correct answer.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] }
 
 ];
