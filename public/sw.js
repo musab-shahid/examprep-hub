@@ -1,4 +1,4 @@
-const CACHE = 'examprep-v1';
+const CACHE = 'examprep-v2';
 const PRECACHE = ['/', '/index.html', '/manifest.json', '/favicon.svg'];
 
 self.addEventListener('install', (e) => {
@@ -10,9 +10,8 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', (e) => {
@@ -21,6 +20,21 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
 
+  // Network-first for navigation requests so users always get the latest HTML
+  if (req.mode === 'navigate') {
+    e.respondWith(
+      fetch(req)
+        .then((res) => {
+          const clone = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, clone));
+          return res;
+        })
+        .catch(() => caches.match(req).then((c) => c || caches.match('/')))
+    );
+    return;
+  }
+
+  // Stale-while-revalidate for everything else (hashed assets are immutable)
   e.respondWith(
     caches.match(req).then((cached) => {
       const fetchPromise = fetch(req)
