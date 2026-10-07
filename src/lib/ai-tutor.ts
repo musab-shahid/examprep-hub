@@ -24,17 +24,34 @@ export interface TutorMessage {
   content: string;
 }
 
-export async function askTutor(
-  messages: TutorMessage[],
-  topicTitle?: string,
-  topicContext?: string,
-): Promise<{ reply: string; provider: string }> {
-  const apiKey = env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error('AI service is not configured. Please add an API key.');
-  }
+export type ProviderKey = 'gemini' | 'openrouter';
 
-  const preamble = buildPreamble(topicTitle, topicContext);
+interface ProviderConfig {
+  name: string;
+  available: boolean;
+}
+
+const PROVIDER_ORDER: ProviderKey[] = ['gemini', 'openrouter'];
+
+export function getAvailableProviders(): Record<ProviderKey, string> {
+  const providers: Partial<Record<ProviderKey, string>> = {};
+  if (env.GEMINI_API_KEY) providers.gemini = 'Gemini';
+  if (env.OPENROUTER_API_KEY) providers.openrouter = 'GPT-4o mini';
+  return providers as Record<ProviderKey, string>;
+}
+
+export function isTutorAvailable(): boolean {
+  return Boolean(env.GEMINI_API_KEY || env.OPENROUTER_API_KEY);
+}
+
+function resolveProvider(requested?: string): ProviderKey {
+  if (requested === 'openrouter' && env.OPENROUTER_API_KEY) return 'openrouter';
+  if (requested === 'gemini' && env.GEMINI_API_KEY) return 'gemini';
+  return env.GEMINI_API_KEY ? 'gemini' : 'openrouter';
+}
+
+async function callGemini(messages: TutorMessage[], preamble: string): Promise<string> {
+  const apiKey = env.GEMINI_API_KEY;
   const contents = messages.map((m) => ({
     role: m.role === 'assistant' ? 'model' : 'user',
     parts: [{ text: m.content }],
@@ -53,19 +70,61 @@ export async function askTutor(
     },
   );
 
-  if (!res.ok) {
-    throw new Error('AI request failed. Please try again.');
-  }
-
+  if (!res.ok) throw new Error('AI request failed. Please try again.');
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) {
-    throw new Error('No response from AI. Please try again.');
-  }
-
-  return { reply: text.trim(), provider: 'gemini' };
+  if (!text) throw new Error('No response from AI. Please try again.');
+  return text.trim();
 }
 
-export function isTutorAvailable(): boolean {
-  return Boolean(env.GEMINI_API_KEY);
+async function callOpenRouter(messages: TutorMessage[], preamble: string): Promise<string> {
+  const apiKey = env.OPENROUTER_API_KEY;
+  const chatMessages = [
+    { role: 'system', content: preamble },
+    ...messages.map((m) => ({ role: m.role, content: m.content })),
+  ];
+
+  const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+      'HTTP-Referer': window.location.origin,
+      'X-Title': 'ExamPrep AI Tutor',
+    },
+    body: JSON.stringify({
+      model: 'openai/gpt-4o-mini',
+      messages: chatMessages,
+      temperature: 0.7,
+      max_tokens: 1024,
+      top_p: 0.95,
+    }),
+  });
+
+  if (!res.ok) throw new Error('AI request failed. Please try again.');
+  const data = await res.json();
+  const text = data?.choices?.[0]?.message?.content;
+  if (!text) throw new Error('No response from AI. Please try again.');
+  return text.trim();
+}
+
+export async function askTutor(
+  messages: TutorMessage[],
+  topicTitle?: string,
+  topicContext?: string,
+  provider?: string,
+): Promise<{ reply: string; provider: ProviderKey }> {
+  const providers = getAvailableProviders();
+  if (Object.keys(providers).length === 0) {
+    throw new Error('AI service is not configured. Please add an API key.');
+  }
+
+  const providerKey = resolveProvider(provider);
+  const preamble = buildPreamble(topicTitle, topicContext);
+
+  const reply = providerKey === 'openrouter'
+    ? await callOpenRouter(messages, preamble)
+    : await callGemini(messages, preamble);
+
+  return { reply, provider: providerKey };
 }
