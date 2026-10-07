@@ -151,7 +151,7 @@ export function SettingsScreen() {
           </div>
           <div className="flex-1 min-w-0">
             <p className="font-bold text-slate-900 text-base leading-tight">ExamPrep Hub</p>
-            <p className="text-slate-500 text-sm leading-tight">FPSC &amp; HAT Study Hub · v1.0.0</p>
+            <p className="text-slate-500 text-sm leading-tight">FPSC &amp; HAT Study Hub · v{__APP_VERSION__}</p>
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">

@@ -3018,7 +3018,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "Pakistan's environmental situation is MIXED: facing serious interconnected challenges (air pollution in cities, water scarcity, only 5% forest cover, climate vulnerability with floods and heatwaves), but also has policies (2012 NCC, 2060 net-zero), institutions (Pak-EPA, IUCN, WWF), and some success stories (Markhor recovery, 10 Billion Tree Tsunami). Progress is UNEVEN — some areas improving, others worsening. The honest picture is complicated, not all-good or all-bad.",
-    sourceCitation: "Standard environmental science curriculum" }
+    sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q081", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
     question: "The principal federal environmental statute commonly cited in Pakistani syllabi for the modern regulatory framework is the:",
