@@ -78,6 +78,39 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'Google',
     free: true,
   },
+  // OpenRouter — free models (verified active, $0 cost)
+  {
+    id: 'or-nemotron-ultra',
+    label: 'Nemotron 3 Ultra',
+    provider: 'openrouter',
+    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+    badge: 'NVIDIA',
+    free: true,
+  },
+  {
+    id: 'or-nemotron-super',
+    label: 'Nemotron 3 Super',
+    provider: 'openrouter',
+    model: 'nvidia/nemotron-3-super-120b-a12b:free',
+    badge: 'NVIDIA',
+    free: true,
+  },
+  {
+    id: 'or-qwen-3.8',
+    label: 'Qwen 3.8 27B',
+    provider: 'openrouter',
+    model: 'qwen/qwen3.8-27b:free',
+    badge: 'Qwen',
+    free: true,
+  },
+  {
+    id: 'or-gemma-4',
+    label: 'Gemma 4 31B',
+    provider: 'openrouter',
+    model: 'google/gemma-4-31b-it:free',
+    badge: 'Google',
+    free: true,
+  },
   // OpenRouter — paid models, verified active IDs
   {
     id: 'gpt-4o-mini',
@@ -106,6 +139,13 @@ export const MODEL_OPTIONS: ModelOption[] = [
     provider: 'openrouter',
     model: 'anthropic/claude-haiku-4.5',
     badge: 'Anthropic',
+  },
+  {
+    id: 'llama-3.3-70b',
+    label: 'Llama 3.3 70B',
+    provider: 'openrouter',
+    model: 'meta-llama/llama-3.3-70b-instruct',
+    badge: 'Meta',
   },
   {
     id: 'deepseek-chat',
