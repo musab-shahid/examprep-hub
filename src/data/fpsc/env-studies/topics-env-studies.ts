@@ -37,6 +37,18 @@ export const topics: Topic[] = [
       "Thinking 'habitat' means 'job' — habitat is where, niche is what (its role)",
       "Believing sustainability = only environmental — needs all three pillars (economic + social + environmental)"
     ],
+    
+    comparisonTable: {
+      title: "Exam distinctions (do not mix these)",
+      headers: ["Term", "Means", "Common trap"],
+      rows: [
+        ["Biotic / Abiotic", "Living vs non-living factors", "Soil organisms are biotic; soil minerals are abiotic"],
+        ["Ecology / Ecosystem / Environment", "Study of relationships / system of community+abiotic / surroundings", "Ecology is the science; ecosystem is the unit"],
+        ["Habitat / Niche", "Where it lives / its role", "Niche is not a place — it is the 'job'"],
+        ["Population / Community", "One species / many species in an area", "Community always implies multiple species"],
+        ["Sustainability (Brundtland)", "Meet present needs without harming future ability", "Not 'no development' — balanced development"],
+      ],
+    },
     relatedTopics: ["env-carry-capacity-and-footprint", "env-biodiversity", "env-natural-resources"],
     content: true,
   buildsOn: [],
@@ -78,6 +90,16 @@ export const topics: Topic[] = [
       "Thinking carrying capacity is always fixed — it changes with conditions (food, predators, climate)",
       "Confusing exponential and logistic growth — exponential = unlimited (J-curve); logistic = limited (S-curve)"
     ],
+    
+    comparisonTable: {
+      title: "Carrying capacity vs ecological footprint",
+      headers: ["Idea", "Question it answers", "Exam note"],
+      rows: [
+        ["Carrying capacity (K)", "How many individuals an environment can support long-term", "Limited by the scarcest resource (Liebig)"],
+        ["Ecological footprint", "How much productive land/water a lifestyle needs", "Opposite direction: demand on Earth, not 'how many people fit'"],
+        ["Overshoot", "Demand > biocapacity", "Pakistan and many countries are in national overshoot"],
+      ],
+    },
     relatedTopics: ["env-fundamentals-and-sustainability", "env-biodiversity", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-fundamentals-and-sustainability", "math-1-7", "math-1-8", "math-8-1"],
@@ -117,6 +139,17 @@ export const topics: Topic[] = [
       "Thinking food chain arrows point from eater to eaten — they point FROM eaten TO eater (energy flow direction)",
       "Believing 100% energy transfers up the food chain — only ~10% does, 90% is lost"
     ],
+    
+    comparisonTable: {
+      title: "Trophic ideas at a glance",
+      headers: ["Concept", "Rule", "Trap"],
+      rows: [
+        ["Food chain", "Linear path of energy", "Rarely exists alone — real systems are webs"],
+        ["Food web", "Interlinked chains", "More stable picture of an ecosystem"],
+        ["~10% rule", "About 10% of energy passes to next trophic level", "Not exact law; exam still uses ~10%"],
+        ["Producer → consumer → decomposer", "Energy enters via producers; decomposers recycle matter", "Decomposers are not 'optional extras'"],
+      ],
+    },
     relatedTopics: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles", "env-biodiversity"],
     content: true,
   buildsOn: ["env-fundamentals-and-sustainability", "phy-work-energy", "meteo-heat-transfer"],
@@ -152,6 +185,16 @@ export const topics: Topic[] = [
       "Confusing the inverted number pyramid with the upright energy pyramid — they have different rules",
       "Believing an inverted pyramid means the ecosystem is broken — it just reflects count/weight, not energy"
     ],
+    
+    comparisonTable: {
+      title: "Three ecological pyramids",
+      headers: ["Pyramid", "What it shows", "Can it invert?"],
+      rows: [
+        ["Numbers", "Count of organisms at each level", "Yes (e.g. many insects on one tree)"],
+        ["Biomass", "Mass of living material", "Yes (phytoplankton bloom vs zooplankton)"],
+        ["Energy", "Energy flow per time", "No — energy pyramid is never inverted"],
+      ],
+    },
     relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-productivity-and-biogeochemical-cycles"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow"],
@@ -194,6 +237,24 @@ export const topics: Topic[] = [
       "Thinking phosphorus has an atmospheric phase — it does NOT (this is the classic distinguishing question)",
       "Believing the ocean absorbs all human CO2 — it absorbs about 25-30%, the rest stays in the atmosphere"
     ],
+    
+    workedExample: {
+      problem: "A forest has GPP = 10,000 units/year and plant respiration = 4,000 units/year. What is NPP, and who can use it?",
+      solution: "NPP = GPP − plant respiration = 10,000 − 4,000 = 6,000 units/year. That net production is what is available to herbivores and higher consumers (before their own losses).",
+      answer: "NPP = 6,000 units/year (available to consumers).",
+      takeaway: "Always subtract plant respiration from GPP. Do not confuse NPP with 'what humans harvest'.",
+    },
+    comparisonTable: {
+      title: "Biogeochemical cycles — distinctive exam hooks",
+      headers: ["Cycle", "Distinctive feature", "Main human disruption"],
+      rows: [
+        ["Carbon", "Photosynthesis in / respiration out; ocean buffer", "Fossil fuels + deforestation"],
+        ["Nitrogen", "N₂ fixation (bacteria, lightning, Haber)", "Fertilizer excess → eutrophication"],
+        ["Phosphorus", "No atmospheric phase", "Mining + runoff → water pollution"],
+        ["Water", "Evaporation, condensation, precipitation", "Urbanization changes infiltration/runoff"],
+        ["Sulfur", "Volcanoes + fossil fuels", "Coal burning → acid rain precursors"],
+      ],
+    },
     relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-ecological-pyramids", "meteo-composition-today", "earth-j1", "earth-b6"],
@@ -235,6 +296,16 @@ export const topics: Topic[] = [
       "Thinking all forests are hotspots — must meet BOTH criteria (endemism + threat), not just one",
       "Confusing alpha (within) and beta (between) — alpha is ONE site; beta is COMPARING sites"
     ],
+    
+    comparisonTable: {
+      title: "Three levels of biodiversity",
+      headers: ["Level", "What varies", "Why exams care"],
+      rows: [
+        ["Genetic", "Genes within a species", "Resilience to disease and change"],
+        ["Species", "Number/kinds of species", "Most quoted 'diversity' measure"],
+        ["Ecosystem", "Habitats and communities", "Supports services humans depend on"],
+      ],
+    },
     relatedTopics: ["env-biodiversity-threats-and-iucn", "env-conservation-and-extinction", "env-ecosystem-structure-and-energy-flow"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-productivity-and-biogeochemical-cycles"],
@@ -276,6 +347,18 @@ export const topics: Topic[] = [
       "Getting IUCN order wrong — the common error is mixing up VU and EN, or putting EW after EX incorrectly",
       "Thinking population growth IS a direct threat — it's an indirect amplifier of the 5 direct threats"
     ],
+    
+    comparisonTable: {
+      title: "HIPPO-style threats (memory order)",
+      headers: ["Threat", "Mechanism", "Pakistan-relevant note"],
+      rows: [
+        ["Habitat loss", "Conversion, fragmentation", "Leading global driver"],
+        ["Invasive species", "Outcompete natives", "Often under-tested but real"],
+        ["Pollution", "Toxins, nutrients, plastics", "Links to ENV-05"],
+        ["Population (human)", "Demand pressure", "Indirect driver of the others"],
+        ["Overexploitation", "Overhunting, overfishing, logging", "Timber and wildlife trade"],
+      ],
+    },
     relatedTopics: ["env-biodiversity", "env-conservation-and-extinction", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-biodiversity"],
@@ -314,6 +397,15 @@ export const topics: Topic[] = [
       "Thinking all mass extinctions are caused by humans — only the CURRENT 6th one is; previous 5 were natural",
       "Believing the 6th extinction is 'just normal background rate' — it's 100-1000× faster"
     ],
+    
+    comparisonTable: {
+      title: "In-situ vs ex-situ conservation",
+      headers: ["Approach", "Where", "Examples", "Limit"],
+      rows: [
+        ["In-situ", "Natural habitat", "National parks, wildlife sanctuaries", "Needs habitat protection to work"],
+        ["Ex-situ", "Outside habitat", "Zoos, seed banks, captive breeding", "Does not replace wild ecosystems"],
+      ],
+    },
     relatedTopics: ["env-biodiversity", "env-biodiversity-threats-and-iucn"],
     content: true,
   buildsOn: ["env-biodiversity-threats-and-iucn", "earth-c3"],
@@ -353,6 +445,15 @@ export const topics: Topic[] = [
       "Putting Recycle first in the 3Rs/5Rs — Refuse is the MOST effective first step",
       "Thinking all forests are equally productive — forest types vary hugely in carbon sequestration and biodiversity"
     ],
+    
+    comparisonTable: {
+      title: "Renewable vs non-renewable resources",
+      headers: ["Type", "Replenishment", "Examples", "Trap"],
+      rows: [
+        ["Renewable", "Within human timescales if managed", "Solar, wind, forests (if not overcut), water", "Overuse can still degrade them"],
+        ["Non-renewable", "Geological timescales", "Coal, oil, gas, most minerals", "Recycling helps but stock is finite"],
+      ],
+    },
     relatedTopics: ["env-resource-conflicts", "env-climate-change-response", "env-biodiversity"],
     content: true,
   buildsOn: ["env-carry-capacity-and-footprint", "earth-i4", "earth-b1"],
@@ -393,6 +494,21 @@ export const topics: Topic[] = [
       "Confusing which side of the Indus Treaty got which rivers — memorize the actual division",
       "Thinking Pakistan's forest cover is similar to global average (~30%) — it's 5%, far below",
       "Believing resource conflicts are unsolvable — many have been successfully managed (IWT is an example)"
+    ],
+    
+    comparisonTable: {
+      title: "Pakistan resource flashpoints (exam anchors)",
+      headers: ["Resource", "Core conflict", "Key fact"],
+      rows: [
+        ["Water", "Transboundary sharing", "Indus Waters Treaty (1960) — World Bank brokered"],
+        ["Forests", "Logging vs conservation vs livelihoods", "Forest cover ~5% (far below ~25% FAO guideline)"],
+        ["Energy/minerals", "Extraction vs environment", "Coal and mining trade-offs"],
+      ],
+    },
+    pakistanExamFocus: [
+      "Indus Waters Treaty: eastern rivers to India; western (Indus, Jhelum, Chenab) to Pakistan with limited Indian non-consumptive use",
+      "Forest cover ≈ 5% — classic FPSC statistic",
+      "Billion Tree Tsunami (KP) as large-scale afforestation example",
     ],
     relatedTopics: ["env-natural-resources", "env-climate-change-response", "env-water-pollution-and-quality"],
     content: true,
@@ -436,6 +552,15 @@ export const topics: Topic[] = [
       "Confusing primary and secondary — primary is EMITTED, secondary is FORMED in air",
       "Mixing up PM₁₀ and PM₂.₅ — PM₂.₅ is smaller and more dangerous"
     ],
+    
+    comparisonTable: {
+      title: "Primary vs secondary air pollutants",
+      headers: ["Type", "How formed", "Examples"],
+      rows: [
+        ["Primary", "Emitted directly", "CO, SO₂, NO, PM from stacks/vehicles"],
+        ["Secondary", "Formed in air from reactions", "Ozone (O₃), some acids, photochemical smog components"],
+      ],
+    },
     relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response", "env-resource-conflicts"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-inversion-types", "env-productivity-and-biogeochemical-cycles", "math-1-7", "phy-heat-transfer-mechanisms", "phy-atmospheric-pressure-physics"],
@@ -478,6 +603,15 @@ export const topics: Topic[] = [
       "Thinking clean water has high BOD — clean water has LOW BOD (less decomposable waste)",
       "Confusing bioaccumulation (in one organism) with biomagnification (up food chain)"
     ],
+    
+    comparisonTable: {
+      title: "Point vs non-point water pollution",
+      headers: ["Type", "Source pattern", "Example"],
+      rows: [
+        ["Point source", "Single identifiable pipe/outfall", "Factory discharge, sewage outlet"],
+        ["Non-point (diffuse)", "Many scattered sources", "Agricultural runoff, urban stormwater"],
+      ],
+    },
     relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-threats-and-iucn"],
     content: true,
   buildsOn: ["env-productivity-and-biogeochemical-cycles", "earth-j1", "earth-j2", "meteo-moisture-metrics"],
@@ -517,6 +651,17 @@ export const topics: Topic[] = [
       "Sanitary landfill and open dumping are the same — they're not (sanitary is engineered, open is uncontrolled)",
       "Biomedical waste can be mixed with regular waste — it CANNOT (must be autoclaved/incinerated)"
     ],
+    
+    comparisonTable: {
+      title: "Waste hierarchy (prefer top first)",
+      headers: ["Priority", "Action", "Why"],
+      rows: [
+        ["1", "Prevent / reduce", "Least environmental load"],
+        ["2", "Reuse", "Keeps product in use"],
+        ["3", "Recycle / recover", "Materials or energy recovery"],
+        ["4", "Dispose", "Last resort (landfill/incineration without recovery)"],
+      ],
+    },
     relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-water-pollution-and-quality", "earth-e1"],
@@ -562,6 +707,17 @@ export const topics: Topic[] = [
       "Believing nuclear has high CO₂ — it has ZERO operational CO₂ (the issue is waste and safety)",
       "Confusing which fossil fuel is cleanest — natural gas is cleanest among fossil fuels, coal is dirtiest"
     ],
+    
+    comparisonTable: {
+      title: "Energy sources — exam contrast",
+      headers: ["Source", "Class", "Main upside", "Main downside"],
+      rows: [
+        ["Coal / oil / gas", "Non-renewable fossil", "High energy density, dispatchable", "GHGs, air pollution"],
+        ["Hydro", "Renewable (site-limited)", "Low operating emissions", "Ecosystem/displacement impacts"],
+        ["Solar / wind", "Renewable", "No fuel combustion", "Variable; needs storage/backup"],
+        ["Nuclear", "Low-carbon, non-renewable fuel cycle", "Large baseload, low CO₂", "Waste, safety, cost debates"],
+      ],
+    },
     relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality"],
     content: true,
   buildsOn: ["env-natural-resources", "phy-work-energy", "phy-power-efficiency", "phy-radioactivity-nuclear", "meteo-greenhouse-effect"],
@@ -603,6 +759,15 @@ export const topics: Topic[] = [
       "Confusing autonomous (natural) with planned (deliberate) adaptation — autonomous is unplanned, planned is policy-driven",
       "Thinking carbon capture/storage is proven at scale — most CCS projects are small or have failed"
     ],
+    
+    comparisonTable: {
+      title: "Mitigation vs adaptation",
+      headers: ["Strategy", "Goal", "Examples"],
+      rows: [
+        ["Mitigation", "Reduce emissions / enhance sinks", "Renewables, efficiency, afforestation"],
+        ["Adaptation", "Live with residual change", "Flood defenses, drought-resistant crops, early warning"],
+      ],
+    },
     relatedTopics: ["env-international-climate-policy", "env-energy-sources", "env-ozone-depletion"],
     content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-energy-sources", "meteo-extreme-events", "phy-thermodynamics-laws", "phy-heat-transfer-mechanisms"],
@@ -644,6 +809,16 @@ export const topics: Topic[] = [
       "Thinking the $100 billion climate finance pledge was fully met — it was mostly unfulfilled",
       "Forgetting that the Paris Agreement's 2°C/1.5°C is a TARGET, not a confirmed outcome (we're currently on track for 2.5-3°C)"
     ],
+    
+    comparisonTable: {
+      title: "Landmark climate agreements (memory grid)",
+      headers: ["Instrument", "Era", "Core idea"],
+      rows: [
+        ["UNFCCC", "1992", "Framework for climate action"],
+        ["Kyoto Protocol", "1997", "Binding targets for listed developed parties (historical)"],
+        ["Paris Agreement", "2015", "NDCs, well-below 2°C, pursue 1.5°C"],
+      ],
+    },
     relatedTopics: ["env-climate-change-response", "env-ozone-depletion", "env-energy-sources"],
     content: true,
   buildsOn: ["env-climate-change-response", "meteo-ipcc-rcps", "meteo-pakistan-nccp"],
@@ -683,6 +858,15 @@ export const topics: Topic[] = [
       "Thinking CFCs are still used — they've been phased out under the Montreal Protocol",
       "Believing the ozone hole is 'healed' — it's still there seasonally but recovering, full recovery expected mid-century"
     ],
+    
+    comparisonTable: {
+      title: "Ozone depletion vs greenhouse effect (do not conflate)",
+      headers: ["Issue", "Where", "Main gases", "Main treaty"],
+      rows: [
+        ["Ozone depletion", "Stratosphere", "CFCs, halons (ODS)", "Montreal Protocol"],
+        ["Greenhouse warming", "Troposphere / climate system", "CO₂, CH₄, N₂O, etc.", "UNFCCC / Paris"],
+      ],
+    },
     relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
@@ -726,6 +910,22 @@ export const topics: Topic[] = [
       "Confusing per capita water availability — Pakistan has DROPPED from ~5,000 m³ to ~1,000 m³, not stayed stable",
       "Thinking Pakistan is a major GHG emitter in absolute terms — it's a vulnerable developing country, not in top 10 absolute emitters",
       "Believing forest cover is improving — it's only ~5%, one of the lowest in Asia, and reforestation efforts are still far below what's needed"
+    ],
+    
+    comparisonTable: {
+      title: "Pakistan environmental anchors for FPSC",
+      headers: ["Theme", "Fact to lock", "Why it appears"],
+      rows: [
+        ["Forests", "~5% cover", "Statistic + policy pressure"],
+        ["Water", "Indus basin dependence", "Treaty + scarcity narratives"],
+        ["Climate", "High vulnerability", "Adaptation needs"],
+        ["Air", "Urban smog / PM episodes", "Health + policy questions"],
+      ],
+    },
+    pakistanExamFocus: [
+      "Quote forest cover ≈ 5% only if options match current syllabus figures used in your materials",
+      "Link national drives (e.g. Billion Tree / 10 Billion Tree) to afforestation, not to 'solving climate alone'",
+      "Separate local pollution problems from global treaty names",
     ],
     relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts", "env-biodiversity"],
     content: true,
