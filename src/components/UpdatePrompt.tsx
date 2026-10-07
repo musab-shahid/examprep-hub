@@ -1,15 +1,20 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw, BookOpen } from 'lucide-react';
+
+type Props = {
+  /** When true, hide the banner so it does not stack on the offline toast */
+  offlineVisible?: boolean;
+};
 
 /**
- * Detects a waiting service worker and offers a controlled restart.
- * Does not call skipWaiting itself — SW activates only after the user confirms.
+ * Detects a waiting service worker (new app shell / study assets) and offers
+ * a controlled restart. Does not call skipWaiting until the user confirms.
  */
-export function UpdatePrompt() {
+export function UpdatePrompt({ offlineVisible = false }: Props) {
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const [restarting, setRestarting] = useState(false);
+  const [checking, setChecking] = useState(false);
   const registrationRef = useRef<ServiceWorkerRegistration | null>(null);
-  /** Only reload after the user asked for Restart (avoid reload on first SW claim). */
   const userAcceptedUpdateRef = useRef(false);
 
   useEffect(() => {
@@ -33,11 +38,9 @@ export function UpdatePrompt() {
     const attachToRegistration = (reg: ServiceWorkerRegistration) => {
       registrationRef.current = reg;
 
-      // Already waiting from a previous session
       if (reg.waiting && navigator.serviceWorker.controller) {
         if (mounted) setUpdateAvailable(true);
       }
-      // Install in progress when we attach
       watchWorker(reg.installing);
 
       reg.addEventListener('updatefound', () => {
@@ -47,18 +50,12 @@ export function UpdatePrompt() {
 
     const init = async () => {
       try {
-        // Prefer an existing registration; if main.tsx is still registering,
-        // `ready` waits until an active worker exists (first visit) or resolves
-        // with the current registration.
         let reg = await navigator.serviceWorker.getRegistration();
         if (!reg) {
-          // Concurrent with main.tsx register — ready bridges the race
           reg = await navigator.serviceWorker.ready;
         }
         if (!mounted || !reg) return;
         attachToRegistration(reg);
-
-        // Pull latest SW file (no-op if unchanged)
         reg.update().catch(() => {});
       } catch {
         if (import.meta.env.DEV) console.warn('[SW] update check failed');
@@ -68,24 +65,46 @@ export function UpdatePrompt() {
     init();
 
     const onVisibility = () => {
-      if (document.visibilityState === 'visible') {
+      if (document.visibilityState === 'visible' && navigator.onLine) {
         registrationRef.current?.update().catch(() => {});
       }
     };
     document.addEventListener('visibilitychange', onVisibility);
 
     const interval = setInterval(() => {
-      registrationRef.current?.update().catch(() => {});
+      if (navigator.onLine) {
+        registrationRef.current?.update().catch(() => {});
+      }
     }, 4 * 60 * 60 * 1000);
+
+    // Allow Settings (or others) to request an update check
+    const onRequestCheck = () => {
+      const reg = registrationRef.current;
+      if (!reg || !navigator.onLine) return;
+      setChecking(true);
+      reg
+        .update()
+        .catch(() => {})
+        .finally(() => {
+          window.setTimeout(() => {
+            if (mounted) setChecking(false);
+            // Surface waiting worker if update() finished install quickly
+            if (reg.waiting && navigator.serviceWorker.controller && mounted) {
+              setUpdateAvailable(true);
+            }
+          }, 800);
+        });
+    };
+    window.addEventListener('examprep:check-update', onRequestCheck);
 
     return () => {
       mounted = false;
       document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('examprep:check-update', onRequestCheck);
       clearInterval(interval);
     };
   }, []);
 
-  // Reload only after user-triggered SKIP_WAITING (not on first install claim)
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
     const onControllerChange = () => {
@@ -102,31 +121,45 @@ export function UpdatePrompt() {
     const reg = registrationRef.current;
     const waiting = reg?.waiting;
     if (!waiting) {
-      // Waiting worker gone — still try a hard reload so the user is unstuck
       window.location.reload();
       return;
     }
     userAcceptedUpdateRef.current = true;
     setRestarting(true);
     waiting.postMessage({ type: 'SKIP_WAITING' });
-    // Fallback if controllerchange never fires (rare)
     window.setTimeout(() => {
       if (userAcceptedUpdateRef.current) window.location.reload();
     }, 2000);
   }, []);
 
-  if (!updateAvailable) return null;
+  if (offlineVisible || !updateAvailable) {
+    // Still expose a tiny checking state only when online + requested — skip UI if nothing to show
+    if (checking && !updateAvailable && !offlineVisible) {
+      return (
+        <div className="fixed top-0 inset-x-0 z-[60] pointer-events-none">
+          <div className="mx-auto max-w-md px-4 pt-[env(safe-area-inset-top)]">
+            <div className="rounded-b-xl bg-slate-800/90 text-white px-4 py-2 text-xs font-medium text-center">
+              Checking for study material updates…
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  }
 
   return (
     <div className="fixed top-0 inset-x-0 z-[60] animate-fade-in-up">
       <div className="mx-auto max-w-md px-4 pt-[env(safe-area-inset-top)]">
-        <div className="rounded-b-2xl border border-b-0 border-slate-200 bg-white shadow-lg px-4 py-3 flex items-center gap-3">
+        <div className="rounded-b-2xl border border-b-0 border-brand-200 bg-white shadow-lg px-4 py-3 flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm">
-            <RefreshCw className={`w-4 h-4 text-white ${restarting ? 'animate-spin' : ''}`} />
+            <BookOpen className={`w-4 h-4 text-white ${restarting ? 'opacity-70' : ''}`} />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-900 text-sm">Update available</p>
-            <p className="text-slate-500 text-xs mt-0.5">A new version of ExamPrep Hub is ready.</p>
+            <p className="font-semibold text-slate-900 text-sm">Study materials updated</p>
+            <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
+              New content or app improvements are ready. Restart to load them — your progress stays on this device.
+            </p>
           </div>
           <button
             type="button"
@@ -135,7 +168,7 @@ export function UpdatePrompt() {
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm shrink-0 disabled:opacity-70"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${restarting ? 'animate-spin' : ''}`} />
-            {restarting ? 'Restarting…' : 'Restart'}
+            {restarting ? 'Updating…' : 'Restart'}
           </button>
         </div>
       </div>

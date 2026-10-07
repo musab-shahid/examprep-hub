@@ -1,4 +1,5 @@
 import {
+  RefreshCw,
   Trash2, Library, Flame, TrendingUp, BookOpen, Brain, Target,
   Check, CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
   Download, Share,
@@ -201,6 +202,35 @@ export function SettingsScreen() {
         </div>
       </Card>
 
+      {/* Check for content / app updates */}
+      <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-400 to-brand-600 flex items-center justify-center shrink-0 shadow-sm">
+            <RefreshCw className="w-5 h-5 text-white" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-semibold text-slate-900 text-sm">Study material updates</p>
+            <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
+              When we publish new questions or study text, the app can download them in the background. Use this if the update banner did not appear. You will be asked to restart before the new version replaces the old one.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                if (!navigator.onLine) {
+                  window.alert('Connect to the internet to check for study material updates.');
+                  return;
+                }
+                window.dispatchEvent(new Event('examprep:check-update'));
+              }}
+              className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors shadow-sm"
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+              Check for updates
+            </button>
+          </div>
+        </div>
+      </Card>
+
       {/* Install app — fallback for users who never saw the banner (audit I2) */}
       {showInstall && (
         <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.12s' }}>
@@ -213,7 +243,7 @@ export function SettingsScreen() {
               {deferredPrompt ? (
                 <>
                   <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-                    Add ExamPrep Hub to your home screen for quick access. Pages you've already opened work offline.
+                    Install ExamPrep Hub on your device for a home-screen icon and faster return to study. Subjects you have opened can work offline; progress is stored on this device.
                   </p>
                   <button
                     type="button"

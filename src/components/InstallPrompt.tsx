@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, type ReactNode } from 'react';
 import { Download, X, Library, Share } from 'lucide-react';
 
 const DISMISS_KEY = 'pwa-install-dismissed';
@@ -10,8 +10,10 @@ interface BeforeInstallPromptEvent extends Event {
 }
 
 function isStandalone(): boolean {
-  return window.matchMedia('(display-mode: standalone)').matches ||
-    (window.navigator as unknown as { standalone?: boolean }).standalone === true;
+  return (
+    window.matchMedia('(display-mode: standalone)').matches ||
+    (window.navigator as unknown as { standalone?: boolean }).standalone === true
+  );
 }
 
 function isIOS(): boolean {
@@ -47,7 +49,7 @@ export function InstallPrompt() {
       const timer = setTimeout(() => {
         setIosMode(true);
         setVisible(true);
-      }, 3000);
+      }, 4000);
       return () => {
         clearTimeout(timer);
         window.removeEventListener('beforeinstallprompt', handler);
@@ -57,11 +59,11 @@ export function InstallPrompt() {
     return () => window.removeEventListener('beforeinstallprompt', handler);
   }, []);
 
-  // Clear deferred state when the app is actually installed
   useEffect(() => {
     const onInstalled = () => {
       setVisible(false);
       setDeferredPrompt(null);
+      localStorage.removeItem(DISMISS_KEY);
     };
     window.addEventListener('appinstalled', onInstalled);
     return () => window.removeEventListener('appinstalled', onInstalled);
@@ -69,14 +71,17 @@ export function InstallPrompt() {
 
   const handleInstall = useCallback(async () => {
     if (!deferredPrompt) return;
-    await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted' || outcome === 'dismissed') {
+    try {
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
       setVisible(false);
       setDeferredPrompt(null);
       if (outcome === 'dismissed') {
         localStorage.setItem(DISMISS_KEY, String(Date.now()));
       }
+    } catch {
+      setVisible(false);
+      setDeferredPrompt(null);
     }
   }, [deferredPrompt]);
 
@@ -87,70 +92,77 @@ export function InstallPrompt() {
 
   if (!visible) return null;
 
-  if (iosMode) {
-    return (
-      <div className="fixed z-40 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up left-1/2 -translate-x-1/2"
-           style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}>
-        <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
-              <Library className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <h3 className="font-semibold text-slate-900 text-sm">Add to Home Screen</h3>
-              <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-                Tap the <Share className="inline w-3 h-3 -mt-0.5 text-brand-600" /> Share button in Safari, then choose <strong className="font-semibold text-slate-700">Add to Home Screen</strong> to install ExamPrep Hub.
-              </p>
-              <div className="flex items-center gap-2 mt-3">
-                <button
-                  onClick={handleDismiss}
-                  className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-slate-400 text-xs font-medium hover:text-slate-600 hover:bg-slate-100 transition-colors"
-                >
-                  <X className="w-3.5 h-3.5" />
-                  Not now
-                </button>
-              </div>
-            </div>
+  const shell = (
+    icon: ReactNode,
+    title: string,
+    body: ReactNode,
+    actions: ReactNode,
+  ) => (
+    <div
+      className="fixed z-40 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up left-1/2 -translate-x-1/2"
+      style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}
+      role="dialog"
+      aria-label={title}
+    >
+      <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
+        <div className="flex items-start gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
+            {icon}
+          </div>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-semibold text-slate-900 text-sm">{title}</h3>
+            <div className="text-slate-500 text-xs mt-0.5 leading-relaxed">{body}</div>
+            <div className="flex items-center gap-2 mt-3">{actions}</div>
           </div>
         </div>
       </div>
+    </div>
+  );
+
+  if (iosMode) {
+    return shell(
+      <Library className="w-5 h-5 text-white" />,
+      'Install ExamPrep Hub',
+      <>
+        On iPhone or iPad, open the <Share className="inline w-3 h-3 -mt-0.5 text-brand-600" /> Share menu in Safari, then choose{' '}
+        <strong className="font-semibold text-slate-700">Add to Home Screen</strong>. You will get a home-screen icon; pages you have already opened can work offline.
+      </>,
+      <button
+        type="button"
+        onClick={handleDismiss}
+        className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-slate-500 text-xs font-medium hover:text-slate-700 hover:bg-slate-100 transition-colors"
+      >
+        <X className="w-3.5 h-3.5" />
+        Not now
+      </button>,
     );
   }
 
   if (!deferredPrompt) return null;
 
-  return (
-    <div className="fixed z-40 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up left-1/2 -translate-x-1/2"
-         style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}>
-      <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
-        <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
-            <Library className="w-5 h-5 text-white" />
-          </div>
-          <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-slate-900 text-sm">Add to Home Screen</h3>
-            <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-              Install ExamPrep Hub for quick access. Pages you've already opened work offline.
-            </p>
-            <div className="flex items-center gap-2 mt-3">
-              <button
-                onClick={handleInstall}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
-              >
-                <Download className="w-3.5 h-3.5" />
-                Install
-              </button>
-              <button
-                onClick={handleDismiss}
-                className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-slate-400 text-xs font-medium hover:text-slate-600 hover:bg-slate-100 transition-colors"
-              >
-                <X className="w-3.5 h-3.5" />
-                Not now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  return shell(
+    <Library className="w-5 h-5 text-white" />,
+    'Install ExamPrep Hub',
+    <>
+      Add the app to your home screen for one-tap access. After install, the app shell and subjects you have opened can be used without a network connection. Your study progress stays saved on this device.
+    </>,
+    <>
+      <button
+        type="button"
+        onClick={handleInstall}
+        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-brand-500 to-brand-600 text-white text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
+      >
+        <Download className="w-3.5 h-3.5" />
+        Install
+      </button>
+      <button
+        type="button"
+        onClick={handleDismiss}
+        className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-slate-500 text-xs font-medium hover:text-slate-700 hover:bg-slate-100 transition-colors"
+      >
+        <X className="w-3.5 h-3.5" />
+        Not now
+      </button>
+    </>,
   );
 }
