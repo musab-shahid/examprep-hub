@@ -1,8 +1,28 @@
 import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
-import { join, extname } from 'node:path';
+import { join, extname, basename } from 'node:path';
 import { createHash } from 'node:crypto';
 
 const PRECACHE_EXTENSIONS = new Set(['.js', '.css', '.woff2', '.woff', '.ttf']);
+
+/**
+ * Lazy subject banks are huge and should load on demand, not at install.
+ * Vite names those chunks from the source path (questions-*, topics-*).
+ */
+function isLazyContentChunk(relPath) {
+  const name = basename(relPath).toLowerCase();
+  return (
+    name.includes('questions-') ||
+    name.includes('topics-') ||
+    // Rollup sometimes prefixes with parent folder hash paths
+    relPath.includes('/questions-') ||
+    relPath.includes('/topics-')
+  );
+}
+
+/** Precache app shell + vendors; exclude lazy subject packs. */
+function isShellAsset(relPath) {
+  return !isLazyContentChunk(relPath);
+}
 
 async function collectAssets(dir, base = '') {
   const results = [];
@@ -30,44 +50,52 @@ export function swPrecachePlugin() {
     async writeBundle() {
       const distDir = join(process.cwd(), outDir);
 
-      // Collect all hashed assets under /assets/
       const assetsDir = join(distDir, 'assets');
       let assetFiles = [];
       try {
         assetFiles = await collectAssets(assetsDir, 'assets');
-      } catch { /* assets dir may not exist */ }
+      } catch {
+        /* assets dir may not exist */
+      }
 
-      // Always include the static shell files
-      const precacheUrls = ['/', '/index.html', '/manifest.json', '/favicon.svg'];
-      // Add hashed assets as absolute paths
-      for (const f of assetFiles) {
+      const shellAssets = assetFiles.filter(isShellAsset);
+      const skipped = assetFiles.length - shellAssets.length;
+
+      // Static shell + icons (not under /assets/)
+      const precacheUrls = [
+        '/',
+        '/index.html',
+        '/manifest.json',
+        '/favicon.svg',
+        '/icon-192.png',
+        '/icon-512.png',
+        '/apple-touch-icon.png',
+      ];
+      for (const f of shellAssets) {
         precacheUrls.push(`/${f}`);
       }
 
-      // Generate hash from the sorted asset list for auto-bumping cache version
+      // Version from full asset list so any content change still busts cache name
       const hashInput = [...assetFiles].sort().join('|');
       const cacheHash = createHash('md5').update(hashInput).digest('hex').slice(0, 8);
       const cacheName = `examprep-${cacheHash}`;
 
-      // Read the template sw.js from public/
       const swTemplatePath = join(process.cwd(), 'public', 'sw.js');
       let swContent = await readFile(swTemplatePath, 'utf-8');
 
-      // Replace the CACHE and PRECACHE lines
-      swContent = swContent.replace(
-        /^const CACHE = .*$/m,
-        `const CACHE = '${cacheName}';`
-      );
+      swContent = swContent.replace(/^const CACHE = .*$/m, `const CACHE = '${cacheName}';`);
       swContent = swContent.replace(
         /^const PRECACHE = .*$/m,
-        `const PRECACHE = ${JSON.stringify(precacheUrls)};`
+        `const PRECACHE = ${JSON.stringify(precacheUrls)};`,
       );
 
-      // Write the generated sw.js into dist/
       await mkdir(distDir, { recursive: true });
       await writeFile(join(distDir, 'sw.js'), swContent, 'utf-8');
 
-      console.log(`[sw-precache] Cache: ${cacheName}, precaching ${precacheUrls.length} URLs`);
+      console.log(
+        `[sw-precache] Cache: ${cacheName}, precaching ${precacheUrls.length} URLs` +
+          (skipped ? ` (skipped ${skipped} lazy content chunks)` : ''),
+      );
     },
   };
 }

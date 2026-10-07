@@ -2,7 +2,18 @@ const CACHE = 'examprep-v3';
 const PRECACHE = ['/', '/index.html', '/manifest.json', '/favicon.svg'];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)));
+  // Precache shell URLs individually so one 404 does not fail the whole install
+  e.waitUntil(
+    caches.open(CACHE).then((cache) =>
+      Promise.all(
+        PRECACHE.map((url) =>
+          cache.add(url).catch(() => {
+            /* ignore missing optional assets */
+          })
+        )
+      )
+    )
+  );
   // Don't skipWaiting on install — the app shows an "Update available — Restart"
   // banner and sends SKIP_WAITING via postMessage when the user confirms.
   // On first visit with no controller, the SW activates on the next navigation.
