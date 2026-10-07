@@ -1379,11 +1379,11 @@ export const questions: Question[] = [
 
   // Medium
   { id: "ENV-04-Q005", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "Pakistan's forest cover is approximately:",
-    options: ["1%", "5%", "15%", "30%"],
-    correctAnswer: 1,
-    explanation: "Pakistan's forest cover is approximately 5% — one of the lowest in Asia and far below the FAO-recommended minimum of 25%. This is a frequently-tested statistic and reflects both natural aridity and significant deforestation pressure.",
-    sourceCitation: "Standard environmental science curriculum" },
+    question: "The Billion Tree Tsunami afforestation drive was primarily implemented in which province of Pakistan?",
+    options: ["Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan"],
+    correctAnswer: 2,
+    explanation: "The Billion Tree Tsunami was launched in Khyber Pakhtunkhwa (KP) as a large-scale afforestation and restoration programme. It is frequently cited in FPSC environmental and current-affairs style items as a provincial climate/forest initiative later echoed by national-scale drives.",
+    sourceCitation: "Pakistan environmental policy / FPSC-style current affairs" },
 
   { id: "ENV-04-Q006", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
     question: "The FAO-recommended MINIMUM forest cover for a country is:",

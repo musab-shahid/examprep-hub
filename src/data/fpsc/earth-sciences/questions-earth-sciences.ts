@@ -1962,10 +1962,10 @@ export const questions: Question[] = [
 
 
 { id: "EARTH-08-Q011", sectionId: "EARTH-08", topicId: "earth-h2", difficulty: "easy", type: "true_false",
-  question: "P-waves can travel through both solids and liquids.",
+  question: "The principle of superposition states that in an undisturbed sequence of sedimentary rocks, younger layers are above older layers.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. P-waves (compressional/longitudinal) can travel through solids, liquids, and gases. They are slowed but not stopped by the liquid outer core, which is why P-waves (but not S-waves) reach seismographs in the S-wave shadow zone.",
+  explanation: "True. Steno's law of superposition is a cornerstone of relative dating: unless overturned by later deformation, beds higher in a stack are younger. It does not by itself give absolute (numerical) ages.",
   sourceCitation: "Standard Earth science curriculum" },
 
 

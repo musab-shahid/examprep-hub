@@ -1585,7 +1585,7 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // --- Parts of Speech & Tenses: additional medium/hard ---
-{ id: "ENG-01-Q083", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q083", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["The number of students are increasing.", "The number of students is increasing.", "A number of students is increasing.", "The number of students were increasing."],
   correctAnswer: 1,
