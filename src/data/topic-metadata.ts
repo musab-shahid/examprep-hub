@@ -257,7 +257,7 @@ export const topicMetadata: TopicMeta[] = [
   { id: "env-air-pollution", sectionId: "ENV-05", order: 1, title: "Air Pollution: Primary & Secondary Pollutants", content: true },
   { id: "env-water-pollution-and-quality", sectionId: "ENV-05", order: 2, title: "Water Pollution, BOD/COD/DO & Treatment", content: true },
   { id: "env-soil-and-waste", sectionId: "ENV-05", order: 3, title: "Soil Pollution, Solid & Hazardous Waste", content: true },
-  // ENV-6: Climate, Energy & Environment
+  // ENV-6: Energy, Climate & Environmental Governance
   { id: "env-energy-sources", sectionId: "ENV-06", order: 1, title: "Energy Sources & Their Environmental Footprint", content: true },
   { id: "env-climate-change-response", sectionId: "ENV-06", order: 2, title: "Climate Change: Mitigation, Adaptation & Vulnerability", content: true },
   { id: "env-international-climate-policy", sectionId: "ENV-06", order: 3, title: "International Climate Policy (UNFCCC → Paris → COP28)", content: true },
