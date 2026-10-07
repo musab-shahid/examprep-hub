@@ -22,6 +22,10 @@ const SUGGESTED_PROMPTS = [
   'What are the key points to memorize?',
 ];
 
+function buildHeaders(): Record<string, string> {
+  return { 'Content-Type': 'application/json' };
+}
+
 export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -34,7 +38,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    fetch('/api/ai-providers')
+    fetch('/api/ai-providers', { headers: buildHeaders() })
       .then((res) => res.json())
       .then((data) => {
         const providers = data.providers || {};
@@ -65,7 +69,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     try {
       const res = await fetch('/api/ai-tutor', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: buildHeaders(),
         body: JSON.stringify({
           messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
           topicTitle,
