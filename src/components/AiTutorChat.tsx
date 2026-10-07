@@ -161,18 +161,6 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     }
   }, [messages, loading]);
 
-  // Auto-retry when model changes after an error
-  useEffect(() => {
-    if (!error || loading || !prevModelIdRef.current) return;
-    if (modelId === prevModelIdRef.current) return;
-    const failed = lastFailedRef.current;
-    if (!failed) return;
-    prevModelIdRef.current = modelId;
-    lastFailedRef.current = null;
-    setError(null);
-    sendMessage(failed.text, failed.messages);
-  }, [modelId, error, loading, sendMessage]);
-
   const currentModel = availableModels.find((m) => m.id === modelId);
 
   const sendMessage = useCallback(async (text: string, retryMessages?: ChatMessage[]) => {
@@ -217,6 +205,18 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       abortRef.current = null;
     }
   }, [messages, loading, topicTitle, topicContext, modelId, startCooldown]);
+
+  // Auto-retry when model changes after an error
+  useEffect(() => {
+    if (!error || loading || !prevModelIdRef.current) return;
+    if (modelId === prevModelIdRef.current) return;
+    const failed = lastFailedRef.current;
+    if (!failed) return;
+    prevModelIdRef.current = modelId;
+    lastFailedRef.current = null;
+    setError(null);
+    sendMessage(failed.text, failed.messages);
+  }, [modelId, error, loading, sendMessage]);
 
   const handleStop = useCallback(() => {
     abortRef.current?.abort();
