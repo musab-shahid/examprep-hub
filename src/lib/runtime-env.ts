@@ -5,4 +5,5 @@
 export const env = {
   GEMINI_API_KEY: import.meta.env.VITE_GEMINI_API_KEY || '',
   OPENROUTER_API_KEY: import.meta.env.VITE_OPENROUTER_API_KEY || '',
+  GROQ_API_KEY: import.meta.env.VITE_GROQ_API_KEY || '',
 } as const;

@@ -24,22 +24,61 @@ export interface TutorMessage {
   content: string;
 }
 
+export type ProviderKey = 'gemini' | 'openrouter' | 'groq';
+
 export interface ModelOption {
   id: string;
   label: string;
-  provider: 'gemini' | 'openrouter';
+  provider: ProviderKey;
   model: string;
   badge?: string;
+  free?: boolean;
 }
 
 export const MODEL_OPTIONS: ModelOption[] = [
+  // Groq — fully free, fast inference, OpenAI-compatible API
+  {
+    id: 'groq-llama-3.3-70b',
+    label: 'Llama 3.3 70B',
+    provider: 'groq',
+    model: 'llama-3.3-70b-versatile',
+    badge: 'Groq',
+    free: true,
+  },
+  {
+    id: 'groq-llama-3.1-8b',
+    label: 'Llama 3.1 8B',
+    provider: 'groq',
+    model: 'llama-3.1-8b-instant',
+    badge: 'Groq',
+    free: true,
+  },
+  {
+    id: 'groq-gpt-oss-120b',
+    label: 'GPT-OSS 120B',
+    provider: 'groq',
+    model: 'openai/gpt-oss-120b',
+    badge: 'Groq',
+    free: true,
+  },
+  {
+    id: 'groq-gpt-oss-20b',
+    label: 'GPT-OSS 20B',
+    provider: 'groq',
+    model: 'openai/gpt-oss-20b',
+    badge: 'Groq',
+    free: true,
+  },
+  // Gemini — direct Google API (free tier via AI Studio)
   {
     id: 'gemini',
     label: 'Gemini 3.8 Flash',
     provider: 'gemini',
     model: 'gemini-3.8-flash',
     badge: 'Google',
+    free: true,
   },
+  // OpenRouter — paid models, verified active IDs
   {
     id: 'gpt-4o-mini',
     label: 'GPT-4o mini',
@@ -67,13 +106,6 @@ export const MODEL_OPTIONS: ModelOption[] = [
     provider: 'openrouter',
     model: 'anthropic/claude-haiku-4.5',
     badge: 'Anthropic',
-  },
-  {
-    id: 'llama-3.3-70b',
-    label: 'Llama 3.3 70B',
-    provider: 'openrouter',
-    model: 'meta-llama/llama-3.3-70b-instruct',
-    badge: 'Meta',
   },
   {
     id: 'deepseek-chat',
@@ -108,14 +140,16 @@ export const MODEL_OPTIONS: ModelOption[] = [
 export function getAvailableModels(): ModelOption[] {
   const geminiOk = Boolean(env.GEMINI_API_KEY);
   const openrouterOk = Boolean(env.OPENROUTER_API_KEY);
+  const groqOk = Boolean(env.GROQ_API_KEY);
   return MODEL_OPTIONS.filter((m) => {
     if (m.provider === 'gemini') return geminiOk;
+    if (m.provider === 'groq') return groqOk;
     return openrouterOk;
   });
 }
 
 export function isTutorAvailable(): boolean {
-  return Boolean(env.GEMINI_API_KEY || env.OPENROUTER_API_KEY);
+  return Boolean(env.GEMINI_API_KEY || env.OPENROUTER_API_KEY || env.GROQ_API_KEY);
 }
 
 export function getDefaultModelId(): string {
@@ -193,6 +227,43 @@ async function callOpenRouter(
   return text.trim();
 }
 
+async function callGroq(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+): Promise<string> {
+  const apiKey = env.GROQ_API_KEY;
+  const chatMessages = [
+    { role: 'system' as const, content: preamble },
+    ...messages.map((m) => ({ role: m.role, content: m.content })),
+  ];
+
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model,
+      messages: chatMessages,
+      temperature: 0.7,
+      max_tokens: 1024,
+      top_p: 0.95,
+    }),
+  });
+
+  if (!res.ok) {
+    let detail = '';
+    try { const errData = await res.json(); detail = errData?.error?.message || ''; } catch { detail = await res.text().catch(() => ''); }
+    throw new Error(detail || `Groq request failed (${res.status}). Please try again.`);
+  }
+  const data = await res.json();
+  const text = data?.choices?.[0]?.message?.content;
+  if (!text) throw new Error('No response from AI. Please try again.');
+  return text.trim();
+}
+
 export async function askTutor(
   messages: TutorMessage[],
   topicTitle?: string,
@@ -207,9 +278,14 @@ export async function askTutor(
   const modelOption = available.find((m) => m.id === modelId) ?? available[0];
   const preamble = buildPreamble(topicTitle, topicContext);
 
-  const reply = modelOption.provider === 'openrouter'
-    ? await callOpenRouter(messages, preamble, modelOption.model)
-    : await callGemini(messages, preamble, modelOption.model);
+  let reply: string;
+  if (modelOption.provider === 'openrouter') {
+    reply = await callOpenRouter(messages, preamble, modelOption.model);
+  } else if (modelOption.provider === 'groq') {
+    reply = await callGroq(messages, preamble, modelOption.model);
+  } else {
+    reply = await callGemini(messages, preamble, modelOption.model);
+  }
 
   return { reply, modelLabel: modelOption.label };
 }

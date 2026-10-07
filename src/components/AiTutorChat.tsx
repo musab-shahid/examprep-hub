@@ -153,6 +153,11 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
               {currentModel.badge}
             </span>
           )}
+          {currentModel?.free && (
+            <span className="text-[10px] font-normal text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded-full">
+              Free
+            </span>
+          )}
           <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showModelDropdown ? 'rotate-180' : ''}`} />
         </button>
         {showModelDropdown && (
@@ -173,6 +178,11 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
                   {m.badge && (
                     <span className="text-[10px] font-normal text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">
                       {m.badge}
+                    </span>
+                  )}
+                  {m.free && (
+                    <span className="text-[10px] font-normal text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded-full">
+                      Free
                     </span>
                   )}
                 </span>
