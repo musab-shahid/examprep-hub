@@ -263,30 +263,34 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
 
   const handleDragStart = (e: React.PointerEvent) => {
     e.preventDefault();
-    const panel = (e.currentTarget.parentElement as HTMLElement);
+    const panel = panelRef.current;
+    if (!panel) return;
     const rect = panel.getBoundingClientRect();
     const current = position ?? { x: rect.left, y: rect.top };
     dragRef.current = { startX: e.clientX, startY: e.clientY, origX: current.x, origY: current.y };
     setPosition(current);
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
 
-  const handleDragMove = (e: React.PointerEvent) => {
-    if (!dragRef.current) return;
-    const dx = e.clientX - dragRef.current.startX;
-    const dy = e.clientY - dragRef.current.startY;
-    let nx = dragRef.current.origX + dx;
-    let ny = dragRef.current.origY + dy;
-    const maxX = window.innerWidth - 64;
-    const maxY = window.innerHeight - 80;
-    nx = Math.max(8, Math.min(nx, maxX));
-    ny = Math.max(8, Math.min(ny, maxY));
-    setPosition({ x: nx, y: ny });
-  };
+    const onMove = (ev: PointerEvent) => {
+      if (!dragRef.current) return;
+      const dx = ev.clientX - dragRef.current.startX;
+      const dy = ev.clientY - dragRef.current.startY;
+      let nx = dragRef.current.origX + dx;
+      let ny = dragRef.current.origY + dy;
+      const maxX = window.innerWidth - 64;
+      const maxY = window.innerHeight - 80;
+      nx = Math.max(8, Math.min(nx, maxX));
+      ny = Math.max(8, Math.min(ny, maxY));
+      setPosition({ x: nx, y: ny });
+    };
 
-  const handleDragEnd = (e: React.PointerEvent) => {
-    dragRef.current = null;
-    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
+    const onUp = () => {
+      dragRef.current = null;
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+    };
+
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
   };
 
   const handleResizeStart = (e: React.PointerEvent) => {
@@ -298,23 +302,26 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     const current = size ?? { w: rect.width, h: rect.height };
     resizeRef.current = { startX: e.clientX, startY: e.clientY, origW: current.w, origH: current.h };
     setSize(current);
-    e.currentTarget.setPointerCapture(e.pointerId);
-  };
 
-  const handleResizeMove = (e: React.PointerEvent) => {
-    if (!resizeRef.current) return;
-    const dw = e.clientX - resizeRef.current.startX;
-    const dh = e.clientY - resizeRef.current.startY;
-    let nw = resizeRef.current.origW + dw;
-    let nh = resizeRef.current.origH + dh;
-    nw = Math.max(300, Math.min(nw, window.innerWidth - 16));
-    nh = Math.max(320, Math.min(nh, window.innerHeight - 16));
-    setSize({ w: nw, h: nh });
-  };
+    const onMove = (ev: PointerEvent) => {
+      if (!resizeRef.current) return;
+      const dw = ev.clientX - resizeRef.current.startX;
+      const dh = ev.clientY - resizeRef.current.startY;
+      let nw = resizeRef.current.origW + dw;
+      let nh = resizeRef.current.origH + dh;
+      nw = Math.max(300, Math.min(nw, window.innerWidth - 16));
+      nh = Math.max(320, Math.min(nh, window.innerHeight - 16));
+      setSize({ w: nw, h: nh });
+    };
 
-  const handleResizeEnd = (e: React.PointerEvent) => {
-    resizeRef.current = null;
-    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
+    const onUp = () => {
+      resizeRef.current = null;
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+    };
+
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
   };
 
   const stopDragPropagation = (e: React.PointerEvent) => {
@@ -340,7 +347,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
           setPosition({ x: window.innerWidth - w - 24, y: window.innerHeight - h - 24 });
           setIsOpen(true);
         }}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
+        className="fixed bottom-20 right-6 z-[9999] flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
       >
         <Sparkles className="w-5 h-5" />
         Ask AI Tutor
@@ -351,7 +358,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   return (
     <div
       ref={panelRef}
-      className="fixed z-50 flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200"
+      className="fixed z-[9999] flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200"
       style={
         size
           ? { left: position?.x ?? 8, top: position?.y ?? 8, width: size.w, height: size.h }
@@ -361,8 +368,6 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       {/* Header */}
       <div
         onPointerDown={handleDragStart}
-        onPointerMove={handleDragMove}
-        onPointerUp={handleDragEnd}
         className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white cursor-grab active:cursor-grabbing touch-none select-none"
       >
         <div className="flex items-center gap-2 min-w-0">
@@ -593,8 +598,6 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       {/* Resize handle */}
       <div
         onPointerDown={handleResizeStart}
-        onPointerMove={handleResizeMove}
-        onPointerUp={handleResizeEnd}
         className="absolute bottom-0 right-0 w-6 h-6 cursor-se-resize touch-none z-20"
       >
         <svg viewBox="0 0 10 10" className="w-full h-full text-slate-400" fill="currentColor">
