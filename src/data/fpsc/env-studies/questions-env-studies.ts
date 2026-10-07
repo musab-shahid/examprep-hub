@@ -445,551 +445,482 @@ export const questions: Question[] = [
     correctAnswer: 2,
     explanation: "1,000 − 600 − 200 = 200 kcal left in consumer biomass potentially available to the next level (before the predator’s own losses).",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // TOPIC 2: Ecological Pyramids
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Ecological pyramids ——
   { id: "ENV-02-Q017", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "easy", type: "single",
-    question: "Which type of ecological pyramid is ALWAYS upright (never inverted)?",
-    options: ["Pyramid of numbers", "Pyramid of biomass", "Pyramid of energy", "Pyramid of population"],
+    question: "Which type of ecological pyramid is always upright in standard teaching?",
+    options: ["Pyramid of numbers", "Pyramid of biomass", "Pyramid of energy", "Pyramid of population density only"],
     correctAnswer: 2,
-    explanation: "The pyramid of ENERGY is always upright because energy always decreases at each trophic level (by the 10% rule and second law of thermodynamics). Pyramids of numbers and biomass can be inverted in some ecosystems.",
+    explanation: "Energy decreases at each successive trophic level because transfers are inefficient. Numbers and biomass pyramids can invert depending on organism size and turnover.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q018", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "easy", type: "true_false",
-    question: "The pyramid of numbers for a tree ecosystem is often inverted because one tree supports thousands of insects.",
+    question: "A pyramid of numbers for a single large tree supporting many insects is often inverted at the producer level.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. A single tree (1 producer) supports thousands of insects (many primary consumers), so the number pyramid has 1 at the bottom and thousands higher up — which is technically inverted (wider at top, narrow at bottom). This is a classic example used to show that number pyramids are NOT always upright.",
+    explanation: "True. One tree is one producer unit but can support thousands of insects, so the count is wider above the producer level.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q019", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "easy", type: "single",
-    question: "What does the pyramid of BIOMASS show?",
+    question: "A pyramid of biomass shows:",
     options: [
-      "Number of individuals at each level",
-      "Energy at each level",
-      "Dry weight (mass) of organisms at each level",
+      "Number of individuals at each trophic level",
+      "Energy flow at each level over time",
+      "Mass of living material at each trophic level",
       "Number of species at each level"
     ],
     correctAnswer: 2,
-    explanation: "Pyramid of biomass shows the DRY WEIGHT (mass) of organisms at each trophic level. Unlike numbers or energy, biomass CAN be inverted in some marine ecosystems where phytoplankton (small standing crop) support a larger zooplankton biomass.",
+    explanation: "Biomass pyramids plot living mass (often dry mass) by trophic level. They can invert in some aquatic systems with rapid producer turnover.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-02-Q020", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "In a pyramid of energy, the SECOND level (primary consumers) typically has:",
+    question: "In an energy pyramid, primary consumers typically hold about:",
     options: [
       "More energy than the producers",
-      "About 10% of the energy of the producers",
-      "About 90% of the energy of the producers",
+      "About 10% of the energy present at the producer level (teaching approximation)",
+      "About 90% of producer energy",
       "The same energy as the producers"
     ],
     correctAnswer: 1,
-    explanation: "The 10% rule: only ~10% of energy transfers from one trophic level to the next. So primary consumers have about 10% of the energy of the producers, secondary consumers have ~10% of that (1% of producers), and so on.",
+    explanation: "The common teaching rule is that only a fraction (~10%) of energy is stored in the next trophic level; most is lost as heat or left unconsumed.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q021", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "Why is the pyramid of ENERGY always upright, even when the pyramids of numbers and biomass are inverted?",
+    question: "Why does an energy pyramid stay upright even when numbers or biomass pyramids invert?",
     options: [
-      "Energy is conserved at each level",
-      "The second law of thermodynamics guarantees energy loss at each level",
-      "Producers are always largest in number",
-      "Consumers have more biomass than producers"
+      "Energy is fully conserved at each transfer",
+      "Energy is lost at each transfer, so less remains at higher levels",
+      "Producers are always the most numerous organisms",
+      "Consumers always have more biomass than producers"
     ],
     correctAnswer: 1,
-    explanation: "The second law of thermodynamics guarantees that energy conversions are never 100% efficient — some energy is always lost as heat. So energy MUST decrease at each higher trophic level, making the energy pyramid always upright. Numbers and biomass can be inverted because they're raw counts/weights, not energy flows.",
+    explanation: "Energy conversions are inefficient; usable energy declines up the chain. Counts and standing mass can invert without reversing energy flow.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q022", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "A marine ecosystem where the standing crop of phytoplankton is LESS than that of zooplankton is an example of:",
+    question: "A marine system in which standing biomass of phytoplankton is less than that of zooplankton is an example of:",
     options: [
-      "Inverted pyramid of numbers",
-      "Inverted pyramid of biomass",
-      "Upright pyramid of energy",
-      "All three pyramids must be inverted"
+      "An inverted pyramid of numbers only",
+      "An inverted pyramid of biomass",
+      "An inverted pyramid of energy",
+      "All three pyramid types inverted"
     ],
     correctAnswer: 1,
-    explanation: "When phytoplankton standing biomass < zooplankton biomass, the biomass pyramid is INVERTED. This can happen because phytoplankton reproduce and are consumed very quickly — at any given moment, their total mass is small, but their turnover (reproduction rate) is high, so they support a larger consumer biomass. The energy pyramid is still upright because energy flow is determined by total production, not standing stock.",
+    explanation: "Standing biomass of small, fast-turnover producers can be lower than consumer biomass at a given moment. Energy flow through the system still declines up the chain, so the energy pyramid remains upright.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q023", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "In a forest food chain (oak tree → caterpillars → birds → hawks), if the tree has 10,000 kcal, the hawks have approximately:",
+    question: "In a forest chain (tree → caterpillars → birds → hawks), if the tree level has 10,000 kcal of usable energy and about 10% passes each step, hawks have about:",
     options: ["10,000 kcal", "1,000 kcal", "100 kcal", "10 kcal"],
     correctAnswer: 3,
-    explanation: "10,000 (oak) → 1,000 (caterpillars) → 100 (birds) → 10 (hawks). Apply 10% rule at each level. So hawks have ~10 kcal. This illustrates why top predators (hawks, eagles, tigers) are so few in number.",
+    explanation: "10,000 → 1,000 → 100 → 10. Little energy remains at the top after three transfers.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q024", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "In a pyramid of NUMBERS for a grassland ecosystem (grass → grasshoppers → frogs → snakes), the typical shape is:",
+    question: "For a grassland chain (many grass plants → grasshoppers → frogs → snakes), the pyramid of numbers is typically:",
     options: [
-      "Always inverted (narrow at top)",
-      "Upright (wide at bottom, narrow at top)",
-      "Irregular / equal widths",
-      "A perfect rectangle"
+      "Always inverted",
+      "Upright (wider at the base)",
+      "A perfect rectangle",
+      "Identical at every level"
     ],
     correctAnswer: 1,
-    explanation: "For a grassland, the number pyramid is typically UPRIGHT: many grasses, fewer grasshoppers, even fewer frogs, very few snakes. This is unlike the tree ecosystem (1 tree, thousands of insects — inverted). The shape depends on the SIZE of the producer, not just the 10% rule.",
+    explanation: "Many small producers support fewer consumers at each step, so counts usually narrow upward — unlike a single-tree system.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q025", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "multi",
-    question: "Which of the following are correct about ecological pyramids? (Select all that apply.)",
+    question: "Which statements about ecological pyramids are correct? (Select all that apply.)",
     options: [
-      "The energy pyramid is always upright",
+      "The energy pyramid is always upright in standard accounts",
       "The pyramid of numbers can be inverted",
-      "The pyramid of biomass can be inverted in marine ecosystems",
-      "All three pyramids are always upright"
+      "The pyramid of biomass can be inverted in some marine systems",
+      "All three pyramid types are always upright"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: energy always decreases (10% rule + 2nd law). (b) Correct: e.g., 1 tree supports thousands of insects. (c) Correct: marine ecosystems can have inverted biomass. (d) WRONG: only the energy pyramid is guaranteed upright; numbers and biomass can be inverted.",
+    explanation: "Only energy is guaranteed upright. Numbers and biomass can invert. Option (d) is false.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q026", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "true_false",
-    question: "In a parasitic food chain, the pyramid of NUMBERS is inverted because one host supports many parasites.",
+    question: "In a parasitic food chain, the pyramid of numbers can be inverted because one host may support many parasites.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. In a parasitic chain (tree → parasites on tree → hyperparasites on parasites), the number of organisms INCREASES at each level because each host supports many smaller parasites. This produces an inverted number pyramid, similar to the tree/insect example but with parasites.",
+    explanation: "True. Counts can increase from host to parasites even though energy flow still declines.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q027", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "single",
-    question: "The pyramid of energy is ALWAYS upright because:",
+    question: "The energy pyramid is always upright mainly because:",
     options: [
-      "All ecosystems have the same number of trophic levels",
-      "Energy decreases at each higher level due to the 10% rule and second law of thermodynamics",
-      "Producers are always larger than consumers",
-      "The sun provides unlimited energy"
+      "Every ecosystem has the same number of trophic levels",
+      "Usable energy decreases at higher trophic levels",
+      "Producers are always larger in body size than consumers",
+      "The sun provides unlimited energy to every consumer"
     ],
     correctAnswer: 1,
-    explanation: "The second law of thermodynamics (entropy always increases) means energy conversions are never 100% efficient — some is always lost as heat. The 10% rule captures this. So energy MUST decrease up each level, making the energy pyramid always upright regardless of the ecosystem type.",
+    explanation: "Inefficient transfers leave less usable energy higher up. Body size and solar input do not by themselves force the pyramid shape.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-02-Q028", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "hard", type: "single",
-    question: "A forest has 1000 trees, each supporting 50 insects, each insect eaten by 1 bird, each bird eaten by 1 hawk. What is the shape of the NUMBER pyramid?",
+    question: "A woodland has 1,000 trees supporting 50,000 plant-feeding insects. Relative to the trees, the numbers pyramid at the first consumer level is:",
     options: [
-      "Upright (1000 → 50,000 → 50,000 → 50,000 → ...)",
-      "Inverted at the producer level (1000 trees vs 50,000 insects)",
+      "Upright (fewer insects than trees)",
+      "Inverted (far more insects than trees)",
       "A perfect rectangle",
-      "Same width at all levels"
+      "Undefined because energy pyramids cannot invert"
     ],
     correctAnswer: 1,
-    explanation: "Trees: 1000. Insects: 1000 × 50 = 50,000. Birds: 50,000. Hawks: 50,000. The number pyramid is INVERTED at the producer level (1000 trees < 50,000 insects), then narrows. This is the classic 'tree ecosystem' example of an inverted number pyramid.",
+    explanation: "1,000 producers vs 50,000 insects is wider above the producer level — the classic inverted numbers pattern for a large-producer system. (Higher levels need not keep the same 1:1 ratios.)",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q029", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "hard", type: "multi",
-    question: "Which of the following are reasons the PYRAMID OF ENERGY is ALWAYS upright? (Select all that apply.)",
+    question: "Which reasons help explain why the energy pyramid stays upright? (Select all that apply.)",
     options: [
-      "The 10% rule applies to energy transfer between trophic levels",
-      "The second law of thermodynamics requires energy loss at each transfer",
+      "Only a fraction of energy is stored in the next trophic level",
+      "Energy conversions dissipate some energy as heat",
       "Producers are always larger than consumers in body size",
-      "Photosynthesis captures only a small fraction of incoming solar energy"
+      "Photosynthesis efficiency alone sets the shape of every pyramid type"
     ],
     correctAnswer: [0, 1],
-    explanation: "(a) Correct: ~10% transfer = guaranteed energy loss up the chain. (b) Correct: 2nd law of thermodynamics (entropy) means every energy conversion loses some as heat. (c) WRONG: this is a size argument, not a universal law — it doesn't always hold (e.g., a tree is bigger than insects). (d) WRONG: photosynthesis efficiency is a separate concept; it doesn't determine the SHAPE of the energy pyramid within an ecosystem (it determines how much total energy enters the ecosystem).",
+    explanation: "Transfer inefficiency and heat loss keep energy declining upward. Body size is not a universal law, and photosynthetic efficiency affects total input more than the within-ecosystem energy-pyramid shape.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q030", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "hard", type: "single",
-    question: "A marine food chain: phytoplankton (10 g) → zooplankton (8 g) → small fish (5 g) → large fish (3 g). Which pyramid is shown here?",
+    question: "Biomass values along a chain are: phytoplankton 10 g, zooplankton 8 g, small fish 5 g, large fish 3 g. This is best described as:",
     options: [
-      "Pyramid of numbers (inverted)",
-      "Pyramid of biomass (inverted — producers less than consumers)",
-      "Pyramid of energy (inverted — producers less than consumers)",
-      "Pyramid of species"
+      "An inverted pyramid of numbers",
+      "An upright pyramid of biomass",
+      "An inverted pyramid of energy",
+      "An inverted pyramid of biomass"
     ],
     correctAnswer: 1,
-    explanation: "The data shows biomass at each level (grams). Producers (10g) > consumers (8g, 5g, 3g) in this example, so this is an UPRIGHT biomass pyramid. If phytoplankton were < zooplankton, it would be inverted. The key: numbers/biomass CAN be inverted; energy CANNOT.",
+    explanation: "Mass declines from 10 → 8 → 5 → 3, so the biomass pyramid is upright. (The previous bank version mislabeled this as inverted.) Energy pyramids are not inverted by standing-mass data alone.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q031", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "hard", type: "single",
-    question: "In a tree-based food chain, the energy pyramid is upright (e.g., tree 10,000 → insects 1,000 → birds 100 → hawks 10) BUT the number pyramid is inverted (1 → thousands → ...). The energy pyramid is upright because:",
+    question: "A single tree can form an inverted numbers pyramid but an upright energy pyramid because:",
     options: [
-      "Energy pyramids are always drawn upright by convention",
-      "Each tree has 10,000 kcal of energy despite being 1 individual",
-      "The 10% rule applies to weight, not energy",
-      "Insects are too small to contain much energy"
+      "Energy pyramids are drawn upright only by convention",
+      "One large producer can store much energy even though it is one individual",
+      "The 10% rule applies to organism counts, not energy",
+      "Insects cannot contain chemical energy"
     ],
     correctAnswer: 1,
-    explanation: "Even though there's only 1 tree, that tree contains a large amount of stored energy (10,000 kcal) because it's a big organism. The insects (many in number) each contain small amounts of energy. So energy FLOW follows the 10% rule (upright), but NUMBER counts (1 vs. thousands) is inverted. The 10% rule applies to energy, not to count.",
+    explanation: "Count and energy measure different things. One large tree can hold far more stored energy than many small insects combined at higher levels after transfer losses.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q032", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about ecological pyramids:",
+    question: "Which statement about ecological pyramids is correct?",
     options: [
-      "All three pyramids are always upright because of the 10% rule",
-      "Only the energy pyramid is always upright; numbers and biomass can be inverted",
+      "All three pyramid types are always upright because of the 10% rule",
+      "Only the energy pyramid is always upright; numbers and biomass can invert",
       "The pyramid of numbers is always inverted",
-      "Pyramids show species, not individuals"
+      "Pyramids show species lists, not individuals or energy"
     ],
     correctAnswer: 1,
-    explanation: "Only the energy pyramid is guaranteed upright. The 10% rule applies to ENERGY, not to counts (numbers) or standing weight (biomass). Numbers can be inverted when one large producer supports many small consumers (tree/insect). Biomass can be inverted in marine ecosystems with fast turnover. This is a common exam distinction.",
+    explanation: "The 10% teaching rule concerns energy, not counts or standing mass.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 3: Productivity & Biogeochemical Cycles
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Productivity & cycles ——
   { id: "ENV-02-Q033", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "single",
-    question: "What does GPP (Gross Primary Productivity) measure?",
+    question: "Gross primary productivity (GPP) measures:",
     options: [
-      "Energy stored in consumer biomass",
-      "Total rate at which producers fix energy from sunlight",
-      "Energy lost to respiration",
-      "Number of producers in an area"
+      "Energy already stored only in consumers",
+      "Total rate of photosynthetic energy capture by producers",
+      "Only energy lost to plant respiration",
+      "The number of producers in an area"
     ],
     correctAnswer: 1,
-    explanation: "GPP = total rate at which producers capture and FIX energy from sunlight via photosynthesis. It includes the energy that plants use for their own respiration. NPP = GPP minus plant respiration = what's available to consumers.",
+    explanation: "GPP is total photosynthetic capture. NPP = GPP − plant respiration, which is what remains for consumers.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q034", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "single",
-    question: "Which ecosystem typically has the HIGHEST NPP (Net Primary Productivity)?",
-    options: ["Desert", "Tropical rainforest", "Open ocean", "Tundra"],
+    question: "Which ecosystem typically has the highest net primary productivity among the options?",
+    options: ["Desert", "Tropical rainforest", "Open ocean average", "Tundra"],
     correctAnswer: 1,
-    explanation: "Tropical rainforests have the highest NPP of any terrestrial ecosystem due to abundant sunlight, warmth, and water year-round. Deserts and tundra have low NPP due to water/temperature limits. Open ocean is low because of nutrient limitation.",
+    explanation: "Warm, moist forests generally outproduce deserts, tundra, and average open ocean, which is often nutrient-limited.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q035", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "true_false",
-    question: "In the carbon cycle, PHOTOSYNTHESIS absorbs CO₂ from the atmosphere and RESPIRATION releases it.",
+    question: "In the carbon cycle, photosynthesis removes CO₂ from the atmosphere and respiration releases CO₂.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Photosynthesis takes CO₂ IN (fixes carbon into sugars); respiration releases CO₂ OUT (breaks sugars for energy). Deforestation removes photosynthesis (releasing stored carbon), while burning fossil fuels adds ancient-stored carbon to the atmosphere. Both increase atmospheric CO₂.",
+    explanation: "True. Fossil-fuel burning and deforestation further raise atmospheric CO₂ by adding carbon or reducing uptake.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q036", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "single",
-    question: "How does the PHOSPHORUS cycle differ from the carbon, nitrogen, and water cycles?",
+    question: "How does the phosphorus cycle most clearly differ from the carbon and nitrogen cycles?",
     options: [
-      "It moves faster than other cycles",
-      "It has NO atmospheric phase (no significant gaseous form)",
-      "It only occurs in marine ecosystems",
-      "It requires sunlight to function"
+      "It always moves faster than other cycles",
+      "It lacks a major atmospheric gas phase comparable to CO₂ or N₂",
+      "It occurs only in the open ocean",
+      "It requires sunlight at every step"
     ],
     correctAnswer: 1,
-    explanation: "The phosphorus cycle is distinctive because it has NO atmospheric phase — phosphorus doesn't have a significant gaseous form. It moves from rocks → soil → water → organisms. This is the most-asked distinguishing feature of the P cycle.",
+    explanation: "Phosphorus moves mainly through rock, soil, water, and organisms without a large gaseous atmospheric reservoir like N₂ or CO₂.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-02-Q037", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
-    question: "NPP (Net Primary Productivity) is calculated as:",
+    question: "Net primary productivity (NPP) is calculated as:",
     options: [
       "GPP + plant respiration",
-      "GPP − plant respiration (Ra)",
+      "GPP − plant respiration",
       "GPP × plant respiration",
       "GPP ÷ plant respiration"
     ],
     correctAnswer: 1,
-    explanation: "NPP = GPP − Ra. This subtracts the energy that plants use for their own respiration/metabolism, leaving the energy stored in plant biomass that's available to consumers. NPP is the 'useful' productivity from the consumer's perspective.",
+    explanation: "NPP is what remains after autotrophic respiration and is available, in principle, to heterotrophs.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q038", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
-    question: "In the NITROGEN cycle, the process of N₂ → NH₃ (nitrogen gas to ammonia) is called:",
+    question: "Converting atmospheric N₂ into biologically usable ammonia is called:",
     options: ["Nitrification", "Denitrification", "Nitrogen fixation", "Ammonification"],
     correctAnswer: 2,
-    explanation: "Nitrogen fixation = N₂ → NH₃ (converting inert atmospheric nitrogen into biologically usable ammonia). Done by nitrogen-fixing bacteria (Rhizobium) and lightning. The Haber process (industrial fertilizer production) has doubled the rate of global nitrogen fixation.",
+    explanation: "Fixation (biological, lightning, or industrial) unlocks N₂. Nitrification and denitrification are later steps among reactive nitrogen forms.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q039", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
-    question: "The OCEAN'S role in the carbon cycle is best described as:",
+    question: "The ocean’s role in the modern carbon cycle is best described as:",
     options: [
-      "Source of all atmospheric CO₂",
-      "Buffer (absorbs about 25% of human CO₂ emissions)",
-      "Unaffected by human activity",
-      "Releases more CO₂ than it absorbs"
+      "The source of all atmospheric CO₂",
+      "A major sink that absorbs a substantial share of anthropogenic CO₂ (order-of-magnitude teaching figure ~25%)",
+      "Completely unaffected by human emissions",
+      "Unable to exchange carbon with the atmosphere"
     ],
     correctAnswer: 1,
-    explanation: "The ocean acts as a BUFFER, absorbing about 25% of human CO₂ emissions annually. This slows climate change but causes ocean acidification (lower pH). The ocean is not a permanent sink — its absorption rate is decreasing as surface waters warm.",
+    explanation: "Oceans take up a large fraction of human CO₂, moderating atmospheric rise while contributing to acidification of surface waters.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q040", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
-    question: "Human activity that DISRUPTS the sulfur cycle is:",
+    question: "Which human activity most directly disrupts the sulphur cycle toward acid deposition?",
     options: [
       "Planting trees",
-      "Burning coal (which contains sulfur compounds)",
-      "Reforestation",
-      "Using solar energy"
+      "Burning sulphur-bearing coal without adequate controls",
+      "Reforestation alone",
+      "Using solar electricity"
     ],
     correctAnswer: 1,
-    explanation: "Burning coal releases sulfur compounds (SO₂) into the atmosphere, which combines with water to form sulfuric acid (H₂SO₄) — one of the two main components of ACID RAIN. The other is nitric acid from nitrogen oxides. This disrupts the natural sulfur cycle and damages buildings, forests, and lakes.",
+    explanation: "Coal sulphur can form SO₂ and then sulphuric acid in the atmosphere, a classic acid-rain pathway.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q041", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
     question: "Deforestation primarily disrupts the carbon cycle by:",
     options: [
-      "Reducing the rate of photosynthesis (less CO₂ absorbed)",
-      "Increasing the rate of nitrogen fixation",
-      "Releasing phosphorus from tree tissues",
-      "Increasing ocean absorption of CO₂"
+      "Reducing photosynthetic CO₂ uptake and often releasing stored carbon",
+      "Increasing nitrogen fixation everywhere",
+      "Releasing only phosphorus with no carbon effect",
+      "Increasing ocean absorption of CO₂ automatically"
     ],
     correctAnswer: 0,
-    explanation: "Deforestation removes trees (the main photosynthetic organisms on land), reducing the rate of CO₂ absorption. It also releases stored carbon when trees are burned or decompose. Both effects INCREASE atmospheric CO₂, contributing to climate change. Reforestation does the opposite.",
+    explanation: "Fewer trees mean less uptake; burning or decay of biomass adds CO₂.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q042", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
-    question: "Excess fertilizer runoff into waterways causes:",
+    question: "Excess fertilizer runoff into slow waters commonly causes:",
     options: [
-      "Decreased phosphorus in water",
-      "Eutrophication (algal bloom → oxygen depletion → fish death)",
-      "Reduced nitrogen in soil",
-      "Increased atmospheric oxygen"
+      "Lower nutrient levels in water",
+      "Eutrophication (bloom → decay → oxygen stress)",
+      "Reduced nitrogen in all soils worldwide",
+      "Higher atmospheric oxygen from algae alone"
     ],
     correctAnswer: 1,
-    explanation: "Excess nitrogen and phosphorus from fertilizer runoff causes EUTROPHICATION: nutrient enrichment → algal bloom → light blocked → plant death → bacterial decomposition → oxygen depletion → fish death. This affects both the nitrogen cycle (excess N) and the phosphorus cycle (excess P).",
+    explanation: "Nutrient enrichment drives blooms; decomposition of the bloom consumes dissolved oxygen and can kill fish.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q043", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT features of the carbon cycle? (Select all that apply.)",
+    question: "Which statements about the carbon cycle are correct? (Select all that apply.)",
     options: [
-      "Photosynthesis absorbs CO₂; respiration releases it",
-      "The ocean acts as a buffer, absorbing about 25% of human CO₂",
-      "Fossil fuels are ancient stores of carbon",
+      "Photosynthesis takes up CO₂; respiration releases it",
+      "Oceans absorb a substantial share of anthropogenic CO₂",
+      "Fossil fuels are concentrated ancient carbon stores",
       "Deforestation decreases atmospheric CO₂"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: photosynthesis IN, respiration OUT. (b) Correct: ocean absorbs ~25% of human CO₂. (c) Correct: fossil fuels are carbon stored over millions of years. (d) WRONG: deforestation INCREASES atmospheric CO₂ (less absorption, plus release of stored carbon).",
+    explanation: "Deforestation tends to raise atmospheric CO₂, not lower it.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q044", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "true_false",
-    question: "The sulfur cycle is the only biogeochemical cycle that has NO atmospheric phase.",
+    question: "Among the major teaching cycles, sulphur is the only one with no atmospheric phase.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. The PHOSPHORUS cycle has no atmospheric phase. Sulfur DOES have an atmospheric phase (SO₂ and sulfate aerosols), as does nitrogen (N₂ gas, NOx), carbon (CO₂, CH₄), and water (H₂O vapor). The P cycle is the one that lacks a significant atmospheric reservoir.",
+    explanation: "False. Phosphorus is the cycle usually taught as lacking a major atmospheric gas phase. Sulphur has atmospheric forms such as SO₂.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-02-Q045", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "hard", type: "single",
-    question: "Why is the Haber process (industrial nitrogen fixation for fertilizer) considered a major disruption of the nitrogen cycle?",
+    question: "Industrial nitrogen fixation (Haber–Bosch) is a major disruption of the nitrogen cycle mainly because it:",
     options: [
-      "It removes nitrogen from the atmosphere",
-      "It has roughly DOUBLED the global rate of natural nitrogen fixation",
-      "It converts ammonia to nitrogen gas",
-      "It only operates in developed countries"
+      "Removes all N₂ from the atmosphere",
+      "Has greatly increased the global supply of reactive nitrogen beyond natural fixation alone",
+      "Converts ammonia back to N₂ only",
+      "Operates only in one country"
     ],
     correctAnswer: 1,
-    explanation: "The Haber process (early 20th century) has approximately DOUBLED the rate at which atmospheric N₂ is converted to biologically available forms. This is similar in magnitude to all natural nitrogen fixation combined. This excess reactive nitrogen causes eutrophication, acid rain, and nitrous oxide (a potent greenhouse gas).",
+    explanation: "Industrial fixation adds large amounts of reactive nitrogen, with benefits for yields and costs such as eutrophication and related pollution.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q046", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT human disruptions of biogeochemical cycles? (Select all that apply.)",
+    question: "Which are correct examples of human disruption of cycles? (Select all that apply.)",
     options: [
-      "Burning fossil fuels → excess atmospheric CO₂ (carbon cycle)",
-      "Fertilizer runoff → eutrophication (nitrogen + phosphorus cycles)",
-      "Burning coal → acid rain (sulfur cycle)",
-      "Planting trees → increased atmospheric CO₂ (carbon cycle)"
+      "Fossil-fuel burning → extra atmospheric CO₂",
+      "Fertilizer runoff → eutrophication (N and P)",
+      "Coal sulphur → acid deposition pathways",
+      "Planting trees → increased atmospheric CO₂"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: fossil fuel burning adds ancient carbon to atmosphere. (b) Correct: excess N+P causes eutrophication. (c) Correct: coal sulfur → SO₂ → sulfuric acid → acid rain. (d) WRONG: planting trees DECREASES atmospheric CO₂ (more photosynthesis absorption). This is why afforestation is a climate mitigation strategy.",
+    explanation: "Afforestation increases uptake and tends to reduce atmospheric CO₂, not increase it.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q047", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "hard", type: "single",
-    question: "In order of NPP (highest to lowest), which is CORRECT?",
+    question: "Which NPP ranking (highest to lowest) is most consistent with standard teaching?",
     options: [
-      "Tropical rainforest > Desert > Grassland > Tundra",
-      "Tropical rainforest > Grassland > Tundra > Desert",
-      "Desert > Grassland > Tundra > Tropical rainforest",
-      "Tundra > Grassland > Desert > Tropical rainforest"
+      "Tropical rainforest > desert > grassland > tundra",
+      "Tropical rainforest > grassland > tundra > desert",
+      "Desert > grassland > tundra > tropical rainforest",
+      "Tundra > grassland > desert > tropical rainforest"
     ],
     correctAnswer: 1,
-    explanation: "NPP ranking: tropical rainforest > temperate forest > grassland > tundra > desert. Water and temperature are the main limits. Tropical rainforests have warm temps + abundant water + sunlight = highest NPP. Deserts have very low NPP due to water limitation.",
+    explanation: "Warm, wet forests rank high; deserts rank low. Grassland generally exceeds cold tundra and extreme desert.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q048", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about biogeochemical cycles:",
+    question: "Which statement about the major biogeochemical cycles is correct?",
     options: [
-      "All five cycles have an atmospheric phase",
-      "Phosphorus is the only cycle without a significant atmospheric phase",
-      "The water cycle has no biological component",
+      "All five teaching cycles have a large atmospheric gas reservoir like N₂",
+      "Phosphorus is distinctive for lacking a major atmospheric phase",
+      "The water cycle has no link to living organisms",
       "Carbon is not stored in fossil fuels"
     ],
     correctAnswer: 1,
-    explanation: "Phosphorus is the only one of the five major cycles WITHOUT a significant atmospheric phase. It moves: rocks → soil → water → organisms (all solid or dissolved forms, no significant gas). This is the most-asked distinguishing feature. The other four (water, carbon, nitrogen, sulfur) all have atmospheric phases.",
+    explanation: "P is the standard contrast case; C, N, S, and water all have important atmospheric components.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 1: Biodiversity
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Biodiversity ——
   { id: "ENV-03-Q001", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
-    question: "How many levels of biodiversity are typically recognized?",
+    question: "How many levels of biodiversity are typically recognized in basic teaching?",
     options: ["Two", "Three", "Four", "Five"],
     correctAnswer: 1,
-    explanation: "Three levels: GENETIC (variation within species), SPECIES (number of species), ECOSYSTEM (variety of habitats and communities). This is the standard classification tested in nearly every exam.",
+    explanation: "Genetic, species, and ecosystem diversity.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q002", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
-    question: "Which of the following is NOT one of the four ecosystem services?",
+    question: "Which of the following is not one of the four standard ecosystem-service groups?",
     options: ["Provisioning", "Regulating", "Supporting", "Manufacturing"],
     correctAnswer: 3,
-    explanation: "The four ecosystem services are PROVISIONING (food, water, timber), REGULATING (climate, pollination, flood control), SUPPORTING (nutrient cycles, soil formation), and CULTURAL (recreation, spiritual). MANUFACTURING is not a natural ecosystem service — it's an industrial activity.",
+    explanation: "Provisioning, regulating, supporting, and cultural are the usual four. Manufacturing is industrial, not an ecosystem-service category.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q003", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "true_false",
-    question: "Provisioning services include food, water, timber, and medicines that humans obtain from ecosystems.",
+    question: "Provisioning services include goods such as food, water, timber, and many medicines obtained from ecosystems.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Provisioning services are the PRODUCTS that ecosystems provide to humans — food, fresh water, timber, fiber, genetic resources, and medicines (many drugs come from plant compounds). These are the 'goods' that nature provides.",
+    explanation: "True. Provisioning services are material products people obtain from ecosystems.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q004", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
-    question: "Pollination of crops by bees is an example of which type of ecosystem service?",
+    question: "Pollination of crops by bees is best classified as which type of ecosystem service?",
     options: ["Provisioning", "Regulating", "Supporting", "Cultural"],
     correctAnswer: 1,
-    explanation: "Pollination is a REGULATING service — it controls/regulates crop production through a natural process. Regulating services include climate regulation, flood control, pollination, water purification, and disease control. Supporting services (nutrient cycling, soil formation) underpin these, but pollination itself is regulating.",
+    explanation: "Pollination regulates agricultural production as a natural process. Food harvested is provisioning; nutrient cycling is supporting.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-03-Q005", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "single",
-    question: "The difference between species RICHNESS and species EVENNESS is:",
+    question: "Species richness differs from species evenness in that:",
     options: [
-      "Richness = number of species; Evenness = how equally distributed individuals are among species",
-      "Richness = total individuals; Evenness = number of species",
-      "Richness = genetic diversity; Evenness = ecosystem diversity",
-      "They are the same thing"
+      "Richness is the count of species; evenness describes how evenly individuals are shared among species",
+      "Richness is total individuals; evenness is number of species",
+      "Richness is genetic diversity only; evenness is ecosystem diversity only",
+      "They mean the same thing"
     ],
     correctAnswer: 0,
-    explanation: "Richness = how MANY species are present (a simple count). Evenness = how EQUALLY the individuals are distributed among those species (one dominant species = low evenness; many equally-abundant species = high evenness). A forest with 10 oaks and 1 pine has richness 2 but low evenness.",
+    explanation: "A site can have many species dominated by one of them (high richness, low evenness).",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q006", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "single",
-    question: "A biodiversity HOTSPOT must meet which two criteria?",
+    question: "In the standard hotspot definition used in teaching, a biodiversity hotspot requires:",
     options: [
-      "High temperature + high rainfall",
-      "0.5% endemic plant species + 70% habitat loss",
-      "Large area + large population",
-      "High productivity + high diversity"
+      "High temperature and high rainfall only",
+      "High plant endemism and severe habitat loss (commonly taught thresholds: ≥0.5% endemic plants and ≥70% habitat lost)",
+      "Large area and large human population only",
+      "High productivity alone"
     ],
     correctAnswer: 1,
-    explanation: "A biodiversity hotspot requires BOTH: (1) at least 0.5% of the world's plant species as ENDEMICS (found nowhere else), AND (2) at least 70% of original habitat destroyed. Only 36 areas qualify globally. Both criteria must be met — one alone is insufficient.",
+    explanation: "Both endemism and threat criteria must be met; high diversity alone is not enough.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q007", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "single",
-    question: "ALPHA (α) diversity refers to:",
+    question: "Alpha (α) diversity refers to:",
     options: [
       "Diversity within a single site or habitat",
-      "Diversity between different sites",
-      "Diversity across a large region",
-      "Genetic diversity within a species"
+      "Difference between sites",
+      "Diversity of an entire large region only",
+      "Genetic diversity within one species only"
     ],
     correctAnswer: 0,
-    explanation: "Alpha (α) = diversity WITHIN a single site or habitat. Beta (β) = BETWEEN sites. Gamma (γ) = ACROSS a large region. Mnemonic: alpha = ALONE in one place; beta = BETWEEN places; gamma = GLOBAL for the region.",
+    explanation: "Alpha = within site; beta = between sites; gamma = regional.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q008", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "single",
-    question: "Which of the following is a SUPPORTING ecosystem service (not provisioning or regulating)?",
-    options: ["Food production", "Nutrient cycling", "Climate regulation", "Pollination"],
+    question: "Which is a supporting ecosystem service rather than provisioning or regulating?",
+    options: ["Food harvest", "Nutrient cycling", "Climate regulation", "Pollination"],
     correctAnswer: 1,
-    explanation: "Supporting services are those that UNDERPIN all other services: nutrient cycling, soil formation, primary production (photosynthesis), oxygen production. Food is provisioning. Climate regulation and pollination are regulating. Supporting services are the 'foundation' services.",
+    explanation: "Supporting services underpin others (nutrient cycling, soil formation, primary production).",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q009", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "single",
-    question: "Pakistan's forest cover is approximately:",
+    question: "In standard FPSC-style teaching figures, Pakistan’s forest cover is approximately:",
     options: ["1%", "5%", "15%", "30%"],
     correctAnswer: 1,
-    explanation: "Pakistan's forest cover is approximately 5% — one of the lowest in Asia and far below the FAO-recommended minimum of 25%. This is a frequently-tested statistic and reflects both natural aridity and significant deforestation pressure.",
+    explanation: "About 5% is the figure commonly used in exam materials — far below widely cited desirable benchmarks.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q010", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "multi",
-    question: "Which of the following are REGULATING ecosystem services? (Select all that apply.)",
-    options: ["Pollination of crops", "Climate regulation", "Flood control", "Water purification"],
+    question: "Which of the following are regulating ecosystem services? (Select all that apply.)",
+    options: ["Pollination of crops", "Climate regulation", "Flood moderation", "Water purification"],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are regulating services — they CONTROL or REGULATE natural processes. (Provisioning = products we extract. Supporting = underpin others. Cultural = non-material.) Pollination regulates crop production, climate regulation controls temperature/rainfall, flood control regulates water flow, water purification regulates water quality. All regulating.",
+    explanation: "All four regulate environmental processes that affect human wellbeing.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q011", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT distinctions? (Select all that apply.)",
+    question: "Which statements about diversity measures and services are correct? (Select all that apply.)",
     options: [
-      "α diversity = within a site; β = between sites; γ = across a region",
-      "Richness = number of species; Evenness = how equally distributed",
-      "Provisioning = products; Regulating = processes; Supporting = foundation",
-      "Hotspot requires 5% endemic plants and 50% habitat loss"
+      "α = within a site; β = between sites; γ = across a region",
+      "Richness counts species; evenness describes abundance balance",
+      "Provisioning = products; regulating = process control; supporting = foundation",
+      "Hotspot criteria are 5% endemic plants and 50% habitat loss"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: alpha/beta/gamma. (b) Correct: richness vs evenness. (c) Correct: the 4 ecosystem services properly categorized. (d) WRONG: hotspot requires 0.5% endemic plants AND 70% habitat loss — not 5% and 50%.",
+    explanation: "Hotspot teaching thresholds are about 0.5% endemic plants and 70% habitat loss, not 5% and 50%.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q012", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "medium", type: "true_false",
-    question: "A region with high species richness always has high evenness.",
+    question: "High species richness always implies high evenness.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. Richness and evenness are INDEPENDENT properties. A forest with 1000 oaks, 10 pines, 5 maples has richness = 3 (3 species) but very LOW evenness (one species dominates). A forest with 300 oaks, 300 pines, 300 maples has richness = 3 (also 3 species) but HIGH evenness. Both have richness 3 but very different evenness values.",
+    explanation: "False. One dominant species among many can yield high richness and low evenness.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-03-Q013", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "hard", type: "single",
-    question: "Which service does 'PHOTOSYNTHESIS BY PLANTS' most directly belong to?",
+    question: "Primary production by photosynthesis is most directly classed as which ecosystem-service group?",
     options: ["Provisioning", "Regulating", "Supporting", "Cultural"],
     correctAnswer: 2,
-    explanation: "Photosynthesis is the foundation of PRIMARY PRODUCTION — it produces oxygen, fixes carbon, and provides the energy base for nearly all life. This makes it a SUPPORTING service (underpinning all other services). It's not provisioning (which would be the food/oxygen AFTER it's produced), and not regulating or cultural.",
+    explanation: "Primary production underpins food webs and other services, so it is supporting. Harvested food is provisioning.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q014", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "hard", type: "single",
-    question: "BETA (β) diversity is best defined as:",
+    question: "Beta (β) diversity is best defined as:",
     options: [
-      "The total number of species in a single habitat",
-      "The difference in species composition BETWEEN two habitats",
-      "The genetic diversity within one species",
-      "The productivity of an ecosystem"
+      "The total number of species in one habitat",
+      "Difference or turnover in species composition between sites",
+      "Genetic diversity within one species",
+      "Ecosystem productivity"
     ],
     correctAnswer: 1,
-    explanation: "Beta (β) diversity = the DIFFERENCE in species composition between two or more habitats/sites. High beta diversity = different sites have very different species. Low beta = sites share most species. It measures species 'turnover' across the landscape.",
+    explanation: "Beta measures how species composition changes across space.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q015", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT about biodiversity hotspots? (Select all that apply.)",
+    question: "Which statements about biodiversity hotspots are correct? (Select all that apply.)",
     options: [
-      "36 global hotspots have been identified",
-      "A hotspot requires 0.5% endemic plants AND 70% habitat loss",
-      "Pakistan's northern mountains are part of a recognized hotspot",
-      "All forests with high biodiversity are automatically hotspots"
+      "On the order of three dozen global hotspots are recognized in standard maps",
+      "A hotspot requires both high endemism and severe habitat loss",
+      "Northern mountain systems of Pakistan are biologically important in regional conservation geography",
+      "Any forest with high diversity automatically qualifies as a hotspot"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: 36 hotspots. (b) Correct: the two criteria for hotspot designation. (c) Correct: Hindu Kush, Karakoram, and western Himalayas are part of the 'Mountains of Central Asia' hotspot. (d) WRONG: a hotspot must meet BOTH criteria (endemism + threat), not just high biodiversity. A pristine high-biodiversity forest without habitat loss would NOT qualify.",
+    explanation: "Both criteria are required; pristine diversity without severe loss does not meet the threat half of the definition.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q016", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "hard", type: "single",
-    question: "Why is the distinction between provisioning, regulating, and supporting services important for environmental policy?",
+    question: "Why do environmental assessments distinguish provisioning, regulating, supporting, and cultural services?",
     options: [
-      "It determines which species are endangered",
-      "It helps assign economic value to nature's contributions to human wellbeing",
-      "It identifies which countries have the most biodiversity",
-      "It determines which ecosystems are protected"
+      "Only to list endangered species",
+      "To describe different ways ecosystems contribute to human wellbeing, including non-market functions",
+      "Only to rank countries by species counts",
+      "Only to decide park names"
     ],
     correctAnswer: 1,
-    explanation: "The 4-service framework (Provisioning, Regulating, Supporting, Cultural — the 'TEEB' classification) was developed to put economic value on nature's contributions to human wellbeing. This helps policymakers understand what they stand to lose if an ecosystem is destroyed. It doesn't directly determine species status, country rankings, or protection status, but it underpins environmental cost-benefit analysis.",
+    explanation: "The typology organizes nature’s contributions beyond raw products—regulation, foundation processes, and cultural values.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 2: Threats & IUCN
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Threats & IUCN ——
   { id: "ENV-03-Q017", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "easy", type: "single",
-    question: "The SINGLE largest driver of biodiversity loss worldwide is:",
-    options: ["Climate change", "Pollution", "Habitat loss", "Invasive species"],
+    question: "The largest driver of biodiversity loss worldwide is generally:",
+    options: ["Climate change", "Pollution", "Habitat loss and fragmentation", "Invasive species"],
     correctAnswer: 2,
-    explanation: "Habitat loss is the #1 driver of biodiversity loss worldwide. When forests, wetlands, and other habitats are destroyed for agriculture, urbanization, or infrastructure, the species that lived there have nowhere to go. Climate change and pollution are serious but smaller drivers globally.",
+    explanation: "Habitat destruction and fragmentation remove the places species need. Other threats are serious but habitat loss ranks first globally in standard assessments.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q018", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "easy", type: "single",
-    question: "The IUCN Red List category 'CR' stands for:",
+    question: "On the IUCN Red List, CR stands for:",
     options: ["Common Resident", "Critically Endangered", "Conservation Required", "Census Recorded"],
     correctAnswer: 1,
-    explanation: "CR = Critically Endangered — the highest risk category before 'Extinct in the Wild' and 'Extinct'. The order from least to most threatened: LC (Least Concern) < NT (Near Threatened) < VU (Vulnerable) < EN (Endangered) < CR (Critically Endangered) < EW (Extinct in Wild) < EX (Extinct).",
+    explanation: "CR is Critically Endangered — among the highest risk categories before EW and EX.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q019", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "easy", type: "true_false",
-    question: "An invasive species is a non-native organism that outcompetes native species in a new ecosystem.",
+    question: "An invasive species is a non-native organism that establishes and harms native species or ecosystems.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Invasive species are non-native organisms that spread aggressively in a new ecosystem, outcompeting native species for resources. Examples: water hyacinth in many tropical waterways, cane toad in Australia, kudzu vine in the southeastern US.",
+    explanation: "True. Invasion implies establishment and negative impact, not merely presence of any non-native.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q020", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "easy", type: "single",
-    question: "Which of the following is an endangered species found in Pakistan?",
-    options: ["House sparrow", "Markhor", "Common myna", "Indian peafowl"],
+    question: "Which of the following is a conservation-flagship species associated with Pakistan?",
+    options: ["House sparrow", "Markhor", "Common myna", "Feral pigeon"],
     correctAnswer: 1,
-    explanation: "The Markhor (a large wild goat) is Pakistan's national animal and a conservation success story — it was endangered but has recovered significantly due to conservation efforts. The other species (house sparrow, common myna, Indian peafowl) are all common and not endangered.",
+    explanation: "Markhor is widely cited in Pakistani conservation teaching; the others are common commensals.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-03-Q021", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "single",
-    question: "The correct order of IUCN Red List categories (from LEAST to MOST threatened) is:",
+    question: "Correct IUCN order from least to most severe is:",
     options: [
       "LC < NT < VU < EN < CR < EW < EX",
       "EX < EW < CR < EN < VU < NT < LC",
@@ -997,130 +928,118 @@ export const questions: Question[] = [
       "EW < EX < CR < EN < VU < NT < LC"
     ],
     correctAnswer: 0,
-    explanation: "Least to most threatened: LC (Least Concern) < NT (Near Threatened) < VU (Vulnerable) < EN (Endangered) < CR (Critically Endangered) < EW (Extinct in Wild — survives only in captivity) < EX (Extinct — completely gone). A common exam error is putting EW after EX, but EW comes BEFORE EX in the threat progression.",
+    explanation: "EW (extinct in the wild) precedes complete extinction (EX).",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q022", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "single",
-    question: "The 5 major threats to biodiversity, in order of impact, are:",
+    question: "Which list best matches the usual global ranking of major direct pressures (highest impact first)?",
     options: [
-      "Climate change, Pollution, Habitat loss, Invasive species, Overexploitation",
-      "Habitat loss, Overexploitation, Invasive species, Pollution, Climate change",
-      "Pollution, Habitat loss, Climate change, Overexploitation, Invasive species",
-      "Overexploitation, Climate change, Habitat loss, Pollution, Invasive species"
+      "Climate change, pollution, habitat loss, invasive species, overexploitation",
+      "Habitat loss, overexploitation, invasive species, pollution, climate change",
+      "Pollution, habitat loss, climate change, overexploitation, invasive species",
+      "Overexploitation, climate change, habitat loss, pollution, invasive species"
     ],
     correctAnswer: 1,
-    explanation: "Correct order (most to least impact globally): Habitat loss → Overexploitation → Invasive species → Pollution → Climate change. This is a frequently-tested order question. Habitat loss is the #1 driver because it destroys the places species need to live. Climate change gets more media attention but is currently a smaller driver globally than habitat loss.",
+    explanation: "Habitat loss leads; climate change is serious but not ranked first globally in standard IPBES-style summaries.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q023", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "single",
-    question: "'EW' (Extinct in the Wild) means:",
+    question: "Extinct in the Wild (EW) means:",
     options: [
-      "The species is completely extinct",
-      "The species survives only in captivity or cultivation",
-      "The species is endangered in the wild",
-      "The species is vulnerable in the wild"
+      "The species is gone from captivity and the wild",
+      "The species survives only under human care, not as free wild populations",
+      "The species is vulnerable but widespread",
+      "The species is invasive"
     ],
     correctAnswer: 1,
-    explanation: "EW = Extinct in the Wild — the species survives only in captivity, zoos, or cultivated collections, with NO living wild populations. EX = Extinct — the species is completely gone, including from captivity. EW comes BEFORE EX in the IUCN threat progression.",
+    explanation: "EW = only in captivity/cultivation. EX = none left anywhere.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q024", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "single",
-    question: "Which of the following is an example of OVEREXPLOITATION?",
+    question: "Which is an example of overexploitation?",
     options: [
-      "Clearing a forest for agriculture",
-      "Fishing a species faster than it can reproduce",
+      "Clearing forest for crops",
+      "Harvesting a wild population faster than it can recover",
       "Introducing a non-native predator",
-      "Climate change shifting species ranges"
+      "Climate-driven range shifts alone"
     ],
     correctAnswer: 1,
-    explanation: "Overexploitation = harvesting a species faster than it can reproduce. Examples: overfishing (collapse of Atlantic cod fishery), poaching (rhinos, tigers), illegal logging of slow-growing trees. (a) is habitat loss. (c) is invasive species. (d) is climate change.",
+    explanation: "Overexploitation is harvest beyond recovery. Clearing is habitat loss; non-natives are invasion; climate is a separate pressure.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q025", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "true_false",
-    question: "Population growth is itself a direct threat to biodiversity.",
+    question: "Human population growth is itself classified as one of the five direct ecological threat mechanisms alongside habitat loss and pollution.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. Population growth is an INDIRECT AMPLIFIER of threats, not a direct threat. It makes habitat loss worse (more land needed for food/housing), overexploitation worse (more resource demand), pollution worse (more waste), and invasive species spread worse (more trade/travel). But the 5 DIRECT threats are: habitat loss, overexploitation, invasive species, pollution, climate change.",
+    explanation: "False. Population and consumption amplify demand; the direct mechanisms are habitat loss, overexploitation, invasives, pollution, and climate change.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q026", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "single",
-    question: "An 'Invasive species' threat occurs when:",
+    question: "An invasive-species problem occurs when:",
     options: [
-      "A native species becomes too numerous",
-      "A non-native species outcompetes native species in a new ecosystem",
-      "A predator eats all its prey",
-      "A disease wipes out a population"
+      "A native species becomes temporarily numerous",
+      "A non-native species establishes and harms natives or ecosystems",
+      "Any predator eats prey",
+      "Any disease appears in a population"
     ],
     correctAnswer: 1,
-    explanation: "An invasive species is NON-NATIVE (introduced by humans, intentionally or accidentally) and outcompetes native species in its new ecosystem. Examples: water hyacinth choking tropical waterways, cane toad devastating Australian native fauna, kudzu vine smothering southeastern US forests. A predator eating all its prey would be overexploitation of prey, not invasive species.",
+    explanation: "Non-native + establishment + harm defines invasion in this teaching sense.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q027", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT examples of threats to biodiversity? (Select all that apply.)",
+    question: "Which are correct threat examples? (Select all that apply.)",
     options: [
-      "Clearing rainforest for palm oil plantations (habitat loss)",
-      "Hunting rhinos for their horns (overexploitation)",
-      "Climate change shifting species' ranges poleward (climate change)",
-      "A pesticide killing non-target insects (pollution)"
+      "Clearing rainforest for plantations — habitat loss",
+      "Hunting a species faster than replacement — overexploitation",
+      "Climate-driven range shifts — climate pressure",
+      "Non-target pesticide kills — pollution"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct examples of the 5 major threats: (a) habitat loss, (b) overexploitation, (c) climate change, (d) pollution. Each maps to one of the 5 IUCN/IPBES threat categories.",
+    explanation: "Each maps to a major pressure category.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q028", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "true_false",
-    question: "All 5 major threats to biodiversity are caused by natural processes (volcanoes, climate cycles, etc.).",
+    question: "The five major current threats to biodiversity are driven primarily by natural processes such as volcanoes rather than human activity.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. All 5 major current threats (habitat loss, overexploitation, invasive species, pollution, climate change) are caused by HUMAN activity. Natural processes like volcanic eruptions or climate cycles are NOT among the current top threats to biodiversity. This is what makes the current biodiversity crisis different from previous mass extinctions — it's entirely anthropogenic.",
+    explanation: "False. Today’s leading pressures are anthropogenic.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-03-Q029", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "hard", type: "single",
-    question: "A species is classified as 'Vulnerable' (VU) on the IUCN Red List. Which of the following is TRUE?",
+    question: "A species listed as Vulnerable (VU) is best described as facing:",
     options: [
-      "It is at very high risk of extinction in the wild",
-      "It is facing a high risk of extinction in the wild",
-      "It is facing an extremely high risk of extinction in the wild",
-      "It is only found in captivity"
+      "Very high risk of extinction in the wild",
+      "High risk of extinction in the wild",
+      "Extremely high risk of extinction in the wild",
+      "Survival only in captivity"
     ],
     correctAnswer: 1,
-    explanation: "Vulnerable (VU) = facing a HIGH risk of extinction in the wild. Endangered (EN) = very high risk. Critically Endangered (CR) = extremely high risk. The order: VU < EN < CR in terms of increasing risk. VU is the third-most-threatened category (after NT, LC which are less threatened).",
+    explanation: "VU = high risk; EN = very high; CR = extremely high; EW = captivity only.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q030", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT distinctions in the IUCN Red List? (Select all that apply.)",
+    question: "Which IUCN distinctions are correct? (Select all that apply.)",
     options: [
-      "EW = Extinct in Wild (survives only in captivity); EX = completely Extinct",
-      "VU is MORE threatened than EN (Vulnerable > Endangered)",
-      "LC = Least Concern (the LOWEST threat category)",
-      "NT = Near Threatened (just below VU)"
+      "EW = extinct in the wild; EX = extinct everywhere",
+      "VU is more threatened than EN",
+      "LC is the lowest threat category among these",
+      "NT sits between LC and VU"
     ],
     correctAnswer: [0, 2, 3],
-    explanation: "(a) Correct: EW = survives only in captivity; EX = completely gone. (b) WRONG: VU is LESS threatened than EN (EN > VU). (c) Correct: LC = Least Concern, the LOWEST threat. (d) Correct: NT comes just before VU in the threat order (NT < VU). The correct order is: LC < NT < VU < EN < CR < EW < EX.",
+    explanation: "EN is more threatened than VU. Order: LC < NT < VU < EN < CR < EW < EX.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q031", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "hard", type: "single",
-    question: "Why is HABITAT LOSS the #1 threat to biodiversity (more than climate change, despite media attention)?",
+    question: "Habitat loss ranks above climate change as the top global driver mainly because:",
     options: [
-      "Habitat loss is more recent than climate change",
-      "Habitat loss directly destroys the places species live; climate change shifts ranges but doesn't immediately destroy habitat",
-      "Climate change doesn't actually affect biodiversity",
-      "Habitat loss is easier to measure"
+      "Climate change does not affect species",
+      "Converting habitat removes the place species live, while climate often shifts conditions more gradually",
+      "Habitat loss is newer than climate change",
+      "Habitat loss cannot be measured"
     ],
     correctAnswer: 1,
-    explanation: "Habitat loss directly removes the PLACE species live — when a forest is cleared, the species have nowhere to go. Climate change shifts species' ranges but often the habitat still exists (just at a different temperature). Both are serious, but habitat loss's immediate, complete destruction makes it the #1 global driver. IPBES (2019) global assessment confirmed habitat loss as the #1 threat.",
+    explanation: "Clearing removes living space outright. Climate is a major interacting threat but is not ranked first in global syntheses.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q032", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "hard", type: "single",
-    question: "A species is classified as 'NT' (Near Threatened) on the IUCN Red List. This means:",
+    question: "Near Threatened (NT) means:",
     options: [
-      "It is nearly extinct",
-      "It doesn't qualify for a threatened category but is close to qualifying or likely to soon",
-      "It is the most threatened category after CR",
-      "It is non-native and a threat to other species"
+      "The species is nearly extinct",
+      "It does not yet meet a threatened category but is close or likely to qualify soon",
+      "It is more threatened than CR",
+      "It is an invasive non-native"
     ],
     correctAnswer: 1,
-    explanation: "NT (Near Threatened) = doesn't currently qualify for a threatened category (VU, EN, or CR) but is CLOSE to qualifying or likely to soon. It's the bridge between 'Least Concern' (LC, safe) and the threatened categories. The order: LC < NT < VU < EN < CR < EW < EX. NT means 'watch list, not yet in trouble'.",
+    explanation: "NT is a watch category between Least Concern and Vulnerable.",
     sourceCitation: "Standard environmental science curriculum" },
 
   // TOPIC 3: Conservation & Extinction
