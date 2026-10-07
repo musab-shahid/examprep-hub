@@ -1,7 +1,7 @@
 // Lightweight markdown renderer for AI chat messages.
 // Supports: headings, bold, italic, inline code, code blocks,
 // unordered/ordered lists, links, blockquotes, tables (pipe syntax),
-// inline LaTeX math ($...$ and $$...$$), and paragraphs.
+// inline LaTeX math ($...$, $$...$, \(...\), \[...\]), and paragraphs.
 
 import { type ReactNode, useEffect, useState } from 'react';
 import 'katex/dist/katex.min.css';
@@ -21,7 +21,7 @@ function getKatex(): Promise<typeof import('katex').default> {
 }
 
 function hasMath(text: string): boolean {
-  return text.includes('$');
+  return text.includes('$') || text.includes('\\(') || text.includes('\\[');
 }
 
 // ── Inline rendering ──────────────────────────────────────────────
@@ -32,6 +32,14 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
   let keyIdx = 0;
 
   const patterns: { regex: RegExp; render: (match: RegExpMatchArray) => ReactNode }[] = [
+    {
+      regex: /\\\[([\s\S]+?)\\\]/,
+      render: (m) => <MathSpan key={`${keyPrefix}-m-${keyIdx}`} expr={m[1].trim()} display />,
+    },
+    {
+      regex: /\\\(([^)]+?)\\\)/,
+      render: (m) => <MathSpan key={`${keyPrefix}-m-${keyIdx}`} expr={m[1].trim()} />,
+    },
     {
       regex: /\$\$([^$]+?)\$\$/,
       render: (m) => <MathSpan key={`${keyPrefix}-m-${keyIdx}`} expr={m[1]} display />,
