@@ -24,30 +24,89 @@ export interface TutorMessage {
   content: string;
 }
 
-export type ProviderKey = 'gemini' | 'openrouter';
-
-interface ProviderConfig {
-  name: string;
-  available: boolean;
+export interface ModelOption {
+  id: string;
+  label: string;
+  provider: 'gemini' | 'openrouter';
+  model: string;
+  badge?: string;
 }
 
-const PROVIDER_ORDER: ProviderKey[] = ['gemini', 'openrouter'];
+export const MODEL_OPTIONS: ModelOption[] = [
+  {
+    id: 'gemini',
+    label: 'Gemini 2.0 Flash',
+    provider: 'gemini',
+    model: 'gemini-2.0-flash',
+    badge: 'Google',
+  },
+  {
+    id: 'gpt-4o-mini',
+    label: 'GPT-4o mini',
+    provider: 'openrouter',
+    model: 'openai/gpt-4o-mini',
+    badge: 'OpenAI',
+  },
+  {
+    id: 'gpt-4o',
+    label: 'GPT-4o',
+    provider: 'openrouter',
+    model: 'openai/gpt-4o',
+    badge: 'OpenAI',
+  },
+  {
+    id: 'claude-3.5-sonnet',
+    label: 'Claude 3.5 Sonnet',
+    provider: 'openrouter',
+    model: 'anthropic/claude-3.5-sonnet',
+    badge: 'Anthropic',
+  },
+  {
+    id: 'llama-3.3-70b',
+    label: 'Llama 3.3 70B',
+    provider: 'openrouter',
+    model: 'meta-llama/llama-3.3-70b-instruct',
+    badge: 'Meta',
+  },
+  {
+    id: 'deepseek-chat',
+    label: 'DeepSeek V3',
+    provider: 'openrouter',
+    model: 'deepseek/deepseek-chat',
+    badge: 'DeepSeek',
+  },
+  {
+    id: 'mistral-large',
+    label: 'Mistral Large',
+    provider: 'openrouter',
+    model: 'mistralai/mistral-large',
+    badge: 'Mistral',
+  },
+  {
+    id: 'gemini-1.5-pro',
+    label: 'Gemini 1.5 Pro',
+    provider: 'openrouter',
+    model: 'google/gemini-1.5-pro',
+    badge: 'Google',
+  },
+];
 
-export function getAvailableProviders(): Record<ProviderKey, string> {
-  const providers: Partial<Record<ProviderKey, string>> = {};
-  if (env.GEMINI_API_KEY) providers.gemini = 'Gemini';
-  if (env.OPENROUTER_API_KEY) providers.openrouter = 'GPT-4o mini';
-  return providers as Record<ProviderKey, string>;
+export function getAvailableModels(): ModelOption[] {
+  const geminiOk = Boolean(env.GEMINI_API_KEY);
+  const openrouterOk = Boolean(env.OPENROUTER_API_KEY);
+  return MODEL_OPTIONS.filter((m) => {
+    if (m.provider === 'gemini') return geminiOk;
+    return openrouterOk;
+  });
 }
 
 export function isTutorAvailable(): boolean {
   return Boolean(env.GEMINI_API_KEY || env.OPENROUTER_API_KEY);
 }
 
-function resolveProvider(requested?: string): ProviderKey {
-  if (requested === 'openrouter' && env.OPENROUTER_API_KEY) return 'openrouter';
-  if (requested === 'gemini' && env.GEMINI_API_KEY) return 'gemini';
-  return env.GEMINI_API_KEY ? 'gemini' : 'openrouter';
+export function getDefaultModelId(): string {
+  const available = getAvailableModels();
+  return available[0]?.id ?? '';
 }
 
 async function callGemini(messages: TutorMessage[], preamble: string): Promise<string> {
@@ -77,10 +136,14 @@ async function callGemini(messages: TutorMessage[], preamble: string): Promise<s
   return text.trim();
 }
 
-async function callOpenRouter(messages: TutorMessage[], preamble: string): Promise<string> {
+async function callOpenRouter(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+): Promise<string> {
   const apiKey = env.OPENROUTER_API_KEY;
   const chatMessages = [
-    { role: 'system', content: preamble },
+    { role: 'system' as const, content: preamble },
     ...messages.map((m) => ({ role: m.role, content: m.content })),
   ];
 
@@ -93,7 +156,7 @@ async function callOpenRouter(messages: TutorMessage[], preamble: string): Promi
       'X-Title': 'ExamPrep AI Tutor',
     },
     body: JSON.stringify({
-      model: 'openai/gpt-4o-mini',
+      model,
       messages: chatMessages,
       temperature: 0.7,
       max_tokens: 1024,
@@ -112,19 +175,19 @@ export async function askTutor(
   messages: TutorMessage[],
   topicTitle?: string,
   topicContext?: string,
-  provider?: string,
-): Promise<{ reply: string; provider: ProviderKey }> {
-  const providers = getAvailableProviders();
-  if (Object.keys(providers).length === 0) {
+  modelId?: string,
+): Promise<{ reply: string; modelLabel: string }> {
+  const available = getAvailableModels();
+  if (available.length === 0) {
     throw new Error('AI service is not configured. Please add an API key.');
   }
 
-  const providerKey = resolveProvider(provider);
+  const modelOption = available.find((m) => m.id === modelId) ?? available[0];
   const preamble = buildPreamble(topicTitle, topicContext);
 
-  const reply = providerKey === 'openrouter'
-    ? await callOpenRouter(messages, preamble)
+  const reply = modelOption.provider === 'openrouter'
+    ? await callOpenRouter(messages, preamble, modelOption.model)
     : await callGemini(messages, preamble);
 
-  return { reply, provider: providerKey };
+  return { reply, modelLabel: modelOption.label };
 }

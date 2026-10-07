@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown } from 'lucide-react';
-import { askTutor, isTutorAvailable, getAvailableProviders, type TutorMessage } from '@/lib/ai-tutor';
+import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check } from 'lucide-react';
+import { askTutor, isTutorAvailable, getAvailableModels, getDefaultModelId, type TutorMessage, type ModelOption } from '@/lib/ai-tutor';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -11,11 +11,6 @@ interface AiTutorChatProps {
   topicTitle: string;
   topicContext?: string;
 }
-
-const PROVIDER_LABELS: Record<string, string> = {
-  gemini: 'Gemini',
-  openrouter: 'GPT-4o mini',
-};
 
 const SUGGESTED_PROMPTS = [
   'Explain this topic in simpler terms',
@@ -29,16 +24,15 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [provider, setProvider] = useState<string>('');
-  const [availableProviders, setAvailableProviders] = useState<Record<string, string>>({});
-  const [showProviderDropdown, setShowProviderDropdown] = useState(false);
+  const [modelId, setModelId] = useState('');
+  const [availableModels, setAvailableModels] = useState<ModelOption[]>([]);
+  const [showModelDropdown, setShowModelDropdown] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const providers = getAvailableProviders();
-    setAvailableProviders(providers);
-    const keys = Object.keys(providers);
-    if (keys.length > 0 && !provider) setProvider(keys[0]);
+    const models = getAvailableModels();
+    setAvailableModels(models);
+    if (models.length > 0 && !modelId) setModelId(getDefaultModelId());
   }, []);
 
   useEffect(() => {
@@ -46,6 +40,8 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading]);
+
+  const currentModel = availableModels.find((m) => m.id === modelId);
 
   const sendMessage = useCallback(async (text: string) => {
     const trimmed = text.trim();
@@ -60,7 +56,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
 
     try {
       const tutorMessages: TutorMessage[] = newMessages.map((m) => ({ role: m.role, content: m.content }));
-      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, provider || undefined);
+      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined);
       setMessages((prev) => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Something went wrong.';
@@ -68,7 +64,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     } finally {
       setLoading(false);
     }
-  }, [messages, loading, topicTitle, topicContext, provider]);
+  }, [messages, loading, topicTitle, topicContext, modelId]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -81,9 +77,6 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     setMessages([]);
     setError(null);
   };
-
-  const providerKeys = Object.keys(availableProviders);
-  const providerLabel = provider ? (PROVIDER_LABELS[provider] || availableProviders[provider] || provider) : 'Select AI';
 
   if (!isTutorAvailable()) {
     return null;
@@ -130,41 +123,51 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
         </div>
       </div>
 
-      {/* Provider selector bar */}
-      {providerKeys.length > 1 && (
-        <div className="relative flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-200">
-          <div className="flex items-center gap-1.5 text-slate-500 text-xs">
-            <Sparkles className="w-3 h-3" />
-            <span>Powered by</span>
-          </div>
-          <button
-            onClick={() => setShowProviderDropdown(!showProviderDropdown)}
-            className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-sky-600 transition-colors"
-          >
-            {providerLabel}
-            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showProviderDropdown ? 'rotate-180' : ''}`} />
-          </button>
-          {showProviderDropdown && (
-            <div className="absolute right-3 top-full mt-1 z-10 bg-white rounded-lg shadow-lg border border-slate-200 py-1 min-w-[160px]">
-              {providerKeys.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => {
-                    setProvider(key);
-                    setShowProviderDropdown(false);
-                  }}
-                  className={`flex items-center justify-between w-full px-3 py-2 text-sm text-left hover:bg-slate-50 transition-colors ${
-                    provider === key ? 'text-sky-600 font-medium' : 'text-slate-700'
-                  }`}
-                >
-                  {PROVIDER_LABELS[key] || availableProviders[key] || key}
-                  {provider === key && <span className="w-2 h-2 rounded-full bg-sky-500" />}
-                </button>
-              ))}
-            </div>
-          )}
+      {/* Model selector bar */}
+      <div className="relative flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-200">
+        <div className="flex items-center gap-1.5 text-slate-500 text-xs">
+          <Sparkles className="w-3 h-3" />
+          <span>Model</span>
         </div>
-      )}
+        <button
+          onClick={() => setShowModelDropdown(!showModelDropdown)}
+          className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-sky-600 transition-colors"
+        >
+          {currentModel?.label ?? 'Select model'}
+          {currentModel?.badge && (
+            <span className="text-[10px] font-normal text-slate-400 bg-slate-200 px-1.5 py-0.5 rounded-full">
+              {currentModel.badge}
+            </span>
+          )}
+          <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showModelDropdown ? 'rotate-180' : ''}`} />
+        </button>
+        {showModelDropdown && (
+          <div className="absolute right-3 top-full mt-1 z-10 bg-white rounded-lg shadow-lg border border-slate-200 py-1 min-w-[220px] max-h-[280px] overflow-y-auto">
+            {availableModels.map((m) => (
+              <button
+                key={m.id}
+                onClick={() => {
+                  setModelId(m.id);
+                  setShowModelDropdown(false);
+                }}
+                className={`flex items-center justify-between w-full px-3 py-2 text-sm text-left hover:bg-slate-50 transition-colors ${
+                  modelId === m.id ? 'text-sky-600 font-medium' : 'text-slate-700'
+                }`}
+              >
+                <span className="flex items-center gap-2">
+                  {m.label}
+                  {m.badge && (
+                    <span className="text-[10px] font-normal text-slate-400 bg-slate-100 px-1.5 py-0.5 rounded-full">
+                      {m.badge}
+                    </span>
+                  )}
+                </span>
+                {modelId === m.id && <Check className="w-3.5 h-3.5 text-sky-500" />}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
 
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-slate-50">
@@ -211,7 +214,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
           <div className="flex justify-start">
             <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-2">
               <Loader2 className="w-4 h-4 text-sky-500 animate-spin" />
-              <span className="text-slate-400 text-xs">{providerLabel}</span>
+              <span className="text-slate-400 text-xs">{currentModel?.label}</span>
             </div>
           </div>
         )}
