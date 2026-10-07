@@ -73,16 +73,22 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const cooldownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const skipPersistRef = useRef(false);
 
   // Load persisted messages when topic changes
   useEffect(() => {
     const stored = loadStoredMessages(topicKey);
     setMessages(stored);
     setError(null);
+    skipPersistRef.current = true;
   }, [topicKey]);
 
-  // Persist messages whenever they change
+  // Persist messages whenever they change (skip the first run after a load to avoid overwriting)
   useEffect(() => {
+    if (skipPersistRef.current) {
+      skipPersistRef.current = false;
+      return;
+    }
     if (messages.length > 0) {
       saveMessages(topicKey, messages);
     } else {
@@ -159,15 +165,16 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
 
-    if (cooldownRemaining > 0) return;
+    // Cooldown only applies to new messages, not retries
+    if (!retryMessages && Date.now() - lastSentRef.current < COOLDOWN_MS) return;
 
     setInput('');
     setError(null);
     const userMsg: ChatMessage = { id: makeId(), role: 'user', content: trimmed };
     const newMessages = retryMessages ?? [...messages, userMsg];
     if (!retryMessages) setMessages(newMessages);
+    if (!retryMessages) startCooldown();
     setLoading(true);
-    startCooldown();
 
     const controller = new AbortController();
     abortRef.current = controller;
@@ -190,7 +197,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       setLoading(false);
       abortRef.current = null;
     }
-  }, [messages, loading, topicTitle, topicContext, modelId, cooldownRemaining, startCooldown]);
+  }, [messages, loading, topicTitle, topicContext, modelId, startCooldown]);
 
   const handleStop = useCallback(() => {
     abortRef.current?.abort();
