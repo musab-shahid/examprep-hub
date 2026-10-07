@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical, Maximize2 } from 'lucide-react';
 import { askTutor, isTutorAvailable, getAvailableModels, getDefaultModelId, type TutorMessage, type ModelOption } from '@/lib/ai-tutor';
 import { ChatMarkdown } from '@/components/ChatMarkdown';
 
@@ -29,9 +29,19 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [availableModels, setAvailableModels] = useState<ModelOption[]>([]);
   const [showModelDropdown, setShowModelDropdown] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
+  const resizeRef = useRef<{ startX: number; startY: number; origW: number; origH: number } | null>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const expandPanel = useCallback(() => {
+    const w = Math.min(window.innerWidth - 32, 640);
+    const h = Math.min(window.innerHeight - 32, window.innerHeight * 0.85);
+    setSize({ w, h });
+    setPosition({ x: Math.max(8, (window.innerWidth - w) / 2), y: Math.max(8, (window.innerHeight - h) / 2) });
+  }, []);
 
   useEffect(() => {
     const models = getAvailableModels();
@@ -117,6 +127,34 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
   };
 
+  const handleResizeStart = (e: React.PointerEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const panel = panelRef.current;
+    if (!panel) return;
+    const rect = panel.getBoundingClientRect();
+    const current = size ?? { w: rect.width, h: rect.height };
+    resizeRef.current = { startX: e.clientX, startY: e.clientY, origW: current.w, origH: current.h };
+    setSize(current);
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handleResizeMove = (e: React.PointerEvent) => {
+    if (!resizeRef.current) return;
+    const dw = e.clientX - resizeRef.current.startX;
+    const dh = e.clientY - resizeRef.current.startY;
+    let nw = resizeRef.current.origW + dw;
+    let nh = resizeRef.current.origH + dh;
+    nw = Math.max(300, Math.min(nw, window.innerWidth - 16));
+    nh = Math.max(320, Math.min(nh, window.innerHeight - 16));
+    setSize({ w: nw, h: nh });
+  };
+
+  const handleResizeEnd = (e: React.PointerEvent) => {
+    resizeRef.current = null;
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
+  };
+
   const resetChat = () => {
     setMessages([]);
     setError(null);
@@ -140,8 +178,15 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
 
   return (
     <div
-      className="fixed z-50 w-[calc(100vw-3rem)] max-w-md flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden"
-      style={position ? { left: position.x, top: position.y, maxHeight: '70vh' } : { bottom: '1.5rem', right: '1.5rem', maxHeight: '70vh' }}
+      ref={panelRef}
+      className="fixed z-50 flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden"
+      style={
+        size
+          ? { left: position?.x ?? 8, top: position?.y ?? 8, width: size.w, height: size.h }
+          : position
+            ? { left: position.x, top: position.y, width: 'min(100vw - 1.5rem, 28rem)', maxHeight: '70vh' }
+            : { bottom: '1.5rem', right: '1.5rem', width: 'min(100vw - 1.5rem, 28rem)', maxHeight: '70vh' }
+      }
     >
       {/* Header */}
       <div
@@ -167,6 +212,13 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
               Clear
             </button>
           )}
+          <button
+            onClick={expandPanel}
+            title="Expand"
+            className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
+          >
+            <Maximize2 className="w-4 h-4" />
+          </button>
           <button
             onClick={() => setIsOpen(false)}
             className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
@@ -291,6 +343,20 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
             <span>{error}</span>
           </div>
         )}
+      </div>
+
+      {/* Resize handle */}
+      <div
+        onPointerDown={handleResizeStart}
+        onPointerMove={handleResizeMove}
+        onPointerUp={handleResizeEnd}
+        className="absolute bottom-0 right-0 w-5 h-5 cursor-se-resize touch-none"
+        style={{ zIndex: 1 }}
+      >
+        <svg viewBox="0 0 10 10" className="w-full h-full text-slate-300" fill="currentColor">
+          <path d="M9.5 9.5 L9.5 6 L6 9.5 Z" />
+          <path d="M9.5 9.5 L9.5 3 L3 9.5 Z" opacity="0.5" />
+        </svg>
       </div>
 
       {/* Input */}
