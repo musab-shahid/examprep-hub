@@ -12,10 +12,14 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>
 );
 
+// Register as soon as the module runs so UpdatePrompt's serviceWorker.ready
+// is less likely to race an empty getRegistration() on first paint.
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' }).catch((err) => {
-      console.error('[ExamPrep] Service worker registration failed. Offline support may not work.', err);
+  const register = () => {
+    navigator.serviceWorker.register('/sw.js').catch((err) => {
+      if (import.meta.env.DEV) console.warn('[SW] registration failed:', err);
     });
-  });
+  };
+  if (document.readyState === 'complete') register();
+  else window.addEventListener('load', register);
 }
