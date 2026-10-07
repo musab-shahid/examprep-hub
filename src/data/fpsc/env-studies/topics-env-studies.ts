@@ -21,7 +21,7 @@ export const topics: Topic[] = [
     ],
     explanationSections: [
       { heading: "Why the four-sphere framework matters", body: "Environmental problems don't stay in one sphere — air pollution (atmosphere) causes acid rain that affects water (hydrosphere) and soil (lithosphere) and harms organisms (biosphere). Understanding this interconnectedness is key to analyzing real environmental issues. Most exam questions test your ability to identify which sphere is affected or to trace a pollutant across spheres." },
-      { heading: "The key distinctions table — pure exam fodder", body: "FPSC repeatedly tests these binary distinctions: biotic/abiotic, natural/anthropogenic, habitat/niche, population/community. They're easy marks IF you know them. Strategy: memorize them as PAIRS with contrasting definitions, not as isolated words. Example: 'Population = one species; Community = all species. Habitat = address; Niche = job.'" },
+      { heading: "Core distinctions in environmental vocabulary", body: "FPSC repeatedly tests these binary distinctions: biotic/abiotic, natural/anthropogenic, habitat/niche, population/community. They're easy marks IF you know them. Strategy: memorize them as PAIRS with contrasting definitions, not as isolated words. Example: 'Population = one species; Community = all species. Habitat = address; Niche = job.'" },
       { heading: "Brundtland and the three pillars", body: "The Brundtland definition (1987) is the most-quoted definition in environmental science. The three pillars (economic, social, environmental) mean that TRUE sustainability requires all three — a project that is environmentally sustainable but economically unviable isn't truly sustainable. This is tested as MCQ: 'A sustainable development project must balance which three aspects?' Answer: economic, social, environmental." }
     ],
     examPoints: [
@@ -75,7 +75,7 @@ export const topics: Topic[] = [
     ],
     explanationSections: [
       { heading: "Why carrying capacity matters", body: "Carrying capacity (K) is not fixed — it changes as conditions change. A deer population's K can increase with more food supply or decrease with disease. The logistic growth curve (S-shaped) shows population approaching K and then leveling off — this is the most realistic growth model in nature. Exponential (J-shaped) growth only happens when resources are unlimited, which is rare in nature." },
-      { heading: "Footprint vs biocapacity — the key exam distinction", body: "These are often confused. FOOTPRINT is what we USE (humanity's demand on Earth). BIOCAPACITY is what Earth can REGENERATE (Earth's supply). When footprint > biocapacity, we're in ecological overshoot — using resources faster than they renew. The test often asks: 'What is overshoot?' Answer: when human demand exceeds Earth's regenerative capacity. Earth Overshoot Day marks when this happens each year." },
+      { heading: "Ecological footprint and biocapacity", body: "These are often confused. FOOTPRINT is what we USE (humanity's demand on Earth). BIOCAPACITY is what Earth can REGENERATE (Earth's supply). When footprint > biocapacity, we're in ecological overshoot — using resources faster than they renew. The test often asks: 'What is overshoot?' Answer: when human demand exceeds Earth's regenerative capacity. Earth Overshoot Day marks when this happens each year." },
       { heading: "Pakistan and global context", body: "Pakistan's ecological footprint per capita is relatively low (about 0.7 gha), but its biocapacity per capita is also low (about 0.4 gha), meaning the country is in ecological deficit. The average world footprint (~2.7 gha) already exceeds world biocapacity (~1.6 gha), showing the entire planet is in overshoot. This concept links directly to climate change and resource scarcity topics." }
     ],
     examPoints: [
@@ -172,7 +172,7 @@ export const topics: Topic[] = [
     explanationSections: [
       { heading: "The three pyramids — and which one is always upright", body: "Of the three ecological pyramids, only the ENERGY pyramid is always upright. Why? Because the second law of thermodynamics and the 10% rule guarantee that energy decreases at each trophic level — this is a universal law. Numbers and biomass CAN be inverted because they're snapshots that don't account for turnover rates — a tree is one individual but supports many insects; phytoplankton have less standing biomass but reproduce so fast that they feed a larger zooplankton biomass." },
       { heading: "The 10% rule and energy pyramid shape", body: "The pyramid of energy is shaped by the 10% rule. At each trophic level up, only 10% of the previous level's energy is incorporated. So if producers have 10,000 units, primary consumers have ~1,000, secondary consumers ~100, tertiary consumers ~10. This gives a smooth, upright pyramid. Number and biomass pyramids can be jagged or inverted because they're raw counts/weights, not energy flow." },
-      { heading: "Classic exam questions on pyramids", body: "Two questions get asked constantly: (1) 'Which pyramid is always upright?' Answer: energy. (2) 'Why is the pyramid of numbers inverted in a tree?' Answer: one tree (1) supports thousands of insects (thousands of primary consumers). The energy pyramid is the only one that's guaranteed upright because of universal physical law." }
+      { heading: "How pyramid questions are usually framed", body: "Two questions get asked constantly: (1) 'Which pyramid is always upright?' Answer: energy. (2) 'Why is the pyramid of numbers inverted in a tree?' Answer: one tree (1) supports thousands of insects (thousands of primary consumers). The energy pyramid is the only one that's guaranteed upright because of universal physical law." }
     ],
     examPoints: [
       "Pyramid of energy is ALWAYS upright (10% rule, 2nd law of thermodynamics)",
@@ -221,7 +221,7 @@ export const topics: Topic[] = [
       "Exam tip: Carbon cycle is asked the most. Memorize: photosynthesis IN, respiration OUT, ocean as BUFFER, fossil fuels as ancient STORE, deforestation as RELEASE"
     ],
     explanationSections: [
-      { heading: "GPP vs NPP — the productivity distinction", body: "GPP = total energy fixed by photosynthesis. But plants also RESPIRE — they use some of that captured energy for their own metabolism. NPP = what's left after plant respiration = GPP - Ra. NPP is what consumers can use. This distinction matters because the GPP of a forest might be high, but if the forest uses most of it for its own growth and metabolism, the NPP available to consumers could be modest. Tropical rainforests have high GPP but also high respiration, so their NPP is high but not as disproportionately high as their GPP." },
+      { heading: "Gross and net primary productivity", body: "GPP = total energy fixed by photosynthesis. But plants also RESPIRE — they use some of that captured energy for their own metabolism. NPP = what's left after plant respiration = GPP - Ra. NPP is what consumers can use. This distinction matters because the GPP of a forest might be high, but if the forest uses most of it for its own growth and metabolism, the NPP available to consumers could be modest. Tropical rainforests have high GPP but also high respiration, so their NPP is high but not as disproportionately high as their GPP." },
       { heading: "The 5 cycles — exam-favorite features", body: "The carbon cycle is asked the most. Remember: photosynthesis IN, respiration OUT, ocean as BUFFER (absorbs ~25% of human CO2), fossil fuels as ancient STORE (coal/oil = millions of years of buried carbon), deforestation as RELEASE. The phosphorus cycle is asked for its distinctive feature: NO atmospheric phase (unlike the other cycles). Nitrogen fixation (N2 → NH3) is done by bacteria and lightning; human activity (Haber process for fertilizer) has doubled the rate of nitrogen fixation globally. The water cycle is the simplest and most familiar." },
       { heading: "Human disruption of cycles — exam favorite", body: "Each cycle has a 'human disruption' question. Carbon: fossil fuels + deforestation = +CO2. Nitrogen: fertilizers + fossil fuel NOx = eutrophication + acid rain. Phosphorus: mining + fertilizer runoff = water pollution. Sulfur: coal burning = acid rain. Water: urbanization alters infiltration and runoff. The exam often asks 'which human activity disrupts X cycle?' The answer for carbon is fossil fuels; for nitrogen it's fertilizer; for phosphorus it's mining/fertilizer; for sulfur it's coal; for water it's urbanization." }
     ],
@@ -333,7 +333,7 @@ export const topics: Topic[] = [
     ],
     explanationSections: [
       { heading: "Why habitat loss is #1 — and the order matters", body: "Habitat loss is consistently ranked as the single largest driver of biodiversity loss worldwide. When forests are cleared for agriculture or cities, the species that lived there have nowhere to go. The 'order' matters because the exam often asks: 'Which is the greatest threat to biodiversity?' The correct answer is habitat loss, not pollution or climate change (which get more media attention but are smaller drivers)." },
-      { heading: "IUCN Red List ordering — a common exam trap", body: "The IUCN categories are ordered by increasing threat: LC < NT < VU < EN < CR < EW < EX. A common error is getting the order wrong or confusing the abbreviations. 'EW' (Extinct in Wild) means the species survives only in captivity. 'EX' means completely extinct. The exam often gives you a list and asks you to rank them from LEAST to MOST threatened, or to identify the abbreviation for a given category." },
+      { heading: "How the IUCN Red List is ordered", body: "The IUCN categories are ordered by increasing threat: LC < NT < VU < EN < CR < EW < EX. A common error is getting the order wrong or confusing the abbreviations. 'EW' (Extinct in Wild) means the species survives only in captivity. 'EX' means completely extinct. The exam often gives you a list and asks you to rank them from LEAST to MOST threatened, or to identify the abbreviation for a given category." },
       { heading: "The 5 threats and population growth", body: "Population growth is NOT one of the 5 direct threats — it's the INDIRECT amplifier that drives the 5 direct threats. As human population grows, we need more food (agriculture expands → habitat loss), more resources (overexploitation), more land (invasive species spread through trade), and we produce more waste (pollution) and CO₂ (climate change). The exam sometimes tests: 'Which of the following is NOT a direct threat to biodiversity?' Answer: population growth." }
     ],
     examPoints: [
@@ -382,7 +382,7 @@ export const topics: Topic[] = [
       "Current 6th extinction causes: ALL human-caused — habitat destruction, overexploitation, invasive species, pollution, climate change"
     ],
     explanationSections: [
-      { heading: "In-situ vs ex-situ — the key distinction", body: "In-situ = ON SITE (protecting the species in its natural habitat — national parks, wildlife sanctuaries, biosphere reserves). Ex-situ = OFF SITE (protecting the species elsewhere — zoos, seed banks, gene banks, cryopreservation). The exam often asks 'which is better?' Answer: in-situ is generally preferred because it preserves the entire ecosystem and evolutionary processes, but ex-situ is important as a backup for critically endangered species (e.g., seed banks for crops, captive breeding for rhinos)." },
+      { heading: "In-situ and ex-situ conservation", body: "In-situ = ON SITE (protecting the species in its natural habitat — national parks, wildlife sanctuaries, biosphere reserves). Ex-situ = OFF SITE (protecting the species elsewhere — zoos, seed banks, gene banks, cryopreservation). The exam often asks 'which is better?' Answer: in-situ is generally preferred because it preserves the entire ecosystem and evolutionary processes, but ex-situ is important as a backup for critically endangered species (e.g., seed banks for crops, captive breeding for rhinos)." },
       { heading: "The 6th mass extinction — why it matters", body: "Earth has had 5 background mass extinctions over the past ~500 million years — the most famous being the asteroid that ended the dinosaurs ~66 million years ago. These happened at a 'background rate' of about 0.1-1 species per year. We are NOW in a 6TH mass extinction, but unlike the previous 5 which were caused by asteroids or volcanoes, THIS one is entirely human-caused. And it's 100-1000 times faster than the background rate. The exam may ask: 'The current mass extinction differs from previous ones because...' Answer: it is caused by human activity, not natural causes." },
       { heading: "Pakistan conservation — specific examples", body: "Pakistan has several important protected areas: Khunjerab National Park (snow leopards, Marco Polo sheep), Chitral Gol National Park (Markhor — recovering!), Ayubia National Park (Himalayan black bear, leopards), Hingol National Park (Balochistan, Indus dolphin area), and Kirthar National Park (Sindh). Ex-situ: Lahore Zoo, various wildlife breeding centers. Community conservation: the 'Community Managed Drylands Project' and similar initiatives." }
     ],
@@ -409,7 +409,7 @@ export const topics: Topic[] = [
     relatedTopics: ["env-biodiversity", "env-biodiversity-threats-and-iucn"],
     content: true,
   buildsOn: ["env-biodiversity-threats-and-iucn", "earth-c3"],
-  leadsTo: [],
+  leadsTo: ["env-pakistan-environmental-context"],
   usedIn: ["env-pakistan-environmental-context"]
   },
   {
@@ -430,7 +430,7 @@ export const topics: Topic[] = [
       "Fossil fuels are ANCIENT CARBON — coal, oil, and natural gas formed from buried organic matter over hundreds of millions of years. Burning them releases this stored carbon rapidly into the atmosphere as CO₂."
     ],
     explanationSections: [
-      { heading: "Renewable vs Non-Renewable — the key distinction", body: "Renewable resources can be REPLENISHED within a human lifespan (a tree can regrow in decades, water recycles through the water cycle in days, solar energy is continuous). Non-renewable resources take millions of years to form (fossil fuels from buried ancient organisms) or cannot be replenished at all (metals like copper, gold). The distinction matters because using non-renewables faster than they form means we're depleting a finite stock — they will run out eventually." },
+      { heading: "Renewable and non-renewable resources", body: "Renewable resources can be REPLENISHED within a human lifespan (a tree can regrow in decades, water recycles through the water cycle in days, solar energy is continuous). Non-renewable resources take millions of years to form (fossil fuels from buried ancient organisms) or cannot be replenished at all (metals like copper, gold). The distinction matters because using non-renewables faster than they form means we're depleting a finite stock — they will run out eventually." },
       { heading: "The 5Rs hierarchy — refuse > reduce > reuse > recycle > dispose", body: "Most people know the 3Rs: Reduce, Reuse, Recycle. But the most environmentally effective order is: REFUSE first (don't use it at all), then REDUCE (use less), REUSE (use again as-is), RECYCLE (reprocess into new materials), RECOVER (recover energy from waste through incineration/biogas), and only as a last resort DISPOSE (landfill). The exam often tests this ORDER. Refusing is better than recycling because the best waste is the waste that was never created." },
       { heading: "Why forest cover matters — Pakistan context", body: "Pakistan has only ~5% forest cover (vs. FAO-recommended 25%). Forests are not just trees — they provide critical ecosystem services: carbon sequestration (climate regulation), biodiversity habitat, watershed protection (preventing floods and soil erosion), and cultural value. Pakistan's Billion Tree Tsunami and 10 Billion Tree Tsunami are major reforestation initiatives. The 5% figure is frequently tested and is a key indicator of Pakistan's environmental challenges." }
     ],
@@ -512,8 +512,8 @@ export const topics: Topic[] = [
     ],
     relatedTopics: ["env-natural-resources", "env-climate-change-response", "env-water-pollution-and-quality"],
     content: true,
-  buildsOn: ["env-natural-resources", "env-pakistan-environmental-context"],
-  leadsTo: [],
+  buildsOn: ["env-natural-resources"],
+  leadsTo: ["env-pakistan-environmental-context"],
   usedIn: ["env-pakistan-environmental-context"]
   },
   {
@@ -536,8 +536,8 @@ export const topics: Topic[] = [
       "NEQS = National Environmental Quality Standards — Pakistan's legal limits for ambient air pollutants"
     ],
     explanationSections: [
-      { heading: "Primary vs secondary pollutants — the key distinction", body: "PRIMARY pollutants are emitted DIRECTLY from a source — PM from vehicle exhaust, SO₂ from coal plants, NOₓ from car engines, CO from incomplete combustion. SECONDARY pollutants are FORMED IN THE ATMOSPHERE by chemical reactions — ozone (O₃) is NOT emitted directly (mostly), it forms when NOₓ + VOCs + sunlight react. The same distinction for secondary: acid rain forms from SO₂ and NOₓ reacting with water in the air. The exam often asks 'is ozone a primary or secondary pollutant?' Answer: secondary." },
-      { heading: "The two types of smog — very testable", body: "PHOTOCHEMICAL smog (Los Angeles type): occurs in SUMMER, requires sunlight, forms from NOₓ + VOCs reacting in sunlight to produce O₃ and PAN. Damages eyes, lungs, and plants. SULFUROUS smog (London type): occurs in WINTER, from burning coal containing sulfur, forms SO₂ + smoke + fog. The 1952 London smog killed ~4,000-12,000 people. The exam often tests this contrast: warm/sunny = photochemical, cold/foggy = sulfurous." },
+      { heading: "Primary and secondary pollutants", body: "PRIMARY pollutants are emitted DIRECTLY from a source — PM from vehicle exhaust, SO₂ from coal plants, NOₓ from car engines, CO from incomplete combustion. SECONDARY pollutants are FORMED IN THE ATMOSPHERE by chemical reactions — ozone (O₃) is NOT emitted directly (mostly), it forms when NOₓ + VOCs + sunlight react. The same distinction for secondary: acid rain forms from SO₂ and NOₓ reacting with water in the air. The exam often asks 'is ozone a primary or secondary pollutant?' Answer: secondary." },
+      { heading: "Classical and photochemical smog", body: "PHOTOCHEMICAL smog (Los Angeles type): occurs in SUMMER, requires sunlight, forms from NOₓ + VOCs reacting in sunlight to produce O₃ and PAN. Damages eyes, lungs, and plants. SULFUROUS smog (London type): occurs in WINTER, from burning coal containing sulfur, forms SO₂ + smoke + fog. The 1952 London smog killed ~4,000-12,000 people. The exam often tests this contrast: warm/sunny = photochemical, cold/foggy = sulfurous." },
       { heading: "Pakistan air quality — why it's bad", body: "Pakistan has some of the world's most polluted cities (Lahore, Karachi, Peshawar). Major sources: VEHICLES (2-stroke rickshaws, old cars), INDUSTRY (brick kilns, factories), AGRICULTURAL RESIDUE BURNING (especially in Punjab and northern India in Oct-Nov, trans-boundary smoke), POWER PLANTS (coal). NEQS (National Environmental Quality Standards) set legal limits, but enforcement is weak. The AQI (Air Quality Index) in Lahore regularly exceeds 300 in winter (hazardous), driven by temperature inversions trapping pollutants and stubble burning." }
     ],
     examPoints: [
@@ -561,7 +561,51 @@ export const topics: Topic[] = [
         ["Secondary", "Formed in air from reactions", "Ozone (O₃), some acids, photochemical smog components"],
       ],
     },
-    relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response", "env-resource-conflicts"],
+    
+    subtopics: [
+      {
+        id: "env-air-primary-secondary",
+        title: "Primary and secondary pollutants",
+        summary: "Emitted directly versus formed by reactions in the atmosphere.",
+        explanation: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes.\n\nSecondary pollutants form when primary emissions react in the atmosphere. Ground-level ozone is a central example. It is not emitted in large amounts by vehicles themselves; it forms when nitrogen oxides and volatile organic compounds react in sunlight. Some components of photochemical smog and certain secondary particles follow the same logic. For regulation and health messaging, the distinction matters: controlling secondary pollution means controlling the precursors and the conditions that drive the chemistry, not only the secondary species at the monitor.",
+        examples: [],
+        shortcuts: [
+          "Primary = emitted; secondary = formed in air",
+          "Tropospheric ozone is largely secondary",
+        ],
+        traps: [
+          "Calling all urban ozone a primary factory emission",
+          "Confusing stratospheric ozone (protective) with tropospheric ozone (pollutant)",
+        ],
+      },
+      {
+        id: "env-air-smog-types",
+        title: "Classical and photochemical smog",
+        summary: "Two smog regimes with different chemistry and conditions.",
+        explanation: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution.\n\nPhotochemical (Los Angeles-type) smog develops in sunny, warm conditions when nitrogen oxides and volatile organic compounds form oxidants such as ozone. Many modern megacities show photochemical features, sometimes mixed with particulate pollution from diesel, dust, and regional biomass burning. Seasonal smog in parts of South Asia often combines local emissions, regional agricultural fire plumes, and winter temperature inversions that trap pollutants near the surface.",
+        examples: [],
+        shortcuts: [
+          "Classical ≈ coal + SO₂ + fog; photochemical ≈ sunlight + NOx + VOCs → ozone",
+        ],
+        traps: [
+          "Using 'smog' as if only one chemistry existed",
+        ],
+      },
+      {
+        id: "env-air-pakistan",
+        title: "Air quality in the Pakistani context",
+        summary: "Sources, winter meteorology, and standards.",
+        explanation: "Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. In late autumn and winter, temperature inversions can trap emissions near the ground, while seasonal agricultural residue burning in the wider region adds a transboundary plume on some days.\n\nNational Environmental Quality Standards (NEQS) set legal reference limits, but outcomes depend on monitoring capacity and enforcement. Reading air quality only as 'factories' misses the combined role of transport, seasonal meteorology, and regional fire activity.",
+        examples: [],
+        shortcuts: [
+          "Winter smog = emissions + inversion (+ regional burning on some episodes)",
+        ],
+        traps: [
+          "Ignoring meteorology when explaining multi-day smog episodes",
+        ],
+      },
+    ],
+relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response", "env-resource-conflicts"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-inversion-types", "env-productivity-and-biogeochemical-cycles", "math-1-7", "phy-heat-transfer-mechanisms", "phy-atmospheric-pressure-physics"],
   leadsTo: ["env-water-pollution-and-quality", "env-ozone-depletion"],
@@ -587,9 +631,9 @@ export const topics: Topic[] = [
       "Pakistan water pollution: raw sewage in rivers (Lyari, Malir), industrial effluents (Kasur tanneries), arsenic in groundwater (parts of Sindh, southern Punjab), marine pollution (Karachi coast)"
     ],
     explanationSections: [
-      { heading: "The BOD/COD/DO triangle — extremely testable", body: "These three parameters are the workhorses of water quality testing. BOD = how much O₂ bacteria need to decompose waste (high BOD = lots of decomposable waste = polluted). COD = total O₂ for ALL chemical oxidation (always > BOD because chemistry breaks down more than biology alone). DO = O₂ available for fish and aquatic life (high DO = clean, low DO = fish die). The RULE: CLEAN WATER = high DO + low BOD + low COD. POLLUTED = low DO + high BOD + high COD. The exam often gives you values and asks which describes healthy vs polluted water." },
+      { heading: "Dissolved oxygen, BOD, and COD", body: "These three parameters are the workhorses of water quality testing. BOD = how much O₂ bacteria need to decompose waste (high BOD = lots of decomposable waste = polluted). COD = total O₂ for ALL chemical oxidation (always > BOD because chemistry breaks down more than biology alone). DO = O₂ available for fish and aquatic life (high DO = clean, low DO = fish die). The RULE: CLEAN WATER = high DO + low BOD + low COD. POLLUTED = low DO + high BOD + high COD. The exam often gives you values and asks which describes healthy vs polluted water." },
       { heading: "Eutrophication — the algal bloom cascade", body: "EUTROPHICATION is nutrient enrichment (excess N, P from fertilizer runoff or sewage). The cascade: nutrients → rapid algal growth on surface → algal bloom blocks light → plants below die → bacteria decompose dead plants → bacteria consume O₂ → DO depleted → fish suffocate and die → 'dead zone'. Famous examples: Gulf of Mexico (Mississippi river delivers fertilizer N+P from US Midwest agriculture), Baltic Sea, Chesapeake Bay. The Indus estuary has increasing dead zones from agricultural runoff in Pakistan's Punjab." },
-      { heading: "Bioaccumulation vs Biomagnification — high yield", body: "BIOACCUMULATION = buildup in a SINGLE organism over time (a single fish accumulates mercury from water). BIOMAGNIFICATION = increasing concentration UP the food chain. The classic example: DDT in the 1960s. DDT was sprayed to kill mosquitoes, accumulated in algae, became concentrated in small fish (10x), then in bigger fish (100x), then in fish-eating birds like bald eagles (1000x+) — causing eggshell thinning and near-extinction. The lesson: even small amounts of persistent chemicals can reach dangerous levels at the top of food chains. This is why POPs (persistent organic pollutants) like DDT, PCBs, and dioxins are so dangerous." }
+      { heading: "Bioaccumulation and biomagnification", body: "BIOACCUMULATION = buildup in a SINGLE organism over time (a single fish accumulates mercury from water). BIOMAGNIFICATION = increasing concentration UP the food chain. The classic example: DDT in the 1960s. DDT was sprayed to kill mosquitoes, accumulated in algae, became concentrated in small fish (10x), then in bigger fish (100x), then in fish-eating birds like bald eagles (1000x+) — causing eggshell thinning and near-extinction. The lesson: even small amounts of persistent chemicals can reach dangerous levels at the top of food chains. This is why POPs (persistent organic pollutants) like DDT, PCBs, and dioxins are so dangerous." }
     ],
     examPoints: [
       "Clean water: HIGH DO, LOW BOD, LOW COD (inverse DO-BOD relationship)",
@@ -612,7 +656,59 @@ export const topics: Topic[] = [
         ["Non-point (diffuse)", "Many scattered sources", "Agricultural runoff, urban stormwater"],
       ],
     },
-    relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-threats-and-iucn"],
+    
+    subtopics: [
+      {
+        id: "env-water-bod-cod-do",
+        title: "Dissolved oxygen, BOD, and COD",
+        summary: "How oxygen demand measures describe the health of a water body.",
+        explanation: "Clean surface water usually holds enough dissolved oxygen (DO) for fish and other aerobic organisms. When organic waste enters the water, microbes consume that waste and, in doing so, consume oxygen as well. Biochemical oxygen demand (BOD) estimates how much oxygen those microbes will use over a standard period, commonly five days (BOD₅). A high BOD means a large load of biodegradable organic matter and a greater risk that DO will fall to harmful levels.\n\nChemical oxygen demand (COD) measures the oxygen equivalent of organic matter that can be oxidised chemically. COD is typically higher than BOD because it includes substances that microbes degrade only slowly, or not at all, under the test conditions. In environmental monitoring, the two are often read together: BOD speaks to biologically available pollution, while COD gives a faster, broader chemical picture.",
+        examples: [
+          {
+            problem: "A river sample shows falling DO downstream of a sewage outfall while BOD rises. What is the most direct interpretation?",
+            solution: "The outfall is adding biodegradable organic matter. Microbial decomposition is using oxygen faster than re-aeration can replace it, so DO declines as BOD indicates a heavier oxygen demand.",
+            answer: "Organic load is depleting dissolved oxygen.",
+          },
+        ],
+        shortcuts: [
+          "High BOD → more biodegradable organic pollution → oxygen stress risk",
+          "COD ≥ BOD in the same sample is normal; the gap reflects less biodegradable material",
+        ],
+        traps: [
+          "Treating BOD and COD as identical tests",
+          "Assuming low DO always means toxic chemical pollution rather than oxygen demand from organics",
+        ],
+      },
+      {
+        id: "env-water-eutrophication",
+        title: "Eutrophication",
+        summary: "Nutrient enrichment, algal blooms, and oxygen collapse.",
+        explanation: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. When the bloom dies, decomposers break down the biomass and consume large amounts of dissolved oxygen. The result can be hypoxic or anoxic water, fish kills, and a shift toward species that tolerate low oxygen.\n\nThe process is a chain, not a single event: nutrients → bloom → death and decay → oxygen decline → ecological damage. Point sources can be regulated at a pipe; diffuse agricultural runoff is harder to control and is a major reason eutrophication remains widespread.",
+        examples: [],
+        shortcuts: [
+          "Remember the chain: nutrients → bloom → decay → low DO",
+          "Phosphorus is often the limiting nutrient in freshwater systems",
+        ],
+        traps: [
+          "Calling every green water surface 'eutrophication' without the oxygen-demand stage",
+          "Blaming only industrial pipes when fertiliser runoff is a major diffuse source",
+        ],
+      },
+      {
+        id: "env-water-bioaccumulation",
+        title: "Bioaccumulation and biomagnification",
+        summary: "How some pollutants build up in organisms and along food chains.",
+        explanation: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a long time.\n\nBiomagnification is the increase in concentration of such substances at successive trophic levels. Predators eat many contaminated prey, so the pollutant load concentrates upward through the food web. The two ideas are related but not the same: accumulation happens within one organism; magnification describes the pattern across the chain.",
+        examples: [],
+        shortcuts: [
+          "Bioaccumulation = within one organism; biomagnification = up the food chain",
+        ],
+        traps: [
+          "Using the two terms as synonyms in explanations",
+        ],
+      },
+    ],
+relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-threats-and-iucn"],
     content: true,
   buildsOn: ["env-productivity-and-biogeochemical-cycles", "earth-j1", "earth-j2", "meteo-moisture-metrics"],
   leadsTo: ["env-soil-and-waste"],
@@ -665,7 +761,7 @@ export const topics: Topic[] = [
     relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-water-pollution-and-quality", "earth-e1"],
-  leadsTo: [],
+  leadsTo: ["env-pakistan-environmental-context"],
   usedIn: ["env-pakistan-environmental-context"]
   },
   {
@@ -743,7 +839,7 @@ export const topics: Topic[] = [
       "Geoengineering = deliberate large-scale intervention in the climate system (e.g., solar radiation management, carbon capture at scale) — controversial and risky"
     ],
     explanationSections: [
-      { heading: "Mitigation vs adaptation — the key distinction", body: "MITIGATION tackles the CAUSE: reducing greenhouse gas emissions to limit future warming. Switch to renewables, energy efficiency, EV transport, protect forests. ADAPTATION deals with the EFFECTS: adjusting to the warming that's already locked in. Drought-resistant crops, seawalls, early warning systems, climate-resilient infrastructure. BOTH are needed — mitigation prevents the problem from getting worse, adaptation helps us cope with what's already happening. They are complementary, not alternatives." },
+      { heading: "Mitigation and adaptation", body: "MITIGATION tackles the CAUSE: reducing greenhouse gas emissions to limit future warming. Switch to renewables, energy efficiency, EV transport, protect forests. ADAPTATION deals with the EFFECTS: adjusting to the warming that's already locked in. Drought-resistant crops, seawalls, early warning systems, climate-resilient infrastructure. BOTH are needed — mitigation prevents the problem from getting worse, adaptation helps us cope with what's already happening. They are complementary, not alternatives." },
       { heading: "Why Pakistan is highly climate-vulnerable", body: "Pakistan consistently ranks in the TOP 10 most climate-vulnerable countries (Germanwatch Climate Risk Index). Reasons: (1) high EXPOSURE to extreme weather — floods, heatwaves, droughts; (2) high SENSITIVITY — agriculture (21% of GDP) depends on Indus river system; (3) LOW adaptive capacity — limited financial resources for adaptation. The 2010 and 2022 super floods each displaced ~33 million people. Glacier melt threatens long-term water supply. The Thar region faces increasing drought." },
       { heading: "From international to local climate action", body: "Climate action happens at multiple scales: INTERNATIONAL (UNFCCC, Paris Agreement, IPCC assessments, COP meetings) → NATIONAL (NDCs, climate policy, renewable energy targets) → LOCAL (city heat action plans, community-based adaptation, mangrove restoration). Pakistan's 2060 net-zero target is a national commitment. Local action (e.g., urban tree planting, heat-resilient infrastructure) is what makes national targets achievable." }
     ],
@@ -819,7 +915,49 @@ export const topics: Topic[] = [
         ["Paris Agreement", "2015", "NDCs, well-below 2°C, pursue 1.5°C"],
       ],
     },
-    relatedTopics: ["env-climate-change-response", "env-ozone-depletion", "env-energy-sources"],
+    
+    subtopics: [
+      {
+        id: "env-policy-unfccc",
+        title: "The UNFCCC as a framework",
+        summary: "What the Convention established and what it did not.",
+        explanation: "The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. It recognised climate change as a shared concern, set out principles such as equity and common but differentiated responsibilities, and established Conference of the Parties (COP) meetings as the decision-making forum.\n\nThe Convention itself did not lock in the detailed numerical targets that later instruments debated. Understanding UNFCCC as a framework helps make sense of later agreements: they operate inside this process rather than replacing the idea of a global climate regime altogether.",
+        examples: [],
+        shortcuts: [
+          "UNFCCC = framework and process; later deals add specific architectures",
+        ],
+        traps: [
+          "Treating UNFCCC and the Paris Agreement as the same document",
+        ],
+      },
+      {
+        id: "env-policy-kyoto",
+        title: "The Kyoto Protocol in context",
+        summary: "Binding targets for listed developed parties in a specific era.",
+        explanation: "The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. It also experimented with flexible mechanisms so that reductions could be achieved partly through international cooperation.\n\nKyoto’s design reflected a sharper divide between listed developed parties and developing countries than the later Paris architecture. For study purposes, the protocol is best remembered as a targets-and-timetables approach for a defined set of parties, not as the current universal NDC system.",
+        examples: [],
+        shortcuts: [
+          "Kyoto ≈ binding targets for listed developed parties (historical architecture)",
+        ],
+        traps: [
+          "Saying Kyoto bound every country identically",
+        ],
+      },
+      {
+        id: "env-policy-paris",
+        title: "The Paris Agreement",
+        summary: "NDCs, temperature goals, and the global stocktake.",
+        explanation: "The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2°C above pre-industrial levels and to pursue efforts toward 1.5°C. A global stocktake cycle reviews collective progress and informs the next round of NDCs.\n\nParis is therefore built on national planning within a global goal, rather than a single Kyoto-style annex of identical target rules for one class of countries. Climate finance, adaptation, and later debates on loss and damage sit alongside mitigation in the wider Paris conversation, even when a short syllabus item focuses on temperature and NDCs.",
+        examples: [],
+        shortcuts: [
+          "Paris ≈ NDCs + long-term temperature goals + stocktake cycle",
+        ],
+        traps: [
+          "Claiming Paris assigns one identical binding number to every party the way a simple Kyoto table did",
+        ],
+      },
+    ],
+relatedTopics: ["env-climate-change-response", "env-ozone-depletion", "env-energy-sources"],
     content: true,
   buildsOn: ["env-climate-change-response", "meteo-ipcc-rcps", "meteo-pakistan-nccp"],
   leadsTo: ["env-ozone-depletion", "env-pakistan-environmental-context"],
@@ -870,7 +1008,7 @@ export const topics: Topic[] = [
     relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
-  leadsTo: [],
+  leadsTo: ["env-air-pollution"],
   usedIn: ["env-international-climate-policy", "english-word-formation-and-context"]
   },
   {
@@ -927,7 +1065,50 @@ export const topics: Topic[] = [
       "Link national drives (e.g. Billion Tree / 10 Billion Tree) to afforestation, not to 'solving climate alone'",
       "Separate local pollution problems from global treaty names",
     ],
-    relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts", "env-biodiversity"],
+    
+    subtopics: [
+      {
+        id: "env-pk-challenges",
+        title: "Interconnected environmental challenges",
+        summary: "Water, air, land, and climate risks reinforce one another.",
+        explanation: "Pakistan’s environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Urban air pollution harms health and productivity. Land degradation, including salinity and waterlogging in irrigated belts, undermines agriculture. Climate change intensifies extremes—floods, heat, glacial and snowmelt variability—on top of these stresses.\n\nA useful way to study the national picture is as a system: energy and transport choices affect air and climate; irrigation management affects soil and water quality; forest and watershed cover affect erosion and flood behaviour. Isolated facts (forest percentage, a city AQI spike, a treaty name) matter more when they are placed inside this web.",
+        examples: [],
+        shortcuts: [
+          "Link water, air, land, and climate rather than memorising isolated headlines",
+        ],
+        traps: [
+          "Treating smog, floods, and forest loss as unrelated exam silos",
+        ],
+      },
+      {
+        id: "env-pk-governance",
+        title: "Institutions and policy tools",
+        summary: "Law, standards, and implementation capacity.",
+        explanation: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functions are shared with or led by provinces, so outcomes vary with provincial capacity as well as federal frameworks.\n\nThe recurring implementation gap is not only the absence of written policy. Monitoring networks, inspection, industrial compliance, municipal waste systems, and urban transport enforcement decide whether standards change the air people breathe or the water they use. International funds and national programmes (including large afforestation drives) can help, but they do not automatically substitute for steady regulation and service delivery.",
+        examples: [],
+        shortcuts: [
+          "Written standards ≠ automatic compliance",
+          "Provincial capacity shapes results after devolution",
+        ],
+        traps: [
+          "Assuming a named policy alone implies environmental improvement",
+        ],
+      },
+      {
+        id: "env-pk-conservation-sites",
+        title: "Protected areas and living resources",
+        summary: "Why parks and species lists appear in national questions.",
+        explanation: "Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protect habitats where species actually live. Their effectiveness depends on management, community relations, and pressure from infrastructure or resource extraction.\n\nStudy these sites as examples of conservation strategy under real constraints, not as a random list of names. Link them back to habitat loss as the dominant global threat and to national forest and land-use pressures discussed under resources.",
+        examples: [],
+        shortcuts: [
+          "Protected areas = in-situ conservation under management constraints",
+        ],
+        traps: [
+          "Memorising park names with no link to habitat pressure",
+        ],
+      },
+    ],
+relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts", "env-biodiversity"],
     content: true,
   buildsOn: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "meteo-pakistan-macroclimate", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "earth-i1"],
   leadsTo: [],
