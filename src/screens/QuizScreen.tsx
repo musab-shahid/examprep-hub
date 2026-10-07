@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target } from 'lucide-react';
+import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { allQuestions, questionsByTopic } from '@/data/questions';
@@ -329,6 +329,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const [state, setState] = useState<QuizState | null>(null);
   const [finished, setFinished] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
+  const [showKeysHelp, setShowKeysHelp] = useState(false);
   const exitModalRef = useRef<HTMLDivElement>(null);
   const [results, setResults] = useState<ResultsData | null>(null);
 
@@ -697,6 +698,13 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
       if (showExitConfirm) return;
+      if (showKeysHelp) {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          setShowKeysHelp(false);
+        }
+        return;
+      }
       const s = stateRef.current;
       if (!s || s.questions.length === 0) return;
       const q = s.questions[s.currentIdx];
@@ -711,6 +719,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       } else if (e.key === 'Escape') {
         e.preventDefault();
         handleExit();
+      } else if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+        e.preventDefault();
+        setShowKeysHelp(true);
       } else if (!s.checked && q.type === 'multi') {
         if (['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(e.key)) {
           const idx = parseInt(e.key, 10) - 1;
@@ -728,7 +739,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [finished, showExitConfirm, handleCheck, handleNext, handleExit, toggleOption]);
+  }, [finished, showExitConfirm, showKeysHelp, handleCheck, handleNext, handleExit, toggleOption]);
 
   // ── Early returns only AFTER all hooks ──
   const validationError = validateQuizParams({ mode, count, topicId, subjectId });
@@ -875,9 +886,20 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             </button>
             <Breadcrumbs />
           </div>
-          <span className="text-slate-500 text-sm font-medium">
-            Q {state.currentIdx + 1} of {state.questions.length}
-          </span>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => setShowKeysHelp(true)}
+              className="hidden sm:inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-800 transition-colors"
+              aria-label="Keyboard shortcuts"
+              title="Keyboard shortcuts"
+            >
+              <Keyboard className="w-4 h-4" />
+            </button>
+            <span className="text-slate-500 text-sm font-medium">
+              Q {state.currentIdx + 1} of {state.questions.length}
+            </span>
+          </div>
           {showTimer && (
             <span
               className={`flex items-center gap-1 text-sm font-mono ${timerUrgent ? 'text-danger-600 font-semibold' : 'text-slate-600'}`}
@@ -1078,6 +1100,32 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       </div>
 
       {/* Exit confirmation */}
+      
+      {showKeysHelp && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40" role="dialog" aria-modal="true" aria-labelledby="keys-help-title">
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-sm w-full p-5">
+            <div className="flex items-center justify-between mb-3">
+              <h2 id="keys-help-title" className="font-semibold text-slate-900 text-base flex items-center gap-2">
+                <Keyboard className="w-4 h-4 text-brand-600" />
+                Keyboard shortcuts
+              </h2>
+              <button type="button" onClick={() => setShowKeysHelp(false)} className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-100" aria-label="Close">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <ul className="space-y-2 text-sm text-slate-700">
+              <li className="flex justify-between gap-4"><span>Select option</span><kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">A–D</kbd> <kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">1–4</kbd></li>
+              <li className="flex justify-between gap-4"><span>Multi-select toggle</span><kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">1–9</kbd></li>
+              <li className="flex justify-between gap-4"><span>Check / Next</span><kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Enter</kbd></li>
+              <li className="flex justify-between gap-4"><span>Exit quiz</span><kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">Esc</kbd></li>
+              <li className="flex justify-between gap-4"><span>This help</span><kbd className="font-mono text-xs bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">?</kbd></li>
+            </ul>
+            <p className="text-xs text-slate-500 mt-3">Matching questions still use tap/click. Shortcuts are disabled while this dialog or the exit prompt is open.</p>
+            <Button className="w-full mt-4" onClick={() => setShowKeysHelp(false)}>Got it</Button>
+          </div>
+        </div>
+      )}
+
       {showExitConfirm && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"

@@ -1,0 +1,162 @@
+/**
+ * Path ↔ route mapping for shareable / refreshable URLs (Phase A).
+ * Live quiz parameters stay out of the URL (storage-backed resume).
+ */
+import { getTopic } from '@/data/topics';
+import { sectionMap } from '@/data/sections';
+import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
+
+/** Local mirror of router.Route to avoid circular imports with index.tsx */
+export type PathRoute =
+  | { screen: 'home' }
+  | { screen: 'learn' }
+  | { screen: 'section'; sectionId: string }
+  | { screen: 'topic'; topicId: string }
+  | { screen: 'formulas' }
+  | { screen: 'cloud-atlas' }
+  | { screen: 'practice'; mode?: 'topic' | 'quick' | 'mock' }
+  | { screen: 'quiz'; mode: PracticeMode; topicId?: string; topicIds?: string[]; scope?: 'subject' | 'all'; subjectId?: string; count?: number | 'all'; difficulty?: DifficultyFilter; timeLimit?: TimeLimitSetting; wrongPool?: boolean }
+  | { screen: 'review' }
+  | { screen: 'progress' }
+  | { screen: 'search' }
+  | { screen: 'settings' }
+  | { screen: 'hat' }
+  | { screen: 'fpsc' };
+
+export function routeToPath(route: PathRoute): string {
+  switch (route.screen) {
+    case 'home':
+      return '/';
+    case 'learn':
+      return '/learn';
+    case 'section':
+      return `/section/${encodeURIComponent(route.sectionId)}`;
+    case 'topic':
+      return `/topic/${encodeURIComponent(route.topicId)}`;
+    case 'formulas':
+      return '/formulas';
+    case 'cloud-atlas':
+      return '/cloud-atlas';
+    case 'practice':
+      return route.mode ? `/practice/${encodeURIComponent(route.mode)}` : '/practice';
+    case 'quiz':
+      // Intentionally param-free — mid-quiz state is not shareable via URL
+      return '/quiz';
+    case 'review':
+      return '/review';
+    case 'progress':
+      return '/progress';
+    case 'search':
+      return '/search';
+    case 'settings':
+      return '/settings';
+    case 'hat':
+      return '/hat';
+    case 'fpsc':
+      return '/fpsc';
+    default:
+      return '/';
+  }
+}
+
+export function pathToRoute(pathname: string): PathRoute {
+  const clean = pathname.replace(/\/+$/, '') || '/';
+  const parts = clean.split('/').filter(Boolean);
+
+  if (parts.length === 0) return { screen: 'home' };
+
+  const [head, a, b] = parts;
+  switch (head) {
+    case 'learn':
+      return { screen: 'learn' };
+    case 'section':
+      if (a && sectionMap[decodeURIComponent(a)]) {
+        return { screen: 'section', sectionId: decodeURIComponent(a) };
+      }
+      return { screen: 'learn' };
+    case 'topic':
+      if (a && getTopic(decodeURIComponent(a))) {
+        return { screen: 'topic', topicId: decodeURIComponent(a) };
+      }
+      return { screen: 'learn' };
+    case 'formulas':
+      return { screen: 'formulas' };
+    case 'cloud-atlas':
+      return { screen: 'cloud-atlas' };
+    case 'practice': {
+      const mode = a as 'topic' | 'quick' | 'mock' | undefined;
+      if (mode === 'topic' || mode === 'quick' || mode === 'mock') {
+        return { screen: 'practice', mode };
+      }
+      return { screen: 'practice' };
+    }
+    case 'quiz':
+      // Deep link into quiz without params → practice (safer than empty quiz)
+      return { screen: 'practice' };
+    case 'review':
+      return { screen: 'review' };
+    case 'progress':
+      return { screen: 'progress' };
+    case 'search':
+      return { screen: 'search' };
+    case 'settings':
+      return { screen: 'settings' };
+    case 'hat':
+      return { screen: 'hat' };
+    case 'fpsc':
+      return { screen: 'fpsc' };
+    default:
+      return { screen: 'home' };
+  }
+}
+
+/** Minimal breadcrumb for cold-load / popstate (no full parent chain). */
+export function breadcrumbForRoute(route: PathRoute): { label: string; route: PathRoute }[] {
+  const home = { label: 'Home', route: { screen: 'home' } as PathRoute };
+  switch (route.screen) {
+    case 'home':
+      return [home];
+    case 'section': {
+      const sec = sectionMap[route.sectionId];
+      return [
+        home,
+        { label: 'Learn', route: { screen: 'learn' } },
+        { label: sec?.title ?? 'Section', route },
+      ];
+    }
+    case 'topic': {
+      const topic = getTopic(route.topicId);
+      const sec = topic ? sectionMap[topic.sectionId] : undefined;
+      const crumbs = [home, { label: 'Learn', route: { screen: 'learn' } as PathRoute }];
+      if (sec) {
+        crumbs.push({
+          label: sec.title,
+          route: { screen: 'section', sectionId: sec.id },
+        });
+      }
+      crumbs.push({ label: topic?.title ?? 'Topic', route });
+      return crumbs;
+    }
+    case 'practice':
+      return [home, { label: 'Practice', route }];
+    case 'quiz':
+      return [home, { label: 'Practice', route: { screen: 'practice' } }, { label: 'Quiz', route }];
+    default:
+      return [home, { label: routeLabelFallback(route), route }];
+  }
+}
+
+function routeLabelFallback(route: PathRoute): string {
+  const names: Record<string, string> = {
+    learn: 'Learn',
+    formulas: 'Formulas',
+    'cloud-atlas': 'Cloud Atlas',
+    review: 'Review',
+    progress: 'Progress',
+    search: 'Search',
+    settings: 'Settings',
+    hat: 'HAT Prep',
+    fpsc: 'FPSC Exam',
+  };
+  return names[route.screen] ?? 'Exam Prep';
+}

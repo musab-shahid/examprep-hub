@@ -2,9 +2,10 @@
  * In-memory router (v1). Deep-link / shareable URLs are intentionally deferred
  * until content + quiz + SR stay solid (v1 product decision — M4). Do not add partial URL sync without tests.
  */
-import { createContext, useContext, useState, useCallback, useRef, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useRef, useEffect, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';
 import { resolveScreen } from './resolveScreen';
+import { routeToPath, pathToRoute, breadcrumbForRoute } from './paths';
 
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
@@ -108,14 +109,55 @@ export function routeLabel(route: Route): string {
   }
 }
 
+function routeStateFromPath(pathname: string): RouteState {
+  const route = pathToRoute(pathname);
+  const breadcrumb = breadcrumbForRoute(route);
+  // Synthetic parent: previous breadcrumb step (enables in-app Back on deep links)
+  let parent: RouteState | null = null;
+  if (breadcrumb.length > 1) {
+    const parentRoute = breadcrumb[breadcrumb.length - 2].route;
+    parent = {
+      route: parentRoute,
+      parent: null,
+      breadcrumb: breadcrumb.slice(0, -1),
+    };
+  }
+  return { route, parent, breadcrumb };
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
-  const [currentRoute, setCurrentRoute] = useState<RouteState>({
-    route: { screen: 'home' },
-    parent: null,
-    breadcrumb: [{ label: 'Home', route: { screen: 'home' } }],
+  const [currentRoute, setCurrentRoute] = useState<RouteState>(() => {
+    if (typeof window === 'undefined') {
+      return {
+        route: { screen: 'home' },
+        parent: null,
+        breadcrumb: [{ label: 'Home', route: { screen: 'home' } }],
+      };
+    }
+    return routeStateFromPath(window.location.pathname);
   });
 
   const scrollStackRef = useRef<number[]>([]);
+  const routeRef = useRef(currentRoute);
+  routeRef.current = currentRoute;
+
+  // Browser back/forward → restore route from path
+  useEffect(() => {
+    const onPop = () => {
+      setCurrentRoute(routeStateFromPath(window.location.pathname));
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // Align first paint URL if user landed on /
+  useEffect(() => {
+    const path = routeToPath(routeRef.current.route);
+    if (window.location.pathname !== path) {
+      window.history.replaceState({ path }, '', path);
+    }
+  }, []);
 
   const navigate = useCallback((options: NavigateOptions) => {
     if (options.parent === null) {
@@ -137,17 +179,22 @@ export function RouterProvider({ children }: { children: ReactNode }) {
       }
       return { route, parent, breadcrumb };
     });
+    const path = routeToPath(route);
+    if (window.location.pathname !== path) {
+      window.history.pushState({ path }, '', path);
+    }
     window.scrollTo(0, 0);
   }, []);
 
   const back = useCallback(() => {
+    const prev = routeRef.current;
+    if (!prev.parent) return;
     const savedY = scrollStackRef.current.pop() ?? 0;
-    setCurrentRoute((prev) => {
-      if (prev.parent) {
-        return prev.parent;
-      }
-      return prev;
-    });
+    setCurrentRoute(prev.parent);
+    const path = routeToPath(prev.parent.route);
+    if (window.location.pathname !== path) {
+      window.history.pushState({ path }, '', path);
+    }
     requestAnimationFrame(() => window.scrollTo(0, savedY));
   }, []);
 
