@@ -168,6 +168,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     const failed = lastFailedRef.current;
     if (!failed) return;
     prevModelIdRef.current = modelId;
+    lastFailedRef.current = null;
     setError(null);
     sendMessage(failed.text, failed.messages);
   }, [modelId, error, loading, sendMessage]);
@@ -196,11 +197,15 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       const tutorMessages: TutorMessage[] = newMessages.map((m) => ({ role: m.role, content: m.content }));
       const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined, controller.signal);
       setMessages((prev) => [...prev, { id: makeId(), role: 'assistant', content: reply }]);
+      lastFailedRef.current = null;
     } catch (err) {
       if (controller.signal.aborted) {
         if (err instanceof Error && err.message.includes('too long')) {
           setError(err.message);
           lastFailedRef.current = { text: trimmed, messages: newMessages };
+        } else {
+          // User-initiated cancel — nothing to retry
+          lastFailedRef.current = null;
         }
       } else {
         const msg = err instanceof Error ? err.message : 'Something went wrong.';
@@ -217,12 +222,14 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     abortRef.current?.abort();
     setLoading(false);
     abortRef.current = null;
+    lastFailedRef.current = null;
   }, []);
 
   const handleRetry = useCallback(() => {
     if (loading) return;
     const failed = lastFailedRef.current;
     if (failed) {
+      lastFailedRef.current = null;
       setError(null);
       sendMessage(failed.text, failed.messages);
       return;
