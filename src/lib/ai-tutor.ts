@@ -35,9 +35,9 @@ export interface ModelOption {
 export const MODEL_OPTIONS: ModelOption[] = [
   {
     id: 'gemini',
-    label: 'Gemini 2.0 Flash',
+    label: 'Gemini 3.8 Flash',
     provider: 'gemini',
-    model: 'gemini-2.0-flash',
+    model: 'gemini-3.8-flash',
     badge: 'Google',
   },
   {
@@ -123,7 +123,7 @@ export function getDefaultModelId(): string {
   return available[0]?.id ?? '';
 }
 
-async function callGemini(messages: TutorMessage[], preamble: string): Promise<string> {
+async function callGemini(messages: TutorMessage[], preamble: string, model: string): Promise<string> {
   const apiKey = env.GEMINI_API_KEY;
   const contents = messages.map((m) => ({
     role: m.role === 'assistant' ? 'model' : 'user',
@@ -131,7 +131,7 @@ async function callGemini(messages: TutorMessage[], preamble: string): Promise<s
   }));
 
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -209,7 +209,7 @@ export async function askTutor(
 
   const reply = modelOption.provider === 'openrouter'
     ? await callOpenRouter(messages, preamble, modelOption.model)
-    : await callGemini(messages, preamble);
+    : await callGemini(messages, preamble, modelOption.model);
 
   return { reply, modelLabel: modelOption.label };
 }
