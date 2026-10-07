@@ -6,7 +6,7 @@ export const topics: Topic[] = [
     sectionId: "ENV-01",
     order: 1,
     title: "Environment, Key Distinctions & Sustainability",
-    definition: "The environment encompasses all surrounding conditions (physical, chemical, biological) that affect an organism or group. Key distinctions (biotic vs abiotic, ecology vs ecosystem, habitat vs niche) are foundational vocabulary tested in nearly every exam.",
+    definition: "The environment is the set of physical, chemical, and biological conditions that surround an organism or community and influence its survival and behaviour. Environmental science organises that setting into interacting spheres of air, water, land, and life, and uses careful distinctions — such as biotic and abiotic factors, habitat and niche, or population and community — to describe how living systems relate to their surroundings. Sustainability asks how human development can meet present needs without undermining the ecological and social conditions that future generations will require.",
     keyFacts: [
       "Environment: surroundings affecting an organism; has four spheres — atmosphere (air), hydrosphere (water), lithosphere (rock/soil), biosphere (living things)",
       "Biotic = living (plants, animals, microbes); Abiotic = non-living (water, soil, light, temperature)",
@@ -60,7 +60,7 @@ explanationSections: [
     sectionId: "ENV-01",
     order: 2,
     title: "Carrying Capacity, Ecological Footprint & Biocapacity",
-    definition: "Carrying capacity is the maximum population an environment can sustain indefinitely. Ecological footprint measures the land/water area required to support a person's lifestyle. Biocapacity is Earth's regenerative capacity — when footprint exceeds biocapacity, we are in ecological overshoot.",
+    definition: "Carrying capacity is the approximate size of a population that an environment can support over the long term without permanent degradation of the resources on which that population depends. Ecological footprint estimates the area of productive land and water needed to sustain a given lifestyle or economy, including the absorption of wastes, while biocapacity estimates the regenerative supply available. When demand exceeds supply, the system is said to be in ecological overshoot.",
     keyFacts: [
       "Carrying capacity (K): the maximum population size of a species that an environment can sustain indefinitely, given available resources",
       "Limiting factors: food, water, space, shelter, predators, disease — whichever is scarcest determines K",
@@ -111,7 +111,7 @@ explanationSections: [
     sectionId: "ENV-02",
     order: 1,
     title: "Ecosystems: Structure, Food Chains & Energy Flow",
-    definition: "An ecosystem is a community of organisms interacting with their physical environment as a functional unit. Energy flows through ecosystems via food chains and webs, decreasing at each level due to the second law of thermodynamics (90% rule).",
+    definition: "An ecosystem is a community of organisms interacting with one another and with their abiotic environment as a functional unit. Energy enters mainly through photosynthesis, moves along food chains and food webs, and is largely dissipated as heat at each transfer, so relatively little is stored in successive trophic levels. Matter, by contrast, cycles between living organisms and abiotic reservoirs and can be used repeatedly.",
     keyFacts: [
       "Producers (autotrophs): make food from sunlight — plants, algae, cyanobacteria",
       "Consumers (heterotrophs): eat others — primary (herbivores), secondary (carnivores eating herbivores), tertiary (top carnivores)",
@@ -161,7 +161,7 @@ explanationSections: [
     sectionId: "ENV-02",
     order: 2,
     title: "Ecological Pyramids: Numbers, Biomass & Energy",
-    definition: "Ecological pyramids are graphical representations of the trophic structure of an ecosystem. Three types exist — pyramid of numbers, pyramid of biomass, and pyramid of energy — each with different shapes and a key rule about when they're inverted.",
+    definition: "Ecological pyramids are diagrams that summarise the trophic structure of an ecosystem. A pyramid of numbers counts organisms at each level, a pyramid of biomass measures living mass, and a pyramid of energy represents energy flow over time. Numbers and biomass pyramids may invert when organisms differ greatly in size or turnover; energy pyramids remain upright because energy is lost at every transfer.",
     keyFacts: [
       "Pyramid of NUMBERS: counts individuals at each level — can be INVERTED (e.g., one tree supports thousands of insects)",
       "Pyramid of BIOMASS: measures dry weight at each level — can be inverted in some marine ecosystems (where phytoplankton biomass is less than zooplankton biomass at certain times)",
@@ -206,7 +206,7 @@ explanationSections: [
     sectionId: "ENV-02",
     order: 3,
     title: "Productivity & Biogeochemical Cycles",
-    definition: "Primary productivity is the rate at which energy is captured by producers. Biogeochemical cycles describe how essential elements (carbon, nitrogen, water, phosphorus, sulfur) move through ecosystems. The carbon cycle is the most-tested.",
+    definition: "Primary productivity is the rate at which producers convert energy into organic matter through photosynthesis. Gross primary productivity is the total capture of energy; net primary productivity is what remains after plant respiration and is therefore available to other organisms. Biogeochemical cycles describe the movement of elements such as carbon, nitrogen, phosphorus, sulphur, and water between living systems and the atmosphere, oceans, soils, and rocks.",
     keyFacts: [
       "GPP (Gross Primary Productivity): total rate at which producers capture and FIX energy from sunlight (via photosynthesis)",
       "NPP (Net Primary Productivity) = GPP − plant respiration (Ra) = energy stored in producer biomass; available to consumers",
@@ -315,10 +315,10 @@ relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-r
     sectionId: "ENV-03",
     order: 1,
     title: "Biodiversity: Levels, Importance & Hotspots",
-    definition: "Biodiversity is the variety of life — measured at three levels (genetic, species, ecosystem). It matters because ecosystems provide services humans depend on, and 'biodiversity hotspots' are regions of exceptional endemism under threat.",
+    definition: "Biodiversity is the variety of life at several scales: genetic variation within species, the diversity of species themselves, and the diversity of ecosystems across landscapes. It underpins ecosystem services that provide food, clean water, climate regulation, and cultural value. Regions that combine high endemism with severe habitat loss are often prioritised as biodiversity hotspots for conservation attention.",
     keyFacts: [
       "Three levels of biodiversity: GENETIC (variation within a species), SPECIES (number of different species), ECOSYSTEM (variety of habitats and communities)",
-      "Why biodiversity matters: ECOSYSTEM SERVICES — four types (very testable): PROVISIONING (food, water, timber, medicines), REGULATING (climate, floods, pollination, water purification), SUPPORTING (nutrient cycles, soil formation, primary production), CULTURAL (recreation, spiritual, tourism)",
+      "Ecosystem services are often grouped as provisioning (food, water, timber, medicines), regulating (climate, floods, pollination, water purification), supporting (nutrient cycles, soil formation, primary production), and cultural (recreation, spiritual value, tourism)",
       "Provisioning = products we USE; Regulating = processes that CONTROL; Supporting = services that UNDERPIN others; Cultural = NON-MATERIAL benefits",
       "Species richness: number of species in an area",
       "Species evenness: how equally distributed the individuals are among species",
@@ -366,7 +366,7 @@ explanationSections: [
     sectionId: "ENV-03",
     order: 2,
     title: "Threats to Biodiversity & IUCN Red List",
-    definition: "Biodiversity faces five major threats (in order of impact) and species are classified by extinction risk on the IUCN Red List. Habitat loss is the single largest driver of biodiversity decline worldwide.",
+    definition: "Living diversity is reduced by habitat destruction and fragmentation, invasive species, pollution, overexploitation, and climate change, with habitat loss the dominant global driver. The IUCN Red List provides a shared framework for assessing extinction risk, ranking species from lower concern through increasingly severe categories of threat. These assessments guide policy and research; they are scientific evaluations rather than laws in themselves.",
     keyFacts: [
       "5 major threats in exam-relevant order: Habitat loss (#1) → Overexploitation → Invasive species → Pollution → Climate change",
       "Population growth is the indirect amplifier that makes ALL other threats worse (not a direct threat itself, but the root cause of habitat loss, overexploitation, etc.)",
@@ -419,7 +419,7 @@ explanationSections: [
     sectionId: "ENV-03",
     order: 3,
     title: "Conservation Strategies & Mass Extinctions",
-    definition: "Conservation strategies are either in-situ (protecting species in their natural habitat) or ex-situ (protecting them outside it, e.g. in zoos or seed banks). Earth has experienced 5 background mass extinctions; we are now in the 6th, caused by human activity.",
+    definition: "Conservation aims to maintain species and ecosystems through protection of natural habitats (in-situ measures such as parks and sanctuaries) and, where necessary, through care outside the wild (ex-situ measures such as seed banks and captive breeding). Extinction is the permanent loss of a species. Earth has experienced major extinction episodes in deep time; the present acceleration of losses is driven largely by human activity.",
     keyFacts: [
       "In-situ conservation: ON SITE — national parks, wildlife sanctuaries, biosphere reserves, community conserved areas",
       "Ex-situ conservation: OFF SITE — zoos, aquariums, botanical gardens, seed banks, gene banks, cryopreservation",
@@ -466,7 +466,7 @@ explanationSections: [
     sectionId: "ENV-04",
     order: 1,
     title: "Natural Resources: Renewable vs Non-Renewable",
-    definition: "Natural resources are materials from the environment that humans use to meet their needs. They are classified as renewable (can be replenished within a human lifespan) or non-renewable (take millions of years to form or cannot be replenished at all). How we use them determines sustainability.",
+    definition: "Natural resources are materials and capacities drawn from the environment to meet human needs. Renewable resources can replenish on human timescales if use stays within recovery rates; non-renewable resources form so slowly that current stocks are effectively finite. How societies extract, use, and discard materials determines whether resource use remains compatible with long-term environmental health.",
     keyFacts: [
       "Renewable resources: can be REPLENISHED naturally over time — water (via water cycle), forests (if managed sustainably), fisheries (if not overfished), soil (if erosion is controlled), solar/wind/hydro/geothermal/tidal energy",
       "Non-renewable resources: take MILLIONS of years to form or cannot be replenished — fossil fuels (coal, oil, natural gas), minerals, metals (iron, copper, gold, etc.)",
@@ -514,7 +514,7 @@ explanationSections: [
     sectionId: "ENV-04",
     order: 2,
     title: "Resource Conflicts & Forest Resources (Pakistan)",
-    definition: "Resource conflicts arise when competing stakeholders want the same limited resource. Pakistan faces several key conflicts — over water (the Indus Waters Treaty with India is the most prominent), forests (logging vs. conservation), minerals, land, and energy — each with social, economic, and environmental dimensions.",
+    definition: "Resource conflicts arise when different groups claim the same limited water, land, forest, mineral, or energy resource. In Pakistan, transboundary river arrangements, pressure on forests, and competing demands for land and fuel illustrate how scarcity and politics interact. Managing such conflicts requires law, institutions, technology, and often cooperation across communities and borders.",
     keyFacts: [
       "INDUS WATERS TREATY (1960): the most prominent resource conflict in Pakistan — brokered by the World Bank, it divided the six rivers of the Indus system between India (3 eastern rivers) and Pakistan (3 western rivers), allowing India limited non-consumptive use of the western rivers",
       "Forest conflicts: logging for timber vs. conservation for biodiversity/carbon, land conversion for agriculture vs. forest preservation, urban expansion into forest areas",
@@ -540,7 +540,7 @@ explanationSections: [
       "Deforestation contributes ~10-15% of global CO₂ emissions"
     ],
     commonMistakes: [
-      "Confusing which side of the Indus Treaty got which rivers — memorize the actual division",
+      "Confusing which rivers were allocated primarily to which side under the Indus Waters Treaty",
       "Thinking Pakistan's forest cover is similar to global average (~30%) — it's 5%, far below",
       "Believing resource conflicts are unsolvable — many have been successfully managed (IWT is an example)"
     ],
@@ -570,7 +570,7 @@ explanationSections: [
     sectionId: "ENV-05",
     order: 1,
     title: "Air Pollution: Primary & Secondary Pollutants",
-    definition: "Air pollution is the contamination of indoor or outdoor air by chemicals, particulates, or biological molecules at concentrations that harm ecosystems, materials, or human health. Pollutants are classified as primary (emitted directly) or secondary (formed in the atmosphere by chemical reactions).",
+    definition: "Air pollution is the presence in indoor or outdoor air of chemicals, particles, or biological materials at concentrations that harm human health, materials, or ecosystems. Primary pollutants are emitted directly from sources; secondary pollutants form when primary substances react in the atmosphere, as when sunlight drives the formation of ground-level ozone. Weather, fuel use, and urban form all influence how severe pollution becomes.",
     keyFacts: [
       "PRIMARY pollutants: emitted DIRECTLY from a source (PM, SO₂, NOₓ, CO, VOCs, lead, NH₃)",
       "SECONDARY pollutants: FORMED in atmosphere by reactions (O₃ — tropospheric ozone, smog, acid rain H₂SO₄/HNO₃, PAN)",
@@ -665,7 +665,7 @@ relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response"
     sectionId: "ENV-05",
     order: 2,
     title: "Water Pollution, BOD/COD/DO & Treatment",
-    definition: "Water pollution is the contamination of water bodies (rivers, lakes, oceans, groundwater) with substances that harm human health, ecosystems, or render water unusable. The BOD/COD/DO triangle is the most-tested water quality parameter set in any exam.",
+    definition: "Water pollution is the introduction into rivers, lakes, groundwater, or seas of substances or conditions that impair human use or ecological function. Organic wastes raise the demand for dissolved oxygen as microbes decompose them; nutrients can trigger eutrophication; and persistent chemicals may accumulate in organisms and food webs. Indicators such as dissolved oxygen, biochemical oxygen demand, and chemical oxygen demand help describe the oxygen regime of a water body.",
     keyFacts: [
       "Sources of water pollution: POINT (identifiable, e.g., pipe or factory outfall) vs NON-POINT (diffuse, e.g., agricultural runoff, urban stormwater)",
       "Major pollutants: ORGANIC (sewage, food waste — cause oxygen depletion), NUTRIENTS (N, P from fertilizer — cause eutrophication), HEAVY METALS (Pb, Hg, Cd, Cr, As — toxic, persistent), PATHOGENS (E. coli, coliforms — disease), PESTICIDES (biomagnify up food chain), PLASTICS (microplastics ubiquitous), THERMAL (power plants — reduce DO)",
@@ -768,7 +768,7 @@ relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-thr
     sectionId: "ENV-05",
     order: 3,
     title: "Soil Pollution, Solid & Hazardous Waste",
-    definition: "Soil pollution is the contamination of soil with chemicals, waste, or pathogens that harm soil fertility, ecosystems, or human health. Solid and hazardous waste management is critical for urban areas, with a 5Rs hierarchy guiding sustainable practices.",
+    definition: "Soil pollution is the contamination of soil by chemicals, wastes, or pathogens in ways that damage fertility, ecosystems, or human health. In irrigated landscapes, rising water tables and evaporation can also salinise and waterlog fields even without industrial spills. Solid and hazardous wastes require ordered management that prefers prevention and reuse over disposal, with special handling for toxic and medical streams.",
     keyFacts: [
       "Soil pollution sources: PESTICIDES and herbicides (agriculture), INDUSTRIAL WASTE (chemicals, heavy metals), SEWAGE SLUDGE, MINING (acid mine drainage), LANDFILL LEACHATE (liquids seeping from waste dumps)",
       "Effects of soil pollution: REDUCED FERTILITY (soils can't grow crops), BIOACCUMULATION in food (chemicals up the food chain), GROUNDWATER CONTAMINATION (leaching into aquifers), ECOSYSTEM DAMAGE (soil organisms die)",
@@ -864,7 +864,7 @@ relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-cli
     sectionId: "ENV-06",
     order: 1,
     title: "Energy Sources & Their Environmental Footprint",
-    definition: "Different energy sources have very different environmental, social, and economic impacts across their lifecycle. The energy-climate-environment nexus is a unified system — choices about energy directly affect climate, air quality, water, and ecosystems.",
+    definition: "Societies obtain energy from fossil fuels, nuclear reactions, falling water, sunlight, wind, and other sources, each with a different profile of cost, reliability, land use, and emissions. Combustion of coal, oil, and gas links energy supply directly to air quality and climate change, while low-carbon options raise their own questions of variability, safety, or ecosystem impact. Energy choices are therefore environmental choices as much as economic ones.",
     keyFacts: [
       "Coal: VERY HIGH CO₂, HIGH air pollution (SO₂, particulates, mercury), HIGH water use (mining + cooling), HIGH land use (mines + waste), produces ash waste",
       "Oil: HIGH CO₂, MEDIUM air pollution, LOW water use, LOW land use, risk of spills",
@@ -965,7 +965,7 @@ relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-p
     sectionId: "ENV-06",
     order: 2,
     title: "Climate Change: Mitigation, Adaptation & Vulnerability",
-    definition: "Climate change response has two main strategies: MITIGATION (reducing greenhouse gas emissions to limit warming) and ADAPTATION (adjusting to the effects of warming that are already happening). Both are needed; they are complementary, not alternatives.",
+    definition: "Responding to climate change involves mitigation, which reduces greenhouse gas emissions or enhances sinks, and adaptation, which adjusts human and natural systems to impacts that cannot be avoided. The two approaches are complementary: mitigation limits future warming, while adaptation manages risks that are already unfolding. Vulnerability depends on exposure to hazards and on the capacity to prepare, cope, and recover.",
     keyFacts: [
       "MITIGATION = REDUCING emissions to limit future warming. Examples: renewable energy, energy efficiency, EVs/public transit, building efficiency, carbon capture (CCS), REDD+ (forest protection), carbon pricing (tax, cap-and-trade), dietary shifts",
       "ADAPTATION = ADJUSTING to the effects of warming that are occurring. Examples: drought-resistant crops, coastal protection (seawalls, mangroves), improved water management, heat action plans, early warning systems, climate-resilient infrastructure",
@@ -1015,7 +1015,7 @@ explanationSections: [
     sectionId: "ENV-06",
     order: 3,
     title: "International Climate Policy (UNFCCC → Paris → COP28)",
-    definition: "International climate policy has evolved from the 1992 UNFCCC framework through the 1997 Kyoto Protocol to the 2015 Paris Agreement. Each step established increasingly ambitious targets for limiting global temperature rise.",
+    definition: "International climate policy is the body of agreements and institutions through which states coordinate action on global warming. The United Nations Framework Convention on Climate Change established a permanent cooperative process; later instruments, including the Kyoto Protocol and the Paris Agreement, added more specific architectures for targets, national plans, and collective review. These arrangements set shared goals while leaving much implementation to national policy.",
     keyFacts: [
       "1992 UNFCCC: Framework Convention on Climate Change — established the basic structure, 'common but differentiated responsibilities' between developed and developing countries",
       "1997 KYOTO PROTOCOL: First binding targets — developed countries committed to reducing emissions by an average of 5% below 1990 levels (2008-2012); USA never ratified",
@@ -1108,7 +1108,7 @@ relatedTopics: ["env-climate-change-response", "env-ozone-depletion", "env-energ
     sectionId: "ENV-06",
     order: 4,
     title: "Ozone Depletion: CFCs, Montreal Protocol & Recovery",
-    definition: "The stratospheric ozone layer protects life from harmful UV-B and UV-C radiation. CFCs (chlorofluorocarbons) released this chlorine that catalytically destroys ozone. The 1987 Montreal Protocol banned CFCs and is considered the most successful international environmental agreement.",
+    definition: "Stratospheric ozone absorbs harmful ultraviolet radiation and thereby protects living organisms. Certain synthetic compounds, notably chlorofluorocarbons, release chlorine in the stratosphere and catalyse ozone destruction, producing severe seasonal thinning over Antarctica. The Montreal Protocol organised a global phase-down of ozone-depleting substances and is widely regarded as a successful case of international environmental cooperation.",
     keyFacts: [
       "Stratospheric O₃: protects from UV-B (causes sunburn, skin cancer) and UV-C (even more harmful, mostly absorbed by O₂ and O₃)",
       "CFCs (chlorofluorocarbons): used as refrigerants, propellants, foam-blowing agents. They drift up to the stratosphere where UV radiation breaks them down, releasing chlorine",
@@ -1156,7 +1156,7 @@ explanationSections: [
     sectionId: "ENV-06",
     order: 5,
     title: "Pakistan's Environmental Context: Issues & Policy",
-    definition: "Pakistan faces interconnected environmental challenges — climate vulnerability, air pollution, water scarcity, biodiversity loss, deforestation, and waste management. The country's environmental policy is shaped by these realities and international commitments.",
+    definition: "Pakistan’s environment is shaped by the Indus basin, arid and monsoon climates, rapid urbanisation, and a development path that places heavy pressure on air, water, land, and living resources. Climate extremes, pollution, forest scarcity, and land degradation interact rather than occurring in isolation. National and provincial policy, international commitments, and local capacity together determine how far formal standards improve conditions on the ground.",
     keyFacts: [
       "Pakistan's KEY environmental issues: AIR POLLUTION (Lahore, Karachi among world's worst), WATER SCARCITY (per capita availability dropping, approaching 'water scarce' threshold), DEFORESTATION (only ~5% forest cover), BIODIVERSITY LOSS (threatened species), WASTE MANAGEMENT (massive uncollected waste), CLIMATE VULNERABILITY (top 10 globally)",
       "Pakistan water: per capita availability has dropped from ~5,000 m³ (1947) to ~1,000 m³ today — approaching the 'water scarce' threshold of 1,000 m³",
