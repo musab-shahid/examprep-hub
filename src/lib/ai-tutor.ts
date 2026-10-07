@@ -38,22 +38,6 @@ export interface ModelOption {
 export const MODEL_OPTIONS: ModelOption[] = [
   // Groq — fully free, fast inference, OpenAI-compatible API
   {
-    id: 'groq-llama-3.3-70b',
-    label: 'Llama 3.3 70B',
-    provider: 'groq',
-    model: 'llama-3.3-70b-versatile',
-    badge: 'Groq',
-    free: true,
-  },
-  {
-    id: 'groq-llama-3.1-8b',
-    label: 'Llama 3.1 8B',
-    provider: 'groq',
-    model: 'llama-3.1-8b-instant',
-    badge: 'Groq',
-    free: true,
-  },
-  {
     id: 'groq-gpt-oss-120b',
     label: 'GPT-OSS 120B',
     provider: 'groq',
@@ -66,6 +50,14 @@ export const MODEL_OPTIONS: ModelOption[] = [
     label: 'GPT-OSS 20B',
     provider: 'groq',
     model: 'openai/gpt-oss-20b',
+    badge: 'Groq',
+    free: true,
+  },
+  {
+    id: 'groq-qwen-3.8-27b',
+    label: 'Qwen 3.8 27B',
+    provider: 'groq',
+    model: 'qwen/qwen3.8-27b',
     badge: 'Groq',
     free: true,
   },
@@ -85,30 +77,6 @@ export const MODEL_OPTIONS: ModelOption[] = [
     provider: 'openrouter',
     model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     badge: 'NVIDIA',
-    free: true,
-  },
-  {
-    id: 'or-nemotron-super',
-    label: 'Nemotron 3 Super',
-    provider: 'openrouter',
-    model: 'nvidia/nemotron-3-super-120b-a12b:free',
-    badge: 'NVIDIA',
-    free: true,
-  },
-  {
-    id: 'or-qwen-3.8',
-    label: 'Qwen 3.8 27B',
-    provider: 'openrouter',
-    model: 'qwen/qwen3.8-27b:free',
-    badge: 'Qwen',
-    free: true,
-  },
-  {
-    id: 'or-gemma-4',
-    label: 'Gemma 4 31B',
-    provider: 'openrouter',
-    model: 'google/gemma-4-31b-it:free',
-    badge: 'Google',
     free: true,
   },
   // OpenRouter — paid models, verified active IDs
