@@ -1090,7 +1090,7 @@ function GrammarRulesBlock({ groups, expandedGroups, onToggleGroup }: {
   );
 }
 
-// ---- Quant Subtopics Block ----
+// ---- Topic subtopics (quant, env, etc.) ----
 interface QuantSubtopic {
   id: string;
   title: string;
@@ -1132,7 +1132,9 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                   <p className="text-slate-500 text-xs mt-0.5">{sub.summary}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums">{sub.examples.length}</span>
+                  {sub.examples.length > 0 && (
+                    <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums" title="Worked examples">{sub.examples.length}</span>
+                  )}
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                 </div>
               </button>
@@ -1154,13 +1156,13 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                     )}
                     {sub.shortcuts.length > 0 && (
                       <div className="rounded-lg bg-sky-50/60 p-3">
-                        <div className="flex items-center gap-1.5 mb-1.5"><Lightbulb className="w-3.5 h-3.5 text-sky-600" /><span className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Shortcuts</span></div>
+                        <div className="flex items-center gap-1.5 mb-1.5"><Lightbulb className="w-3.5 h-3.5 text-sky-600" /><span className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Key anchors</span></div>
                         <ul className="space-y-1">{sub.shortcuts.map((s, si2) => <li key={si2} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" /><MathText text={s} /></li>)}</ul>
                       </div>
                     )}
                     {sub.traps.length > 0 && (
                       <div className="rounded-lg bg-rose-50/60 p-3">
-                        <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-danger-600" /><span className="text-xs font-semibold text-danger-700 uppercase tracking-wide">Traps</span></div>
+                        <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-danger-600" /><span className="text-xs font-semibold text-danger-700 uppercase tracking-wide">Common pitfalls</span></div>
                         <ul className="space-y-1">{sub.traps.map((t, ti) => <li key={ti} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" /><MathText text={t} /></li>)}</ul>
                       </div>
                     )}

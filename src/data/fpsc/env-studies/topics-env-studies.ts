@@ -255,7 +255,56 @@ export const topics: Topic[] = [
         ["Sulfur", "Volcanoes + fossil fuels", "Coal burning → acid rain precursors"],
       ],
     },
-    relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
+    
+    subtopics: [
+      {
+        id: "env-prod-gpp-npp",
+        title: "GPP and NPP",
+        summary: "Total photosynthesis versus what remains after plant respiration.",
+        explanation: "Gross primary productivity (GPP) is the total rate at which producers capture energy by photosynthesis. Plants use some of that energy for their own respiration. Net primary productivity (NPP) is what remains: GPP minus autotrophic respiration. NPP is the energy base available to herbivores and, indirectly, to higher trophic levels.\n\nEcosystems can rank differently on GPP and NPP. A highly productive system with high plant respiration may not pass on as much net energy as a simpler comparison of greenness suggests. For study, always keep the subtraction explicit.",
+        examples: [
+          {
+            problem: "GPP is 12,000 units per year and plant respiration is 5,000. What is NPP?",
+            solution: "NPP = GPP − plant respiration = 12,000 − 5,000 = 7,000 units per year.",
+            answer: "7,000 units/year",
+          },
+        ],
+        shortcuts: [
+          "NPP = GPP − plant respiration",
+          "NPP is what consumers can draw on at the first transfer",
+        ],
+        traps: [
+          "Using GPP as if it were already net of plant metabolism",
+        ],
+      },
+      {
+        id: "env-prod-cycles-carbon-phos",
+        title: "Carbon and phosphorus cycles",
+        summary: "Two cycles with contrasting atmospheric roles.",
+        explanation: "In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Oceans and sediments store vast amounts of carbon; fossil fuels are concentrated geological stores. Burning those stores and clearing forests raise atmospheric carbon dioxide.\n\nThe phosphorus cycle lacks a major atmospheric gas phase comparable to carbon dioxide or nitrogen gas. Phosphorus moves chiefly through rock, water, soil, and organisms. That difference is a standard contrast in examinations: phosphorus is often limited in freshwaters and is tightly linked to mining and fertiliser runoff rather than to a well-mixed atmospheric pool.",
+        examples: [],
+        shortcuts: [
+          "Carbon has a large atmospheric leg; phosphorus does not",
+        ],
+        traps: [
+          "Inventing a dominant phosphorus gas cycle like N₂ or CO₂",
+        ],
+      },
+      {
+        id: "env-prod-nitrogen",
+        title: "Nitrogen fixation and human amplification",
+        summary: "From inert N₂ to reactive nitrogen in ecosystems.",
+        explanation: "Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Nitrogen fixation—by certain microbes, by lightning, and by industrial processes such as the Haber–Bosch pathway—converts nitrogen into reactive forms that enter soils and waters.\n\nHuman fertiliser production has greatly increased the flow of reactive nitrogen. Benefits to crop yield come with costs when excess nitrate runs off into water bodies, contributing to eutrophication, or when nitrogen oxides from combustion feed air pollution and deposition.",
+        examples: [],
+        shortcuts: [
+          "Fixation unlocks N₂; excess reactive nitrogen stresses water and air",
+        ],
+        traps: [
+          "Thinking plants take up N₂ gas directly without fixation pathways",
+        ],
+      },
+    ],
+relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-ecological-pyramids", "meteo-composition-today", "earth-j1", "earth-b6"],
   leadsTo: ["env-biodiversity", "env-air-pollution", "env-water-pollution-and-quality"],
@@ -758,7 +807,53 @@ relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-thr
         ["4", "Dispose", "Last resort (landfill/incineration without recovery)"],
       ],
     },
-    relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response"],
+    
+    subtopics: [
+      {
+        id: "env-soil-salinity",
+        title: "Salinity and waterlogging in irrigated land",
+        summary: "How irrigation can raise water tables and salt to the root zone.",
+        explanation: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Evaporation then leaves salts behind in the upper soil, and crop roots encounter a saline environment that reduces yield or kills sensitive plants.\n\nPakistan’s Indus basin irrigation is a classic setting for this problem. Large areas have been described as salt-affected or waterlogged when drainage and water management lag behind canal supply. Remedies involve drainage, more careful water application, salt-tolerant practices, and sometimes soil amendments—not slogans alone.",
+        examples: [],
+        shortcuts: [
+          "Rising water table + evaporation → surface salinisation",
+          "A basin-scale irrigation issue, not only a 'chemical spill' story",
+        ],
+        traps: [
+          "Blaming salinity only on industrial dumping",
+          "Assuming more irrigation water always improves soil health",
+        ],
+      },
+      {
+        id: "env-soil-pollution",
+        title: "Soil contamination",
+        summary: "Persistent chemicals and the slow recovery of land.",
+        explanation: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Because food systems depend on soil, contamination becomes a pathway to human exposure as well as an ecological problem.\n\nUnlike a river that may flush downstream, soil often retains pollutants. Prevention and careful waste handling therefore matter more than hoping for rapid natural clean-up.",
+        examples: [],
+        shortcuts: [
+          "Soil contamination is often long-lived; prevention beats late clean-up",
+        ],
+        traps: [
+          "Assuming soil recovers as quickly as some surface waters",
+        ],
+      },
+      {
+        id: "env-waste-hierarchy",
+        title: "Waste hierarchy and hazardous streams",
+        summary: "Prefer prevention and reuse; treat hazardous waste as a special class.",
+        explanation: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste.\n\nHazardous and biomedical wastes require segregated handling because of toxicity or infection risk. Mixing them into ordinary municipal streams multiplies harm. E-waste adds valuable metals and hazardous components in the same devices, which is why informal dumping and open burning are particularly damaging.",
+        examples: [],
+        shortcuts: [
+          "Order matters: prevent → reuse → recycle → dispose",
+          "Hazardous and biomedical waste must stay segregated",
+        ],
+        traps: [
+          "Treating recycling as the top of the hierarchy",
+          "Dumping clinical waste with household refuse",
+        ],
+      },
+    ],
+relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-water-pollution-and-quality", "earth-e1"],
   leadsTo: ["env-pakistan-environmental-context"],
@@ -814,7 +909,52 @@ relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-thr
         ["Nuclear", "Low-carbon, non-renewable fuel cycle", "Large baseload, low CO₂", "Waste, safety, cost debates"],
       ],
     },
-    relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality"],
+    
+    subtopics: [
+      {
+        id: "env-energy-fossil",
+        title: "Fossil fuels and their footprint",
+        summary: "Why coal, oil, and gas remain central to energy and environment debates.",
+        explanation: "Coal, oil, and natural gas store chemical energy from ancient organic matter. They supply dense, dispatchable power and fuels for transport and industry, which is why they still dominate many national mixes. Combustion releases carbon dioxide and, depending on the fuel and technology, sulphur dioxide, nitrogen oxides, and particulates.\n\nFrom an environmental perspective the issue is not only scarcity. It is the combination of greenhouse forcing, local air quality, and the land and water impacts of extraction. Cleaner combustion and end-of-pipe controls can reduce some pollutants, but carbon dioxide remains inherent to burning carbon-based fuels unless captured and stored.",
+        examples: [],
+        shortcuts: [
+          "Fossil fuels = high density and dispatchability + combustion emissions",
+          "Local air pollutants and CO₂ are related but not identical problems",
+        ],
+        traps: [
+          "Assuming natural gas has no climate impact because it is cleaner than coal",
+          "Treating 'energy security' and 'environmental impact' as the same question",
+        ],
+      },
+      {
+        id: "env-energy-renewables",
+        title: "Renewable electricity options",
+        summary: "Hydro, solar, and wind as low-fuel sources with different constraints.",
+        explanation: "Hydroelectric power uses elevation and water flow. It can provide large amounts of low-carbon electricity where geography allows, but reservoirs reshape rivers, ecosystems, and communities. Solar and wind convert ongoing natural energy fluxes. They produce no combustion emissions at the point of generation, yet their output varies with weather and time of day, so grids need storage, flexible backup, or interconnections.\n\nNo single renewable option is free of trade-offs. The environmental comparison is usually against fossil generation over the life cycle, not against a perfect zero-impact ideal.",
+        examples: [],
+        shortcuts: [
+          "Renewables cut fuel combustion; they still have siting and variability issues",
+        ],
+        traps: [
+          "Calling all renewables impact-free",
+          "Ignoring grid integration when praising variable solar and wind",
+        ],
+      },
+      {
+        id: "env-energy-pakistan",
+        title: "Pakistan's energy–environment links",
+        summary: "Mix, imports, and pressure on air and climate goals.",
+        explanation: "Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Where heavy residual fuel or coal is used without strong controls, urban and industrial air quality suffers alongside carbon emissions.\n\nEnergy policy therefore sits at the junction of affordability, reliability, air pollution, and climate commitments. Expanding cleaner generation helps only if it displaces dirtier kilowatt-hours in practice, not merely on paper.",
+        examples: [],
+        shortcuts: [
+          "Read energy choices as air + climate + reliability together",
+        ],
+        traps: [
+          "Discussing climate targets without reference to the real generation mix",
+        ],
+      },
+    ],
+relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality"],
     content: true,
   buildsOn: ["env-natural-resources", "phy-work-energy", "phy-power-efficiency", "phy-radioactivity-nuclear", "meteo-greenhouse-effect"],
   leadsTo: ["env-climate-change-response"],
