@@ -1041,647 +1041,582 @@ export const questions: Question[] = [
     correctAnswer: 1,
     explanation: "NT is a watch category between Least Concern and Vulnerable.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // TOPIC 3: Conservation & Extinction
-  // ───────────────────────────────────────────────────────
-
-  // Easy
   { id: "ENV-03-Q033", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "single",
     question: "In-situ conservation means:",
     options: [
       "Protecting species in their natural habitat",
-      "Protecting species in zoos and seed banks",
-      "Protecting species in botanical gardens only",
-      "Protecting species through legal laws only"
+      "Protecting species only in zoos and seed banks",
+      "Protecting species only in botanical gardens",
+      "Passing laws without protecting any habitat"
     ],
     correctAnswer: 0,
-    explanation: "In-situ = ON SITE = protecting species in their natural habitat (national parks, wildlife sanctuaries, biosphere reserves). Ex-situ = OFF SITE (zoos, seed banks, gene banks). Both are needed, but in-situ is generally preferred because it preserves entire ecosystems.",
+    explanation: "In-situ conservation protects species where they live (parks, sanctuaries, reserves). Ex-situ methods keep organisms or genetic material outside the wild.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q034", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "single",
-    question: "Ex-situ conservation includes all of the following EXCEPT:",
+    question: "Which of the following is not an ex-situ method?",
     options: ["Zoos", "Seed banks", "National parks", "Gene banks"],
     correctAnswer: 2,
-    explanation: "Ex-situ = OFF SITE = zoos, aquariums, seed banks, gene banks, cryopreservation. National parks are IN-SITU (on-site). The distinction is the key exam point: in-situ = ON natural habitat; ex-situ = AWAY from natural habitat.",
+    explanation: "National parks protect habitat on site (in-situ). Zoos, seed banks, and gene banks are off-site.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q035", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "true_false",
-    question: "The current 6th mass extinction is caused by asteroid impact, like the one that killed the dinosaurs.",
+    question: "The present biodiversity crisis is caused mainly by the same kind of asteroid impact that ended the age of non-avian dinosaurs.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. The current 6th mass extinction is caused entirely by HUMAN ACTIVITY (habitat loss, overexploitation, invasive species, pollution, climate change). The previous 5 mass extinctions were caused by natural events (asteroids, volcanic eruptions, sea level changes). This is what makes the current extinction crisis different from all previous ones.",
+    explanation: "False. Current losses are driven largely by human pressures (habitat loss, overexploitation, invasives, pollution, climate change), not a single impact event.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q036", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "single",
-    question: "Approximately how many mass extinctions has Earth experienced in its history (INCLUDING the current one)?",
+    question: "In common teaching, Earth has experienced how many major mass-extinction episodes if the present crisis is counted as a sixth?",
     options: ["3", "5", "6", "10"],
     correctAnswer: 2,
-    explanation: "5 background mass extinctions + 1 current (6th) = 6 total. The 5 background extinctions occurred naturally over ~500 million years. The current 6th is human-caused and is 100-1000× faster than the background rate. The exam may ask 'how many has Earth experienced (including current)?' = 6. 'How many before the current one?' = 5.",
+    explanation: "Five deep-time mass extinctions are usually listed, plus discussion of a sixth, human-driven crisis today.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-03-Q037", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
-    question: "Khunjerab National Park in Pakistan is primarily known for protecting:",
-    options: ["Marine turtles", "Snow leopards and Marco Polo sheep", "Indus river dolphins", "Arabian oryx"],
+    question: "Khunjerab National Park is especially associated with protection of:",
+    options: ["Marine turtles", "High-mountain fauna such as snow leopard (and related highland ungulates)", "Indus river dolphin", "Arabian oryx"],
     correctAnswer: 1,
-    explanation: "Khunjerab National Park (in Gilgit-Baltistan) is known for snow leopards and Marco Polo sheep (the world's largest wild sheep species). It's part of the 'Mountains of Central Asia' biodiversity hotspot. The other options are found elsewhere: marine turtles at Hingol/Sandspit, Indus dolphins in the Indus river system, Arabian oryx in Arabia (not Pakistan).",
+    explanation: "Khunjerab is a high-mountain park in northern Pakistan. River dolphins and marine turtles belong to other systems; Arabian oryx is not a Pakistani wild flagship.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q038", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
-    question: "The Markhor (Pakistan's national animal) is:",
+    question: "The markhor is often cited in Pakistani materials as:",
     options: [
       "Extinct in the wild",
-      "Critically endangered but stable",
-      "Recovering from endangered status due to conservation",
-      "Only found in zoos"
+      "A species with no conservation story",
+      "A conservation recovery example after heavy hunting pressure",
+      "Found only in overseas zoos"
     ],
     correctAnswer: 2,
-    explanation: "The Markhor is a CONSERVATION SUCCESS STORY — it was heavily poached for its magnificent horns but has RECOVERED significantly due to community-based conservation, hunting bans, and habitat protection. It was upgraded from endangered to 'near threatened' on the IUCN list. This is a rare positive biodiversity story and is often cited as an example of successful conservation.",
+    explanation: "Community-based conservation and protection measures are widely taught as improving markhor prospects after severe decline.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q039", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
-    question: "The 6th mass extinction differs from previous mass extinctions in that it is:",
+    question: "The present extinction crisis is often described as differing from deep-time mass extinctions because it is:",
     options: [
-      "Slower than background rate",
-      "Faster than background rate but still natural",
-      "Caused by human activity and 100-1000× faster than background rate",
-      "The same as previous ones"
+      "Slower than the background rate",
+      "Natural and unrelated to humans",
+      "Driven mainly by human activity and occurring much faster than typical background rates",
+      "Identical in cause to every past mass extinction"
     ],
     correctAnswer: 2,
-    explanation: "The current 6th mass extinction is caused by HUMAN ACTIVITY and is occurring 100-1000 TIMES FASTER than the natural background extinction rate (0.1-1 species per year). Previous 5 mass extinctions were caused by natural events (asteroids, volcanoes) at the natural background rate. This makes the current crisis unprecedented in both cause (anthropogenic) and speed.",
+    explanation: "Teaching comparisons stress anthropogenic drivers and elevated rates relative to background extinction.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q040", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
-    question: "Which type of conservation is generally PREFERRED for biodiversity protection?",
-    options: ["In-situ (on-site)", "Ex-situ (off-site)", "Both are equally preferred", "Neither — protection is impossible"],
+    question: "For protecting functioning ecosystems, which approach is generally preferred as the first line of action?",
+    options: ["In-situ (habitat) protection", "Ex-situ only", "Neither ever works", "Laws without any land protection"],
     correctAnswer: 0,
-    explanation: "In-situ (on-site) conservation is generally preferred because it preserves the ENTIRE ECOSYSTEM (all interacting species, their evolutionary processes, ecological relationships). Ex-situ (zoos, seed banks) is important as a BACKUP for critically endangered species but cannot preserve complex ecological interactions. In-situ = first choice; ex-situ = safety net.",
+    explanation: "In-situ protection keeps ecological relationships intact. Ex-situ methods are important backups, especially for critically low populations.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q041", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "true_false",
-    question: "Seed banks are an example of IN-SITU conservation.",
+    question: "Seed banks are an example of in-situ conservation.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. Seed banks (like the Svalbard Global Seed Vault) are EX-SITU conservation — they store seeds AWAY from their natural habitat. In-situ would be protecting the plant in its native ecosystem. Seed banks are crucial as backups but are off-site by definition.",
+    explanation: "False. Seed banks store material off-site and are therefore ex-situ.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q042", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "multi",
-    question: "Which of the following are examples of IN-SITU conservation? (Select all that apply.)",
+    question: "Which of the following are in-situ conservation measures? (Select all that apply.)",
     options: ["National park", "Zoo", "Wildlife sanctuary", "Biosphere reserve", "Seed bank"],
     correctAnswer: [0, 2, 3],
-    explanation: "In-situ (ON SITE) = national park, wildlife sanctuary, biosphere reserve, community conserved areas. Ex-situ (OFF SITE) = zoo, seed bank, gene bank, botanical garden. The distinguishing feature: in-situ protects species in their NATURAL habitat; ex-situ protects them elsewhere.",
+    explanation: "Parks, sanctuaries, and biosphere reserves protect habitat. Zoos and seed banks are ex-situ.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q043", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
-    question: "What was the cause of the dinosaur extinction (the most famous mass extinction)?",
+    question: "The end-Cretaceous extinction of non-avian dinosaurs is attributed mainly to:",
     options: [
       "Human hunting",
-      "Asteroid impact + volcanic activity",
-      "Climate change from human emissions",
-      "Deforestation"
+      "A major impact event and associated environmental disruption (with other geological factors debated)",
+      "Modern fossil-fuel emissions",
+      "Recent deforestation"
     ],
     correctAnswer: 1,
-    explanation: "The dinosaur extinction (~66 million years ago, the Cretaceous-Paleogene boundary) was caused by a massive ASTEROID impact (Chicxulub crater in Mexico) combined with extensive volcanic activity (Deccan Traps in India). It was a NATURAL mass extinction. Compare to the current 6th which is human-caused.",
+    explanation: "That extinction is a deep-time natural event, not a human cause.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-03-Q044", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "hard", type: "single",
-    question: "Why is the 6th mass extinction considered to be '100-1000× faster than the background rate'?",
+    question: "Saying present extinctions run far above “background” means:",
     options: [
-      "More species are being named per year",
-      "The background rate is calculated incorrectly",
-      "Species are going extinct at a much faster rate than the natural 0.1-1/year baseline",
-      "There are simply more species now than before"
+      "More species are being named each year",
+      "Observed losses substantially exceed the low natural baseline rate used for comparison",
+      "There are fewer species on Earth than in the past",
+      "Background rates are higher than present rates"
     ],
-    correctAnswer: 2,
-    explanation: "Current extinction rates are estimated at 100-1000 species per year (some estimates up to 10,000), while the natural BACKGROUND rate is 0.1-1 species per year. The ratio is 100-10,000×. This rapid loss is driven by habitat destruction, overexploitation, etc. — not by a natural mass extinction event.",
+    correctAnswer: 1,
+    explanation: "Background rate is a low baseline; elevated present rates are the core of the crisis narrative in teaching materials.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q045", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT distinctions in conservation and extinction? (Select all that apply.)",
+    question: "Which statements about conservation and extinction are correct? (Select all that apply.)",
     options: [
-      "In-situ = on-site; Ex-situ = off-site",
-      "The 6th mass extinction is human-caused; previous 5 were natural",
-      "The current extinction rate is 100-1000× faster than background",
-      "All 6 mass extinctions were caused by asteroids"
+      "In-situ is on-site; ex-situ is off-site",
+      "The present crisis is largely human-driven; deep-time mass extinctions had natural causes",
+      "Present rates are widely described as far above background",
+      "Every past mass extinction was caused by an asteroid"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: in-situ vs ex-situ distinction. (b) Correct: the 6th is human-caused; previous 5 were natural (asteroids, volcanoes, climate). (c) Correct: 100-1000× faster than background rate. (d) WRONG: only ONE of the 5 previous mass extinctions was caused by an asteroid (the dinosaur-killer). The others had different causes — volcanic activity, sea level changes, climate shifts.",
+    explanation: "Not every past mass extinction shares the same cause; the end-Cretaceous impact is one famous case among several different drivers.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q046", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about the 6th mass extinction:",
+    question: "Which statement best captures a common teaching point about the present extinction crisis?",
     options: [
-      "It is slower than previous mass extinctions",
-      "It is caused by natural processes like asteroids",
-      "It is the first mass extinction caused by a single species (humans)",
-      "It is only affecting tropical species"
+      "It is slower than background extinction",
+      "It is unrelated to human land use",
+      "It is driven primarily by human activity rather than a single natural catastrophe",
+      "It affects only tropical oceans"
     ],
     correctAnswer: 2,
-    explanation: "The 6th mass extinction is the FIRST in Earth's history to be caused by a SINGLE SPECIES (Homo sapiens). Previous extinctions were caused by physical events (asteroids, volcanoes, climate) that affected many species indiscriminately. This makes the current crisis unique — one species driving the loss of many others. It is faster (not slower) than background rate, and it affects all ecosystems (not just tropical).",
+    explanation: "Anthropogenic pressures across many biomes distinguish the present crisis in standard accounts.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q047", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "hard", type: "single",
-    question: "Why are SEED BANKS important even though in-situ conservation is preferred?",
+    question: "Seed banks remain important even when in-situ conservation is preferred because they:",
     options: [
-      "They produce new seeds",
-      "They serve as a backup against catastrophic loss of wild populations",
-      "They are cheaper than national parks",
-      "They prevent species from going extinct"
+      "Replace the need for any wild habitat",
+      "Provide genetic insurance if wild populations are lost",
+      "Always cost less than any park",
+      "Guarantee that no species can go extinct"
     ],
     correctAnswer: 1,
-    explanation: "Seed banks (like Svalbard Global Seed Vault) serve as a BACKUP against catastrophic loss of wild populations (e.g., if a species goes extinct in the wild, seeds can be used for reintroduction). They don't prevent extinction or produce new seeds — they preserve genetic material as insurance. This is why both in-situ AND ex-situ are needed.",
+    explanation: "Ex-situ stores are backups; they do not substitute for functioning ecosystems at scale.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-03-Q048", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "hard", type: "single",
-    question: "Which of the following is the best example of successful biodiversity conservation in Pakistan?",
+    question: "Which is the best example of a positive conservation narrative often cited for Pakistan?",
     options: [
-      "Indus river dolphin going extinct",
-      "Markhor recovering from endangered status due to community conservation",
-      "Forest cover declining to 5%",
-      "Increased pollution in major rivers"
+      "Complete loss of the Indus dolphin",
+      "Recovery progress for markhor under protection and community measures",
+      "Forest cover falling with no response",
+      "Rising untreated pollution with no policy tools"
     ],
     correctAnswer: 1,
-    explanation: "The Markhor is a rare conservation SUCCESS STORY — it was heavily poached but has recovered due to community-based conservation, hunting bans, and habitat protection. It was upgraded on the IUCN list. The other options are negative trends (dolphin declining, forest cover low, pollution increasing). This is a positive biodiversity story often cited in exams.",
+    explanation: "Markhor recovery is the standard positive counter-example amid other serious pressures.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 1: Natural Resources
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Natural resources ——
   { id: "ENV-04-Q001", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "easy", type: "single",
-    question: "Which of the following is a RENEWABLE resource?",
+    question: "Which of the following is a renewable energy resource on human timescales?",
     options: ["Coal", "Natural gas", "Solar energy", "Iron ore"],
     correctAnswer: 2,
-    explanation: "Solar energy is renewable — the sun provides it continuously and won't run out on human timescales. Coal, natural gas, and iron ore are non-renewable (formed over millions of years or extractable only once).",
+    explanation: "Sunlight is continuously available. Coal, gas, and ore stocks form or concentrate on geological timescales.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q002", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "easy", type: "single",
-    question: "Which of the following is NON-RENEWABLE?",
-    options: ["Wind energy", "Forests (sustainably managed)", "Copper ore", "Solar energy"],
+    question: "Which of the following is non-renewable?",
+    options: ["Wind energy", "A forest under sustainable harvest", "Copper ore", "Solar energy"],
     correctAnswer: 2,
-    explanation: "Copper ore is non-renewable — once mined, it cannot be replenished within human timescales (it forms over geological timescales). Wind, forests (if managed sustainably), and solar energy are all renewable.",
+    explanation: "Primary copper ore is a finite geological stock. Recycling reuses metal but does not recreate the ore body.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q003", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "easy", type: "true_false",
-    question: "Fossil fuels (coal, oil, natural gas) are examples of non-renewable resources formed over millions of years.",
+    question: "Fossil fuels are non-renewable resources formed from ancient organic matter over geological time.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Fossil fuels are the remains of ancient organisms (plants, plankton) that were buried and transformed over hundreds of millions of years. We burn them in centuries, releasing carbon that took millions of years to store. They are the textbook example of non-renewable resources.",
+    explanation: "True. Burning them releases that stored carbon far faster than natural formation rates.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q004", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "easy", type: "single",
-    question: "What is the correct order of the 5Rs from most to least preferred?",
+    question: "In the waste hierarchy, which order is preferred (best first)?",
     options: [
-      "Recycle → Reduce → Reuse → Refuse → Recover",
-      "Refuse → Reduce → Reuse → Recycle → Recover",
-      "Reuse → Recycle → Refuse → Reduce → Recover",
-      "Recover → Recycle → Reuse → Refuse → Reduce"
+      "Recycle → reduce → reuse → refuse → recover",
+      "Refuse → reduce → reuse → recycle → recover (dispose last)",
+      "Reuse → recycle → refuse → reduce → recover",
+      "Recover → recycle → reuse → refuse → reduce"
     ],
     correctAnswer: 1,
-    explanation: "Refuse (best — don't use it) → Reduce (use less) → Reuse (use again as-is) → Recycle (reprocess) → Recover (energy from waste). Disposal is the last resort. The exam often tests this order — Refuse first because the best waste is the waste never created.",
+    explanation: "Prevention and reduction beat recycling; disposal is last resort.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-04-Q005", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "The Billion Tree Tsunami afforestation drive was primarily implemented in which province of Pakistan?",
+    question: "The Billion Tree Tsunami afforestation drive was primarily associated with which province?",
     options: ["Punjab", "Sindh", "Khyber Pakhtunkhwa", "Balochistan"],
     correctAnswer: 2,
-    explanation: "The Billion Tree Tsunami was launched in Khyber Pakhtunkhwa (KP) as a large-scale afforestation and restoration programme. It is frequently cited in FPSC environmental and current-affairs style items as a provincial climate/forest initiative later echoed by national-scale drives.",
-    sourceCitation: "Pakistan environmental policy / FPSC-style current affairs" },
-
+    explanation: "It began as a major Khyber Pakhtunkhwa programme and is often linked to later national-scale tree drives.",
+    sourceCitation: "Pakistan environmental policy" },
   { id: "ENV-04-Q006", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "The FAO-recommended MINIMUM forest cover for a country is:",
+    question: "Teaching materials often contrast Pakistan’s ~5% forest cover with a widely cited desirable benchmark near:",
     options: ["5%", "10%", "25%", "50%"],
     correctAnswer: 2,
-    explanation: "The FAO recommends at least 25% forest cover for a healthy environment. Pakistan's ~5% is far below this. This threshold is based on the minimum area needed to maintain ecosystem services, biodiversity, and watershed functions.",
+    explanation: "About 25% is the common exam contrast figure against Pakistan’s low cover.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  { id: "ENV-04-Q007", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "Which of the following are FUNCTIONS of forests? (Select best answer)",
+  { id: "ENV-04-Q007", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "multi",
+    question: "Which are functions of forests? (Select all that apply.)",
     options: [
-      "Carbon sink only",
-      "Biodiversity habitat only",
-      "Watershed protection only",
-      "All of the above + cultural, soil, economic value"
+      "Carbon storage",
+      "Biodiversity habitat",
+      "Watershed protection",
+      "Soil conservation and livelihood products"
     ],
-    correctAnswer: 3,
-    explanation: "Forests provide MANY functions: carbon storage (sink), biodiversity habitat, watershed protection (regulating water flow), soil prevention, economic value (timber, NTFPs), cultural and indigenous value. Reducing forests to 'just one function' misses the multi-functionality that makes them so valuable.",
+    correctAnswer: [0, 1, 2, 3],
+    explanation: "Forests deliver multiple goods and services, not a single function.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q008", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "Deforestation globally contributes what percentage of CO₂ emissions?",
-    options: ["~1%", "~5%", "~10-15%", "~30%"],
+    question: "Deforestation’s share of global CO₂ emissions is often taught as roughly:",
+    options: ["~1%", "~5%", "~10–15%", "~50%"],
     correctAnswer: 2,
-    explanation: "Deforestation contributes approximately 10-15% of global CO₂ emissions — MORE than all cars and trucks combined. When forests are cleared, the carbon stored in trees is released (through burning or decomposition) AND the ongoing carbon sink is lost. This is why forest conservation is a major climate strategy.",
+    explanation: "Order-of-magnitude teaching figures place land-use emissions in the low-to-mid teens of percent of global CO₂, not negligible and not half of all emissions.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q009", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "Which of the following is a NON-TIMBER forest product (NTFP)?",
-    options: ["Lumber", "Firewood", "Honey from forest bees", "Pulpwood"],
+    question: "Which is a non-timber forest product?",
+    options: ["Sawn timber", "Industrial pulpwood", "Honey gathered from forest bees", "Construction lumber"],
     correctAnswer: 2,
-    explanation: "NTFPs (Non-Timber Forest Products) include honey, medicinal plants, nuts, mushrooms, gums, resins, and other products harvested WITHOUT cutting trees. Lumber, firewood, and pulpwood are all TIMBER products (require cutting trees). NTFPs are often more sustainable and can provide livelihoods without deforestation.",
+    explanation: "NTFPs are products other than wood harvested as timber.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q010", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "true_false",
-    question: "Refuse is the most preferred step in the 5Rs waste hierarchy because preventing waste is better than managing it.",
+    question: "In the waste hierarchy, refusing unnecessary consumption ranks above recycling.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. The 5Rs hierarchy is: Refuse > Reduce > Reuse > Recycle > Recover. Refuse is most preferred because the best waste is the waste that was never created in the first place. Recycling is good, but refusing (not creating the waste) is even better. This is a key exam point — many people put Recycle first, but Refuse comes first.",
+    explanation: "True. Avoiding waste is preferred to managing waste after it exists.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q011", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT distinctions? (Select all that apply.)",
+    question: "Which statements about resources and forests are correct? (Select all that apply.)",
     options: [
-      "Renewable = can be replenished; Non-renewable = finite stock",
-      "The 5Rs in order: Refuse > Reduce > Reuse > Recycle > Recover",
-      "Pakistan forest cover ~5%; FAO recommends 25%",
-      "Deforestation contributes 10-15% of global CO₂ emissions"
+      "Renewable resources can replenish on human timescales if managed",
+      "Refuse and reduce outrank recycle in the preferred hierarchy",
+      "Pakistan’s forest cover is low (~5% in standard figures)",
+      "Deforestation is a material contributor to global CO₂ emissions"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. These are the key statistics and principles for this topic. The 5Rs order, Pakistan's forest cover, deforestation's CO₂ contribution, and the renewable/non-renewable distinction are all frequently tested.",
+    explanation: "All four match standard teaching anchors for this topic.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q012", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "medium", type: "single",
-    question: "Sustainable forest management includes all of the following EXCEPT:",
+    question: "Sustainable forest management includes all of the following except:",
     options: [
-      "Selective harvesting (taking only mature trees)",
+      "Selective harvesting of mature trees where appropriate",
       "Reforestation after harvest",
-      "Complete clearing of all trees for agriculture",
-      "Community-based management giving locals a stake in conservation"
+      "Complete permanent clearance of forest for other land uses with no restoration",
+      "Community stakes in conservation outcomes"
     ],
     correctAnswer: 2,
-    explanation: "Sustainable forest management includes: selective harvesting (not clear-cutting), reforestation after harvest, community-based management, certification (e.g., FSC), and protected areas. Complete clearing (clear-cutting) for agriculture is the OPPOSITE of sustainable management — it's deforestation.",
+    explanation: "Clearing without restoration is conversion, not sustainable forest management.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // Hard
+  // —— Resource conflicts (remaining ids as in bank pattern ENV-04-Q017+ if user has full set; include Q017-Q032 from paste) ——
+  
   { id: "ENV-04-Q013", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "hard", type: "single",
-    question: "Why is the distinction between renewable and non-renewable resources CRITICAL for long-term planning?",
+    question: "Why does the renewable vs non-renewable distinction matter for long-term planning?",
     options: [
       "Non-renewables can be used indefinitely; renewables will run out soon",
-      "Non-renewables will eventually be depleted; renewables can be used sustainably indefinitely if managed well",
-      "Both categories behave the same way",
-      "Renewables are always cheaper"
+      "Non-renewable stocks can be depleted on human timescales; renewables can be used sustainably if harvest rates stay within regeneration",
+      "Both categories behave identically in every case",
+      "Renewables are always cheaper regardless of technology"
     ],
     correctAnswer: 1,
-    explanation: "Non-renewable resources (fossil fuels, minerals) exist in finite stocks — they WILL run out eventually if used faster than they form. Renewable resources (water, forests managed sustainably, solar) can theoretically be used indefinitely IF managed properly. This distinction is critical for energy policy: long-term planning must shift toward renewables to avoid running out of non-renewables.",
+    explanation: "Finite geological stocks require substitution and efficiency strategies. Renewable flows can continue if management respects regeneration and ecosystem limits.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q014", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT examples of resource use? (Select all that apply.)",
+    question: "Which examples of resource use are correctly described? (Select all that apply.)",
     options: [
-      "Burning coal for electricity is using a non-renewable resource",
-      "Harnessing solar power is using a renewable resource",
-      "Mining copper ore is using a non-renewable resource",
-      "Catching fish faster than they reproduce is overfishing (unsustainable)"
+      "Burning coal for electricity uses a non-renewable stock",
+      "Solar power uses a renewable energy flow",
+      "Mining primary copper ore uses a non-renewable geological stock",
+      "Catching fish faster than populations recover is unsustainable harvest"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. Coal, copper are non-renewable. Solar is renewable. Overfishing is a classic case of unsustainable use of a renewable resource — the resource CAN regenerate if harvested sustainably, but overexploitation drives collapse. The distinction between 'sustainable' and 'unsustainable' use applies to BOTH renewable and non-renewable resources.",
+    explanation: "All four match standard definitions of renewable flow, non-renewable stock, and overharvest.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q015", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "hard", type: "single",
-    question: "Why is RECYCLING alone insufficient to solve waste/resource problems?",
+    question: "Why is recycling alone insufficient to solve waste and resource problems?",
     options: [
-      "Recycling is too expensive",
-      "Recycling still uses energy and produces waste; preventing waste in the first place is better",
-      "Recycling is illegal in most countries",
-      "Recycling makes products weaker"
+      "Recycling is always illegal",
+      "Recycling still uses energy and materials and does not remove the need to refuse, reduce, and reuse",
+      "Recycling is always more damaging than landfilling",
+      "Recycling never recovers any material"
     ],
     correctAnswer: 1,
-    explanation: "Recycling alone is insufficient because: it still uses energy and water, it still produces some waste, and it doesn't address the original over-consumption. The 5Rs hierarchy places RECYCLE AFTER Refuse, Reduce, and Reuse — preventing waste at the source is better than managing it after the fact. Recycling is part of the solution but not the whole solution.",
+    explanation: "Recycling is useful but sits lower in the hierarchy than prevention and reuse; collection and reprocessing still have costs and losses.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q016", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about natural resources and Pakistan:",
+    question: "Which statement about natural resources and Pakistan is correct?",
     options: [
-      "Pakistan has abundant forest cover (>30%)",
-      "Fossil fuels are renewable because they form continuously",
-      "Forests provide ecosystem services beyond just timber (carbon, water, biodiversity)",
-      "All forms of energy are equally sustainable"
+      "Pakistan has abundant forest cover above 30% in standard figures",
+      "Fossil fuels are renewable because they form continuously on human timescales",
+      "Forests provide services beyond timber, including carbon, water regulation, and habitat",
+      "Every energy source is equally sustainable"
     ],
     correctAnswer: 2,
-    explanation: "Forests provide MANY ecosystem services beyond timber — carbon sequestration, watershed protection, biodiversity habitat, soil prevention, cultural value. Pakistan's forest cover is only ~5% (NOT abundant). Fossil fuels are NON-renewable (they form over millions of years, not continuously). Energy forms vary in sustainability — fossil fuels are much less sustainable than solar/wind.",
+    explanation: "Multi-function forests are the teaching point. Cover is low (~5%), and fossil fuels are non-renewable on human timescales.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 2: Resource Conflicts
-  // ───────────────────────────────────────────────────────
-
-  // Easy
-  { id: "ENV-04-Q017", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "easy", type: "single",
-    question: "The INDUS WATERS TREATY was signed in:",
-    options: ["1947", "1960", "1971", "1985"],
+{ id: "ENV-04-Q017", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "easy", type: "single",
+    question: "The Indus Waters Treaty was signed in:",
+    options: ["1947", "1960", "1971", "1998"],
     correctAnswer: 1,
-    explanation: "The Indus Waters Treaty was signed in 1960, brokered by the World Bank. It divided the six rivers of the Indus system between India (3 eastern: Ravi, Beas, Sutlej) and Pakistan (3 western: Indus, Jhelum, Chenab). It has held for over 60 years despite multiple wars — a remarkable achievement in water diplomacy.",
+    explanation: "The treaty dates to 1960, with World Bank brokerage in standard accounts.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q018", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "easy", type: "single",
     question: "The Billion Tree Tsunami was a major reforestation initiative in:",
     options: ["India", "Bangladesh", "Pakistan", "Afghanistan"],
     correctAnswer: 2,
-    explanation: "The Billion Tree Tsunami (2014-2017) was a major Pakistani initiative that planted 1 billion trees in Khyber Pakhtunkhwa province. It was expanded to the 10 Billion Tree Tsunami nationwide (2018+). This is one of the largest reforestation efforts in the developing world.",
+    explanation: "It is a Pakistani programme, starting in Khyber Pakhtunkhwa and linked to later national-scale drives.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q019", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "easy", type: "true_false",
-    question: "Deforestation contributes more CO₂ to the atmosphere than all the world's cars and trucks combined.",
+    question: "In standard teaching comparisons, deforestation’s CO₂ contribution is often described as larger than that of all cars and trucks combined.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Deforestation contributes approximately 10-15% of global CO₂ emissions — more than the entire global transportation sector (all cars, trucks, planes, ships). When forests are cleared, the carbon stored in trees is released AND the ongoing carbon sink is lost. This is why forest conservation is critical for climate.",
+    explanation: "True as a common exam comparison using land-use emission shares; exact percentages vary by dataset and year.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q020", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "easy", type: "single",
-    question: "The Indus Waters Treaty (1960) divided how many rivers between India and Pakistan?",
+    question: "The Indus Waters Treaty (1960) divided how many rivers between India and Pakistan in the usual summary?",
     options: ["3", "4", "6", "9"],
     correctAnswer: 2,
-    explanation: "The treaty divided SIX rivers of the Indus system: India got the 3 eastern rivers (Ravi, Beas, Sutlej); Pakistan got the 3 western rivers (Indus, Jhelum, Chenab). Three and three.",
+    explanation: "Six rivers: three western (Pakistan-primary) and three eastern (India-primary).",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-04-Q021", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "single",
-    question: "Which rivers did PAKISTAN receive under the Indus Waters Treaty?",
+    question: "Which rivers did Pakistan receive under the Indus Waters Treaty?",
     options: [
       "Ravi, Beas, Sutlej",
       "Indus, Jhelum, Chenab",
       "Ganges, Yamuna, Brahmaputra",
-      "All six Indus rivers"
+      "All six rivers exclusively"
     ],
     correctAnswer: 1,
-    explanation: "Pakistan received the 3 WESTERN rivers: Indus, Jhelum, Chenab. India received the 3 eastern rivers: Ravi, Beas, Sutlej. (The Ganges system is in India proper, not part of the Indus treaty.)",
+    explanation: "Western set: Indus, Jhelum, Chenab. Eastern set for India: Ravi, Beas, Sutlej.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q022", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "single",
-    question: "The '10 Billion Tree Tsunami' is:",
+    question: "The 10 Billion Tree Tsunami is:",
     options: [
-      "An expansion of Pakistan's Billion Tree Tsunami initiative",
-      "An Indian program",
-      "A Chinese reforestation program",
-      "A UN program only"
+      "The expanded national-scale follow-on to earlier billion-tree efforts",
+      "A mining arbitration case",
+      "An ozone treaty",
+      "A groundwater-only statute"
     ],
     correctAnswer: 0,
-    explanation: "The 10 Billion Tree Tsunami (2018+) is the EXPANSION of Pakistan's Billion Tree Tsunami (2014-2017) to nationwide scale. It is one of the largest reforestation programs in the developing world, addressing Pakistan's critically low forest cover (~5% vs FAO-recommended 25%).",
+    explanation: "It scales provincial planting and restoration ambitions to a national programme.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q023", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "single",
-    question: "Which of the following is NOT a function of forests?",
-    options: ["Carbon sequestration", "Watershed protection", "Coal formation", "Biodiversity habitat"],
+    question: "Which is not a function of living forests today?",
+    options: ["Carbon sequestration", "Watershed protection", "Forming new coal seams on human timescales", "Biodiversity habitat"],
     correctAnswer: 2,
-    explanation: "Forests do not FORM coal. Coal formed millions of years ago from ancient forests that were buried and compressed. Living forests today provide carbon sequestration, watershed protection, and biodiversity habitat — but they don't create coal (that process is geological and happened over geological timescales).",
+    explanation: "Coal formation is a geological process over deep time, not a present forest ecosystem service.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q024", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "single",
-    question: "Solutions to resource conflicts include all of the following EXCEPT:",
+    question: "Which is least likely to be a practical general solution to resource conflict?",
     options: [
-      "International agreements (e.g., Indus Waters Treaty)",
-      "Community-based management",
-      "Fencing off resources from all human use",
-      "Economic instruments (e.g., payments for ecosystem services)"
+      "International agreements where borders are involved",
+      "Community-based management with local stakes",
+      "Excluding all human use from every contested resource forever",
+      "Economic incentives for conservation"
     ],
     correctAnswer: 2,
-    explanation: "Resource conflicts can be resolved through international agreements, community-based management, and economic instruments. FENCING OFF resources from ALL human use is rarely practical and often harms local communities. Sustainable solutions balance conservation with human needs, rather than excluding people entirely.",
+    explanation: "Total exclusion is rarely workable; durable solutions usually balance needs and conservation.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q025", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "single",
-    question: "What is the Reko Diq case in Pakistan an example of?",
+    question: "The Reko Diq case is best used in teaching as an example of:",
     options: [
-      "Successful conservation",
-      "A mining conflict resolved through international arbitration",
-      "Reforestation success",
-      "Renewable energy project"
+      "A pure reforestation success",
+      "Conflict over large-scale mineral development, rights, and institutions",
+      "A renewable energy park",
+      "An ozone treaty"
     ],
     correctAnswer: 1,
-    explanation: "Reko Diq (in Balochistan) is a large copper-gold deposit that became a major international arbitration case over mining rights vs. environmental and provincial concerns. It was settled through international arbitration (the World Bank's ICSID). It's a classic example of a mineral resource conflict resolved (contentiously) through international legal process.",
+    explanation: "It illustrates mining-scale resource conflict and legal/institutional dispute, not trees or ozone.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q026", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT facts about the Indus Waters Treaty? (Select all that apply.)",
+    question: "Which statements about the Indus Waters Treaty are correct in standard teaching? (Select all that apply.)",
     options: [
-      "It was signed in 1960",
-      "It was brokered by the World Bank",
-      "Pakistan received the 3 western rivers (Indus, Jhelum, Chenab)",
-      "It divided 6 rivers total"
+      "Signed in 1960",
+      "World Bank brokerage",
+      "Western rivers primarily for Pakistan in the usual summary",
+      "Six rivers of the system are part of the allocation story"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. The treaty was signed in 1960, brokered by the World Bank, divided 6 rivers (3 western to Pakistan, 3 eastern to India), and has held for over 60 years despite multiple wars. It is one of the most successful international water-sharing agreements in history.",
+    explanation: "These are the usual syllabus anchors.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q027", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "true_false",
-    question: "The 10 Billion Tree Tsunami is a Pakistani initiative to address the country's very low forest cover.",
+    question: "Large tree-planting programmes in Pakistan aim partly to respond to very low national forest cover.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Pakistan's forest cover is ~5%, far below the FAO-recommended 25%. The 10 Billion Tree Tsunami (2018+) is the expanded version of the Billion Tree Tsunami (2014-2017), aimed at increasing forest cover nationwide. It is one of the largest reforestation efforts in the developing world.",
+    explanation: "True. Low cover is a core motive in policy narratives.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-04-Q028", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "hard", type: "single",
-    question: "Why is the Indus Waters Treaty considered one of the most successful international resource agreements?",
+    question: "The Indus Waters Treaty is often called resilient mainly because:",
     options: [
-      "It solved all water disputes permanently",
-      "It has held for over 60 years despite multiple wars between India and Pakistan",
-      "It eliminated all water pollution",
-      "It was never challenged in court"
+      "It ended all domestic water scarcity",
+      "It has persisted for decades through severe political tension",
+      "It eliminated all pollution in the basin",
+      "It was never disputed in any forum"
     ],
     correctAnswer: 1,
-    explanation: "The IWT has held for over 60 years despite FOUR wars between India and Pakistan (1947, 1965, 1971, 1999). It has been a remarkable achievement in water diplomacy, brokered by the World Bank. The treaty has been challenged and modified, but it has never been formally abrogated. It's a rare success in conflict-prone water-sharing.",
+    explanation: "Longevity under conflict is the teaching point; it does not remove internal scarcity or pollution.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q029", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT examples of resource conflicts in Pakistan? (Select all that apply.)",
+    question: "Which are examples of resource-conflict themes in Pakistan? (Select all that apply.)",
     options: [
-      "Indus Waters Treaty (water sharing with India)",
-      "Reko Diq (mining rights vs. environment)",
-      "Diamer-Bhasha Dam (displacement of communities)",
-      "Thar coal mining (local environment vs. energy)"
+      "Transboundary river allocation",
+      "Large mining projects",
+      "Dam construction and displacement",
+      "Coal extraction versus local environment"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct examples of resource conflicts in Pakistan: (a) water sharing, (b) mining rights vs. environment, (c) dam-induced displacement, (d) coal mining trade-offs. Each represents the tension between development/consumption and environmental/social protection.",
+    explanation: "Water, minerals, dams, and energy extraction all appear in national case teaching.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q030", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about Pakistan's forest initiatives:",
+    question: "Which statement about Pakistan’s forest initiatives is correct?",
     options: [
-      "Billion Tree Tsunami (1 billion) was a failure",
-      "10 Billion Tree Tsunami is the EXPANDED national program",
-      "Pakistan's forest cover is already at the FAO-recommended 25%",
-      "Deforestation has no climate impact"
+      "No tree programmes have ever been tried",
+      "National-scale drives build on earlier provincial billion-tree efforts",
+      "Forest cover already meets a 25% benchmark",
+      "Deforestation has no climate relevance"
     ],
     correctAnswer: 1,
-    explanation: "The 10 Billion Tree Tsunami is the expanded, nationwide version of the Billion Tree Tsunami (which was originally 1 billion trees in KPK). Pakistan's forest cover is only ~5%, far below the FAO's 25% recommendation. Deforestation has a significant climate impact (10-15% of global CO₂). The Billion Tree Tsunami was generally successful in KPK and was expanded.",
+    explanation: "Expansion from provincial to national planting narratives is the standard story; cover remains low.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q031", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "hard", type: "single",
-    question: "Why are community-based forest management initiatives important in Pakistan?",
+    question: "Community-based forest management is important mainly because it:",
     options: [
-      "They exclude local communities from forests",
-      "They give local communities a stake in conservation, providing livelihoods while protecting forests",
-      "They are mandated by the UN",
-      "They prevent all logging"
+      "Always bans all local use",
+      "Can align local livelihoods with conservation incentives",
+      "Is required by every UN treaty identically",
+      "Ends the need for any national policy"
     ],
     correctAnswer: 1,
-    explanation: "Community-based management gives local people LIVELIHOODS through sustainable forest use, giving them a stake in conservation. This approach (exemplified by the Billion Tree Tsunami's success in KPK) is more effective than top-down exclusion. When locals benefit from forests, they protect them. Pure exclusion often fails because locals have no alternative and revert to exploitation.",
+    explanation: "Local stakes improve compliance and reduce pure exclusion failures.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-04-Q032", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "hard", type: "single",
-    question: "Which rivers did INDIA receive under the Indus Waters Treaty?",
+    question: "Under the usual Indus Waters Treaty teaching split, India received primary use of which set?",
     options: [
       "Indus, Jhelum, Chenab",
       "Ravi, Beas, Sutlej",
       "Ganges, Yamuna, Brahmaputra",
-      "Indus, Ganges, Sutlej"
+      "Only the Indus main stem"
     ],
     correctAnswer: 1,
-    explanation: "India received the 3 EASTERN rivers: Ravi, Beas, Sutlej. Pakistan got the 3 western rivers: Indus, Jhelum, Chenab. The Ganges system is in India proper (not part of the Indus treaty). This is a frequently-tested detail — memorize the actual split.",
+    explanation: "Eastern rivers Ravi, Beas, and Sutlej are the India-primary set in standard summaries.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 1: Air Pollution
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // —— Air pollution ——
   { id: "ENV-05-Q001", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
-    question: "Which of the following is a PRIMARY air pollutant (emitted directly from a source)?",
-    options: ["Ozone (O₃) formed from NOₓ + sunlight", "Sulfur dioxide (SO₂) from coal burning", "Acid rain (formed from SO₂ + water)", "Photochemical smog"],
+    question: "Which is a primary air pollutant emitted directly from a source?",
+    options: [
+      "Ozone formed from precursors in sunlight",
+      "Sulphur dioxide from burning sulphur-bearing fuel",
+      "Acid rain formed in the atmosphere",
+      "Photochemical smog as a mixture"
+    ],
     correctAnswer: 1,
-    explanation: "PRIMARY pollutants are emitted DIRECTLY from a source. SO₂ is emitted directly from burning coal. (a) Ozone is SECONDARY (formed in atmosphere). (c) Acid rain is SECONDARY (formed from SO₂ + water). (d) Smog is SECONDARY (formed by atmospheric reactions).",
+    explanation: "SO₂ is emitted at the source. Ozone, acid rain, and photochemical smog involve atmospheric formation.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q002", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
     question: "PM₂.₅ refers to particles with diameter:",
-    options: ["≤ 2.5 micrometers", "≤ 10 micrometers", "≤ 25 micrometers", "≤ 50 micrometers"],
+    options: ["≤ 2.5 micrometres", "≤ 10 micrometres", "≤ 25 micrometres", "≤ 50 micrometres"],
     correctAnswer: 0,
-    explanation: "PM₂.₅ = particles ≤2.5 micrometers in diameter. These fine particles penetrate deep into the lungs and are more dangerous to health than larger PM₁₀ particles (≤10 micrometers). PM₂.₅ is the key health-relevant measure in modern air quality standards.",
+    explanation: "PM₂.₅ is the fine fraction; it penetrates deeper into the lungs than coarser PM₁₀.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q003", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "true_false",
-    question: "Ozone in the TROPOSPHERE is a harmful air pollutant, while ozone in the STRATOSPHERE protects us from UV radiation.",
+    question: "Tropospheric ozone is a harmful pollutant, while stratospheric ozone absorbs harmful ultraviolet radiation.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Stratospheric ozone (15-35 km up) forms the ozone layer that absorbs harmful UV-B and UV-C radiation. Tropospheric ozone (ground level) is a harmful pollutant that causes respiratory problems and damages plants. The same molecule (O₃) has opposite effects depending on altitude — a commonly tested distinction.",
+    explanation: "True. Same molecule, opposite roles by altitude.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q004", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
-    question: "The classic 1952 London smog event was caused by:",
-    options: ["Photochemical smog (summer sunlight)", "Sulfurous smog (winter coal burning + fog)", "Volcanic eruption", "Vehicle exhaust"],
-    correctAnswer: 1,
-    explanation: "The 1952 London smog was a SULFUROUS smog — winter cold + coal burning + fog trapped SO₂ and smoke over London, killing thousands. This led to the UK Clean Air Act 1956. Photochemical smog (LA type) is different — summer sunlight + NOₓ + VOCs.",
-    sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
-  { id: "ENV-05-Q005", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "Which of the following is a SECONDARY air pollutant?",
-    options: ["Sulfur dioxide (SO₂) from a power plant", "Particulate matter from a diesel truck", "Ozone (O₃) formed from NOₓ + VOCs + sunlight", "Carbon monoxide from a generator"],
-    correctAnswer: 2,
-    explanation: "SECONDARY pollutants are formed IN THE ATMOSPHERE by chemical reactions. Ozone is the classic example — it's not emitted directly (mostly); it forms when NOₓ and VOCs react in sunlight. SO₂, PM, and CO are all PRIMARY (emitted directly from sources).",
-    sourceCitation: "Standard environmental science curriculum" },
-
-  { id: "ENV-05-Q006", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "Photochemical smog typically occurs in:",
-    options: ["Cold winter nights", "Hot sunny days", "Rainy seasons", "High-altitude only"],
-    correctAnswer: 1,
-    explanation: "Photochemical smog (LA-type) forms when NOₓ + VOCs react in SUNLIGHT to produce ozone and PAN. This requires intense sunlight, so it forms on hot, sunny days — typically summer in urban areas like Los Angeles, Delhi, or Lahore. Sulfurous smog (London-type) is the cold-weather variant.",
-    sourceCitation: "Standard environmental science curriculum" },
-
-  { id: "ENV-05-Q007", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "Acid rain is primarily caused by:",
+    question: "The 1952 London smog episode is classically associated with:",
     options: [
-      "SO₂ and NOₓ reacting with water vapor in the atmosphere",
-      "CO₂ dissolving in rainwater",
-      "Pure rainwater (naturally acidic due to dissolved CO₂)",
-      "Ozone depletion"
+      "Summer photochemical smog only",
+      "Cold, stagnant weather with coal smoke and sulphur pollution",
+      "A single volcanic eruption over London",
+      "Only modern catalytic converters failing"
+    ],
+    correctAnswer: 1,
+    explanation: "Classical sulphurous smog under inversion-like stagnant winter conditions is the teaching model.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-05-Q005", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
+    question: "Which is a secondary air pollutant?",
+    options: [
+      "SO₂ from a power plant stack",
+      "Diesel particulate at the tailpipe",
+      "Ozone formed from NOₓ and VOCs in sunlight",
+      "Carbon monoxide from incomplete combustion"
+    ],
+    correctAnswer: 2,
+    explanation: "Ground-level ozone forms in the atmosphere from precursors.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-05-Q006", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
+    question: "Photochemical smog is most favoured by:",
+    options: ["Cold foggy nights only", "Strong sunlight and precursor emissions", "Heavy continuous rain only", "High altitude with no traffic"],
+    correctAnswer: 1,
+    explanation: "Sunlight drives the chemistry of NOₓ and VOCs toward oxidants such as ozone.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-05-Q007", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
+    question: "Acid rain is primarily linked to:",
+    options: [
+      "SO₂ and NOₓ forming strong acids in the atmosphere",
+      "Only pure distilled water",
+      "Stratospheric ozone loss alone",
+      "Helium emissions"
     ],
     correctAnswer: 0,
-    explanation: "Acid rain is caused by SO₂ (from coal/oil burning) and NOₓ (from vehicles) reacting with water vapor in the atmosphere to form sulfuric acid (H₂SO₄) and nitric acid (HNO₃), which fall as acid rain. Normal rain is slightly acidic (pH ~5.6) due to dissolved CO₂, but ACID RAIN is much more acidic (pH < 5).",
+    explanation: "Sulphuric and nitric acids from sulphur and nitrogen oxides are the classic pathway.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q008", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "Radon in homes is an example of:",
-    options: ["Outdoor air pollution", "Indoor air pollution", "Photochemical smog", "Vehicle emissions"],
+    question: "Radon entering buildings is classified as:",
+    options: ["Outdoor photochemical smog", "An indoor air pollutant", "Vehicle exhaust only", "A greenhouse gas policy instrument"],
     correctAnswer: 1,
-    explanation: "Radon is a naturally occurring radioactive gas that seeps into homes from soil and rocks — a major INDOOR air pollution concern. It's the second-leading cause of lung cancer after smoking. Other indoor pollutants: biomass cooking smoke, asbestos, formaldehyde, tobacco smoke. Indoor air pollution kills ~4 million people/year globally, mostly in developing countries.",
+    explanation: "Radon is a natural radioactive indoor air hazard from soils and rocks.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q009", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "Which air pollution control technology is used in VEHICLE EXHAUSTS to reduce NOₓ, CO, and VOCs?",
-    options: ["Electrostatic precipitator", "Scrubber (wet/dry)", "Catalytic converter", "HEPA filter"],
+    question: "Which control device is used on vehicle exhausts to reduce NOₓ, CO, and unburned hydrocarbons?",
+    options: ["Electrostatic precipitator", "Flue-gas scrubber for SO₂", "Catalytic converter", "HEPA filter for room air"],
     correctAnswer: 2,
-    explanation: "The CATALYTIC CONVERTER is used in vehicle exhausts — it uses catalysts to convert NOₓ, CO, and unburned hydrocarbons (VOCs) into less harmful N₂, CO₂, and H₂O. Electrostatic precipitators and bag filters remove particulates (from power plants). Scrubbers remove SO₂. HEPA filters are for indoor air.",
+    explanation: "Catalytic converters target gaseous pollutants in petrol/diesel exhaust streams.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q010", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "true_false",
-    question: "PM₂.₅ is MORE dangerous to human health than PM₁₀ because smaller particles penetrate deeper into the lungs.",
+    question: "PM₂.₅ is generally more dangerous than PM₁₀ because finer particles penetrate deeper into the respiratory system.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. PM₂.₅ (≤2.5 μm) penetrates deep into the alveoli (air sacs) of the lungs and can enter the bloodstream, causing cardiovascular and respiratory diseases. PM₁₀ (≤10 μm) is larger and gets trapped in the upper airways. The smaller the particle, the deeper it goes — and the more dangerous it is.",
+    explanation: "True. Size governs deposition depth and health risk.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q011", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT distinctions in air pollution? (Select all that apply.)",
+    question: "Which statements about air pollution are correct? (Select all that apply.)",
     options: [
-      "Primary pollutants are emitted directly; secondary form in the atmosphere",
-      "PM₂.₅ is smaller and more dangerous than PM₁₀",
-      "Stratospheric ozone is harmful; tropospheric ozone protects",
-      "Photochemical smog forms in hot, sunny conditions from NOₓ + VOCs"
+      "Primary pollutants are emitted directly; secondary form in air",
+      "PM₂.₅ is finer than PM₁₀ and usually more hazardous",
+      "Stratospheric ozone is the urban pollutant; tropospheric ozone is the UV shield",
+      "Photochemical smog needs sunlight and precursor gases"
     ],
     correctAnswer: [0, 1, 3],
-    explanation: "(a) Correct: primary vs secondary distinction. (b) Correct: PM₂.₅ smaller, more dangerous. (c) WRONG: it's the OPPOSITE — stratospheric ozone PROTECTS (ozone layer); tropospheric ozone is harmful (pollutant). (d) Correct: photochemical smog forms in sunlight from NOₓ + VOCs.",
+    explanation: "Option (c) reverses the roles of stratospheric and tropospheric ozone.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q012", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
-    question: "The NEQS in Pakistan stands for:",
+    question: "In Pakistan, NEQS stands for:",
     options: [
-      "National Emission Quality Standards",
+      "National Emission Quota Scheme",
       "National Environmental Quality Standards",
-      "National Energy Quota System",
-      "Natural Element Quality Survey"
+      "National Energy Quality Survey",
+      "Natural Element Quality Standards"
     ],
     correctAnswer: 1,
-    explanation: "NEQS = National Environmental Quality Standards — Pakistan's legal limits for ambient air pollutants, water discharges, and noise. Set by the Pakistan Environmental Protection Agency (Pak-EPA). Enforced weakly but the legal framework exists.",
+    explanation: "NEQS are legal-technical environmental quality limits (air, effluent, etc.).",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-05-Q013", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT statement about the stratospheric ozone layer:",
+    question: "Stratospheric ozone depletion is primarily linked historically to:",
     options: [
-      "It is being depleted by CFCs (chlorofluorocarbons)",
-      "It is harmful to human health",
-      "It is found at the same altitude as tropospheric ozone",
-      "It is increasing due to fossil fuel burning"
+      "Chlorofluorocarbons and related ozone-depleting substances",
+      "Ground-level traffic ozone alone",
+      "Helium balloons",
+      "Photosynthesis"
     ],
     correctAnswer: 0,
-    explanation: "The stratospheric ozone layer (15-35 km up) is being depleted by CFCs, which release chlorine that catalytically destroys ozone. This led to the Montreal Protocol (1987) banning CFCs. Stratospheric ozone is PROTECTIVE (absorbs UV-B). Tropospheric ozone is the harmful pollutant. They are at DIFFERENT altitudes with opposite effects.",
+    explanation: "ODS chemistry in the stratosphere is the Montreal Protocol story; do not confuse with urban smog ozone.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q014", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT causes of ACID RAIN? (Select all that apply.)",
+    question: "Which contribute to acidic deposition pathways? (Select all that apply.)",
     options: [
-      "SO₂ from coal burning reacting with water in the atmosphere",
-      "NOₓ from vehicle exhausts reacting with water in the atmosphere",
-      "CO₂ dissolving in rainwater (normal rain is slightly acidic)",
-      "Pure ozone in the troposphere dissolving in clouds"
+      "SO₂ from sulphur in fuels",
+      "NOₓ from high-temperature combustion",
+      "Natural background acidity of rain from dissolved CO₂ (mild)",
+      "Tropospheric ozone as the sole acid-rain molecule"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: SO₂ + H₂O → H₂SO₄ (sulfuric acid). (b) Correct: NOₓ + H₂O → HNO₃ (nitric acid). (c) Correct: even normal rain is slightly acidic (pH ~5.6) due to dissolved CO₂ forming carbonic acid. (d) WRONG: ozone doesn't directly cause acid rain. The two main ACID RAIN components are sulfuric acid and nitric acid, both from human industrial activities.",
+    explanation: "Strong acid rain is driven by S and N oxides; CO₂ makes natural rain slightly acidic; ozone is not the main acid-rain species.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q015", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "hard", type: "single",
-    question: "Why is indoor air pollution particularly dangerous in developing countries?",
+    question: "Household biomass smoke is a major health issue mainly because:",
     options: [
-      "Indoor air pollution is more toxic than outdoor per molecule",
-      "Biomass cooking smoke kills ~4 million people/year, mostly in developing countries",
-      "Homes in developing countries are more airtight",
-      "Developing countries have stricter air quality standards"
+      "It only occurs outdoors",
+      "Prolonged indoor exposure to fine particles and combustion products is widespread where solid fuels are used",
+      "It contains no particles",
+      "It is regulated more strictly than outdoor air everywhere"
     ],
     correctAnswer: 1,
-    explanation: "Biomass cooking smoke (from wood, charcoal, dung) is a major indoor air pollution killer — ~4 million deaths/year globally, predominantly women and children in developing countries. It contains PM, CO, and many carcinogens. Developing countries have weaker regulations, not stricter. The toxicity isn't higher per molecule — it's the duration of exposure (many hours daily in poorly ventilated homes).",
+    explanation: "Long daily exposure in poorly ventilated homes drives large health burdens.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-05-Q016", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "hard", type: "single",
-    question: "Why is Lahore's air quality particularly bad in winter (October-January)?",
+    question: "Severe winter particulate episodes in cities such as Lahore are best explained by:",
     options: [
-      "More vehicles are on the road in winter",
-      "Temperature inversions trap pollutants + agricultural residue burning",
-      "Lahore is closer to the equator in winter",
-      "Factories operate more in winter"
+      "Only an increase in the number of registered cars each winter day",
+      "Stagnant meteorology (including inversions) plus local and regional emissions, sometimes including agricultural burning plumes",
+      "Lahore moving closer to the equator in winter",
+      "Factories operating only in winter by law"
     ],
     correctAnswer: 1,
-    explanation: "Lahore's winter air quality crisis is caused by: (1) TEMPERATURE INVERSIONS — cold air near the ground traps pollutants under a layer of warm air, preventing dispersion; (2) AGRICULTURAL RESIDUE BURNING — rice and wheat stubble is burned in Punjab and northern India in Oct-Nov, sending massive smoke across the border; (3) reduced wind dispersal. AQI regularly exceeds 300 (hazardous) during this period.",
+    explanation: "Inversions trap pollutants; seasonal burning and urban sources add load.",
     sourceCitation: "Standard environmental science curriculum" },
 
   // TOPIC 2: Water Pollution

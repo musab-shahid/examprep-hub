@@ -16,6 +16,7 @@ import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
 import type { SubjectId, Topic, Question, MethodChooser, ComparisonTable as ComparisonTableType } from '@/types';
+import { AiTutorChat } from '@/components/AiTutorChat';
 import { getTopicStatusFromProgress } from '@/lib/constants';
 
 // ---- Learn Landing ----
