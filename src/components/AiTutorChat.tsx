@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical, Maximize2 } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical, Maximize2, Minimize2, Square, RotateCcw, Copy, Check as CheckIcon } from 'lucide-react';
 import { askTutor, isTutorAvailable, getAvailableModels, getDefaultModelId, type TutorMessage, type ModelOption } from '@/lib/ai-tutor';
 import { ChatMarkdown } from '@/components/ChatMarkdown';
 
 interface ChatMessage {
+  id: string;
   role: 'user' | 'assistant';
   content: string;
 }
@@ -19,7 +20,37 @@ const SUGGESTED_PROMPTS = [
   'What are the key points to memorize?',
 ];
 
+const COOLDOWN_MS = 2000;
+const MAX_INPUT_LENGTH = 2000;
+const MAX_STORED_MESSAGES = 50;
+const STORAGE_KEY_PREFIX = 'ai-tutor-chat:';
+
+function makeId(): string {
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+}
+
+function loadStoredMessages(topicKey: string): ChatMessage[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_PREFIX + topicKey);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return parsed.slice(-MAX_STORED_MESSAGES);
+    return [];
+  } catch {
+    return [];
+  }
+}
+
+function saveMessages(topicKey: string, msgs: ChatMessage[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY_PREFIX + topicKey, JSON.stringify(msgs.slice(-MAX_STORED_MESSAGES)));
+  } catch {
+    /* storage full or unavailable */
+  }
+}
+
 export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
+  const topicKey = topicTitle;
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -30,17 +61,72 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [showModelDropdown, setShowModelDropdown] = useState(false);
   const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [cooldownRemaining, setCooldownRemaining] = useState(0);
+
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
   const resizeRef = useRef<{ startX: number; startY: number; origW: number; origH: number } | null>(null);
+  const abortRef = useRef<AbortController | null>(null);
+  const lastSentRef = useRef<number>(0);
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const cooldownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // Load persisted messages when topic changes
+  useEffect(() => {
+    const stored = loadStoredMessages(topicKey);
+    setMessages(stored);
+    setError(null);
+  }, [topicKey]);
+
+  // Persist messages whenever they change
+  useEffect(() => {
+    if (messages.length > 0) {
+      saveMessages(topicKey, messages);
+    } else {
+      try { localStorage.removeItem(STORAGE_KEY_PREFIX + topicKey); } catch { /* noop */ }
+    }
+  }, [messages, topicKey]);
+
+  // Cancel in-flight request on unmount
+  useEffect(() => {
+    return () => {
+      abortRef.current?.abort();
+      if (cooldownTimerRef.current) clearInterval(cooldownTimerRef.current);
+    };
+  }, []);
 
   const expandPanel = useCallback(() => {
     const w = Math.min(window.innerWidth - 32, 640);
     const h = Math.min(window.innerHeight - 32, window.innerHeight * 0.85);
     setSize({ w, h });
     setPosition({ x: Math.max(8, (window.innerWidth - w) / 2), y: Math.max(8, (window.innerHeight - h) / 2) });
+    setIsExpanded(true);
+  }, []);
+
+  const collapsePanel = useCallback(() => {
+    setSize(null);
+    setIsExpanded(false);
+    const w = Math.min(window.innerWidth - 24, 448);
+    const h = Math.min(window.innerHeight * 0.7, 500);
+    setPosition({ x: window.innerWidth - w - 24, y: window.innerHeight - h - 24 });
+  }, []);
+
+  const startCooldown = useCallback(() => {
+    lastSentRef.current = Date.now();
+    setCooldownRemaining(COOLDOWN_MS);
+    if (cooldownTimerRef.current) clearInterval(cooldownTimerRef.current);
+    cooldownTimerRef.current = setInterval(() => {
+      const elapsed = Date.now() - lastSentRef.current;
+      const remaining = Math.max(0, COOLDOWN_MS - elapsed);
+      setCooldownRemaining(remaining);
+      if (remaining <= 0 && cooldownTimerRef.current) {
+        clearInterval(cooldownTimerRef.current);
+        cooldownTimerRef.current = null;
+      }
+    }, 200);
   }, []);
 
   useEffect(() => {
@@ -69,28 +155,70 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
 
   const currentModel = availableModels.find((m) => m.id === modelId);
 
-  const sendMessage = useCallback(async (text: string) => {
+  const sendMessage = useCallback(async (text: string, retryMessages?: ChatMessage[]) => {
     const trimmed = text.trim();
     if (!trimmed || loading) return;
 
+    if (cooldownRemaining > 0) return;
+
     setInput('');
     setError(null);
-    const userMsg: ChatMessage = { role: 'user', content: trimmed };
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
+    const userMsg: ChatMessage = { id: makeId(), role: 'user', content: trimmed };
+    const newMessages = retryMessages ?? [...messages, userMsg];
+    if (!retryMessages) setMessages(newMessages);
     setLoading(true);
+    startCooldown();
+
+    const controller = new AbortController();
+    abortRef.current = controller;
 
     try {
       const tutorMessages: TutorMessage[] = newMessages.map((m) => ({ role: m.role, content: m.content }));
-      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined);
-      setMessages((prev) => [...prev, { role: 'assistant', content: reply }]);
+      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined, controller.signal);
+      setMessages((prev) => [...prev, { id: makeId(), role: 'assistant', content: reply }]);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Something went wrong.';
-      setError(msg);
+      if (controller.signal.aborted) {
+        // User cancelled or timeout — don't show error if user initiated cancel
+        if (err instanceof Error && err.message.includes('too long')) {
+          setError(err.message);
+        }
+      } else {
+        const msg = err instanceof Error ? err.message : 'Something went wrong.';
+        setError(msg);
+      }
     } finally {
       setLoading(false);
+      abortRef.current = null;
     }
-  }, [messages, loading, topicTitle, topicContext, modelId]);
+  }, [messages, loading, topicTitle, topicContext, modelId, cooldownRemaining, startCooldown]);
+
+  const handleStop = useCallback(() => {
+    abortRef.current?.abort();
+    setLoading(false);
+    abortRef.current = null;
+  }, []);
+
+  const handleRetry = useCallback(() => {
+    if (loading) return;
+    // Remove the last user message (it's already in the list) and re-send
+    const lastUserIdx = [...messages].reverse().findIndex((m) => m.role === 'user');
+    if (lastUserIdx === -1) return;
+    const actualIdx = messages.length - 1 - lastUserIdx;
+    const messagesUpToAndIncluding = messages.slice(0, actualIdx + 1);
+    const lastUserMsg = messages[actualIdx];
+    setError(null);
+    sendMessage(lastUserMsg.content, messagesUpToAndIncluding);
+  }, [messages, loading, sendMessage]);
+
+  const handleCopy = useCallback(async (msg: ChatMessage) => {
+    try {
+      await navigator.clipboard.writeText(msg.content);
+      setCopiedId(msg.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch {
+      /* clipboard not available */
+    }
+  }, []);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -155,9 +283,14 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
   };
 
+  const stopDragPropagation = (e: React.PointerEvent) => {
+    e.stopPropagation();
+  };
+
   const resetChat = () => {
     setMessages([]);
     setError(null);
+    try { localStorage.removeItem(STORAGE_KEY_PREFIX + topicKey); } catch { /* noop */ }
   };
 
   if (!isTutorAvailable()) {
@@ -206,7 +339,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
             <p className="text-sky-100 text-xs truncate max-w-[200px]">{topicTitle}</p>
           </div>
         </div>
-        <div className="flex items-center gap-1 shrink-0">
+        <div className="flex items-center gap-1 shrink-0" onPointerDown={stopDragPropagation}>
           {messages.length > 0 && (
             <button
               onClick={resetChat}
@@ -216,14 +349,17 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
             </button>
           )}
           <button
-            onClick={expandPanel}
-            title="Expand"
+            onClick={isExpanded ? collapsePanel : expandPanel}
+            title={isExpanded ? 'Collapse' : 'Expand'}
             className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
           >
-            <Maximize2 className="w-4 h-4" />
+            {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
           </button>
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              handleStop();
+              setIsOpen(false);
+            }}
             className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -311,10 +447,10 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
           </div>
         )}
 
-        {messages.map((msg, i) => (
+        {messages.map((msg) => (
           <div
-            key={i}
-            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            key={msg.id}
+            className={`group flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
               className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
@@ -327,6 +463,18 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
                 ? <ChatMarkdown text={msg.content} />
                 : msg.content
               }
+              {msg.role === 'assistant' && (
+                <button
+                  onClick={() => handleCopy(msg)}
+                  className="mt-1.5 flex items-center gap-1 text-xs text-slate-400 hover:text-slate-600 transition-colors"
+                >
+                  {copiedId === msg.id ? (
+                    <><CheckIcon className="w-3 h-3" /> Copied</>
+                  ) : (
+                    <><Copy className="w-3 h-3" /> Copy</>
+                  )}
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -336,6 +484,13 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
             <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-2">
               <Loader2 className="w-4 h-4 text-sky-500 animate-spin" />
               <span className="text-slate-400 text-xs">{currentModel?.label}</span>
+              <button
+                onClick={handleStop}
+                className="ml-2 flex items-center gap-1 text-xs text-slate-500 hover:text-rose-500 transition-colors"
+              >
+                <Square className="w-3 h-3 fill-current" />
+                Stop
+              </button>
             </div>
           </div>
         )}
@@ -346,14 +501,23 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
               <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
               <span>{error}</span>
             </div>
-            {availableModels.length > 1 && (
+            <div className="flex items-center gap-3">
               <button
-                onClick={() => setShowModelDropdown(true)}
-                className="self-start text-xs font-medium text-rose-600 hover:text-rose-800 underline underline-offset-2"
+                onClick={handleRetry}
+                className="flex items-center gap-1 text-xs font-medium text-rose-600 hover:text-rose-800 underline underline-offset-2"
               >
-                This model may be busy. Try selecting a different one.
+                <RotateCcw className="w-3 h-3" />
+                Retry last message
               </button>
-            )}
+              {availableModels.length > 1 && (
+                <button
+                  onClick={() => setShowModelDropdown(true)}
+                  className="text-xs font-medium text-rose-600 hover:text-rose-800 underline underline-offset-2"
+                >
+                  Try a different model
+                </button>
+              )}
+            </div>
           </div>
         )}
       </div>
@@ -363,20 +527,31 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
         <div className="flex items-end gap-2">
           <textarea
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
             onKeyDown={handleKeyDown}
             placeholder="Type your question..."
             rows={1}
+            maxLength={MAX_INPUT_LENGTH}
             className="flex-1 resize-none px-3 py-2 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-colors max-h-24"
             style={{ minHeight: '40px' }}
           />
           <button
             onClick={() => sendMessage(input)}
-            disabled={!input.trim() || loading}
+            disabled={!input.trim() || loading || cooldownRemaining > 0}
             className="p-2.5 rounded-xl bg-sky-500 text-white hover:bg-sky-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
           >
             <Send className="w-4 h-4" />
           </button>
+        </div>
+        <div className="flex items-center justify-between mt-1.5 px-1">
+          <span className={`text-[10px] ${input.length > MAX_INPUT_LENGTH * 0.9 ? 'text-amber-500' : 'text-slate-300'}`}>
+            {input.length}/{MAX_INPUT_LENGTH}
+          </span>
+          {cooldownRemaining > 0 && (
+            <span className="text-[10px] text-slate-400">
+              Please wait {Math.ceil(cooldownRemaining / 1000)}s...
+            </span>
+          )}
         </div>
       </div>
 

@@ -165,7 +165,7 @@ export function getDefaultModelId(): string {
   return available[0]?.id ?? '';
 }
 
-async function callGemini(messages: TutorMessage[], preamble: string, model: string): Promise<string> {
+async function callGemini(messages: TutorMessage[], preamble: string, model: string, signal?: AbortSignal): Promise<string> {
   const apiKey = env.GEMINI_API_KEY;
   const contents = messages.map((m) => ({
     role: m.role === 'assistant' ? 'model' : 'user',
@@ -182,6 +182,7 @@ async function callGemini(messages: TutorMessage[], preamble: string, model: str
         contents,
         generationConfig: { temperature: 0.7, maxOutputTokens: 1024, topP: 0.95 },
       }),
+      signal,
     },
   );
 
@@ -200,6 +201,7 @@ async function callOpenRouter(
   messages: TutorMessage[],
   preamble: string,
   model: string,
+  signal?: AbortSignal,
 ): Promise<string> {
   const apiKey = env.OPENROUTER_API_KEY;
   const chatMessages = [
@@ -222,6 +224,7 @@ async function callOpenRouter(
       max_tokens: 1024,
       top_p: 0.95,
     }),
+    signal,
   });
 
   if (!res.ok) {
@@ -239,6 +242,7 @@ async function callGroq(
   messages: TutorMessage[],
   preamble: string,
   model: string,
+  signal?: AbortSignal,
 ): Promise<string> {
   const apiKey = env.GROQ_API_KEY;
   const chatMessages = [
@@ -259,6 +263,7 @@ async function callGroq(
       max_tokens: 1024,
       top_p: 0.95,
     }),
+    signal,
   });
 
   if (!res.ok) {
@@ -277,6 +282,7 @@ export async function askTutor(
   topicTitle?: string,
   topicContext?: string,
   modelId?: string,
+  signal?: AbortSignal,
 ): Promise<{ reply: string; modelLabel: string }> {
   const available = getAvailableModels();
   if (available.length === 0) {
@@ -286,14 +292,31 @@ export async function askTutor(
   const modelOption = available.find((m) => m.id === modelId) ?? available[0];
   const preamble = buildPreamble(topicTitle, topicContext);
 
-  let reply: string;
-  if (modelOption.provider === 'openrouter') {
-    reply = await callOpenRouter(messages, preamble, modelOption.model);
-  } else if (modelOption.provider === 'groq') {
-    reply = await callGroq(messages, preamble, modelOption.model);
-  } else {
-    reply = await callGemini(messages, preamble, modelOption.model);
+  const timeoutMs = 30_000;
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  if (signal) {
+    signal.addEventListener('abort', () => controller.abort(), { once: true });
   }
 
-  return { reply, modelLabel: modelOption.label };
+  try {
+    let reply: string;
+    if (modelOption.provider === 'openrouter') {
+      reply = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);
+    } else if (modelOption.provider === 'groq') {
+      reply = await callGroq(messages, preamble, modelOption.model, controller.signal);
+    } else {
+      reply = await callGemini(messages, preamble, modelOption.model, controller.signal);
+    }
+
+    return { reply, modelLabel: modelOption.label };
+  } catch (err) {
+    if (controller.signal.aborted && (!signal || !signal.aborted)) {
+      throw new Error('The AI took too long to respond. Please try again or pick a different model.');
+    }
+    throw err;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
