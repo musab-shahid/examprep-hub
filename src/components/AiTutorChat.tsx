@@ -167,7 +167,12 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   if (!isOpen) {
     return (
       <button
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          const w = Math.min(window.innerWidth - 24, 448);
+          const h = Math.min(window.innerHeight * 0.7, 500);
+          setPosition({ x: window.innerWidth - w - 24, y: window.innerHeight - h - 24 });
+          setIsOpen(true);
+        }}
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
       >
         <Sparkles className="w-5 h-5" />
@@ -179,13 +184,11 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   return (
     <div
       ref={panelRef}
-      className="fixed z-50 flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden"
+      className="fixed z-50 flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200"
       style={
         size
           ? { left: position?.x ?? 8, top: position?.y ?? 8, width: size.w, height: size.h }
-          : position
-            ? { left: position.x, top: position.y, width: 'min(100vw - 1.5rem, 28rem)', maxHeight: '70vh' }
-            : { bottom: '1.5rem', right: '1.5rem', width: 'min(100vw - 1.5rem, 28rem)', maxHeight: '70vh' }
+          : { left: position?.x ?? 8, top: position?.y ?? 8, width: 'min(100vw - 1.5rem, 28rem)', maxHeight: '70vh' }
       }
     >
       {/* Header */}
@@ -338,29 +341,25 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
         )}
 
         {error && (
-          <div className="flex items-start gap-2 px-3 py-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm">
-            <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
-            <span>{error}</span>
+          <div className="flex flex-col gap-2 px-3 py-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-sm">
+            <div className="flex items-start gap-2">
+              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+              <span>{error}</span>
+            </div>
+            {availableModels.length > 1 && (
+              <button
+                onClick={() => setShowModelDropdown(true)}
+                className="self-start text-xs font-medium text-rose-600 hover:text-rose-800 underline underline-offset-2"
+              >
+                This model may be busy. Try selecting a different one.
+              </button>
+            )}
           </div>
         )}
       </div>
 
-      {/* Resize handle */}
-      <div
-        onPointerDown={handleResizeStart}
-        onPointerMove={handleResizeMove}
-        onPointerUp={handleResizeEnd}
-        className="absolute bottom-0 right-0 w-5 h-5 cursor-se-resize touch-none"
-        style={{ zIndex: 1 }}
-      >
-        <svg viewBox="0 0 10 10" className="w-full h-full text-slate-300" fill="currentColor">
-          <path d="M9.5 9.5 L9.5 6 L6 9.5 Z" />
-          <path d="M9.5 9.5 L9.5 3 L3 9.5 Z" opacity="0.5" />
-        </svg>
-      </div>
-
       {/* Input */}
-      <div className="px-3 py-3 border-t border-slate-200 bg-white">
+      <div className="px-3 py-3 border-t border-slate-200 bg-white rounded-b-2xl">
         <div className="flex items-end gap-2">
           <textarea
             value={input}
@@ -379,6 +378,19 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
             <Send className="w-4 h-4" />
           </button>
         </div>
+      </div>
+
+      {/* Resize handle */}
+      <div
+        onPointerDown={handleResizeStart}
+        onPointerMove={handleResizeMove}
+        onPointerUp={handleResizeEnd}
+        className="absolute bottom-0 right-0 w-6 h-6 cursor-se-resize touch-none z-20"
+      >
+        <svg viewBox="0 0 10 10" className="w-full h-full text-slate-400" fill="currentColor">
+          <path d="M9.5 9.5 L9.5 6.5 L6.5 9.5 Z" />
+          <path d="M9.5 9.5 L9.5 3.5 L3.5 9.5 Z" opacity="0.5" />
+        </svg>
       </div>
     </div>
   );
