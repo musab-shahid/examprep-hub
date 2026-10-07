@@ -645,6 +645,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           {topicQuestions.length > 0 && <Button variant="secondary" onClick={() => navigate({ screen: 'quiz', mode: 'topic', topicId })} className="flex-1">Test Me — {topicQuestions.length} Question{topicQuestions.length !== 1 ? 's' : ''}</Button>}
         </div>
       </div>
+      <AiTutorChat topicTitle={topic.title} topicContext={topic.definition} />
     </PageContainer>
   );
 }
