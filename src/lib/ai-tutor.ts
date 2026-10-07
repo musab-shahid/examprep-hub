@@ -292,7 +292,7 @@ export async function askTutor(
   const modelOption = available.find((m) => m.id === modelId) ?? available[0];
   const preamble = buildPreamble(topicTitle, topicContext);
 
-  const timeoutMs = 30_000;
+  const timeoutMs = 90_000;
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
@@ -313,7 +313,7 @@ export async function askTutor(
     return { reply, modelLabel: modelOption.label };
   } catch (err) {
     if (controller.signal.aborted && (!signal || !signal.aborted)) {
-      throw new Error('The AI took too long to respond. Please try again or pick a different model.');
+      throw new Error('The AI took too long to respond (over 90 seconds). Please try again or pick a different model.');
     }
     throw err;
   } finally {

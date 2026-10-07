@@ -69,6 +69,8 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const resizeRef = useRef<{ startX: number; startY: number; origW: number; origH: number } | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const lastSentRef = useRef<number>(0);
+  const lastFailedRef = useRef<{ text: string; messages: ChatMessage[] } | null>(null);
+  const prevModelIdRef = useRef<string>('');
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -159,6 +161,17 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     }
   }, [messages, loading]);
 
+  // Auto-retry when model changes after an error
+  useEffect(() => {
+    if (!error || loading || !prevModelIdRef.current) return;
+    if (modelId === prevModelIdRef.current) return;
+    const failed = lastFailedRef.current;
+    if (!failed) return;
+    prevModelIdRef.current = modelId;
+    setError(null);
+    sendMessage(failed.text, failed.messages);
+  }, [modelId, error, loading, sendMessage]);
+
   const currentModel = availableModels.find((m) => m.id === modelId);
 
   const sendMessage = useCallback(async (text: string, retryMessages?: ChatMessage[]) => {
@@ -185,13 +198,14 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
       setMessages((prev) => [...prev, { id: makeId(), role: 'assistant', content: reply }]);
     } catch (err) {
       if (controller.signal.aborted) {
-        // User cancelled or timeout — don't show error if user initiated cancel
         if (err instanceof Error && err.message.includes('too long')) {
           setError(err.message);
+          lastFailedRef.current = { text: trimmed, messages: newMessages };
         }
       } else {
         const msg = err instanceof Error ? err.message : 'Something went wrong.';
         setError(msg);
+        lastFailedRef.current = { text: trimmed, messages: newMessages };
       }
     } finally {
       setLoading(false);
@@ -207,7 +221,13 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
 
   const handleRetry = useCallback(() => {
     if (loading) return;
-    // Remove the last user message (it's already in the list) and re-send
+    const failed = lastFailedRef.current;
+    if (failed) {
+      setError(null);
+      sendMessage(failed.text, failed.messages);
+      return;
+    }
+    // Fallback: reconstruct from messages list
     const lastUserIdx = [...messages].reverse().findIndex((m) => m.role === 'user');
     if (lastUserIdx === -1) return;
     const actualIdx = messages.length - 1 - lastUserIdx;
@@ -403,6 +423,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
               <button
                 key={m.id}
                 onClick={() => {
+                  prevModelIdRef.current = modelId;
                   setModelId(m.id);
                   setShowModelDropdown(false);
                 }}
