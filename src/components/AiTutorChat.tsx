@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2 } from 'lucide-react';
+import { askTutor, isTutorAvailable, type TutorMessage } from '@/lib/ai-tutor';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -11,20 +12,11 @@ interface AiTutorChatProps {
   topicContext?: string;
 }
 
-const PROVIDER_LABELS: Record<string, string> = {
-  gemini: 'Gemini',
-  openrouter: 'GPT-4o mini',
-};
-
 const SUGGESTED_PROMPTS = [
   'Explain this topic in simpler terms',
   'Give me a practice question',
   'What are the key points to memorize?',
 ];
-
-function buildHeaders(): Record<string, string> {
-  return { 'Content-Type': 'application/json' };
-}
 
 export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,22 +24,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [provider, setProvider] = useState<string>('');
-  const [availableProviders, setAvailableProviders] = useState<Record<string, string>>({});
-  const [showProviderDropdown, setShowProviderDropdown] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    fetch('/api/ai-providers', { headers: buildHeaders() })
-      .then((res) => res.json())
-      .then((data) => {
-        const providers = data.providers || {};
-        setAvailableProviders(providers);
-        const keys = Object.keys(providers);
-        if (keys.length > 0 && !provider) setProvider(keys[0]);
-      })
-      .catch(() => {});
-  }, []);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -67,39 +44,16 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/ai-tutor', {
-        method: 'POST',
-        headers: buildHeaders(),
-        body: JSON.stringify({
-          messages: newMessages.map((m) => ({ role: m.role, content: m.content })),
-          topicTitle,
-          topicContext,
-          provider: provider || undefined,
-        }),
-      });
-
-      if (!res.ok) {
-        const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.error || `Request failed (${res.status})`);
-      }
-
-      const data = await res.json();
-      if (!data.reply) {
-        throw new Error('No response received from the tutor.');
-      }
-
-      if (data.provider && data.provider !== provider) {
-        setProvider(data.provider);
-      }
-
-      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
+      const tutorMessages: TutorMessage[] = newMessages.map((m) => ({ role: m.role, content: m.content }));
+      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext);
+      setMessages((prev) => [...prev, { role: 'assistant', content: reply }]);
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Something went wrong.';
       setError(msg);
     } finally {
       setLoading(false);
     }
-  }, [messages, loading, topicTitle, topicContext, provider]);
+  }, [messages, loading, topicTitle, topicContext]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -113,8 +67,9 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     setError(null);
   };
 
-  const providerKeys = Object.keys(availableProviders);
-  const providerLabel = provider ? (PROVIDER_LABELS[provider] || availableProviders[provider] || provider) : 'Select AI';
+  if (!isTutorAvailable()) {
+    return null;
+  }
 
   if (!isOpen) {
     return (
@@ -156,42 +111,6 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
           </button>
         </div>
       </div>
-
-      {/* Provider selector bar */}
-      {providerKeys.length > 1 && (
-        <div className="relative flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-200">
-          <div className="flex items-center gap-1.5 text-slate-500 text-xs">
-            <Sparkles className="w-3 h-3" />
-            <span>Powered by</span>
-          </div>
-          <button
-            onClick={() => setShowProviderDropdown(!showProviderDropdown)}
-            className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-sky-600 transition-colors"
-          >
-            {providerLabel}
-            <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showProviderDropdown ? 'rotate-180' : ''}`} />
-          </button>
-          {showProviderDropdown && (
-            <div className="absolute right-3 top-full mt-1 z-10 bg-white rounded-lg shadow-lg border border-slate-200 py-1 min-w-[160px]">
-              {providerKeys.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => {
-                    setProvider(key);
-                    setShowProviderDropdown(false);
-                  }}
-                  className={`flex items-center justify-between w-full px-3 py-2 text-sm text-left hover:bg-slate-50 transition-colors ${
-                    provider === key ? 'text-sky-600 font-medium' : 'text-slate-700'
-                  }`}
-                >
-                  {PROVIDER_LABELS[key] || availableProviders[key] || key}
-                  {provider === key && <span className="w-2 h-2 rounded-full bg-sky-500" />}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
 
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-3 bg-slate-50">
@@ -238,7 +157,7 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
           <div className="flex justify-start">
             <div className="bg-white border border-slate-200 rounded-2xl rounded-bl-md px-4 py-3 flex items-center gap-2">
               <Loader2 className="w-4 h-4 text-sky-500 animate-spin" />
-              <span className="text-slate-400 text-xs">{providerLabel}</span>
+              <span className="text-slate-400 text-xs">Gemini</span>
             </div>
           </div>
         )}
