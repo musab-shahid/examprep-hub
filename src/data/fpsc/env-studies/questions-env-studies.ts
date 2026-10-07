@@ -3019,4 +3019,66 @@ export const questions: Question[] = [
     correctAnswer: 1,
     explanation: "Pakistan's environmental situation is MIXED: facing serious interconnected challenges (air pollution in cities, water scarcity, only 5% forest cover, climate vulnerability with floods and heatwaves), but also has policies (2012 NCC, 2060 net-zero), institutions (Pak-EPA, IUCN, WWF), and some success stories (Markhor recovery, 10 Billion Tree Tsunami). Progress is UNEVEN — some areas improving, others worsening. The honest picture is complicated, not all-good or all-bad.",
     sourceCitation: "Standard environmental science curriculum" }
+
+  { id: "ENV-06-Q081", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "The principal federal environmental statute commonly cited in Pakistani syllabi for the modern regulatory framework is the:",
+    options: ["Forest Act 1927 only", "Pakistan Environmental Protection Act 1997", "Indus Waters Treaty 1960", "Paris Agreement 2015"],
+    correctAnswer: 1,
+    explanation: "PEPA 1997 is the standard statutory reference for environmental protection institutions, standards, and related tools in teaching materials. The Forest Act is sectoral, the Indus Treaty is transboundary water allocation, and Paris is an international climate agreement.",
+    sourceCitation: "Pakistan environmental law / FPSC-style civics" },
+
+  { id: "ENV-06-Q082", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "NEQS in the Pakistani environmental framework primarily refers to:",
+    options: ["National Environmental Quality Standards", "National Energy Quota Scheme", "New Ecological Quarantine Stations", "Northern Environmental Quiz Series"],
+    correctAnswer: 0,
+    explanation: "NEQS are National Environmental Quality Standards — published limits used as legal-technical benchmarks for pollutants in media such as ambient air and effluents.",
+    sourceCitation: "Pakistan environmental regulation" },
+
+  { id: "ENV-06-Q083", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "An Initial Environmental Examination (IEE) is best described as:",
+    options: ["A full multi-year audit of an operating factory", "A preliminary environmental screen for projects with limited expected impact", "A substitute for all provincial environmental laws", "A climate treaty negotiated at COP meetings"],
+    correctAnswer: 1,
+    explanation: "An IEE is a lighter, preliminary review used when impacts are expected to be limited. A full EIA is reserved for projects with potentially significant impacts.",
+    sourceCitation: "Environmental assessment practice" },
+
+  { id: "ENV-06-Q084", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "A full Environmental Impact Assessment (EIA) is primarily intended to:",
+    options: ["Replace the need for any pollution standards", "Identify likely environmental effects of a proposed project and inform approval conditions", "Set national income tax rates for industry", "Measure only greenhouse gas emissions and nothing else"],
+    correctAnswer: 1,
+    explanation: "EIA studies expected impacts on environment and communities and supports decisions on whether and how a project may proceed, including mitigation conditions.",
+    sourceCitation: "Environmental assessment practice" },
+
+  { id: "ENV-06-Q085", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "true_false",
+    question: "Publishing National Environmental Quality Standards guarantees that ambient air and water will automatically meet those limits.",
+    options: ["True", "False"],
+    correctAnswer: 1,
+    explanation: "False. Standards define legal-technical limits; compliance depends on monitoring, enforcement, technology, and institutional capacity.",
+    sourceCitation: "Environmental governance principles" },
+
+  { id: "ENV-06-Q086", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "After the 18th Amendment to the Constitution of Pakistan, environmental administration is best characterised as:",
+    options: ["Entirely abolished at all levels", "Unchanged and purely federal in every respect", "Significantly involving provincial responsibility alongside federal frameworks", "Transferred exclusively to municipal union councils only"],
+    correctAnswer: 2,
+    explanation: "Devolution increased provincial responsibility for many environmental functions while federal law and coordination remain part of the overall picture. Capacity varies by province.",
+    sourceCitation: "Pakistan constitutional / environmental administration" },
+
+  { id: "ENV-06-Q087", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "hard", type: "single",
+    question: "Which pairing is correct?",
+    options: ["IEE — deepest form of impact study; EIA — optional brochure", "NEQS — project design drawings; PEPA — only a municipal by-law", "PEPA — primary legislation; NEQS — technical quality limits; EIA — project impact review", "Paris Agreement — domestic effluent standard for each factory in Pakistan"],
+    correctAnswer: 2,
+    explanation: "PEPA (and related provincial laws) provide legislation; NEQS set quality limits; EIA reviews project impacts. International climate agreements are not factory effluent tables.",
+    sourceCitation: "Integrated environmental governance" },
+
+  { id: "ENV-06-Q088", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "hard", type: "multi",
+    question: "Which statements about environmental governance are correct? (Select all that apply.)",
+    options: [
+      "EIA is most useful when completed early enough to influence project design",
+      "Monitoring and inspection affect whether NEQS change real emissions",
+      "PEPA and EIA are two names for the identical document",
+      "Provincial capacity influences environmental outcomes after devolution"
+    ],
+    correctAnswer: [0, 1, 3],
+    explanation: "Early EIA, monitoring/enforcement, and provincial capacity are all valid. PEPA (statute) and EIA (assessment process) are not the same document.",
+    sourceCitation: "Environmental governance principles" },
+
 ];

@@ -1004,7 +1004,28 @@ explanationSections: [
         ["Adaptation", "Live with residual change", "Flood defenses, drought-resistant crops, early warning"],
       ],
     },
-    relatedTopics: ["env-international-climate-policy", "env-energy-sources", "env-ozone-depletion"],
+    
+    subtopics: [
+      {
+        id: "env-cc-mitigation",
+        title: "Mitigation",
+        summary: "Reducing emissions and enhancing sinks.",
+        explanation: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing wasteful fuel use, and protecting or expanding forests that store carbon.\n\nMitigation is global in effect: a tonne of carbon dioxide avoided in one country helps the shared climate system. That is why international coordination and national energy policy both matter.",
+        examples: [],
+        shortcuts: ["Mitigation = less forcing of the climate system"],
+        traps: ["Treating adaptation projects as if they reduce global emissions by themselves"],
+      },
+      {
+        id: "env-cc-adaptation",
+        title: "Adaptation",
+        summary: "Adjusting to impacts that are already unfolding.",
+        explanation: "Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains.\n\nAdaptation is local in delivery even when finance is international. The same heatwave or flood hits different communities according to housing, services, and livelihoods.",
+        examples: [],
+        shortcuts: ["Adaptation = live with residual risk more safely"],
+        traps: ["Assuming adaptation makes mitigation unnecessary"],
+      },
+    ],
+relatedTopics: ["env-international-climate-policy", "env-energy-sources", "env-ozone-depletion"],
     content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-energy-sources", "meteo-extreme-events", "phy-thermodynamics-laws", "phy-heat-transfer-mechanisms"],
   leadsTo: ["env-international-climate-policy", "env-pakistan-environmental-context"],
@@ -1145,16 +1166,134 @@ explanationSections: [
         ["Greenhouse warming", "Troposphere / climate system", "CO₂, CH₄, N₂O, etc.", "UNFCCC / Paris"],
       ],
     },
-    relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
+    
+    subtopics: [
+      {
+        id: "env-ozone-science",
+        title: "Stratospheric ozone chemistry",
+        summary: "Why ODS thin the protective ozone layer.",
+        explanation: "Stratospheric ozone absorbs ultraviolet radiation. Chlorine and bromine from certain synthetic compounds catalyse ozone destruction in the stratosphere. Cold polar conditions over Antarctica enhance the seasonal severe thinning known as the ozone hole.\n\nThe chemistry is global because the gases mix widely, even though the most dramatic thinning is regional and seasonal.",
+        examples: [],
+        shortcuts: ["Stratospheric ozone protects; ODS catalyse its loss"],
+        traps: ["Blaming carbon dioxide as the main ozone-hole gas"],
+      },
+      {
+        id: "env-ozone-montreal",
+        title: "Montreal Protocol",
+        summary: "Coordinated phase-down of ozone-depleting substances.",
+        explanation: "The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Many controlled chemicals have been reduced, and recovery of the ozone layer is expected over decades.\n\nThe protocol is a governance success story distinct from the UNFCCC climate regime, even though some substitute chemicals later raised separate climate concerns.",
+        examples: [],
+        shortcuts: ["Montreal = ODS controls; not the same as Paris climate architecture"],
+        traps: ["Merging Montreal and Paris into one agreement"],
+      },
+    ],
+relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
   leadsTo: ["env-air-pollution"],
   usedIn: ["env-international-climate-policy", "english-word-formation-and-context"]
   },
+
+  {
+    id: "env-environmental-governance",
+    sectionId: "ENV-06",
+    order: 5,
+    title: "Environmental Governance: PEPA, EIA & NEQS",
+    definition: "Environmental governance is the set of laws, institutions, and procedures that society uses to set environmental standards and to decide how projects and pollution are controlled. In Pakistan, the framework is built around environmental protection legislation, specialised agencies, national quality standards, and project-level assessment tools such as environmental impact assessment.",
+    keyFacts: [
+      "Pakistan Environmental Protection Act (PEPA) 1997 is the principal federal environmental statute of the modern framework",
+      "After the 18th Amendment, many environmental functions are provincial; federal and provincial EPAs share the institutional landscape",
+      "NEQS — National Environmental Quality Standards — set reference limits for emissions, effluents, and related parameters",
+      "EIA (Environmental Impact Assessment) and IEE (Initial Environmental Examination) are project review tools before major development proceeds",
+      "Written law and standards need monitoring, inspection, and enforcement to change real outcomes",
+      "Public participation and disclosure are part of sound assessment practice internationally and in many national procedures"
+    ],
+    explanationSections: [
+      {
+        heading: "Law and institutions",
+        body: "Modern environmental governance in Pakistan rests on legislation that defines offences, duties of care, and the powers of environmental agencies. The Pakistan Environmental Protection Act 1997 is the central reference in most syllabi. It provided for councils and agencies and for tools such as standards and project review.\n\nConstitutional devolution shifted substantial environmental responsibility to the provinces. Candidates should therefore think in terms of a shared landscape: federal frameworks and coordination on some matters, provincial EPAs and rules on many day-to-day controls. Capacity differs by province, which helps explain gaps between formal standards and local air or water quality."
+      },
+      {
+        heading: "NEQS and the meaning of a standard",
+        body: "National Environmental Quality Standards specify numerical or descriptive limits for pollutants in ambient air, liquid effluents, and other regulated streams. A standard is a legal and technical reference point. It tells industry and municipalities what is considered acceptable under the law.\n\nA standard does not enforce itself. Laboratories, inspectors, courts, and political will determine whether exceedances are detected and corrected. Studying NEQS means understanding both the idea of a limit and the implementation chain that makes the limit real."
+      },
+      {
+        heading: "EIA and IEE as decision tools",
+        body: "Before large projects proceed, many systems require an environmental review. An Initial Environmental Examination is a lighter screen for projects with limited expected impact. A full Environmental Impact Assessment is a deeper study of likely effects on air, water, land, biodiversity, and communities, together with mitigation measures.\n\nThe purpose is not paperwork for its own sake. It is to inform approval decisions and to attach conditions that reduce harm. Weak assessment, late assessment, or assessment without monitoring after approval undermines the tool. Strong practice links baseline study, public input where required, clear mitigation, and follow-up."
+      }
+    ],
+    examPoints: [
+      "PEPA 1997 — core statutory reference in Pakistani environmental law teaching",
+      "NEQS = numerical/legal quality limits; enforcement is separate from publication",
+      "IEE = preliminary screen; EIA = fuller impact study for significant projects",
+      "18th Amendment — provincial role in environmental administration is essential context",
+      "Governance fails when monitoring and compliance lag behind written rules"
+    ],
+    commonMistakes: [
+      "Treating PEPA, NEQS, and EIA as interchangeable names for the same thing",
+      "Assuming a published standard automatically means clean air or water",
+      "Ignoring provincial responsibility after devolution"
+    ],
+    comparisonTable: {
+      title: "Governance tools at a glance",
+      headers: ["Tool", "What it is", "Typical use"],
+      rows: [
+        ["PEPA / provincial laws", "Primary legislation", "Defines powers, offences, institutions"],
+        ["NEQS", "Technical-legal limits", "Benchmarks for emissions and effluents"],
+        ["IEE", "Preliminary project screen", "Lower-impact or screening-stage projects"],
+        ["EIA", "Full impact study", "Significant projects before approval"],
+      ],
+    },
+    subtopics: [
+      {
+        id: "env-gov-pepa",
+        title: "PEPA and institutional roles",
+        summary: "Statute, agencies, and the federal–provincial split.",
+        explanation: "PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and procedures.\n\nEnvironment protection agencies investigate, sample, and pursue compliance within their legal mandates. After the 18th Amendment, students should not assume every function is still centralised in Islamabad. Provincial EPAs and departments carry much of the operational load.",
+        examples: [],
+        shortcuts: [
+          "PEPA = main federal act in standard syllabi; provinces implement much of the work",
+        ],
+        traps: [
+          "Naming PEPA without any sense of who enforces it today",
+        ],
+      },
+      {
+        id: "env-gov-neqs",
+        title: "NEQS in practice",
+        summary: "Limits on paper versus results in the environment.",
+        explanation: "NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Industry discharge consents, ambient monitoring, and public debate all refer back to such numbers.\n\nWhen air or water remains polluted despite NEQS, the failure is often in monitoring coverage, laboratory quality, inspection frequency, or sanctions — not in the mere absence of a written limit.",
+        examples: [],
+        shortcuts: [
+          "Standard = limit; compliance = measured performance against that limit",
+        ],
+        traps: [
+          "Equating the existence of NEQS with environmental quality already achieved",
+        ],
+      },
+      {
+        id: "env-gov-eia",
+        title: "IEE and EIA",
+        summary: "Screening versus full assessment before major projects.",
+        explanation: "Project review is staged. An IEE asks whether impacts are modest enough to proceed with limited study. An EIA develops a fuller picture of impacts and mitigation when significance is higher.\n\nGood assessment is early enough to change design, not only to justify a decision already made. Conditions attached to approval need monitoring during construction and operation, or the assessment becomes a filing exercise.",
+        examples: [],
+        shortcuts: [
+          "IEE = screen; EIA = deep review for significant impact",
+        ],
+        traps: [
+          "Treating EIA as a construction permit with no link to mitigation or follow-up",
+        ],
+      },
+    ],
+    relatedTopics: ["env-pakistan-environmental-context", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts"],
+    content: true,
+    buildsOn: ["env-air-pollution", "env-water-pollution-and-quality", "env-natural-resources"],
+    leadsTo: ["env-pakistan-environmental-context"],
+  },
   {
     id: "env-pakistan-environmental-context",
     sectionId: "ENV-06",
-    order: 5,
+    order: 6,
     title: "Pakistan's Environmental Context: Issues & Policy",
     definition: "Pakistan’s environment is shaped by the Indus basin, arid and monsoon climates, rapid urbanisation, and a development path that places heavy pressure on air, water, land, and living resources. Climate extremes, pollution, forest scarcity, and land degradation interact rather than occurring in isolation. National and provincial policy, international commitments, and local capacity together determine how far formal standards improve conditions on the ground.",
     keyFacts: [
@@ -1250,7 +1389,7 @@ explanationSections: [
     ],
 relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-pollution-and-quality", "env-resource-conflicts", "env-biodiversity"],
     content: true,
-  buildsOn: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "meteo-pakistan-macroclimate", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "earth-i1"],
+  buildsOn: ["env-environmental-governance", "env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "meteo-pakistan-macroclimate", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "earth-i1"],
   leadsTo: [],
   usedIn: ["meteo-pakistan-nccp", "meteo-pmd-operational", "english-sentence-completion-rearrangement", "ra-scientific-reporting"]
   }

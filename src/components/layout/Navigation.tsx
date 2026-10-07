@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {
-  Home, BookCopy, Brain, RotateCcw, Sigma, TrendingUp,
+  Home, BookCopy, Brain, RotateCcw, FunctionSquare, TrendingUp,
   Search, Clock, Settings as SettingsIcon, Trophy, Library,
   ChevronRight, ChevronDown, Cloud, MoreHorizontal, FileText,
   Dumbbell,
@@ -24,7 +24,7 @@ const stageIcons: Record<StageScreen, typeof BookCopy> = {
   learn: BookCopy,
   practice: Brain,
   review: RotateCcw,
-  formulas: Sigma,
+  formulas: FunctionSquare,
   progress: TrendingUp,
   search: Search,
 };

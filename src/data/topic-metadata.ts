@@ -262,7 +262,8 @@ export const topicMetadata: TopicMeta[] = [
   { id: "env-climate-change-response", sectionId: "ENV-06", order: 2, title: "Climate Change: Mitigation, Adaptation & Vulnerability", content: true },
   { id: "env-international-climate-policy", sectionId: "ENV-06", order: 3, title: "International Climate Policy (UNFCCC → Paris → COP28)", content: true },
   { id: "env-ozone-depletion", sectionId: "ENV-06", order: 4, title: "Ozone Depletion: CFCs, Montreal Protocol & Recovery", content: true },
-  { id: "env-pakistan-environmental-context", sectionId: "ENV-06", order: 5, title: "Pakistan's Environmental Context: Issues & Policy", content: true },
+  { id: "env-environmental-governance", sectionId: "ENV-06", order: 5, title: "Environmental Governance: PEPA, EIA & NEQS", content: true },
+  { id: "env-pakistan-environmental-context", sectionId: "ENV-06", order: 6, title: "Pakistan's Environmental Context: Issues & Policy", content: true },
 
   // ── Research & Analysis ──
   { id: "ra-scientific-method", sectionId: "RA-01", order: 1, title: "Scientific Method", content: true, postRestriction: "bs17" },
