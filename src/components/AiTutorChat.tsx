@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical } from 'lucide-react';
 import { askTutor, isTutorAvailable, getAvailableModels, getDefaultModelId, type TutorMessage, type ModelOption } from '@/lib/ai-tutor';
 import { ChatMarkdown } from '@/components/ChatMarkdown';
 
@@ -28,6 +28,8 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const [modelId, setModelId] = useState('');
   const [availableModels, setAvailableModels] = useState<ModelOption[]>([]);
   const [showModelDropdown, setShowModelDropdown] = useState(false);
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+  const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -87,6 +89,34 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     }
   };
 
+  const handleDragStart = (e: React.PointerEvent) => {
+    e.preventDefault();
+    const panel = (e.currentTarget.parentElement as HTMLElement);
+    const rect = panel.getBoundingClientRect();
+    const current = position ?? { x: rect.left, y: rect.top };
+    dragRef.current = { startX: e.clientX, startY: e.clientY, origX: current.x, origY: current.y };
+    setPosition(current);
+    e.currentTarget.setPointerCapture(e.pointerId);
+  };
+
+  const handleDragMove = (e: React.PointerEvent) => {
+    if (!dragRef.current) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const dy = e.clientY - dragRef.current.startY;
+    let nx = dragRef.current.origX + dx;
+    let ny = dragRef.current.origY + dy;
+    const maxX = window.innerWidth - 64;
+    const maxY = window.innerHeight - 80;
+    nx = Math.max(8, Math.min(nx, maxX));
+    ny = Math.max(8, Math.min(ny, maxY));
+    setPosition({ x: nx, y: ny });
+  };
+
+  const handleDragEnd = (e: React.PointerEvent) => {
+    dragRef.current = null;
+    try { e.currentTarget.releasePointerCapture(e.pointerId); } catch { /* noop */ }
+  };
+
   const resetChat = () => {
     setMessages([]);
     setError(null);
@@ -109,10 +139,19 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-[calc(100vw-3rem)] max-w-md flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden" style={{ maxHeight: '70vh' }}>
+    <div
+      className="fixed z-50 w-[calc(100vw-3rem)] max-w-md flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200 overflow-hidden"
+      style={position ? { left: position.x, top: position.y, maxHeight: '70vh' } : { bottom: '1.5rem', right: '1.5rem', maxHeight: '70vh' }}
+    >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white">
+      <div
+        onPointerDown={handleDragStart}
+        onPointerMove={handleDragMove}
+        onPointerUp={handleDragEnd}
+        className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white cursor-grab active:cursor-grabbing touch-none select-none"
+      >
         <div className="flex items-center gap-2 min-w-0">
+          <GripVertical className="w-4 h-4 shrink-0 opacity-60" />
           <MessageCircle className="w-5 h-5 shrink-0" />
           <div className="min-w-0">
             <p className="font-semibold text-sm">AI Tutor</p>
