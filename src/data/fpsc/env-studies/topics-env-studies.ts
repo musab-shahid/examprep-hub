@@ -1297,31 +1297,45 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
     title: "Pakistan's Environmental Context: Issues & Policy",
     definition: "Pakistan’s environment is shaped by the Indus basin, arid and monsoon climates, rapid urbanisation, and a development path that places heavy pressure on air, water, land, and living resources. Climate extremes, pollution, forest scarcity, and land degradation interact rather than occurring in isolation. National and provincial policy, international commitments, and local capacity together determine how far formal standards improve conditions on the ground.",
     keyFacts: [
-      "Pakistan's KEY environmental issues: AIR POLLUTION (Lahore, Karachi among world's worst), WATER SCARCITY (per capita availability dropping, approaching 'water scarce' threshold), DEFORESTATION (only ~5% forest cover), BIODIVERSITY LOSS (threatened species), WASTE MANAGEMENT (massive uncollected waste), CLIMATE VULNERABILITY (top 10 globally)",
-      "Pakistan water: per capita availability has dropped from ~5,000 m³ (1947) to ~1,000 m³ today — approaching the 'water scarce' threshold of 1,000 m³",
-      "Indus Waters Treaty (1960): water-sharing with India, the most critical water-related agreement",
-      "Pakistan floods: 2010 super floods (~20 million affected, ~2,000 deaths), 2022 super floods (~33 million affected, ~1,700 deaths) — both caused by extreme monsoon rainfall",
-      "Pakistan heatwaves: increasing frequency and intensity. 2015 Karachi heatwave killed ~2,000 people. 2022 heatwave exceeded 50°C in some areas",
-      "Glacier melt: Pakistan has 7,000+ glaciers in the Hindu Kush, Karakoram, and Himalaya — major long-term water supply risk",
-      "NATIONAL CLIMATE CHANGE POLICY (2012): Pakistan's first comprehensive climate policy, focused on adaptation (since Pakistan is a vulnerable developing country, not a major emitter)",
-      "Pakistan's NDCs: 15% emissions reduction by 2030 (conditional on international support), 30% renewable share by 2030",
-      "Net-zero target: 2060 (announced at COP26 Glasgow 2021)",
-      "Protected areas: ~30 national parks, ~100 wildlife sanctuaries, plus Ramsar wetlands (Lal Suhara, Keenjhar, Ucchali)",
-      "Billion Tree Tsunami (1 billion trees) expanded to 10 Billion Tree Tsunami (2018+)",
-      "Environmental institutions: WWF-Pakistan, IUCN-Pakistan, SDPI (Sustainable Development Policy Institute), GCISC (Global Change Impact Studies Centre), PMD (Pakistan Meteorological Department), Pak-EPA"
+      "Per capita water availability has fallen from roughly 5,000 m³ near independence toward about 1,000 m³ — near common water-scarcity thresholds",
+      "Major flood disasters in 2010 (~20 million affected) and 2022 (~33 million affected) illustrate extreme hydrological risk",
+      "The 2015 Karachi heatwave caused on the order of ~2,000 deaths and is a standard public-health climate example",
+      "Northern ranges (Hindu Kush–Karakoram–Himalaya) hold thousands of glaciers that feed the Indus system",
+      "The 'Karakoram Anomaly' refers to relative stability or slower retreat of some Karakoram glaciers compared with many Himalayan glaciers",
+      "Pakistan ranks among the world's most climate-vulnerable countries on widely cited risk indices",
+      "National Climate Change Policy (2012) is the main national climate policy reference; later updates and plans build on it",
+      "Net-zero / long-term mitigation aims (often taught with a mid-century horizon such as 2060 in current materials) sit alongside adaptation needs",
+      "Forest cover remains low (~5% in standard exam figures); large afforestation drives (Billion Tree / 10 Billion Tree) are major policy responses",
+      "Ramsar-listed wetlands (e.g. sites such as Uchhali complex / other listed wetlands in syllabi) mark international wetland importance",
+      "Markhor recovery and large tree-planting programmes are cited as partial conservation success stories amid uneven progress"
     ],
 explanationSections: [
-      { heading: "Interconnected environmental challenges", body: "Pakistan faces intertwined pressures on water, air, land, and climate. The Indus basin supports agriculture and cities but is sensitive to seasonal flows, storage, pollution, and upstream politics. Urban air pollution reduces health and productivity. Salinity and waterlogging degrade irrigated land. Climate extremes amplify floods, heat, and hydrological variability.\n\nStudying these issues as separate headlines understates the system: energy choices affect air and climate; irrigation management affects soil and water; watershed and forest cover affect erosion and flood behaviour." },
-      { heading: "Policy and institutional capacity", body: "Laws, standards such as NEQS, protected areas, and assessment requirements provide a formal framework. After devolution, many environmental functions depend heavily on provincial capacity. The gap between written policy and outcomes often reflects monitoring, enforcement, municipal services, and industrial compliance rather than the total absence of documents.\n\nInternational support and national programmes, including large afforestation efforts, can help restore ecosystems and livelihoods, yet they work best when routine regulation and local institutions function steadily." },
-      { heading: "Conservation landscapes and living resources", body: "Protected areas and species of national importance illustrate in-situ conservation under real land-use pressure. Their success depends on management quality, community relations, and control of habitat conversion — themes that link this national overview back to biodiversity and resource topics.\n\nA coherent national picture therefore ties statistics and site names to mechanisms: how water is managed, how cities breathe, how land stays productive, and how climate risk is reduced in practice." },
+      {
+        heading: "Water, glaciers, and extremes",
+        body: "Pakistan's development and food system depend on the Indus basin. Per capita water availability has declined over decades as population has grown, moving the country toward thresholds that international discussions often label as water stress or scarcity. Much of the river system's seasonal flow is linked to snow and glacier melt in the Hindu Kush, Karakoram, and Himalaya, where Pakistan holds a very large glacier inventory.
+
+That dependence cuts two ways. Glacier melt supports rivers in dry seasons, but long-term ice loss threatens future water security. Some Karakoram glaciers have shown relative stability or slower retreat than many Himalayan glaciers — a pattern discussed as the Karakoram Anomaly — yet the wider regional picture still includes serious climate risk. Extreme events make the stakes concrete: the 2010 and 2022 floods affected on the order of 20 million and 33 million people respectively, and the 2015 Karachi heatwave caused about two thousand deaths, showing how heat and water extremes become public-health disasters."
+      },
+      {
+        heading: "Policy, institutions, and mixed progress",
+        body: "Pakistan has a formal environmental and climate policy stack: environmental protection law and agencies, National Environmental Quality Standards, and a National Climate Change Policy first issued in 2012, with later planning documents and international commitments under the UNFCCC and Paris framework. Long-term mitigation language in teaching materials often includes a mid-century net-zero type aim (commonly 2060 in current exam-oriented notes), but adaptation — floods, heat, agriculture, cities — is equally central because vulnerability ranks remain high on global indices.
+
+Outcomes are uneven. Urban air pollution, low forest cover near five percent in standard figures, and weak enforcement sit beside policy successes such as large afforestation programmes (the Billion Tree Tsunami in Khyber Pakhtunkhwa and the expanded 10 Billion Tree initiative) and conservation stories such as Markhor recovery. Governance tools (PEPA, EIA, NEQS) only improve conditions when monitoring and compliance work in practice."
+      },
+      {
+        heading: "Biodiversity, wetlands, and an honest overall picture",
+        body: "Pakistan's living resources include protected areas, endangered species of national importance, and wetlands recognised under the Ramsar Convention. These sites illustrate in-situ conservation under pressure from land use, water diversion, and climate variability. Memorising a single wetland name is less important than understanding why international listing and national protection exist: habitat loss remains the dominant threat to biodiversity worldwide and at home.
+
+Overall, the national environmental situation is neither catastrophe-only nor success-only. Interconnected challenges in air, water, land, forests, and climate coexist with institutions, written policies, and some genuine gains. A fair summary for study and for examination answers is that progress is real in places and insufficient in others — and that water, climate extremes, and implementation capacity will dominate the next decades."
+      }
     ],
     examPoints: [
-      "Pakistan: per capita water ~1,000 m³ (approaching water-scarce threshold)",
-      "2010 and 2022 super floods (~20-33 million affected each)",
-      "2015 Karachi heatwave killed ~2,000 people",
-      "Pakistan's 2060 net-zero target (announced 2021)",
-      "Forest cover ~5% (vs. FAO 25% recommended)",
-      "10 Billion Tree Tsunami (expanded from Billion Tree Tsunami)"
+      "Water: long-term fall in per capita availability toward ~1,000 m³; Indus dependence on HKHK glaciers",
+      "Extremes: 2010 & 2022 mega-floods; 2015 Karachi heatwave (~2,000 deaths)",
+      "Karakoram Anomaly: some Karakoram glaciers more stable than many Himalayan neighbours",
+      "Policy: NCCP 2012; net-zero / mid-century mitigation aim (e.g. 2060 in current notes); PEPA/NEQS/EIA in governance topic",
+      "Forest ~5%; Billion Tree / 10 Billion Tree; Ramsar wetlands; Markhor as conservation success example",
+      "Honest summary: interconnected challenges + partial successes; progress uneven"
     ],
     commonMistakes: [
       "Confusing per capita water availability — Pakistan has DROPPED from ~5,000 m³ to ~1,000 m³, not stayed stable",
