@@ -239,9 +239,9 @@ export function Badge({
   const colors = {
     slate: 'bg-slate-100 text-slate-600',
     sky: 'bg-brand-100 text-brand-700',
-    green: 'bg-emerald-100 text-emerald-700',
-    amber: 'bg-amber-100 text-amber-700',
-    red: 'bg-red-100 text-red-700',
+    green: 'bg-success-100 text-success-700',
+    amber: 'bg-warning-100 text-warning-700',
+    red: 'bg-danger-100 text-danger-700',
   };
   return (
     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${colors[color]}`}>
@@ -391,12 +391,12 @@ export function AchievementBadge({
     return (
       <div
         className={`rounded-2xl border p-4 text-center transition-shadow shadow-card hover:shadow-card-hover ${
-          color ? `${color.tint} border-transparent` : 'bg-emerald-50 border-emerald-200'
+          color ? `${color.tint} border-transparent` : 'bg-success-50 border-success-100'
         }`}
       >
         <div
           className={`w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center ${
-            color ? color.bar : 'bg-emerald-500'
+            color ? color.bar : 'bg-success-500'
           }`}
         >
           <CheckCircle2 className="w-5 h-5 text-white" />
