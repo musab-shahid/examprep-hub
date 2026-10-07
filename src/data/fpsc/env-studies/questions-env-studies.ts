@@ -1,503 +1,449 @@
 import type { Question } from '@/types';
 
 export const questions: Question[] = [
-  // TOPIC 1: Environment, Key Distinctions & Sustainability
-  // ───────────────────────────────────────────────────────
 
-  // Easy
+  // TOPIC: env-fundamentals-and-sustainability
   { id: "ENV-01-Q001", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
-    question: "Which of the following is a BIOTIC component of the environment?",
-    options: ["Water", "Soil", "Trees", "Air"],
+    question: "Which of the following is a biotic component of the environment?",
+    options: ["Water", "Soil minerals", "Trees", "Air"],
     correctAnswer: 2,
-    explanation: "Trees are biotic (living). Water, soil, and air are all abiotic (non-living). The biotic/abiotic distinction is the most fundamental environmental classification — biotic = living organisms, abiotic = non-living physical/chemical factors.",
+    explanation: "Trees are living organisms (biotic). Water, soil minerals, and air are non-living physical or chemical factors (abiotic).",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q002", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
-    question: "A POPULATION consists of:",
-    options: ["All organisms in an area", "Individuals of the same species in an area", "The role of an organism", "Non-living factors"],
+    question: "A population consists of:",
+    options: ["All organisms of every species in an area", "Individuals of the same species in an area", "The functional role of an organism", "Non-living factors only"],
     correctAnswer: 1,
-    explanation: "A population = individuals of the SAME species in an area. A community = ALL species in an area. An organism's role = niche. Non-living factors = abiotic. This population/community distinction is tested in nearly every exam.",
+    explanation: "A population is individuals of one species in an area. A community includes many species. An organism’s role is its niche; non-living factors are abiotic.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q003", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
-    question: "The BRUNDTLAND REPORT (1987) defined sustainable development as development that:",
+    question: "The Brundtland Report (1987) defined sustainable development as development that:",
     options: [
       "Maximizes economic growth at any cost",
-      "Meets present needs without compromising future generations' needs",
+      "Meets present needs without compromising future generations’ ability to meet their needs",
       "Eliminates all human impact on the environment",
       "Focuses only on environmental protection"
     ],
     correctAnswer: 1,
-    explanation: "The Brundtland definition (1987) is the most-quoted sustainability definition: 'Development that meets the needs of the present without compromising the ability of future generations to meet their own needs.' True sustainability is not just environmental — it balances economic, social, and environmental pillars.",
+    explanation: "Brundtland defined sustainable development as meeting present needs without compromising future generations’ ability to meet theirs. It implies balance among economic, social, and environmental goals, not growth at any cost or zero human impact.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q004", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "true_false",
-    question: "The atmosphere, hydrosphere, lithosphere, and biosphere are the four interconnected spheres of the environment.",
+    question: "The atmosphere, hydrosphere, lithosphere, and biosphere are four interacting spheres of the environment.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. The four spheres — air (atmosphere), water (hydrosphere), rock/soil (lithosphere), and living things (biosphere) — are constantly interacting. A change in one affects the others (e.g., air pollution causes acid rain affecting water and soil).",
+    explanation: "True. Air, water, rock/soil, and living systems interact continuously. Stress in one sphere often appears as consequences in others (for example, emissions in air can affect water and soils).",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-01-Q005", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
-    question: "An organism's NICHE is best described as:",
+    question: "An organism’s niche is best described as:",
     options: [
       "Where the organism lives",
-      "Its role or job in the ecosystem",
+      "Its role in the ecosystem, including resource use and interactions",
       "The species to which it belongs",
-      "The temperature it requires"
+      "Only the temperature range it tolerates"
     ],
     correctAnswer: 1,
-    explanation: "Niche = ROLE or JOB of an organism in the ecosystem (its profession, not its address). Habitat = WHERE it lives (its address). Easy mnemonic: 'Nice to have a job' = niche. 'Habitat has a hat' = home.",
+    explanation: "Niche is the organism’s role in the system. Habitat is the place where it lives. Temperature tolerance may be part of a niche description but is not the full meaning.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q006", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
-    question: "The PRECAUTIONARY PRINCIPLE states that:",
+    question: "The precautionary principle states that:",
     options: [
-      "Industries should not be regulated until harm is proven",
-      "Preventive action should be taken even when scientific evidence is uncertain",
-      "Only government can prevent environmental harm",
+      "Industries should not be regulated until harm is fully proven",
+      "Preventive action may be justified even when scientific certainty is incomplete, if serious harm is plausible",
+      "Only governments can prevent environmental harm",
       "All new technologies are inherently dangerous"
     ],
     correctAnswer: 1,
-    explanation: "The precautionary principle says: when there is a threat of serious harm, lack of full scientific certainty should NOT be used as a reason to postpone cost-effective preventive measures. In other words, act before proof of harm, especially for irreversible damage.",
+    explanation: "Under the precautionary principle, lack of full scientific certainty is not a reason to postpone reasonable preventive measures when serious or irreversible harm is threatened.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q007", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
-    question: "Which of the following is ANTHROPOGENIC (human-caused)?",
-    options: ["Volcanic eruption", "Deforestation", "Tsunami", "Drought"],
+    question: "Which of the following is anthropogenic (human-caused)?",
+    options: ["Volcanic eruption", "Large-scale deforestation", "Tsunami", "Naturally occurring drought without human land-use effects"],
     correctAnswer: 1,
-    explanation: "Deforestation is caused by humans. Volcanoes, tsunamis, and droughts are natural (non-anthropogenic). The natural/anthropogenic distinction tests whether the cause is human or not — most exam questions today emphasize anthropogenic causes of environmental problems.",
+    explanation: "Deforestation is driven by human land use. Volcanism and tsunamis are natural. Drought can be natural; the contrast here is intentional human clearing of forests.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q008", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
-    question: "ECOLOGY is best defined as:",
+    question: "Ecology is best defined as:",
     options: [
       "All organisms in an area",
-      "The study of organisms and their environment",
-      "A community and its physical environment",
+      "The scientific study of organisms and their relationships with the environment",
+      "A community and its physical environment as a unit",
       "The physical environment only"
     ],
     correctAnswer: 1,
-    explanation: "Ecology = the STUDY of organisms and their relationships with their environment. An ecosystem = a community + its physical environment. These are often confused: ecology is a SCIENCE (a study), ecosystem is a SYSTEM (a thing being studied).",
+    explanation: "Ecology is the science of organism–environment relationships. An ecosystem is a community interacting with its abiotic environment — the system ecology studies, not the study itself.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q009", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
-    question: "The THREE PILLARS of sustainability are:",
+    question: "The three pillars of sustainability are:",
     options: [
-      "Air, water, soil",
-      "Plants, animals, microbes",
-      "Economic, social, environmental",
-      "Past, present, future"
+      "Air, water, and soil",
+      "Plants, animals, and microbes",
+      "Economic, social, and environmental",
+      "Past, present, and future only"
     ],
     correctAnswer: 2,
-    explanation: "Sustainability rests on three pillars: economic, social, and environmental. A project that is only environmentally sustainable but economically unviable or socially unjust isn't truly sustainable. This three-way balance is what distinguishes real sustainability from mere environmentalism.",
+    explanation: "True sustainability balances economic viability, social well-being, and environmental integrity. Focusing on only one pillar is incomplete.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q010", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "multi",
-    question: "Which of the following are ABIOTIC (non-living) components of the environment? (Select all that apply.)",
+    question: "Which of the following are abiotic components of the environment? (Select all that apply.)",
     options: ["Bacteria", "Temperature", "Soil minerals", "Sunlight", "Fish"],
     correctAnswer: [1, 2, 3],
-    explanation: "Abiotic = non-living physical/chemical factors: temperature, soil minerals, sunlight. Biotic = living organisms: bacteria (microbes are alive), fish. The biotic/abiotic distinction is fundamental and tested frequently.",
+    explanation: "Temperature, soil minerals, and sunlight are non-living factors. Bacteria and fish are living organisms (biotic).",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q011", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT definitions? (Select all that apply.)",
+    question: "Which statements about population, community, habitat, and niche are correct? (Select all that apply.)",
     options: [
-      "Population = one species in an area",
-      "Community = all species in an area",
-      "Habitat = role of an organism",
-      "Niche = where an organism lives"
+      "A population is one species in an area",
+      "A community includes multiple species in an area",
+      "Habitat means the organism’s functional role",
+      "Niche means only the place where the organism lives"
     ],
     correctAnswer: [0, 1],
-    explanation: "(a) and (b) are correct. (c) is WRONG: habitat = where it lives (not role). (d) is WRONG: niche = its role (not where). The common error is swapping habitat and niche. Habitat has a hat (it's where you live); niche has a job (it's what you do).",
+    explanation: "Population and community are correctly stated. Habitat is place; niche is role — options (c) and (d) swap those meanings and are incorrect.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q012", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "true_false",
-    question: "The POLLUTER-PAYS PRINCIPLE holds the polluting entity responsible for cleanup costs.",
+    question: "The polluter-pays principle holds that those who cause pollution should bear the costs of prevention or remedy.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. The polluter-pays principle is a core environmental governance principle: the entity causing pollution should bear the cost of remediation, not the general public. This incentivizes pollution prevention and is reflected in many environmental laws (e.g., superfund in the US, environmental damage liability in EU).",
+    explanation: "True. The principle assigns responsibility for prevention, control, or clean-up costs to the polluting party rather than shifting them entirely onto the public.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-01-Q013", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "hard", type: "single",
     question: "An ecosystem is best defined as:",
     options: [
       "A single species in an area",
-      "The study of nature",
-      "A community of organisms interacting with their physical environment",
-      "All living things on Earth"
+      "The scientific study of nature",
+      "A community of organisms interacting with their physical environment as a functional unit",
+      "All living things on Earth only, with no abiotic factors"
     ],
     correctAnswer: 2,
-    explanation: "Ecosystem = community (all living organisms) + their physical environment, interacting as a functional unit. Note the difference: ecology is the STUDY of ecosystems; an ecosystem is the system being studied. (a) describes a population. (d) describes the biosphere (one of the four spheres).",
+    explanation: "An ecosystem joins the biotic community with abiotic conditions as one interacting unit. A single species is a population; the study of nature is closer to ecology; the biosphere is life at planetary scale.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q014", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "hard", type: "single",
-    question: "INTERGENERATIONAL EQUITY is best defined as:",
+    question: "Intergenerational equity is best defined as:",
     options: [
-      "Equal distribution of resources among current generations",
-      "Each generation leaving the environment in no worse condition for future generations",
+      "Equal distribution of resources among people alive today only",
+      "Leaving environmental conditions such that future generations can meet their needs",
       "Equal voting rights for all age groups",
-      "Sharing resources between developed and developing nations"
+      "Sharing resources only between rich and poor countries today"
     ],
     correctAnswer: 1,
-    explanation: "Intergenerational equity = each generation should leave the environment in no worse condition for future generations. This is part of the Brundtland definition of sustainability. It is tested as an MCQ in most FPSC-style environmental exams — remember the key phrase 'future generations'.",
+    explanation: "Intergenerational equity is the fairness idea behind Brundtland-style sustainability: present use should not permanently close off future generations’ options.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q015", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT distinctions? (Select all that apply.)",
+    question: "Which of the following pairs are correctly matched? (Select all that apply.)",
     options: [
-      "Population = one species; Community = all species in an area",
-      "Habitat = where an organism lives; Niche = its role",
-      "Biotic = living; Abiotic = non-living",
-      "Ecology = study; Ecosystem = system being studied"
+      "Population — one species; community — many species in an area",
+      "Habitat — where an organism lives; niche — its role",
+      "Biotic — living; abiotic — non-living",
+      "Ecology — the scientific study; ecosystem — the system being studied"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. These are the four foundational distinctions tested in nearly every environmental science exam. The single most common error is swapping habitat and niche. The second most common is confusing ecology (study) with ecosystem (system).",
+    explanation: "All four pairs are standard distinctions: population/community, habitat/niche, biotic/abiotic, and ecology/ecosystem.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q016", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT sequence of the four environmental spheres from outermost to innermost (relative to Earth's surface):",
+    question: "Acid-forming pollutants released into the air later change the chemistry of lakes and soils. This best illustrates:",
     options: [
-      "Biosphere → Lithosphere → Hydrosphere → Atmosphere",
-      "Atmosphere → Hydrosphere → Lithosphere → Biosphere",
-      "Lithosphere → Hydrosphere → Atmosphere → Biosphere",
-      "Hydrosphere → Atmosphere → Lithosphere → Biosphere"
+      "That environmental problems stay inside a single sphere",
+      "Interactions among atmosphere, hydrosphere, and lithosphere (and effects on the biosphere)",
+      "That only the biosphere matters for environmental science",
+      "That the lithosphere cannot be affected by air pollution"
     ],
     correctAnswer: 1,
-    explanation: "From outermost to innermost: Atmosphere (air around Earth) → Hydrosphere (water on surface) → Lithosphere (rock/soil below water) → Biosphere (all living things, which exist within and across the other three). This order is sometimes tested as 'which sphere is outermost/innermost' or 'which sphere contains the others.'",
+    explanation: "Emissions in the atmosphere can form acids that fall with rain, alter water and soils, and harm living systems. The four-sphere idea is useful for tracing such cross-sphere pathways, not for forcing a single rigid “outermost to innermost” ranking of life itself.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 2: Carrying Capacity, Footprint & Biocapacity
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // TOPIC: env-carry-capacity-and-footprint
   { id: "ENV-01-Q017", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
-    question: "CARRYING CAPACITY refers to:",
+    question: "Carrying capacity refers to:",
     options: [
       "The total area an animal occupies",
-      "The maximum population an environment can sustain indefinitely",
+      "The approximate maximum population an environment can support long-term without permanent resource degradation",
       "The speed at which a species reproduces",
-      "The number of predators in an ecosystem"
+      "The number of predators in an ecosystem only"
     ],
     correctAnswer: 1,
-    explanation: "Carrying capacity (K) = the maximum population size of a species that an environment can sustain indefinitely, given available resources (food, water, space). It is NOT fixed — it changes with conditions.",
+    explanation: "Carrying capacity (K) is the long-term population level supportable given resources and conditions. It can change when food, water, disease, climate, or management change.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q018", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
-    question: "An ECOLOGICAL FOOTPRINT measures:",
+    question: "An ecological footprint measures:",
     options: [
-      "The actual land area occupied by a species",
-      "The land/water area needed to support a person's lifestyle",
+      "Only the land area a species physically stands on",
+      "The productive land and water area needed to support consumption and absorb related wastes",
       "The number of species in an ecosystem",
       "The age of a geological formation"
     ],
     correctAnswer: 1,
-    explanation: "Ecological footprint = the amount of productive land and water area needed to support a person's (or population's) consumption and absorb their waste. Measured in global hectares (gha). It quantifies human demand on the biosphere.",
+    explanation: "Ecological footprint estimates demand on biocapacity, often expressed in global hectares (gha), including area needed to absorb wastes such as carbon dioxide.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q019", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "true_false",
-    question: "Earth Overshoot Day marks the date each year when humanity has used all the resources Earth can regenerate in that year.",
+    question: "Earth Overshoot Day marks the date each year when humanity’s estimated resource use exceeds what Earth can regenerate in that year.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Earth Overshoot Day (previously called Ecological Debt Day) marks the calendar date when humanity's ecological footprint for the year exceeds Earth's biocapacity for that year. In recent years it has fallen in late July or early August, meaning we use a full year's resources in about 7 months.",
+    explanation: "True. It is a calendar communication of global ecological overshoot. The exact date shifts by year as estimates of footprint and biocapacity change.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q020", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
-    question: "Which of the following INCREASES a person's ecological footprint?",
-    options: ["Eating locally-grown food", "Walking or cycling", "Frequent air travel", "Using renewable energy"],
+    question: "Which of the following is most likely to increase a person’s ecological footprint?",
+    options: ["Eating more locally grown plant foods", "Walking or cycling for short trips", "Frequent long-haul air travel", "Using low-carbon electricity at home"],
     correctAnswer: 2,
-    explanation: "Frequent air travel significantly increases ecological footprint (high CO2 emissions per passenger-km, plus high energy use). The other options (local food, walking, renewables) all REDUCE footprint. Air travel is one of the largest single contributors to a high-footprint lifestyle.",
+    explanation: "Frequent air travel is energy-intensive per passenger-kilometre. The other options generally reduce demand on land, energy, or emissions intensity.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-01-Q021", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
-    question: "A population that grows EXPONENTIALLY (J-shaped curve) is characterized by:",
+    question: "Exponential (J-shaped) population growth is characterized by:",
     options: [
-      "Slow start, rapid growth, leveling off at carrying capacity",
-      "Continuous doubling at a constant rate with no limits",
-      "Stable population near carrying capacity",
-      "Random fluctuations around an average"
+      "Slow start, then leveling exactly at carrying capacity from the first generation",
+      "Growth without effective resource limits in the model (continuous rapid increase)",
+      "A stable population fixed at carrying capacity",
+      "Only random fluctuations with no trend"
     ],
     correctAnswer: 1,
-    explanation: "Exponential growth = J-shaped curve = continuous doubling at a constant rate, with no environmental limits. This is the theoretical growth pattern, but in nature it only happens short-term (bacteria in lab, invasive species briefly) because resources eventually become limited.",
+    explanation: "Exponential growth assumes no binding limits. In nature it is usually short-lived because resources, predators, or disease intervene.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q022", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
-    question: "A LOGISTIC growth curve (S-shaped) differs from exponential growth because:",
+    question: "A logistic (S-shaped) growth curve differs from exponential growth because:",
     options: [
       "It never levels off",
-      "It slows and levels off as it approaches carrying capacity",
+      "Growth slows as the population approaches carrying capacity",
       "It always declines after the first generation",
-      "It is always faster than exponential"
+      "It is always faster than exponential growth at every point"
     ],
     correctAnswer: 1,
-    explanation: "Logistic growth = S-shaped curve = slows and levels off as it approaches carrying capacity (K). Resources become limited, slowing growth. This is the realistic model for most natural populations. Exponential growth has no leveling off.",
+    explanation: "Logistic growth incorporates limiting resources: the curve rises then flattens toward K. Real populations fluctuate around limits rather than sitting perfectly on K.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q023", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
-    question: "BIOCAPACITY refers to:",
+    question: "Biocapacity is best defined as:",
     options: [
       "The total number of species in an ecosystem",
-      "Earth's capacity to regenerate resources and absorb waste",
-      "The maximum human population Earth can hold",
-      "The diversity of an ecosystem"
+      "The capacity of ecosystems to regenerate resources and absorb wastes",
+      "The maximum human population Earth can hold under any lifestyle",
+      "Only the genetic diversity of an ecosystem"
     ],
     correctAnswer: 1,
-    explanation: "Biocapacity = Earth's regenerative capacity — the ability of ecosystems to produce useful biological materials and absorb waste. When humanity's footprint exceeds biocapacity, we are in ecological overshoot (the basis of Earth Overshoot Day).",
+    explanation: "Biocapacity is the supply side of the footprint comparison: regenerative capacity of productive ecosystems. Overshoot occurs when footprint exceeds biocapacity.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q024", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
-    question: "Which of the following is most likely to INCREASE the carrying capacity of a habitat for a deer population?",
+    question: "Which change is most likely to increase the carrying capacity of a habitat for a deer population?",
     options: [
       "Decreasing available food supply",
-      "Introducing a new predator",
-      "Increasing available water and vegetation",
-      "Reducing habitat size"
+      "Introducing a new effective predator",
+      "Increasing available water and forage vegetation",
+      "Reducing the usable habitat area"
     ],
     correctAnswer: 2,
-    explanation: "Carrying capacity (K) is determined by limiting factors (whichever resource is scarcest). INCREASING food and water INCREASES K. Decreasing food, adding predators, or reducing habitat all DECREASE K. This is tested frequently: K is dynamic, not fixed, and responds to resource availability.",
+    explanation: "Carrying capacity responds to limiting resources. More food and water can raise K; less food, more predation pressure, or less habitat tend to lower it.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q025", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
-    question: "ECOLOGICAL OVERSHOOT occurs when:",
+    question: "Ecological overshoot occurs when:",
     options: [
-      "A species population exceeds its carrying capacity temporarily",
-      "Humanity's ecological footprint exceeds Earth's biocapacity",
-      "An ecosystem loses a keystone species",
-      "Biodiversity decreases in a region"
+      "A population briefly exceeds K in a single season only",
+      "Demand measured as ecological footprint exceeds biocapacity",
+      "An ecosystem loses one common species",
+      "Biodiversity decreases for any reason"
     ],
     correctAnswer: 1,
-    explanation: "Ecological overshoot = human demand (footprint) exceeds Earth's regenerative supply (biocapacity). The average world footprint is ~2.7 gha, while world biocapacity is ~1.6 gha — meaning we are in global overshoot. Earth Overshoot Day marks this annually.",
+    explanation: "Overshoot means aggregate demand on ecosystems exceeds regenerative supply. Local populations can overshoot K too, but the footprint/biocapacity definition is the human–Earth accounting sense.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q026", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "true_false",
-    question: "Pakistan's ecological footprint is lower than the global average, so Pakistan is NOT in ecological overshoot.",
+    question: "If a country’s average ecological footprint per person is below the world average, that country cannot be in ecological deficit.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation: "False. While Pakistan's per-capita footprint is relatively low (~0.7 gha vs. world ~2.7 gha), Pakistan's per-capita BIOCAPACITY is also very low (~0.4 gha). Since footprint (0.7) > biocapacity (0.4), Pakistan is in ecological DEFICIT (overshoot). The same logic applies to most countries with low footprints — they often have even lower biocapacity.",
+    explanation: "False. Deficit depends on footprint compared with that country’s own biocapacity per person. A modest footprint can still exceed a still-lower biocapacity.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q027", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "multi",
-    question: "Which of the following factors INCREASE a person's ecological footprint? (Select all that apply.)",
+    question: "Which of the following tend to increase a person’s ecological footprint? (Select all that apply.)",
     options: [
-      "Eating large amounts of meat",
-      "Driving a large car",
-      "Living in a small apartment",
-      "Taking long-haul flights"
+      "A diet heavy in land-intensive animal products",
+      "Driving a large, inefficient vehicle often",
+      "Living in a small, efficient dwelling with modest energy use",
+      "Frequent long-haul flights"
     ],
     correctAnswer: [0, 1, 3],
-    explanation: "(a) Correct: meat production has high environmental impact (land, water, methane). (b) Correct: large cars use more fuel. (c) Wrong: small apartments use less resources, reducing footprint. (d) Correct: flights have very high CO2 emissions per passenger-km. Lifestyle choices that REDUCE footprint include smaller living spaces, less meat, public transit, local food.",
+    explanation: "High meat intensity, inefficient driving, and aviation raise demand on energy and land. Modest, efficient housing generally lowers footprint relative to large energy-intensive homes.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q028", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
     question: "What does Earth Overshoot Day indicate?",
     options: [
-      "The day Earth stops rotating",
-      "The day humanity has used a full year's worth of resources",
-      "The day when Earth enters a new season",
-      "The day when the ozone layer is most depleted"
+      "That the planet has stopped regenerating any resources",
+      "That cumulative human demand for the year is estimated to have exceeded annual biocapacity",
+      "That a new astronomical season has begun",
+      "That stratospheric ozone is at its annual minimum"
     ],
     correctAnswer: 1,
-    explanation: "Earth Overshoot Day (previously called Ecological Debt Day) marks the calendar date each year when humanity's cumulative ecological footprint for that year exceeds Earth's annual biocapacity. In recent years, this has fallen in late July or early August — meaning we use a year's resources in about 7 months. The date moves earlier each year as our footprint grows.",
+    explanation: "It marks the estimated calendar point of global overshoot for that year. It is not a physical “stop” of regeneration, nor an ozone or seasonal marker.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-01-Q029", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "hard", type: "single",
-    question: "A population's growth follows a logistic curve. The population GROWS FASTEST at which point?",
+    question: "In a logistic growth model, total population growth (dN/dt) is typically greatest when:",
     options: [
-      "When N is near 0 (very small population)",
-      "When N is near K (carrying capacity)",
-      "When N is at K/2 (half of carrying capacity)",
-      "Growth rate is constant throughout"
+      "N is near 0",
+      "N is near K",
+      "N is near K/2",
+      "Growth rate is identical at every N"
     ],
     correctAnswer: 2,
-    explanation: "In logistic growth, the population grows fastest at N = K/2 (half the carrying capacity). At this point, there are still plenty of resources but enough individuals to produce many offspring. Near K, resources are limited and growth slows. Near 0, there are too few individuals to grow fast in absolute terms. This is a common exam question.",
+    explanation: "In the standard logistic model, dN/dt peaks near half of carrying capacity: enough individuals to reproduce, but resources not yet fully binding.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q030", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "hard", type: "multi",
-    question: "Which of the following are CORRECT relationships? (Select all that apply.)",
+    question: "Which of the following statements are correct? (Select all that apply.)",
     options: [
-      "Footprint > Biocapacity = Ecological overshoot",
-      "Earth Overshoot Day marks when overshoot begins each year",
-      "Logistic growth produces an S-curve; Exponential produces a J-curve",
-      "Carrying capacity is always fixed and never changes"
+      "Footprint greater than biocapacity indicates ecological overshoot",
+      "Earth Overshoot Day is a calendar expression of estimated global overshoot",
+      "Logistic growth is associated with an S-shaped curve; exponential growth with a J-shaped curve",
+      "Carrying capacity is fixed forever once measured"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: overshoot = demand > supply. (b) Correct: Earth Overshoot Day marks the annual date when humanity crosses into overshoot. (c) Correct: S-curve (logistic, with limits) vs. J-curve (exponential, no limits). (d) WRONG: carrying capacity is DYNAMIC — it changes with conditions (food, predators, disease, climate). A common exam error is assuming K is fixed.",
+    explanation: "The first three are standard. Carrying capacity is not permanently fixed; it changes with resources, climate, and management.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q031", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "hard", type: "single",
-    question: "In a logistic growth model, the population growth rate is:",
+    question: "In logistic growth, which statement is most accurate?",
     options: [
-      "Constant at all population sizes",
-      "Highest at very low populations (near 0)",
-      "Highest at intermediate populations (near K/2)",
-      "Highest at very high populations (near K)"
+      "Total population growth is constant at all population sizes",
+      "Total population growth is highest near zero population",
+      "Total population growth is highest near intermediate population sizes (around K/2)",
+      "Total population growth is highest when the population is already at K"
     ],
     correctAnswer: 2,
-    explanation: "In logistic growth, the per-capita growth rate is highest at low N, but the TOTAL population growth rate (dN/dt) is highest at N = K/2. This is because dN/dt = rN(1 - N/K), a parabola that peaks at N = K/2. This is a common exam point.",
+    explanation: "Near K, growth slows toward zero. Near zero, absolute growth is small. The peak of total growth is at intermediate N in the classic model.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-01-Q032", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "hard", type: "single",
-    question: "If the world ecological footprint is 2.7 gha/person and world biocapacity is 1.6 gha/person, what is the WORLD Overshoot Day equivalent (the day humanity would have used a full year's resources, in fraction of year)?",
-    options: ["Around day 220 (early August)", "Around day 100 (early April)", "Around day 365 (year-end)", "Around day 50 (mid-February)"],
+    question: "If global average footprint is about 2.7 gha per person and global biocapacity about 1.6 gha per person, Earth Overshoot Day should fall roughly:",
+    options: [
+      "Near day 216–220 of the year (about early August)",
+      "Near day 100 (early April)",
+      "On day 365 only",
+      "Near day 50 (mid-February)"
+    ],
     correctAnswer: 0,
-    explanation: "If footprint (2.7) > biocapacity (1.6), the ratio is 2.7/1.6 ≈ 1.69. This means we use a full year's resources in 1/1.69 ≈ 0.59 of the year, which is day ~216 (early August). Recent Earth Overshoot Day dates have been in late July/early August, consistent with this calculation.",
+    explanation: "The year-fraction of biocapacity relative to footprint is about 1.6/2.7 ≈ 0.59, around day 216. Teaching numbers are approximate; the idea is the ratio, not a permanent calendar law.",
     sourceCitation: "Standard environmental science curriculum" },
 
-  // TOPIC 1: Ecosystem Structure & Energy Flow
-  // ───────────────────────────────────────────────────────
-
-  // Easy
+  // TOPIC: env-ecosystem-structure-and-energy-flow
   { id: "ENV-02-Q001", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "easy", type: "single",
-    question: "Organisms that MAKE their own food (e.g., plants via photosynthesis) are called:",
+    question: "Organisms that make their own organic food from inorganic inputs (for example via photosynthesis) are called:",
     options: ["Consumers", "Decomposers", "Producers (autotrophs)", "Parasites"],
     correctAnswer: 2,
-    explanation: "Producers (autotrophs) make their own food from inorganic sources (typically sunlight via photosynthesis). Examples: plants, algae, cyanobacteria. Consumers eat others; decomposers recycle dead matter.",
+    explanation: "Producers (autotrophs) form the energetic base of most ecosystems. Consumers and decomposers obtain energy from organic matter produced by others or from dead organic matter.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q002", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "easy", type: "single",
-    question: "Bacteria and fungi that break down dead organic matter are called:",
-    options: ["Producers", "Decomposers", "Primary consumers", "Herbivores"],
+    question: "Bacteria and fungi that break down dead organic matter are best classified as:",
+    options: ["Producers", "Decomposers", "Primary consumers only", "Herbivores only"],
     correctAnswer: 1,
-    explanation: "Decomposers (saprotrophs) break down dead organic matter, recycling nutrients back into the ecosystem. Examples: bacteria and fungi. Without decomposers, dead matter would accumulate and nutrients would not be recycled — life would stop.",
+    explanation: "Decomposers recycle nutrients by breaking down dead organic matter. Without them, nutrients would remain locked in dead biomass.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q003", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "easy", type: "true_false",
-    question: "In a food chain, arrows point from the EATEN to the EATER (showing energy flow direction).",
+    question: "In a food chain diagram, arrows point from the organism that is eaten toward the organism that eats it (direction of energy flow).",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Arrows in food chains and food webs show the direction of energy flow — from the organism being eaten to the organism eating it. So 'grass → rabbit → fox' means grass is eaten by rabbit, which is eaten by fox. Many students get this backwards.",
+    explanation: "True. Arrows show energy flow from prey (or resource) toward consumer.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q004", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "easy", type: "single",
-    question: "In the food chain 'grass → rabbit → fox → eagle', which is the tertiary consumer?",
+    question: "In the chain grass → rabbit → fox → eagle, which organism is the tertiary consumer?",
     options: ["Grass", "Rabbit", "Fox", "Eagle"],
     correctAnswer: 3,
-    explanation: "Trophic levels: grass = producer (1st); rabbit = primary consumer (2nd); fox = secondary consumer (3rd); eagle = tertiary consumer (4th, eats the secondary consumer). Tertiary = third level of consumer = fourth trophic level overall.",
+    explanation: "Grass is producer; rabbit primary consumer; fox secondary; eagle tertiary (fourth trophic level).",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Medium
   { id: "ENV-02-Q005", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "single",
-    question: "According to the 10% rule, if producers have 10,000 units of energy, how much energy is available to the tertiary consumers?",
-    options: ["1000 units", "100 units", "10 units", "1 unit"],
+    question: "Using the teaching approximation that about 10% of energy passes to the next trophic level, if producers hold 10,000 units, tertiary consumers hold about:",
+    options: ["1,000 units", "100 units", "10 units", "1 unit"],
     correctAnswer: 2,
-    explanation: "10% rule: each level passes ~10% of energy up. 10,000 (producers) → 1,000 (primary) → 100 (secondary) → 10 (tertiary). So tertiary consumers get about 10 units. This is why top predators are few in number and why food chains rarely exceed 4-5 levels.",
+    explanation: "10,000 → 1,000 → 100 → 10 across three transfers to the tertiary consumer level. Exact percentages vary in nature; the direction of loss is robust.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q006", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "single",
-    question: "Where does the energy LOST between trophic levels go?",
+    question: "Most energy not transferred to the next trophic level is:",
     options: [
-      "Lost to outer space",
-      "Lost as heat through cellular respiration and metabolism",
-      "Recycled to producers",
-      "Stored in dead matter forever"
+      "Lost to outer space as usable food energy",
+      "Dissipated as heat through respiration and activity, or left unconsumed",
+      "Fully recycled to producers as usable chemical energy",
+      "Stored permanently at the top of the food chain"
     ],
     correctAnswer: 1,
-    explanation: "The 90% of energy NOT transferred up is lost as HEAT through cellular respiration, plus used in movement, metabolism, and undigested material. This is a direct consequence of the second law of thermodynamics — energy conversions are never 100% efficient; some always degrades to heat.",
+    explanation: "Respiration, movement, heat loss, and unconsumed biomass explain why little energy is stored in the next level. Energy does not cycle like matter.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q007", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "single",
-    question: "A FOOD WEB is more realistic than a food chain because:",
+    question: "A food web is more realistic than a single food chain mainly because:",
     options: [
       "It always has more trophic levels",
       "It shows multiple interconnected feeding relationships",
       "It excludes decomposers for clarity",
-      "It doesn't include producers"
+      "It never includes producers"
     ],
     correctAnswer: 1,
-    explanation: "A food web shows MULTIPLE INTERCONNECTED feeding relationships, reflecting that most species eat several things and are eaten by several others. A food chain is linear and oversimplified. Food webs are more realistic but harder to draw.",
+    explanation: "Most species eat more than one food and are eaten by more than one consumer. Webs capture that structure; chains are simplified paths.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q008", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "single",
-    question: "Which statement about energy in ecosystems is CORRECT?",
+    question: "Which statement about energy in ecosystems is correct?",
     options: [
-      "Energy cycles within the ecosystem like matter does",
-      "Energy flows in one direction and is not recycled",
-      "Energy is created by decomposers",
-      "Energy accumulates at the top of the food chain"
+      "Energy cycles within the ecosystem exactly as nutrients do",
+      "Energy flows largely in one direction and is not recycled as usable energy",
+      "Energy is created by decomposers from nothing",
+      "Energy accumulates without limit at the top of every food chain"
     ],
     correctAnswer: 1,
-    explanation: "Energy flows in ONE direction through ecosystems (from sun → producers → consumers → lost as heat) and is NOT recycled. This is the key distinction: matter CYCLES, energy FLOWS. Because energy isn't recycled, ecosystems need continuous solar input to sustain themselves.",
+    explanation: "Matter cycles; energy flows from the sun (in most systems) through trophic levels and is dissipated as heat.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q009", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "single",
-    question: "Why are top predators (eagles, tigers, sharks) usually rare?",
+    question: "Why are top predators usually few in number compared with organisms lower in the food web?",
     options: [
-      "They reproduce more slowly than other animals",
-      "Insufficient energy reaches the top of the food chain (10% rule)",
-      "Humans hunt them more than other species",
-      "They are more vulnerable to disease"
+      "They always reproduce more slowly for genetic reasons alone",
+      "Little of the energy fixed by producers remains after successive trophic transfers",
+      "They are always more vulnerable to every disease",
+      "They never eat more than one type of prey"
     ],
     correctAnswer: 1,
-    explanation: "Only ~10% of energy transfers up each trophic level, so the available energy decreases exponentially. By the top of the food chain, there's simply not enough energy to support large populations. This is why top predators are always rare compared to lower trophic levels.",
+    explanation: "Successive energy losses limit how much biomass upper levels can support. Life history also matters, but the energetic constraint is the core teaching point.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q010", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "multi",
-    question: "Which of the following are CONSUMERS (heterotrophs)? (Select all that apply.)",
-    options: ["Oak tree", "Deer (eats grass)", "Lion (eats deer)", "Eagle (eats snakes)"],
+    question: "Which of the following are consumers (heterotrophs)? (Select all that apply.)",
+    options: ["Oak tree", "Deer feeding on plants", "Lion feeding on herbivores", "Eagle feeding on snakes"],
     correctAnswer: [1, 2, 3],
-    explanation: "Consumers eat others. Deer (herbivore), Lion (carnivore), Eagle (carnivore) are all consumers. Oak tree is a PRODUCER (makes its own food via photosynthesis). This is a tested distinction.",
+    explanation: "The oak is a producer. Deer, lion, and eagle obtain energy from other organisms.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q011", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "multi",
-    question: "Which of the following are CORRECT distinctions? (Select all that apply.)",
+    question: "Which statements about energy flow and food webs are correct? (Select all that apply.)",
     options: [
-      "Energy flows; matter cycles",
+      "Energy flows through ecosystems; matter cycles",
       "Arrows in food webs point from eaten to eater",
-      "10% of energy transfers between trophic levels",
-      "Top predators are most numerous"
+      "Only a fraction of energy is stored in the next trophic level",
+      "Top predators are usually the most numerous organisms in an ecosystem"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: this is the fundamental distinction. (b) Correct: arrows show energy flow direction. (c) Correct: the 10% rule. (d) WRONG: top predators are RAREST, not most numerous — because only 10% of energy passes up each level.",
+    explanation: "The first three are standard. Top predators are typically least numerous because little energy remains at upper levels.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q012", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "medium", type: "true_false",
-    question: "Decomposers like bacteria and fungi are essential for recycling nutrients in ecosystems.",
+    question: "Decomposers such as many bacteria and fungi are essential for returning nutrients from dead matter to the abiotic environment.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Decomposers break down dead organic matter, releasing nutrients back into the soil and atmosphere. Without decomposers, nutrients would remain locked in dead organisms and not be available for new growth — life as we know it would stop.",
+    explanation: "True. Decomposition closes nutrient loops that producers depend on.",
     sourceCitation: "Standard environmental science curriculum" },
-
-  // Hard
   { id: "ENV-02-Q013", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "hard", type: "single",
-    question: "In a grassland food chain (grass → grasshopper → frog → snake → hawk), if the producers have 50,000 kcal, how much energy reaches the hawk?",
-    options: ["5000 kcal", "500 kcal", "50 kcal", "5 kcal"],
+    question: "In the chain grass → grasshopper → frog → snake → hawk, if producers have 50,000 kcal of usable energy, about how much reaches the hawk under a strict 10% transfer at each step?",
+    options: ["5,000 kcal", "500 kcal", "50 kcal", "5 kcal"],
     correctAnswer: 3,
-    explanation: "Apply 10% rule: grass (50,000) → grasshopper (5,000) → frog (500) → snake (50) → hawk (5). So the hawk gets 5 kcal. This illustrates why food chains rarely have more than 4-5 levels — there simply isn't enough energy to support a 6th level.",
+    explanation: "Four transfers: 50,000 → 5,000 → 500 → 50 → 5. Long chains leave little energy at the top.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q014", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "hard", type: "multi",
-    question: "Which of the following are correct about ENERGY in ecosystems? (Select all that apply.)",
+    question: "Which statements about energy in ecosystems are correct? (Select all that apply.)",
     options: [
-      "Energy is not recycled within the ecosystem",
-      "Decomposers do not fit into a food chain",
-      "Energy originates from the sun (in most ecosystems)",
-      "The 10% rule means only 10% of matter is transferred up each level"
+      "Usable energy is not recycled within the ecosystem the way nutrients are",
+      "Decomposers never interact with any food chain",
+      "In most ecosystems, energy input begins with sunlight captured by producers",
+      "The ~10% teaching rule refers to energy transfer, not to a law that only 10% of matter moves upward"
     ],
-    correctAnswer: [0, 2],
-    explanation: "(a) Correct: energy flows in one direction and is not recycled (unlike matter). (b) WRONG: decomposers fit into food chains as the final level — they consume dead matter from ALL other levels. (c) Correct: in most ecosystems, energy originates from the sun (via photosynthesis). (d) WRONG: the 10% rule applies to ENERGY, not matter — matter is recycled through biogeochemical cycles.",
+    correctAnswer: [0, 2, 3],
+    explanation: "Energy flows; sunlight powers most systems; the 10% idea is about energy. Decomposers process dead matter from many levels and are part of ecosystem energy and nutrient pathways. Option (b) is false.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q015", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "hard", type: "single",
-    question: "Choose the CORRECT sequence of organisms in a typical food chain (arrows show energy flow):",
+    question: "Which sequence correctly shows energy flow (arrows from resource to consumer)?",
     options: [
-      "Fox → rabbit → grass (fox eats grass)",
-      "Grass → rabbit → fox (grass is eaten by rabbit, which is eaten by fox)",
-      "Grass ← rabbit ← fox (energy flows left to right)",
-      "Rabbit → grass → fox (rabbit eats grass)"
+      "Fox → rabbit → grass",
+      "Grass → rabbit → fox",
+      "Grass ← rabbit ← fox as the only standard notation",
+      "Rabbit → grass → fox"
     ],
     correctAnswer: 1,
-    explanation: "In a food chain, arrows point in the direction of energy flow — FROM the organism being eaten TO the organism that eats it. So 'grass → rabbit → fox' means grass is eaten by rabbit, rabbit is eaten by fox. The arrows correctly show producer → primary consumer → secondary consumer.",
+    explanation: "Standard notation is producer → primary consumer → secondary consumer.",
     sourceCitation: "Standard environmental science curriculum" },
-
   { id: "ENV-02-Q016", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "hard", type: "single",
-    question: "If a primary consumer assimilates 1000 kcal of energy from producers, but uses 600 kcal for its own respiration and loses 200 kcal in feces, how much energy is available to the secondary consumer that eats it?",
-    options: ["1000 kcal", "600 kcal", "200 kcal", "400 kcal"],
+    question: "A primary consumer ingests 1,000 kcal, loses 600 kcal to respiration and 200 kcal in undigested material. How much is available in its biomass for a predator that eats it (assuming the remainder is assimilated into biomass)?",
+    options: ["1,000 kcal", "600 kcal", "200 kcal", "400 kcal"],
     correctAnswer: 2,
-    explanation: "Energy accounting at each level: 1000 (ingested) − 600 (respiration/lost as heat) − 200 (feces/undigested) = 200 kcal (assimilated into consumer biomass, available to the NEXT level). This is a more detailed version of the 10% rule that accounts for the three fates of ingested energy.",
+    explanation: "1,000 − 600 − 200 = 200 kcal left in consumer biomass potentially available to the next level (before the predator’s own losses).",
     sourceCitation: "Standard environmental science curriculum" },
 
   // TOPIC 2: Ecological Pyramids
