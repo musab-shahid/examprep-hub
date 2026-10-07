@@ -136,9 +136,9 @@ export function SettingsScreen() {
       </div>
 
       {resetDone && (
-        <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center gap-2 animate-fade-in-up">
+        <div className="mb-4 p-3 rounded-xl bg-success-50 border border-success-100 flex items-center gap-2 animate-fade-in-up">
           <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0" />
-          <p className="text-emerald-800 text-sm font-medium">{resetDone}</p>
+          <p className="text-success-700 text-sm font-medium">{resetDone}</p>
         </div>
       )}
 
@@ -156,7 +156,7 @@ export function SettingsScreen() {
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
           <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
           <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${globalTopicCount}`} label="topics" />
-          <InfoStat icon={<Database className="w-4 h-4 text-emerald-500" />} value={`${globalQuestionCount}`} label="questions" />
+          <InfoStat icon={<Database className="w-4 h-4 text-success-500" />} value={`${globalQuestionCount}`} label="questions" />
         </div>
       </Card>
 
@@ -182,7 +182,7 @@ export function SettingsScreen() {
         </Card>
         <Card className="p-3">
           <div className="flex items-center gap-1.5 mb-1">
-            <Target className="w-4 h-4 text-emerald-500" />
+            <Target className="w-4 h-4 text-success-500" />
             <span className="text-slate-500 text-xs font-medium">Week</span>
           </div>
           <p className="text-xl font-bold text-slate-900 leading-tight">{week.avgAccuracy}<span className="text-sm font-normal text-slate-500">%</span></p>
@@ -317,8 +317,8 @@ export function SettingsScreen() {
                       </span>
                       <span className={`text-sm text-right tabular-nums font-medium ${
                         !hasData || stats.accuracy === 0 ? 'text-slate-500'
-                        : stats.accuracy >= 75 ? 'text-emerald-600'
-                        : stats.accuracy >= 50 ? 'text-amber-600' : 'text-red-600'
+                        : stats.accuracy >= 75 ? 'text-success-600'
+                        : stats.accuracy >= 50 ? 'text-warning-600' : 'text-danger-600'
                       }`}>
                         {hasData && stats.accuracy > 0 ? `${stats.accuracy}%` : '—'}
                       </span>
@@ -356,16 +356,16 @@ export function SettingsScreen() {
               </Button>
             </div>
           ) : (
-            <div className="p-3 rounded-xl bg-red-50 border border-red-200">
+            <div className="p-3 rounded-xl bg-danger-50 border border-danger-100">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-4 h-4 text-red-600 shrink-0" />
-                <p className="text-red-800 text-sm font-medium">
+                <AlertTriangle className="w-4 h-4 text-danger-600 shrink-0" />
+                <p className="text-danger-700 text-sm font-medium">
                   {isFullReset
                     ? 'Delete all progress?'
                     : `Delete progress for ${selectedSubjects.size} subject${selectedSubjects.size !== 1 ? 's' : ''}?`}
                 </p>
               </div>
-              <p className="text-red-600 text-xs mb-3">
+              <p className="text-danger-600 text-xs mb-3">
                 This permanently removes study progress, quiz results, and revision schedules. It cannot be undone.
               </p>
               <div className="flex gap-2">
@@ -383,8 +383,8 @@ export function SettingsScreen() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <MiniStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} label="Studied" value={`${globalStudied}`} />
           <MiniStat icon={<Brain className="w-4 h-4 text-violet-500" />} label="Answered" value={`${globalAnswered}`} />
-          <MiniStat icon={<Target className="w-4 h-4 text-emerald-500" />} label="Accuracy" value={`${globalAcc}%`} />
-          <MiniStat icon={<TrendingUp className="w-4 h-4 text-amber-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />
+          <MiniStat icon={<Target className="w-4 h-4 text-success-500" />} label="Accuracy" value={`${globalAcc}%`} />
+          <MiniStat icon={<TrendingUp className="w-4 h-4 text-warning-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />
         </div>
         <div className="flex items-start gap-1.5 mt-3">
           <Info className="w-3.5 h-3.5 text-slate-500 shrink-0 mt-0.5" />

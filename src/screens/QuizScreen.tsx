@@ -893,7 +893,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         </div>
         {/* ENHANCEMENT 2B: progress by answers completed */}
         {mockShortPool && (
-          <p className="text-amber-700 bg-amber-50 border border-amber-200 rounded-btn px-3 py-2 text-xs mb-2">
+          <p className="text-warning-700 bg-warning-50 border border-warning-100 rounded-btn px-3 py-2 text-xs mb-2">
             Only {state.questions.length} questions available for this mock (full mock targets 60). Continuing with the full available set.
           </p>
         )}
@@ -909,10 +909,10 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           <span
             className={`text-xs font-medium px-2 py-1 rounded-full ${
               currentQ.difficulty === 'easy'
-                ? 'bg-emerald-100 text-emerald-700'
+                ? 'bg-success-100 text-success-700'
                 : currentQ.difficulty === 'medium'
-                  ? 'bg-amber-100 text-amber-700'
-                  : 'bg-red-100 text-red-700'
+                  ? 'bg-warning-100 text-warning-700'
+                  : 'bg-danger-100 text-danger-700'
             }`}
           >
             {difficultyLabel}
@@ -938,8 +938,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                 : currentQ.correctAnswer === idx;
             let bgClass = 'bg-white border-slate-200 hover:border-brand-300 hover:bg-brand-50/50';
             if (state.checked) {
-              if (isCorrectOption) bgClass = 'bg-emerald-50 border-emerald-400';
-              else if (isSelected && !isCorrectOption) bgClass = 'bg-red-50 border-red-400';
+              if (isCorrectOption) bgClass = 'bg-success-50 border-success-500';
+              else if (isSelected && !isCorrectOption) bgClass = 'bg-danger-50 border-danger-500';
               else bgClass = 'bg-white border-slate-200 opacity-60';
             } else if (isSelected) {
               bgClass = 'bg-brand-50 border-brand-500';
@@ -969,9 +969,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                   } ${
                     isSelected || (state.checked && isCorrectOption)
                       ? state.checked && isCorrectOption
-                        ? 'bg-emerald-500 text-white'
+                        ? 'bg-success-500 text-white'
                         : state.checked && isSelected && !isCorrectOption
-                          ? 'bg-red-500 text-white'
+                          ? 'bg-danger-500 text-white'
                           : 'bg-brand-500 text-white'
                       : 'bg-slate-100 text-slate-500'
                   }`}
@@ -991,7 +991,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* After-answer feedback — live region + multi-correct + tap to advance */}
       {state.checked && (
         <div
-          className={`rounded-card border bg-white shadow-card p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-emerald-200 hover:border-emerald-300' : 'border-red-200 hover:border-red-300'}`}
+          className={`rounded-card border bg-white shadow-card p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-success-100 hover:border-success-100' : 'border-danger-100 hover:border-danger-100'}`}
           role="status"
           aria-live="polite"
           onClick={handleNext}
@@ -1001,12 +1001,12 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             {correctAns ? (
               <>
                 <CheckCircle2 className="w-5 h-5 text-success-500" />
-                <span className="font-semibold text-emerald-700">Correct!</span>
+                <span className="font-semibold text-success-700">Correct!</span>
               </>
             ) : (
               <>
                 <XCircle className="w-5 h-5 text-danger-500" />
-                <span className="font-semibold text-red-700">Incorrect</span>
+                <span className="font-semibold text-danger-700">Incorrect</span>
               </>
             )}
             <span className="ml-auto text-xs text-slate-400 font-medium">Tap or press Enter to continue →</span>
@@ -1093,7 +1093,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-btn bg-amber-100 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-btn bg-warning-100 flex items-center justify-center shrink-0">
                 <AlertTriangle className="w-5 h-5 text-warning-500" />
               </div>
               <h3 id="exit-modal-title" className="font-bold text-slate-900 text-lg">Exit quiz?</h3>
@@ -1380,8 +1380,8 @@ function QuizResults({
                     }}
                     className={`w-7 h-7 rounded-md text-[11px] font-mono font-semibold tabular-nums ${
                       ans.correct
-                        ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                        : 'bg-red-50 text-red-700 border border-red-200'
+                        ? 'bg-success-50 text-success-700 border border-success-100'
+                        : 'bg-danger-50 text-danger-700 border border-danger-100'
                     }`}
                     title={`Question ${idx + 1}`}
                   >
@@ -1475,8 +1475,8 @@ function MatchingOptions({ question, selectedIndices, checked, onSelect }: {
 
         let rowClass = 'bg-white border-slate-200';
         if (checked) {
-          if (isCorrectMatch) rowClass = 'bg-emerald-50 border-emerald-400';
-          else if (selectedMatch !== undefined) rowClass = 'bg-red-50 border-red-400';
+          if (isCorrectMatch) rowClass = 'bg-success-50 border-success-500';
+          else if (selectedMatch !== undefined) rowClass = 'bg-danger-50 border-danger-500';
         }
 
         return (

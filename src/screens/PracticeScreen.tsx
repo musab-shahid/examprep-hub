@@ -197,9 +197,9 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
                               selected
                                 ? 'bg-brand-500 text-white'
                                 : isMastered
-                                  ? 'bg-emerald-50 border border-emerald-300 text-emerald-800 hover:bg-emerald-100'
+                                  ? 'bg-success-50 border border-success-100 text-success-700 hover:bg-success-100'
                                   : isAttempted
-                                    ? 'bg-amber-50 border border-amber-300 text-amber-800 hover:bg-amber-100'
+                                    ? 'bg-warning-50 border border-warning-100 text-warning-700 hover:bg-warning-100'
                                     : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
                             }`}
                           >

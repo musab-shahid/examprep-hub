@@ -190,7 +190,7 @@ export function DashboardScreen() {
                     {hasContent ? (
                       <>
                         <div className="mb-1.5">
-                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-emerald-500' : color.bar} />
+                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} />
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className={color.text}>{studiedPct}%</span>
@@ -215,7 +215,7 @@ export function DashboardScreen() {
       {/* Three-column: Weak Areas + Quick Actions (wider) */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.25s' }}>
         {/* Weak Areas — 2 cols */}
-        <Card className="p-4 bg-amber-50/50 border-amber-200 lg:col-span-2">
+        <Card className="p-4 bg-warning-50/50 border-warning-100 lg:col-span-2">
           <div className="flex items-center gap-2 mb-3">
             <AlertTriangle className="w-4 h-4 text-warning-500" />
             <h3 className="font-semibold text-slate-900 text-sm">Areas needing attention</h3>
@@ -248,7 +248,7 @@ export function DashboardScreen() {
               </div>
               <button
                 onClick={() => navigate({ screen: 'practice', parent: null })}
-                className="text-amber-700 text-sm font-semibold hover:text-amber-800"
+                className="text-warning-700 text-sm font-semibold hover:text-warning-700"
               >
                 Practice these
               </button>
@@ -271,7 +271,7 @@ export function DashboardScreen() {
           <div className="grid grid-cols-2 gap-2">
             <QuickActionTile
               icon={<Zap className="w-5 h-5 text-warning-600" />}
-              iconBg="bg-amber-50 border border-amber-200"
+              iconBg="bg-warning-50 border border-warning-100"
               title="Quick Practice"
               subtitle="10 questions"
               onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
@@ -299,7 +299,7 @@ export function DashboardScreen() {
             />
             <QuickActionTile
               icon={<RotateCcw className="w-5 h-5 text-success-600" />}
-              iconBg="bg-emerald-50 border border-emerald-200"
+              iconBg="bg-success-50 border border-success-100"
               title="Review Queue"
               subtitle={`${reviewDue.length} due`}
               onClick={() => navigate({ screen: 'review', parent: null })}
@@ -393,8 +393,8 @@ function WeeklyAccuracyChart({ data }: { data: import('@/types').AppData }) {
         const height = w.accuracy !== null ? Math.max(4, (w.accuracy / 100) * maxBarHeight) : 2;
         const color = w.accuracy === null
           ? 'bg-slate-200'
-          : w.accuracy >= 75 ? 'bg-emerald-400'
-          : w.accuracy >= 50 ? 'bg-amber-400' : 'bg-red-400';
+          : w.accuracy >= 75 ? 'bg-success-500'
+          : w.accuracy >= 50 ? 'bg-warning-500' : 'bg-danger-500';
         return (
           <div key={i} className="flex-1 flex flex-col items-center gap-1">
             <div className="w-full rounded-t-md transition-all" style={{ height: `${height}px` }}>
