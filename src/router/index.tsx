@@ -1,6 +1,8 @@
 /**
- * In-memory router (v1). Deep-link / shareable URLs are intentionally deferred
- * until content + quiz + SR stay solid (v1 product decision — M4). Do not add partial URL sync without tests.
+ * App router with Phase A URL sync.
+ * - navigate/back update the path via history.pushState
+ * - popstate restores route (prefers history.state.routeState, else path parse)
+ * - Live quiz params stay out of the URL (see paths.ts)
  */
 import { createContext, useContext, useState, useCallback, useRef, useEffect, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';
@@ -109,9 +111,14 @@ export function routeLabel(route: Route): string {
   }
 }
 
+type HistoryPayload = {
+  v: 1;
+  routeState: RouteState;
+};
+
 function routeStateFromPath(pathname: string): RouteState {
-  const route = pathToRoute(pathname);
-  const breadcrumb = breadcrumbForRoute(route);
+  const route = pathToRoute(pathname) as Route;
+  const breadcrumb = breadcrumbForRoute(route) as BreadcrumbItem[];
   // Synthetic parent: previous breadcrumb step (enables in-app Back on deep links)
   let parent: RouteState | null = null;
   if (breadcrumb.length > 1) {
@@ -125,6 +132,27 @@ function routeStateFromPath(pathname: string): RouteState {
   return { route, parent, breadcrumb };
 }
 
+function readHistoryRouteState(raw: unknown): RouteState | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const s = raw as Partial<HistoryPayload>;
+  if (s.v !== 1 || !s.routeState || typeof s.routeState !== 'object') return null;
+  if (!s.routeState.route || !Array.isArray(s.routeState.breadcrumb)) return null;
+  return s.routeState as RouteState;
+}
+
+function pushRouteHistory(routeState: RouteState, mode: 'push' | 'replace') {
+  const path = routeToPath(routeState.route);
+  const payload: HistoryPayload = { v: 1, routeState };
+  if (mode === 'replace') {
+    window.history.replaceState(payload, '', path);
+  } else if (window.location.pathname !== path) {
+    window.history.pushState(payload, '', path);
+  } else {
+    // Same path (e.g. quiz param change) — still refresh state blob
+    window.history.replaceState(payload, '', path);
+  }
+}
+
 export function RouterProvider({ children }: { children: ReactNode }) {
   const [currentRoute, setCurrentRoute] = useState<RouteState>(() => {
     if (typeof window === 'undefined') {
@@ -134,6 +162,9 @@ export function RouterProvider({ children }: { children: ReactNode }) {
         breadcrumb: [{ label: 'Home', route: { screen: 'home' } }],
       };
     }
+    // Prefer history.state when the browser restored a tab; else parse path
+    const fromHistory = readHistoryRouteState(window.history.state);
+    if (fromHistory) return fromHistory;
     return routeStateFromPath(window.location.pathname);
   });
 
@@ -141,21 +172,25 @@ export function RouterProvider({ children }: { children: ReactNode }) {
   const routeRef = useRef(currentRoute);
   routeRef.current = currentRoute;
 
-  // Browser back/forward → restore route from path
+  // Browser back/forward
   useEffect(() => {
-    const onPop = () => {
-      setCurrentRoute(routeStateFromPath(window.location.pathname));
+    const onPop = (event: PopStateEvent) => {
+      const fromHistory = readHistoryRouteState(event.state);
+      setCurrentRoute(fromHistory ?? routeStateFromPath(window.location.pathname));
       window.scrollTo(0, 0);
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
-  // Align first paint URL if user landed on /
+  // Ensure history.state is populated on first paint (deep links)
   useEffect(() => {
     const path = routeToPath(routeRef.current.route);
+    const payload: HistoryPayload = { v: 1, routeState: routeRef.current };
     if (window.location.pathname !== path) {
-      window.history.replaceState({ path }, '', path);
+      window.history.replaceState(payload, '', path);
+    } else if (!readHistoryRouteState(window.history.state)) {
+      window.history.replaceState(payload, '', path);
     }
   }, []);
 
@@ -166,23 +201,20 @@ export function RouterProvider({ children }: { children: ReactNode }) {
       scrollStackRef.current.push(window.scrollY);
     }
     const route = buildRoute(options);
-    setCurrentRoute((prev) => {
-      const parent = options.parent !== undefined ? options.parent : prev;
-      let breadcrumb: BreadcrumbItem[];
-      if (options.breadcrumb) {
-        breadcrumb = options.breadcrumb;
-      } else if (options.parent === null) {
-        breadcrumb = [{ label: routeLabel(route), route }];
-      } else {
-        const parentCrumb = options.parent ?? prev;
-        breadcrumb = [...parentCrumb.breadcrumb, { label: routeLabel(route), route }];
-      }
-      return { route, parent, breadcrumb };
-    });
-    const path = routeToPath(route);
-    if (window.location.pathname !== path) {
-      window.history.pushState({ path }, '', path);
+    const prev = routeRef.current;
+    const parent = options.parent !== undefined ? options.parent : prev;
+    let breadcrumb: BreadcrumbItem[];
+    if (options.breadcrumb) {
+      breadcrumb = options.breadcrumb;
+    } else if (options.parent === null) {
+      breadcrumb = [{ label: routeLabel(route), route }];
+    } else {
+      const parentCrumb = options.parent ?? prev;
+      breadcrumb = [...parentCrumb.breadcrumb, { label: routeLabel(route), route }];
     }
+    const next: RouteState = { route, parent, breadcrumb };
+    setCurrentRoute(next);
+    pushRouteHistory(next, 'push');
     window.scrollTo(0, 0);
   }, []);
 
@@ -190,11 +222,10 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     const prev = routeRef.current;
     if (!prev.parent) return;
     const savedY = scrollStackRef.current.pop() ?? 0;
+    // Always walk the in-app parent chain (safe on deep links — does not leave the origin).
+    // Browser Back still works via popstate + history.state.routeState.
     setCurrentRoute(prev.parent);
-    const path = routeToPath(prev.parent.route);
-    if (window.location.pathname !== path) {
-      window.history.pushState({ path }, '', path);
-    }
+    pushRouteHistory(prev.parent, 'push');
     requestAnimationFrame(() => window.scrollTo(0, savedY));
   }, []);
 

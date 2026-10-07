@@ -15,7 +15,18 @@ export type PathRoute =
   | { screen: 'formulas' }
   | { screen: 'cloud-atlas' }
   | { screen: 'practice'; mode?: 'topic' | 'quick' | 'mock' }
-  | { screen: 'quiz'; mode: PracticeMode; topicId?: string; topicIds?: string[]; scope?: 'subject' | 'all'; subjectId?: string; count?: number | 'all'; difficulty?: DifficultyFilter; timeLimit?: TimeLimitSetting; wrongPool?: boolean }
+  | {
+      screen: 'quiz';
+      mode: PracticeMode;
+      topicId?: string;
+      topicIds?: string[];
+      scope?: 'subject' | 'all';
+      subjectId?: string;
+      count?: number | 'all';
+      difficulty?: DifficultyFilter;
+      timeLimit?: TimeLimitSetting;
+      wrongPool?: boolean;
+    }
   | { screen: 'review' }
   | { screen: 'progress' }
   | { screen: 'search' }
@@ -40,7 +51,7 @@ export function routeToPath(route: PathRoute): string {
     case 'practice':
       return route.mode ? `/practice/${encodeURIComponent(route.mode)}` : '/practice';
     case 'quiz':
-      // Intentionally param-free — mid-quiz state is not shareable via URL
+      // Param-free — mid-quiz state is not shareable via URL
       return '/quiz';
     case 'review':
       return '/review';
@@ -65,20 +76,22 @@ export function pathToRoute(pathname: string): PathRoute {
 
   if (parts.length === 0) return { screen: 'home' };
 
-  const [head, a, b] = parts;
+  const [head, a] = parts;
   switch (head) {
     case 'learn':
       return { screen: 'learn' };
-    case 'section':
-      if (a && sectionMap[decodeURIComponent(a)]) {
-        return { screen: 'section', sectionId: decodeURIComponent(a) };
-      }
+    case 'section': {
+      if (!a) return { screen: 'learn' };
+      const id = decodeURIComponent(a);
+      if (sectionMap[id]) return { screen: 'section', sectionId: id };
       return { screen: 'learn' };
-    case 'topic':
-      if (a && getTopic(decodeURIComponent(a))) {
-        return { screen: 'topic', topicId: decodeURIComponent(a) };
-      }
+    }
+    case 'topic': {
+      if (!a) return { screen: 'learn' };
+      const id = decodeURIComponent(a);
+      if (getTopic(id)) return { screen: 'topic', topicId: id };
       return { screen: 'learn' };
+    }
     case 'formulas':
       return { screen: 'formulas' };
     case 'cloud-atlas':
@@ -91,7 +104,7 @@ export function pathToRoute(pathname: string): PathRoute {
       return { screen: 'practice' };
     }
     case 'quiz':
-      // Deep link into quiz without params → practice (safer than empty quiz)
+      // Refresh mid-quiz → Practice (resume still available from storage when user starts again)
       return { screen: 'practice' };
     case 'review':
       return { screen: 'review' };
@@ -127,7 +140,10 @@ export function breadcrumbForRoute(route: PathRoute): { label: string; route: Pa
     case 'topic': {
       const topic = getTopic(route.topicId);
       const sec = topic ? sectionMap[topic.sectionId] : undefined;
-      const crumbs = [home, { label: 'Learn', route: { screen: 'learn' } as PathRoute }];
+      const crumbs: { label: string; route: PathRoute }[] = [
+        home,
+        { label: 'Learn', route: { screen: 'learn' } },
+      ];
       if (sec) {
         crumbs.push({
           label: sec.title,
@@ -140,7 +156,11 @@ export function breadcrumbForRoute(route: PathRoute): { label: string; route: Pa
     case 'practice':
       return [home, { label: 'Practice', route }];
     case 'quiz':
-      return [home, { label: 'Practice', route: { screen: 'practice' } }, { label: 'Quiz', route }];
+      return [
+        home,
+        { label: 'Practice', route: { screen: 'practice' } },
+        { label: 'Quiz', route },
+      ];
     default:
       return [home, { label: routeLabelFallback(route), route }];
   }
@@ -159,4 +179,11 @@ function routeLabelFallback(route: PathRoute): string {
     fpsc: 'FPSC Exam',
   };
   return names[route.screen] ?? 'Exam Prep';
+}
+
+/** True if path is one of our app routes (not an unknown URL). */
+export function isAppPath(pathname: string): boolean {
+  const route = pathToRoute(pathname);
+  if (route.screen === 'home') return pathname.replace(/\/+$/, '') === '' || pathname === '/';
+  return routeToPath(route) === (pathname.replace(/\/+$/, '') || '/');
 }
