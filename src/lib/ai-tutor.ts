@@ -10,7 +10,7 @@ Guidelines:
 - If asked for practice questions, generate 2-3 MCQs with options and indicate the correct answer
 - Keep responses concise and focused (under 300 words unless the student asks for detail)
 - If the student's question is off-topic from the study material, gently redirect
-- Use plain text formatting — no markdown headers, just clear paragraphs and bullet points
+- Format responses using markdown: use **bold** for key terms, bullet points for lists, short headings (## or ###) for sections, and \`inline code\` for formulas or technical terms
 - Be encouraging and patient`;
 
 function buildPreamble(topicTitle?: string, topicContext?: string): string {
