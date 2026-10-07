@@ -209,15 +209,15 @@ export function SettingsScreen() {
             <RefreshCw className="w-5 h-5 text-white" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-900 text-sm">Study material updates</p>
+            <p className="font-semibold text-slate-900 text-sm">App updates</p>
             <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-              When we publish new questions or study text, the app can download them in the background. Use this if the update banner did not appear. You will be asked to restart before the new version replaces the old one.
+              Check if a new version of the app is available. If an update was downloaded in the background, you will be asked to restart to apply it.
             </p>
             <button
               type="button"
               onClick={() => {
                 if (!navigator.onLine) {
-                  window.alert('Connect to the internet to check for study material updates.');
+                  window.alert('Connect to the internet to check for updates.');
                   return;
                 }
                 window.dispatchEvent(new Event('examprep:check-update'));
@@ -243,7 +243,7 @@ export function SettingsScreen() {
               {deferredPrompt ? (
                 <>
                   <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-                    Install ExamPrep Hub on your device for a home-screen icon and faster return to study. Subjects you have opened can work offline; progress is stored on this device.
+                    Install the app on your device for a home-screen icon and faster access. It works offline and your progress is saved on this device.
                   </p>
                   <button
                     type="button"
@@ -260,7 +260,7 @@ export function SettingsScreen() {
                 </p>
               ) : (
                 <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-                  Use your browser menu (often <strong className="font-semibold text-slate-700">Install app</strong> or <strong className="font-semibold text-slate-700">Add to Home Screen</strong>). Pages you've already opened work offline.
+                  Use your browser menu (often <strong className="font-semibold text-slate-700">Install app</strong> or <strong className="font-semibold text-slate-700">Add to Home Screen</strong>). The app works offline once loaded.
                 </p>
               )}
             </div>

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { ChevronRight, GraduationCap, AlertTriangle } from 'lucide-react';
+import { MathText } from '@/components/MathText';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -101,7 +102,9 @@ export function FormulaVaultScreen() {
                         <div className="flex items-center justify-between gap-3">
                           <div className="min-w-0">
                             <p className="font-semibold text-slate-900 text-sm">{f.name}</p>
-                            <p className="text-sky-600 font-mono text-sm mt-1">{f.expression}</p>
+                            <div className="text-sky-600 text-sm mt-1 overflow-x-auto">
+                              <MathText text={`$$${f.expression}$$`} />
+                            </div>
                             <p className="text-slate-500 text-xs mt-1">From: {f.topicTitle}</p>
                           </div>
                           <ChevronRight className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${expanded === f.name ? 'rotate-90' : ''}`} />
@@ -112,7 +115,9 @@ export function FormulaVaultScreen() {
                           <div className="space-y-1.5 mb-4">
                             {f.variables.map((v, i) => (
                               <div key={i} className="flex items-baseline gap-3 text-sm">
-                                <span className="text-sky-600 font-mono font-bold w-8 shrink-0">{v.symbol}</span>
+                                <span className="text-sky-600 font-bold shrink-0">
+                                  <MathText text={`$${v.symbol}$`} />
+                                </span>
                                 <span className="text-slate-600">= {v.meaning}</span>
                               </div>
                             ))}

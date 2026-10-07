@@ -122,11 +122,8 @@ export function InstallPrompt() {
   if (iosMode) {
     return shell(
       <Library className="w-5 h-5 text-white" />,
-      'Install ExamPrep Hub',
-      <>
-        On iPhone or iPad, open the <Share className="inline w-3 h-3 -mt-0.5 text-brand-600" /> Share menu in Safari, then choose{' '}
-        <strong className="font-semibold text-slate-700">Add to Home Screen</strong>. You will get a home-screen icon; pages you have already opened can work offline.
-      </>,
+      'Install App',
+      'On iPhone or iPad, open the Share menu in Safari, then choose "Add to Home Screen". The app will work like a native app, including offline access.',
       <button
         type="button"
         onClick={handleDismiss}
@@ -142,10 +139,8 @@ export function InstallPrompt() {
 
   return shell(
     <Library className="w-5 h-5 text-white" />,
-    'Install ExamPrep Hub',
-    <>
-      Add the app to your home screen for one-tap access. After install, the app shell and subjects you have opened can be used without a network connection. Your study progress stays saved on this device.
-    </>,
+    'Install App',
+    'Add the app to your home screen for quick access. It works offline and your progress is saved on your device.',
     <>
       <button
         type="button"

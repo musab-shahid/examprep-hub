@@ -448,8 +448,8 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.formula && (() => { const formulas = Array.isArray(topic.formula) ? topic.formula : [topic.formula]; return formulas.map((f, fi) => (
           <Card key={fi} className="p-5 bg-slate-900">
             <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
-            <p className="text-sky-300 text-xl font-mono mb-4 text-center py-3 bg-slate-800 rounded-xl">{f.expression}</p>
-            <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-mono font-bold w-8 shrink-0">{v.symbol}</span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
+            <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
+            <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`$${v.symbol}$`} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
           </Card>
         )); })()}
         {(topic as Topic & { quantFormulas?: unknown[] }).quantFormulas && (topic as Topic & { quantFormulas?: unknown[] }).quantFormulas!.length > 0 && (

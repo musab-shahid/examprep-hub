@@ -139,7 +139,7 @@ export function UpdatePrompt({ offlineVisible = false }: Props) {
         <div className="fixed top-0 inset-x-0 z-[60] pointer-events-none">
           <div className="mx-auto max-w-md px-4 pt-[env(safe-area-inset-top)]">
             <div className="rounded-b-xl bg-slate-800/90 text-white px-4 py-2 text-xs font-medium text-center">
-              Checking for study material updates…
+              Checking for updates…
             </div>
           </div>
         </div>
@@ -156,9 +156,9 @@ export function UpdatePrompt({ offlineVisible = false }: Props) {
             <BookOpen className={`w-4 h-4 text-white ${restarting ? 'opacity-70' : ''}`} />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-semibold text-slate-900 text-sm">Study materials updated</p>
+            <p className="font-semibold text-slate-900 text-sm">Update available</p>
             <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">
-              New content or app improvements are ready. Restart to load them — your progress stays on this device.
+              A new version of the app is ready. Restart to load it — your progress stays saved on this device.
             </p>
           </div>
           <button

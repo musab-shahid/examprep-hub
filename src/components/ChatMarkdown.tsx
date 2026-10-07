@@ -1,15 +1,30 @@
 // Lightweight markdown renderer for AI chat messages.
 // Supports: headings, bold, italic, inline code, code blocks,
-// unordered/ordered lists, links, blockquotes, and paragraphs.
-// No external dependencies — avoids dangerouslySetInnerHTML by
-// parsing into React elements directly.
+// unordered/ordered lists, links, blockquotes, tables (pipe syntax),
+// inline LaTeX math ($...$ and $$...$$), and paragraphs.
 
-import { type ReactNode } from 'react';
+import { type ReactNode, useEffect, useState } from 'react';
+import 'katex/dist/katex.min.css';
 
 interface MarkdownProps {
   text: string;
   className?: string;
 }
+
+let katexPromise: Promise<typeof import('katex').default> | null = null;
+
+function getKatex(): Promise<typeof import('katex').default> {
+  if (!katexPromise) {
+    katexPromise = import('katex').then((m) => m.default);
+  }
+  return katexPromise;
+}
+
+function hasMath(text: string): boolean {
+  return text.includes('$');
+}
+
+// ── Inline rendering ──────────────────────────────────────────────
 
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -17,6 +32,14 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
   let keyIdx = 0;
 
   const patterns: { regex: RegExp; render: (match: RegExpMatchArray) => ReactNode }[] = [
+    {
+      regex: /\$\$([^$]+?)\$\$/,
+      render: (m) => <MathSpan key={`${keyPrefix}-m-${keyIdx}`} expr={m[1]} display />,
+    },
+    {
+      regex: /\$([^$\n]+?)\$/,
+      render: (m) => <MathSpan key={`${keyPrefix}-m-${keyIdx}`} expr={m[1]} />,
+    },
     {
       regex: /\*\*(.+?)\*\*/,
       render: (m) => <strong key={`${keyPrefix}-b-${keyIdx}`}>{renderInline(m[1], `${keyPrefix}-b${keyIdx}`)}</strong>,
@@ -85,12 +108,52 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
   return nodes;
 }
 
+// ── Math rendering component ──────────────────────────────────────
+
+function MathSpan({ expr, display }: { expr: string; display?: boolean }) {
+  const [html, setHtml] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    getKatex().then((katex) => {
+      if (cancelled) return;
+      try {
+        setHtml(katex.renderToString(expr, { displayMode: !!display, throwOnError: false }));
+      } catch {
+        setHtml(null);
+      }
+    });
+    return () => { cancelled = true; };
+  }, [expr, display]);
+
+  if (html !== null) {
+    return <span dangerouslySetInnerHTML={{ __html: html }} />;
+  }
+  return <span>${expr}</span>;
+}
+
+// ── Block parsing ─────────────────────────────────────────────────
+
 interface Block {
-  type: 'heading' | 'paragraph' | 'ul' | 'ol' | 'code' | 'blockquote' | 'hr';
+  type: 'heading' | 'paragraph' | 'ul' | 'ol' | 'code' | 'blockquote' | 'hr' | 'table';
   level?: number;
   items?: string[];
   text?: string;
   lang?: string;
+  headers?: string[];
+  rows?: string[][];
+}
+
+function isTableSeparator(line: string): boolean {
+  return /^\s*\|?[\s-:]+\|[\s-:|]+$/.test(line) && line.includes('-') && line.includes('|');
+}
+
+function parseTableRow(line: string): string[] {
+  return line
+    .replace(/^\s*\|/, '')
+    .replace(/\|\s*$/, '')
+    .split('|')
+    .map((c) => c.trim());
 }
 
 function parseBlocks(text: string): Block[] {
@@ -101,11 +164,7 @@ function parseBlocks(text: string): Block[] {
   while (i < lines.length) {
     const line = lines[i];
 
-    // Skip blank lines
-    if (line.trim() === '') {
-      i++;
-      continue;
-    }
+    if (line.trim() === '') { i++; continue; }
 
     // Horizontal rule
     if (/^---+\s*$/.test(line) || /^\*\*\*+\s*$/.test(line)) {
@@ -131,7 +190,7 @@ function parseBlocks(text: string): Block[] {
         codeLines.push(lines[i]);
         i++;
       }
-      i++; // skip closing ```
+      i++;
       blocks.push({ type: 'code', lang, text: codeLines.join('\n') });
       continue;
     }
@@ -144,6 +203,19 @@ function parseBlocks(text: string): Block[] {
         i++;
       }
       blocks.push({ type: 'blockquote', text: quoteLines.join('\n') });
+      continue;
+    }
+
+    // Table (pipe syntax): header row | separator | data rows
+    if (line.includes('|') && i + 1 < lines.length && isTableSeparator(lines[i + 1])) {
+      const headers = parseTableRow(line);
+      i += 2; // skip header + separator
+      const rows: string[][] = [];
+      while (i < lines.length && lines[i].trim() !== '' && lines[i].includes('|')) {
+        rows.push(parseTableRow(lines[i]));
+        i++;
+      }
+      blocks.push({ type: 'table', headers, rows });
       continue;
     }
 
@@ -169,7 +241,7 @@ function parseBlocks(text: string): Block[] {
       continue;
     }
 
-    // Paragraph (gather consecutive non-blank, non-special lines)
+    // Paragraph
     const paraLines: string[] = [];
     while (
       i < lines.length &&
@@ -179,7 +251,8 @@ function parseBlocks(text: string): Block[] {
       !/^\d+\.\s+/.test(lines[i]) &&
       !/^```/.test(lines[i].trim()) &&
       !/^>\s/.test(lines[i]) &&
-      !/^---+\s*$/.test(lines[i])
+      !/^---+\s*$/.test(lines[i]) &&
+      !(lines[i].includes('|') && i + 1 < lines.length && isTableSeparator(lines[i + 1]))
     ) {
       paraLines.push(lines[i]);
       i++;
@@ -246,6 +319,34 @@ function renderBlock(block: Block, idx: number): ReactNode {
         <blockquote key={key} className="my-2 pl-3 border-l-2 border-sky-300 text-slate-600 italic">
           {renderInline(block.text ?? '', key)}
         </blockquote>
+      );
+
+    case 'table':
+      return (
+        <div key={key} className="my-2 overflow-x-auto">
+          <table className="w-full text-xs border-collapse">
+            <thead>
+              <tr>
+                {block.headers?.map((h, i) => (
+                  <th key={`${key}-th-${i}`} className="border border-slate-300 bg-slate-100 px-2 py-1 text-left font-semibold text-slate-700">
+                    {renderInline(h, `${key}-th-${i}`)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows?.map((row, ri) => (
+                <tr key={`${key}-tr-${ri}`}>
+                  {row.map((cell, ci) => (
+                    <td key={`${key}-td-${ri}-${ci}`} className="border border-slate-200 px-2 py-1 text-slate-600">
+                      {renderInline(cell, `${key}-td-${ri}-${ci}`)}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       );
 
     case 'hr':
