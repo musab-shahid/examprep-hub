@@ -55,10 +55,17 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'OpenAI',
   },
   {
-    id: 'claude-3.5-sonnet',
-    label: 'Claude 3.5 Sonnet',
+    id: 'claude-sonnet-4.5',
+    label: 'Claude Sonnet 4.5',
     provider: 'openrouter',
-    model: 'anthropic/claude-3.5-sonnet',
+    model: 'anthropic/claude-sonnet-4.5',
+    badge: 'Anthropic',
+  },
+  {
+    id: 'claude-haiku-4.5',
+    label: 'Claude Haiku 4.5',
+    provider: 'openrouter',
+    model: 'anthropic/claude-haiku-4.5',
     badge: 'Anthropic',
   },
   {
@@ -83,10 +90,17 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'Mistral',
   },
   {
-    id: 'gemini-1.5-pro',
-    label: 'Gemini 1.5 Pro',
+    id: 'gemini-2.5-flash',
+    label: 'Gemini 2.5 Flash',
     provider: 'openrouter',
-    model: 'google/gemini-1.5-pro',
+    model: 'google/gemini-2.5-flash',
+    badge: 'Google',
+  },
+  {
+    id: 'gemini-2.5-pro',
+    label: 'Gemini 2.5 Pro',
+    provider: 'openrouter',
+    model: 'google/gemini-2.5-pro',
     badge: 'Google',
   },
 ];
@@ -129,7 +143,11 @@ async function callGemini(messages: TutorMessage[], preamble: string): Promise<s
     },
   );
 
-  if (!res.ok) throw new Error('AI request failed. Please try again.');
+  if (!res.ok) {
+    let detail = '';
+    try { const errData = await res.json(); detail = errData?.error?.message || ''; } catch { detail = await res.text().catch(() => ''); }
+    throw new Error(detail || `Gemini request failed (${res.status}). Please try again.`);
+  }
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('No response from AI. Please try again.');
@@ -164,7 +182,11 @@ async function callOpenRouter(
     }),
   });
 
-  if (!res.ok) throw new Error('AI request failed. Please try again.');
+  if (!res.ok) {
+    let detail = '';
+    try { const errData = await res.json(); detail = errData?.error?.message || ''; } catch { detail = await res.text().catch(() => ''); }
+    throw new Error(detail || `Request failed (${res.status}). Please try again.`);
+  }
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error('No response from AI. Please try again.');
