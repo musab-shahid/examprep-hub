@@ -70,17 +70,24 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
     },
     {
       regex: /\[([^\]]+?)\]\(([^)]+?)\)/,
-      render: (m) => (
-        <a
-          key={`${keyPrefix}-a-${keyIdx}`}
-          href={m[2]}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sky-600 hover:text-sky-700 underline underline-offset-2"
-        >
-          {m[1]}
-        </a>
-      ),
+      render: (m) => {
+        const href = m[2].trim();
+        const safe = /^(https?:|mailto:)/i.test(href);
+        if (!safe) {
+          return <span key={`${keyPrefix}-a-${keyIdx}`}>{m[1]}</span>;
+        }
+        return (
+          <a
+            key={`${keyPrefix}-a-${keyIdx}`}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-600 hover:text-sky-700 underline underline-offset-2"
+          >
+            {m[1]}
+          </a>
+        );
+      },
     },
   ];
 

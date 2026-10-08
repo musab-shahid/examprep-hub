@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { MessageCircle, X, Send, Sparkles, AlertCircle, Loader2, ChevronDown, Check, GripVertical, Maximize2, Minimize2, Square, RotateCcw, Copy, Check as CheckIcon } from 'lucide-react';
 import { askTutor, isTutorAvailable, getAvailableModels, getDefaultModelId, type TutorMessage, type ModelOption } from '@/lib/ai-tutor';
 import { ChatMarkdown } from '@/components/ChatMarkdown';
@@ -10,6 +11,7 @@ interface ChatMessage {
 }
 
 interface AiTutorChatProps {
+  topicId: string;
   topicTitle: string;
   topicContext?: string;
 }
@@ -20,10 +22,11 @@ const SUGGESTED_PROMPTS = [
   'What are the key points to memorize?',
 ];
 
-const COOLDOWN_MS = 2000;
+const COOLDOWN_MS = 3000;
 const MAX_INPUT_LENGTH = 2000;
-const MAX_STORED_MESSAGES = 50;
+const MAX_STORED_MESSAGES = 40;
 const STORAGE_KEY_PREFIX = 'ai-tutor-chat:';
+const LEGACY_TITLE_PREFIX = 'ai-tutor-chat-title:';
 
 function makeId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
@@ -49,8 +52,8 @@ function saveMessages(topicKey: string, msgs: ChatMessage[]) {
   }
 }
 
-export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
-  const topicKey = topicTitle;
+export function AiTutorChat({ topicId, topicTitle, topicContext }: AiTutorChatProps) {
+  const topicKey = topicId || topicTitle;
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
@@ -77,13 +80,23 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   const cooldownTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const skipPersistRef = useRef(false);
 
-  // Load persisted messages when topic changes
+  // Load persisted messages when topic changes (prefer id key; migrate legacy title key)
   useEffect(() => {
-    const stored = loadStoredMessages(topicKey);
+    let stored = loadStoredMessages(topicKey);
+    if (stored.length === 0 && topicTitle && topicTitle !== topicKey) {
+      const legacy = loadStoredMessages(topicTitle);
+      if (legacy.length > 0) {
+        stored = legacy;
+        try {
+          localStorage.setItem(STORAGE_KEY_PREFIX + topicKey, JSON.stringify(legacy.slice(-MAX_STORED_MESSAGES)));
+          localStorage.removeItem(STORAGE_KEY_PREFIX + topicTitle);
+        } catch { /* noop */ }
+      }
+    }
     setMessages(stored);
     setError(null);
     skipPersistRef.current = true;
-  }, [topicKey]);
+  }, [topicKey, topicTitle]);
 
   // Persist messages whenever they change (skip the first run after a load to avoid overwriting)
   useEffect(() => {
@@ -98,7 +111,14 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
     }
   }, [messages, topicKey]);
 
-  // Cancel in-flight request on unmount
+  useFocusTrap(panelRef, isOpen, {
+    onEscape: () => {
+      setIsOpen(false);
+      setShowModelDropdown(false);
+    },
+  });
+
+    // Cancel in-flight request on unmount
   useEffect(() => {
     return () => {
       abortRef.current?.abort();
@@ -358,6 +378,9 @@ export function AiTutorChat({ topicTitle, topicContext }: AiTutorChatProps) {
   return (
     <div
       ref={panelRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={`AI tutor for ${topicTitle}`}
       className="fixed z-[9999] flex flex-col rounded-2xl bg-white shadow-2xl border border-slate-200"
       style={
         size

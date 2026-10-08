@@ -17,6 +17,7 @@ import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
 import type { SubjectId, Topic, Question, MethodChooser, ComparisonTable as ComparisonTableType } from '@/types';
 import { AiTutorChat } from '@/components/AiTutorChat';
+import { buildTopicContext } from '@/lib/ai-tutor';
 import { getTopicStatusFromProgress } from '@/lib/constants';
 
 // ---- Learn Landing ----
@@ -645,7 +646,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           {topicQuestions.length > 0 && <Button variant="secondary" onClick={() => navigate({ screen: 'quiz', mode: 'topic', topicId })} className="flex-1">Test Me — {topicQuestions.length} Question{topicQuestions.length !== 1 ? 's' : ''}</Button>}
         </div>
       </div>
-      <AiTutorChat topicTitle={topic.title} topicContext={topic.definition} />
+      <AiTutorChat topicId={topic.id} topicTitle={topic.title} topicContext={buildTopicContext(topic)} />
     </PageContainer>
   );
 }

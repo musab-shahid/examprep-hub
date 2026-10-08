@@ -13,6 +13,63 @@ Guidelines:
 - Format responses using markdown: use **bold** for key terms, bullet points for lists, short headings (## or ###) for sections, and \`inline code\` for formulas or technical terms
 - Be encouraging and patient`;
 
+
+/** Cap study-material context sent to the model (chars). */
+const MAX_CONTEXT_CHARS = 3500;
+
+/**
+ * Build a compact study-material brief for the tutor from a topic-like object.
+ * Prefer this over passing definition alone so answers stay aligned with notes.
+ */
+export function buildTopicContext(topic: {
+  definition?: string;
+  keyFacts?: string[];
+  examPoints?: string[];
+  commonMistakes?: Array<string | { mistake?: string; correction?: string }>;
+  explanationSections?: Array<{ heading?: string; body?: string }>;
+  formula?: { name?: string; expression?: string } | Array<{ name?: string; expression?: string }>;
+}): string {
+  const parts: string[] = [];
+  if (topic.definition?.trim()) {
+    parts.push(`Definition: ${topic.definition.trim()}`);
+  }
+  if (topic.keyFacts?.length) {
+    parts.push('Key facts:\n' + topic.keyFacts.slice(0, 12).map((f) => `- ${f}`).join('\n'));
+  }
+  if (topic.explanationSections?.length) {
+    const sections = topic.explanationSections.slice(0, 2).map((s) => {
+      const body = (s.body || '').trim();
+      const clipped = body.length > 600 ? body.slice(0, 600) + '…' : body;
+      return `${s.heading ? s.heading + ': ' : ''}${clipped}`;
+    });
+    parts.push('Explanations:\n' + sections.join('\n\n'));
+  }
+  if (topic.commonMistakes?.length) {
+    const mistakes = topic.commonMistakes.slice(0, 6).map((m) => {
+      if (typeof m === 'string') return `- ${m}`;
+      const o = m as { mistake?: string; correction?: string };
+      return `- ${o.mistake || ''}${o.correction ? ' → ' + o.correction : ''}`.trim();
+    });
+    parts.push('Common mistakes:\n' + mistakes.join('\n'));
+  }
+  if (topic.examPoints?.length) {
+    parts.push('Exam points:\n' + topic.examPoints.slice(0, 8).map((p) => `- ${p}`).join('\n'));
+  }
+  const formulas = Array.isArray(topic.formula) ? topic.formula : topic.formula ? [topic.formula] : [];
+  if (formulas.length) {
+    parts.push(
+      'Formulas:\n' +
+        formulas
+          .slice(0, 6)
+          .map((f) => `- ${f.name || 'Formula'}: ${f.expression || ''}`)
+          .join('\n'),
+    );
+  }
+  const joined = parts.join('\n\n');
+  if (joined.length <= MAX_CONTEXT_CHARS) return joined;
+  return joined.slice(0, MAX_CONTEXT_CHARS) + '\n…';
+}
+
 function buildPreamble(topicTitle?: string, topicContext?: string): string {
   return topicTitle
     ? `${SYSTEM_PROMPT}\n\nThe student is currently studying: ${topicTitle}${topicContext ? `\nTopic context: ${topicContext}` : ''}`
@@ -36,50 +93,57 @@ export interface ModelOption {
 }
 
 export const MODEL_OPTIONS: ModelOption[] = [
-  // Groq — fully free, fast inference, OpenAI-compatible API
+  // Groq — free tier; IDs from Groq model catalog (stable names)
   {
-    id: 'groq-gpt-oss-120b',
-    label: 'GPT-OSS 120B',
+    id: 'groq-llama-3.3-70b',
+    label: 'Llama 3.3 70B',
     provider: 'groq',
-    model: 'openai/gpt-oss-120b',
+    model: 'llama-3.3-70b-versatile',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-gpt-oss-20b',
-    label: 'GPT-OSS 20B',
+    id: 'groq-llama-3.1-8b',
+    label: 'Llama 3.1 8B',
     provider: 'groq',
-    model: 'openai/gpt-oss-20b',
+    model: 'llama-3.1-8b-instant',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-qwen-3.8-27b',
-    label: 'Qwen 3.8 27B',
+    id: 'groq-gemma2-9b',
+    label: 'Gemma 2 9B',
     provider: 'groq',
-    model: 'qwen/qwen3.8-27b',
+    model: 'gemma2-9b-it',
     badge: 'Groq',
     free: true,
   },
-  // Gemini — direct Google API (free tier via AI Studio)
+  // Gemini — Google AI Studio free tier
   {
-    id: 'gemini',
-    label: 'Gemini 3.8 Flash',
+    id: 'gemini-flash',
+    label: 'Gemini 2.0 Flash',
     provider: 'gemini',
-    model: 'gemini-3.8-flash',
+    model: 'gemini-2.0-flash',
     badge: 'Google',
     free: true,
   },
-  // OpenRouter — free models (verified active, $0 cost)
   {
-    id: 'or-nemotron-ultra',
-    label: 'Nemotron 3 Ultra',
-    provider: 'openrouter',
-    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
-    badge: 'NVIDIA',
+    id: 'gemini-flash-lite',
+    label: 'Gemini 2.0 Flash Lite',
+    provider: 'gemini',
+    model: 'gemini-2.0-flash-lite',
+    badge: 'Google',
     free: true,
   },
-  // OpenRouter — paid models, verified active IDs
+  // OpenRouter — free + common paid routes
+  {
+    id: 'or-llama-3.3-70b-free',
+    label: 'Llama 3.3 70B (free)',
+    provider: 'openrouter',
+    model: 'meta-llama/llama-3.3-70b-instruct:free',
+    badge: 'Meta',
+    free: true,
+  },
   {
     id: 'gpt-4o-mini',
     label: 'GPT-4o mini',
@@ -95,52 +159,31 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'OpenAI',
   },
   {
-    id: 'claude-sonnet-4.5',
-    label: 'Claude Sonnet 4.5',
+    id: 'claude-sonnet',
+    label: 'Claude Sonnet',
     provider: 'openrouter',
-    model: 'anthropic/claude-sonnet-4.5',
+    model: 'anthropic/claude-sonnet-4',
     badge: 'Anthropic',
   },
   {
-    id: 'claude-haiku-4.5',
-    label: 'Claude Haiku 4.5',
+    id: 'claude-haiku',
+    label: 'Claude Haiku',
     provider: 'openrouter',
     model: 'anthropic/claude-haiku-4.5',
     badge: 'Anthropic',
   },
   {
-    id: 'llama-3.3-70b',
-    label: 'Llama 3.3 70B',
-    provider: 'openrouter',
-    model: 'meta-llama/llama-3.3-70b-instruct',
-    badge: 'Meta',
-  },
-  {
     id: 'deepseek-chat',
-    label: 'DeepSeek V3',
+    label: 'DeepSeek Chat',
     provider: 'openrouter',
     model: 'deepseek/deepseek-chat',
     badge: 'DeepSeek',
   },
   {
-    id: 'mistral-large',
-    label: 'Mistral Large',
-    provider: 'openrouter',
-    model: 'mistralai/mistral-large',
-    badge: 'Mistral',
-  },
-  {
-    id: 'gemini-2.5-flash',
+    id: 'gemini-2.5-flash-or',
     label: 'Gemini 2.5 Flash',
     provider: 'openrouter',
     model: 'google/gemini-2.5-flash',
-    badge: 'Google',
-  },
-  {
-    id: 'gemini-2.5-pro',
-    label: 'Gemini 2.5 Pro',
-    provider: 'openrouter',
-    model: 'google/gemini-2.5-pro',
     badge: 'Google',
   },
 ];
