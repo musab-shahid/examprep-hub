@@ -78,9 +78,33 @@ export function UpdatePrompt({ offlineVisible = false }: Props) {
     }, 4 * 60 * 60 * 1000);
 
     // Allow Settings (or others) to request an update check
-    const onRequestCheck = () => {
-      const reg = registrationRef.current;
-      if (!reg || !navigator.onLine) return;
+    const onRequestCheck = async () => {
+      if (!navigator.onLine) return;
+      let reg = registrationRef.current;
+      if (!reg) {
+        try {
+          reg = await navigator.serviceWorker.getRegistration();
+          if (!reg) reg = await navigator.serviceWorker.ready;
+          if (reg) {
+            registrationRef.current = reg;
+            attachToRegistration(reg);
+          }
+        } catch {
+          /* no registration available */
+        }
+      }
+      if (!reg) {
+        if (mounted) {
+          setChecking(true);
+          window.setTimeout(() => {
+            if (mounted) setChecking(false);
+            if (reg?.waiting && navigator.serviceWorker.controller) {
+              setUpdateAvailable(true);
+            }
+          }, 800);
+        }
+        return;
+      }
       setChecking(true);
       reg
         .update()
@@ -88,8 +112,7 @@ export function UpdatePrompt({ offlineVisible = false }: Props) {
         .finally(() => {
           window.setTimeout(() => {
             if (mounted) setChecking(false);
-            // Surface waiting worker if update() finished install quickly
-            if (reg.waiting && navigator.serviceWorker.controller && mounted) {
+            if (reg?.waiting && navigator.serviceWorker.controller && mounted) {
               setUpdateAvailable(true);
             }
           }, 800);
