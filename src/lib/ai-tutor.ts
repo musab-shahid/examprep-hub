@@ -81,7 +81,15 @@ export interface TutorMessage {
   content: string;
 }
 
-export type ProviderKey = 'gemini' | 'openrouter' | 'groq';
+export type ProviderKey =
+  | 'gemini'
+  | 'openrouter'
+  | 'groq'
+  | 'mistral'
+  | 'deepseek'
+  | 'openai'
+  | 'xai'
+  | 'anthropic';
 
 export interface ModelOption {
   id: string;
@@ -93,110 +101,169 @@ export interface ModelOption {
 }
 
 export const MODEL_OPTIONS: ModelOption[] = [
-  // Groq — free tier; IDs from Groq model catalog (stable names)
+  // ── Groq (https://console.groq.com/docs/models) ──
   {
-    id: 'groq-llama-3.3-70b',
-    label: 'Llama 3.3 70B',
+    id: 'groq-gpt-oss-120b',
+    label: 'GPT-OSS 120B',
     provider: 'groq',
-    model: 'llama-3.3-70b-versatile',
+    model: 'openai/gpt-oss-120b',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-llama-3.1-8b',
-    label: 'Llama 3.1 8B',
+    id: 'groq-gpt-oss-20b',
+    label: 'GPT-OSS 20B',
     provider: 'groq',
-    model: 'llama-3.1-8b-instant',
+    model: 'openai/gpt-oss-20b',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-gemma2-9b',
-    label: 'Gemma 2 9B',
+    id: 'groq-qwen-3.8-27b',
+    label: 'Qwen 3.8 27B',
     provider: 'groq',
-    model: 'gemma2-9b-it',
+    model: 'qwen/qwen3.8-27b',
     badge: 'Groq',
     free: true,
   },
-  // Gemini — Google AI Studio free tier
+  // ── Google Gemini direct (https://ai.google.dev/gemini-api/docs/models) ──
   {
-    id: 'gemini-flash',
-    label: 'Gemini 2.0 Flash',
+    id: 'gemini',
+    label: 'Gemini 3.8 Flash',
     provider: 'gemini',
-    model: 'gemini-2.0-flash',
+    model: 'gemini-3.8-flash',
     badge: 'Google',
     free: true,
   },
   {
-    id: 'gemini-flash-lite',
-    label: 'Gemini 2.0 Flash Lite',
+    id: 'gemini-2.5-flash-direct',
+    label: 'Gemini 2.5 Flash',
     provider: 'gemini',
-    model: 'gemini-2.0-flash-lite',
+    model: 'gemini-2.5-flash',
     badge: 'Google',
     free: true,
   },
-  // OpenRouter — free + common paid routes
+  // ── OpenRouter free + paid ──
   {
-    id: 'or-llama-3.3-70b-free',
-    label: 'Llama 3.3 70B (free)',
+    id: 'or-nemotron-ultra',
+    label: 'Nemotron 3 Ultra',
     provider: 'openrouter',
-    model: 'meta-llama/llama-3.3-70b-instruct:free',
-    badge: 'Meta',
+    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+    badge: 'NVIDIA',
     free: true,
   },
   {
-    id: 'gpt-4o-mini',
-    label: 'GPT-4o mini',
+    id: 'or-free-router',
+    label: 'Free router',
+    provider: 'openrouter',
+    model: 'openrouter/free',
+    badge: 'OpenRouter',
+    free: true,
+  },
+  {
+    id: 'or-gpt-4o-mini',
+    label: 'GPT-4o mini (OR)',
     provider: 'openrouter',
     model: 'openai/gpt-4o-mini',
     badge: 'OpenAI',
   },
   {
-    id: 'gpt-4o',
-    label: 'GPT-4o',
+    id: 'or-claude-sonnet',
+    label: 'Claude Sonnet 4.5 (OR)',
     provider: 'openrouter',
-    model: 'openai/gpt-4o',
-    badge: 'OpenAI',
-  },
-  {
-    id: 'claude-sonnet',
-    label: 'Claude Sonnet',
-    provider: 'openrouter',
-    model: 'anthropic/claude-sonnet-4',
+    model: 'anthropic/claude-sonnet-4.5',
     badge: 'Anthropic',
   },
+  // ── Mistral direct (https://docs.mistral.ai) ──
   {
-    id: 'claude-haiku',
-    label: 'Claude Haiku',
-    provider: 'openrouter',
-    model: 'anthropic/claude-haiku-4.5',
-    badge: 'Anthropic',
+    id: 'mistral-small',
+    label: 'Mistral Small',
+    provider: 'mistral',
+    model: 'mistral-small-latest',
+    badge: 'Mistral',
+    free: true,
+  },
+  {
+    id: 'mistral-large',
+    label: 'Mistral Large',
+    provider: 'mistral',
+    model: 'mistral-large-latest',
+    badge: 'Mistral',
+  },
+  // ── DeepSeek direct (https://api-docs.deepseek.com) ──
+  {
+    id: 'deepseek-flash',
+    label: 'DeepSeek Flash',
+    provider: 'deepseek',
+    model: 'deepseek-flash',
+    badge: 'DeepSeek',
   },
   {
     id: 'deepseek-chat',
     label: 'DeepSeek Chat',
-    provider: 'openrouter',
-    model: 'deepseek/deepseek-chat',
+    provider: 'deepseek',
+    model: 'deepseek-chat',
     badge: 'DeepSeek',
   },
+  // ── OpenAI direct ──
   {
-    id: 'gemini-2.5-flash-or',
-    label: 'Gemini 2.5 Flash',
-    provider: 'openrouter',
-    model: 'google/gemini-2.5-flash',
-    badge: 'Google',
+    id: 'openai-gpt-4o-mini',
+    label: 'GPT-4o mini',
+    provider: 'openai',
+    model: 'gpt-4o-mini',
+    badge: 'OpenAI',
+  },
+  {
+    id: 'openai-gpt-4o',
+    label: 'GPT-4o',
+    provider: 'openai',
+    model: 'gpt-4o',
+    badge: 'OpenAI',
+  },
+  // ── xAI Grok (https://docs.x.ai) ──
+  {
+    id: 'xai-grok-4',
+    label: 'Grok 4',
+    provider: 'xai',
+    model: 'grok-4',
+    badge: 'xAI',
+  },
+  {
+    id: 'xai-grok-3',
+    label: 'Grok 3',
+    provider: 'xai',
+    model: 'grok-3',
+    badge: 'xAI',
+  },
+  // ── Anthropic direct ──
+  {
+    id: 'anthropic-sonnet',
+    label: 'Claude Sonnet 4.5',
+    provider: 'anthropic',
+    model: 'claude-sonnet-4-5',
+    badge: 'Anthropic',
+  },
+  {
+    id: 'anthropic-haiku',
+    label: 'Claude Haiku 4.5',
+    provider: 'anthropic',
+    model: 'claude-haiku-4-5',
+    badge: 'Anthropic',
   },
 ];
 
 export function getAvailableModels(): ModelOption[] {
-  const geminiOk = Boolean(env.GEMINI_API_KEY);
-  const openrouterOk = Boolean(env.OPENROUTER_API_KEY);
-  const groqOk = Boolean(env.GROQ_API_KEY);
-  return MODEL_OPTIONS.filter((m) => {
-    if (m.provider === 'gemini') return geminiOk;
-    if (m.provider === 'groq') return groqOk;
-    return openrouterOk;
-  });
+  const keys: Record<ProviderKey, boolean> = {
+    gemini: Boolean(env.GEMINI_API_KEY),
+    openrouter: Boolean(env.OPENROUTER_API_KEY),
+    groq: Boolean(env.GROQ_API_KEY),
+    mistral: Boolean(env.MISTRAL_API_KEY),
+    deepseek: Boolean(env.DEEPSEEK_API_KEY),
+    openai: Boolean(env.OPENAI_API_KEY),
+    xai: Boolean(env.XAI_API_KEY),
+    anthropic: Boolean(env.ANTHROPIC_API_KEY),
+  };
+  return MODEL_OPTIONS.filter((m) => keys[m.provider]);
 }
 
 export function isTutorAvailable(): boolean {
@@ -320,6 +387,107 @@ async function callGroq(
   return text.trim();
 }
 
+
+/** Shared OpenAI-compatible chat completions (Groq/OR/Mistral/DeepSeek/OpenAI/xAI). */
+async function callOpenAICompatible(
+  baseUrl: string,
+  apiKey: string,
+  providerLabel: string,
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+  extraHeaders?: Record<string, string>,
+): Promise<string> {
+  if (!apiKey) throw new Error(`${providerLabel} API key is not configured.`);
+
+  const chatMessages = [
+    { role: 'system', content: SYSTEM_PROMPT + preamble },
+    ...messages.map((m) => ({ role: m.role, content: m.content })),
+  ];
+
+  const res = await fetch(`${baseUrl.replace(/\/$/, '')}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+      ...extraHeaders,
+    },
+    body: JSON.stringify({
+      model,
+      messages: chatMessages,
+      temperature: 0.7,
+      max_tokens: 1024,
+    }),
+    signal,
+  });
+
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const errData = await res.json();
+      detail = errData?.error?.message || errData?.message || '';
+    } catch {
+      detail = await res.text().catch(() => '');
+    }
+    throw new Error(detail || `${providerLabel} request failed (${res.status}). Please try again.`);
+  }
+  const data = await res.json();
+  const textOut = data?.choices?.[0]?.message?.content;
+  if (!textOut) throw new Error('No response from AI. Please try again.');
+  return String(textOut).trim();
+}
+
+async function callAnthropic(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  const apiKey = env.ANTHROPIC_API_KEY;
+  if (!apiKey) throw new Error('Anthropic API key is not configured.');
+
+  const system = SYSTEM_PROMPT + preamble;
+  const anthropicMessages = messages.map((m) => ({
+    role: m.role === 'assistant' ? 'assistant' : 'user',
+    content: m.content,
+  }));
+
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model,
+      max_tokens: 1024,
+      system,
+      messages: anthropicMessages,
+    }),
+    signal,
+  });
+
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const errData = await res.json();
+      detail = errData?.error?.message || '';
+    } catch {
+      detail = await res.text().catch(() => '');
+    }
+    throw new Error(detail || `Anthropic request failed (${res.status}). Please try again.`);
+  }
+  const data = await res.json();
+  const parts = data?.content;
+  const textOut = Array.isArray(parts)
+    ? parts.filter((p: { type?: string }) => p.type === 'text').map((p: { text?: string }) => p.text || '').join('')
+    : '';
+  if (!textOut) throw new Error('No response from AI. Please try again.');
+  return textOut.trim();
+}
+
 export async function askTutor(
   messages: TutorMessage[],
   topicTitle?: string,
@@ -345,12 +513,77 @@ export async function askTutor(
 
   try {
     let reply: string;
-    if (modelOption.provider === 'openrouter') {
-      reply = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);
-    } else if (modelOption.provider === 'groq') {
-      reply = await callGroq(messages, preamble, modelOption.model, controller.signal);
-    } else {
+    const p = modelOption.provider;
+    if (p === 'gemini') {
       reply = await callGemini(messages, preamble, modelOption.model, controller.signal);
+    } else if (p === 'anthropic') {
+      reply = await callAnthropic(messages, preamble, modelOption.model, controller.signal);
+    } else if (p === 'openrouter') {
+      reply = await callOpenAICompatible(
+        'https://openrouter.ai/api/v1',
+        env.OPENROUTER_API_KEY,
+        'OpenRouter',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+        {
+          'HTTP-Referer': typeof window !== 'undefined' ? window.location.origin : 'https://examprep-hub.local',
+          'X-Title': 'ExamPrep Hub',
+        },
+      );
+    } else if (p === 'groq') {
+      reply = await callOpenAICompatible(
+        'https://api.groq.com/openai/v1',
+        env.GROQ_API_KEY,
+        'Groq',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+      );
+    } else if (p === 'mistral') {
+      reply = await callOpenAICompatible(
+        'https://api.mistral.ai/v1',
+        env.MISTRAL_API_KEY,
+        'Mistral',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+      );
+    } else if (p === 'deepseek') {
+      reply = await callOpenAICompatible(
+        'https://api.deepseek.com',
+        env.DEEPSEEK_API_KEY,
+        'DeepSeek',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+      );
+    } else if (p === 'openai') {
+      reply = await callOpenAICompatible(
+        'https://api.openai.com/v1',
+        env.OPENAI_API_KEY,
+        'OpenAI',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+      );
+    } else if (p === 'xai') {
+      reply = await callOpenAICompatible(
+        'https://api.x.ai/v1',
+        env.XAI_API_KEY,
+        'xAI',
+        messages,
+        preamble,
+        modelOption.model,
+        controller.signal,
+      );
+    } else {
+      throw new Error('Unknown AI provider.');
     }
 
     return { reply, modelLabel: modelOption.label };
