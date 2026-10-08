@@ -209,7 +209,7 @@ function AppContent() {
             screen={route.screen}
           />
         )}
-        <main id="main-content" className="pb-mobile-nav min-h-screen" tabIndex={-1}>
+        <main id="main-content" className="pb-mobile-nav min-h-screen bg-pattern-topo" tabIndex={-1}>
           <ScreenRouter />
         </main>
       </div>

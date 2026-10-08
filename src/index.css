@@ -34,10 +34,10 @@
 .bg-pattern-topo {
   background-color: #f8fafc;
   background-image:
-    radial-gradient(ellipse 600px 400px at 10% 0%, rgba(14, 165, 233, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 500px 500px at 90% 10%, rgba(14, 165, 233, 0.04) 0%, transparent 50%),
-    radial-gradient(circle, #cbd5e1 0.8px, transparent 0.8px);
-  background-size: 100% 100%, 100% 100%, 20px 20px;
+    radial-gradient(ellipse 600px 400px at 10% 0%, rgba(14, 165, 233, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 500px 500px at 90% 10%, rgba(14, 165, 233, 0.05) 0%, transparent 55%),
+    radial-gradient(circle, #94a3b8 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 22px 22px;
   background-position: 0 0, 0 0, 0 0;
   background-repeat: no-repeat, no-repeat, repeat;
 }
@@ -120,6 +120,17 @@
 .safe-area {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
+
+/* Bottom padding so content clears the fixed mobile nav (+ iOS home indicator) */
+.pb-mobile-nav {
+  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 1024px) {
+  .pb-mobile-nav {
+    padding-bottom: 1.5rem;
+  }
+}
+
 
 /* Hide scrollbar but keep scroll functionality */
 .scrollbar-hide {
