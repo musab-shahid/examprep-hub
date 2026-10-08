@@ -111,11 +111,13 @@ export function AiTutorChat({ topicId, topicTitle, topicContext }: AiTutorChatPr
     }
   }, [messages, topicKey]);
 
+  const handleEscape = useCallback(() => {
+    setIsOpen(false);
+    setShowModelDropdown(false);
+  }, []);
+
   useFocusTrap(panelRef, isOpen, {
-    onEscape: () => {
-      setIsOpen(false);
-      setShowModelDropdown(false);
-    },
+    onEscape: handleEscape,
   });
 
     // Cancel in-flight request on unmount
