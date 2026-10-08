@@ -101,87 +101,78 @@ export interface ModelOption {
 }
 
 export const MODEL_OPTIONS: ModelOption[] = [
-  // ── Groq (https://console.groq.com/docs/models) ──
+  // Groq — free tier
   {
-    id: 'groq-gpt-oss-120b',
-    label: 'GPT-OSS 120B',
+    id: 'groq-llama-3.3-70b',
+    label: 'Llama 3.3 70B',
     provider: 'groq',
-    model: 'openai/gpt-oss-120b',
+    model: 'llama-3.3-70b-versatile',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-gpt-oss-20b',
-    label: 'GPT-OSS 20B',
+    id: 'groq-llama-3.1-8b',
+    label: 'Llama 3.1 8B',
     provider: 'groq',
-    model: 'openai/gpt-oss-20b',
+    model: 'llama-3.1-8b-instant',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-qwen-3.8-27b',
-    label: 'Qwen 3.8 27B',
+    id: 'groq-gemma2-9b',
+    label: 'Gemma 2 9B',
     provider: 'groq',
-    model: 'qwen/qwen3.8-27b',
+    model: 'gemma2-9b-it',
     badge: 'Groq',
     free: true,
   },
-  // ── Google Gemini direct (https://ai.google.dev/gemini-api/docs/models) ──
+  // Gemini — Google AI Studio free tier
   {
-    id: 'gemini',
-    label: 'Gemini 3.8 Flash',
+    id: 'gemini-flash',
+    label: 'Gemini 2.0 Flash',
     provider: 'gemini',
-    model: 'gemini-3.8-flash',
+    model: 'gemini-2.0-flash',
     badge: 'Google',
     free: true,
   },
   {
-    id: 'gemini-2.5-flash-direct',
+    id: 'gemini-flash-lite',
+    label: 'Gemini 2.0 Flash Lite',
+    provider: 'gemini',
+    model: 'gemini-2.0-flash-lite',
+    badge: 'Google',
+    free: true,
+  },
+  // OpenRouter — free + paid routes
+  {
+    id: 'or-llama-3.3-70b-free',
+    label: 'Llama 3.3 70B (free)',
+    provider: 'openrouter',
+    model: 'meta-llama/llama-3.3-70b-instruct:free',
+    badge: 'Meta',
+    free: true,
+  },
+  {
+    id: 'gemini-2.5-flash-or',
     label: 'Gemini 2.5 Flash',
-    provider: 'gemini',
-    model: 'gemini-2.5-flash',
+    provider: 'openrouter',
+    model: 'google/gemini-2.5-flash',
     badge: 'Google',
-    free: true,
-  },
-  // ── OpenRouter free + paid ──
-  {
-    id: 'or-nemotron-ultra',
-    label: 'Nemotron 3 Ultra',
-    provider: 'openrouter',
-    model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
-    badge: 'NVIDIA',
-    free: true,
   },
   {
-    id: 'or-free-router',
-    label: 'Free router',
+    id: 'gemini-2.5-pro-or',
+    label: 'Gemini 2.5 Pro',
     provider: 'openrouter',
-    model: 'openrouter/free',
-    badge: 'OpenRouter',
-    free: true,
+    model: 'google/gemini-2.5-pro',
+    badge: 'Google',
   },
-  {
-    id: 'or-gpt-4o-mini',
-    label: 'GPT-4o mini (OR)',
-    provider: 'openrouter',
-    model: 'openai/gpt-4o-mini',
-    badge: 'OpenAI',
-  },
-  {
-    id: 'or-claude-sonnet',
-    label: 'Claude Sonnet 4.5 (OR)',
-    provider: 'openrouter',
-    model: 'anthropic/claude-sonnet-4.5',
-    badge: 'Anthropic',
-  },
-  // ── Mistral direct (https://docs.mistral.ai) ──
+  // Mistral — direct API
   {
     id: 'mistral-small',
     label: 'Mistral Small',
     provider: 'mistral',
     model: 'mistral-small-latest',
     badge: 'Mistral',
-    free: true,
   },
   {
     id: 'mistral-large',
@@ -190,14 +181,7 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'mistral-large-latest',
     badge: 'Mistral',
   },
-  // ── DeepSeek direct (https://api-docs.deepseek.com) ──
-  {
-    id: 'deepseek-flash',
-    label: 'DeepSeek Flash',
-    provider: 'deepseek',
-    model: 'deepseek-flash',
-    badge: 'DeepSeek',
-  },
+  // DeepSeek — direct API
   {
     id: 'deepseek-chat',
     label: 'DeepSeek Chat',
@@ -205,7 +189,7 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'deepseek-chat',
     badge: 'DeepSeek',
   },
-  // ── OpenAI direct ──
+  // OpenAI — direct API
   {
     id: 'openai-gpt-4o-mini',
     label: 'GPT-4o mini',
@@ -220,7 +204,7 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'gpt-4o',
     badge: 'OpenAI',
   },
-  // ── xAI Grok (https://docs.x.ai) ──
+  // xAI — direct API
   {
     id: 'xai-grok-4',
     label: 'Grok 4',
@@ -235,39 +219,53 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'grok-3',
     badge: 'xAI',
   },
-  // ── Anthropic direct ──
+  // Anthropic — direct API
   {
     id: 'anthropic-sonnet',
     label: 'Claude Sonnet 4.5',
     provider: 'anthropic',
-    model: 'claude-sonnet-4-5',
+    model: 'claude-sonnet-4-5-20250514',
     badge: 'Anthropic',
   },
   {
     id: 'anthropic-haiku',
     label: 'Claude Haiku 4.5',
     provider: 'anthropic',
-    model: 'claude-haiku-4-5',
+    model: 'claude-haiku-4-5-20250514',
     badge: 'Anthropic',
   },
 ];
 
+const PROVIDER_KEYS: Record<ProviderKey, keyof typeof env> = {
+  gemini: 'GEMINI_API_KEY',
+  openrouter: 'OPENROUTER_API_KEY',
+  groq: 'GROQ_API_KEY',
+  mistral: 'MISTRAL_API_KEY',
+  deepseek: 'DEEPSEEK_API_KEY',
+  openai: 'OPENAI_API_KEY',
+  xai: 'XAI_API_KEY',
+  anthropic: 'ANTHROPIC_API_KEY',
+};
+
+function isProviderAvailable(provider: ProviderKey): boolean {
+  return Boolean(env[PROVIDER_KEYS[provider]]);
+}
+
 export function getAvailableModels(): ModelOption[] {
-  const keys: Record<ProviderKey, boolean> = {
-    gemini: Boolean(env.GEMINI_API_KEY),
-    openrouter: Boolean(env.OPENROUTER_API_KEY),
-    groq: Boolean(env.GROQ_API_KEY),
-    mistral: Boolean(env.MISTRAL_API_KEY),
-    deepseek: Boolean(env.DEEPSEEK_API_KEY),
-    openai: Boolean(env.OPENAI_API_KEY),
-    xai: Boolean(env.XAI_API_KEY),
-    anthropic: Boolean(env.ANTHROPIC_API_KEY),
-  };
-  return MODEL_OPTIONS.filter((m) => keys[m.provider]);
+  return MODEL_OPTIONS.filter((m) => isProviderAvailable(m.provider));
 }
 
 export function isTutorAvailable(): boolean {
-  return Boolean(env.GEMINI_API_KEY || env.OPENROUTER_API_KEY || env.GROQ_API_KEY);
+  return Boolean(
+    env.GEMINI_API_KEY ||
+      env.OPENROUTER_API_KEY ||
+      env.GROQ_API_KEY ||
+      env.MISTRAL_API_KEY ||
+      env.DEEPSEEK_API_KEY ||
+      env.OPENAI_API_KEY ||
+      env.XAI_API_KEY ||
+      env.ANTHROPIC_API_KEY,
+  );
 }
 
 export function getDefaultModelId(): string {
@@ -387,55 +385,115 @@ async function callGroq(
   return text.trim();
 }
 
-
-/** Shared OpenAI-compatible chat completions (Groq/OR/Mistral/DeepSeek/OpenAI/xAI). */
-async function callOpenAICompatible(
+function callOpenAICompatible(
   baseUrl: string,
   apiKey: string,
-  providerLabel: string,
   messages: TutorMessage[],
   preamble: string,
   model: string,
   signal?: AbortSignal,
-  extraHeaders?: Record<string, string>,
+  providerLabel?: string,
 ): Promise<string> {
-  if (!apiKey) throw new Error(`${providerLabel} API key is not configured.`);
-
   const chatMessages = [
-    { role: 'system', content: SYSTEM_PROMPT + preamble },
+    { role: 'system' as const, content: preamble },
     ...messages.map((m) => ({ role: m.role, content: m.content })),
   ];
 
-  const res = await fetch(`${baseUrl.replace(/\/$/, '')}/chat/completions`, {
+  const res = fetch(`${baseUrl}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-      ...extraHeaders,
+      'Authorization': `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
       model,
       messages: chatMessages,
       temperature: 0.7,
       max_tokens: 1024,
+      top_p: 0.95,
     }),
     signal,
+  }).then(async (res) => {
+    if (!res.ok) {
+      let detail = '';
+      try { const errData = await res.json(); detail = errData?.error?.message || ''; } catch { detail = await res.text().catch(() => ''); }
+      throw new Error(detail || `${providerLabel || 'Request'} failed (${res.status}). Please try again.`);
+    }
+    const data = await res.json();
+    const text = data?.choices?.[0]?.message?.content;
+    if (!text) throw new Error('No response from AI. Please try again.');
+    return text.trim();
   });
 
-  if (!res.ok) {
-    let detail = '';
-    try {
-      const errData = await res.json();
-      detail = errData?.error?.message || errData?.message || '';
-    } catch {
-      detail = await res.text().catch(() => '');
-    }
-    throw new Error(detail || `${providerLabel} request failed (${res.status}). Please try again.`);
-  }
-  const data = await res.json();
-  const textOut = data?.choices?.[0]?.message?.content;
-  if (!textOut) throw new Error('No response from AI. Please try again.');
-  return String(textOut).trim();
+  return res;
+}
+
+async function callMistral(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  return callOpenAICompatible(
+    'https://api.mistral.ai/v1',
+    env.MISTRAL_API_KEY,
+    messages,
+    preamble,
+    model,
+    signal,
+    'Mistral',
+  );
+}
+
+async function callDeepSeek(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  return callOpenAICompatible(
+    'https://api.deepseek.com/v1',
+    env.DEEPSEEK_API_KEY,
+    messages,
+    preamble,
+    model,
+    signal,
+    'DeepSeek',
+  );
+}
+
+async function callOpenAI(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  return callOpenAICompatible(
+    'https://api.openai.com/v1',
+    env.OPENAI_API_KEY,
+    messages,
+    preamble,
+    model,
+    signal,
+    'OpenAI',
+  );
+}
+
+async function callXAI(
+  messages: TutorMessage[],
+  preamble: string,
+  model: string,
+  signal?: AbortSignal,
+): Promise<string> {
+  return callOpenAICompatible(
+    'https://api.x.ai/v1',
+    env.XAI_API_KEY,
+    messages,
+    preamble,
+    model,
+    signal,
+    'xAI',
+  );
 }
 
 async function callAnthropic(
@@ -444,48 +502,32 @@ async function callAnthropic(
   model: string,
   signal?: AbortSignal,
 ): Promise<string> {
-  const apiKey = env.ANTHROPIC_API_KEY;
-  if (!apiKey) throw new Error('Anthropic API key is not configured.');
-
-  const system = SYSTEM_PROMPT + preamble;
-  const anthropicMessages = messages.map((m) => ({
-    role: m.role === 'assistant' ? 'assistant' : 'user',
-    content: m.content,
-  }));
-
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': apiKey,
+      'x-api-key': env.ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
     },
     body: JSON.stringify({
       model,
       max_tokens: 1024,
-      system,
-      messages: anthropicMessages,
+      system: preamble,
+      messages: messages.map((m) => ({ role: m.role, content: m.content })),
     }),
     signal,
   });
 
   if (!res.ok) {
     let detail = '';
-    try {
-      const errData = await res.json();
-      detail = errData?.error?.message || '';
-    } catch {
-      detail = await res.text().catch(() => '');
-    }
+    try { const errData = await res.json(); detail = errData?.error?.message || ''; } catch { detail = await res.text().catch(() => ''); }
     throw new Error(detail || `Anthropic request failed (${res.status}). Please try again.`);
   }
   const data = await res.json();
-  const parts = data?.content;
-  const textOut = Array.isArray(parts)
-    ? parts.filter((p: { type?: string }) => p.type === 'text').map((p: { text?: string }) => p.text || '').join('')
-    : '';
-  if (!textOut) throw new Error('No response from AI. Please try again.');
-  return textOut.trim();
+  const text = data?.content?.[0]?.text;
+  if (!text) throw new Error('No response from AI. Please try again.');
+  return text.trim();
 }
 
 export async function askTutor(
@@ -513,77 +555,33 @@ export async function askTutor(
 
   try {
     let reply: string;
-    const p = modelOption.provider;
-    if (p === 'gemini') {
-      reply = await callGemini(messages, preamble, modelOption.model, controller.signal);
-    } else if (p === 'anthropic') {
-      reply = await callAnthropic(messages, preamble, modelOption.model, controller.signal);
-    } else if (p === 'openrouter') {
-      reply = await callOpenAICompatible(
-        'https://openrouter.ai/api/v1',
-        env.OPENROUTER_API_KEY,
-        'OpenRouter',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-        {
-          'HTTP-Referer': typeof window !== 'undefined' ? window.location.origin : 'https://examprep-hub.local',
-          'X-Title': 'ExamPrep Hub',
-        },
-      );
-    } else if (p === 'groq') {
-      reply = await callOpenAICompatible(
-        'https://api.groq.com/openai/v1',
-        env.GROQ_API_KEY,
-        'Groq',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-      );
-    } else if (p === 'mistral') {
-      reply = await callOpenAICompatible(
-        'https://api.mistral.ai/v1',
-        env.MISTRAL_API_KEY,
-        'Mistral',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-      );
-    } else if (p === 'deepseek') {
-      reply = await callOpenAICompatible(
-        'https://api.deepseek.com',
-        env.DEEPSEEK_API_KEY,
-        'DeepSeek',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-      );
-    } else if (p === 'openai') {
-      reply = await callOpenAICompatible(
-        'https://api.openai.com/v1',
-        env.OPENAI_API_KEY,
-        'OpenAI',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-      );
-    } else if (p === 'xai') {
-      reply = await callOpenAICompatible(
-        'https://api.x.ai/v1',
-        env.XAI_API_KEY,
-        'xAI',
-        messages,
-        preamble,
-        modelOption.model,
-        controller.signal,
-      );
-    } else {
-      throw new Error('Unknown AI provider.');
+    switch (modelOption.provider) {
+      case 'openrouter':
+        reply = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'groq':
+        reply = await callGroq(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'gemini':
+        reply = await callGemini(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'mistral':
+        reply = await callMistral(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'deepseek':
+        reply = await callDeepSeek(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'openai':
+        reply = await callOpenAI(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'xai':
+        reply = await callXAI(messages, preamble, modelOption.model, controller.signal);
+        break;
+      case 'anthropic':
+        reply = await callAnthropic(messages, preamble, modelOption.model, controller.signal);
+        break;
+      default:
+        throw new Error('Unknown AI provider.');
     }
 
     return { reply, modelLabel: modelOption.label };
