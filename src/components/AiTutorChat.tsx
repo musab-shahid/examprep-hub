@@ -205,8 +205,13 @@ export function AiTutorChat({ topicId, topicTitle, topicContext }: AiTutorChatPr
 
     try {
       const tutorMessages: TutorMessage[] = newMessages.map((m) => ({ role: m.role, content: m.content }));
-      const { reply } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined, controller.signal);
-      setMessages((prev) => [...prev, { id: makeId(), role: 'assistant', content: reply }]);
+      const { reply, truncated } = await askTutor(tutorMessages, topicTitle, topicContext, modelId || undefined, controller.signal);
+      const content = truncated
+        ? `${reply}
+
+_…reply may have been cut off by the model length limit. Ask “continue” to resume._`
+        : reply;
+      setMessages((prev) => [...prev, { id: makeId(), role: 'assistant', content }]);
       lastFailedRef.current = null;
     } catch (err) {
       if (controller.signal.aborted) {

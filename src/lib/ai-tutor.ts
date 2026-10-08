@@ -8,7 +8,7 @@ Guidelines:
 - Use examples relevant to Pakistan where possible
 - When a student is confused, break the concept into smaller steps
 - If asked for practice questions, generate 2-3 MCQs with options and indicate the correct answer
-- Keep responses concise and focused (under 300 words unless the student asks for detail)
+- Be clear and complete enough to teach the point; use short structured sections. Stay brief only for simple definition or yes/no checks.
 - If the student's question is off-topic from the study material, gently redirect
 - Format responses using markdown: use **bold** for key terms, bullet points for lists, short headings (## or ###) for sections, and \`inline code\` for formulas or technical terms
 - Be encouraging and patient`;
@@ -333,7 +333,7 @@ export function getDefaultModelId(): string {
   return available[0]?.id ?? '';
 }
 
-async function callGemini(messages: TutorMessage[], preamble: string, model: string, signal?: AbortSignal): Promise<string> {
+async function callGemini(messages: TutorMessage[], preamble: string, model: string, signal?: AbortSignal): Promise<{ text: string; truncated: boolean }> {
   const apiKey = env.GEMINI_API_KEY;
   const contents = messages.map((m) => ({
     role: m.role === 'assistant' ? 'model' : 'user',
@@ -348,7 +348,7 @@ async function callGemini(messages: TutorMessage[], preamble: string, model: str
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: preamble }] },
         contents,
-        generationConfig: { temperature: 0.7, maxOutputTokens: 1024, topP: 0.95 },
+        generationConfig: { temperature: 0.7, maxOutputTokens: 4096, topP: 0.95 },
       }),
       signal,
     },
@@ -362,7 +362,9 @@ async function callGemini(messages: TutorMessage[], preamble: string, model: str
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) throw new Error('No response from AI. Please try again.');
-  return text.trim();
+  const finish = String(data?.candidates?.[0]?.finishReason || '');
+  const truncated = /MAX|LENGTH/i.test(finish);
+  return { text: text.trim(), truncated };
 }
 
 async function callOpenRouter(
@@ -370,7 +372,7 @@ async function callOpenRouter(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   const apiKey = env.OPENROUTER_API_KEY;
   const chatMessages = [
     { role: 'system' as const, content: preamble },
@@ -389,7 +391,7 @@ async function callOpenRouter(
       model,
       messages: chatMessages,
       temperature: 0.7,
-      max_tokens: 1024,
+      max_tokens: 4096,
       top_p: 0.95,
     }),
     signal,
@@ -403,7 +405,9 @@ async function callOpenRouter(
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error('No response from AI. Please try again.');
-  return text.trim();
+  const finish = data?.choices?.[0]?.finish_reason || '';
+  const truncated = finish === 'length' || finish === 'max_tokens';
+  return { text: text.trim(), truncated };
 }
 
 async function callGroq(
@@ -411,7 +415,7 @@ async function callGroq(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   const apiKey = env.GROQ_API_KEY;
   const chatMessages = [
     { role: 'system' as const, content: preamble },
@@ -428,7 +432,7 @@ async function callGroq(
       model,
       messages: chatMessages,
       temperature: 0.7,
-      max_tokens: 1024,
+      max_tokens: 4096,
       top_p: 0.95,
     }),
     signal,
@@ -442,7 +446,9 @@ async function callGroq(
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error('No response from AI. Please try again.');
-  return text.trim();
+  const finish = data?.choices?.[0]?.finish_reason || '';
+  const truncated = finish === 'length' || finish === 'max_tokens';
+  return { text: text.trim(), truncated };
 }
 
 function callOpenAICompatible(
@@ -453,13 +459,13 @@ function callOpenAICompatible(
   model: string,
   signal?: AbortSignal,
   providerLabel?: string,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   const chatMessages = [
     { role: 'system' as const, content: preamble },
     ...messages.map((m) => ({ role: m.role, content: m.content })),
   ];
 
-  const res = fetch(`${baseUrl}/chat/completions`, {
+  return fetch(`${baseUrl}/chat/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -469,7 +475,7 @@ function callOpenAICompatible(
       model,
       messages: chatMessages,
       temperature: 0.7,
-      max_tokens: 1024,
+      max_tokens: 4096,
       top_p: 0.95,
     }),
     signal,
@@ -482,10 +488,10 @@ function callOpenAICompatible(
     const data = await res.json();
     const text = data?.choices?.[0]?.message?.content;
     if (!text) throw new Error('No response from AI. Please try again.');
-    return text.trim();
+    const finish = data?.choices?.[0]?.finish_reason || '';
+    const truncated = finish === 'length' || finish === 'max_tokens';
+    return { text: text.trim(), truncated };
   });
-
-  return res;
 }
 
 async function callMistral(
@@ -493,7 +499,7 @@ async function callMistral(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   return callOpenAICompatible(
     'https://api.mistral.ai/v1',
     env.MISTRAL_API_KEY,
@@ -510,7 +516,7 @@ async function callDeepSeek(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   return callOpenAICompatible(
     'https://api.deepseek.com/v1',
     env.DEEPSEEK_API_KEY,
@@ -527,7 +533,7 @@ async function callOpenAI(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   return callOpenAICompatible(
     'https://api.openai.com/v1',
     env.OPENAI_API_KEY,
@@ -544,7 +550,7 @@ async function callXAI(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   return callOpenAICompatible(
     'https://api.x.ai/v1',
     env.XAI_API_KEY,
@@ -561,7 +567,7 @@ async function callAnthropic(
   preamble: string,
   model: string,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<{ text: string; truncated: boolean }> {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: {
@@ -572,7 +578,7 @@ async function callAnthropic(
     },
     body: JSON.stringify({
       model,
-      max_tokens: 1024,
+      max_tokens: 4096,
       system: preamble,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
     }),
@@ -587,7 +593,8 @@ async function callAnthropic(
   const data = await res.json();
   const text = data?.content?.[0]?.text;
   if (!text) throw new Error('No response from AI. Please try again.');
-  return text.trim();
+  const truncated = data?.stop_reason === 'max_tokens';
+  return { text: text.trim(), truncated };
 }
 
 export async function askTutor(
@@ -596,7 +603,7 @@ export async function askTutor(
   topicContext?: string,
   modelId?: string,
   signal?: AbortSignal,
-): Promise<{ reply: string; modelLabel: string }> {
+): Promise<{ reply: string; modelLabel: string; truncated?: boolean }> {
   const available = getAvailableModels();
   if (available.length === 0) {
     throw new Error('AI service is not configured. Please add an API key.');
@@ -614,37 +621,37 @@ export async function askTutor(
   }
 
   try {
-    let reply: string;
+    let result: { text: string; truncated: boolean };
     switch (modelOption.provider) {
       case 'openrouter':
-        reply = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);
+        result = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'groq':
-        reply = await callGroq(messages, preamble, modelOption.model, controller.signal);
+        result = await callGroq(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'gemini':
-        reply = await callGemini(messages, preamble, modelOption.model, controller.signal);
+        result = await callGemini(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'mistral':
-        reply = await callMistral(messages, preamble, modelOption.model, controller.signal);
+        result = await callMistral(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'deepseek':
-        reply = await callDeepSeek(messages, preamble, modelOption.model, controller.signal);
+        result = await callDeepSeek(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'openai':
-        reply = await callOpenAI(messages, preamble, modelOption.model, controller.signal);
+        result = await callOpenAI(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'xai':
-        reply = await callXAI(messages, preamble, modelOption.model, controller.signal);
+        result = await callXAI(messages, preamble, modelOption.model, controller.signal);
         break;
       case 'anthropic':
-        reply = await callAnthropic(messages, preamble, modelOption.model, controller.signal);
+        result = await callAnthropic(messages, preamble, modelOption.model, controller.signal);
         break;
       default:
         throw new Error('Unknown AI provider.');
     }
 
-    return { reply, modelLabel: modelOption.label };
+    return { reply: result.text, modelLabel: modelOption.label, truncated: result.truncated };
   } catch (err) {
     if (controller.signal.aborted && (!signal || !signal.aborted)) {
       throw new Error('The AI took too long to respond (over 90 seconds). Please try again or pick a different model.');
