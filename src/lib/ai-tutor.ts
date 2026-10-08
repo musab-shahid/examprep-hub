@@ -101,7 +101,7 @@ export interface ModelOption {
 }
 
 export const MODEL_OPTIONS: ModelOption[] = [
-  // Groq — free tier
+  // ── Groq (needs VITE_GROQ_API_KEY) ──
   {
     id: 'groq-llama-3.3-70b',
     label: 'Llama 3.3 70B',
@@ -126,7 +126,7 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'Groq',
     free: true,
   },
-  // Gemini — Google AI Studio free tier
+  // ── Google Gemini direct (needs VITE_GEMINI_API_KEY) ──
   {
     id: 'gemini-flash',
     label: 'Gemini 3.5 Flash',
@@ -143,96 +143,97 @@ export const MODEL_OPTIONS: ModelOption[] = [
     badge: 'Google',
     free: true,
   },
-  // OpenRouter — free models
+  // ── OpenRouter free (needs VITE_OPENROUTER_API_KEY) ──
   {
     id: 'or-llama-3.3-70b-free',
-    label: 'Llama 3.3 70B (free)',
+    label: 'Llama 3.3 70B',
     provider: 'openrouter',
     model: 'meta-llama/llama-3.3-70b-instruct:free',
-    badge: 'Meta',
+    badge: 'via OpenRouter',
     free: true,
   },
   {
     id: 'or-nemotron-ultra-free',
-    label: 'Nemotron 3 Ultra (free)',
+    label: 'Nemotron 3 Ultra',
     provider: 'openrouter',
     model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
-    badge: 'NVIDIA',
+    badge: 'via OpenRouter',
     free: true,
   },
   {
     id: 'or-nemotron-super-free',
-    label: 'Nemotron 3 Super (free)',
+    label: 'Nemotron 3 Super',
     provider: 'openrouter',
     model: 'nvidia/nemotron-3-super-120b-a12b:free',
-    badge: 'NVIDIA',
+    badge: 'via OpenRouter',
     free: true,
   },
   {
     id: 'or-nemotron-lightning-free',
-    label: 'Nemotron 3.5 Lightning (free)',
+    label: 'Nemotron 3.5 Lightning',
     provider: 'openrouter',
     model: 'nvidia/nemotron-3.5-lightning:free',
-    badge: 'NVIDIA',
+    badge: 'via OpenRouter',
     free: true,
   },
-  // OpenRouter — paid models
+  // ── OpenRouter paid ──
   {
     id: 'or-gpt-4.1-mini',
     label: 'GPT-4.1 mini',
     provider: 'openrouter',
     model: 'openai/gpt-4.1-mini',
-    badge: 'OpenAI',
+    badge: 'via OpenRouter',
   },
   {
     id: 'or-gpt-4.1',
     label: 'GPT-4.1',
     provider: 'openrouter',
     model: 'openai/gpt-4.1',
-    badge: 'OpenAI',
+    badge: 'via OpenRouter',
   },
   {
     id: 'or-claude-sonnet',
     label: 'Claude Sonnet 5',
     provider: 'openrouter',
     model: 'anthropic/claude-sonnet-5',
-    badge: 'Anthropic',
+    badge: 'via OpenRouter',
   },
   {
     id: 'or-claude-haiku',
     label: 'Claude Haiku 4.5',
     provider: 'openrouter',
     model: 'anthropic/claude-haiku-4.5',
-    badge: 'Anthropic',
+    badge: 'via OpenRouter',
   },
   {
     id: 'or-deepseek-chat',
     label: 'DeepSeek V4 Flash',
     provider: 'openrouter',
     model: 'deepseek/deepseek-v4-flash',
-    badge: 'DeepSeek',
+    badge: 'via OpenRouter',
   },
   {
-    id: 'or-gemini-3.5-flash',
+    id: 'or-gemini-flash',
     label: 'Gemini 3.5 Flash',
     provider: 'openrouter',
     model: 'google/gemini-3.5-flash',
-    badge: 'Google',
+    badge: 'via OpenRouter',
   },
   {
-    id: 'or-gemini-3.5-pro',
+    id: 'or-gemini-pro',
     label: 'Gemini 3.5 Pro',
     provider: 'openrouter',
     model: 'google/gemini-3.5-pro',
-    badge: 'Google',
+    badge: 'via OpenRouter',
   },
-  // Mistral — direct API
+  // ── Direct provider keys ──
   {
     id: 'mistral-small',
     label: 'Mistral Small',
     provider: 'mistral',
     model: 'mistral-small-latest',
     badge: 'Mistral',
+    free: true,
   },
   {
     id: 'mistral-large',
@@ -241,15 +242,13 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'mistral-large-latest',
     badge: 'Mistral',
   },
-  // DeepSeek — direct API
   {
-    id: 'deepseek-chat',
+    id: 'deepseek-flash',
     label: 'DeepSeek V4 Flash',
     provider: 'deepseek',
-    model: 'deepseek-v4-flash',
+    model: 'deepseek-chat',
     badge: 'DeepSeek',
   },
-  // OpenAI — direct API
   {
     id: 'openai-gpt-4.1-mini',
     label: 'GPT-4.1 mini',
@@ -264,27 +263,25 @@ export const MODEL_OPTIONS: ModelOption[] = [
     model: 'gpt-4.1',
     badge: 'OpenAI',
   },
-  // xAI — direct API
   {
     id: 'xai-grok-4.3',
     label: 'Grok 4.3',
     provider: 'xai',
-    model: 'grok-4.3',
+    model: 'grok-4',
     badge: 'xAI',
   },
   {
     id: 'xai-grok-4.1',
     label: 'Grok 4.1',
     provider: 'xai',
-    model: 'grok-4.1',
+    model: 'grok-3',
     badge: 'xAI',
   },
-  // Anthropic — direct API
   {
     id: 'anthropic-sonnet',
     label: 'Claude Sonnet 5',
     provider: 'anthropic',
-    model: 'claude-sonnet-5',
+    model: 'claude-sonnet-4-5',
     badge: 'Anthropic',
   },
   {
