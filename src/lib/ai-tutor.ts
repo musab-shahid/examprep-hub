@@ -233,7 +233,6 @@ export const MODEL_OPTIONS: ModelOption[] = [
     provider: 'mistral',
     model: 'mistral-small-latest',
     badge: 'Mistral',
-    free: true,
   },
   {
     id: 'mistral-large',
@@ -246,7 +245,7 @@ export const MODEL_OPTIONS: ModelOption[] = [
     id: 'deepseek-flash',
     label: 'DeepSeek V4 Flash',
     provider: 'deepseek',
-    model: 'deepseek-chat',
+    model: 'deepseek-v4-flash',
     badge: 'DeepSeek',
   },
   {
@@ -267,21 +266,21 @@ export const MODEL_OPTIONS: ModelOption[] = [
     id: 'xai-grok-4.3',
     label: 'Grok 4.3',
     provider: 'xai',
-    model: 'grok-4',
+    model: 'grok-4.3',
     badge: 'xAI',
   },
   {
     id: 'xai-grok-4.1',
     label: 'Grok 4.1',
     provider: 'xai',
-    model: 'grok-3',
+    model: 'grok-4.1',
     badge: 'xAI',
   },
   {
     id: 'anthropic-sonnet',
     label: 'Claude Sonnet 5',
     provider: 'anthropic',
-    model: 'claude-sonnet-4-5',
+    model: 'claude-sonnet-5',
     badge: 'Anthropic',
   },
   {

@@ -26,7 +26,6 @@ const COOLDOWN_MS = 3000;
 const MAX_INPUT_LENGTH = 2000;
 const MAX_STORED_MESSAGES = 40;
 const STORAGE_KEY_PREFIX = 'ai-tutor-chat:';
-const LEGACY_TITLE_PREFIX = 'ai-tutor-chat-title:';
 
 function makeId(): string {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
