@@ -97,6 +97,7 @@ export function SearchScreen() {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              aria-label="Search topics, facts, and formulas"
               placeholder="Search topics, facts, formulas..."
               className="w-full pl-12 pr-4 py-3.5 rounded-btn border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition-colors duration-DEFAULT"
             />

@@ -18,38 +18,28 @@ export const DataContext = createContext<DataContextValue | null>(null);
 export function DataProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<AppData>(() => loadData());
 
-
   const markStudied = useCallback((topicId: string) => {
-    let next: AppData | null = null;
     setData((prev) => {
-      next = markTopicStudied(prev, topicId);
+      const next = markTopicStudied(prev, topicId);
+      saveData(next);
       return next;
     });
-    if (next) {
-      saveData(next);
-      flushPendingSave();
-    }
   }, []);
 
   const recordQuiz = useCallback((topicId: string | null, answers: { questionId: string; correct: boolean }[], questions: Question[], mode: PracticeMode, subjectId?: string, difficultyFilter?: DifficultyFilter) => {
-    let next: AppData | null = null;
     setData((prev) => {
-      next = recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter);
+      const next = recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter);
+      saveData(next);
       return next;
     });
-    if (next) {
-      saveData(next);
-      flushPendingSave();
-    }
   }, []);
 
   const setLastTopic = useCallback((topicId: string) => {
-    let next: AppData | null = null;
     setData((prev) => {
-      next = setLastOpenedTopic(prev, topicId);
+      const next = setLastOpenedTopic(prev, topicId);
+      saveData(next);
       return next;
     });
-    if (next) saveData(next);
   }, []);
 
   const reset = useCallback(() => {
@@ -58,7 +48,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const resetSubjects = useCallback((subjectIds: SubjectId[]) => {
-    let next: AppData | null = null;
     setData((prev) => {
       const subjectIdSet = new Set(subjectIds);
       const subjectSectionIds = new Set(
@@ -68,7 +57,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         topics.filter((t) => subjectSectionIds.has(t.sectionId)).map((t) => t.id)
       );
 
-      next = {
+      const next: AppData = {
         studiedTopics: prev.studiedTopics.filter((tid) => !subjectTopicIds.has(tid)),
         topicProgress: Object.fromEntries(
           Object.entries(prev.topicProgress).filter(([tid]) => !subjectTopicIds.has(tid))
@@ -76,7 +65,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         questionResults: Object.fromEntries(
           Object.entries(prev.questionResults).filter(([, r]) => {
             if (r.subjectId) return !subjectIdSet.has(r.subjectId as SubjectId);
-            return true; // keep legacy entries without subjectId
+            return true;
           })
         ),
         quizHistory: prev.quizHistory.filter((q) => {
@@ -84,16 +73,15 @@ export function DataProvider({ children }: { children: ReactNode }) {
           if (q.topicId && subjectTopicIds.has(q.topicId)) return false;
           return true;
         }),
-        revisionDates: {},
+        revisionDates: Object.fromEntries(
+          Object.entries(prev.revisionDates).filter(([tid]) => !subjectTopicIds.has(tid))
+        ),
         lastOpenedTopic: subjectTopicIds.has(prev.lastOpenedTopic) ? '' : prev.lastOpenedTopic,
       };
 
+      saveData(next);
       return next;
     });
-    if (next) {
-      saveData(next);
-      flushPendingSave();
-    }
   }, []);
 
   return (

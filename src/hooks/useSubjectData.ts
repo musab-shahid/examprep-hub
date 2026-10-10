@@ -68,6 +68,7 @@ export function useSubjectData(): SubjectDataLayer {
   const { data } = useData();
   const { activeTrack } = useSubjectSelection();
   const [loadedSubjects, setLoadedSubjects] = useState<Set<string>>(new Set());
+  const [loadedQuestionSubjects, setLoadedQuestionSubjects] = useState<Set<string>>(new Set());
 
   const trackSubjectIds = useMemo(() => {
     return new Set(subjectsByTrack(activeTrack).map((s) => s.id));
@@ -96,6 +97,11 @@ export function useSubjectData(): SubjectDataLayer {
       }
     }
     setLoadedSubjects(loaded);
+    const loadedQ = new Set<string>();
+    for (const id of trackSubjectIdList) {
+      if (getCachedQuestions(id) !== undefined) loadedQ.add(id);
+    }
+    setLoadedQuestionSubjects(loadedQ);
   }, [trackSubjectIdList]);
 
   const topicsFor = useCallback((id: SubjectId | 'all'): Topic[] => {
@@ -263,7 +269,7 @@ export function useSubjectData(): SubjectDataLayer {
     } else {
       await loadSubjectQuestions(id);
     }
-    setLoadedSubjects((prev) => {
+    setLoadedQuestionSubjects((prev) => {
       const next = new Set(prev);
       if (id === 'all') {
         trackSubjectIdList.forEach((s) => next.add(s));
@@ -276,17 +282,15 @@ export function useSubjectData(): SubjectDataLayer {
 
   const isLoaded = useCallback((id: SubjectId | 'all') => {
     if (id === 'all') {
-      return trackSubjectIdList.every(
-        (s) => loadedSubjects.has(s) || getCachedTopics(s) !== undefined,
-      );
+      return trackSubjectIdList.every((s) => getCachedTopics(s) !== undefined);
     }
-    return loadedSubjects.has(id) || getCachedTopics(id) !== undefined;
-  }, [trackSubjectIdList, loadedSubjects]);
+    return getCachedTopics(id) !== undefined;
+  }, [trackSubjectIdList]);
 
   const isQuestionsReady = useCallback((id: SubjectId | 'all') => {
     if (id === 'all') return trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined);
     return getCachedQuestions(id) !== undefined;
-  }, [trackSubjectIdList, loadedSubjects]);
+  }, [trackSubjectIdList]);
 
   return useMemo(() => ({
     topicsFor,

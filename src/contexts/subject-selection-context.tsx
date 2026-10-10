@@ -3,8 +3,9 @@ import type { SubjectId } from '@/types';
 import type { ExamTrackId } from '@/lib/exam-track';
 import { getTrackForSubject } from '@/lib/exam-track';
 import { subjectsByTrack } from '@/data/subjects';
+import { STAGE_SCREENS } from '@/lib/constants';
 
-export type StageScreen = 'learn' | 'practice' | 'review' | 'search' | 'formulas' | 'progress';
+export type StageScreen = (typeof STAGE_SCREENS)[number];
 
 export type SubjectSelection = SubjectId | 'all';
 
@@ -33,7 +34,6 @@ interface SubjectSelectionContextValue {
 }
 
 const STORAGE_KEY = 'examprep-subject-selection';
-const STAGE_SCREENS: StageScreen[] = ['learn', 'practice', 'review', 'search', 'formulas', 'progress'];
 
 const SubjectSelectionContext = createContext<SubjectSelectionContextValue | null>(null);
 

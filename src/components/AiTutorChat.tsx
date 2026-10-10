@@ -419,6 +419,7 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
           <button
             onClick={isExpanded ? collapsePanel : expandPanel}
             title={isExpanded ? 'Collapse' : 'Expand'}
+            aria-label={isExpanded ? 'Collapse panel' : 'Expand panel'}
             className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
           >
             {isExpanded ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -428,6 +429,7 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
               handleStop();
               setIsOpen(false);
             }}
+            aria-label="Close chat"
             className="text-sky-100 hover:text-white p-1 rounded hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
@@ -443,6 +445,8 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
         </div>
         <button
           onClick={() => setShowModelDropdown(!showModelDropdown)}
+          aria-haspopup="listbox"
+          aria-expanded={showModelDropdown}
           className="flex items-center gap-1.5 text-sm font-medium text-slate-700 hover:text-sky-600 transition-colors"
         >
           {currentModel?.label ?? 'Select model'}
@@ -599,6 +603,7 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
             onChange={(e) => setInput(e.target.value.slice(0, MAX_INPUT_LENGTH))}
             onKeyDown={handleKeyDown}
             placeholder="Type your question..."
+            aria-label="Type your question"
             rows={1}
             maxLength={MAX_INPUT_LENGTH}
             className="flex-1 resize-none px-3 py-2 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-400 focus:ring-1 focus:ring-sky-400 transition-colors max-h-24"
@@ -607,6 +612,7 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
           <button
             onClick={() => sendMessage(input)}
             disabled={!input.trim() || loading || cooldownRemaining > 0}
+            aria-label="Send message"
             className="p-2.5 rounded-xl bg-sky-500 text-white hover:bg-sky-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0"
           >
             <Send className="w-4 h-4" />

@@ -115,7 +115,7 @@ export function RevisionScreen() {
                   <p className="text-slate-500 text-xs mt-0.5">Quiz yourself on all due topics at once</p>
                 </div>
                 <Button
-                  onClick={() => navigate({ screen: 'quiz', mode: 'review', topicIds: [...groups.high.map(g => g.topicId), ...groups.review.map(g => g.topicId), ...groups.refresh.map(g => g.topicId)], count: Math.min(totalDue * 3, 20), wrongPool: true, parent: null })}
+                  onClick={() => navigate({ screen: 'quiz', mode: 'review', topicIds: [...groups.high.map(g => g.topicId), ...groups.review.map(g => g.topicId), ...groups.refresh.map(g => g.topicId)], count: Math.min(totalDue * 3, 20), parent: null })}
                   className="shrink-0"
                 >
                   <Dumbbell className="w-4 h-4 inline mr-1" /> Start Review Quiz

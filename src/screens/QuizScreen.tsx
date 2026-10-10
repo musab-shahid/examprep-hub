@@ -1014,9 +1014,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {state.checked && (
         <div
           className={`rounded-card border bg-white shadow-card p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-success-100 hover:border-success-100' : 'border-danger-100 hover:border-danger-100'}`}
-          role="status"
-          aria-live="polite"
+          role="button"
+          tabIndex={0}
+          aria-label="Tap or press Enter to continue to next question"
           onClick={handleNext}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleNext(); } }}
           title="Tap or press Enter to continue"
         >
           <div className="flex items-center gap-2 mb-3">
@@ -1102,8 +1104,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* Exit confirmation */}
       
       {showKeysHelp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40" role="dialog" aria-modal="true" aria-labelledby="keys-help-title">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-sm w-full p-5">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40" role="dialog" aria-modal="true" aria-labelledby="keys-help-title" onClick={() => setShowKeysHelp(false)}>
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-sm w-full p-5" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-3">
               <h2 id="keys-help-title" className="font-semibold text-slate-900 text-base flex items-center gap-2">
                 <Keyboard className="w-4 h-4 text-brand-600" />
