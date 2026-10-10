@@ -2062,5 +2062,475 @@ export const questions: Question[] = [
   explanation: "When SALR < ELR < DALR, the layer is conditionally unstable: stable for unsaturated parcels, unstable for saturated ascent.",
   sourceCitation: "Aligned to upgraded meteo-lapse-calc" },
 
+// =============================================================================
+// SECTION-WISE SUBTOPIC ALIGNMENT WAVE
+// One coherent pass: each block targets subtopics under-tested by older items
+// =============================================================================
+
+// ----- METEO-01 Foundations -----
+{ id: "METEO-01-Q024", sectionId: "METEO-01", topicId: "meteo-composition-today", difficulty: "medium", type: "single",
+  question: "Aerosols in the atmosphere are important for cloud formation mainly because they:",
+  options: [
+    "Provide condensation nuclei on which cloud droplets can form",
+    "Are the largest permanent dry-air gas by volume",
+    "Replace the need for saturation vapour pressure",
+    "Eliminate the greenhouse effect entirely"
+  ],
+  correctAnswer: 0,
+  explanation: "Cloud droplets form on aerosol particles that act as condensation nuclei (CCN). Without nuclei, forming droplets at ordinary supersaturations is difficult. Aerosols are not a permanent dry-air gas like N₂ or O₂.",
+  sourceCitation: "Aligned to meteo-composition-today-aerosols" },
+
+{ id: "METEO-01-Q025", sectionId: "METEO-01", topicId: "meteo-vertical-structure", difficulty: "medium", type: "single",
+  question: "In which layer does temperature generally decrease with height up to a cold mesopause, above the stratosphere?",
+  options: ["Mesosphere", "Troposphere only", "Stratosphere", "Entire thermosphere always"],
+  correctAnswer: 0,
+  explanation: "Above the stratosphere, the mesosphere cools with height toward the mesopause. The thermosphere above it warms again with height because of absorption of energetic solar radiation.",
+  sourceCitation: "Aligned to meteo-vertical-structure mesosphere/thermosphere" },
+
+{ id: "METEO-01-Q026", sectionId: "METEO-01", topicId: "meteo-weather-vs-climate", difficulty: "easy", type: "single",
+  question: "Climate normals are often based on multi-decadal periods (commonly 30 years) mainly to:",
+  options: [
+    "Average out year-to-year weather variability and represent typical conditions",
+    "Capture only a single extreme flood year",
+    "Replace the need for any weather forecasts",
+    "Measure instantaneous wind at one station"
+  ],
+  correctAnswer: 0,
+  explanation: "A multi-decadal normal smooths interannual noise so the average reflects a stable climate baseline, not one unusual season.",
+  sourceCitation: "Aligned to meteo-weather-vs-climate-why-thirty-years" },
+
+// ----- METEO-02 Temperature, Heat & Energy -----
+{ id: "METEO-02-Q036", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "medium", type: "single",
+  question: "Horizontal transport of heat by the wind is called:",
+  options: ["Advection", "Conduction through still air only", "Only latent heat release in clouds", "Only molecular diffusion in solids"],
+  correctAnswer: 0,
+  explanation: "Advection is heat (or moisture) transport by bulk horizontal airflow. Conduction is molecule-to-molecule; convection is vertical buoyant motion; radiation needs no medium.",
+  sourceCitation: "Aligned to meteo-heat-transfer advection/radiation" },
+
+{ id: "METEO-02-Q037", sectionId: "METEO-02", topicId: "meteo-radiation-laws", difficulty: "medium", type: "single",
+  question: "Wien's displacement law implies that as an object gets hotter, the wavelength of maximum emission:",
+  options: ["Shifts toward shorter wavelengths", "Shifts toward longer wavelengths only", "Becomes independent of temperature", "Applies only to greenhouse gases"],
+  correctAnswer: 0,
+  explanation: "λ_max T ≈ constant. Higher temperature → peak emission at shorter wavelengths (e.g. Sun peaks in visible; Earth in infrared).",
+  sourceCitation: "Aligned to Wien's displacement law subtopic" },
+
+{ id: "METEO-02-Q038", sectionId: "METEO-02", topicId: "meteo-lapse-rates", difficulty: "medium", type: "single",
+  question: "The environmental lapse rate (ELR) is:",
+  options: [
+    "The actual observed rate of temperature change with height in the atmosphere",
+    "Always exactly 9.8 °C/km by definition",
+    "Only the cooling rate of a saturated parcel",
+    "The same as the Beaufort force number"
+  ],
+  correctAnswer: 0,
+  explanation: "ELR describes the real sounding. DALR/SALR describe parcel process rates. Stability compares ELR with those process rates.",
+  sourceCitation: "Aligned to ELR and stability link" },
+
+{ id: "METEO-02-Q039", sectionId: "METEO-02", topicId: "meteo-inversion-mechanics", difficulty: "easy", type: "single",
+  question: "A temperature inversion means that in a layer:",
+  options: [
+    "Temperature increases with height",
+    "Temperature always falls at the DALR",
+    "Pressure increases upward",
+    "Wind must be calm everywhere on Earth"
+  ],
+  correctAnswer: 0,
+  explanation: "In an inversion, temperature rises with altitude — the opposite of the usual tropospheric decrease. Inversions are very stable and trap pollutants near the surface.",
+  sourceCitation: "Aligned to inversion mechanics" },
+
+{ id: "METEO-02-Q040", sectionId: "METEO-02", topicId: "meteo-gas-law", difficulty: "medium", type: "single",
+  question: "At constant pressure, if air temperature increases, density of the air parcel generally:",
+  options: ["Decreases", "Increases", "Must stay exactly the same forever", "Becomes undefined"],
+  correctAnswer: 0,
+  explanation: "From the ideal gas law, warmer air at the same pressure is less dense — the basis for buoyancy and many circulation arguments.",
+  sourceCitation: "Aligned to gas law topic" },
+
+// ----- METEO-03 Pressure, Winds & Circulation -----
+{ id: "METEO-03-Q034", sectionId: "METEO-03", topicId: "meteo-forces-governing-wind", difficulty: "medium", type: "single",
+  question: "Which force always acts from high toward low pressure and initiates wind?",
+  options: ["Pressure-gradient force", "Coriolis force alone (with no pressure gradient)", "Friction that speeds up the wind without limit", "Centripetal force in straight geostrophic flow only"],
+  correctAnswer: 0,
+  explanation: "The pressure-gradient force starts the air moving toward lower pressure. Coriolis deflects moving air; friction slows surface winds and allows cross-isobar flow.",
+  sourceCitation: "Aligned to forces governing wind" },
+
+{ id: "METEO-03-Q035", sectionId: "METEO-03", topicId: "meteo-gradient-wind", difficulty: "hard", type: "single",
+  question: "Compared with geostrophic wind at the same pressure gradient, gradient wind around a low (cyclonic) is typically:",
+  options: [
+    "Subgeostrophic (slightly slower) because part of the PGF balances centripetal requirement",
+    "Always infinitely fast",
+    "Exactly the same by definition in all curved flow",
+    "Independent of curvature"
+  ],
+  correctAnswer: 0,
+  explanation: "In cyclonic flow, the inward pressure gradient must also supply centripetal acceleration, so the balanced wind is weaker than pure geostrophic for the same gradient (subgeostrophic).",
+  sourceCitation: "Aligned to gradient wind" },
+
+{ id: "METEO-03-Q036", sectionId: "METEO-03", topicId: "meteo-rossby-waves", difficulty: "medium", type: "single",
+  question: "Rossby waves are large-scale meanders of the mid-latitude flow whose existence depends critically on:",
+  options: [
+    "The variation of Coriolis parameter with latitude (β-effect)",
+    "Only local sea breezes",
+    "Only the Beaufort scale",
+    "Only cloud droplet collision–coalescence"
+  ],
+  correctAnswer: 0,
+  explanation: "Planetary Rossby waves arise because the Coriolis parameter changes with latitude. They organise troughs, ridges, and storm tracks.",
+  sourceCitation: "Aligned to Rossby waves" },
+
+{ id: "METEO-03-Q037", sectionId: "METEO-03", topicId: "meteo-upper-air-charts", difficulty: "medium", type: "single",
+  question: "On a constant-pressure upper-air chart, height contours are used because:",
+  options: [
+    "They show the topography of that pressure surface and relate to wind via gradient balance",
+    "They replace the need for any surface observations forever",
+    "They measure only soil moisture",
+    "They are identical to Beaufort force numbers"
+  ],
+  correctAnswer: 0,
+  explanation: "Upper charts (e.g. 500 hPa) plot the height of a pressure surface. Wind relates to height-gradient (analogous to isobar spacing on surface charts).",
+  sourceCitation: "Aligned to upper-air charts" },
+
+// ----- METEO-04 Humidity, Clouds & Precipitation -----
+{ id: "METEO-04-Q039", sectionId: "METEO-04", topicId: "meteo-adiabatic-cloud-formation", difficulty: "medium", type: "single",
+  question: "The lifting condensation level (LCL) is best described as:",
+  options: [
+    "The height at which a rising unsaturated parcel first becomes saturated",
+    "The top of the thermosphere",
+    "Always fixed at 10 km for all air masses",
+    "The same as sea-level pressure"
+  ],
+  correctAnswer: 0,
+  explanation: "A rising dry parcel cools at the DALR until it reaches saturation at the LCL — approximately the convective cloud base when lifting from near the surface.",
+  sourceCitation: "Aligned to adiabatic cloud formation / LCL" },
+
+{ id: "METEO-04-Q040", sectionId: "METEO-04", topicId: "meteo-cloud-classification", difficulty: "easy", type: "single",
+  question: "Which cloud genus is most closely associated with thunderstorms and hail?",
+  options: ["Cumulonimbus", "Cirrus", "Cirrostratus only", "Altostratus only"],
+  correctAnswer: 0,
+  explanation: "Cumulonimbus is the deep convective thunderstorm cloud. Cirrus and cirrostratus are high ice clouds; altostratus is mid-level layered cloud.",
+  sourceCitation: "Aligned to cloud classification convective genera" },
+
+{ id: "METEO-04-Q041", sectionId: "METEO-04", topicId: "meteo-droplet-microphysics", difficulty: "medium", type: "single",
+  question: "In mixed-phase clouds, the Bergeron process helps grow ice crystals mainly because:",
+  options: [
+    "Saturation vapour pressure over ice is lower than over supercooled liquid water",
+    "Ice always melts instantly at −40 °C only",
+    "All clouds are warmer than 20 °C",
+    "Pressure decreases upward so vapour cannot deposit"
+  ],
+  correctAnswer: 0,
+  explanation: "At the same temperature, air saturated over water is supersaturated over ice, so vapour deposits on ice while droplets may evaporate — the Bergeron (ice-crystal) process.",
+  sourceCitation: "Aligned to droplet microphysics cold path" },
+
+{ id: "METEO-04-Q042", sectionId: "METEO-04", topicId: "meteo-precipitation-types", difficulty: "hard", type: "single",
+  question: "Freezing rain differs from ice pellets (sleet) because freezing rain:",
+  options: [
+    "Reaches the surface as liquid and freezes on contact with sub-freezing surfaces",
+    "Is identical to hail grown in supercell updrafts",
+    "Never involves melting of snow aloft",
+    "Only falls in the thermosphere"
+  ],
+  correctAnswer: 0,
+  explanation: "Freezing rain is liquid at the surface and freezes on contact. Ice pellets refreeze into ice before reaching the ground. Hail is a convective ice process, not the same as freezing rain.",
+  sourceCitation: "Aligned to precipitation types profiles" },
+
+// ----- METEO-05 Weather Systems -----
+{ id: "METEO-05-Q027", sectionId: "METEO-05", topicId: "meteo-air-masses-fronts", difficulty: "easy", type: "single",
+  question: "In standard air-mass coding, 'mT' means:",
+  options: ["Maritime tropical (moist and warm)", "Continental polar only", "Maritime arctic dry and cold only", "Mountain terrain wind"],
+  correctAnswer: 0,
+  explanation: "m = maritime (moist), T = tropical (warm). cP would be continental polar.",
+  sourceCitation: "Aligned to air-mass classification" },
+
+{ id: "METEO-05-Q028", sectionId: "METEO-05", topicId: "meteo-cyclones-development", difficulty: "medium", type: "single",
+  question: "Mid-latitude cyclones grow mainly from:",
+  options: [
+    "Baroclinic instability along frontal temperature gradients with upper-level support",
+    "Only tropical warm-core ocean heat engines at the equator",
+    "Only land/sea breeze circulations",
+    "Only Beaufort force 0 conditions"
+  ],
+  correctAnswer: 0,
+  explanation: "Extratropical cyclones feed on horizontal temperature contrast (baroclinic energy) and are often supported by upper troughs/jets — unlike tropical cyclones.",
+  sourceCitation: "Aligned to cyclone development" },
+
+{ id: "METEO-05-Q029", sectionId: "METEO-05", topicId: "meteo-cyclones-structure", difficulty: "medium", type: "single",
+  question: "The warm conveyor belt in a mid-latitude cyclone is most associated with:",
+  options: [
+    "Broad cloud and precipitation ahead of the warm front as air ascends",
+    "The eye of a hurricane only",
+    "Always cloud-free desert air worldwide",
+    "Only katabatic drainage at night"
+  ],
+  correctAnswer: 0,
+  explanation: "The warm conveyor belt climbs over the warm-frontal surface and produces the classic wide precipitation shield ahead of the surface warm front.",
+  sourceCitation: "Aligned to cyclone structure conveyors" },
+
+{ id: "METEO-05-Q030", sectionId: "METEO-05", topicId: "meteo-tropical-cyclones", difficulty: "medium", type: "true_false",
+  question: "True or False: Tropical cyclones can readily form on the equator where the Coriolis parameter is essentially zero.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Organised tropical cyclones need a non-zero Coriolis parameter to develop sustained rotation — they do not form on the equator.",
+  sourceCitation: "Aligned to tropical cyclone formation requirements" },
+
+// ----- METEO-06 Instruments -----
+{ id: "METEO-06-Q033", sectionId: "METEO-06", topicId: "meteo-humidity-instruments", difficulty: "medium", type: "single",
+  question: "On a psychrometer, if dry-bulb and wet-bulb temperatures are equal, relative humidity is:",
+  options: ["100%", "0%", "Exactly 50% always", "Impossible to define"],
+  correctAnswer: 0,
+  explanation: "Equal wet- and dry-bulb temperatures mean no evaporative cooling — the air is saturated (RH = 100%).",
+  sourceCitation: "Aligned to psychrometer principle" },
+
+{ id: "METEO-06-Q034", sectionId: "METEO-06", topicId: "meteo-stevenson-screen", difficulty: "easy", type: "single",
+  question: "A Stevenson screen is painted white and louvered mainly to:",
+  options: [
+    "Shade instruments from sun and rain while allowing air to flow past the sensors",
+    "Heat the thermometers deliberately above air temperature",
+    "Measure only upper-air winds",
+    "Replace radiosondes"
+  ],
+  correctAnswer: 0,
+  explanation: "White paint reflects sunlight; louvers ventilate. The goal is representative air temperature and humidity, not sun-heated housing temperatures.",
+  sourceCitation: "Aligned to Stevenson screen design" },
+
+{ id: "METEO-06-Q035", sectionId: "METEO-06", topicId: "meteo-remote-sensing", difficulty: "medium", type: "single",
+  question: "Doppler weather radar adds which capability beyond ordinary reflectivity?",
+  options: [
+    "Radial velocity — motion toward or away from the radar",
+    "Direct measurement of soil type only",
+    "Exact global mean CO₂ concentration",
+    "Köppen climate classification letters"
+  ],
+  correctAnswer: 0,
+  explanation: "Reflectivity relates to precipitation intensity; Doppler shift measures radial motion, useful for rotation and wind structure.",
+  sourceCitation: "Aligned to remote sensing radar" },
+
+{ id: "METEO-06-Q036", sectionId: "METEO-06", topicId: "meteo-aviation-products", difficulty: "medium", type: "single",
+  question: "Which aviation product is a routine observation of current conditions, not a forecast?",
+  options: ["METAR", "TAF", "SIGMET only as a 10-day outlook", "RCP8.5"],
+  correctAnswer: 0,
+  explanation: "METAR reports current aerodrome weather. TAF is a terminal forecast. SIGMET warns of significant en-route hazards. RCP8.5 is a climate scenario, not an aviation product.",
+  sourceCitation: "Aligned to METAR vs TAF" },
+
+// ----- METEO-07 Climate Classification -----
+{ id: "METEO-07-Q021", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
+  question: "In the Köppen system, which main group is defined primarily by dryness rather than temperature alone?",
+  options: ["B (dry)", "A (tropical)", "E (polar)", "C (temperate) only by dryness"],
+  correctAnswer: 0,
+  explanation: "B climates are classified by precipitation relative to evaporative demand (temperature-linked thresholds), not by temperature category alone.",
+  sourceCitation: "Aligned to Köppen main groups" },
+
+{ id: "METEO-07-Q022", sectionId: "METEO-07", topicId: "meteo-thornthwaite-system", difficulty: "medium", type: "single",
+  question: "Thornthwaite’s classification emphasises which comparison more than classical Köppen letter codes?",
+  options: [
+    "Precipitation versus potential evapotranspiration (water balance)",
+    "Only Beaufort wind force",
+    "Only CAPE and CIN",
+    "Only the number of cloud genera"
+  ],
+  correctAnswer: 0,
+  explanation: "Thornthwaite is built around water balance: P compared with PE. Köppen uses empirical temperature–precipitation thresholds tied historically to vegetation.",
+  sourceCitation: "Aligned to Thornthwaite vs Köppen" },
+
+{ id: "METEO-07-Q023", sectionId: "METEO-07", topicId: "meteo-pakistan-macroclimate", difficulty: "medium", type: "true_false",
+  question: "True or False: All of Pakistan can be accurately described as a single humid tropical monsoon climate type.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Large areas are arid or semi-arid; highlands and coasts differ sharply. Monsoon rains are uneven, and winter western disturbances matter in the north.",
+  sourceCitation: "Aligned to Pakistan macroclimate" },
+
+// ----- METEO-08 Climate Variability & Change -----
+{ id: "METEO-08-Q024", sectionId: "METEO-08", topicId: "meteo-milankovitch-cycles", difficulty: "medium", type: "single",
+  question: "Milankovitch cycles primarily change climate by:",
+  options: [
+    "Redistributing insolation by season and latitude over tens of thousands of years",
+    "Changing daily weather in one city every afternoon only",
+    "Replacing greenhouse gases as the only possible climate influence forever",
+    "Setting Beaufort force numbers"
+  ],
+  correctAnswer: 0,
+  explanation: "Eccentricity, obliquity, and precession alter when and where sunlight falls on long ice-age timescales. They are not a full explanation of rapid industrial-era warming.",
+  sourceCitation: "Aligned to Milankovitch" },
+
+{ id: "METEO-08-Q025", sectionId: "METEO-08", topicId: "meteo-climate-feedbacks", difficulty: "medium", type: "single",
+  question: "Ice–albedo feedback is called a positive feedback because melting ice:",
+  options: [
+    "Darkens the surface, increases absorption, and can cause further warming",
+    "Always cools the planet by reflecting more sunlight after melt",
+    "Has no effect on absorbed solar radiation",
+    "Only affects the Beaufort scale"
+  ],
+  correctAnswer: 0,
+  explanation: "Positive feedback amplifies the initial change: less ice → lower albedo → more absorption → more warming.",
+  sourceCitation: "Aligned to climate feedbacks" },
+
+{ id: "METEO-08-Q026", sectionId: "METEO-08", topicId: "meteo-radiative-forcing", difficulty: "easy", type: "single",
+  question: "Radiative forcing is commonly expressed in units of:",
+  options: ["W/m²", "Beaufort force only", "Köppen letters only", "hPa per knot"],
+  correctAnswer: 0,
+  explanation: "Radiative forcing is a flux perturbation measured in watts per square metre. Positive forcing tends to warm; negative tends to cool.",
+  sourceCitation: "Aligned to radiative forcing" },
+
+{ id: "METEO-08-Q027", sectionId: "METEO-08", topicId: "meteo-ipcc-rcps", difficulty: "medium", type: "true_false",
+  question: "True or False: RCP8.5 is a guaranteed forecast of the exact climate in 2100, not a scenario pathway.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. RCPs are standardised scenarios of future forcing for model experiments, not certainties. The number approximates end-of-century forcing in W/m².",
+  sourceCitation: "Aligned to IPCC RCPs" },
+
+// ----- METEO-09 Pakistan Climate -----
+{ id: "METEO-09-Q024", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
+  question: "Pakistan’s position relative to the South Asian monsoon is best described as:",
+  options: [
+    "On the northwestern fringe, with uneven and variable summer rainfall",
+    "At the permanent wet core equal to the equatorial rainforest belt everywhere",
+    "Unaffected by maritime moisture in any season",
+    "Identical to Iceland’s NAO climate"
+  ],
+  correctAnswer: 0,
+  explanation: "Pakistan sits on the fringe of the monsoon domain: some areas get substantial summer rain, many remain arid/semi-arid, and totals vary strongly year to year.",
+  sourceCitation: "Aligned to monsoon fringe" },
+
+{ id: "METEO-09-Q025", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "single",
+  question: "A GLOF is:",
+  options: [
+    "A glacial lake outburst flood",
+    "A type of Beaufort wind only",
+    "A Köppen climate letter",
+    "A radiosonde channel"
+  ],
+  correctAnswer: 0,
+  explanation: "Glacial lake outburst floods occur when natural dams of ice or debris fail in mountain valleys — a distinct hazard in northern Pakistan’s cryosphere landscape.",
+  sourceCitation: "Aligned to extreme events GLOF" },
+
+{ id: "METEO-09-Q026", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
+  question: "The national meteorological service responsible for official weather forecasts and warnings in Pakistan is:",
+  options: ["PMD (Pakistan Meteorological Department)", "Only the IPCC", "Only the WMO headquarters issuing city forecasts", "Only airline companies"],
+  correctAnswer: 0,
+  explanation: "PMD is Pakistan’s national meteorological service for observation, forecasting, and hazard warnings.",
+  sourceCitation: "Aligned to PMD operational" },
+
+// ----- METEO-10 Forecasting -----
+{ id: "METEO-10-Q010", sectionId: "METEO-10", topicId: "meteo-forecasting-methods", difficulty: "easy", type: "single",
+  question: "A forecast that simply says tomorrow’s weather will equal today’s observation is using:",
+  options: ["Persistence", "Only RCP8.5", "Only Thornthwaite PE", "Only the Bergeron process"],
+  correctAnswer: 0,
+  explanation: "Persistence uses the present as the forecast. Climatology uses the long-term normal; analogs use past lookalikes; trends extrapolate recent change.",
+  sourceCitation: "Aligned to classical forecasting methods" },
+
+{ id: "METEO-10-Q011", sectionId: "METEO-10", topicId: "meteo-nwp-models", difficulty: "medium", type: "single",
+  question: "In NWP, data assimilation is the step that:",
+  options: [
+    "Combines observations with a model background to produce the analysis (initial state)",
+    "Only draws station-model symbols by hand",
+    "Only classifies Köppen climates",
+    "Only measures Beaufort force at sea"
+  ],
+  correctAnswer: 0,
+  explanation: "Assimilation blends observations and model prior into the best estimate of the current atmosphere — the starting point for the forecast.",
+  sourceCitation: "Aligned to NWP assimilation" },
+
+{ id: "METEO-10-Q012", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "medium", type: "single",
+  question: "Forecast skill differs from raw accuracy because skill measures:",
+  options: [
+    "Improvement relative to a baseline such as climatology or persistence",
+    "Only whether the computer was turned on",
+    "Only the size of the radar dish",
+    "Only the number of cloud genera"
+  ],
+  correctAnswer: 0,
+  explanation: "A forecast can be accurate in a trivial climate yet unskilled if it does not beat a simple reference. Skill scores normalise performance against baselines.",
+  sourceCitation: "Aligned to forecast skill" },
+
+// ----- METEO-11 Synoptic Practice -----
+{ id: "METEO-11-Q010", sectionId: "METEO-11", topicId: "meteo-station-model", difficulty: "medium", type: "single",
+  question: "On a station model, wind barbs indicate the direction:",
+  options: [
+    "From which the wind is blowing",
+    "Toward which the wind is blowing only in the Southern Hemisphere always",
+    "Of the steepest pressure increase only",
+    "Of solar noon"
+  ],
+  correctAnswer: 0,
+  explanation: "Meteorological wind direction is the direction the wind blows FROM. Barb feathers encode speed.",
+  sourceCitation: "Aligned to station model wind" },
+
+{ id: "METEO-11-Q011", sectionId: "METEO-11", topicId: "meteo-isobar-analysis", difficulty: "easy", type: "single",
+  question: "On a surface chart with a fixed isobar interval, tightly packed isobars indicate:",
+  options: [
+    "A strong pressure gradient and typically stronger geostrophic wind",
+    "Calm conditions everywhere",
+    "Zero Coriolis force",
+    "A mandatory tropical cyclone eye"
+  ],
+  correctAnswer: 0,
+  explanation: "Close isobars mean large |∇p|. Geostrophic wind scales with the pressure gradient, so winds are typically stronger where packing is tight.",
+  sourceCitation: "Aligned to isobar spacing and wind" },
+
+{ id: "METEO-11-Q012", sectionId: "METEO-11", topicId: "meteo-airmass-front-id", difficulty: "medium", type: "single",
+  question: "Which set of clues best supports analysing a surface cold front?",
+  options: [
+    "Sharp temperature drop, wind shift, and a narrow band of weather along a trough",
+    "Only a single temperature report with no other fields",
+    "Only a climograph of monthly means",
+    "Only an RCP number"
+  ],
+  correctAnswer: 0,
+  explanation: "Front analysis needs multi-field evidence: thermal gradient, wind shift, pressure trough, and weather band — not a single isolated observation.",
+  sourceCitation: "Aligned to front identification evidence" },
+
+// ----- METEO-12 Quantitative -----
+{ id: "METEO-12-Q014", sectionId: "METEO-12", topicId: "meteo-humidity-calc", difficulty: "easy", type: "single",
+  question: "If actual vapour pressure e = 10 hPa and saturation vapour pressure e_s = 20 hPa, RH is:",
+  options: ["50%", "200%", "10%", "0%"],
+  correctAnswer: 0,
+  explanation: "RH = (e/e_s)×100% = (10/20)×100% = 50%.",
+  sourceCitation: "Aligned to humidity calc RH formula" },
+
+{ id: "METEO-12-Q015", sectionId: "METEO-12", topicId: "meteo-pressure-conversion", difficulty: "easy", type: "single",
+  question: "1 hPa equals:",
+  options: ["100 Pa", "1 Pa", "1000 Pa", "0.01 Pa"],
+  correctAnswer: 0,
+  explanation: "1 hPa = 1 mb = 100 Pa. Standard sea-level pressure is about 1013.25 hPa.",
+  sourceCitation: "Aligned to pressure unit conversions" },
+
+{ id: "METEO-12-Q016", sectionId: "METEO-12", topicId: "meteo-geostrophic-qual", difficulty: "medium", type: "true_false",
+  question: "True or False: Pure geostrophic wind flows parallel to isobars (no friction).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Geostrophic balance has wind parallel to isobars. Friction near the surface adds a cross-isobar component toward low pressure.",
+  sourceCitation: "Aligned to geostrophic direction limits" },
+
+// ----- METEO-13 Oscillations -----
+{ id: "METEO-13-Q022", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "single",
+  question: "During a classic La Niña, the Walker circulation over the tropical Pacific tends to be:",
+  options: [
+    "Strengthened, with stronger trades and western Pacific convection",
+    "Completely absent at all times",
+    "Identical to a mid-latitude sea breeze",
+    "Replaced by the Beaufort scale"
+  ],
+  correctAnswer: 0,
+  explanation: "La Niña features a cooler eastern Pacific and stronger trade winds, reinforcing a vigorous Walker cell with ascent over the western Pacific.",
+  sourceCitation: "Aligned to ENSO Walker link" },
+
+{ id: "METEO-13-Q023", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "medium", type: "single",
+  question: "A positive NAO phase features:",
+  options: [
+    "A stronger-than-normal pressure contrast between the Icelandic low and Azores high",
+    "Always a tropical cyclone on the equator",
+    "Zero wind over the North Atlantic",
+    "Only Indian Ocean Dipole SST patterns"
+  ],
+  correctAnswer: 0,
+  explanation: "Positive NAO means an amplified Azores–Iceland dipole and typically stronger Atlantic westerlies in classic winter composites.",
+  sourceCitation: "Aligned to NAO dipole" },
+
+{ id: "METEO-13-Q024", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "easy", type: "true_false",
+  question: "True or False: The MJO is primarily an interannual mode with the same timescale as ENSO (many months to a year).",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. The MJO is intraseasonal — typically about 30–60 days — shorter than ENSO’s interannual timescale.",
+  sourceCitation: "Aligned to MJO timescale" },
+
 
 ];

@@ -2,19 +2,19 @@ import type { Section } from '@/types';
 
 export const sections: Section[] = [
   // ── Meteorology & Climatology ──
-  { id: 'METEO-01', subjectId: 'meteo-climatology', title: 'Atmosphere & Climate Foundations', topicCount: 6, questionCount: 23 },
-  { id: 'METEO-02', subjectId: 'meteo-climatology', title: 'Temperature, Heat & Energy', topicCount: 10, questionCount: 35 },
-  { id: 'METEO-03', subjectId: 'meteo-climatology', title: 'Pressure, Winds & Circulation', topicCount: 9, questionCount: 33 },
-  { id: 'METEO-04', subjectId: 'meteo-climatology', title: 'Humidity, Clouds & Precipitation', topicCount: 10, questionCount: 38 },
-  { id: 'METEO-05', subjectId: 'meteo-climatology', title: 'Weather Systems', topicCount: 6, questionCount: 26 },
-  { id: 'METEO-06', subjectId: 'meteo-climatology', title: 'Instruments & Weather Observation', topicCount: 9, questionCount: 32 },
-  { id: 'METEO-07', subjectId: 'meteo-climatology', title: 'Climate Classification', topicCount: 4, questionCount: 20 },
-  { id: 'METEO-08', subjectId: 'meteo-climatology', title: 'Climate Variability & Change', topicCount: 7, questionCount: 23 },
-  { id: 'METEO-09', subjectId: 'meteo-climatology', title: 'Pakistan Climate', topicCount: 7, questionCount: 23 },
-  { id: 'METEO-10', subjectId: 'meteo-climatology', title: 'Weather Forecasting Basics', topicCount: 3, questionCount: 9 },
-  { id: 'METEO-11', subjectId: 'meteo-climatology', title: 'Synoptic Practice', topicCount: 3, questionCount: 9 },
-  { id: 'METEO-12', subjectId: 'meteo-climatology', title: 'Quantitative Meteorology', topicCount: 4, questionCount: 13 },
-  { id: 'METEO-13', subjectId: 'meteo-climatology', title: 'Climate Variability: ENSO, IOD, NAO, MJO', topicCount: 7, questionCount: 21 },
+  { id: 'METEO-01', subjectId: 'meteo-climatology', title: 'Atmosphere & Climate Foundations', topicCount: 6, questionCount: 26 },
+  { id: 'METEO-02', subjectId: 'meteo-climatology', title: 'Temperature, Heat & Energy', topicCount: 10, questionCount: 40 },
+  { id: 'METEO-03', subjectId: 'meteo-climatology', title: 'Pressure, Winds & Circulation', topicCount: 9, questionCount: 37 },
+  { id: 'METEO-04', subjectId: 'meteo-climatology', title: 'Humidity, Clouds & Precipitation', topicCount: 10, questionCount: 42 },
+  { id: 'METEO-05', subjectId: 'meteo-climatology', title: 'Weather Systems', topicCount: 6, questionCount: 30 },
+  { id: 'METEO-06', subjectId: 'meteo-climatology', title: 'Instruments & Weather Observation', topicCount: 9, questionCount: 36 },
+  { id: 'METEO-07', subjectId: 'meteo-climatology', title: 'Climate Classification', topicCount: 4, questionCount: 23 },
+  { id: 'METEO-08', subjectId: 'meteo-climatology', title: 'Climate Variability & Change', topicCount: 7, questionCount: 27 },
+  { id: 'METEO-09', subjectId: 'meteo-climatology', title: 'Pakistan Climate', topicCount: 7, questionCount: 26 },
+  { id: 'METEO-10', subjectId: 'meteo-climatology', title: 'Weather Forecasting Basics', topicCount: 3, questionCount: 12 },
+  { id: 'METEO-11', subjectId: 'meteo-climatology', title: 'Synoptic Practice', topicCount: 3, questionCount: 12 },
+  { id: 'METEO-12', subjectId: 'meteo-climatology', title: 'Quantitative Meteorology', topicCount: 4, questionCount: 16 },
+  { id: 'METEO-13', subjectId: 'meteo-climatology', title: 'Climate Variability: ENSO, IOD, NAO, MJO', topicCount: 7, questionCount: 24 },
 
   // ── Earth Sciences (Geology + Seismology + Geophysics) ──
   { id: 'EARTH-01', subjectId: 'earth-science', title: 'Earth as a Planet & Internal Structure', topicCount: 5, questionCount: 43 },
