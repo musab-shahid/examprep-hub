@@ -5041,100 +5041,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-10",
   order: 1,
   title: "Weather Forecasting Methods: Persistence, Climatology, Analog & Trend",
-  definition: "Weather forecasting predicts future atmospheric conditions using several foundational methods — persistence, climatology, analog, and trend forecasting — each with distinct strengths and limitations depending on forecast lead time and atmospheric variability.",
+  definition: "Classical forecasting methods predict future weather from simple rules before or alongside full numerical models: persistence (tomorrow like today), climatology (use the long-term average for the date), analog (find a similar past case), and trend (extrapolate recent change). They remain useful benchmarks and short-range tools.",
   keyFacts: [
-    "Persistence forecast: assumes current weather will not change — accurate for very short periods (minutes to a few hours) but degrades rapidly as lead time increases",
-    "Climatology forecast: uses long-term historical averages for a location and date — reliable for stable seasons but useless for predicting specific events or anomalies",
-    "Analog forecast: identifies past weather patterns similar to today's and predicts that the future will follow the same evolution — limited by the uniqueness of atmospheric states",
-    "Trend forecast: extrapolates the current rate and direction of change (e.g., a pressure fall continuing) — useful for short-range predictions of moving systems",
-    "All four methods are subjective and form the historical basis of forecasting; modern operational forecasting relies on numerical weather prediction (NWP) instead"
+    "Persistence: forecast equals the current observation — works best for short periods in steady regimes",
+    "Climatology: forecast equals the climate normal for that date/location",
+    "Analog: match current pattern to historical twins and borrow their evolution",
+    "Trend: continue the recent rate of change for a limited lead time",
+    "Skill is judged against these baselines — a model must beat climatology/persistence to be useful",
+    "Still taught because they reveal what ‘hard’ forecasting problems look like"
   ],
   explanationSections: [
-    { heading: "Why persistence fails beyond a few hours", body: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting — simply assuming tomorrow's weather equals today's — works reasonably well for the first few hours because weather changes gradually on short timescales. But beyond roughly 6–12 hours, the cumulative effect of unaccounted-for pressure tendencies, moving fronts, and diurnal heating cycles makes persistence forecasts no better than random guessing." },
-    { heading: "When climatology is useful and when it fails", body: "Climatology-based forecasts use 30-year averages for a given location and date — predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. This is useful for planning agriculture, tourism, or seasonal resource allocation, but it cannot predict whether a specific day will see a thunderstorm or clear skies, because it ignores the actual current atmospheric state entirely." },
-    { heading: "The analog method's fundamental limitation", body: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. In theory this is sound, but in practice the atmosphere rarely repeats an identical configuration — even superficially similar maps differ in upper-level flow, moisture fields, and seasonal context. As the historical archive grows, analog matching improves, but the method remains inherently limited by atmospheric uniqueness." }
+    { heading: "Simple methods, serious standards", body: "If a sophisticated model cannot beat persistence at 6 hours in a stagnant high, it is not adding value. Classical methods are both practical stopgaps and the zero line for verification." }
   ],
-  examPoints: [
-    "Persistence = 'no change' forecast; climatology = 'long-term average' forecast — these two are the simplest methods and the most commonly confused",
-    "All four methods are subjective and predate NWP; modern forecasting uses them mainly as benchmarks or for very-short-range nowcasting, not as primary operational tools"
+  subtopics: [
+    {
+      id: "meteo-forecasting-methods-persistence-clim",
+      title: "Persistence and climatology",
+      summary: "Same as now vs same as normal.",
+      explanation: "Persistence fails at fronts and diurnal transitions. Climatology fails in anomalous seasons. Together they define two different notions of ‘default’ forecast.",
+      examples: [
+        { problem: "Which method forecasts tomorrow’s temperature as equal to today’s observed temperature?", solution: "Persistence.", answer: "Persistence" }
+      ],
+      shortcuts: ["Persistence = today→tomorrow", "Climatology = normal for date"],
+      traps: ["Using persistence across a strong cold front"]
+    },
+    {
+      id: "meteo-forecasting-methods-analog-trend",
+      title: "Analog and trend",
+      summary: "History twins vs extrapolating change.",
+      explanation: "Analogs need a rich archive and careful matching of pattern, season, and amplitude. Trends work briefly when a system is steadily intensifying or a temperature is rising through the morning, then fail when the process saturates.",
+      examples: [
+        { problem: "A pressure fall of 2 hPa per hour is extrapolated for the next hour — which method?", solution: "Trend forecasting.", answer: "Trend" }
+      ],
+      shortcuts: ["Analog = past lookalike", "Trend = continue recent change"],
+      traps: ["Unlimited trend extrapolation"]
+    }
   ],
-  workedExample: {
-    problem: "A forecaster needs to predict tomorrow's maximum temperature for a city under a stagnant high-pressure system with no fronts expected. Which method is most appropriate, and what is its key limitation?",
-    solution: "Under a stagnant high with no synoptic changes expected, persistence forecasting is most appropriate — today's maximum temperature is a good predictor of tomorrow's. The key limitation is that if an unexpected front or cloud band arrives (even a small one), the persistence forecast will fail because it does not account for any dynamic changes.",
-    answer: "Persistence forecast; limitation: fails when synoptic conditions change unexpectedly"
+  comparisonTable: {
+    title: "Classical methods",
+    headers: ["Method", "Rule of thumb"],
+    rows: [
+      ["Persistence", "Future = present"],
+      ["Climatology", "Future = normal"],
+      ["Analog", "Future = past twin’s evolution"],
+      ["Trend", "Future = present + recent change"]
+    ]
   },
-  commonMistakes: [
-    "Confusing climatology (long-term average) with persistence (current conditions continue) — they are opposite approaches: one ignores current weather, the other ignores historical averages",
-    "Assuming the analog method is objective or automated — it requires subjective pattern recognition and is limited by the forecaster's experience and the historical archive's completeness"
+  examPoints: [
+    "Four classical methods and their logic",
+    "Baselines for skill",
+    "When each fails"
   ],
-  relatedTopics: ["meteo-nwp-models", "meteo-forecast-skill", "meteo-scales-of-motion", "meteo-station-model"],
-    subtopics: [
-      {
-        id: "meteo-forecasting-methods-why-persistence-fails-beyond-a-few-hours",
-        title: "Why persistence fails beyond a few hours",
-        summary: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting — simply…",
-        explanation: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting — simply assuming tomorrow's weather equals today's — works reasonably well for the first few hours because weather changes gradually on short timescales. But beyond roughly 6–12 hours, the cumulative effect of unaccounted-for pressure tendencies, moving fronts, and diurnal heating cycles makes persistence forecasts no better than random guessing.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why persistence fails beyond a few hours”?",
-            solution: "The accurate idea is: The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why persistence fails beyond a few hours.",
-            solution: "Stay close to the text: The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting â simply assuming tomorrow's weather equals today's â works reasonably well for the first few… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forecasting-methods-when-climatology-is-useful-and-when-it-f",
-        title: "When climatology is useful and when it fails",
-        summary: "Climatology-based forecasts use 30-year averages for a given location and date — predicting, for example, that Islamabad in July will be…",
-        explanation: "Climatology-based forecasts use 30-year averages for a given location and date — predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. This is useful for planning agriculture, tourism, or seasonal resource allocation, but it cannot predict whether a specific day will see a thunderstorm or clear skies, because it ignores the actual current atmospheric state entirely.",
-                examples: [
-          {
-            problem: "Which statement best matches “When climatology is useful and when it fails”?",
-            solution: "The accurate idea is: Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon ra…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying When climatology is useful and when it fails.",
-            solution: "Stay close to the text: Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. This is useful for planning agricult… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forecasting-methods-the-analog-method-s-fundamental-limitati",
-        title: "The analog method's fundamental limitation",
-        summary: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that…",
-        explanation: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. In theory this is sound, but in practice the atmosphere rarely repeats an identical configuration — even superficially similar maps differ in upper-level flow, moisture fields, and seasonal context. As the historical archive grows, analog matching improves, but the method remains inherently limited by atmospheric uniqueness.",
-                examples: [
-          {
-            problem: "Which statement best matches “The analog method's fundamental limitation”?",
-            solution: "The accurate idea is: The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The analog method's fundamental limitation.",
-            solution: "Stay close to the text: The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. In theory this is sound, but in practice the atmosphere rarely repeats … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  commonMistakes: [
+    "Confusing persistence with climatology.",
+    "Treating analogs as unique exact repeats.",
+    "Extrapolating trends across regime shifts.",
+    "Thinking NWP made classical methods irrelevant for teaching."
+  ],
+  relatedTopics: ["meteo-nwp-models", "meteo-forecast-skill"],
   content: true,
   buildsOn: ["meteo-weather-vs-climate", "meteo-station-model"],
   leadsTo: ["meteo-nwp-models", "meteo-forecast-skill"],
-  usedIn: ["meteo-nwp-models", "meteo-pmd-operational"]
+  usedIn: ["meteo-forecast-skill", "meteo-nwp-models"]
 },
 
 {
@@ -5142,98 +5110,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-10",
   order: 2,
   title: "Numerical Weather Prediction (NWP): Models, Data Assimilation & Ensembles",
-  definition: "Numerical Weather Prediction solves the governing equations of atmospheric motion on a grid to predict future weather; it requires data assimilation to initialize the model and ensemble forecasting to quantify forecast uncertainty.",
+  definition: "Numerical weather prediction solves equations of atmospheric motion and thermodynamics on a grid (or spectral basis) forward in time from an analysed initial state. Data assimilation blends observations into the model state; ensembles run many slightly different forecasts to estimate uncertainty.",
   keyFacts: [
-    "NWP is based on the primitive equations: conservation of momentum, thermodynamic energy, mass continuity, and moisture — solved numerically on a 3D grid",
-    "Data assimilation blends observations (radiosondes, satellites, aircraft, surface stations) with a model's previous forecast (the 'first guess' or background) to produce the initial state (analysis)",
-    "Deterministic NWP runs a single simulation from one analysis; ensemble NWP runs many simulations with slightly perturbed initial conditions to estimate forecast uncertainty",
-    "Global models (e.g., GFS, ECMWF-IFS) cover the entire planet at coarse resolution (~9–25 km); regional/limited-area models (e.g., WRF, AROME) run at higher resolution (~1–5 km) over a limited domain, using global model output as boundary conditions",
-    "Forecast accuracy degrades with lead time: skill is high for 1–3 days, useful for 3–7 days, and approaches climatology beyond ~10–14 days"
+    "Core: discretised fluid + physics parameterisations (convection, radiation, surface)",
+    "Initial conditions dominate short-range forecast quality",
+    "Data assimilation: combine model background with observations (e.g. variational / ensemble methods)",
+    "Grid spacing and time step limit resolvable features",
+    "Ensemble forecasts: multiple members → probabilities and spread",
+    "Boundary conditions matter for limited-area models"
   ],
   explanationSections: [
-    { heading: "Why data assimilation matters more than the model itself", body: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a slightly wrong initial condition will diverge from reality within days. Data assimilation — the process of merging sparse, noisy observations with a model background using statistical methods like 3D-Var, 4D-Var, or Kalman filters — is what makes the initial analysis as accurate as possible. Without high-quality assimilation, even the best NWP model cannot produce useful forecasts beyond a day or two." },
-    { heading: "Why ensembles replace single deterministic runs", body: "A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20–50 times with slightly different initial conditions and physics parameterizations, producing a spread of outcomes. A tight cluster of ensemble members indicates high confidence; a wide spread indicates low confidence and high uncertainty. The ensemble mean typically outperforms the deterministic run beyond 3–5 days because it averages out chaotic divergence." },
-    { heading: "Global vs. regional model trade-off", body: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9–25 km — too coarse to resolve individual thunderstorms or local terrain effects. Regional models nest inside a global model's output at their domain boundaries, achieving 1–5 km resolution that captures convection, mountain valleys, and coastlines, but they inherit any errors in the global model's boundary conditions and cannot correct large-scale errors that originate outside their domain." }
+    { heading: "Physics on a grid, uncertainty in a cloud of runs", body: "NWP is not a crystal ball — it is an initial-value problem with incomplete observations and approximate physics. Ensembles admit that small errors grow and turn them into useful probabilities." }
   ],
-  examPoints: [
-    "Data assimilation produces the 'analysis' — the best estimate of the current atmospheric state used to initialize the model; it is not the same as the raw observations",
-    "Ensemble spread (wide vs. narrow) indicates forecast uncertainty — a narrow spread means high confidence, not a guaranteed correct forecast",
-    "Forecast skill degrades with lead time and approaches climatology beyond ~10–14 days — this limit is fundamental (chaos), not a model deficiency"
+  subtopics: [
+    {
+      id: "meteo-nwp-models-assimilation",
+      title: "Models and data assimilation",
+      summary: "Equations + observing system → analysis → forecast.",
+      explanation: "The analysis is the best estimate of the current atmosphere. Assimilation gives weight to observations and to the prior model state according to estimated errors. Garbage in the analysis becomes garbage in the forecast.",
+      examples: [
+        { problem: "Why are radiosondes still valuable in an era of satellites?", solution: "They provide high-quality vertical profiles that constrain temperature, humidity, and wind in the assimilation, especially where satellite retrievals are limited.", answer: "Vertical profile constraint" }
+      ],
+      shortcuts: ["Analysis = assimilated state", "IC quality → forecast quality"],
+      traps: ["Thinking the model needs no observations after startup forever"]
+    },
+    {
+      id: "meteo-nwp-models-ensembles",
+      title: "Ensembles and resolution",
+      summary: "Spread estimates uncertainty; resolution limits features.",
+      explanation: "A single deterministic run can mislead when the atmosphere is sensitive. Ensemble mean and probabilities communicate confidence. Finer grids resolve smaller storms but cost more and still need good parameterisations for sub-grid processes.",
+      examples: [
+        { problem: "What does large ensemble spread typically indicate?", solution: "Higher uncertainty — members diverge, so confidence in a single exact solution is lower.", answer: "Higher uncertainty" }
+      ],
+      shortcuts: ["Ensemble → probability/spread", "Resolution ≠ perfect physics"],
+      traps: ["Reading one model run as certainty"]
+    }
   ],
-  workedExample: {
-    problem: "A 5-day forecast from a deterministic NWP model predicts heavy rain for a city, but the 50-member ensemble shows 30 members predicting rain and 20 predicting dry conditions. How should a forecaster interpret this?",
-    solution: "The 60/40 split indicates moderate uncertainty — the deterministic run happened to land on the rainy side, but a substantial fraction of ensemble members disagree. The forecaster should communicate a 60% probability of rain rather than presenting it as a confident forecast, and should examine whether the ensemble members cluster into two distinct scenarios (e.g., different storm tracks) to understand the source of uncertainty.",
-    answer: "60% probability of rain; moderate confidence — ensemble spread indicates the outcome is not settled"
+  comparisonTable: {
+    title: "NWP building blocks",
+    headers: ["Component", "Role"],
+    rows: [
+      ["Dynamical core", "Solves fluid equations"],
+      ["Physics packages", "Sub-grid processes"],
+      ["Data assimilation", "Initial state"],
+      ["Ensemble", "Uncertainty estimate"]
+    ]
   },
-  commonMistakes: [
-    "Treating a deterministic NWP forecast as certain — a single run is one possible outcome, not a guarantee; ensemble spread must always be consulted",
-    "Confusing data assimilation with the model itself — assimilation produces the initial state; the model evolves it forward in time; they are separate steps",
-    "Assuming higher resolution always means a better forecast — regional models inherit boundary-condition errors from their driving global model"
+  examPoints: [
+    "NWP = numerical solution of atmospheric equations",
+    "Assimilation builds the analysis",
+    "Ensembles quantify uncertainty"
   ],
-  relatedTopics: ["meteo-forecasting-methods", "meteo-forecast-skill", "meteo-radiosondes", "meteo-remote-sensing", "meteo-station-model"],
-    subtopics: [
-      {
-        id: "meteo-nwp-models-why-data-assimilation-matters-more-than-",
-        title: "Why data assimilation matters more than the model itself",
-        summary: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a…",
-        explanation: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a slightly wrong initial condition will diverge from reality within days. Data assimilation — the process of merging sparse, noisy observations with a model background using statistical methods like 3D-Var, 4D-Var, or Kalman filters — is what makes the initial analysis as accurate as possible. Without high-quality assimilation, even the best NWP model cannot produce useful forecasts beyond a day or two.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why data assimilation matters more than the model itself”?",
-            solution: "The accurate idea is: The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why data assimilation matters more than the model itself.",
-            solution: "Stay close to the text: The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a slightly wrong initial condition will diverge from reality within days. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-nwp-models-why-ensembles-replace-single-determinist",
-        title: "Why ensembles replace single deterministic runs",
-        summary: "A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20–50 times…",
-        explanation: "A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20–50 times with slightly different initial conditions and physics parameterizations, producing a spread of outcomes. A tight cluster of ensemble members indicates high confidence; a wide spread indicates low confidence and high uncertainty. The ensemble mean typically outperforms the deterministic run beyond 3–5 days because it averages out chaotic divergence.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why ensembles replace single deterministic runs”?",
-            solution: "The accurate idea is: A single deterministic forecast gives one possible future with no indication of confidence. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A single deterministic forecast gives one possible future with no indication of confidence.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why ensembles replace single deterministic runs.",
-            solution: "Stay close to the text: A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20â50 times with slightly different initial conditions and physics parameterizations, prod… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-nwp-models-global-vs-regional-model-trade-off",
-        title: "Global vs. regional model trade-off",
-        summary: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9–25 km — too coarse to…",
-        explanation: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9–25 km — too coarse to resolve individual thunderstorms or local terrain effects. Regional models nest inside a global model's output at their domain boundaries, achieving 1–5 km resolution that captures convection, mountain valleys, and coastlines, but they inherit any errors in the global model's boundary conditions and cannot correct large-scale errors that originate outside their domain.",
-                examples: [
-          {
-            problem: "Which statement best matches “Global vs. regional model trade-off”?",
-            solution: "The accurate idea is: Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local terrain effects. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Global vs. regional model trade-off.",
-            solution: "Stay close to the text: Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local terrain effects. Regional models nest i… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  commonMistakes: [
+    "Ignoring initial-condition sensitivity.",
+    "Confusing resolution with accuracy automatically.",
+    "Treating ensemble members as random noise without dynamics.",
+    "Forgetting lateral boundaries in regional models."
+  ],
+  relatedTopics: ["meteo-forecasting-methods", "meteo-forecast-skill", "meteo-radiosondes"],
   content: true,
   buildsOn: ["meteo-forecasting-methods", "meteo-radiosondes", "meteo-remote-sensing"],
   leadsTo: ["meteo-forecast-skill"],
@@ -5245,102 +5179,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-10",
   order: 3,
   title: "Forecast Skill, Accuracy & Verification: Anomaly Correlation, RMSE & Threat Score",
-  definition: "Forecast verification quantifies how well predictions match observed weather using skill scores like anomaly correlation coefficient, root-mean-square error, and threat score, each measuring different aspects of forecast quality.",
+  definition: "Forecast verification scores how well predictions match observations. Root-mean-square error (RMSE) measures magnitude of error; anomaly correlation measures pattern agreement; threat score (critical success index) evaluates categorical event forecasts such as rain occurrence. Skill compares accuracy against a baseline like climatology or persistence.",
   keyFacts: [
-    "Anomaly Correlation Coefficient (ACC): measures pattern similarity between forecast and observed anomaly fields (e.g., 500 hPa heights); values above 0.6 indicate useful skill, 1.0 is perfect, 0.0 equals climatology",
-    "Root-Mean-Square Error (RMSE): measures average magnitude of forecast errors in the same units as the variable (e.g., °C for temperature, hPa for pressure); lower is better",
-    "Threat Score (TS) = hits / (hits + misses + false alarms): the standard categorical score for binary events like 'rain above 1 mm' or 'temperature below freezing'; ranges 0–1",
-    "Equitable Threat Score (ETS) adjusts TS for hits expected by random chance, removing the bias toward forecasting common events",
-    "Forecast skill is always measured relative to a reference — typically climatology or persistence; a forecast has 'skill' only if it beats the reference"
+    "Accuracy: closeness to truth; skill: improvement over a reference forecast",
+    "RMSE: lower is better; sensitive to large errors",
+    "Anomaly correlation: high values mean good spatial/temporal pattern match of anomalies",
+    "Threat score / CSI: hits / (hits + misses + false alarms) for binary events",
+    "A forecast can be accurate in RMSE yet unskilled if it only repeats climatology",
+    "Different scores suit continuous variables vs rare events"
   ],
   explanationSections: [
-    { heading: "Why ACC is the standard for medium-range verification", body: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. A high ACC means the forecast correctly captured the shape and placement of weather systems — troughs, ridges, pressure centers — even if their exact intensity is slightly off. ACC is used operationally because it summarizes large-scale pattern skill in a single number and degrades smoothly with lead time, making it easy to track model performance over days or seasons." },
-    { heading: "Threat Score vs. RMSE: categorical vs. continuous", body: "RMSE measures errors in continuous variables like temperature or pressure — it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Threat Score, by contrast, evaluates binary events: did the forecast predict rain when rain occurred? TS combines three outcomes — hits, misses, and false alarms — into one score, making it ideal for verifying high-impact events like frost, heavy rain, or severe wind, where the yes/no decision matters more than the exact value." },
-    { heading: "Why 'skill' requires a reference forecast", body: "A forecast that predicts 30°C and the observed temperature is 30°C looks perfect — but if the climatological average for that date is also 30°C, simply predicting climatology would have been equally correct. Skill scores subtract the reference forecast's performance: a forecast has genuine skill only if it outperforms the reference (climatology or persistence). This prevents inflating forecast quality by crediting easy wins on stable, predictable days." }
+    { heading: "Pick the score that matches the question", body: "RMSE cares about degrees of error in temperature. Threat score cares whether you caught the flood-producing rain event. Always state the baseline when claiming ‘skill’." }
   ],
-  examPoints: [
-    "ACC > 0.6 is the conventional threshold for 'useful' medium-range forecast skill — below this, the forecast is no better than climatology",
-    "Threat Score = hits / (hits + misses + false alarms) — correctly predicting non-events (correct rejections) does NOT enter the TS formula, which is a key distinction from accuracy",
-    "A forecast has 'skill' only if it beats the reference (climatology or persistence) — a forecast that always predicts climatology has zero skill even if it appears accurate"
+  subtopics: [
+    {
+      id: "meteo-forecast-skill-continuous",
+      title: "RMSE and anomaly correlation",
+      summary: "Magnitude errors vs pattern correlation of anomalies.",
+      explanation: "RMSE aggregates squared differences — a few big misses dominate. Anomaly correlation asks whether the forecast anomaly field lines up with the observed anomaly field, central in medium-range assessment.",
+      examples: [
+        { problem: "Does a lower RMSE indicate a better forecast in the usual convention?", solution: "Yes — RMSE decreases as typical error magnitude falls.", answer: "Yes — lower is better" }
+      ],
+      shortcuts: ["RMSE ↓ better", "Anomaly correlation ↑ better"],
+      traps: ["Calling high RMSE ‘high skill’"]
+    },
+    {
+      id: "meteo-forecast-skill-categorical",
+      title: "Threat score and skill vs baseline",
+      summary: "Event detection scores; skill needs a reference.",
+      explanation: "Threat score balances hits against misses and false alarms — important for severe-weather yes/no forecasts. Skill scores normalise performance relative to persistence or climatology so that easy cases do not look falsely impressive.",
+      examples: [
+        { problem: "A system always forecasts ‘no rain’ in a dry climate and scores many correct negatives. Why might threat score for rain still be poor?", solution: "It never scores hits on actual rain events; CSI focuses on event discrimination, not correct non-events alone.", answer: "No hits on rain events" }
+      ],
+      shortcuts: ["CSI = hits/(hits+misses+false alarms)", "Skill ≠ raw accuracy"],
+      traps: ["Ignoring false alarms when counting ‘success’"]
+    }
   ],
-  workedExample: {
-    problem: "A 3-day rain forecast produces 20 hits (rain predicted and observed), 5 misses (rain observed but not predicted), and 10 false alarms (rain predicted but not observed). Calculate the Threat Score and interpret it.",
-    solution: "Threat Score = hits / (hits + misses + false alarms) = 20 / (20 + 5 + 10) = 20 / 35 ≈ 0.57. This means the forecast correctly captured about 57% of the combined event space (hits + misses + false alarms). A TS of 0.57 is moderate — better than random guessing but with room for improvement, particularly in reducing the 10 false alarms.",
-    answer: "TS ≈ 0.57 — moderate skill; the 10 false alarms are the main weakness"
+  comparisonTable: {
+    title: "Verification tools",
+    headers: ["Score", "Use"],
+    rows: [
+      ["RMSE", "Continuous error magnitude"],
+      ["Anomaly correlation", "Pattern of anomalies"],
+      ["Threat score (CSI)", "Binary event quality"],
+      ["Skill score", "Gain vs baseline"]
+    ]
   },
+  examPoints: [
+    "Accuracy vs skill",
+    "RMSE, anomaly correlation, threat score roles",
+    "Baselines: persistence/climatology"
+  ],
   commonMistakes: [
-    "Including correct rejections (dry predicted and dry observed) in the Threat Score calculation — TS only uses hits, misses, and false alarms",
-    "Confusing 'accuracy' with 'skill' — a forecast can be accurate (close to observed) but have zero skill if it merely predicts climatology and climatology happens to verify",
-    "Assuming a high RMSE always means a bad forecast — for rare extreme events, even a forecast with moderate RMSE can have high Threat Score if it correctly predicted the event's occurrence"
+    "Equating accuracy with skill.",
+    "Misreading RMSE direction.",
+    "Using only correct negatives for rare events.",
+    "Skipping the reference forecast."
   ],
   relatedTopics: ["meteo-forecasting-methods", "meteo-nwp-models"],
-    subtopics: [
-      {
-        id: "meteo-forecast-skill-why-acc-is-the-standard-for-medium-range",
-        title: "Why ACC is the standard for medium-range verification",
-        summary: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed…",
-        explanation: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. A high ACC means the forecast correctly captured the shape and placement of weather systems — troughs, ridges, pressure centers — even if their exact intensity is slightly off. ACC is used operationally because it summarizes large-scale pattern skill in a single number and degrades smoothly with lead time, making it easy to track model performance over days or seasons.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why ACC is the standard for medium-range verification”?",
-            solution: "The accurate idea is: The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why ACC is the standard for medium-range verification.",
-            solution: "Stay close to the text: The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. A high ACC means the forecast correctly captured the shape and placement of… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forecast-skill-threat-score-vs-rmse-categorical-vs-cont",
-        title: "Threat Score vs. RMSE: categorical vs. continuous",
-        summary: "RMSE measures errors in continuous variables like temperature or pressure — it tells you the average error magnitude but not whether the…",
-        explanation: "RMSE measures errors in continuous variables like temperature or pressure — it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Threat Score, by contrast, evaluates binary events: did the forecast predict rain when rain occurred? TS combines three outcomes — hits, misses, and false alarms — into one score, making it ideal for verifying high-impact events like frost, heavy rain, or severe wind, where the yes/no decision matters more than the exact value.",
-                examples: [
-          {
-            problem: "Which statement best matches “Threat Score vs. RMSE: categorical vs. continuous”?",
-            solution: "The accurate idea is: RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurren…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Threat Score vs. RMSE: categorical vs. continuous.",
-            solution: "Stay close to the text: RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Threat Score, by contras… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forecast-skill-why-skill-requires-a-reference-forecast",
-        title: "Why 'skill' requires a reference forecast",
-        summary: "A forecast that predicts 30°C and the observed temperature is 30°C looks perfect — but if the climatological average for that date is also…",
-        explanation: "A forecast that predicts 30°C and the observed temperature is 30°C looks perfect — but if the climatological average for that date is also 30°C, simply predicting climatology would have been equally correct. Skill scores subtract the reference forecast's performance: a forecast has genuine skill only if it outperforms the reference (climatology or persistence). This prevents inflating forecast quality by crediting easy wins on stable, predictable days.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why 'skill' requires a reference forecast”?",
-            solution: "The accurate idea is: A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology would have been equally correct. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why 'skill' requires a reference forecast.",
-            solution: "Stay close to the text: A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology would have been equally correct. Skill s… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
-  buildsOn: ["meteo-nwp-models", "math-8-1"],
+  buildsOn: ["meteo-forecasting-methods", "meteo-nwp-models"],
   leadsTo: [],
-  usedIn: ["ra-research-quality", "ra-inferential-stats", "ra-data-interpretation", "meteo-pmd-operational"]
+  usedIn: ["meteo-pmd-operational", "meteo-nwp-models"]
 },
 // ============================= SECTION METEO-K: Synoptic Practice =============================
 
