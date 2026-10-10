@@ -675,25 +675,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 1,
   title: "Heat Transfer Mechanisms",
-  definition: "Heat moves through the atmosphere via four mechanisms: conduction, convection, advection, and radiation.",
+  definition: "Energy moves through the Earth–atmosphere system by conduction, convection, advection, and radiation. Each mechanism has a preferred direction, medium, and role in weather. Naming the path correctly is the foundation for radiation, greenhouse, and lapse-rate topics.",
   keyFacts: [
-    "Conduction: molecule-to-molecule transfer via direct contact; air is a poor conductor, effective only within a few cm of the surface",
-    "Convection: vertical transfer via buoyant rising of heated, less-dense air and sinking of cooler, denser air",
-    "Advection: horizontal transfer of a property (heat, moisture) by wind",
-    "Radiation: transfer via electromagnetic waves; the only mechanism requiring no physical medium"
+    "Conduction: molecule-to-molecule contact; air is a poor conductor — effective only in a thin surface skin",
+    "Convection: vertical motion of air parcels carrying heat (and often moisture)",
+    "Advection: horizontal transport of heat by the wind",
+    "Radiation: electromagnetic emission/absorption; the only mechanism that works through vacuum",
+    "Daytime sequence: solar radiation warms the ground → conduction into a thin air layer → mixing/convection redistributes heat aloft",
+    "Latent heat from water phase changes is a major energy pathway in storms"
   ],
   explanationSections: [
-    { heading: "The convection cycle", body: "Sunlight warms the ground → ground warms a thin air layer by conduction → that air expands, becomes less dense, and rises as a thermal → cooler air sinks to replace it → a convective cell is established." }
+    { heading: "Four paths, one energy budget", body: "Sunshine arrives as radiation. The ground warms and shares energy by conduction into the lowest centimetres of air, by turbulent mixing and convection through the boundary layer, and by emitting its own longwave radiation. Wind then moves warm or cold air sideways as advection." }
   ],
+  subtopics: [
+    {
+      id: "meteo-heat-transfer-conduction-convection",
+      title: "Conduction and convection",
+      summary: "Shallow contact heating versus vertical parcel transport.",
+      explanation: "Conduction requires molecular collisions. Because air conducts poorly, only a shallow layer is heated by pure contact with the ground. Once air rises or mixes, convection and turbulence carry heat through a much deeper layer — from fair-weather thermals to deep storms.",
+      examples: [
+        { problem: "The soil is hot but air at 2 m is only moderately warm on a calm afternoon. How does heat reach the air aloft?", solution: "Conduction heats a thin contact layer; turbulent mixing and convection then share heat through the boundary layer.", answer: "Conduction then convection/mixing" }
+      ],
+      shortcuts: ["Conduction = contact, shallow", "Convection = vertical transport"],
+      traps: ["Treating air as a good conductor", "Calling horizontal wind convection"]
+    },
+    {
+      id: "meteo-heat-transfer-advection-radiation",
+      title: "Advection and radiation",
+      summary: "Horizontal heat transport; radiation crosses space.",
+      explanation: "Advection is horizontal import/export of heat by airflow (for example warm-air advection ahead of a front). Radiation needs no medium: solar shortwave reaches Earth through space, and Earth emits longwave infrared back to space.",
+      examples: [
+        { problem: "Clear calm night: temperature falls sharply. Which mechanism dominates the loss?", solution: "Longwave radiative cooling of ground and near-surface air, with little mixing to replace cooled air.", answer: "Radiation (longwave cooling)" }
+      ],
+      shortcuts: ["Advection = horizontal", "Radiation = no medium needed"],
+      traps: ["Using convection for horizontal warm-air advance"]
+    }
+  ],
+  comparisonTable: {
+    title: "Heat transfer mechanisms",
+    headers: ["Mechanism", "Emphasis", "Medium?", "Role"],
+    rows: [
+      ["Conduction", "Contact", "Yes", "Thin surface layer"],
+      ["Convection", "Vertical", "Yes", "Thermals, storms"],
+      ["Advection", "Horizontal", "Yes", "Air-mass temperature change"],
+      ["Radiation", "All directions", "No", "Solar input; IR to space"]
+    ]
+  },
   examPoints: [
-    "Radiation is unique: it needs no medium and can cross a vacuum",
-    "Warm-air advection = horizontal transport of warm air toward colder latitudes"
+    "Air is a poor conductor — conduction is shallow",
+    "Advection is horizontal; convection is vertical",
+    "Radiation alone energetically links Earth to space"
   ],
   commonMistakes: [
-    "Thinking conduction is the main way the atmosphere is heated aloft — radiation and convection dominate.",
-    "Confusing heat (energy transfer) with temperature.",
-    "Assuming radiation needs air to travel (it does not).",
-    "Ignoring latent heat as a major atmospheric energy pathway.",
+    "Calling horizontal warm airflow convection.",
+    "Assuming sunshine heats the whole troposphere directly and equally.",
+    "Ignoring latent heat in deep convection.",
+    "Treating conduction as the main way heat rises through kilometres of air."
   ],
   relatedTopics: ["meteo-radiation-laws", "meteo-scales-of-motion"],
   content: true,
@@ -707,43 +744,69 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 2,
   title: "Radiation Laws",
-  definition: "Three physical laws govern how objects emit radiation: Wien's Displacement Law, the Stefan-Boltzmann Law, and Kirchhoff's Law.",
+  definition: "Three classical laws organise emission: Wien's displacement law (peak wavelength), the Stefan–Boltzmann law (total power ∝ T⁴), and Kirchhoff's law (good absorbers are good emitters at the same wavelength). They explain why the Sun is a shortwave source and Earth a longwave source.",
   keyFacts: [
-    "Wien's Law: λmax = C / T, where C = 2,897 µm·K",
-    "The Sun (~5,800 K) peaks near 0.5 µm — shortwave, visible light",
-    "Earth (~288 K) peaks near 10 µm — longwave, infrared",
-    "Stefan-Boltzmann Law: E = σT⁴, σ = 5.67×10⁻⁸ W/m²K⁴ — a small T increase causes a large E increase",
-    "Kirchhoff's Law: a good absorber at a wavelength is also a good emitter at that wavelength",
-    "Earth's surface behaves near-blackbody; the atmosphere is a selective absorber"
+    "Wien: λ_max ≈ 2897 µm·K / T — hotter → shorter peak wavelength",
+    "Sun (~5800 K) peaks near 0.5 µm (visible shortwave); Earth (~288 K) near 10 µm (thermal IR)",
+    "Stefan–Boltzmann: emitted flux ∝ T⁴",
+    "Kirchhoff: at a given wavelength, strong absorbers are strong emitters",
+    "Meteo usage: shortwave ≈ solar; longwave ≈ terrestrial infrared",
+    "Greenhouse gases are selective absorbers, not perfect blackbodies at all wavelengths"
   ],
   explanationSections: [
-    { heading: "Why hotter objects emit shorter wavelengths", body: "Wien's Law is an inverse relationship — as temperature rises, the wavelength of peak emission shortens. This is why the very hot Sun emits visible light while the cooler Earth emits infrared." }
+    { heading: "Temperature sets spectrum and power", body: "Raise temperature and the emission peak shifts to shorter wavelengths (Wien) while total radiated energy rises steeply (T⁴). Kirchhoff links absorption and emission line by line — the basis of atmospheric windows." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-radiation-laws-wien",
+      title: "Wien's displacement law",
+      summary: "Peak wavelength is inversely proportional to absolute temperature.",
+      explanation: "λ_max = C/T with C ≈ 2897 µm·K. Always use kelvin. This single relation places the Sun in the visible and Earth in the infrared.",
+      examples: [
+        { problem: "Estimate λ_max for a 300 K blackbody (C = 2897 µm·K).", solution: "2897/300 ≈ 9.7 µm — thermal infrared.", answer: "≈ 9.7 µm" }
+      ],
+      shortcuts: ["Hotter → shorter λ_max", "Use kelvin"],
+      traps: ["Using °C in Wien's formula"]
+    },
+    {
+      id: "meteo-radiation-laws-stefan-kirchhoff",
+      title: "Stefan–Boltzmann and Kirchhoff",
+      summary: "Flux scales as T⁴; absorption matches emission by wavelength.",
+      explanation: "Because flux depends on T⁴, small temperature changes cause large energy changes. Kirchhoff explains why wavelengths that gases absorb poorly are also wavelengths at which they emit poorly — the atmospheric window idea.",
+      examples: [
+        { problem: "Temperature rises from 280 K to 290 K. Approximate factor increase in blackbody flux?", solution: "(290/280)⁴ ≈ 1.15 — about 15% more emission.", answer: "≈ 1.15×" }
+      ],
+      shortcuts: ["Flux ∝ T⁴", "Good absorber ⇔ good emitter (same λ)"],
+      traps: ["Thinking emission rises only linearly with T"]
+    }
   ],
   formula: {
     name: "Wien's Displacement Law",
     expression: "λmax = C / T",
     variables: [
       { symbol: "λmax", meaning: "wavelength of peak emission" },
-      { symbol: "C", meaning: "Wien's constant, 2,897 µm·K" },
+      { symbol: "C", meaning: "Wien's constant, ≈ 2,897 µm·K" },
       { symbol: "T", meaning: "absolute temperature (Kelvin)" }
     ]
   },
+  comparisonTable: {
+    title: "Sun versus Earth as radiators",
+    headers: ["Body", "Approx. T", "Peak λ", "Label"],
+    rows: [
+      ["Sun", "~5800 K", "~0.5 µm", "Shortwave / solar"],
+      ["Earth", "~288 K", "~10 µm", "Longwave / terrestrial IR"]
+    ]
+  },
   examPoints: [
-    "T is to the FOURTH power in Stefan-Boltzmann — a small temperature change has a large energy effect",
-    "Kirchhoff's Law explains why greenhouse gases (good IR absorbers) are also good IR emitters"
+    "Always use kelvin",
+    "Solar shortwave vs terrestrial longwave",
+    "T⁴ sensitivity of emission"
   ],
   commonMistakes: [
-    "Using Celsius in Stefan–Boltzmann or Wien calculations — use kelvin.",
-    "Thinking hotter bodies emit only shorter wavelengths and no longer ones.",
-    "Confusing albedo with emissivity.",
-    "Assuming Earth's emission temperature equals typical surface air temperature without greenhouse effect.",
-  ],
-  workedExample: [
-    {
-      problem: "A black body is at 300 K. Using Stefan–Boltzmann law with σ = 5.67 × 10⁻⁸ W m⁻² K⁻⁴, estimate the emitted flux.",
-      solution: "E = σT⁴ = 5.67e-8 × (300)⁴ = 5.67e-8 × 8.1e8 = 459 W/m² approximately.",
-      answer: "≈ 459 W/m²",
-    },
+    "Inserting °C into radiation formulas.",
+    "Saying Earth emits mainly visible light.",
+    "Ignoring Kirchhoff when discussing windows.",
+    "Treating greenhouse gases as perfect absorbers at every IR wavelength."
   ],
   relatedTopics: ["meteo-greenhouse-effect", "meteo-heat-transfer", "meteo-radiative-forcing"],
   content: true,
@@ -757,33 +820,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 3,
   title: "Greenhouse Effect & Atmospheric Window",
-  definition: "Greenhouse gases selectively absorb outgoing longwave terrestrial radiation and re-emit part of it back to the surface, warming Earth well above its radiative equilibrium temperature.",
+  definition: "Greenhouse gases absorb much of the longwave infrared emitted by Earth's surface and re-radiate energy upward and downward. Downward infrared warms the surface above the temperature it would have under pure space balance. Spectral regions of weak absorption form an atmospheric window through which some infrared escapes more freely.",
   keyFacts: [
-    "Solar shortwave radiation passes through the atmosphere relatively easily and warms the surface",
-    "The warm surface emits longwave IR; greenhouse gases (H2O, CO2) absorb much of it",
-    "Of 117 units of surface-emitted IR, ~96 units are radiated back to the ground",
-    "With the greenhouse effect: ~15°C average surface temperature. Without it: ~−18°C",
-    "Atmospheric window: ~8–11 µm, where H2O and CO2 do not strongly absorb, letting some IR escape directly to space",
-    "Clouds absorb/emit strongly across nearly all IR wavelengths, including the window — this is why cloudy nights are warmer than clear nights"
+    "Without the natural greenhouse effect, global mean surface temperature would be near −18 °C rather than about +15 °C",
+    "Solar shortwave largely passes through; surface longwave is selectively absorbed",
+    "Water vapour, CO₂, methane and others contribute; clouds also absorb/emit IR broadly",
+    "Atmospheric window: roughly 8–11 µm",
+    "Cloudy nights are often warmer than clear nights because clouds radiate IR downward",
+    "Enhanced greenhouse effect from rising CO₂ intensifies a natural, necessary process"
   ],
   explanationSections: [
-    { heading: "The 7-step greenhouse process", body: "Shortwave passes through → warms surface → surface emits longwave IR → greenhouse gases absorb IR → molecules gain kinetic energy via collisions → energy re-radiates in all directions → a large share returns to the surface." }
+    { heading: "Selective blanket, not a sealed lid", body: "The atmosphere redistributes infrared energy rather than trapping heat in a closed box. Molecules absorb at characteristic wavelengths, collide, and emit again. The surface receives both sunshine and downward atmospheric infrared." }
   ],
+  subtopics: [
+    {
+      id: "meteo-greenhouse-effect-mechanism",
+      title: "Mechanism of the greenhouse effect",
+      summary: "Shortwave in; longwave absorbed and re-emitted; surface gains extra downward IR.",
+      explanation: "Sunshine warms the surface; the surface emits infrared; greenhouse gases absorb much of that infrared and emit both up and down. The downward flux keeps the lower atmosphere far warmer than the −18 °C pure radiative-equilibrium value.",
+      examples: [
+        { problem: "Why is the natural greenhouse effect essential for life as we know it?", solution: "It raises global mean surface temperature by roughly 33 °C above the ≈ −18 °C no-atmosphere equilibrium.", answer: "≈ +33 °C warming vs −18 °C" }
+      ],
+      shortcuts: ["GHG absorb IR → emit up and down", "Natural effect ≈ +33 °C"],
+      traps: ["Saying GHGs mainly block solar visible light", "Calling the natural effect purely harmful"]
+    },
+    {
+      id: "meteo-greenhouse-effect-window-clouds",
+      title: "Atmospheric window and clouds",
+      summary: "Some IR escapes in the window; clouds can close that leak.",
+      explanation: "Between about 8 and 11 µm absorption by main greenhouse gases is weaker, so surface IR can escape more readily. Cloud water absorbs and emits across a wide IR range, including the window — hence milder cloudy nights.",
+      examples: [
+        { problem: "Same afternoon temperature; clear vs cloudy night — which morning is likely warmer?", solution: "Cloudy night: clouds absorb outgoing IR and radiate downward, reducing net cooling.", answer: "Cloudy night" }
+      ],
+      shortcuts: ["Window ≈ 8–11 µm", "Clouds close the window"],
+      traps: ["Thinking clouds only reflect sunlight, never affect night IR"]
+    }
+  ],
+  comparisonTable: {
+    title: "Clear vs cloudy night",
+    headers: ["Sky", "Window", "Night cooling"],
+    rows: [["Clear", "More IR escapes", "Stronger"], ["Cloudy", "Clouds absorb/emit IR", "Weaker"]]
+  },
   examPoints: [
-    "The 15°C vs. −18°C figures are a classic exact-number exam question",
-    "Clouds close the atmospheric window — the mechanism behind warmer cloudy nights"
+    "Natural greenhouse ≈ 33 °C relative to −18 °C",
+    "Window ~8–11 µm",
+    "Cloudy nights often warmer via downward IR"
   ],
   commonMistakes: [
-    "Calling the greenhouse effect just pollution — the natural effect is essential for habitability.",
-    "Thinking glass greenhouses work mainly by trapping IR the same way gases do (mechanism differs).",
-    "Ignoring water vapor as a greenhouse gas.",
-    "Assuming the atmospheric window means no IR escapes at all.",
+    "Confusing greenhouse effect with ozone hole.",
+    "Saying CO₂ always outranks water vapour in every local column.",
+    "Believing GHGs primarily block incoming sunlight.",
+    "Ignoring clouds for night temperatures."
   ],
   relatedTopics: ["meteo-radiation-laws", "meteo-composition-today", "meteo-radiative-forcing"],
   content: true,
   buildsOn: ["meteo-radiation-laws", "meteo-composition-today"],
-  leadsTo: ["meteo-radiative-forcing", "meteo-climate-feedbacks"],
-  usedIn: ["meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-climate-change-response", "env-international-climate-policy"]
+  leadsTo: ["meteo-lapse-rates", "meteo-radiative-forcing"],
+  usedIn: ["meteo-radiative-forcing", "meteo-climate-feedbacks", "env-climate-change-response"]
 },
 
 {
@@ -791,31 +884,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 4,
   title: "Lapse Rates",
-  definition: "Three lapse rates describe temperature change with altitude: the Environmental Lapse Rate (actual), Dry Adiabatic Lapse Rate (unsaturated parcel), and Saturated Adiabatic Lapse Rate (saturated parcel).",
+  definition: "A lapse rate is how temperature changes with height. The environmental lapse rate (ELR) is the actual atmosphere. The dry adiabatic lapse rate (DALR) and saturated adiabatic lapse rate (SALR) describe rising parcels. Stability compares ELR with DALR and SALR.",
   keyFacts: [
-    "ELR (actual, measured): averages ~6.5°C/km (3.6°F/1,000 ft); varies day to day, not constant",
-    "DALR (unsaturated parcel): ~9.8–10°C/km (~3°F/1,000 ft); effectively constant",
-    "SALR (saturated parcel): ~5–6°C/km (~1.5–2°F/1,000 ft); NOT constant, varies with temperature/moisture",
-    "SALR is slower than DALR because condensation releases latent heat, partially offsetting cooling"
+    "DALR ≈ 9.8 °C/km for unsaturated rising parcels",
+    "SALR ≈ 4–7 °C/km typically — latent heat reduces cooling; value depends on T and moisture",
+    "ELR is observed (sounding); DALR/SALR are process rates",
+    "Average tropospheric ELR is often cited near 6.5 °C/km but varies strongly",
+    "Stability is not ELR alone — it is ELR compared with adiabatic rates",
+    "SALR is always less than DALR when condensation releases heat"
   ],
   explanationSections: [
-    { heading: "Why DALR is constant but SALR isn't", body: "DALR reflects only expansion-cooling physics, which is fixed. SALR additionally depends on how much latent heat is released, which varies with the parcel's moisture content and temperature — so SALR changes from parcel to parcel." }
+    { heading: "Environment versus parcel", body: "The sounding plots the environment. Adiabatic rates answer: if a bubble rises without mixing, how fast does it cool? Dry parcels follow the steep DALR; once saturated, latent heat makes SALR smaller." }
   ],
-  examPoints: [
-    "ELR is measured/variable; DALR and SALR are theoretical/adiabatic",
-    "SALR < DALR numerically, because latent heat release slows the cooling"
+  subtopics: [
+    {
+      id: "meteo-lapse-rates-dalr-salr",
+      title: "DALR and SALR",
+      summary: "Dry parcels cool faster with height than saturated parcels.",
+      explanation: "An unsaturated rising parcel expands and cools at about 9.8 °C/km. Condensation releases latent heat, so the saturated rate is smaller and moisture-dependent.",
+      examples: [
+        { problem: "Unsaturated parcel rises 1.5 km at the DALR. Approximate cooling?", solution: "9.8 × 1.5 ≈ 14.7 °C.", answer: "≈ 15 °C" }
+      ],
+      shortcuts: ["DALR ≈ 10 °C/km", "SALR < DALR"],
+      traps: ["Using SALR before saturation", "Forcing one fixed SALR worldwide"]
+    },
+    {
+      id: "meteo-lapse-rates-elr-link",
+      title: "ELR and stability link",
+      summary: "Steep environmental profiles favour buoyancy; the full rules use DALR/SALR.",
+      explanation: "If the environment cools rapidly with height, rising parcels more easily stay warmer than surroundings. Formal criteria appear in the static-stability topic.",
+      examples: [
+        { problem: "Same surface T; sounding A cools 9 °C in first km, B cools 3 °C. Which favours dry convection more?", solution: "A — steeper ELR, closer to DALR.", answer: "Sounding A" }
+      ],
+      shortcuts: ["ELR = actual profile", "Steep ELR often less stable"],
+      traps: ["Equating ELR with DALR by definition"]
+    }
   ],
+  comparisonTable: {
+    title: "Lapse-rate vocabulary",
+    headers: ["Symbol", "Meaning", "Typical value"],
+    rows: [
+      ["ELR", "Actual sounding", "Variable (~6.5 °C/km average)"],
+      ["DALR", "Dry parcel process", "≈ 9.8 °C/km"],
+      ["SALR", "Saturated parcel process", "≈ 4–7 °C/km"]
+    ]
+  },
+  examPoints: ["DALR ≈ 9.8 °C/km", "SALR < DALR", "Stability compares ELR with DALR/SALR"],
   commonMistakes: [
-    "Confusing environmental lapse rate with adiabatic lapse rates (DALR/SALR).",
-    "Thinking a steep environmental lapse rate means stability — it often means instability.",
-    "Mixing DALR (~9.8 °C/km) with SALR (smaller when condensation releases heat).",
-    "Assuming lapse rate is constant in every layer of the real atmosphere.",
+    "Equating ELR with DALR.",
+    "Using one fixed SALR everywhere.",
+    "Judging stability from ELR alone without comparison.",
+    "Forgetting latent heat makes SALR smaller."
   ],
-  relatedTopics: ["meteo-inversion-mechanics", "meteo-adiabatic-cloud-formation", "meteo-static-stability", "meteo-hydrostatic-equation"],
+  relatedTopics: ["meteo-static-stability", "meteo-vertical-structure", "meteo-adiabatic-cloud-formation"],
   content: true,
-  buildsOn: ["meteo-vertical-structure", "meteo-heat-transfer", "phy-thermodynamics-laws"],
-  leadsTo: ["meteo-inversion-mechanics", "meteo-static-stability", "meteo-adiabatic-cloud-formation"],
-  usedIn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
+  buildsOn: ["meteo-vertical-structure", "meteo-heat-transfer"],
+  leadsTo: ["meteo-static-stability", "meteo-inversion-mechanics"],
+  usedIn: ["meteo-static-stability", "meteo-thermodynamic-diagrams", "meteo-lapse-stability-calc"]
 },
 
 {
@@ -823,34 +948,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 5,
   title: "Temperature Inversions — Mechanics",
-  definition: "A temperature inversion occurs when temperature increases with height (∂T/∂z > 0), reversing the normal tropospheric cooling trend and creating a highly stable layer that suppresses vertical mixing.",
+  definition: "A temperature inversion is a layer in which temperature increases with height — opposite the usual tropospheric decline. Inversions suppress vertical mixing, trap pollutants and moisture, and shape fog, frost, and air-quality episodes.",
   keyFacts: [
-    "Normal atmosphere: temperature decreases with height → more vertical mixing",
-    "Inversion: temperature increases with height → suppressed vertical mixing",
-    "The warm layer acts as a lid, trapping dust, pollutants, moisture, and fog near the surface",
-    "Can produce smog and reduced visibility"
+    "Inversion: temperature increases upward in the layer",
+    "Strong stability: rising parcels become cooler than the environment and sink back",
+    "Surface inversions often form by overnight radiative cooling",
+    "Elevated inversions can cap the mixed layer",
+    "Subsidence inversions form when air sinks and warms adiabatically aloft",
+    "Visible on soundings as layers with positive temperature slope"
   ],
   explanationSections: [
-    { heading: "The trapping mechanism", body: "Cold, dense air sits near the surface beneath warm, light air above. Because warm air is naturally buoyant relative to what's above it, the cold surface layer cannot rise through the warm lid, so pollutants and moisture accumulate below it." }
+    { heading: "Why inversions act as lids", body: "Buoyancy depends on density contrast. In an inversion, a forced-up parcel is soon colder and denser than its surroundings, so restoring forces push it down." }
   ],
-  examPoints: [
-    "∂T/∂z > 0 is the defining mathematical condition of an inversion — know this notation"
+  subtopics: [
+    {
+      id: "meteo-inversion-mechanics-stability",
+      title: "Definition and stability effect",
+      summary: "Warmer air above cooler air creates a strong lid.",
+      explanation: "Even a shallow inversion can stop weak thermals. Forecasting fog, frost, and smog starts with whether an inversion will form, strengthen, or burn off after sunrise.",
+      examples: [
+        { problem: "Evening smoke forms a flat sheet rather than rising. Likely structure?", solution: "A surface or low-level inversion stabilises the air so emissions spread sideways under the lid.", answer: "Low-level inversion" }
+      ],
+      shortcuts: ["Inversion = T increases with z", "Inversion = stable lid"],
+      traps: ["Calling any cold night an inversion without a height gradient"]
+    },
+    {
+      id: "meteo-inversion-mechanics-formation",
+      title: "How inversions form",
+      summary: "Radiation, advection, and subsidence build different lids.",
+      explanation: "Clear calm nights favour radiative surface inversions. Warm air over a cold surface can build an advection inversion. Large-scale sinking warms air aloft and creates subsidence inversions under highs.",
+      examples: [
+        { problem: "Why do clear calm nights favour surface inversions?", solution: "Strong ground IR cooling without mixing lets the lowest air become colder than air above.", answer: "Radiative cooling + weak mixing" }
+      ],
+      shortcuts: ["Clear+calm → nocturnal surface inversion", "Sinking → subsidence inversion"],
+      traps: ["One cause for all inversions"]
+    }
   ],
   comparisonTable: {
-    headers: ["Condition", "Vertical mixing"],
-    rows: [["Normal atmosphere (T decreases with height)", "Greater mixing"], ["Inversion (T increases with height)", "Suppressed mixing"]]
+    title: "Usual troposphere vs inversion",
+    headers: ["Feature", "Usual", "Inversion"],
+    rows: [
+      ["T with height", "Decreases", "Increases"],
+      ["Mixing", "Often active by day", "Suppressed"],
+      ["Pollutants", "More dispersion", "Often trapped"]
+    ]
   },
+  examPoints: ["Inversion = T increases with height", "Inversions cap vertical motion", "Radiation and subsidence are common causes"],
   commonMistakes: [
-    "Thinking inversions always mean clean air — they often trap pollutants by limiting vertical mixing.",
-    "Confusing inversion strength with inversion depth.",
-    "Ignoring nocturnal surface inversions as common, not rare.",
-    "Assuming temperature must increase with height in the entire column, not just a layer.",
+    "Defining inversion as merely cold air without height structure.",
+    "Assuming inversions exist only at the tropopause.",
+    "Ignoring calm clear nights as a setup.",
+    "Thinking pollutants always rise through inversions."
   ],
-  relatedTopics: ["meteo-inversion-types", "meteo-lapse-rates"],
+  relatedTopics: ["meteo-inversion-types", "meteo-lapse-rates", "meteo-static-stability"],
   content: true,
-  buildsOn: ["meteo-lapse-rates"],
-  leadsTo: ["meteo-inversion-types"],
-  usedIn: ["meteo-inversion-types", "meteo-fog-types", "env-air-pollution"]
+  buildsOn: ["meteo-lapse-rates", "meteo-heat-transfer"],
+  leadsTo: ["meteo-inversion-types", "meteo-static-stability"],
+  usedIn: ["meteo-fog-types", "env-air-pollution", "meteo-thermodynamic-diagrams"]
 },
 
 {
@@ -858,32 +1012,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 6,
   title: "Inversion Types",
-  definition: "Five mechanisms produce temperature inversions: radiation (nocturnal), subsidence, frontal, terrain (valley/basin), and capping inversions.",
+  definition: "Inversions are classified by location and formation: radiation (nocturnal surface), advection, subsidence, and frontal. Each type has a typical weather setting and lifetime.",
   keyFacts: [
-    "Radiation/nocturnal inversion: clear, calm winter nights; ground radiates heat away, cooling surface air while air aloft stays warmer",
-    "Subsidence inversion: sinking air in high-pressure systems warms adiabatically (DALR) as it's compressed, forming a warm, dry lid aloft",
-    "Frontal inversion: warm air overrunning a cold air wedge along a front (usually warm fronts)",
-    "Terrain/valley inversion: cold air formed by radiational cooling on slopes drains downhill (katabatic flow) and pools in valleys/basins",
-    "Capping inversion: an elevated warm layer that blocks convective updrafts; 'breaking the cap' can trigger explosive thunderstorm development"
+    "Radiation inversion: clear, light-wind nights; shallow; often burns off after sunrise",
+    "Advection inversion: warm air overspreading a colder surface (or cold air undercutting)",
+    "Subsidence inversion: sinking and adiabatic warming aloft; common in highs; can persist",
+    "Frontal inversion: warmer air overlying colder air across a frontal zone",
+    "Marine layers and valley cold pools are frequent inversion habitats",
+    "Diagnose type with both sounding shape and synoptic context"
   ],
   explanationSections: [
-    { heading: "Radiation vs. subsidence — the key contrast", body: "Radiation inversions form from surface cooling at night; subsidence inversions form from compressional warming aloft during persistent high pressure. Both trap pollutants, but by opposite physical routes — one cools the bottom, the other warms the top." }
+    { heading: "Name the mechanism", body: "Two inversions can look similar on a profile yet form and decay differently. A radiation inversion may vanish by late morning; a subsidence inversion under a strong high may control air quality for days." }
   ],
-  examPoints: [
-    "Subsidence inversions are linked to persistent, stagnant high-pressure systems — important for air-quality questions",
-    "A 'broken cap' explains why capping inversions can precede sudden severe thunderstorm outbreaks"
+  subtopics: [
+    {
+      id: "meteo-inversion-types-radiation-advection",
+      title: "Radiation and advection inversions",
+      summary: "Night-time ground cooling versus horizontal temperature contrasts.",
+      explanation: "Radiation inversions are the classic clear-night lid. Advection inversions involve horizontal transport — for example warm air over cold ocean or snow.",
+      examples: [
+        { problem: "Valley fog under a shallow morning lid that disappears by noon — most likely type?", solution: "Radiation (nocturnal surface) inversion eroded by daytime heating and mixing.", answer: "Radiation inversion" }
+      ],
+      shortcuts: ["Radiation = night, clear, calm, shallow", "Advection = air over different surface T"],
+      traps: ["Calling every fog layer a subsidence inversion"]
+    },
+    {
+      id: "meteo-inversion-types-subsidence-frontal",
+      title: "Subsidence and frontal inversions",
+      summary: "Sinking aloft versus frontal air-mass layering.",
+      explanation: "Subtropical highs produce elevated subsidence inversions that can cap marine air for days. Fronts layer warm over cold air and move with the synoptic system.",
+      examples: [
+        { problem: "Persistent elevated inversion under a subtropical high trapping haze for days — type?", solution: "Subsidence inversion from large-scale sinking and adiabatic warming aloft.", answer: "Subsidence inversion" }
+      ],
+      shortcuts: ["Subsidence ↔ highs, persistent", "Frontal ↔ air-mass contrast"],
+      traps: ["Ignoring synoptic context when naming type"]
+    }
   ],
+  comparisonTable: {
+    title: "Common inversion types",
+    headers: ["Type", "Main cause", "Life / depth"],
+    rows: [
+      ["Radiation", "Nocturnal ground IR cooling", "Shallow; often diurnal"],
+      ["Advection", "Horizontal T contrast", "Variable"],
+      ["Subsidence", "Sinking + adiabatic warming", "Often elevated; can persist"],
+      ["Frontal", "Air-mass overlap", "Moves with front"]
+    ]
+  },
+  examPoints: ["Match type to mechanism", "Radiation inversions are typically nocturnal and shallow", "Subsidence inversions link to highs"],
   commonMistakes: [
-    "Calling all inversions radiation fog inversions.",
-    "Mixing radiation, advection, subsidence, and frontal inversions.",
-    "Thinking all inversions form only at night.",
-    "Ignoring different forecast implications by type.",
+    "One label for all inversions.",
+    "Expecting radiation inversions to survive strong afternoon mixing.",
+    "Forgetting frontal inversions in warm-over-cold structure.",
+    "Confusing inversion type with cloud type."
   ],
-  relatedTopics: ["meteo-inversion-mechanics", "meteo-thunderstorms"],
+  relatedTopics: ["meteo-inversion-mechanics", "meteo-fog-types", "meteo-forces-governing-wind"],
   content: true,
   buildsOn: ["meteo-inversion-mechanics"],
-  leadsTo: [],
-  usedIn: ["meteo-fog-types", "env-air-pollution", "meteo-arabian-sea-cyclones-local"]
+  leadsTo: ["meteo-static-stability", "meteo-fog-types"],
+  usedIn: ["meteo-fog-types", "env-air-pollution"]
 },
 
 {
@@ -891,100 +1077,72 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 7,
   title: "Coriolis Effect (Force)",
-  definition: "The Coriolis effect is an apparent deflection of moving objects (including air and water) when viewed in a rotating reference frame; in meteorology it acts perpendicular to the velocity, to the right in the Northern Hemisphere and to the left in the Southern Hemisphere, and is zero at the equator.",
+  definition: "The Coriolis effect is an apparent deflection of moving objects in Earth's rotating frame. It acts to the right of the motion in the Northern Hemisphere and to the left in the Southern Hemisphere, with magnitude proportional to wind speed and sin(latitude). It shapes synoptic and planetary flows and is negligible for short-lived microscale gusts.",
   keyFacts: [
-    "Coriolis force is an apparent (fictitious) force that appears only in a rotating reference frame; it does not change wind speed, only direction",
-    "Deflection: right in NH, left in SH; zero at the equator, maximum at the poles",
-    "Coriolis parameter f = 2 Ω sin(φ), where Ω ≈ 7.292 × 10⁻⁵ rad s⁻¹ (Earth's angular velocity) and φ is latitude",
-    "Magnitude of Coriolis acceleration ≈ f V; stronger for faster winds and higher latitudes",
-    "Cannot initiate motion — only deflects existing motion; therefore wind must first be started by the pressure-gradient force",
-    "Fundamental to geostrophic balance, gradient wind, and the circulation around highs and lows"
+    "NH: deflection to the right of the velocity; SH: to the left",
+    "Coriolis parameter f = 2 Ω sin φ — zero at equator, maximum at poles",
+    "Coriolis acceleration magnitude ≈ f V",
+    "Does not create wind by itself — it deflects existing motion",
+    "Essential for geostrophic balance",
+    "Negligible for microscale turbulence on the simple scale argument"
   ],
   explanationSections: [
+    { heading: "Apparent force, real consequences", body: "On a rotating platform a straight path in space looks curved. Air moving large distances over many hours appears to curve. That organises circulating highs and lows and underpins the geostrophic wind." }
+  ],
+  subtopics: [
     {
-      heading: "Why the deflection occurs",
-      body: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath it is moving eastward more slowly, so the parcel appears to curve to the right (NH). The same relative-velocity logic produces leftward deflection in the SH."
+      id: "meteo-coriolis-effect-direction-latitude",
+      title: "Direction and latitude dependence",
+      summary: "Right in NH, left in SH; vanishes at the equator.",
+      explanation: "Because f = 2 Ω sin φ, the horizontal Coriolis effect is zero at the equator and grows toward the poles. Hemisphere deflection rules are standard MCQ material.",
+      examples: [
+        { problem: "NH air flows northward. Which way does Coriolis deflect it?", solution: "To the right of the motion — eastward.", answer: "Right / eastward" }
+      ],
+      shortcuts: ["NH right, SH left", "f = 2Ω sinφ → 0 at equator"],
+      traps: ["Mid-latitude intuition on the equator", "Reversing hemisphere rules"]
     },
     {
-      heading: "Role in large-scale flow",
-      body: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Without Coriolis, air would simply rush from high to low pressure; with it, the classic cyclonic/anticyclonic circulation patterns appear."
+      id: "meteo-coriolis-effect-when-it-matters",
+      title: "When Coriolis matters",
+      summary: "Long-lived large-scale flows — not every local eddy.",
+      explanation: "Small Rossby number (large scale, long time) means Coriolis is first-order. A dust devil is too small and short-lived; a mid-latitude cyclone is not.",
+      examples: [
+        { problem: "Why Coriolis for a mid-latitude cyclone but not a dust devil?", solution: "Cyclone: hundreds of km and days. Dust devil: small and brief — other forces dominate.", answer: "Scale and lifetime" }
+      ],
+      shortcuts: ["Large + long-lived → Coriolis matters", "Deflects; does not invent wind alone"],
+      traps: ["Saying Coriolis starts the wind without a pressure gradient"]
     }
   ],
   formula: {
-    name: "Coriolis parameter and force (per unit mass)",
-    expression: "f = 2 \\Omega \\sin\\phi \\qquad \\mathbf{a}_C = -f \\mathbf{k} \\times \\mathbf{V}",
+    name: "Coriolis parameter",
+    expression: "f = 2 \\Omega \\sin\\phi",
     variables: [
-      { symbol: "f", meaning: "Coriolis parameter (s⁻¹)" },
-      { symbol: "Ω", meaning: "Earth's angular velocity ≈ 7.292 × 10⁻⁵ rad s⁻¹" },
+      { symbol: "Ω", meaning: "Earth rotation rate" },
       { symbol: "φ", meaning: "latitude" },
-      { symbol: "V", meaning: "horizontal wind velocity" }
+      { symbol: "f", meaning: "Coriolis parameter" }
     ]
   },
-  examPoints: [
-    "Coriolis changes direction only, never speed — a classic exam trap",
-    "f = 0 at the equator → geostrophic balance is impossible in the deep tropics",
-    "Buys-Ballot's law is a direct consequence of Coriolis deflection"
-  ],
+  comparisonTable: {
+    title: "Coriolis sensitivity",
+    headers: ["Situation", "Role"],
+    rows: [
+      ["Equator", "f ≈ 0"],
+      ["Mid-latitude synoptic low", "Central to balance"],
+      ["Microscale turbulence", "Negligible"]
+    ]
+  },
+  examPoints: ["NH right, SH left", "f = 2Ω sinφ", "Does not create wind alone", "Synoptic yes, microscale no"],
   commonMistakes: [
-    "Thinking Coriolis can start the wind — it cannot; PGF is the starter",
-    "Reversing the deflection direction between hemispheres",
-    "Confusing Coriolis force with centrifugal force"
+    "Reversing NH/SH deflection.",
+    "Applying mid-latitude Coriolis at the equator.",
+    "Claiming Coriolis alone starts the wind.",
+    "Forcing Coriolis onto dust devils without scale care."
   ],
-  workedExample: [
-    {
-      problem: "Compare Coriolis parameter f = 2Ω sin φ at the equator and at 30°N (Ω ≈ 7.29 × 10⁻⁵ s⁻¹).",
-      solution: "At equator sin 0 = 0 ⇒ f = 0. At 30°N, sin 30 = 0.5 ⇒ f ≈ 2 × 7.29e-5 × 0.5 ≈ 7.3 × 10⁻⁵ s⁻¹.",
-      answer: "f(0°) = 0; f(30°N) ≈ 7.3 × 10⁻⁵ s⁻¹",
-    },
-  ],
-  relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-wind-instruments"],
-    subtopics: [
-      {
-        id: "meteo-coriolis-effect-why-the-deflection-occurs",
-        title: "Why the deflection occurs",
-        summary: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath…",
-        explanation: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath it is moving eastward more slowly, so the parcel appears to curve to the right (NH). The same relative-velocity logic produces leftward deflection in the SH.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the deflection occurs”?",
-            solution: "The accurate idea is: An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the deflection occurs.",
-            solution: "Stay close to the text: An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath it is moving eastward more slowly, so the parcel appears to curve to the right (NH… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-coriolis-effect-role-in-large-scale-flow",
-        title: "Role in large-scale flow",
-        summary: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow…",
-        explanation: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Without Coriolis, air would simply rush from high to low pressure; with it, the classic cyclonic/anticyclonic circulation patterns appear.",
-                examples: [
-          {
-            problem: "Which statement best matches “Role in large-scale flow”?",
-            solution: "The accurate idea is: On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Role in large-scale flow.",
-            solution: "Stay close to the text: On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Without Coriolis, air would simply rush from high to low pressure; … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-scales-of-motion"],
   content: true,
-  buildsOn: ["phy-newtons-laws", "phy-kinematics", "earth-a1", "math-7-1"],
+  buildsOn: ["meteo-scales-of-motion", "phy-kinematics", "math-2-4"],
   leadsTo: ["meteo-forces-governing-wind", "meteo-geostrophic-wind"],
-  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-global-circulation", "meteo-tropical-cyclones"]
+  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-global-circulation"]
 },
 
 {
@@ -992,83 +1150,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 8,
   title: "Static Stability of the Atmosphere",
-  definition: "Static stability describes the atmosphere's resistance to vertical displacements of air parcels; it is determined by comparing the environmental lapse rate (ELR) with the dry and saturated adiabatic lapse rates and is quantified by indices such as CAPE and CIN.",
+  definition: "Static stability asks whether a displaced parcel accelerates away (unstable), returns (stable), or stays neutral. Dry tests compare ELR with DALR; moisture brings in SALR and conditional instability.",
   keyFacts: [
-    "Absolutely stable: ELR < SALR — any parcel (dry or saturated) is cooler than its surroundings and sinks back",
-    "Absolutely unstable: ELR > DALR — any parcel is warmer than its surroundings and accelerates upward",
-    "Conditionally unstable: SALR < ELR < DALR — stable if unsaturated, unstable once saturated and lifted past the LFC",
-    "Neutral: ELR equals the relevant adiabatic rate (DALR or SALR)",
-    "CAPE (Convective Available Potential Energy): positive area between parcel and environment from LFC to EL; units J kg⁻¹; larger CAPE → stronger potential updrafts",
-    "CIN (Convective Inhibition): negative area that must be overcome to reach the LFC; acts as a 'cap'"
+    "Absolutely stable: ELR < SALR (hence also < DALR)",
+    "Absolutely unstable: ELR > DALR",
+    "Conditionally unstable: SALR < ELR < DALR",
+    "Neutral: ELR equals the relevant adiabatic rate",
+    "Inversions are strongly stable layers",
+    "Soundings and thermodynamic diagrams are the practical tools"
   ],
   explanationSections: [
+    { heading: "Three regimes relative to DALR and SALR", body: "Picture two fences: DALR and SALR. Where the environmental sounding sits decides absolute instability, conditional instability, or absolute stability. Conditional instability powers many thunderstorm environments once parcels saturate." }
+  ],
+  subtopics: [
     {
-      heading: "Parcel method",
-      body: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than the environment it is positively buoyant and continues to rise (unstable); if cooler, it sinks back (stable)."
+      id: "meteo-static-stability-criteria",
+      title: "Stability criteria",
+      summary: "Compare ELR with DALR and SALR.",
+      explanation: "ELR > DALR means absolutely unstable. ELR < SALR means absolutely stable. Between the adiabatic rates lies conditional instability — the exam favourite.",
+      examples: [
+        { problem: "ELR = 7 °C/km, DALR ≈ 10, SALR ≈ 6. Classify.", solution: "SALR < ELR < DALR ⇒ conditionally unstable.", answer: "Conditionally unstable" }
+      ],
+      shortcuts: ["ELR > DALR → abs. unstable", "ELR < SALR → abs. stable", "Between → conditional"],
+      traps: ["Forgetting the conditional case"]
     },
     {
-      heading: "CAPE and CIN in practice",
-      body: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when CAPE is large until the cap is broken by strong forcing or surface heating."
+      id: "meteo-static-stability-applications",
+      title: "Applications",
+      summary: "Stable layers trap; unstable layers mix and may storm.",
+      explanation: "Stable profiles suppress exchange — fog and pollution linger. Unstable profiles encourage thermals; with moisture and lift, deep convection. Conditional instability explains quiet-looking dry soundings that become explosive once parcels saturate.",
+      examples: [
+        { problem: "Why worse pollution under a strong surface inversion?", solution: "Stable inversion limits vertical mixing so emissions accumulate in a shallow layer.", answer: "Suppressed vertical dispersion" }
+      ],
+      shortcuts: ["Stable → trap; unstable → mix", "Conditional needs saturation path"],
+      traps: ["Equating any clouds with absolute instability"]
     }
   ],
-  examPoints: [
-    "ELR < SALR → absolutely stable; ELR > DALR → absolutely unstable; between → conditionally unstable",
-    "CAPE measures potential energy available for convection; CIN measures the energy barrier that must be overcome",
-    "Temperature inversions are extreme cases of absolute stability"
-  ],
+  comparisonTable: {
+    title: "Static stability regimes",
+    headers: ["Regime", "Criterion", "Behaviour"],
+    rows: [
+      ["Absolutely unstable", "ELR > DALR", "Dry or moist accelerate"],
+      ["Conditionally unstable", "SALR < ELR < DALR", "Saturated may rise; dry resists"],
+      ["Absolutely stable", "ELR < SALR", "Displacements damped"]
+    ]
+  },
+  examPoints: ["Memorise the three inequalities", "Conditional is the middle case", "Inversions are strongly stable"],
   commonMistakes: [
-    "Confusing static stability with dynamic (shear) stability",
-    "Assuming conditional instability automatically produces storms — a lifting mechanism past the LFC is still required",
-    "Treating CAPE as a forecast of storm occurrence rather than of potential intensity"
+    "Omitting conditional instability.",
+    "Confusing static with dynamic stability jargon.",
+    "Reading only surface T without lapse structure.",
+    "Assuming clouds always mean absolute instability."
   ],
-  relatedTopics: ["meteo-lapse-rates", "meteo-lapse-calc", "meteo-adiabatic-cloud-formation", "meteo-thunderstorms"],
-    subtopics: [
-      {
-        id: "meteo-static-stability-parcel-method",
-        title: "Parcel method",
-        summary: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than…",
-        explanation: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than the environment it is positively buoyant and continues to rise (unstable); if cooler, it sinks back (stable).",
-                examples: [
-          {
-            problem: "Which statement best matches “Parcel method”?",
-            solution: "The accurate idea is: Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Parcel method.",
-            solution: "Stay close to the text: Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than the environment it is positively buoyant and continues to rise (unstable); if co… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-static-stability-cape-and-cin-in-practice",
-        title: "CAPE and CIN in practice",
-        summary: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when…",
-        explanation: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when CAPE is large until the cap is broken by strong forcing or surface heating.",
-                examples: [
-          {
-            problem: "Which statement best matches “CAPE and CIN in practice”?",
-            solution: "The accurate idea is: High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying CAPE and CIN in practice.",
-            solution: "Stay close to the text: High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when CAPE is large until the cap is broken by strong forcing or surface heating. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-adiabatic-cloud-formation"],
   content: true,
-  buildsOn: ["meteo-lapse-rates", "phy-archimedes-principle", "phy-thermodynamics-laws"],
-  leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-thunderstorms"],
-  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-thunderstorms", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
+  buildsOn: ["meteo-lapse-rates", "meteo-inversion-mechanics"],
+  leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-thermodynamic-diagrams"],
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-stability-calc", "meteo-thunderstorms"]
 },
 
 {
@@ -1076,18 +1214,40 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 9,
   title: "Ideal Gas Law for the Atmosphere",
-  definition: "The ideal gas law relates pressure, density and temperature of dry air: p = ρ R_d T, where R_d is the specific gas constant for dry air; it is the foundation for the hydrostatic equation, scale height, and density calculations in meteorology.",
+  definition: "Dry air is treated as an ideal gas: p = ρ R_d T, with R_d ≈ 287 J kg⁻¹ K⁻¹. The law links pressure, density, and absolute temperature — the state variables behind hydrostatics, thickness, and many moisture calculations.",
   keyFacts: [
-    "Dry-air form: p = ρ R_d T, with R_d = 287 J kg⁻¹ K⁻¹",
-    "Virtual temperature T_v accounts for moisture: moist air is less dense than dry air at the same T and p, so T_v > T",
-    "Density ρ = p / (R_d T) — warmer or lower-pressure air is less dense",
-    "Used to convert between pressure and height coordinates and to compute layer thickness via the hypsometric equation",
-    "Water vapour has a larger specific gas constant (R_v ≈ 461 J kg⁻¹ K⁻¹), which is why moist air is lighter"
+    "p = ρ R_d T with R_d ≈ 287 J kg⁻¹ K⁻¹ for dry air",
+    "At fixed pressure, colder air is denser",
+    "At fixed temperature, higher pressure means higher density",
+    "Virtual temperature accounts for moisture when higher accuracy is needed",
+    "Temperature must be in kelvin",
+    "Gas law + hydrostatic balance → hypsometric (thickness) relation"
   ],
   explanationSections: [
+    { heading: "Three variables, one constraint", body: "Pressure, density, and temperature are not independent for an ideal gas. Specify two and the third follows. That is why cold columns are shallow and pressure falls differently with height in warm versus cold air." }
+  ],
+  subtopics: [
     {
-      heading: "Why virtual temperature is needed",
-      body: "Water vapour molecules are lighter than the average dry-air molecule. Replacing some dry air with water vapour lowers the density. Virtual temperature is the temperature dry air would need to have in order to match the density of the actual moist air; using T_v lets us keep the simple dry-air gas constant."
+      id: "meteo-gas-law-form-units",
+      title: "Form, constant, and units",
+      summary: "p = ρ R_d T; R_d ≈ 287 J kg⁻¹ K⁻¹; T in kelvin.",
+      explanation: "Using Celsius is a standard failure mode. Keep SI coherence: Pa, kg m⁻³, kelvin. Moisture makes air slightly less dense than dry air at the same T and p — virtual temperature handles that bookkeeping.",
+      examples: [
+        { problem: "Dry air at 1.0×10⁵ Pa and 290 K: density if R_d = 287?", solution: "ρ = p/(R_d T) = 1e5/(287×290) ≈ 1.20 kg m⁻³.", answer: "≈ 1.20 kg m⁻³" }
+      ],
+      shortcuts: ["ρ = p/(R_d T)", "T in kelvin"],
+      traps: ["Using °C inside the gas law"]
+    },
+    {
+      id: "meteo-gas-law-density-intuition",
+      title: "Density intuition for weather",
+      summary: "Same pressure: colder → denser; foundation for thickness.",
+      explanation: "At a given pressure level, lower temperature means higher density. Cold air masses associate with lower thicknesses between pressure surfaces once hydrostatic balance is imposed.",
+      examples: [
+        { problem: "Same pressure; sample A colder than B. Which is denser?", solution: "ρ = p/(RT) — smaller T gives larger ρ. Sample A.", answer: "Colder sample A" }
+      ],
+      shortcuts: ["Same p: colder → denser", "Feeds hypsometric thinking"],
+      traps: ["Comparing density without controlling pressure"]
     }
   ],
   formula: {
@@ -1097,25 +1257,15 @@ export const topics: Topic[] = [
       { symbol: "p", meaning: "pressure (Pa)" },
       { symbol: "ρ", meaning: "density (kg m⁻³)" },
       { symbol: "T", meaning: "absolute temperature (K)" },
-      { symbol: "R_d", meaning: "specific gas constant for dry air" }
+      { symbol: "R_d", meaning: "dry-air gas constant ≈ 287 J kg⁻¹ K⁻¹" }
     ]
   },
-  examPoints: [
-    "R_d = 287 J kg⁻¹ K⁻¹ is the standard value used in virtually all meteorological calculations",
-    "Density decreases as temperature rises or pressure falls — the physical basis of buoyancy"
-  ],
+  examPoints: ["p = ρ R_d T with T in kelvin", "R_d ≈ 287 J kg⁻¹ K⁻¹", "Colder air denser at same pressure"],
   commonMistakes: [
-    "Using °C instead of kelvin in the ideal gas law.",
-    "Treating density as independent of pressure and temperature.",
-    "Forgetting moisture adjustments (e.g. virtual temperature) in some meteorological forms.",
-    "Applying the law without stating which variables are held constant.",
-  ],
-  workedExample: [
-    {
-      problem: "Dry air at 1000 hPa has temperature 290 K. Taking R_d ≈ 287 J kg⁻¹ K⁻¹, estimate density ρ = p/(R_d T). (Use p = 1.0 × 10⁵ Pa.)",
-      solution: "ρ = p/(R_d T) = 1.0e5 / (287 × 290) ≈ 1.0e5 / 83230 ≈ 1.20 kg/m³.",
-      answer: "≈ 1.20 kg/m³",
-    },
+    "Using Celsius in the gas law.",
+    "Ignoring density when discussing pressure systems.",
+    "Skipping moisture/virtual temperature when precision is required.",
+    "Mixing dry-air and vapour gas constants."
   ],
   relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion", "meteo-moisture-metrics"],
   content: true,
@@ -1129,18 +1279,40 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 10,
   title: "Hydrostatic Equation",
-  definition: "The hydrostatic equation states that the vertical pressure gradient is balanced by the weight of the air: dp/dz = −ρ g. It is an excellent approximation for large-scale motions and is the basis for the hypsometric (thickness) equation and pressure reduction to sea level.",
+  definition: "In hydrostatic balance the upward pressure-gradient force cancels the weight of air: dp/dz = −ρ g. The approximation is excellent for large-scale motions and underpins the hypsometric equation, thickness patterns, and reduction of station pressure to sea level.",
   keyFacts: [
-    "Differential form: dp/dz = −ρ g (pressure decreases with height at a rate equal to the weight of the air above)",
-    "Near the surface ≈ 1 hPa per 8 m (more precisely ~1 hPa per 7.5–8.5 m depending on temperature)",
-    "Integrated (hypsometric) form gives layer thickness: ΔZ = (R_d T_v / g) ln(p1/p2)",
-    "Valid when vertical accelerations are negligible compared with gravity (true for synoptic-scale motions)",
-    "Breaks down in strong convection, tornadoes, and other phenomena with large vertical accelerations"
+    "dp/dz = −ρ g — pressure falls with height at a rate set by density",
+    "Dense (cold) columns: pressure drops faster with height",
+    "Hypsometric thickness: ΔZ = (R_d T̄_v / g) ln(p₁/p₂)",
+    "Warm layers are thicker; cold layers are thinner between the same pressures",
+    "Strong vertical accelerations in deep convection can locally violate pure hydrostatic balance",
+    "Constant-pressure charts rely on this framework"
   ],
   explanationSections: [
+    { heading: "Balance, then thickness", body: "Hydrostatic balance is a vertical force statement. Combine it with the gas law and you obtain thickness — how tall a column is between two isobars. That is why 500 hPa heights rise in warm ridges and fall in cold troughs." }
+  ],
+  subtopics: [
     {
-      heading: "From balance to thickness",
-      body: "Starting from dp/dz = −ρ g and substituting ρ = p / (R_d T_v) yields a separable equation that integrates to the hypsometric equation. Warm layers are thicker; cold layers are thinner — the physical basis of thickness charts and the thermal wind."
+      id: "meteo-hydrostatic-equation-balance",
+      title: "Hydrostatic balance",
+      summary: "Vertical pressure gradient supports the weight of the air.",
+      explanation: "If pressure did not decrease upward, the weight of the air would be unbalanced. On synoptic scales the observed decrease matches that requirement closely.",
+      examples: [
+        { problem: "Why does pressure decrease with altitude in a hydrostatic atmosphere?", solution: "Each layer supports the weight above it. Higher up, less mass remains overhead, so pressure is lower: dp/dz = −ρ g.", answer: "Less mass overhead; dp/dz = −ρ g" }
+      ],
+      shortcuts: ["dp/dz = −ρ g", "Large-scale vertical balance"],
+      traps: ["Pure hydrostatic thinking inside violent thunderstorm updrafts"]
+    },
+    {
+      id: "meteo-hydrostatic-equation-thickness",
+      title: "Thickness and the hypsometric equation",
+      summary: "Warm columns expand; cold columns shrink between pressure surfaces.",
+      explanation: "Thickness between two pressure levels increases with mean virtual temperature of the layer. Higher mean T → greater thickness → higher heights on upper-air charts in warm air.",
+      examples: [
+        { problem: "Between 1000 and 500 hPa, which is thicker: warm tropical or cold polar column?", solution: "Warm tropical — thickness rises with mean virtual temperature.", answer: "Warm tropical column" }
+      ],
+      shortcuts: ["Warm → thick; cold → thin", "Thickness ↔ mean T_v"],
+      traps: ["Thinking cold air is thicker between the same pressures"]
     }
   ],
   formula: {
@@ -1149,25 +1321,31 @@ export const topics: Topic[] = [
     variables: [
       { symbol: "ΔZ", meaning: "geopotential thickness of the layer (m)" },
       { symbol: "T_v", meaning: "mean virtual temperature of the layer (K)" },
-      { symbol: "p1, p2", meaning: "pressure at bottom and top of layer" }
+      { symbol: "p1, p2", meaning: "pressures at bottom and top (p1 > p2)" },
+      { symbol: "g", meaning: "gravity" }
     ]
   },
-  examPoints: [
-    "1 hPa ≈ 8 m near the surface is the rule-of-thumb conversion used in altimetry and rough calculations",
-    "Hypsometric equation: warmer air → greater thickness for the same pressure difference"
-  ],
-  commonMistakes: [
-    "Thinking hydrostatic balance means no vertical motion ever — vertical acceleration is small compared with gravity/pressure gradient.",
-    "Mixing geometric height with pressure coordinates casually.",
-    "Ignoring density's role in how fast pressure drops with height.",
-    "Assuming the same scale height for every atmosphere without care.",
-  ],
   workedExample: [
     {
-      problem: "Approximate the pressure drop over Δz = 100 m in air of density 1.2 kg/m³. Use Δp ≈ −ρ g Δz with g = 9.8 m/s².",
-      solution: "Δp ≈ −1.2 × 9.8 × 100 ≈ −1176 Pa ≈ −12 hPa.",
-      answer: "≈ −12 hPa over 100 m",
-    },
+      problem: "Approximate the pressure drop over Δz = 100 m in air of density 1.2 kg/m³ (g = 9.8 m/s²).",
+      solution: "Δp ≈ −ρ g Δz = −1.2 × 9.8 × 100 ≈ −1176 Pa ≈ −12 hPa.",
+      answer: "≈ −12 hPa over 100 m"
+    }
+  ],
+  comparisonTable: {
+    title: "Thermal structure and thickness",
+    headers: ["Column", "Mean T", "1000–500 hPa thickness"],
+    rows: [
+      ["Warm ridge", "High", "Large (high heights)"],
+      ["Cold trough", "Low", "Small (low heights)"]
+    ]
+  },
+  examPoints: ["dp/dz = −ρ g", "Warm layers thicker", "Hypsometric links thickness to mean T_v", "Hydrostatic ≈ large-scale"],
+  commonMistakes: [
+    "Reversing warm-thick / cold-thin.",
+    "Omitting virtual temperature when moisture is emphasised.",
+    "Treating hydrostatic balance as exact in non-hydrostatic cores.",
+    "Confusing station elevation effects with thermal thickness."
   ],
   relatedTopics: ["meteo-gas-law", "meteo-pressure-conversion", "meteo-upper-air-charts", "meteo-vertical-structure"],
   content: true,
