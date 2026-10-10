@@ -5458,122 +5458,72 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 1,
   title: "Lapse Rate & Stability Calculations: DALR, SALR, ELR and Parcel Ascent",
-  definition: "Lapse rate calculations determine atmospheric stability by comparing the environmental lapse rate (ELR) to the dry adiabatic lapse rate (DALR, 9.8°C/km) and the saturated adiabatic lapse rate (SALR, ~6°C/km) — controlling whether a rising parcel accelerates, decelerates, or remains neutral, which determines convection, cloud formation, and precipitation.",
+  definition: "Lapse-rate calculations compare the environmental lapse rate (ELR) with the dry and saturated adiabatic rates to classify stability, and track a lifted parcel’s temperature with height until condensation and beyond. These are the quantitative core of parcel theory.",
   keyFacts: [
-    "Dry Adiabatic Lapse Rate (DALR) = 9.8°C/km (sometimes rounded to 10°C/km for quick estimates) — the rate at which an unsaturated parcel cools as it ascends and expands",
-    "Saturated (or Moist) Adiabatic Lapse Rate (SALR) ≈ 6°C/km (varies from ~4°C/km in warm moist air to ~9°C/km in cold dry air) — the rate at which a saturated parcel cools as it ascends, accounting for latent heat release during condensation",
-    "Environmental Lapse Rate (ELR): the actual vertical temperature profile of the atmosphere, measured by radiosonde; varies from day to day and place to place; typical mid-latitude ELR ≈ 6.5°C/km in the troposphere",
-    "Stability criteria: ELR < SALR < DALR → absolutely stable (no convection); DALR < ELR < SALR → conditionally unstable (stable if unsaturated, unstable if saturated); SALR < ELR < DALR → absolutely unstable (convection occurs automatically)",
-    "Absolutely stable case: ELR < SALR (e.g., ELR = 4°C/km, SALR = 6°C/km) — temperature inversions, fog, stratus; pollutants trapped",
-    "Absolutely unstable case: ELR > DALR (e.g., ELR = 11°C/km) — strong convection, towering cumulus, thunderstorms; rare in the real atmosphere (usually limited to surface superadiabatic layers)",
-    "Lifted Condensation Level (LCL): the height at which a rising parcel becomes saturated; approximately 125 m per °C of dewpoint depression (T − Td) at the surface — e.g., T = 30°C, Td = 20°C, depression 10°C → LCL ≈ 1250 m",
-    "Level of Free Convection (LFC): the height above the LCL where the parcel becomes warmer than the environment; above LFC, the parcel rises freely (positive buoyancy) until it reaches the Equilibrium Level (EL), where it again becomes cooler than the environment"
+    "DALR ≈ 9.8 °C/km (often 10 °C/km in exam approximations)",
+    "SALR ≈ 4–7 °C/km depending on moisture/temperature (often ~6 °C/km in simple problems)",
+    "ELR = −dT/dz of the observed sounding (positive when T decreases upward)",
+    "Absolutely stable: ELR < SALR; conditionally unstable: SALR < ELR < DALR; absolutely unstable: ELR > DALR",
+    "Lifted parcel follows DALR until LCL, then SALR",
+    "Units and consistent height intervals prevent most arithmetic errors"
   ],
   explanationSections: [
-    { heading: "Why the DALR and SALR differ", body: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8°C/km) because no phase change occurs. Once the parcel cools to its dewpoint, condensation begins and latent heat is released. This latent heat partially offsets the adiabatic cooling, so the saturated parcel cools more slowly — at the SALR (~6°C/km). The SALR is not a fixed number because the amount of latent heat released depends on the amount of water vapor condensed, which depends on temperature: in warm moist air, more water condenses per km of ascent, releasing more heat, so the SALR is lower (~4°C/km); in cold dry air, little water condenses, so the SALR approaches the DALR (~9°C/km). This temperature dependence is why the SALR is specified as a range, not a single value." },
-    { heading: "Stability determination by comparing ELR, DALR, and SALR", body: "The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower of the two parcel rates), then any rising parcel — saturated or not — will cool faster than the environment and sink back: absolutely stable. This is the case during a temperature inversion (ELR negative, i.e., temperature increasing with height). If the ELR is greater than the DALR, even a dry parcel will remain warmer than the environment as it rises and will accelerate upward: absolutely unstable. The most common real-atmosphere case is conditional instability: ELR between DALR and SALR, so dry parcels are stable but saturated parcels are unstable. Whether convection actually occurs depends on whether the parcel can be lifted to the LCL and beyond to the LFC." },
-    { heading: "The LCL and LFC in parcel ascent", body: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. The parcel first cools at the DALR until it reaches the LCL (saturation), then at the SALR above. The LCL height can be estimated as 125 m per °C of dewpoint depression (T − Td) at the surface. Above the LCL, if the parcel's SALR curve crosses the environmental temperature profile, it becomes warmer than the environment and rises freely — this crossing point is the LFC. The parcel continues rising until its temperature again falls below the environment's, at the Equilibrium Level (EL), typically near the tropopause. The vertical distance from the LFC to the EL is the 'convective available potential energy' (CAPE) layer — taller layers mean stronger storms." }
+    { heading: "Compare slopes, then lift the parcel", body: "Stability is a comparison of rates. Once the layer type is known, parcel problems ask what temperature the air would have after rising a stated distance — dry first, moist after saturation." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-lapse-calc-classify",
+      title: "Classifying stability from ELR",
+      summary: "Stack ELR against DALR and SALR.",
+      explanation: "If the environment cools faster with height than a dry parcel, the layer is absolutely unstable. If it cools slower than a saturated parcel, it is absolutely stable. Between SALR and DALR lies conditional instability for saturated ascent.",
+      examples: [
+        { problem: "ELR = 8 °C/km, DALR = 10, SALR = 6. Stability class?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
+      ],
+      shortcuts: ["ELR > DALR → absolute instability", "ELR < SALR → absolute stability"],
+      traps: ["Comparing ELR to only one adiabatic rate"]
+    },
+    {
+      id: "meteo-lapse-calc-parcel",
+      title: "Parcel temperature after ascent",
+      summary: "Dry segment then moist segment through the LCL.",
+      explanation: "Unsaturated ascent: ΔT ≈ −9.8 × Δz(km). After the LCL, use SALR. Finding the LCL in full problems needs dew-point or mixing-ratio information; many exam items state the LCL height explicitly.",
+      examples: [
+        { problem: "Parcel at 20 °C rises 1 km unsaturated (DALR 10 °C/km). Temperature?", solution: "20 − 10 = 10 °C.", answer: "10 °C" }
+      ],
+      shortcuts: ["Dry: ~10 °C/km cooling", "Moist: slower cooling"],
+      traps: ["Using SALR before saturation"]
+    }
   ],
   formula: {
-    name: "Dry Adiabatic Lapse Rate (DALR) from first principles",
-    expression: "\\Gamma_d = \\frac{g}{c_p} = \\frac{9.81 \\, \\text{m/s}^2}{1004 \\, \\text{J/(kg·K)}} \\approx 9.8 \\, \\text{K/km}",
+    name: "Environmental Lapse Rate",
+    expression: "ELR = (T_lower − T_upper) / Δz",
     variables: [
-      { symbol: "\\Gamma_d", meaning: "dry adiabatic lapse rate (K/km or °C/km)" },
-      { symbol: "g", meaning: "gravitational acceleration (9.81 m/s²)" },
-      { symbol: "c_p", meaning: "specific heat of dry air at constant pressure (1004 J/(kg·K))" }
+      { symbol: "T_lower", meaning: "temperature at lower level" },
+      { symbol: "T_upper", meaning: "temperature at upper level" },
+      { symbol: "Δz", meaning: "height difference (same units throughout)" }
+    ]
+  },
+  comparisonTable: {
+    title: "Stability vs ELR",
+    headers: ["Condition", "Class"],
+    rows: [
+      ["ELR > DALR", "Absolutely unstable"],
+      ["SALR < ELR < DALR", "Conditionally unstable"],
+      ["ELR < SALR", "Absolutely stable"]
     ]
   },
   examPoints: [
-    "DALR = 9.8°C/km (rounded to 10); SALR ≈ 6°C/km (variable, 4–9°C/km)",
-    "ELR < SALR < DALR → absolutely stable; SALR < ELR < DALR → conditionally unstable; ELR > DALR → absolutely unstable",
-    "LCL ≈ 125 m × (T − Td) at the surface — a quick estimate for cumulus cloud base",
-    "Conditional instability means the parcel is stable when dry and unstable when saturated — lifting to the LCL is the key",
-    "LFC = level of free convection (where parcel becomes warmer than environment); EL = equilibrium level (where parcel again becomes cooler)"
+    "DALR vs SALR vs ELR",
+    "Three stability classes",
+    "Parcel path switches rate at LCL"
   ],
-  workedExample: [
-{
-    problem: "A surface parcel has T = 28°C and Td = 18°C. The environmental temperature at 1500 m is 15°C and at 3000 m is 5°C. (a) Find the LCL height. (b) Determine the stability type. (c) Does the parcel become positively buoyant? If so, above what height?",
-    solution: "(a) LCL ≈ 125 m × (T − Td) = 125 × (28 − 18) = 1250 m. (b) Environmental temperature from surface to 1500 m: 28 → 15, so ELR = (28 − 15) / 1.5 = 13/1.5 ≈ 8.7°C/km. From 1500 m to 3000 m: 15 → 5, so ELR = 10/1.5 ≈ 6.7°C/km. Average ELR ≈ (13 + 10) / 3 = 23/3 ≈ 7.7°C/km. Comparing to DALR (9.8) and SALR (6): 6 < 7.7 < 9.8 → conditionally unstable. (c) Parcel ascent: from surface to LCL (0–1250 m), dry adiabatic cooling at 9.8°C/km → parcel T at LCL = 28 − 9.8 × 1.25 = 28 − 12.25 = 15.75°C (which equals Td, confirming saturation). From LCL to 1500 m (250 m above LCL), saturated cooling at ~6°C/km → parcel T = 15.75 − 6 × 0.25 = 15.75 − 1.5 = 14.25°C. Environment at 1500 m = 15°C. Parcel (14.25) is COLDER than environment (15) → still negatively buoyant. From 1500 m to 3000 m (1750 m above LCL), parcel cools at 6°C/km → parcel T = 15.75 − 6 × 1.75 = 15.75 − 10.5 = 5.25°C. Environment at 3000 m = 5°C. Parcel (5.25) is WARMER than environment (5) → positively buoyant. The LFC lies between 1500 m and 3000 m, where the SALR parcel curve crosses the environmental temperature profile. Solving: at height z, parcel T = 15.75 − 6 × ((z − 1250)/1000), environment T = 15 − 6.7 × ((z − 1500)/1000). Setting equal: 15.75 − 0.006(z − 1250) = 15 − 0.0067(z − 1500). Solving: 15.75 − 0.006z + 7.5 = 15 − 0.0067z + 10.05 → 23.25 − 0.006z = 25.05 − 0.0067z → 0.0007z = 1.8 → z ≈ 2570 m. So LFC ≈ 2570 m.",
-    answer: "(a) LCL ≈ 1250 m. (b) Conditionally unstable (ELR ≈ 7.7°C/km lies between SALR 6 and DALR 9.8). (c) Yes — parcel becomes positively buoyant above LFC ≈ 2570 m"
-  },
-    {
-      problem: "A radiosonde measures surface T = 20°C, T at 1000 m = 10°C, T at 2000 m = 5°C. Calculate the ELR in each layer and determine the stability type assuming DALR = 9.8°C/km and SALR = 6°C/km.",
-      solution: "ELR in layer 0–1000 m: (20 − 10) / 1 = 10°C/km. ELR in layer 1000–2000 m: (10 − 5) / 1 = 5°C/km. Average ELR over 0–2000 m: (20 − 5) / 2 = 7.5°C/km. Stability: 6 < 7.5 < 9.8 → conditionally unstable. However, the layer 0–1000 m has ELR (10) > DALR (9.8) → absolutely unstable in the lower layer. The layer 1000–2000 m has ELR (5) < SALR (6) → absolutely stable in the upper layer (a temperature inversion or isothermal layer). Overall: unstable near the surface (good for surface-driven convection), stable aloft (a 'cap' that suppresses deep convection unless the cap is broken).",
-      answer: "Lower layer ELR = 10°C/km (absolutely unstable); upper layer ELR = 5°C/km (absolutely stable); overall: a 'capped' or 'inverted' profile with potential for strong storms if the cap breaks"
-    }
-  ],
-
   commonMistakes: [
-    "Confusing DALR and SALR — DALR is for DRY (unsaturated) parcels, SALR is for SATURATED parcels; they are not interchangeable",
-    "Treating the SALR as a fixed 6°C/km — it varies from ~4°C/km in warm moist tropical air to ~9°C/km in cold dry polar air; using 6°C/km is an approximation, not a constant",
-    "Believing a conditionally unstable atmosphere always produces convection — it does not; the parcel must be lifted to the LFC (typically by surface heating, fronts, or terrain) for free convection to begin",
-    "Confusing the LCL with the LFC — the LCL is where condensation begins (cloud base), the LFC is where the parcel becomes positively buoyant (cloud top for the first freely-rising level); cumulus clouds form between the LCL and the LFC even before the LFC is reached",
-    "Ignoring the surface dewpoint depression when estimating LCL — the LCL depends on T AND Td, not T alone; a dry surface (large depression) means a high LCL and limited convection"
+    "Swapping DALR and SALR magnitudes.",
+    "Inconsistent height units.",
+    "Applying moist rate before LCL.",
+    "Sign errors in ELR definition."
   ],
   relatedTopics: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "meteo-humidity-calc", "meteo-air-masses-fronts"],
-    subtopics: [
-      {
-        id: "meteo-lapse-calc-why-the-dalr-and-salr-differ",
-        title: "Why the DALR and SALR differ",
-        summary: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8°C/km) because no phase change occurs. Once the parcel cools to its…",
-        explanation: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8°C/km) because no phase change occurs. Once the parcel cools to its dewpoint, condensation begins and latent heat is released. This latent heat partially offsets the adiabatic cooling, so the saturated parcel cools more slowly — at the SALR (~6°C/km). The SALR is not a fixed number because the amount of latent heat released depends on the amount of water vapor condensed, which depends on temperature: in warm moist air, more water condenses per km of ascent, releasing more heat, so the SALR is lower (~4°C/km); in cold dry air, little water condenses, so the SALR approaches the DALR (~9°C/km). This temperature dependence is why the SALR is specified as a range, not a single value.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the DALR and SALR differ”?",
-            solution: "The accurate idea is: When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the DALR and SALR differ.",
-            solution: "Stay close to the text: When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs. Once the parcel cools to its dewpoint, condensation begins and latent heat is released. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-lapse-calc-stability-determination-by-comparing-elr",
-        title: "Stability determination by comparing ELR, DALR, and SALR",
-        summary: "The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower…",
-        explanation: "The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower of the two parcel rates), then any rising parcel — saturated or not — will cool faster than the environment and sink back: absolutely stable. This is the case during a temperature inversion (ELR negative, i.e., temperature increasing with height). If the ELR is greater than the DALR, even a dry parcel will remain warmer than the environment as it rises and will accelerate upward: absolutely unstable. The most common real-atmosphere case is conditional instability: ELR between DALR and SALR, so dry parcels are stable but saturated parcels are unstable. Whether convection actually occurs depends on whether the parcel can be lifted to the LCL and beyond to the LFC.",
-                examples: [
-          {
-            problem: "Which statement best matches “Stability determination by comparing ELR, DALR, and SALR”?",
-            solution: "The accurate idea is: The simplest stability test compares the three rates numerically. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The simplest stability test compares the three rates numerically.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Stability determination by comparing ELR, DALR, and SALR.",
-            solution: "Stay close to the text: The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower of the two parcel rates), then any rising parcel â saturated or not â will c… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-lapse-calc-the-lcl-and-lfc-in-parcel-ascent",
-        title: "The LCL and LFC in parcel ascent",
-        summary: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment.…",
-        explanation: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. The parcel first cools at the DALR until it reaches the LCL (saturation), then at the SALR above. The LCL height can be estimated as 125 m per °C of dewpoint depression (T − Td) at the surface. Above the LCL, if the parcel's SALR curve crosses the environmental temperature profile, it becomes warmer than the environment and rises freely — this crossing point is the LFC. The parcel continues rising until its temperature again falls below the environment's, at the Equilibrium Level (EL), typically near the tropopause. The vertical distance from the LFC to the EL is the 'convective available potential energy' (CAPE) layer — taller layers mean stronger storms.",
-                examples: [
-          {
-            problem: "Which statement best matches “The LCL and LFC in parcel ascent”?",
-            solution: "The accurate idea is: To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The LCL and LFC in parcel ascent.",
-            solution: "Stay close to the text: To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. The parcel first cools at the DALR until it reaches the LCL (saturation), then at t… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-thermodynamic-diagrams"],
   leadsTo: [],
@@ -5585,138 +5535,71 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 2,
   title: "Mixing Ratio, Relative Humidity & Dew-Point Calculations",
-  definition: "Quantitative humidity calculations use the actual vapor pressure (e), saturation vapor pressure (es), mixing ratio (w), and relative humidity (RH) to characterize the water vapor content of air — essential for forecasting cloud formation, precipitation, fog, and the lifted condensation level.",
+  definition: "Humidity calculations convert among vapour pressure, saturation vapour pressure, relative humidity, mixing ratio, and dew point. Relative humidity is a ratio; mixing ratio is a mass ratio; dew point is the saturation temperature for the actual vapour content.",
   keyFacts: [
-    "Saturation vapor pressure (es): the maximum water vapor pressure air can hold at a given temperature; es increases sharply with temperature (Clausius-Clapeyron relation) — at 0°C, es ≈ 6.11 hPa; at 20°C, es ≈ 23.4 hPa; at 30°C, es ≈ 42.4 hPa; at 40°C, es ≈ 73.8 hPa",
-    "Magnus formula (approximation): es ≈ 6.112 × exp(17.67 × T / (T + 243.5)) hPa, where T is in °C — accurate to within ~1% for −40 to +50°C",
-    "Actual vapor pressure (e): approximated as the saturation vapor pressure at the dewpoint, e ≈ 6.112 × exp(17.67 × Td / (Td + 243.5)) hPa — the dewpoint is the temperature at which the actual air becomes saturated",
-    "Relative Humidity (RH) = e / es × 100% — the percentage of the air's moisture-holding capacity that is actually being used; RH = 100% means saturated (fog or cloud likely); RH = 50% means the air holds half its capacity",
-    "Mixing ratio (w) = 0.622 × e / (p − e) g/kg — the mass of water vapor per mass of dry air; approximately conserved in adiabatic (non-condensing) ascent, making it a useful tracer for air-parcel history",
-    "Specific humidity (q) ≈ w for small e (typically used interchangeably in surface calculations)",
-    "Dewpoint depression (T − Td): a quick RH indicator — at 20°C, a 5°C depression ≈ 56% RH; a 10°C depression ≈ 28% RH; a 1°C depression ≈ 94% RH",
-    "Frost point: when Td < 0°C, condensation occurs as ice (frost, snow) rather than liquid; the same Magnus formula applies with appropriate handling below freezing"
+    "RH = (e / e_s) × 100%",
+    "e_s rises strongly with temperature (Clausius–Clapeyron)",
+    "Mixing ratio w ≈ mass of vapour / mass of dry air",
+    "At the dew point, e = e_s(T_d) and RH = 100% if cooled at constant pressure/moisture",
+    "Warming without adding moisture lowers RH",
+    "Exam problems often give two of {T, RH, Td, e} and ask for a third"
   ],
   explanationSections: [
-    { heading: "Why saturation vapor pressure is so temperature-dependent", body: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 × exp(L/Rv × (1/T₀ − 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor. The physical reason: at higher temperatures, water molecules have more kinetic energy and can escape the liquid phase more easily, so the equilibrium vapor pressure (saturation) is higher. The practical consequence is dramatic — air at 30°C can hold about 7 times more water vapor than air at 0°C (42.4 / 6.11 ≈ 6.9). This is why tropical air is so much more humid than polar air, and why a small temperature drop in warm moist air can produce heavy precipitation while the same drop in cold dry air produces nothing." },
-    { heading: "How to use the Magnus formula step by step", body: "For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e ≈ 6.112 × exp(17.67 × Td / (Td + 243.5)) hPa. To find RH: first compute e from Td, then compute es from T using the same formula, then RH = e/es × 100%. Example: T = 25°C, Td = 20°C. es at 25°C = 6.112 × exp(17.67 × 25 / (25 + 243.5)) = 6.112 × exp(441.75/268.5) = 6.112 × exp(1.645) = 6.112 × 5.18 ≈ 31.7 hPa. e at Td = 20°C = 6.112 × exp(17.67 × 20 / 263.5) = 6.112 × exp(1.341) = 6.112 × 3.82 ≈ 23.4 hPa. RH = 23.4 / 31.7 × 100% ≈ 73.8%." },
-    { heading: "Why mixing ratio is conserved in adiabatic ascent", body: "The mixing ratio w = 0.622 × e / (p − e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. This makes w a useful 'tracer' for identifying air-parcel history: two parcels with the same w at different heights and temperatures must have come from the same source region. Above the LCL, however, water vapor is lost to condensation, so the saturation mixing ratio (ws) becomes the conserved quantity, and the liquid water content increases as the parcel rises." }
+    { heading: "Ratio versus amount", body: "Always separate ‘how close to saturation’ (RH) from ‘how much vapour’ (e, w, Td). Many wrong answers come from treating RH as an absolute moisture measure." }
   ],
-  formula: [
-{
-    name: "Magnus formula for saturation vapor pressure",
-    expression: "e_s(T) = 6.112 \\, \\exp\\!\\left(\\frac{17.67 \\, T}{T + 243.5}\\right) \\, \\text{hPa}",
-    variables: [
-      { symbol: "e_s(T)", meaning: "saturation vapor pressure at temperature T (hPa)" },
-      { symbol: "T", meaning: "temperature (°C)" },
-      { symbol: "6.112", meaning: "saturation vapor pressure at 0°C (hPa)" },
-      { symbol: "17.67", meaning: "empirical Magnus constant for water" },
-      { symbol: "243.5", meaning: "empirical Magnus constant (°C)" }
-    ]
-  },
-  {
-    name: "Relative humidity and mixing ratio",
-    expression: "RH = \\frac{e}{e_s} \\times 100\\%; \\quad w = \\frac{0.622 \\, e}{p - e}",
-    variables: [
-      { symbol: "RH", meaning: "relative humidity (%)" },
-      { symbol: "e", meaning: "actual vapor pressure (hPa), approximated by es(Td)" },
-      { symbol: "e_s", meaning: "saturation vapor pressure at the air temperature (hPa)" },
-      { symbol: "w", meaning: "mixing ratio (g/kg or kg/kg)" },
-      { symbol: "0.622", meaning: "ratio of gas constants Rd/Rv (molecular weight ratio of dry air to water vapor)" },
-      { symbol: "p", meaning: "total atmospheric pressure (hPa)" }
-    ]
-  }
-  ],
-  examPoints: [
-    "es at 0°C ≈ 6.11 hPa; at 20°C ≈ 23.4 hPa; at 30°C ≈ 42.4 hPa — these benchmarks are commonly tested without requiring the full Magnus calculation",
-    "RH = e / es × 100%; e is found from Td, es is found from T — the two key temperatures drive the calculation",
-    "Mixing ratio w = 0.622 × e / (p − e) — for low e (typical surface conditions), w ≈ 0.622 × e / p",
-    "Dewpoint depression T − Td is a quick RH proxy: at 20°C, every 5°C of depression roughly halves the RH (T − Td = 5 → ~56%; T − Td = 10 → ~28%)",
-    "Above the LCL, the saturation mixing ratio ws is conserved instead of w, because water vapor is being lost to condensation"
-  ],
-  workedExample: [
-{
-    problem: "At a station with T = 30°C, Td = 22°C, and p = 1000 hPa, calculate (a) saturation vapor pressure at 30°C, (b) actual vapor pressure, (c) relative humidity, and (d) mixing ratio.",
-    solution: "(a) es(30°C) = 6.112 × exp(17.67 × 30 / (30 + 243.5)) = 6.112 × exp(530.1 / 273.5) = 6.112 × exp(1.939) = 6.112 × 6.95 ≈ 42.5 hPa. (b) e at Td = 22°C: e = 6.112 × exp(17.67 × 22 / 265.5) = 6.112 × exp(388.74 / 265.5) = 6.112 × exp(1.464) = 6.112 × 4.32 ≈ 26.4 hPa. (c) RH = 26.4 / 42.5 × 100% ≈ 62.1%. (d) w = 0.622 × 26.4 / (1000 − 26.4) = 16.42 / 973.6 ≈ 0.01687 kg/kg = 16.87 g/kg. Quick check: dewpoint depression is 30 − 22 = 8°C, suggesting RH in the 50–60% range — our answer of 62% is consistent.",
-    answer: "(a) es = 42.5 hPa; (b) e = 26.4 hPa; (c) RH ≈ 62%; (d) w ≈ 16.9 g/kg"
-  },
+  subtopics: [
     {
-      problem: "Given only T = 20°C and RH = 50%, find the dewpoint and the actual vapor pressure. (Use the approximation that RH halves for every ~10°C increase in T − Td near 20°C, OR solve using Magnus iteratively.)",
-      solution: "es at 20°C ≈ 23.4 hPa. e = RH × es = 0.50 × 23.4 = 11.7 hPa. To find Td, solve 11.7 = 6.112 × exp(17.67 × Td / (Td + 243.5)) for Td. Taking ln of both sides: ln(11.7 / 6.112) = 17.67 × Td / (Td + 243.5). ln(1.914) = 0.6495. So 0.6495 = 17.67 × Td / (Td + 243.5) → 0.6495 × Td + 158.13 = 17.67 × Td → 158.13 = 17.02 × Td → Td ≈ 9.3°C. Quick approximation: at 20°C, 50% RH corresponds to a dewpoint depression of about 9–10°C, so Td ≈ 10–11°C — our Magnus answer of 9.3°C is close.",
-      answer: "e = 11.7 hPa; Td ≈ 9.3°C"
+      id: "meteo-humidity-calc-rh",
+      title: "Relative humidity from e and e_s",
+      summary: "RH is actual over saturation vapour pressure.",
+      explanation: "If e is held fixed and temperature rises, e_s rises and RH falls. If air is cooled toward the dew point, RH rises toward 100%.",
+      examples: [
+        { problem: "e = 12 hPa, e_s = 24 hPa. RH?", solution: "(12/24)×100% = 50%.", answer: "50%" }
+      ],
+      shortcuts: ["RH = e/e_s × 100", "Warm → e_s up → RH down (if e fixed)"],
+      traps: ["Using e_s at the wrong temperature"]
+    },
+    {
+      id: "meteo-humidity-calc-dewpoint",
+      title: "Dew point and mixing ratio ideas",
+      summary: "Td tracks actual moisture; w is mass-based.",
+      explanation: "Higher dew points mean more vapour in typical interpretations. Mixing ratio changes when water is added or removed, not when temperature changes alone in a closed parcel without condensation.",
+      examples: [
+        { problem: "Air is cooled at constant pressure until fog forms. What is RH at that moment?", solution: "100% — temperature has reached the dew point.", answer: "100%" }
+      ],
+      shortcuts: ["At Td, RH = 100% (standard story)", "w ≈ vapour mass ratio"],
+      traps: ["Equating Td with wet-bulb in every problem"]
     }
   ],
-
+  formula: {
+    name: "Relative Humidity",
+    expression: "RH = (e / e_s) × 100%",
+    variables: [
+      { symbol: "e", meaning: "actual vapour pressure" },
+      { symbol: "e_s", meaning: "saturation vapour pressure at air temperature" }
+    ]
+  },
+  comparisonTable: {
+    title: "Humidity quantities",
+    headers: ["Quantity", "Type"],
+    rows: [
+      ["RH", "Proximity to saturation"],
+      ["e / w", "Actual moisture amount"],
+      ["Td", "Saturation temperature for actual e"]
+    ]
+  },
+  examPoints: [
+    "RH formula",
+    "RH ≠ absolute moisture",
+    "Dew point ↔ saturation"
+  ],
   commonMistakes: [
-    "Confusing T and Td in the Magnus formula — e comes from Td, es comes from T; using Td for both gives RH = 100% always (trivial)",
-    "Forgetting to convert units — Magnus formula uses T in °C and gives e in hPa; mixing Fahrenheit or Pa leads to nonsensical answers",
-    "Treating mixing ratio as a percentage — w is in g/kg (or kg/kg), not %; at 30°C, w might be 17 g/kg, not 17%",
-    "Confusing specific humidity (q) and mixing ratio (w) — they differ by a small factor (q = w / (1 + w) ≈ w for w < 0.03 kg/kg), and the difference matters in precise calculations but is usually negligible for exam purposes",
-    "Assuming w is conserved above the LCL — it is NOT; only the saturation mixing ratio ws is conserved above the LCL, and total water (vapor + liquid) is conserved throughout"
+    "Inverting e and e_s.",
+    "Ignoring temperature dependence of e_s.",
+    "Confusing mixing ratio with RH.",
+    "Wrong units on vapour pressure."
   ],
   relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-calc", "meteo-thermodynamic-diagrams", "meteo-station-model"],
-    subtopics: [
-      {
-        id: "meteo-humidity-calc-why-saturation-vapor-pressure-is-so-temp",
-        title: "Why saturation vapor pressure is so temperature-dependent",
-        summary: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 × exp(L/Rv × (1/T₀ − 1/T)) where L is…",
-        explanation: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 × exp(L/Rv × (1/T₀ − 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor. The physical reason: at higher temperatures, water molecules have more kinetic energy and can escape the liquid phase more easily, so the equilibrium vapor pressure (saturation) is higher. The practical consequence is dramatic — air at 30°C can hold about 7 times more water vapor than air at 0°C (42.4 / 6.11 ≈ 6.9). This is why tropical air is so much more humid than polar air, and why a small temperature drop in warm moist air can produce heavy precipitation while the same drop in cold dry air produces nothing.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why saturation vapor pressure is so temperature-dependent”?",
-            solution: "The accurate idea is: The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why saturation vapor pressure is so temperature-dependent.",
-            solution: "Stay close to the text: The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor.… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-humidity-calc-how-to-use-the-magnus-formula-step-by-st",
-        title: "How to use the Magnus formula step by step",
-        summary: "For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e ≈ 6.112 × exp(17.67 ×…",
-        explanation: "For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e ≈ 6.112 × exp(17.67 × Td / (Td + 243.5)) hPa. To find RH: first compute e from Td, then compute es from T using the same formula, then RH = e/es × 100%. Example: T = 25°C, Td = 20°C. es at 25°C = 6.112 × exp(17.67 × 25 / (25 + 243.5)) = 6.112 × exp(441.75/268.5) = 6.112 × exp(1.645) = 6.112 × 5.18 ≈ 31.7 hPa. e at Td = 20°C = 6.112 × exp(17.67 × 20 / 263.5) = 6.112 × exp(1.341) = 6.112 × 3.82 ≈ 23.4 hPa. RH = 23.4 / 31.7 × 100% ≈ 73.8%.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to use the Magnus formula step by step”?",
-            solution: "The accurate idea is: For exam calculations, the Magnus formula is the standard tool. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "For exam calculations, the Magnus formula is the standard tool.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to use the Magnus formula step by step.",
-            solution: "Stay close to the text: For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e â 6.112 Ã exp(17.67 Ã Td / (Td + 243.5)) hPa. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-humidity-calc-why-mixing-ratio-is-conserved-in-adiabat",
-        title: "Why mixing ratio is conserved in adiabatic ascent",
-        summary: "The mixing ratio w = 0.622 × e / (p − e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added…",
-        explanation: "The mixing ratio w = 0.622 × e / (p − e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. This makes w a useful 'tracer' for identifying air-parcel history: two parcels with the same w at different heights and temperatures must have come from the same source region. Above the LCL, however, water vapor is lost to condensation, so the saturation mixing ratio (ws) becomes the conserved quantity, and the liquid water content increases as the parcel rises.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why mixing ratio is conserved in adiabatic ascent”?",
-            solution: "The accurate idea is: The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evapor…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why mixing ratio is conserved in adiabatic ascent.",
-            solution: "Stay close to the text: The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. This ma… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-moisture-metrics", "meteo-gas-law"],
   leadsTo: [],
@@ -5728,125 +5611,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 3,
   title: "Pressure Unit Conversions & Hydrostatic Applications",
-  definition: "Pressure conversions relate the various units used in meteorology (hectopascals, millibars, inches of mercury, millimeters of mercury, Pascals) and the hydrostatic equation links pressure decrease with height in the atmosphere, allowing estimation of layer thickness, scale height, and the height of standard pressure levels.",
+  definition: "Pressure problems convert among hPa (mb), Pa, mmHg, and inHg, and apply the hydrostatic relation to estimate pressure change with height. Station-to-sea-level thinking and unit consistency are the main exam skills.",
   keyFacts: [
-    "Unit equivalences: 1 hPa = 1 mb = 100 Pa; 1 inHg = 33.864 hPa; 1 mmHg = 1.3332 hPa; 1 atm = 1013.25 hPa = 29.92 inHg = 760 mmHg",
-    "Standard sea-level pressure = 1013.25 hPa; typical surface pressure range = 970–1040 hPa; lowest recorded sea-level pressure = 870 hPa (Typhoon Tip, 1979); highest = 1084 hPa (Mongolia, 2001)",
-    "Pressure decrease with height: roughly 1 hPa per 8 m in the lower troposphere; more precisely, 1 hPa per 7.4 m at 15°C in the lowest km — this is the inverse of the conversion factor",
-    "Hydrostatic equation (differential form): dp/dz = −ρg, where ρ is air density and g is gravity (9.81 m/s²) — pressure decreases with height at a rate proportional to the weight of the air above",
-    "Hydrostatic equation (integrated form): Δz = (Rd × T_v / g) × ln(p1/p2), where T_v is the virtual temperature (K), Rd = 287 J/(kg·K) is the gas constant for dry air, and p1, p2 are the pressures at the bottom and top of the layer",
-    "Scale height H = Rd × T / g ≈ 8.5 km at T = 288 K (15°C) — the height over which pressure falls by a factor of e (≈2.718); pressure at height z is approximately p(z) = p(0) × exp(−z/H) for an isothermal atmosphere",
-    "Standard pressure levels: 1000 hPa (~100 m), 850 hPa (~1500 m), 700 hPa (~3000 m), 500 hPa (~5500 m), 300 hPa (~9000 m), 250 hPa (~10,500 m), 200 hPa (~12,000 m) — these are reference levels for upper-air charts and constant-pressure maps",
-    "Pressure reduction: station pressure (measured at the station elevation) is reduced to mean sea-level pressure (MSLP) using the hypsometric equation and the station's elevation; a 100 m elevation difference changes MSLP by ~12 hPa at standard conditions"
+    "1 hPa = 1 mb = 100 Pa",
+    "Standard atmosphere sea-level pressure ≈ 1013.25 hPa ≈ 760 mmHg ≈ 29.92 inHg",
+    "Hydrostatic: Δp ≈ −ρ g Δz (magnitude increases as you go down)",
+    "Rough tropospheric rule of thumb: ~1 hPa per 8 m near the surface (order-of-magnitude teaching aid)",
+    "Always match units inside ρ g Δz",
+    "Station pressure is not automatically sea-level pressure"
   ],
   explanationSections: [
-    { heading: "Why 1 hPa per 8 m in the lower atmosphere", body: "The hydrostatic equation gives dp/dz = −ρg. Rearranging, dz/dp = −1/(ρg). With ρ ≈ 1.2 kg/m³ at the surface and g = 9.81 m/s², dz/dp = −1 / (1.2 × 9.81) = −1 / 11.77 ≈ −0.085 m/Pa = −8.5 m/hPa. So a 1 hPa pressure change corresponds to about 8.5 m of height change near the surface. This conversion is the basis for the altimeter setting in aircraft and for the vertical scale on most sounding diagrams. As one goes higher, the air density decreases, so dz/dp becomes larger — at 5 km, dz/dp ≈ −15 m/hPa." },
-    { heading: "The hypsometric equation and layer thickness", body: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ΔZ = (Rd × T_v / g) × ln(p1/p2). This is the hypsometric equation, and it has two key applications: (1) given the mean temperature of a layer and the pressures at its top and bottom, compute the layer thickness (e.g., the 1000–500 hPa thickness is about 5500 m at standard conditions); (2) given the layer thickness and the boundary pressure, infer the mean temperature (used in thickness charts for weather analysis). Warm layers are thicker; cold layers are thinner — a 1000–500 hPa thickness of 5400 m or less indicates a cold air mass; 5760 m or more indicates a warm air mass." },
-    { heading: "Practical use of standard pressure levels", body: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. The 500 hPa height (typically around 5500 m) varies with temperature: higher in warm columns, lower in cold columns. By tracking the 500 hPa height pattern, meteorologists identify troughs (lower heights, colder air, often stormy) and ridges (higher heights, warmer air, often fair). The 850 hPa chart (~1500 m) is used for identifying frontal boundaries and moisture transport; the 300 hPa chart (~9000 m) is used for the jet stream and upper-level divergence." }
+    { heading: "Convert, then balance the column", body: "Unit mistakes dominate. Once units agree, hydrostatic balance links thickness and pressure difference for a layer of given density." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-pressure-conversion-units",
+      title: "Unit conversions",
+      summary: "hPa, Pa, mmHg, inHg relationships.",
+      explanation: "Meteorology prefers hPa. Engineering and older texts may use mmHg or inHg. Convert before combining with SI density and gravity in hydrostatic estimates.",
+      examples: [
+        { problem: "Convert 1013.25 hPa to Pa.", solution: "1013.25 × 100 = 101325 Pa.", answer: "101325 Pa" }
+      ],
+      shortcuts: ["1 hPa = 100 Pa", "1013.25 hPa ≈ 760 mmHg"],
+      traps: ["Forgetting the factor of 100 between hPa and Pa"]
+    },
+    {
+      id: "meteo-pressure-conversion-hydrostatic",
+      title: "Hydrostatic Δp estimates",
+      summary: "Pressure falls with height proportional to density and thickness.",
+      explanation: "For a shallow layer, Δp ≈ −ρ g Δz. Denser air or greater thickness produces a larger pressure drop over the same height. This underpins altimetry and sea-level reduction ideas at a conceptual level.",
+      examples: [
+        { problem: "If density and g are fixed, does a thicker layer produce a larger or smaller pressure difference between its base and top?", solution: "Larger magnitude pressure difference — Δp scales with Δz.", answer: "Larger |Δp|" }
+      ],
+      shortcuts: ["Δp ∝ ρ Δz", "Higher → lower pressure"],
+      traps: ["Mixing km and m inside one formula"]
+    }
   ],
   formula: {
-    name: "Hydrostatic equation (hypsometric form)",
-    expression: "\\Delta Z = \\frac{R_d \\, \\overline{T_v}}{g} \\, \\ln\\!\\left(\\frac{p_1}{p_2}\\right)",
+    name: "Hydrostatic Pressure Change",
+    expression: "Δp ≈ −ρ g Δz",
     variables: [
-      { symbol: "\\Delta Z", meaning: "geopotential thickness of the layer between pressures p1 and p2 (m)" },
-      { symbol: "R_d", meaning: "gas constant for dry air (287 J/(kg·K))" },
-      { symbol: "\\overline{T_v}", meaning: "mean virtual temperature of the layer (K)" },
-      { symbol: "g", meaning: "gravitational acceleration (9.81 m/s²)" },
-      { symbol: "p_1", meaning: "pressure at the bottom of the layer (hPa or Pa)" },
-      { symbol: "p_2", meaning: "pressure at the top of the layer (hPa or Pa)" }
+      { symbol: "ρ", meaning: "air density" },
+      { symbol: "g", meaning: "gravitational acceleration" },
+      { symbol: "Δz", meaning: "height increase upward" }
+    ]
+  },
+  comparisonTable: {
+    title: "Common pressure units",
+    headers: ["Unit", "Relation"],
+    rows: [
+      ["hPa / mb", "1 hPa = 1 mb"],
+      ["Pa", "1 hPa = 100 Pa"],
+      ["mmHg", "≈ 760 mmHg at standard SLP"],
+      ["inHg", "≈ 29.92 inHg at standard SLP"]
     ]
   },
   examPoints: [
-    "1 hPa = 1 mb = 100 Pa; 1 inHg = 33.864 hPa; 1 mmHg = 1.333 hPa; 1 atm = 1013.25 hPa",
-    "Pressure decreases ~1 hPa per 8 m near the surface; this is the basis of the altimeter principle",
-    "Scale height H = Rd × T / g ≈ 8.5 km at standard temperature — the e-folding height for pressure",
-    "Standard pressure levels: 850, 700, 500, 300, 250, 200 hPa; their approximate heights are 1500, 3000, 5500, 9000, 10500, 12000 m",
-    "Hypsometric equation: ΔZ = (Rd × T_v / g) × ln(p1/p2) — warm layers are thicker, cold layers are thinner"
+    "hPa ↔ Pa conversion",
+    "Standard SLP benchmarks",
+    "Hydrostatic Δp ≈ −ρgΔz"
   ],
-  workedExample: [
-{
-    problem: "A surface station at 200 m elevation reports a pressure of 995 hPa. The standard sea-level pressure is 1013 hPa. (a) What is the station pressure in inHg? (b) Estimate the MSLP using a simple 1 hPa per 8 m correction. (c) Compare with the hypsometric calculation assuming T = 20°C (293 K).",
-    solution: "(a) Station pressure in inHg: 995 hPa × (1 inHg / 33.864 hPa) = 29.38 inHg. (b) Simple correction: MSLP ≈ station pressure + (elevation × 1 hPa / 8 m) = 995 + (200 / 8) = 995 + 25 = 1020 hPa. (c) Hypsometric: ΔZ = (Rd × T / g) × ln(p_station / p_MSL). Rearranging: p_MSL = p_station × exp(g × ΔZ / (Rd × T)) = 995 × exp(9.81 × 200 / (287 × 293)) = 995 × exp(1962 / 84,091) = 995 × exp(0.02333) = 995 × 1.0236 ≈ 1018.5 hPa. The simple correction (1020 hPa) and hypsometric (1018.5 hPa) are close; the small difference reflects the constant-density assumption in the simple method vs. the realistic temperature-dependent density in the hypsometric method.",
-    answer: "(a) 29.38 inHg; (b) ~1020 hPa (simple); (c) ~1018.5 hPa (hypsometric) — both indicate a slightly above-normal MSLP"
-  },
-    {
-      problem: "Calculate the thickness of the 1000–500 hPa layer at a station with mean layer temperature T = 260 K (−13°C). What does this indicate about the air mass?",
-      solution: "ΔZ = (Rd × T / g) × ln(1000/500) = (287 × 260 / 9.81) × ln(2) = (74,620 / 9.81) × 0.693 = 7,606 × 0.693 ≈ 5,272 m. The 1000–500 hPa thickness is approximately 5,272 m. Since cold columns have lower thickness, a thickness below the standard value of ~5,500 m indicates a cold air mass. The threshold for identifying arctic/very cold air is typically 5,400 m or less; 5,272 m is well within the cold range.",
-      answer: "Thickness ≈ 5,272 m — significantly below the standard 5,500 m, indicating a cold air mass"
-    }
-  ],
-
   commonMistakes: [
-    "Confusing hPa and mb — they are numerically equal (1 hPa = 1 mb), but the SI unit is Pa; older texts may use only mb",
-    "Forgetting the ln(p1/p2) direction — the hypsometric equation uses ln of the bottom pressure divided by the top pressure (ln(1000/500) = +0.693, not −0.693)",
-    "Using temperature in °C instead of K in the hypsometric equation — always convert to Kelvin first (T(K) = T(°C) + 273.15)",
-    "Confusing station pressure with MSLP — station pressure is measured; MSLP is reduced to sea level for charting; they differ by 10–200 hPa depending on elevation",
-    "Treating scale height as a constant — H = Rd × T / g depends on temperature; H ≈ 8.5 km at 15°C, ≈ 7.5 km at −20°C, ≈ 9.5 km at +35°C"
+    "Unit factor errors.",
+    "Using station pressure as SLP at altitude.",
+    "Sign confusion with height.",
+    "Inconsistent density units."
   ],
   relatedTopics: ["meteo-hydrostatic-equation", "meteo-gas-law", "meteo-upper-air-charts", "meteo-station-model", "meteo-isobar-analysis"],
-    subtopics: [
-      {
-        id: "meteo-pressure-conversion-why-1-hpa-per-8-m-in-the-lower-atmospher",
-        title: "Why 1 hPa per 8 m in the lower atmosphere",
-        summary: "The hydrostatic equation gives dp/dz = −ρg. Rearranging, dz/dp = −1/(ρg). With ρ ≈ 1.2 kg/m³ at the surface and g = 9.81 m/s², dz/dp = −1 /…",
-        explanation: "The hydrostatic equation gives dp/dz = −ρg. Rearranging, dz/dp = −1/(ρg). With ρ ≈ 1.2 kg/m³ at the surface and g = 9.81 m/s², dz/dp = −1 / (1.2 × 9.81) = −1 / 11.77 ≈ −0.085 m/Pa = −8.5 m/hPa. So a 1 hPa pressure change corresponds to about 8.5 m of height change near the surface. This conversion is the basis for the altimeter setting in aircraft and for the vertical scale on most sounding diagrams. As one goes higher, the air density decreases, so dz/dp becomes larger — at 5 km, dz/dp ≈ −15 m/hPa.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why 1 hPa per 8 m in the lower atmosphere”?",
-            solution: "The accurate idea is: The hydrostatic equation gives dp/dz = âÏg. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The hydrostatic equation gives dp/dz = âÏg.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why 1 hPa per 8 m in the lower atmosphere.",
-            solution: "Stay close to the text: The hydrostatic equation gives dp/dz = âÏg. Rearranging, dz/dp = â1/(Ïg). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-pressure-conversion-the-hypsometric-equation-and-layer-thick",
-        title: "The hypsometric equation and layer thickness",
-        summary: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ΔZ = (Rd × T_v…",
-        explanation: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ΔZ = (Rd × T_v / g) × ln(p1/p2). This is the hypsometric equation, and it has two key applications: (1) given the mean temperature of a layer and the pressures at its top and bottom, compute the layer thickness (e.g., the 1000–500 hPa thickness is about 5500 m at standard conditions); (2) given the layer thickness and the boundary pressure, infer the mean temperature (used in thickness charts for weather analysis). Warm layers are thicker; cold layers are thinner — a 1000–500 hPa thickness of 5400 m or less indicates a cold air mass; 5760 m or more indicates a warm air mass.",
-                examples: [
-          {
-            problem: "Which statement best matches “The hypsometric equation and layer thickness”?",
-            solution: "The accurate idea is: Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The hypsometric equation and layer thickness.",
-            solution: "Stay close to the text: Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2). This is the hypsometric equation, and it has two key applic… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-pressure-conversion-practical-use-of-standard-pressure-level",
-        title: "Practical use of standard pressure levels",
-        summary: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography…",
-        explanation: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. The 500 hPa height (typically around 5500 m) varies with temperature: higher in warm columns, lower in cold columns. By tracking the 500 hPa height pattern, meteorologists identify troughs (lower heights, colder air, often stormy) and ridges (higher heights, warmer air, often fair). The 850 hPa chart (~1500 m) is used for identifying frontal boundaries and moisture transport; the 300 hPa chart (~9000 m) is used for the jet stream and upper-level divergence.",
-                examples: [
-          {
-            problem: "Which statement best matches “Practical use of standard pressure levels”?",
-            solution: "The accurate idea is: Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Practical use of standard pressure levels.",
-            solution: "Stay close to the text: Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. The 500 hPa height (typically around 5500 m) varies wi… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-hydrostatic-equation", "math-2-2", "meteo-pressure-instruments"],
   leadsTo: [],
@@ -5858,123 +5689,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 4,
   title: "Geostrophic Wind Estimation from Isobar Spacing",
-  definition: "The geostrophic wind is the theoretical wind that results from exact balance between the pressure-gradient force and the Coriolis force — it blows parallel to straight isobars with low pressure on the left (NH) or right (SH), and its speed is inversely proportional to isobar spacing on a synoptic chart.",
+  definition: "The geostrophic wind balances Coriolis and pressure-gradient forces and flows parallel to isobars. Qualitatively, closer isobars mean stronger geostrophic wind; quantitatively, speed scales as |∇p| / (ρ f). Chart problems ask students to rank winds from spacing and apply NH/SH direction rules.",
   keyFacts: [
-    "Geostrophic wind formula: Vg = (1 / (ρf)) × (Δp/Δn), where ρ is air density (~1.2 kg/m³ at the surface), f = 2Ω sin(φ) is the Coriolis parameter (Ω = 7.292 × 10⁻⁵ rad/s, φ = latitude), and Δp/Δn is the pressure gradient (Pa/m) perpendicular to the isobars",
-    "Coriolis parameter f: at 30°N, f ≈ 6.28 × 10⁻⁵ s⁻¹; at 45°N, f ≈ 1.03 × 10⁻⁴ s⁻¹; at 60°N, f ≈ 1.26 × 10⁻⁴ s⁻¹; at the equator, f = 0 (no geostrophic balance possible)",
-    "Direction (NH): with your back to the wind, low pressure is on your left (Buys-Ballot's law) — the geostrophic wind blows along the isobars with low pressure to the left",
-    "Direction (SH): with your back to the wind, low pressure is on your right — the geostrophic wind blows along the isobars with low pressure to the right",
-    "Speed: Vg is proportional to the pressure gradient and inversely proportional to latitude (because f is in the denominator) — for the same gradient, winds are stronger at lower latitudes (closer to the equator), weaker at higher latitudes",
-    "Gradient wind: a correction for curved isobars — around a LOW (cyclonic curvature), the gradient wind is sub-geostrophic (Vgrad < Vg); around a HIGH (anticyclonic curvature), the gradient wind is super-geostrophic (Vgrad > Vg)",
-    "Surface wind: in the atmospheric boundary layer, friction reduces the wind speed and turns it toward lower pressure (crosses isobars at an angle of ~10–30° over land, ~10–15° over sea); this is why surface winds have a cross-isobar component toward lows",
-    "Thermal wind: the vertical shear of the geostrophic wind is proportional to the horizontal temperature gradient — a warm column has stronger geostrophic winds aloft than at the surface; this explains why the jet stream is found above strong temperature contrasts (the polar front)"
+    "Geostrophic balance: PGF + Coriolis ≈ 0 (no friction)",
+    "Wind parallel to isobars; NH: low pressure to the left of motion",
+    "V_g ∝ |pressure gradient| / (ρ f)",
+    "Tighter isobar spacing → larger |∇p| → stronger V_g",
+    "f = 2Ω sinφ increases toward the poles — same gradient yields stronger V_g at lower latitude if ρ fixed (weaker Coriolis needs stronger wind to balance)",
+    "Surface winds depart from geostrophy because of friction"
   ],
   explanationSections: [
-    { heading: "Why the geostrophic wind blows along isobars", body: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, directed 90° to the right of the wind in the NH). If these two are equal and opposite, the wind must blow parallel to the isobars — perpendicular to the pressure gradient (to balance Coriolis) and at a speed sufficient to produce exactly the right Coriolis force (to balance pressure gradient). Any deviation from this balance produces an acceleration that restores it. The geostrophic wind is therefore the 'natural' wind for straight, evenly-spaced isobars in the free atmosphere." },
-    { heading: "Reading geostrophic wind from a chart qualitatively", body: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars — closer spacing means stronger winds; (2) check the latitude — for the same spacing, winds are stronger at lower latitudes (because f is smaller); (3) check the isobar orientation — the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot); (4) check the isobar shape — if curved cyclonically (around a low), actual wind is slightly weaker than geostrophic; if curved anticyclonically (around a high), slightly stronger. A rule of thumb: 1° latitude is ~111 km, so a 4 hPa pressure change over 1° latitude at 30°N corresponds to Vg ≈ 15–20 m/s." },
-    { heading: "The thermal wind and the jet stream", body: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: ∂Vg/∂z ∝ ∇T. Where there is a strong temperature contrast (e.g., across the polar front), the geostrophic wind must increase rapidly with height. This is why the jet stream is found aloft above strong horizontal temperature gradients — the polar-front jet sits at ~250–300 hPa above the polar front where the temperature contrast is largest. The thermal wind is also why upper-level charts (500 hPa, 300 hPa) are so useful for diagnosing mid-latitude weather: the 500 hPa height pattern reflects the column-averaged temperature, and the 500 hPa wind is a good approximation to the mid-tropospheric geostrophic flow." }
+    { heading: "Spacing first, then hemisphere sense", body: "Before any formula, read the chart: pack isobars where the wind should be strong. Then orient flow with the correct hemispheric rule. Only then refine with latitude or density if asked." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-geostrophic-qual-spacing",
+      title: "Isobar spacing and speed",
+      summary: "Gradient strength controls V_g.",
+      explanation: "On a constant-interval isobar chart, visual packing is a direct proxy for |∇p|. Rank stations or regions by spacing before computing numbers.",
+      examples: [
+        { problem: "Two regions same latitude and density; isobars twice as close in region A. Compare V_g.", solution: "Region A has roughly twice the geostrophic wind speed.", answer: "A ≈ 2× stronger" }
+      ],
+      shortcuts: ["Closer isobars → stronger V_g", "Rank by spacing"],
+      traps: ["Ignoring that interval must be the same for visual comparison"]
+    },
+    {
+      id: "meteo-geostrophic-qual-direction",
+      title: "Direction and limits of the approximation",
+      summary: "Parallel flow; friction breaks it at the surface.",
+      explanation: "In the Northern Hemisphere, flow around lows is anticlockwise (cyclonic) in the ideal geostrophic/gradient picture. Near the surface, friction turns wind toward low pressure across isobars — so observed surface winds are not pure geostrophy.",
+      examples: [
+        { problem: "In pure NH geostrophy, is flow across isobars toward low pressure?", solution: "No — geostrophic flow is parallel to isobars; cross-isobar flow needs friction or unsteadiness.", answer: "No — parallel only" }
+      ],
+      shortcuts: ["NH: low to the left", "Friction → cross-isobar component"],
+      traps: ["Applying upper-level geostrophy unchanged at the ground"]
+    }
   ],
   formula: {
-    name: "Geostrophic wind speed",
-    expression: "V_g = \\frac{1}{\\rho f} \\, \\frac{\\Delta p}{\\Delta n}",
+    name: "Geostrophic Wind Speed",
+    expression: "V_g = |∇p| / (ρ f)",
     variables: [
-      { symbol: "V_g", meaning: "geostrophic wind speed (m/s)" },
-      { symbol: "\\rho", meaning: "air density (~1.2 kg/m³ at the surface, less aloft)" },
-      { symbol: "f", meaning: "Coriolis parameter = 2Ω sin(φ), where Ω = 7.292 × 10⁻⁵ rad/s and φ is latitude" },
-      { symbol: "\\Delta p / \\Delta n", meaning: "pressure gradient (Pa/m), perpendicular to the isobars" }
+      { symbol: "∇p", meaning: "horizontal pressure gradient" },
+      { symbol: "ρ", meaning: "air density" },
+      { symbol: "f", meaning: "Coriolis parameter (2Ω sinφ)" }
+    ]
+  },
+  comparisonTable: {
+    title: "What changes V_g",
+    headers: ["Increase in…", "Effect on V_g"],
+    rows: [
+      ["|∇p| (tighter isobars)", "Increases"],
+      ["ρ", "Decreases"],
+      ["|f| (higher latitude)", "Decreases for fixed ∇p"]
     ]
   },
   examPoints: [
-    "Vg is proportional to pressure gradient and inversely proportional to latitude (Vg ∝ 1/sin(φ))",
-    "Wind direction: along isobars, with low pressure on the left in the NH (right in the SH) — Buys-Ballot's law",
-    "At the equator, f = 0 → geostrophic balance is impossible; tropical winds are ageostrophic",
-    "Surface friction turns the wind toward low pressure (crosses isobars at ~10–30° over land, less over sea)",
-    "Gradient wind correction: Vgrad < Vg around lows (sub-geostrophic); Vgrad > Vg around highs (super-geostrophic)"
+    "V_g parallel to isobars",
+    "Spacing ↔ strength",
+    "V_g = |∇p|/(ρ f)",
+    "Friction modifies surface wind"
   ],
-  workedExample: [
-{
-    problem: "On a surface chart at 40°N latitude, two isobars (1000 hPa and 1004 hPa) are spaced 200 km apart perpendicular to their direction. Air density ρ = 1.2 kg/m³. Calculate the geostrophic wind speed in m/s and knots.",
-    solution: "Pressure gradient Δp/Δn = (1004 − 1000) hPa / 200 km = 4 hPa / 2 × 10⁵ m = 400 Pa / 2 × 10⁵ m = 0.002 Pa/m. Coriolis parameter at 40°N: f = 2 × 7.292 × 10⁻⁵ × sin(40°) = 1.4584 × 10⁻⁴ × 0.6428 ≈ 9.37 × 10⁻⁵ s⁻¹. Vg = (1 / (1.2 × 9.37 × 10⁻⁵)) × 0.002 = (1 / 1.124 × 10⁻⁴) × 0.002 = 8,896 × 0.002 ≈ 17.8 m/s. Converting to knots: 17.8 × 1.94 ≈ 34.5 kt — a 'fresh breeze' to 'strong breeze' on the Beaufort scale. Quick check: at 40°N with 4 hPa over 200 km, this is a moderate gradient giving a moderate-to-strong wind — the answer is physically reasonable.",
-    answer: "Vg ≈ 17.8 m/s ≈ 34.5 knots (Beaufort 7, near-gale)"
-  },
-    {
-      problem: "Two stations at 30°N report the same pressure gradient (Δp/Δn = 0.002 Pa/m) and density (1.2 kg/m³) as in the previous problem. What is the geostrophic wind at 30°N? How does it compare to 40°N?",
-      solution: "Coriolis parameter at 30°N: f = 2 × 7.292 × 10⁻⁵ × sin(30°) = 1.4584 × 10⁻⁴ × 0.5 = 7.29 × 10⁻⁵ s⁻¹. Vg = (1 / (1.2 × 7.29 × 10⁻⁵)) × 0.002 = (1 / 8.75 × 10⁻⁵) × 0.002 = 11,428 × 0.002 ≈ 22.9 m/s ≈ 44.4 knots. The geostrophic wind at 30°N (22.9 m/s) is larger than at 40°N (17.8 m/s) by a factor of f(40°)/f(30°) = 9.37/7.29 ≈ 1.29 — about 29% stronger. This confirms that for the same pressure gradient, geostrophic winds are stronger at lower latitudes.",
-      answer: "Vg at 30°N ≈ 22.9 m/s ≈ 44 knots — about 29% stronger than at 40°N for the same gradient, confirming Vg ∝ 1/sin(φ)"
-    }
-  ],
-
   commonMistakes: [
-    "Confusing the Coriolis parameter f with the Coriolis force — f is the proportionality constant (units s⁻¹); the Coriolis force per unit mass is f × V (units m/s²)",
-    "Forgetting the latitude dependence of f — Vg is inversely proportional to sin(φ), so the same gradient gives very different winds at different latitudes; this is critical for understanding why tropical cyclones can have stronger winds than extratropical lows",
-    "Confusing geostrophic wind with surface wind — geostrophic wind is the free-atmosphere (above friction layer) wind parallel to isobars; surface wind is reduced in speed (typically 60–70% of geostrophic over land, 80–90% over sea) and turned ~10–30° toward low pressure by friction",
-    "Treating geostrophic balance as exact — it is an approximation that breaks down near the equator (where f → 0), in regions of strong curvature (where the gradient wind correction matters), and in regions of strong friction (the boundary layer)",
-    "Forgetting to convert units — Δp/Δn in Pa/m requires the hPa-to-Pa conversion (1 hPa = 100 Pa); using hPa/m directly gives an answer 100× too small"
+    "Cross-isobar pure geostrophy.",
+    "Wrong hemisphere sense.",
+    "Ignoring latitude in f.",
+    "Treating surface wind as geostrophic always."
   ],
   relatedTopics: ["meteo-geostrophic-wind", "meteo-coriolis-effect", "meteo-jet-stream", "meteo-rossby-waves", "meteo-isobar-analysis", "meteo-pressure-conversion"],
-    subtopics: [
-      {
-        id: "meteo-geostrophic-qual-why-the-geostrophic-wind-blows-along-iso",
-        title: "Why the geostrophic wind blows along isobars",
-        summary: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure,…",
-        explanation: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, directed 90° to the right of the wind in the NH). If these two are equal and opposite, the wind must blow parallel to the isobars — perpendicular to the pressure gradient (to balance Coriolis) and at a speed sufficient to produce exactly the right Coriolis force (to balance pressure gradient). Any deviation from this balance produces an acceleration that restores it. The geostrophic wind is therefore the 'natural' wind for straight, evenly-spaced isobars in the free atmosphere.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the geostrophic wind blows along isobars”?",
-            solution: "The accurate idea is: In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, directed 90Â° to the right of the wind in the NH). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis f…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the geostrophic wind blows along isobars.",
-            solution: "Stay close to the text: In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, direct… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-geostrophic-qual-reading-geostrophic-wind-from-a-chart-qu",
-        title: "Reading geostrophic wind from a chart qualitatively",
-        summary: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent…",
-        explanation: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars — closer spacing means stronger winds; (2) check the latitude — for the same spacing, winds are stronger at lower latitudes (because f is smaller); (3) check the isobar orientation — the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot); (4) check the isobar shape — if curved cyclonically (around a low), actual wind is slightly weaker than geostrophic; if curved anticyclonically (around a high), slightly stronger. A rule of thumb: 1° latitude is ~111 km, so a 4 hPa pressure change over 1° latitude at 30°N corresponds to Vg ≈ 15–20 m/s.",
-                examples: [
-          {
-            problem: "Which statement best matches “Reading geostrophic wind from a chart qualitatively”?",
-            solution: "The accurate idea is: Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger winds; (2) check the latitude â for the same spacing, winds are stronger at lower latitudes (because f is smaller); (3) check the isobar orientation â the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot); (4) check the isobar shape â if curved cyclonically (around a low), actual wind is slightly weaker than geostrophic; if curved anticyclonically (around a high), slightly stronger. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Reading geostrophic wind from a chart qualitatively.",
-            solution: "Stay close to the text: Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger winds; (2) check the latitude â for th… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-geostrophic-qual-the-thermal-wind-and-the-jet-stream",
-        title: "The thermal wind and the jet stream",
-        summary: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal…",
-        explanation: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: ∂Vg/∂z ∝ ∇T. Where there is a strong temperature contrast (e.g., across the polar front), the geostrophic wind must increase rapidly with height. This is why the jet stream is found aloft above strong horizontal temperature gradients — the polar-front jet sits at ~250–300 hPa above the polar front where the temperature contrast is largest. The thermal wind is also why upper-level charts (500 hPa, 300 hPa) are so useful for diagnosing mid-latitude weather: the 500 hPa height pattern reflects the column-averaged temperature, and the 500 hPa wind is a good approximation to the mid-tropospheric geostrophic flow.",
-                examples: [
-          {
-            problem: "Which statement best matches “The thermal wind and the jet stream”?",
-            solution: "The accurate idea is: The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The thermal wind and the jet stream.",
-            solution: "Stay close to the text: The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT. Where there is a strong temperature contrast… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-geostrophic-wind", "meteo-isobar-analysis"],
   leadsTo: [],
