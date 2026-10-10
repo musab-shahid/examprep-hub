@@ -1361,111 +1361,74 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 1,
   title: "Forces Governing Wind Formation",
-  definition: "Wind is the horizontal movement of air caused by differences in atmospheric pressure, controlled by four fundamental forces understood through Newton's second law.",
+  definition: "Wind is horizontal air motion driven primarily by horizontal pressure differences and shaped by the Coriolis effect, friction near the surface, and — when flow is curved — centripetal requirements. Reading a weather map means reading the balance among these forces.",
   keyFacts: [
-    "Standard sea-level pressure is 1013.25 mb (29.92 in Hg)",
-    "PGF acts perpendicular to isobars, from high to low pressure",
-    "Coriolis force is zero at the equator, maximum at the poles",
-    "Friction acts mainly within the first ~1,000 m (planetary boundary layer)",
-    "Surface wind crosses isobars at ~30° (typical land), 35-40° (hilly land), 10-15° (smooth water)"
+    "Pressure-gradient force (PGF) acts from high toward low pressure, perpendicular to isobars; stronger gradient → stronger force",
+    "Coriolis deflects moving air (right in NH, left in SH) with magnitude growing with wind speed and latitude",
+    "Friction near the surface slows the wind and turns it across isobars toward low pressure",
+    "Above the friction layer, large-scale flow often approaches geostrophic or gradient balance",
+    "Standard sea-level pressure reference is often 1013.25 hPa",
+    "Newton’s second law organises the force list: acceleration responds to the net force per unit mass"
   ],
   explanationSections: [
-    { heading: "Pressure-Gradient Force", body: "The primary force initiating wind; stronger when isobars are closely packed." },
-    { heading: "Coriolis Force", body: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed." },
-    { heading: "Friction", body: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface." }
+    { heading: "Start with PGF, then add the rest", body: "Without a pressure gradient there is no large-scale wind. Coriolis does not create motion; it deflects motion that already exists. Friction matters in the lowest kilometre or so. Centripetal terms matter when isobars are strongly curved." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-forces-governing-wind-pgf",
+      title: "Pressure-gradient force",
+      summary: "From high to low, perpendicular to isobars; strength set by Δp/distance.",
+      explanation: "Closely packed isobars mean a large horizontal pressure gradient and a strong PGF. Widely spaced isobars mean weaker forcing. On a surface chart the PGF points toward lower pressure at right angles to the isobar field.",
+      examples: [
+        { problem: "Two maps have the same latitude and elevation. Map A has isobars much closer than Map B. Where is the PGF stronger?", solution: "Map A — smaller distance for a given pressure change means a larger gradient and stronger PGF.", answer: "Map A (tighter isobars)" }
+      ],
+      shortcuts: ["PGF: high → low, ⊥ isobars", "Tight isobars → strong wind potential"],
+      traps: ["Drawing PGF parallel to isobars"]
+    },
+    {
+      id: "meteo-forces-governing-wind-coriolis-friction",
+      title: "Coriolis and friction",
+      summary: "Deflection aloft; cross-isobar flow near the ground.",
+      explanation: "In the free atmosphere Coriolis becomes comparable to PGF for synoptic flows, enabling geostrophic balance. Near the surface, friction slows the wind, weakens Coriolis (which depends on speed), and leaves a residual component of flow toward low pressure — why surface winds spiral into lows.",
+      examples: [
+        { problem: "Why do surface winds cross isobars toward a low while upper winds are more nearly parallel?", solution: "Friction reduces speed near the ground, so Coriolis weakens and cannot fully balance PGF; air flows partly toward low pressure.", answer: "Friction → cross-isobar component into lows" }
+      ],
+      shortcuts: ["Aloft: near-balance possible", "Surface: friction → into low / out of high"],
+      traps: ["Saying Coriolis starts the wind without PGF"]
+    }
   ],
   formula: {
     name: "Coriolis Force",
     expression: "CF = 2 × m × V × Ω × sin(φ)",
     variables: [
-      { symbol: "m", meaning: "mass of moving air" },
-      { symbol: "V", meaning: "wind speed" },
-      { symbol: "Ω", meaning: "Earth's angular rotation rate (≈7.29×10⁻⁵ rad/s)" },
+      { symbol: "m", meaning: "mass" },
+      { symbol: "V", meaning: "speed" },
+      { symbol: "Ω", meaning: "Earth rotation rate" },
       { symbol: "φ", meaning: "latitude" }
     ]
   },
-  examPoints: ["Coriolis is an apparent force from Earth's rotation, not a real force; it never changes wind speed, only direction."],
   comparisonTable: {
-    headers: ["Force", "Role"],
-    rows: [["PGF", "Initiates wind"], ["Coriolis", "Deflects wind"], ["Friction", "Slows wind"]]
+    title: "Force roles",
+    headers: ["Force", "Direction emphasis", "When critical"],
+    rows: [
+      ["PGF", "High → low, ⊥ isobars", "Always for large-scale wind"],
+      ["Coriolis", "⊥ velocity (NH right)", "Synoptic/planetary"],
+      ["Friction", "Opposes velocity", "Planetary boundary layer"],
+      ["Centripetal (curved)", "Toward curve centre", "Gradient wind, vortices"]
+    ]
   },
-  commonMistakes: [
-    "Forcing all forces to matter equally at every scale.",
-    "Thinking pressure gradient force points from low to high pressure.",
-    "Ignoring friction's role in crossing isobars toward low pressure near the surface.",
-    "Mixing centripetal requirement with a separate magical force in curved flow.",
+  examPoints: [
+    "PGF from high to low, perpendicular to isobars",
+    "Coriolis deflects; does not create wind alone",
+    "Friction turns surface flow across isobars toward low pressure"
   ],
-  workedExample: [
-    {
-      problem: "Qualitative: near the surface, why does wind cross isobars toward low pressure?",
-      solution: "Friction slows the wind, weakening Coriolis relative to the pressure-gradient force, so the balance is no longer purely geostrophic and flow gains a component toward low pressure.",
-      answer: "Friction reduces speed → Coriolis weakens → PGF pulls flow toward low",
-    },
+  commonMistakes: [
+    "Reversing PGF direction.",
+    "Ignoring friction in surface wind direction.",
+    "Applying geostrophy inside the friction layer without care.",
+    "Forgetting latitude dependence of Coriolis."
   ],
   relatedTopics: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-coriolis-effect", "meteo-jet-stream"],
-    subtopics: [
-      {
-        id: "meteo-forces-governing-wind-pressure-gradient-force",
-        title: "Pressure-Gradient Force",
-        summary: "The primary force initiating wind; stronger when isobars are closely packed.",
-        explanation: "The primary force initiating wind; stronger when isobars are closely packed.",
-                examples: [
-          {
-            problem: "Which statement best matches “Pressure-Gradient Force”?",
-            solution: "The accurate idea is: The primary force initiating wind; stronger when isobars are closely packed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The primary force initiating wind; stronger when isobars are closely packed.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Pressure-Gradient Force.",
-            solution: "Stay close to the text: The primary force initiating wind; stronger when isobars are closely packed. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forces-governing-wind-coriolis-force",
-        title: "Coriolis Force",
-        summary: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
-        explanation: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
-                examples: [
-          {
-            problem: "Which statement best matches “Coriolis Force”?",
-            solution: "The accurate idea is: Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Coriolis Force.",
-            solution: "Stay close to the text: Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-forces-governing-wind-friction",
-        title: "Friction",
-        summary: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
-        explanation: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
-                examples: [
-          {
-            problem: "Which statement best matches “Friction”?",
-            solution: "The accurate idea is: Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Friction.",
-            solution: "Stay close to the text: Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-hydrostatic-equation", "phy-newtons-laws", "phy-vector-operations"],
   leadsTo: ["meteo-geostrophic-wind", "meteo-gradient-wind"],
@@ -1477,39 +1440,71 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 2,
   title: "Geostrophic Wind",
-  definition: "Geostrophic wind is a theoretical horizontal wind above the friction layer where the Pressure-Gradient Force and Coriolis Force are in exact balance, producing constant-speed flow parallel to straight isobars.",
+  definition: "The geostrophic wind is the horizontal wind that results when the pressure-gradient force exactly balances the Coriolis force for straight flow. It blows parallel to straight isobars (or height contours), with low pressure on the left in the Northern Hemisphere.",
   keyFacts: [
-    "Occurs above the friction layer, where PGF = CF exactly",
-    "Net horizontal force is zero → constant wind speed",
-    "Flows parallel to straight isobars (or contour lines on upper-air charts)",
-    "Northern Hemisphere: low pressure to the left of the wind, high pressure to the right"
+    "Balance: PGF = Coriolis (straight isobars, no friction, steady)",
+    "Wind parallel to isobars/contours — not across them",
+    "NH: low pressure to the left when looking downwind (Buys Ballot)",
+    "Speed increases as the pressure gradient increases and as f decreases (toward lower latitude, for the same gradient)",
+    "Excellent approximation in the free troposphere away from the equator and strong curvature",
+    "Fails near the surface (friction) and near the equator (f → 0)"
   ],
   explanationSections: [
-    { heading: "The balance condition", body: "Because PGF pulls air toward low pressure and CF deflects it, when the two forces are equal and opposite there is no net acceleration — the wind moves at constant speed parallel to the isobars rather than across them." }
+    { heading: "Straight-line balance", body: "When isobars are straight and friction is negligible, air accelerates under PGF until Coriolis grows enough to balance it. The resulting wind runs along the isobars. That idealisation is the geostrophic wind used to interpret upper-air charts." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-geostrophic-wind-balance-direction",
+      title: "Balance and direction",
+      summary: "PGF ⊥ isobars balanced by Coriolis; flow parallel to isobars.",
+      explanation: "PGF points toward low pressure. Coriolis acts perpendicular to the wind. In balance they cancel and the wind has no net force in the horizontal plane — steady motion along the isobar. In the NH, that geometry puts low pressure on the left.",
+      examples: [
+        { problem: "NH upper chart: straight west–east contours with lower heights to the north. Approximate geostrophic wind direction?", solution: "Flow parallel to contours with low on the left → generally west-to-east (westerly).", answer: "Westerly (west → east)" }
+      ],
+      shortcuts: ["Parallel to isobars", "NH: low on left (Buys Ballot)"],
+      traps: ["Drawing geostrophic wind across isobars toward low"]
+    },
+    {
+      id: "meteo-geostrophic-wind-speed-limits",
+      title: "Speed controls and limits of the approximation",
+      summary: "Stronger gradient → faster wind; invalid with friction or at the equator.",
+      explanation: "For a given density and f, tighter packing of isobars means stronger geostrophic wind. The approximation collapses where friction matters, where curvature demands a gradient-wind correction, or where f is nearly zero.",
+      examples: [
+        { problem: "Why is pure geostrophy a poor model for surface winds in a city?", solution: "Friction is first-order near the ground, so balance is not PGF–Coriolis alone and flow crosses isobars.", answer: "Friction breaks geostrophic balance" }
+      ],
+      shortcuts: ["Tight contours → strong Vg", "No geostrophy at equator / in PBL without care"],
+      traps: ["Using geostrophy for tornado-scale flows"]
+    }
   ],
   formula: {
     name: "Geostrophic Wind",
     expression: "Vg = (1 / fρ) × (ΔP / d)",
     variables: [
       { symbol: "Vg", meaning: "geostrophic wind speed" },
-      { symbol: "f", meaning: "Coriolis parameter = 2Ω sin(φ)" },
+      { symbol: "f", meaning: "Coriolis parameter" },
       { symbol: "ρ", meaning: "air density" },
       { symbol: "ΔP/d", meaning: "horizontal pressure gradient" }
     ]
   },
-  examPoints: ["Geostrophic wind is theoretical/idealized — it requires straight isobars and no friction, so it's an approximation of real upper-level flow"],
-  commonMistakes: [
-    "Applying geostrophy at the equator (Coriolis approaches 0).",
-    "Thinking geostrophic wind blows across isobars; it blows parallel to them.",
-    "Ignoring that real surface winds are subgeostrophic due to friction.",
-    "Using geostrophy for small-scale circulations where the Rossby number is large.",
+  comparisonTable: {
+    title: "Geostrophic vs surface wind",
+    headers: ["Feature", "Geostrophic (ideal)", "Surface (real PBL)"],
+    rows: [
+      ["Friction", "Neglected", "Important"],
+      ["Direction", "Parallel to isobars", "Crosses toward low"],
+      ["Speed", "Often stronger", "Reduced by friction"]
+    ]
+  },
+  examPoints: [
+    "PGF balances Coriolis for straight frictionless flow",
+    "Wind parallel to isobars; NH low on left",
+    "Poor near surface and near equator"
   ],
-  workedExample: [
-    {
-      problem: "At 45°N, f ≈ 1 × 10⁻⁴ s⁻¹. A geostrophic wind of 20 m/s balances a pressure gradient. If density ρ ≈ 1.2 kg/m³, estimate |∇p| from |∇p| = ρ f V_g.",
-      solution: "|∇p| = 1.2 × 1e-4 × 20 = 0.0024 Pa/m.",
-      answer: "0.0024 Pa/m",
-    },
+  commonMistakes: [
+    "Pointing geostrophic wind toward low pressure.",
+    "Applying geostrophy in the friction layer.",
+    "Using geostrophy at the equator.",
+    "Ignoring that tighter isobars mean stronger Vg."
   ],
   relatedTopics: ["meteo-forces-governing-wind", "meteo-gradient-wind", "meteo-geostrophic-qual"],
   content: true,
@@ -1523,87 +1518,72 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 3,
   title: "Gradient Wind",
-  definition: "Gradient wind describes upper-level winds following curved paths, where an imbalance between PGF and Coriolis force provides the centripetal acceleration needed for curved motion.",
+  definition: "The gradient wind is the horizontal wind in curved, frictionless flow where pressure-gradient, Coriolis, and centripetal effects balance. Around lows (cyclonic flow) the wind is subgeostrophic; around highs (anticyclonic) it is supergeostrophic for the same gradient magnitude in the standard comparison.",
   keyFacts: [
-    "Applies above the boundary layer, where friction is negligible",
-    "Cyclonic flow (around a Low): PGF > CF → subgeostrophic (V < Vg)",
-    "Anticyclonic flow (around a High): CF > PGF → supergeostrophic (V > Vg)",
-    "Centripetal acceleration = V²/R, where R is the radius of curvature"
+    "Needed when isobars/contours are curved",
+    "Cyclonic (around low, NH counterclockwise): PGF inward exceeds Coriolis; wind slower than pure geostrophic for same |∇p|",
+    "Anticyclonic (around high): balance yields wind faster than geostrophic for same |∇p| in the usual textbook contrast",
+    "Reduces to geostrophic wind as radius of curvature → infinity (straight flow)",
+    "Still neglects friction",
+    "Important around synoptic lows/highs and in jet-stream curvature discussions"
   ],
   explanationSections: [
-    { heading: "Cyclonic flow", body: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal acceleration, but as a result wind speed ends up slower than the geostrophic value — hence 'subgeostrophic'." },
-    { heading: "Anticyclonic flow", body: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic — 'supergeostrophic'." }
+    { heading: "Curvature adds a third player", body: "Straight geostrophy is a two-force balance. Curved flow needs a net force toward the centre of the curve (centripetal requirement). That changes how large the wind can be for a given pressure gradient." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-gradient-wind-cyclonic-anticyclonic",
+      title: "Cyclonic versus anticyclonic balance",
+      summary: "Around lows wind is subgeostrophic; around highs supergeostrophic (standard comparison).",
+      explanation: "For cyclonic curvature, part of the PGF maintains the inward acceleration, so the Coriolis (and thus speed) is smaller than in the straight case. For anticyclonic curvature the inequality reverses in the standard teaching comparison. Exact formulas depend on sign conventions, but the qualitative exam point is stable across textbooks.",
+      examples: [
+        { problem: "Same |pressure gradient|, curved cyclonic isobars vs straight. Is gradient wind faster or slower than geostrophic?", solution: "Slower — subgeostrophic around the low.", answer: "Slower (subgeostrophic)" }
+      ],
+      shortcuts: ["Curved low → subgeostrophic", "Curved high → supergeostrophic"],
+      traps: ["Using pure geostrophy in tight curved systems"]
+    },
+    {
+      id: "meteo-gradient-wind-limits",
+      title: "Limits and recovery of geostrophy",
+      summary: "Large radius → geostrophic; friction still omitted.",
+      explanation: "As curvature weakens, gradient wind approaches geostrophic wind. Neither includes surface friction. Near the ground, observed wind is neither purely geostrophic nor purely gradient.",
+      examples: [
+        { problem: "When can you safely approximate gradient wind by geostrophic wind?", solution: "When isobars are nearly straight (very large radius of curvature) and friction is negligible.", answer: "Nearly straight isobars, free atmosphere" }
+      ],
+      shortcuts: ["R → ∞ → geostrophic", "Still frictionless idealisation"],
+      traps: ["Applying gradient wind formulas inside the PBL without friction"]
+    }
   ],
   formula: {
     name: "Gradient wind balance",
     expression: "PGF − CF = V²/R (cyclonic)   |   CF − PGF = V²/R (anticyclonic)",
     variables: [
       { symbol: "V", meaning: "wind speed" },
-      { symbol: "R", meaning: "radius of curvature" }
+      { symbol: "R", meaning: "radius of curvature" },
+      { symbol: "PGF", meaning: "pressure-gradient force per unit mass" },
+      { symbol: "CF", meaning: "Coriolis force per unit mass" }
     ]
   },
-  examPoints: ["Subgeostrophic = around Lows (cyclonic); Supergeostrophic = around Highs (anticyclonic) — frequently reversed by mistake"],
   comparisonTable: {
-    headers: ["Flow type", "Force balance", "Speed vs. Vg"],
-    rows: [["Cyclonic (Low)", "PGF > CF", "Subgeostrophic"], ["Anticyclonic (High)", "CF > PGF", "Supergeostrophic"]]
+    title: "Geostrophic vs gradient",
+    headers: ["Idealisation", "Isobar shape", "Forces"],
+    rows: [
+      ["Geostrophic", "Straight", "PGF, Coriolis"],
+      ["Gradient", "Curved", "PGF, Coriolis, centripetal requirement"]
+    ]
   },
-  commonMistakes: [
-    "Confusing cyclonic vs anticyclonic gradient-wind speed relative to geostrophic.",
-    "Thinking gradient wind always equals geostrophic wind.",
-    "Ignoring curvature of flow/isobars.",
-    "Mixing gradient-wind balance with surface friction effects.",
+  examPoints: [
+    "Gradient wind includes curvature",
+    "Cyclonic → subgeostrophic; anticyclonic → supergeostrophic (standard)",
+    "Straight limit recovers geostrophy"
   ],
-  workedExample: [
-    {
-      problem: "For the same pressure gradient, is cyclonic gradient wind faster or slower than geostrophic wind in the Northern Hemisphere?",
-      solution: "Around a low, centripetal requirement means gradient wind is subgeostrophic (slower than pure geostrophic for the same |∇p|). Around a high it is supergeostrophic.",
-      answer: "Cyclonic gradient wind is slower than geostrophic (subgeostrophic)",
-    },
+  commonMistakes: [
+    "Ignoring curvature around synoptic lows.",
+    "Reversing sub- vs supergeostrophic rules.",
+    "Including friction inside pure gradient balance.",
+    "Using gradient wind at the equator casually."
   ],
   relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-geostrophic-qual"],
-    subtopics: [
-      {
-        id: "meteo-gradient-wind-cyclonic-flow",
-        title: "Cyclonic flow",
-        summary: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal…",
-        explanation: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal acceleration, but as a result wind speed ends up slower than the geostrophic value — hence 'subgeostrophic'.",
-                examples: [
-          {
-            problem: "Which statement best matches “Cyclonic flow”?",
-            solution: "The accurate idea is: Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Cyclonic flow.",
-            solution: "Stay close to the text: Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal acceleration, but as a result wind speed ends up slower than the geostrophic value â… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-gradient-wind-anticyclonic-flow",
-        title: "Anticyclonic flow",
-        summary: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic —…",
-        explanation: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic — 'supergeostrophic'.",
-                examples: [
-          {
-            problem: "Which statement best matches “Anticyclonic flow”?",
-            solution: "The accurate idea is: Around a High, Coriolis force is stronger than PGF and provides the net inward pull. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Anticyclonic flow.",
-            solution: "Stay close to the text: Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic â 'supergeostrophic'. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-geostrophic-wind"],
   leadsTo: ["meteo-jet-stream"],
@@ -1615,37 +1595,69 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 4,
   title: "Jet Stream Dynamics",
-  definition: "Jet streams are narrow, fast-flowing air currents near the tropopause (9–12 km), formed through steep horizontal temperature gradients (Polar Front Jet) and conservation of angular momentum (Subtropical Jet).",
+  definition: "Jet streams are narrow, fast upper-tropospheric wind cores, typically near the tropopause. The polar-front jet and the subtropical jet dominate mid-latitude weather steering. Their speed and position follow from strong horizontal temperature gradients via thermal-wind thinking and geostrophic balance aloft.",
   keyFacts: [
-    "Polar Front Jet: forms where a sharp temperature gradient at the polar front creates a strong upper-level PGF, deflected by Coriolis into a fast westerly jet",
-    "Subtropical Jet: forms as Hadley-cell air moving poleward aloft conserves angular momentum (L = m×V×r); as radius r decreases, speed V increases",
-    "Both jets concentrate near 30° (subtropical) and along the polar front (polar front jet) respectively"
+    "Located near the tropopause; cores often 10–15 km altitude depending on latitude and season",
+    "Polar-front jet: associated with the mid-latitude baroclinic zone; strongly guides storm tracks",
+    "Subtropical jet: linked to the poleward edge of the Hadley cell",
+    "Stronger and shifted with season — generally stronger in winter in each hemisphere",
+    "Jet streaks (speed maxima) organise divergence/convergence patterns that help cyclogenesis",
+    "Not a single fixed ‘tube’ — a meandering, evolving current"
   ],
   explanationSections: [
-    { heading: "Conservation of angular momentum", body: "As air moves poleward aloft within the Hadley cell, it moves closer to Earth's rotational axis, decreasing its radius of rotation r. Because angular momentum L = m×V×r is conserved, a smaller r forces V to increase — accelerating the flow into the Subtropical Jet near 30° latitude." }
+    { heading: "Fast air above strong temperature contrast", body: "Where cold and warm air masses meet, the thermal-wind relation implies a strong increase of westerly wind with height. That piles up into a jet near the tropopause. Rossby-wave meanders then shift the jet and the weather systems locked to it." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-jet-stream-types-location",
+      title: "Types and location",
+      summary: "Polar-front vs subtropical jets near the tropopause.",
+      explanation: "The polar-front jet sits above the mid-latitude frontal zone and is the main storm-track guide for Pakistan’s winter western disturbances when it digs south. The subtropical jet lies farther equatorward, tied to upper outflow from the Hadley circulation.",
+      examples: [
+        { problem: "Which jet is most directly tied to mid-latitude cyclone tracks?", solution: "The polar-front jet, aligned with the main baroclinic zone.", answer: "Polar-front jet" }
+      ],
+      shortcuts: ["Polar jet ↔ mid-latitude storms", "Subtropical jet ↔ Hadley edge"],
+      traps: ["Treating one permanent fixed jet latitude year-round"]
+    },
+    {
+      id: "meteo-jet-stream-weather-role",
+      title: "Role in weather",
+      summary: "Steering, jet streaks, and divergence patterns.",
+      explanation: "Surface cyclones often develop and move in relation to upper jets. Regions of upper-level divergence ahead of troughs and near certain jet-streak quadrants favour surface pressure falls. For FPSC geography, the winter jet’s interaction with western disturbances is high yield.",
+      examples: [
+        { problem: "Why do forecasters watch upper-level jet position when predicting storm tracks?", solution: "The jet marks strong temperature gradients and organises divergence that steers and intensifies synoptic systems.", answer: "Steering + upper divergence support" }
+      ],
+      shortcuts: ["Jet steers storms", "Jet streak → local divergence patterns"],
+      traps: ["Thinking the jet is only a curiosity with no surface impact"]
+    }
   ],
   formula: {
     name: "Angular Momentum",
     expression: "L = m × V × r",
     variables: [
       { symbol: "m", meaning: "mass" },
-      { symbol: "V", meaning: "velocity" },
-      { symbol: "r", meaning: "radius from rotational axis" }
+      { symbol: "V", meaning: "speed" },
+      { symbol: "r", meaning: "perpendicular distance from axis" }
     ]
   },
-  examPoints: ["Two distinct jet-formation mechanisms — temperature gradient (Polar Front Jet) vs. angular momentum conservation (Subtropical Jet) — are commonly tested separately"],
-  commonMistakes: [
-    "Thinking the jet is a single fixed tube at one latitude year-round.",
-    "Confusing subtropical and polar-front jets.",
-    "Assuming jet streaks always mean surface storms directly underneath without dynamics.",
-    "Ignoring thermal-wind coupling between temperature gradients and jet strength.",
+  comparisonTable: {
+    title: "Major jet streams",
+    headers: ["Jet", "Linkage", "Weather role"],
+    rows: [
+      ["Polar-front", "Mid-latitude baroclinic zone", "Storm tracks, WDs"],
+      ["Subtropical", "Hadley cell edge", "Upper subtropical flow"]
+    ]
+  },
+  examPoints: [
+    "Jets near tropopause",
+    "Polar-front jet guides mid-latitude storms",
+    "Seasonal strength and position change"
   ],
-  workedExample: [
-    {
-      problem: "Thermal wind idea: if cold air is to the north, what is the sense of the westerly jet with height in midlatitudes?",
-      solution: "In the Northern Hemisphere, a horizontal temperature gradient with cold air poleward implies westerly wind increasing with height (thermal wind), supporting midlatitude jets.",
-      answer: "Westerly wind strengthens with height (supports jet)",
-    },
+  commonMistakes: [
+    "Placing jets in the lower troposphere.",
+    "Confusing polar-front and subtropical jets.",
+    "Treating the jet as static geography.",
+    "Ignoring jet–storm track coupling."
   ],
   relatedTopics: ["meteo-gradient-wind", "meteo-global-circulation", "meteo-rossby-waves"],
   content: true,
@@ -1659,26 +1671,60 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 5,
   title: "Local & Seasonal Wind Systems",
-  definition: "Local wind systems — land/sea breeze and mountain/valley breeze — are driven by differential heating and cooling between adjacent surfaces.",
+  definition: "Local and seasonal winds arise from differential heating of surfaces — land versus sea, mountain versus valley — and from larger seasonal pressure changes. They are mesoscale or regional rather than planetary, yet they dominate daily weather in many Pakistani and South Asian settings.",
   keyFacts: [
-    "Sea breeze (daytime): land heats faster than water → thermal low over land → cooler sea air flows onshore",
-    "Land breeze (nighttime): land cools faster than water → higher pressure over land → air flows offshore toward the sea",
-    "Valley breeze / anabatic wind (daytime): heated slopes cause warm air to rise upslope",
-    "Mountain breeze / katabatic wind (nighttime): radiational cooling makes slope air dense, flowing downslope"
+    "Sea breeze: day — land hotter → lower pressure over land → wind from sea to land",
+    "Land breeze: night — land cooler → wind from land to sea",
+    "Valley breeze: day — upslope flow; mountain breeze: night — downslope drainage",
+    "Seasonal winds reverse with the annual heating cycle (monsoon is the regional extreme)",
+    "Local winds modify humidity, temperature, and convection timing along coasts and slopes",
+    "Coriolis is secondary for small, short-lived breezes but matters for larger seasonal systems"
   ],
   explanationSections: [
-    { heading: "Common thermal-contrast logic", body: "All four local winds share the same underlying logic: whichever surface is relatively warmer develops lower pressure (or rising air), and wind flows from the cooler/higher-pressure side toward it." }
+    { heading: "Differential heating first", body: "Whenever two adjacent surfaces heat unequally, pressure adjusts and air flows from the cooler, higher-pressure side toward the warmer, lower-pressure side near the surface, with return flow aloft. Scale that idea from a coastline to a continent and you move from sea breezes toward monsoon." }
   ],
-  examPoints: ["Anabatic = upslope/daytime; Katabatic = downslope/nighttime — easy to reverse under exam pressure"],
+  subtopics: [
+    {
+      id: "meteo-local-seasonal-winds-land-sea",
+      title: "Land and sea breezes",
+      summary: "Diurnal reversal along coasts from land–sea temperature contrast.",
+      explanation: "Water has a high heat capacity, so the sea warms and cools slowly compared with land. By day the land is warmer and draws a sea breeze; by night the land cools more and a land breeze develops. Timing of coastal convection often follows this clock.",
+      examples: [
+        { problem: "On a sunny afternoon at the coast, surface wind is usually from which direction relative to the sea?", solution: "From sea toward land — sea breeze driven by hotter land and lower pressure over land.", answer: "Sea breeze (sea → land)" }
+      ],
+      shortcuts: ["Day: sea → land", "Night: land → sea"],
+      traps: ["Reversing day/night breeze directions"]
+    },
+    {
+      id: "meteo-local-seasonal-winds-mountain-valley",
+      title: "Mountain and valley breezes",
+      summary: "Upslope by day, drainage by night.",
+      explanation: "Sun-facing slopes heat and generate upslope (valley) flow by day. At night, radiative cooling produces denser air that drains downslope (mountain breeze), pooling cold air in basins — important for frost and winter fog in valleys.",
+      examples: [
+        { problem: "Why do mountain valleys often become colder at night than adjacent slopes?", solution: "Cold dense air drains downslope and pools in the valley under light winds.", answer: "Nocturnal cold-air drainage" }
+      ],
+      shortcuts: ["Day upslope", "Night downslope / cold pools"],
+      traps: ["Ignoring topography when forecasting night minima"]
+    }
+  ],
   comparisonTable: {
-    headers: ["Wind", "Time", "Direction"],
-    rows: [["Sea breeze", "Day", "Sea → Land"], ["Land breeze", "Night", "Land → Sea"], ["Valley breeze (anabatic)", "Day", "Upslope"], ["Mountain breeze (katabatic)", "Night", "Downslope"]]
+    title: "Local wind couples",
+    headers: ["Day", "Night"],
+    rows: [
+      ["Sea breeze (sea → land)", "Land breeze (land → sea)"],
+      ["Valley / upslope breeze", "Mountain / downslope breeze"]
+    ]
   },
+  examPoints: [
+    "Sea breeze by day; land breeze by night",
+    "Driven by differential heating",
+    "Valley cold pools from nocturnal drainage"
+  ],
   commonMistakes: [
-    "Treating land–sea breeze as a synoptic-scale monsoon.",
-    "Reversing day/night breeze directions.",
-    "Ignoring topography (anabatic/katabatic) vs pure land–sea contrast.",
-    "Assuming local winds ignore larger-scale pressure patterns entirely.",
+    "Reversing land/sea breeze timing.",
+    "Treating local breezes as synoptic jets.",
+    "Ignoring coastal timing of thunderstorms.",
+    "Forgetting cold-air drainage in valleys."
   ],
   relatedTopics: ["meteo-monsoon-system", "meteo-coriolis-effect"],
   content: true,
@@ -1692,22 +1738,65 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 6,
   title: "The Monsoon Wind System",
-  definition: "A monsoon is a seasonal reversal of prevailing winds, driven by differential heating between the Asian landmass and surrounding oceans.",
+  definition: "A monsoon is a large-scale seasonal reversal of wind and pressure patterns driven by differential heating of land and ocean, bringing a pronounced wet season and dry season. The South Asian monsoon dominates Pakistan’s summer rainfall and is tightly linked to the monsoon trough, moisture flux from the Arabian Sea and Bay of Bengal, and Himalayan orography.",
   keyFacts: [
-    "Winter monsoon: continental cooling creates the Siberian High; cold, dry winds blow outward toward the seas",
-    "Summer monsoon: intense continental heating creates a thermal Monsoon Low; warm, moist air is drawn inland from the Indian Ocean",
-    "Summer monsoon strengthened by upper-level jet-stream divergence, which intensifies the surface low and draws in more moisture",
-    "Latent heat released by monsoon cloud condensation further strengthens the circulation ('monsoon engine')"
+    "Classic definition emphasises seasonal wind reversal, not only heavy rain",
+    "Summer: land heats strongly → low pressure over continent → moist onshore flow and rain",
+    "Winter: land cools → higher pressure over continent → dry offshore flow over much of the region",
+    "Pakistan: summer monsoon rains are critical yet spatially uneven; western disturbances dominate much winter precipitation in the north",
+    "Onset, breaks, and withdrawal are as important as total seasonal rainfall",
+    "Teleconnections (ENSO, IOD) modulate monsoon strength and reliability"
   ],
   explanationSections: [
-    { heading: "Why the summer monsoon self-reinforces", body: "As moist air converges and rises, condensation releases latent heat, which strengthens the low-pressure system further, drawing in even more moisture — a positive feedback loop that intensifies the wet summer monsoon." }
+    { heading: "Continent-scale sea breeze", body: "In summer the Asian landmass becomes a heat source relative to the surrounding oceans. Pressure falls inland, and moist air streams onshore. Mountains lift that moisture and organise rain belts. In winter the thermal contrast reverses and much of the flow dries and turns offshore." }
   ],
-  examPoints: ["Winter monsoon = dry, driven by the Siberian High; Summer monsoon = wet, driven by the Monsoon Low — do not swap these"],
+  subtopics: [
+    {
+      id: "meteo-monsoon-system-mechanism",
+      title: "Seasonal mechanism",
+      summary: "Land–ocean heating contrast reverses pressure and wind.",
+      explanation: "The monsoon is not magic rainfall — it is a reversible circulation. Summer continental heating deepens the monsoon trough; cross-equatorial and onshore flows import moisture. Winter continental cooling supports dry northeasterlies over large areas of South Asia.",
+      examples: [
+        { problem: "Why is ‘monsoon’ more than a synonym for ‘rain’?", solution: "The defining idea is seasonal wind/pressure reversal driven by land–ocean contrast; rain is the consequence where moisture and lift coincide.", answer: "Seasonal wind reversal, not rain alone" }
+      ],
+      shortcuts: ["Summer: onshore moist", "Winter: often offshore dry"],
+      traps: ["Defining monsoon only as heavy rain without circulation"]
+    },
+    {
+      id: "meteo-monsoon-system-pakistan",
+      title: "Pakistan and South Asian context",
+      summary: "Uneven summer rains; winter relies more on western disturbances in the north.",
+      explanation: "Monsoon moisture reaches Pakistan mainly from southern approaches, with strong orographic and latitude gradients. Northern winter precipitation is heavily influenced by western disturbances along the subtropical jet — a different regime students must not collapse into ‘monsoon’.",
+      examples: [
+        { problem: "Is Islamabad’s January rain typically monsoon rainfall?", solution: "No. Winter rains in northern Pakistan are largely tied to western disturbances, not the summer monsoon circulation.", answer: "No — western disturbances" }
+      ],
+      shortcuts: ["Summer monsoon ≠ winter WD rains", "Orography shapes who gets rain"],
+      traps: ["Calling all Pakistan rain ‘monsoon’"]
+    }
+  ],
+  comparisonTable: {
+    title: "Summer vs winter monsoon regime (South Asia)",
+    headers: ["Season", "Land vs ocean", "Typical low-level flow"],
+    rows: [
+      ["Summer", "Land hotter", "Moist onshore / monsoon trough"],
+      ["Winter", "Land cooler", "Drier offshore over much of region"]
+    ]
+  },
+  pakistanExamFocus: [
+    "Summer monsoon is vital but uneven across Pakistan",
+    "Northern winter precipitation: western disturbances, not summer monsoon",
+    "Onset/breaks/withdrawal matter for agriculture and exam framing"
+  ],
+  examPoints: [
+    "Monsoon = seasonal wind reversal + rainfall regime",
+    "Driven by land–ocean differential heating",
+    "Do not confuse summer monsoon with winter western disturbances"
+  ],
   commonMistakes: [
-    "Thinking monsoon is only rain — it is a seasonal wind reversal with wet/dry impacts.",
-    "Crediting only land–sea heating and ignoring orography and ocean conditions.",
-    "Assuming the South Asian monsoon is identical every year.",
-    "Mixing onset date myths with rainfall totals as the only metric.",
+    "Equating monsoon solely with rainfall amount.",
+    "Ignoring seasonal wind reversal.",
+    "Mixing western disturbances into summer monsoon.",
+    "Assuming uniform rainfall everywhere in Pakistan."
   ],
   relatedTopics: ["meteo-local-seasonal-winds", "meteo-indian-ocean-monsoon", "meteo-enso-basics"],
   content: true,
@@ -1721,27 +1810,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 7,
   title: "Global Atmospheric Circulation (Three-Cell Model)",
-  definition: "Earth's general circulation transports heat from the tropics to the poles through three circulation cells per hemisphere: the Hadley Cell, Ferrel Cell, and Polar Cell.",
+  definition: "The three-cell model divides each hemisphere into Hadley, Ferrel, and polar cells that summarise average meridional overturning and surface wind belts: trades, westerlies, and polar easterlies. It is a teaching idealisation — real flow includes monsoons, waves, and strong seasonal shifts — but it organises global wind and pressure belts for exams.",
   keyFacts: [
-    "Hadley Cell (0°–30°): equatorial rising air forms the doldrums/ITCZ; air sinks near 30° forming subtropical highs (horse latitudes)",
-    "Trade winds flow from subtropical highs back toward the equator, deflected by Coriolis (NE trades in N. Hemisphere, SE trades in S. Hemisphere)",
-    "Ferrel Cell (30°–60°): thermally indirect; surface flow deflected into the prevailing westerlies",
-    "Polar Cell (60°–pole): cold air sinks at the poles (polar highs), flows equatorward as polar easterlies",
-    "Polar front (~60°): where polar easterlies meet the westerlies, producing the subpolar low and cyclonic storm development"
+    "Hadley cell: tropics — rising near equator (ITC Z), poleward aloft, sinking in subtropics (~30°)",
+    "Subtropical highs and trade winds are Hadley-related surface features",
+    "Ferrel cell: mid-latitudes — indirect cell with surface westerlies",
+    "Polar cell: polar highs, polar easterlies, polar front near ~60°",
+    "ITC Z migrates seasonally toward the summer hemisphere",
+    "Model assumes zonal symmetry; continents and monsoons break that symmetry"
   ],
   explanationSections: [
-    { heading: "The ITCZ", body: "The Intertropical Convergence Zone is where the NE and SE trade winds converge near the equator, associated with the Hadley cell's rising branch and heavy convective rainfall." }
+    { heading: "Cells as a map of average motion", body: "Unequal solar heating drives rising motion in the tropics and sinking in the subtropics. Coriolis turns the returning flows into trades and shapes the mid-latitude westerlies. Use the model to place deserts under subtropical subsidence and storm tracks under the polar front — then remember the real atmosphere is wave-filled." }
   ],
-  examPoints: ["Only the Ferrel Cell is described as thermally indirect — Hadley and Polar cells are thermally direct"],
+  subtopics: [
+    {
+      id: "meteo-global-circulation-hadley",
+      title: "Hadley cell and tropics–subtropics",
+      summary: "Equatorial rise, subtropical sink, trades, subtropical highs.",
+      explanation: "Warm air rises in the equatorial rain belt, moves poleward aloft, cools, and sinks near 30°, feeding the subtropical high-pressure belt and the equatorward trade winds at the surface. Many of the world’s deserts sit under that subsidence.",
+      examples: [
+        { problem: "Why are many great deserts near 30° latitude?", solution: "Hadley-related subtropical subsidence suppresses precipitation under the subtropical highs.", answer: "Subtropical subsidence / highs" }
+      ],
+      shortcuts: ["Rise at ITCZ", "Sink ~30° → deserts/trades"],
+      traps: ["Placing subtropical deserts at the equator"]
+    },
+    {
+      id: "meteo-global-circulation-ferrel-polar",
+      title: "Ferrel and polar cells",
+      summary: "Mid-latitude westerlies and polar easterlies meet at the polar front.",
+      explanation: "The Ferrel cell is thermally indirect in the classical picture and hosts the surface westerlies. Near 60°, mid-latitude air meets polar air along the polar front — the baroclinic zone of extratropical cyclones. Polar easterlies outflow from polar highs.",
+      examples: [
+        { problem: "Surface mid-latitude winds in the three-cell model are predominantly from which direction?", solution: "Westerlies — west to east in both hemispheres’ mid-latitudes.", answer: "Westerlies" }
+      ],
+      shortcuts: ["Mid-latitudes: westerlies", "Polar front ~60°"],
+      traps: ["Claiming surface easterlies dominate mid-latitudes"]
+    }
+  ],
   comparisonTable: {
-    headers: ["Cell", "Latitude band", "Surface wind produced"],
-    rows: [["Hadley", "0°–30°", "Trade winds"], ["Ferrel", "30°–60°", "Westerlies"], ["Polar", "60°–pole", "Polar easterlies"]]
+    title: "Three cells (each hemisphere)",
+    headers: ["Cell", "Approx. latitudes", "Surface wind belt"],
+    rows: [
+      ["Hadley", "0°–30°", "Trades"],
+      ["Ferrel", "30°–60°", "Westerlies"],
+      ["Polar", "60°–90°", "Polar easterlies"]
+    ]
   },
+  examPoints: [
+    "Hadley, Ferrel, polar cells",
+    "Subtropical subsidence and deserts near 30°",
+    "Mid-latitude surface westerlies",
+    "Idealised model — monsoons and waves modify reality"
+  ],
   commonMistakes: [
-    "Drawing one single Hadley cell from equator to pole (obsolete single-cell picture).",
-    "Confusing trade winds, westerlies, and polar easterlies belts.",
-    "Thinking the ITCZ is fixed on the geographic equator year-round.",
-    "Ignoring seasonal migration of cells and jet features.",
+    "Treating cells as rigid walls with no seasonal motion.",
+    "Putting the ITCZ permanently on the equator only.",
+    "Confusing upper and surface branches.",
+    "Ignoring that the Ferrel cell is a statistical/indirect construct."
   ],
   relatedTopics: ["meteo-jet-stream", "meteo-global-precip-patterns", "meteo-rossby-waves"],
   content: true,
@@ -1755,79 +1879,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 8,
   title: "Rossby Waves (Planetary Waves)",
-  definition: "Rossby waves are large-scale, meandering waves in the mid-latitude westerlies caused by the conservation of absolute vorticity and the latitudinal variation of the Coriolis parameter (the β-effect); they steer synoptic weather systems and are the primary mechanism of poleward heat transport in the mid-latitudes.",
+  definition: "Rossby waves are large-scale meanders of the mid-latitude westerly flow, spanning thousands of kilometres. Their troughs and ridges organise surface cyclones and anticyclones and explain much of week-to-week weather pattern change in the extratropics.",
   keyFacts: [
-    "Wavelengths typically 3 000–8 000 km; usually 3–6 waves around a hemisphere",
-    "Propagate westward relative to the mean flow; stationary or slow-moving when the mean westerly wind balances the westward phase speed",
-    "Arise from conservation of absolute vorticity: as air moves poleward, planetary vorticity (f) increases, so relative vorticity must decrease (anticyclonic curvature), and vice versa",
-    "Responsible for the trough–ridge pattern seen on upper-level charts; troughs are associated with cold air and surface cyclones, ridges with warm air and surface anticyclones",
-    "Amplified (high-amplitude) Rossby waves produce blocking patterns and extreme weather; low-amplitude waves give progressive, milder weather"
+    "Planetary-scale waves on the jet stream / westerly belt",
+    "Troughs: southward dips of the height contours — favour cyclonic activity",
+    "Ridges: northward bulges — favour quieter, often warmer patterns in the NH mid-latitudes",
+    "Wavelengths of thousands of kilometres; periods of days to weeks",
+    "Steering influence on surface storm tracks",
+    "Blocking patterns occur when amplified waves become quasi-stationary"
   ],
   explanationSections: [
+    { heading: "Meanders, not straight belts", body: "The three-cell model’s westerlies are zonally averaged. Instantaneously the flow buckles into Rossby waves. Downstream of upper troughs, divergence aloft often supports surface lows; under strong ridges, settled weather is more likely." }
+  ],
+  subtopics: [
     {
-      heading: "The β-effect and wave formation",
-      body: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. This restoring mechanism produces the oscillatory Rossby-wave pattern."
+      id: "meteo-rossby-waves-structure",
+      title: "Troughs and ridges",
+      summary: "Wave geometry on upper-level charts.",
+      explanation: "On a 500 hPa chart, a trough is a southward meander of height contours; a ridge is a northward meander. Surface cyclones preferentially develop and track in relation to upper troughs, while ridges support high pressure and suppressed storminess.",
+      examples: [
+        { problem: "An amplified upper trough digs over the North Atlantic. What surface response is favoured downstream of the trough axis in the standard coupling?", solution: "Enhanced cyclonic development / storminess related to upper-level divergence patterns ahead of the trough.", answer: "Surface cyclogenesis / storm track support" }
+      ],
+      shortcuts: ["Trough → cyclonic support", "Ridge → quieter/warmer (typical NH)"],
+      traps: ["Reading trough/ridge only on surface charts without upper context"]
     },
     {
-      heading: "Steering of weather systems",
-      body: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft that intensifies a surface low; a ridge provides the convergence that strengthens a surface high."
+      id: "meteo-rossby-waves-blocking",
+      title: "Slow waves and blocking",
+      summary: "When waves stall, weather regimes persist.",
+      explanation: "If a ridge–trough pattern becomes quasi-stationary, regions can experience prolonged heat, drought, cold, or rain — blocking. Exam questions link persistent extremes to stagnant planetary-wave patterns as well as to local factors.",
+      examples: [
+        { problem: "A region stays under the same upper ridge for two weeks with heat and little rain. What wave behaviour is implicated?", solution: "A quasi-stationary amplified ridge — a blocking-type pattern.", answer: "Blocking / stationary ridge" }
+      ],
+      shortcuts: ["Stationary waves → persistent weather", "Blocking = stuck pattern"],
+      traps: ["Attributing all extremes only to local breezes"]
     }
   ],
+  comparisonTable: {
+    title: "Upper-wave features",
+    headers: ["Feature", "Contour shape (NH)", "Typical surface link"],
+    rows: [
+      ["Trough", "Southward dip", "Cyclones / unsettled"],
+      ["Ridge", "Northward bulge", "Highs / quieter"]
+    ]
+  },
   examPoints: [
-    "Rossby waves are the longwave (planetary-scale) features that steer synoptic-scale storms",
-    "Number of waves around the hemisphere is typically 3–6; higher wave numbers = shorter, faster-moving waves",
-    "Blocking occurs when a high-amplitude ridge becomes quasi-stationary"
+    "Rossby waves = planetary meanders of westerlies",
+    "Troughs and ridges organise surface weather",
+    "Blocking = quasi-stationary amplified pattern"
   ],
   commonMistakes: [
-    "Thinking Rossby waves are ocean-only phenomena.",
-    "Confusing wavelength with phase-speed behaviour.",
-    "Ignoring their role in heat transport and blocking patterns.",
-    "Mixing Rossby waves with ordinary gravity waves.",
+    "Confusing Rossby waves with ocean waves or sound waves.",
+    "Ignoring upper-level pattern when explaining persistent weather.",
+    "Treating the jet as always zonal with no meanders.",
+    "Mixing tropical cyclone scales with planetary waves."
   ],
   relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development", "meteo-isobar-analysis"],
-    subtopics: [
-      {
-        id: "meteo-rossby-waves-the-effect-and-wave-formation",
-        title: "The β-effect and wave formation",
-        summary: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an…",
-        explanation: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. This restoring mechanism produces the oscillatory Rossby-wave pattern.",
-                examples: [
-          {
-            problem: "Which statement best matches “The β-effect and wave formation”?",
-            solution: "The accurate idea is: Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The β-effect and wave formation.",
-            solution: "Stay close to the text: Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. This restoring mechanism produces the osc… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-rossby-waves-steering-of-weather-systems",
-        title: "Steering of weather systems",
-        summary: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft…",
-        explanation: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft that intensifies a surface low; a ridge provides the convergence that strengthens a surface high.",
-                examples: [
-          {
-            problem: "Which statement best matches “Steering of weather systems”?",
-            solution: "The accurate idea is: Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Steering of weather systems.",
-            solution: "Stay close to the text: Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft that intensifies a surface low; a ridge provides the convergence that strengthens a … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-global-circulation", "meteo-jet-stream"],
   leadsTo: ["meteo-cyclones-development"],
@@ -1839,32 +1946,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 9,
   title: "Upper-Air Charts & Constant-Pressure Analysis",
-  definition: "Upper-air charts display the height of a constant-pressure surface (or the pressure on a constant-height surface) together with temperature, wind and moisture; the most used levels are 850, 700, 500, 300 and 250 hPa.",
+  definition: "Upper-air charts display the height of a constant-pressure surface (such as 500 hPa) or other upper-level fields. Because of hydrostatic and geostrophic relationships, height contours encode thermal structure and approximate wind. They are essential for diagnosing troughs, ridges, jets, and storm support.",
   keyFacts: [
-    "Constant-pressure charts: contours of geopotential height (dam); closely analogous to isobars on a surface chart",
-    "Standard levels: 850 hPa (~1.5 km), 700 hPa (~3 km), 500 hPa (~5.5 km), 300/250 hPa (jet-stream level)",
-    "500 hPa is the 'steering level' for mid-latitude systems; troughs and ridges at 500 hPa largely determine surface cyclone tracks",
-    "Height contours + temperature → thermal wind and temperature advection; cold advection deepens troughs, warm advection builds ridges",
-    "Jet streaks appear as maxima in the wind field on 300/250 hPa charts; entrance and exit regions are linked to vertical motion"
+    "Common surfaces: 850, 700, 500, 300/250 hPa for different diagnostic jobs",
+    "500 hPa is a classic mid-tropospheric steering-level chart",
+    "Height contours: higher heights ↔ warmer columns (thickness thinking)",
+    "Geostrophic wind flows parallel to height contours (frictionless ideal)",
+    "Troughs and ridges are identified on height fields",
+    "Radiosondes and satellite/aircraft data feed the analyses"
   ],
   explanationSections: [
+    { heading: "Pressure as the vertical coordinate", body: "Instead of mapping pressure on a flat height surface only, meteorologists often map the height of a pressure surface. Warm columns push that surface up; cold columns pull it down. Wind roughly follows the contours, giving a rapid picture of flow and temperature pattern together." }
+  ],
+  subtopics: [
     {
-      heading: "Why constant-pressure charts are preferred",
-      body: "Most large-scale atmospheric motion is quasi-horizontal and nearly parallel to pressure surfaces. Plotting on constant-pressure surfaces therefore shows the true horizontal flow with minimal vertical contamination, and the height field is directly related to the mean temperature of the column below via the hypsometric equation."
+      id: "meteo-upper-air-charts-heights",
+      title: "Height contours and thermal meaning",
+      summary: "High heights over warm columns; low heights over cold columns.",
+      explanation: "From the hypsometric relation, the thickness between pressure surfaces grows with mean virtual temperature. On a single pressure surface, that appears as higher geopotential height in warm ridges and lower height in cold troughs.",
+      examples: [
+        { problem: "A 500 hPa chart shows a deep low-height centre. What thermal character is typical of that column?", solution: "A relatively cold tropospheric column — reduced thickness and lower heights.", answer: "Cold column / trough" }
+      ],
+      shortcuts: ["Warm → high heights", "Cold → low heights"],
+      traps: ["Reading height like surface pressure without thermal context"]
+    },
+    {
+      id: "meteo-upper-air-charts-use",
+      title: "Practical use: wind, waves, steering",
+      summary: "Contour-parallel flow; locate jets, troughs, and storm support.",
+      explanation: "Analysts use upper charts to place the jet, identify Rossby-wave phase, and anticipate where surface cyclones may deepen. 300/250 hPa charts highlight jets; 500 hPa charts are workhorses for trough/ridge structure; 850 hPa helps with lower-level thermal advection and moisture.",
+      examples: [
+        { problem: "Which constant-pressure chart is most often used as a mid-level steering chart in teaching?", solution: "500 hPa — standard mid-tropospheric analysis level.", answer: "500 hPa" }
+      ],
+      shortcuts: ["500 hPa = classic mid-level", "Contours ≈ geostrophic streamlines aloft"],
+      traps: ["Using only surface maps for storm evolution"]
     }
   ],
+  comparisonTable: {
+    title: "Selected pressure surfaces",
+    headers: ["Surface", "Approx. role in analysis"],
+    rows: [
+      ["850 hPa", "Lower-level T/moisture advection"],
+      ["500 hPa", "Mid-level troughs/ridges, steering"],
+      ["300/250 hPa", "Jet stream level"]
+    ]
+  },
   examPoints: [
-    "500 hPa troughs steer surface lows; 500 hPa ridges steer surface highs",
-    "Cold air is associated with lower heights (troughs); warm air with higher heights (ridges)",
-    "Jet stream is best analysed on 300 or 250 hPa charts"
+    "Constant-pressure charts show height of a pressure surface",
+    "Warm columns → higher heights",
+    "500 hPa central for trough/ridge teaching",
+    "Upper wind ≈ parallel to height contours (ideal)"
   ],
   commonMistakes: [
-    "Reading constant-pressure charts as if they were constant-height maps without care.",
-    "Mixing geopotential height gradients with surface isobars one-to-one.",
-    "Ignoring that troughs/ridges aloft steer surface systems.",
-    "Assuming upper-air data are less important than surface maps for forecasting.",
+    "Confusing height contours with surface isobars without adjustment.",
+    "Ignoring thermal meaning of height anomalies.",
+    "Looking only at the surface for cyclone development.",
+    "Mis-identifying trough versus ridge on a height chart."
   ],
-  relatedTopics: ["meteo-rossby-waves", "meteo-jet-stream", "meteo-pressure-conversion", "meteo-cyclones-structure", "meteo-radiosondes", "meteo-hydrostatic-equation"],
+  relatedTopics: ["meteo-rossby-waves", "meteo-jet-stream", "meteo-pressure-conversion", "meteo-cyclones-structure", "meteo-radiosondes"],
   content: true,
   buildsOn: ["meteo-hydrostatic-equation", "meteo-geostrophic-wind"],
   leadsTo: ["meteo-isobar-analysis", "meteo-station-model"],
