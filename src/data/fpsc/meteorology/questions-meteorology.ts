@@ -2532,5 +2532,189 @@ export const questions: Question[] = [
   explanation: "False. The MJO is intraseasonal — typically about 30–60 days — shorter than ENSO’s interannual timescale.",
   sourceCitation: "Aligned to MJO timescale" },
 
+// ---------------------------------------------------------------------------
+// Optional depth polish — hard/application + type diversity on mild gaps
+// ---------------------------------------------------------------------------
+
+// METEO-01 — fuller subtopic coverage
+{ id: "METEO-01-Q027", sectionId: "METEO-01", topicId: "meteo-origin-evolution", difficulty: "hard", type: "single",
+  question: "Why did volcanic CO₂ in the secondary atmosphere not remain at extremely high levels permanently?",
+  options: [
+    "Much of it dissolved into the oceans and reacted with silicate rocks, reducing atmospheric CO₂",
+    "It all escaped to space within one year like hydrogen",
+    "Plants immediately consumed every molecule at 4.6 BYA",
+    "Argon replaced CO₂ as a permanent gas overnight"
+  ],
+  correctAnswer: 0,
+  explanation: "After oceans formed, CO₂ dissolved into seawater and participated in silicate–carbonate weathering reactions, drawing atmospheric CO₂ down from the secondary-atmosphere peak. That ocean–rock storage is a key step between the outgassed atmosphere and the modern composition.",
+  sourceCitation: "Depth polish — origin-evolution applied" },
+
+{ id: "METEO-01-Q028", sectionId: "METEO-01", topicId: "meteo-scales-of-motion", difficulty: "hard", type: "true_false",
+  question: "True or False: Because tornadoes feel severe and large to an observer, they are classified as synoptic-scale systems like mid-latitude cyclones.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Severity is not scale. Tornadoes are mesoscale (or even smaller in path width) and short-lived compared with synoptic cyclones that span hundreds of kilometres and last days.",
+  sourceCitation: "Depth polish — scales trap" },
+
+// METEO-02 — hard items + type diversity
+{ id: "METEO-02-Q041", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "hard", type: "single",
+  question: "On a clear night over land, the surface cools mainly by which process, often helping form a radiation inversion?",
+  options: [
+    "Net longwave radiation loss to space",
+    "Strong daytime solar absorption only",
+    "Only horizontal advection of tropical air",
+    "Only latent heating from condensation at the ground"
+  ],
+  correctAnswer: 0,
+  explanation: "After sunset the ground emits infrared and, under clear skies, receives little downward longwave from clouds. Net radiative loss chills the surface and the air in contact with it — the classic path to a nocturnal radiation inversion.",
+  sourceCitation: "Depth polish — heat-transfer hard" },
+
+{ id: "METEO-02-Q042", sectionId: "METEO-02", topicId: "meteo-radiation-laws", difficulty: "medium", type: "true_false",
+  question: "True or False: A perfect blackbody absorbs all incident radiation at a wavelength and, when warm, is also the strongest possible emitter at that wavelength (Kirchhoff).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Kirchhoff’s law links absorptivity and emissivity at a given wavelength. A blackbody is both a perfect absorber and the ideal emitter for its temperature.",
+  sourceCitation: "Depth polish — radiation-laws type diversity" },
+
+{ id: "METEO-02-Q043", sectionId: "METEO-02", topicId: "meteo-inversion-mechanics", difficulty: "hard", type: "single",
+  question: "Why do surface-based inversions often worsen urban air quality more than a steep daytime lapse rate would?",
+  options: [
+    "They suppress vertical mixing, trapping pollutants near the breathing level",
+    "They force all pollutants into the stratosphere within minutes",
+    "They increase wind speed until every pollutant is diluted globally",
+    "They reverse the meaning of the Beaufort scale"
+  ],
+  correctAnswer: 0,
+  explanation: "Stable inversion layers resist vertical exchange. Emissions accumulate near the surface, raising concentrations. A well-mixed daytime boundary layer dilutes pollutants through a deeper volume.",
+  sourceCitation: "Depth polish — inversion-mechanics hard" },
+
+{ id: "METEO-02-Q044", sectionId: "METEO-02", topicId: "meteo-inversion-types", difficulty: "medium", type: "true_false",
+  question: "True or False: A subsidence inversion is produced by rising unsaturated air cooling at the dry adiabatic rate all the way from the surface.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Subsidence inversions form when air sinks and warms by compression, often creating a warm lid aloft. Rising dry-adiabatic cooling describes ascent, not subsidence.",
+  sourceCitation: "Depth polish — inversion-types type diversity" },
+
+// METEO-03
+{ id: "METEO-03-Q038", sectionId: "METEO-03", topicId: "meteo-local-seasonal-winds", difficulty: "hard", type: "single",
+  question: "After moist air is stripped of water on a mountain’s windward side, descent on the lee often produces which combination?",
+  options: [
+    "Warmer and drier conditions (foehn/chinook-type warming)",
+    "Colder and always foggy conditions only",
+    "No temperature change possible",
+    "Mandatory tropical cyclone formation"
+  ],
+  correctAnswer: 0,
+  explanation: "Windward ascent cools and rains out moisture; lee descent warms the air compressively while the absolute moisture remains low — the classic warm, dry foehn/chinook signature.",
+  sourceCitation: "Depth polish — local winds hard" },
+
+{ id: "METEO-03-Q039", sectionId: "METEO-03", topicId: "meteo-gradient-wind", difficulty: "medium", type: "true_false",
+  question: "True or False: Around an upper-level high, gradient wind is typically supergeostrophic (faster than pure geostrophic for the same gradient).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. In anticyclonic flow the force balance yields supergeostrophic speeds; cyclonic curved flow is typically subgeostrophic.",
+  sourceCitation: "Depth polish — gradient-wind type diversity" },
+
+{ id: "METEO-03-Q040", sectionId: "METEO-03", topicId: "meteo-global-circulation", difficulty: "hard", type: "true_false",
+  question: "True or False: In the idealised three-cell model, the Ferrel cell is thermally direct — driven solely by heating at 60° and cooling at 30° like a simple Hadley loop.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. The Ferrel cell is the thermally indirect mid-latitude cell; its sense of overturning is maintained by eddies and interaction with the Hadley and polar cells, not by simple tropical-style thermal directness.",
+  sourceCitation: "Depth polish — global circulation type diversity" },
+
+// METEO-05
+{ id: "METEO-05-Q031", sectionId: "METEO-05", topicId: "meteo-tornadoes", difficulty: "medium", type: "true_false",
+  question: "True or False: Most violent tornadoes are associated with supercells that maintain a rotating updraft (mesocyclone).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Supercell mesocyclones provide the organised rotation from which the strongest tornadoes most often form. Ordinary single cells rarely produce violent tornadoes.",
+  sourceCitation: "Depth polish — tornadoes type diversity" },
+
+// METEO-06
+{ id: "METEO-06-Q037", sectionId: "METEO-06", topicId: "meteo-remote-sensing", difficulty: "hard", type: "true_false",
+  question: "True or False: Infrared satellite imagery is useless at night because it depends entirely on reflected sunlight like visible imagery.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Infrared sensors measure emitted thermal radiation, so they operate day and night. Visible channels need sunlight and go dark after sunset.",
+  sourceCitation: "Depth polish — remote-sensing type diversity" },
+
+// METEO-10
+{ id: "METEO-10-Q013", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "hard", type: "true_false",
+  question: "True or False: A forecast can have a small RMSE yet still show little skill if a simple climatology forecast would have performed almost as well.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Skill measures improvement over a baseline (climatology or persistence). Low error alone does not prove the forecast beat an easy reference.",
+  sourceCitation: "Depth polish — forecast-skill type diversity" },
+
+// METEO-13 — denser oscillation practice (+1 each)
+{ id: "METEO-13-Q025", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "hard", type: "single",
+  question: "During a strong El Niño, convection and rainfall anomalies in the tropical Pacific typically shift:",
+  options: [
+    "Eastward toward the central/eastern Pacific as the Walker cell weakens",
+    "Permanently only over Greenland",
+    "Only into the stratospheric polar vortex",
+    "Nowhere — convection never moves"
+  ],
+  correctAnswer: 0,
+  explanation: "El Niño warms the central/eastern equatorial Pacific and weakens the trades, so the main convective centre migrates east from its usual western Pacific home as the Walker circulation relaxes or shifts.",
+  sourceCitation: "Depth polish — ENSO application" },
+
+{ id: "METEO-13-Q026", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "hard", type: "true_false",
+  question: "True or False: Western boundary currents in subtropical gyres are typically narrow and strong compared with the broad, slower flow on the eastern side of the basin.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Western intensification produces swift, narrow currents such as the Gulf Stream and Kuroshio, while eastern boundary flows are broader and weaker.",
+  sourceCitation: "Depth polish — ocean currents" },
+
+{ id: "METEO-13-Q027", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "hard", type: "single",
+  question: "Why should an FPSC-style answer avoid saying “El Niño always causes drought in Pakistan”?",
+  options: [
+    "Teleconnections change odds, not certainties, and other modes can dominate a given year",
+    "Pakistan has no summer rainfall in any climate dataset",
+    "ENSO only affects the Southern Hemisphere",
+    "Drought is defined only by Beaufort force"
+  ],
+  correctAnswer: 0,
+  explanation: "ENSO shifts probabilities. IOD phase, monsoon internal variability, and regional dynamics can produce outcomes that break a simple El Niño → drought rule.",
+  sourceCitation: "Depth polish — ENSO impacts application" },
+
+{ id: "METEO-13-Q028", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "hard", type: "true_false",
+  question: "True or False: A positive IOD places cooler-than-normal SST in the eastern equatorial Indian Ocean and warmer SST toward the west.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. That east-cool / west-warm dipole, with matching wind anomalies, defines the positive IOD phase.",
+  sourceCitation: "Depth polish — IOD" },
+
+{ id: "METEO-13-Q029", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "hard", type: "single",
+  question: "How is the Arctic Oscillation (AO) best distinguished from ENSO in exam answers?",
+  options: [
+    "AO is a high-latitude annular atmospheric mode; ENSO is a tropical Pacific coupled ocean–atmosphere mode",
+    "AO is identical to the Indian Ocean Dipole",
+    "AO only measures monsoon onset dates in Karachi",
+    "AO replaces the need for any pressure observations"
+  ],
+  correctAnswer: 0,
+  explanation: "Keep the basins and timescales straight: AO/NAO live in high-latitude pressure patterns; ENSO lives in tropical Pacific SST and Walker circulation coupling.",
+  sourceCitation: "Depth polish — NAO/AO" },
+
+{ id: "METEO-13-Q030", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "hard", type: "single",
+  question: "Why is the MJO especially useful for sub-seasonal monsoon forecasting?",
+  options: [
+    "It organises active and break spells on roughly 30–60 day timescales inside the season",
+    "It sets the 100,000-year eccentricity cycle",
+    "It replaces all NWP models permanently",
+    "It only forecasts tomorrow’s persistence"
+  ],
+  correctAnswer: 0,
+  explanation: "The MJO’s intraseasonal convective pulse modulates weekly-to-monthly rainfall bursts and breaks — the timescale between daily weather and seasonal ENSO.",
+  sourceCitation: "Depth polish — MJO application" },
+
+{ id: "METEO-13-Q031", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "hard", type: "true_false",
+  question: "True or False: AMOC slowdown research implies that global greenhouse warming stops being relevant to North Atlantic climate.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. AMOC changes redistribute heat regionally within a greenhouse-warmed climate system. They do not cancel the global CO₂ forcing story; both can matter together.",
+  sourceCitation: "Depth polish — AMOC" },
+
 
 ];
