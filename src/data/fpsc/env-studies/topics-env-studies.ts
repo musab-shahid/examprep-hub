@@ -56,7 +56,18 @@ explanationSections: [
         title: "Why the four-sphere framework matters",
         summary: "Environmental problems rarely stay inside a single sphere of the Earth system. Smoke released into the atmosphere can form acids that later…",
         explanation: "Environmental problems rarely stay inside a single sphere of the Earth system. Smoke released into the atmosphere can form acids that later fall in rain, changing the chemistry of rivers and lakes in the hydrosphere and the soils of the lithosphere, and then affecting plants, animals, and people in the biosphere. The four-sphere picture is therefore a way of tracing connections rather than a set of isolated boxes.\n\nWhen you analyse a case — urban smog, oil pollution, or deforestation — it helps to ask which sphere is the main source of the stress and which spheres receive the consequences. That habit turns vocabulary into a tool for explanation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the four-sphere framework matters”?",
+            solution: "The accurate idea is: Environmental problems rarely stay inside a single sphere of the Earth system. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Environmental problems rarely stay inside a single sphere of the Earth system.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the four-sphere framework matters.",
+            solution: "Stay close to the text: Environmental problems rarely stay inside a single sphere of the Earth system. Smoke released into the atmosphere can form acids that later fall in rain, changing the chemistry of rivers and lakes in the hydrosphere and … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -65,7 +76,18 @@ explanationSections: [
         title: "Core distinctions in environmental vocabulary",
         summary: "Several paired terms appear throughout environmental studies. Biotic factors are living; abiotic factors are non-living physical and…",
         explanation: "Several paired terms appear throughout environmental studies. Biotic factors are living; abiotic factors are non-living physical and chemical conditions. A habitat is the place where an organism lives; a niche is the role it plays, including how it obtains energy and interacts with others. A population is a group of one species in an area; a community is the set of populations that live together there.\n\nEcology is the scientific study of those relationships. An ecosystem is the working unit formed when a community interacts with its abiotic environment. Keeping the pairs distinct prevents circular definitions and makes later topics — pollution, conservation, productivity — easier to read with precision.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Core distinctions in environmental vocabulary”?",
+            solution: "The accurate idea is: Several paired terms appear throughout environmental studies. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Several paired terms appear throughout environmental studies.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Core distinctions in environmental vocabulary.",
+            solution: "Stay close to the text: Several paired terms appear throughout environmental studies. Biotic factors are living; abiotic factors are non-living physical and chemical conditions. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -74,7 +96,18 @@ explanationSections: [
         title: "Brundtland and the three pillars",
         summary: "The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the…",
         explanation: "The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. The definition is deliberately broad: it links human development to limits on what the environment and future societies can bear.\n\nThe three pillars — economic, social, and environmental — underline that a project can fail sustainability even if it is profitable, if it undermines social well-being or ecological systems. Related principles, such as taking precaution under uncertainty and requiring polluters to bear the costs of the damage they cause, give the idea operational content in policy.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Brundtland and the three pillars”?",
+            solution: "The accurate idea is: The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet the…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Brundtland and the three pillars.",
+            solution: "Stay close to the text: The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. The definition is delibera… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -137,7 +170,18 @@ explanationSections: [
         title: "Why carrying capacity matters",
         summary: "Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without…",
         explanation: "Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. It is not a fixed number stamped on the landscape. Food supply, disease, climate, and human management can raise or lower it.\n\nPopulation models often contrast exponential growth, which assumes unlimited resources, with logistic growth, in which growth slows as the population approaches carrying capacity. The S-shaped logistic curve is a teaching model; real populations fluctuate around limits rather than sitting perfectly on a single K value.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why carrying capacity matters”?",
+            solution: "The accurate idea is: Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why carrying capacity matters.",
+            solution: "Stay close to the text: Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. It is not a fixed number stamped on the landscape. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -146,7 +190,18 @@ explanationSections: [
         title: "Ecological footprint and biocapacity",
         summary: "Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land…",
         explanation: "Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Biocapacity estimates the productive capacity available to regenerate resources and absorb wastes.\n\nWhen footprint exceeds biocapacity, the system is in ecological overshoot: present consumption draws on stocks faster than they renew. Footprint answers how much demand we place on nature; biocapacity answers how much supply is available. Mixing the two terms blurs that demand–supply comparison.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Ecological footprint and biocapacity”?",
+            solution: "The accurate idea is: Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dio…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Ecological footprint and biocapacity.",
+            solution: "Stay close to the text: Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Biocapacity estimates the producti… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -155,7 +210,18 @@ explanationSections: [
         title: "Pakistan and global context",
         summary: "National averages can hide sharp differences between countries and within them. A country may show a modest average footprint per person…",
         explanation: "National averages can hide sharp differences between countries and within them. A country may show a modest average footprint per person and still run an ecological deficit if biocapacity per person is lower still. Global overshoot is the aggregate result of many such imbalances.\n\nFor Pakistan, the useful study point is the relationship between limited biocapacity, population pressure, and resource management — not a single league-table number in isolation. Footprint language connects daily consumption and national production patterns to land and climate constraints discussed later under water, energy, and land use.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pakistan and global context”?",
+            solution: "The accurate idea is: National averages can hide sharp differences between countries and within them. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "National averages can hide sharp differences between countries and within them.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pakistan and global context.",
+            solution: "Stay close to the text: National averages can hide sharp differences between countries and within them. A country may show a modest average footprint per person and still run an ecological deficit if biocapacity per person is lower still. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -217,7 +283,18 @@ explanationSections: [
         title: "Why the 10% rule matters",
         summary: "As energy moves from one trophic level to the next, only a fraction is stored in new biomass. A common teaching approximation is that about…",
         explanation: "As energy moves from one trophic level to the next, only a fraction is stored in new biomass. A common teaching approximation is that about ten percent of the energy at one level is incorporated into the next, while the rest is lost as heat through respiration, used in activity, or remains unconsumed. The exact percentage varies, but the direction of the loss does not.\n\nThat loss limits food-chain length. There is simply less energy available to support top predators than to support the plants and algae at the base. The rule also explains why human diets based on plants can support more people from the same primary production than diets that rely heavily on meat from animals that have already paid the energy tax of an extra trophic step.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the 10% rule matters”?",
+            solution: "The accurate idea is: As energy moves from one trophic level to the next, only a fraction is stored in new biomass. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "As energy moves from one trophic level to the next, only a fraction is stored in new biomass.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the 10% rule matters.",
+            solution: "Stay close to the text: As energy moves from one trophic level to the next, only a fraction is stored in new biomass. A common teaching approximation is that about ten percent of the energy at one level is incorporated into the next, while the … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -226,7 +303,18 @@ explanationSections: [
         title: "Food chains and food webs",
         summary: "A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Real ecosystems are…",
         explanation: "A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Real ecosystems are better described as food webs, in which many chains interlock because most animals eat more than one kind of food and are eaten by more than one consumer.\n\nWebs are not only more realistic; they also help explain resilience. If one link weakens, alternative pathways may still move energy through the community. Chains remain useful for teaching trophic levels; webs are closer to how ecosystems actually function.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Food chains and food webs”?",
+            solution: "The accurate idea is: A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Food chains and food webs.",
+            solution: "Stay close to the text: A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Real ecosystems are better described as food webs, in which many chains interlock because most animals eat… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -235,7 +323,18 @@ explanationSections: [
         title: "Energy flows while matter cycles",
         summary: "Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. It does not cycle back to the sun for reuse inside…",
         explanation: "Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. It does not cycle back to the sun for reuse inside the system. Matter, by contrast — carbon, nitrogen, water, and other nutrients — moves between living organisms and abiotic reservoirs and can be used again and again.\n\nThis contrast is foundational. Pollution and nutrient problems are largely stories about where matter is moved and concentrated. Limits on food-chain length and the shape of energy pyramids are stories about one-way energy loss.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Energy flows while matter cycles”?",
+            solution: "The accurate idea is: Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Energy flows while matter cycles.",
+            solution: "Stay close to the text: Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. It does not cycle back to the sun for reuse inside the system. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -292,7 +391,18 @@ explanationSections: [
         title: "Three kinds of ecological pyramid",
         summary: "Pyramids of numbers count individuals at each trophic level. Pyramids of biomass measure the mass of living material. Pyramids of energy…",
         explanation: "Pyramids of numbers count individuals at each trophic level. Pyramids of biomass measure the mass of living material. Pyramids of energy show the flow of energy through each level over a period of time.\n\nNumbers and biomass pyramids can invert. A single large tree may support thousands of insects; a brief bloom of phytoplankton may feed a greater biomass of zooplankton at certain times. An energy pyramid does not invert in the same way, because energy transfer is governed by losses at every step.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Three kinds of ecological pyramid”?",
+            solution: "The accurate idea is: Pyramids of numbers count individuals at each trophic level. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pyramids of numbers count individuals at each trophic level.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Three kinds of ecological pyramid.",
+            solution: "Stay close to the text: Pyramids of numbers count individuals at each trophic level. Pyramids of biomass measure the mass of living material. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -301,7 +411,18 @@ explanationSections: [
         title: "The energy pyramid and the 10% idea",
         summary: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less.…",
         explanation: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Plotting those quantities produces a broad base and a narrow top. The diagram is a visual form of the same thermodynamic story told by the ten percent teaching rule.\n\nBecause energy pyramids rest on measured or estimated flows over time, they are the most reliable of the three for comparing how productive different levels are, independent of whether organisms are large or small, numerous or few.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The energy pyramid and the 10% idea”?",
+            solution: "The accurate idea is: If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The energy pyramid and the 10% idea.",
+            solution: "Stay close to the text: If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Plotting those quantities produces a broad base and a narrow top. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -310,7 +431,18 @@ explanationSections: [
         title: "Reading inverted pyramids carefully",
         summary: "An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes.…",
         explanation: "An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Biomass inversions in aquatic systems often reflect rapid turnover: small producers reproduce quickly even if their standing biomass is modest.\n\nWhen a question asks which pyramid is always upright, the intended answer is the energy pyramid. When it asks why a numbers pyramid can look inverted, the answer lies in organism size and counting method, not in a reversal of energy flow.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading inverted pyramids carefully”?",
+            solution: "The accurate idea is: An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading inverted pyramids carefully.",
+            solution: "Stay close to the text: An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Biomass inversions in aquatic systems often reflect rapid turnover: small producers r… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -402,7 +534,18 @@ explanationSections: [
         title: "Carbon and phosphorus cycles",
         summary: "Two cycles with contrasting atmospheric roles.",
         explanation: "In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Oceans and sediments store vast amounts of carbon; fossil fuels are concentrated geological stores. Burning those stores and clearing forests raise atmospheric carbon dioxide.\n\nThe phosphorus cycle lacks a major atmospheric gas phase comparable to carbon dioxide or nitrogen gas. Phosphorus moves chiefly through rock, water, soil, and organisms. That difference is a standard contrast in examinations: phosphorus is often limited in freshwaters and is tightly linked to mining and fertiliser runoff rather than to a well-mixed atmospheric pool.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Carbon and phosphorus cycles”?",
+            solution: "The accurate idea is: In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Carbon and phosphorus cycles.",
+            solution: "Stay close to the text: In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Oceans and sediments store vast amounts of carbon; fossil fuels are concentrated geological stores. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Carbon has a large atmospheric leg; phosphorus does not",
         ],
@@ -415,7 +558,18 @@ explanationSections: [
         title: "Nitrogen fixation and human amplification",
         summary: "From inert N₂ to reactive nitrogen in ecosystems.",
         explanation: "Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Nitrogen fixation—by certain microbes, by lightning, and by industrial processes such as the Haber–Bosch pathway—converts nitrogen into reactive forms that enter soils and waters.\n\nHuman fertiliser production has greatly increased the flow of reactive nitrogen. Benefits to crop yield come with costs when excess nitrate runs off into water bodies, contributing to eutrophication, or when nitrogen oxides from combustion feed air pollution and deposition.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Nitrogen fixation and human amplification”?",
+            solution: "The accurate idea is: Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Nitrogen fixation and human amplification.",
+            solution: "Stay close to the text: Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms. Nitrogen fixationâby certain microbes, by lightning, and by industrial processes such as the HaberâBosch pathwayâconverts nitrogen … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Fixation unlocks N₂; excess reactive nitrogen stresses water and air",
         ],
@@ -482,7 +636,18 @@ explanationSections: [
         title: "Ecosystem services",
         summary: "Biodiversity matters partly because ecosystems provide services that human societies rely on. Provisioning services supply food, fibre,…",
         explanation: "Biodiversity matters partly because ecosystems provide services that human societies rely on. Provisioning services supply food, fibre, fuel, and freshwater. Regulating services include climate moderation, flood buffering, and disease regulation. Cultural services cover recreation, identity, and education. Supporting services, such as nutrient cycling and soil formation, underpin the others.\n\nFraming nature only as scenery misses these functions. Framing it only as a warehouse of products misses regulation and long-term support. A balanced account uses all four service types.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Ecosystem services”?",
+            solution: "The accurate idea is: Biodiversity matters partly because ecosystems provide services that human societies rely on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Biodiversity matters partly because ecosystems provide services that human societies rely on.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Ecosystem services.",
+            solution: "Stay close to the text: Biodiversity matters partly because ecosystems provide services that human societies rely on. Provisioning services supply food, fibre, fuel, and freshwater. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -491,7 +656,18 @@ explanationSections: [
         title: "Genetic, species, and ecosystem diversity",
         summary: "Genetic diversity is variation within a species. It allows populations to adapt to disease and environmental change. Species diversity is…",
         explanation: "Genetic diversity is variation within a species. It allows populations to adapt to disease and environmental change. Species diversity is the variety of species in a place. Ecosystem diversity is the variety of habitats and ecological communities across a landscape.\n\nAlpha, beta, and gamma diversity are related measurement ideas: diversity within a site, difference between sites, and diversity of a whole region. The vocabulary is less important than the insight that 'how many species here' is not the only question — structure across space matters too.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Genetic, species, and ecosystem diversity”?",
+            solution: "The accurate idea is: Genetic diversity is variation within a species. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Genetic diversity is variation within a species.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Genetic, species, and ecosystem diversity.",
+            solution: "Stay close to the text: Genetic diversity is variation within a species. It allows populations to adapt to disease and environmental change. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -500,7 +676,18 @@ explanationSections: [
         title: "Hotspots and the idea of priority",
         summary: "Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their…",
         explanation: "Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. The hotspot idea is a prioritisation tool: it focuses limited conservation resources where unique species and high threat coincide.\n\nThreshold definitions used in the literature (including endemism and habitat-loss criteria) are conventions for ranking urgency. They do not mean that non-hotspot areas lack value; they mean that loss in hotspots destroys species found nowhere else at a particularly high rate.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hotspots and the idea of priority”?",
+            solution: "The accurate idea is: Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hotspots and the idea of priority.",
+            solution: "Stay close to the text: Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. The hotspot idea is a prioritisation tool: it focuses limited conse… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -565,7 +752,18 @@ explanationSections: [
         title: "Habitat loss as the leading threat",
         summary: "Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed,…",
         explanation: "Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Roads and settlements can split remaining habitat into patches that are too small or too isolated to sustain viable populations.\n\nOther pressures — invasive species, pollution, overexploitation, and climate change — often act on top of habitat loss rather than instead of it. Ranking habitat change first is an empirical generalisation about global patterns, not a claim that other threats are unimportant in particular places.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Habitat loss as the leading threat”?",
+            solution: "The accurate idea is: Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Habitat loss as the leading threat.",
+            solution: "Stay close to the text: Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Roads and settlements can split remaining habitat into patches t… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -574,7 +772,18 @@ explanationSections: [
         title: "The IUCN Red List as a status language",
         summary: "The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and…",
         explanation: "The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. The list is a shared language for scientists and policymakers; it is not itself a law.\n\nOrder matters when reading options. A critically endangered species faces a higher assessed risk than a vulnerable one. Categories can change as new data arrive, so the list is a living assessment rather than a permanent label.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The IUCN Red List as a status language”?",
+            solution: "The accurate idea is: The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and ext…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The IUCN Red List as a status language.",
+            solution: "Stay close to the text: The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. The list is a shared language for … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -583,7 +792,18 @@ explanationSections: [
         title: "Human population and consumption",
         summary: "Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person…",
         explanation: "Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Affluent consumption patterns can stress ecosystems far from the consumer through trade.\n\nThreat frameworks sometimes use memory aids that list habitat loss, invasive species, pollution, population, and overharvest. The value of such lists is organisation; the substance is understanding mechanisms in real landscapes.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Human population and consumption”?",
+            solution: "The accurate idea is: Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organis…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Human population and consumption.",
+            solution: "Stay close to the text: Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Affluent consumption patterns can st… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -642,7 +862,18 @@ explanationSections: [
         title: "In-situ and ex-situ conservation",
         summary: "In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. It…",
         explanation: "In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. It preserves not only target species but also the ecological relationships that sustain them. Ex-situ conservation keeps organisms outside their natural habitats — in zoos, aquaria, seed banks, and captive breeding programmes.\n\nEx-situ methods can rescue populations on the brink and store genetic material, but they cannot replace functioning ecosystems at scale. Strong programmes often combine both: protected habitats in the wild, with captive or stored populations as insurance.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “In-situ and ex-situ conservation”?",
+            solution: "The accurate idea is: In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying In-situ and ex-situ conservation.",
+            solution: "Stay close to the text: In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. It preserves not only target species but also the ecological relationships that sustain … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -651,7 +882,18 @@ explanationSections: [
         title: "Mass extinctions and the present day",
         summary: "Earth’s history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it…",
         explanation: "Earth’s history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and related pressures, and because it unfolds on a human rather than only a deep-time schedule.\n\nCalling the present a sixth mass extinction is a way of stressing rate and global scope. Whether every formal palaeontological criterion is met matters less for policy than the observed acceleration of losses and the irreversible character of species extinction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Mass extinctions and the present day”?",
+            solution: "The accurate idea is: Earthâs history records several episodes of elevated extinction spread over geological time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earthâs history records several episodes of elevated extinction spread over geological time.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Mass extinctions and the present day.",
+            solution: "Stay close to the text: Earthâs history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and relate… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -660,7 +902,18 @@ explanationSections: [
         title: "Conservation in the Pakistani setting",
         summary: "Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture,…",
         explanation: "Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting point; explaining how habitat corridors, enforcement, and community livelihoods affect outcomes is the deeper task.\n\nInternational categories and local management meet here: a species may be globally listed while its survival depends on provincial capacity and land-use decisions on the ground.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Conservation in the Pakistani setting”?",
+            solution: "The accurate idea is: Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Conservation in the Pakistani setting.",
+            solution: "Stay close to the text: Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting p… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -720,7 +973,18 @@ explanationSections: [
         title: "Renewable and non-renewable resources",
         summary: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed…",
         explanation: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slowly that current stocks are effectively finite for society — fossil fuels and many minerals among them.\n\nRenewable does not mean unlimited. Overfishing and deforestation show how rapidly a renewable resource can be degraded. Non-renewable does not mean useless to conserve: efficiency and recycling stretch finite stocks and reduce extraction damage.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Renewable and non-renewable resources”?",
+            solution: "The accurate idea is: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examples. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examp…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Renewable and non-renewable resources.",
+            solution: "Stay close to the text: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slo… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -729,7 +993,18 @@ explanationSections: [
         title: "The waste hierarchy as a resource idea",
         summary: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load…",
         explanation: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load altogether. Reuse keeps products in service. Recycling and recovery reclaim materials or energy. Disposal in landfills or poorly controlled dumps is the least preferred outcome.\n\nThe hierarchy is a planning order, not a claim that recycling alone solves resource pressure. It links natural-resource management to the soil and waste topics that follow.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The waste hierarchy as a resource idea”?",
+            solution: "The accurate idea is: Treating materials wisely begins before disposal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Treating materials wisely begins before disposal.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The waste hierarchy as a resource idea.",
+            solution: "Stay close to the text: Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load altogether. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -738,7 +1013,18 @@ explanationSections: [
         title: "Forests as a multi-use resource",
         summary: "Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. When cover falls too…",
         explanation: "Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. When cover falls too low, societies lose those services together. Pakistan’s modest forest cover relative to widely cited international guidelines is frequently used to illustrate the tension between demand for land and the need for standing woodland.\n\nForest policy therefore sits between resource economics and conservation biology: the same stand of trees is timber, habitat, and climate infrastructure at once.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Forests as a multi-use resource”?",
+            solution: "The accurate idea is: Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Forests as a multi-use resource.",
+            solution: "Stay close to the text: Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. When cover falls too low, societies lose those services together. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -806,7 +1092,18 @@ explanationSections: [
         title: "The Indus Waters Treaty",
         summary: "The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. In…",
         explanation: "The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the western rivers primarily to Pakistan, with specified exceptions for limited non-consumptive or defined uses.\n\nThe treaty is studied as an example of transboundary water arrangements that have persisted through political tension. It does not remove scarcity inside Pakistan; it frames the international rules under which national water management still has to operate.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Indus Waters Treaty”?",
+            solution: "The accurate idea is: The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Indus Waters Treaty.",
+            solution: "Stay close to the text: The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -815,7 +1112,18 @@ explanationSections: [
         title: "Forests, land, and competing claims",
         summary: "Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood…",
         explanation: "Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Conflict is structural when the same hectare cannot maximise all of those aims at once.\n\nResolution tools include regulation, protected areas, community forestry, and economic incentives. Outcomes depend on enforcement and on whether local users gain a stake in keeping woodland intact.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Forests, land, and competing claims”?",
+            solution: "The accurate idea is: Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Forests, land, and competing claims.",
+            solution: "Stay close to the text: Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Conflict is structural when the same he… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -824,7 +1132,18 @@ explanationSections: [
         title: "Approaches to managing resource conflict",
         summary: "States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges…",
         explanation: "States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Large afforestation drives aim to restore cover and livelihoods at scale, though lasting success still requires protection of newly planted and natural stands.\n\nNo single instrument ends conflict. Effective mixes match the resource — water treaties differ from forest co-management — and the institutions available to implement them.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Approaches to managing resource conflict”?",
+            solution: "The accurate idea is: States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduce…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Approaches to managing resource conflict.",
+            solution: "Stay close to the text: States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Large affor… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -887,7 +1206,18 @@ explanationSections: [
         title: "Primary and secondary pollutants",
         summary: "Emitted directly versus formed by reactions in the atmosphere.",
         explanation: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes.\n\nSecondary pollutants form when primary emissions react in the atmosphere. Ground-level ozone is a central example. It is not emitted in large amounts by vehicles themselves; it forms when nitrogen oxides and volatile organic compounds react in sunlight. Some components of photochemical smog and certain secondary particles follow the same logic. For regulation and health messaging, the distinction matters: controlling secondary pollution means controlling the precursors and the conditions that drive the chemistry, not only the secondary species at the monitor.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Primary and secondary pollutants”?",
+            solution: "The accurate idea is: Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxid…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Primary and secondary pollutants.",
+            solution: "Stay close to the text: Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Primary = emitted; secondary = formed in air",
           "Tropospheric ozone is largely secondary",
@@ -902,7 +1232,18 @@ explanationSections: [
         title: "Classical and photochemical smog",
         summary: "Two smog regimes with different chemistry and conditions.",
         explanation: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution.\n\nPhotochemical (Los Angeles-type) smog develops in sunny, warm conditions when nitrogen oxides and volatile organic compounds form oxidants such as ozone. Many modern megacities show photochemical features, sometimes mixed with particulate pollution from diesel, dust, and regional biomass burning. Seasonal smog in parts of South Asia often combines local emissions, regional agricultural fire plumes, and winter temperature inversions that trap pollutants near the surface.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Classical and photochemical smog”?",
+            solution: "The accurate idea is: Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Classical and photochemical smog.",
+            solution: "Stay close to the text: Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Classical ≈ coal + SO₂ + fog; photochemical ≈ sunlight + NOx + VOCs → ozone",
         ],
@@ -915,7 +1256,18 @@ explanationSections: [
         title: "Air quality in the Pakistani context",
         summary: "Sources, winter meteorology, and standards.",
         explanation: "Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. In late autumn and winter, temperature inversions can trap emissions near the ground, while seasonal agricultural residue burning in the wider region adds a transboundary plume on some days.\n\nNational Environmental Quality Standards (NEQS) set legal reference limits, but outcomes depend on monitoring capacity and enforcement. Reading air quality only as 'factories' misses the combined role of transport, seasonal meteorology, and regional fire activity.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Air quality in the Pakistani context”?",
+            solution: "The accurate idea is: Large Pakistani cities frequently record high particulate pollution. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Large Pakistani cities frequently record high particulate pollution.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Air quality in the Pakistani context.",
+            solution: "Stay close to the text: Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Winter smog = emissions + inversion (+ regional burning on some episodes)",
         ],
@@ -1003,7 +1355,18 @@ explanationSections: [
         title: "Eutrophication",
         summary: "Nutrient enrichment, algal blooms, and oxygen collapse.",
         explanation: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. When the bloom dies, decomposers break down the biomass and consume large amounts of dissolved oxygen. The result can be hypoxic or anoxic water, fish kills, and a shift toward species that tolerate low oxygen.\n\nThe process is a chain, not a single event: nutrients → bloom → death and decay → oxygen decline → ecological damage. Point sources can be regulated at a pipe; diffuse agricultural runoff is harder to control and is a major reason eutrophication remains widespread.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Eutrophication”?",
+            solution: "The accurate idea is: Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Eutrophication.",
+            solution: "Stay close to the text: Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Remember the chain: nutrients → bloom → decay → low DO",
           "Phosphorus is often the limiting nutrient in freshwater systems",
@@ -1018,7 +1381,18 @@ explanationSections: [
         title: "Bioaccumulation and biomagnification",
         summary: "How some pollutants build up in organisms and along food chains.",
         explanation: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a long time.\n\nBiomagnification is the increase in concentration of such substances at successive trophic levels. Predators eat many contaminated prey, so the pollutant load concentrates upward through the food web. The two ideas are related but not the same: accumulation happens within one organism; magnification describes the pattern across the chain.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Bioaccumulation and biomagnification”?",
+            solution: "The accurate idea is: Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Bioaccumulation and biomagnification.",
+            solution: "Stay close to the text: Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Bioaccumulation = within one organism; biomagnification = up the food chain",
         ],
@@ -1084,7 +1458,18 @@ explanationSections: [
         title: "Salinity and waterlogging in irrigated land",
         summary: "How irrigation can raise water tables and salt to the root zone.",
         explanation: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Evaporation then leaves salts behind in the upper soil, and crop roots encounter a saline environment that reduces yield or kills sensitive plants.\n\nPakistan’s Indus basin irrigation is a classic setting for this problem. Large areas have been described as salt-affected or waterlogged when drainage and water management lag behind canal supply. Remedies involve drainage, more careful water application, salt-tolerant practices, and sometimes soil amendments—not slogans alone.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Salinity and waterlogging in irrigated land”?",
+            solution: "The accurate idea is: In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Salinity and waterlogging in irrigated land.",
+            solution: "Stay close to the text: In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Rising water table + evaporation → surface salinisation",
           "A basin-scale irrigation issue, not only a 'chemical spill' story",
@@ -1099,7 +1484,18 @@ explanationSections: [
         title: "Soil contamination",
         summary: "Persistent chemicals and the slow recovery of land.",
         explanation: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Because food systems depend on soil, contamination becomes a pathway to human exposure as well as an ecological problem.\n\nUnlike a river that may flush downstream, soil often retains pollutants. Prevention and careful waste handling therefore matter more than hoping for rapid natural clean-up.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Soil contamination”?",
+            solution: "The accurate idea is: Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Soil contamination.",
+            solution: "Stay close to the text: Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Soil contamination is often long-lived; prevention beats late clean-up",
         ],
@@ -1112,7 +1508,18 @@ explanationSections: [
         title: "Waste hierarchy and hazardous streams",
         summary: "Prefer prevention and reuse; treat hazardous waste as a special class.",
         explanation: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste.\n\nHazardous and biomedical wastes require segregated handling because of toxicity or infection risk. Mixing them into ordinary municipal streams multiplies harm. E-waste adds valuable metals and hazardous components in the same devices, which is why informal dumping and open burning are particularly damaging.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Waste hierarchy and hazardous streams”?",
+            solution: "The accurate idea is: A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Waste hierarchy and hazardous streams.",
+            solution: "Stay close to the text: A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Order matters: prevent → reuse → recycle → dispose",
           "Hazardous and biomedical waste must stay segregated",
@@ -1186,7 +1593,18 @@ explanationSections: [
         title: "Fossil fuels and their footprint",
         summary: "Why coal, oil, and gas remain central to energy and environment debates.",
         explanation: "Coal, oil, and natural gas store chemical energy from ancient organic matter. They supply dense, dispatchable power and fuels for transport and industry, which is why they still dominate many national mixes. Combustion releases carbon dioxide and, depending on the fuel and technology, sulphur dioxide, nitrogen oxides, and particulates.\n\nFrom an environmental perspective the issue is not only scarcity. It is the combination of greenhouse forcing, local air quality, and the land and water impacts of extraction. Cleaner combustion and end-of-pipe controls can reduce some pollutants, but carbon dioxide remains inherent to burning carbon-based fuels unless captured and stored.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Fossil fuels and their footprint”?",
+            solution: "The accurate idea is: Coal, oil, and natural gas store chemical energy from ancient organic matter. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Coal, oil, and natural gas store chemical energy from ancient organic matter.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Fossil fuels and their footprint.",
+            solution: "Stay close to the text: Coal, oil, and natural gas store chemical energy from ancient organic matter. They supply dense, dispatchable power and fuels for transport and industry, which is why they still dominate many national mixes. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Fossil fuels = high density and dispatchability + combustion emissions",
           "Local air pollutants and CO₂ are related but not identical problems",
@@ -1201,7 +1619,18 @@ explanationSections: [
         title: "Renewable electricity options",
         summary: "Hydro, solar, and wind as low-fuel sources with different constraints.",
         explanation: "Hydroelectric power uses elevation and water flow. It can provide large amounts of low-carbon electricity where geography allows, but reservoirs reshape rivers, ecosystems, and communities. Solar and wind convert ongoing natural energy fluxes. They produce no combustion emissions at the point of generation, yet their output varies with weather and time of day, so grids need storage, flexible backup, or interconnections.\n\nNo single renewable option is free of trade-offs. The environmental comparison is usually against fossil generation over the life cycle, not against a perfect zero-impact ideal.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Renewable electricity options”?",
+            solution: "The accurate idea is: Hydroelectric power uses elevation and water flow. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hydroelectric power uses elevation and water flow.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Renewable electricity options.",
+            solution: "Stay close to the text: Hydroelectric power uses elevation and water flow. It can provide large amounts of low-carbon electricity where geography allows, but reservoirs reshape rivers, ecosystems, and communities. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Renewables cut fuel combustion; they still have siting and variability issues",
         ],
@@ -1215,7 +1644,18 @@ explanationSections: [
         title: "Pakistan's energy–environment links",
         summary: "Mix, imports, and pressure on air and climate goals.",
         explanation: "Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Where heavy residual fuel or coal is used without strong controls, urban and industrial air quality suffers alongside carbon emissions.\n\nEnergy policy therefore sits at the junction of affordability, reliability, air pollution, and climate commitments. Expanding cleaner generation helps only if it displaces dirtier kilowatt-hours in practice, not merely on paper.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pakistan's energy–environment links”?",
+            solution: "The accurate idea is: Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pakistan's energy–environment links.",
+            solution: "Stay close to the text: Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Read energy choices as air + climate + reliability together",
         ],
@@ -1281,7 +1721,18 @@ explanationSections: [
         title: "Mitigation",
         summary: "Reducing emissions and enhancing sinks.",
         explanation: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing wasteful fuel use, and protecting or expanding forests that store carbon.\n\nMitigation is global in effect: a tonne of carbon dioxide avoided in one country helps the shared climate system. That is why international coordination and national energy policy both matter.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Mitigation”?",
+            solution: "The accurate idea is: Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Mitigation.",
+            solution: "Stay close to the text: Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: ["Mitigation = less forcing of the climate system"],
         traps: ["Treating adaptation projects as if they reduce global emissions by themselves"],
       },
@@ -1290,7 +1741,18 @@ explanationSections: [
         title: "Adaptation",
         summary: "Adjusting to impacts that are already unfolding.",
         explanation: "Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains.\n\nAdaptation is local in delivery even when finance is international. The same heatwave or flood hits different communities according to housing, services, and livelihoods.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Adaptation”?",
+            solution: "The accurate idea is: Adaptation reduces harm from climate impacts that cannot be fully avoided. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Adaptation reduces harm from climate impacts that cannot be fully avoided.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Adaptation.",
+            solution: "Stay close to the text: Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: ["Adaptation = live with residual risk more safely"],
         traps: ["Assuming adaptation makes mitigation unnecessary"],
       },
@@ -1353,7 +1815,18 @@ explanationSections: [
         title: "The UNFCCC as a framework",
         summary: "What the Convention established and what it did not.",
         explanation: "The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. It recognised climate change as a shared concern, set out principles such as equity and common but differentiated responsibilities, and established Conference of the Parties (COP) meetings as the decision-making forum.\n\nThe Convention itself did not lock in the detailed numerical targets that later instruments debated. Understanding UNFCCC as a framework helps make sense of later agreements: they operate inside this process rather than replacing the idea of a global climate regime altogether.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The UNFCCC as a framework”?",
+            solution: "The accurate idea is: The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The UNFCCC as a framework.",
+            solution: "Stay close to the text: The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. It recognised climate change as a shared concern, set out principles such as equity and … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "UNFCCC = framework and process; later deals add specific architectures",
         ],
@@ -1366,7 +1839,18 @@ explanationSections: [
         title: "The Kyoto Protocol in context",
         summary: "Binding targets for listed developed parties in a specific era.",
         explanation: "The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. It also experimented with flexible mechanisms so that reductions could be achieved partly through international cooperation.\n\nKyoto’s design reflected a sharper divide between listed developed parties and developing countries than the later Paris architecture. For study purposes, the protocol is best remembered as a targets-and-timetables approach for a defined set of parties, not as the current universal NDC system.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Kyoto Protocol in context”?",
+            solution: "The accurate idea is: The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Kyoto Protocol in context.",
+            solution: "Stay close to the text: The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. It also experimented with flexible mechanisms so tha… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Kyoto ≈ binding targets for listed developed parties (historical architecture)",
         ],
@@ -1379,7 +1863,18 @@ explanationSections: [
         title: "The Paris Agreement",
         summary: "NDCs, temperature goals, and the global stocktake.",
         explanation: "The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2°C above pre-industrial levels and to pursue efforts toward 1.5°C. A global stocktake cycle reviews collective progress and informs the next round of NDCs.\n\nParis is therefore built on national planning within a global goal, rather than a single Kyoto-style annex of identical target rules for one class of countries. Climate finance, adaptation, and later debates on loss and damage sit alongside mitigation in the wider Paris conversation, even when a short syllabus item focuses on temperature and NDCs.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Paris Agreement”?",
+            solution: "The accurate idea is: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Paris Agreement.",
+            solution: "Stay close to the text: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2Â°C above pre-industria… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Paris ≈ NDCs + long-term temperature goals + stocktake cycle",
         ],
@@ -1443,7 +1938,18 @@ explanationSections: [
         title: "Stratospheric ozone chemistry",
         summary: "Why ODS thin the protective ozone layer.",
         explanation: "Stratospheric ozone absorbs ultraviolet radiation. Chlorine and bromine from certain synthetic compounds catalyse ozone destruction in the stratosphere. Cold polar conditions over Antarctica enhance the seasonal severe thinning known as the ozone hole.\n\nThe chemistry is global because the gases mix widely, even though the most dramatic thinning is regional and seasonal.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Stratospheric ozone chemistry”?",
+            solution: "The accurate idea is: Stratospheric ozone absorbs ultraviolet radiation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Stratospheric ozone absorbs ultraviolet radiation.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Stratospheric ozone chemistry.",
+            solution: "Stay close to the text: Stratospheric ozone absorbs ultraviolet radiation. Chlorine and bromine from certain synthetic compounds catalyse ozone destruction in the stratosphere. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: ["Stratospheric ozone protects; ODS catalyse its loss"],
         traps: ["Blaming carbon dioxide as the main ozone-hole gas"],
       },
@@ -1452,7 +1958,18 @@ explanationSections: [
         title: "Montreal Protocol",
         summary: "Coordinated phase-down of ozone-depleting substances.",
         explanation: "The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Many controlled chemicals have been reduced, and recovery of the ozone layer is expected over decades.\n\nThe protocol is a governance success story distinct from the UNFCCC climate regime, even though some substitute chemicals later raised separate climate concerns.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Montreal Protocol”?",
+            solution: "The accurate idea is: The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Montreal Protocol.",
+            solution: "Stay close to the text: The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Many controlled chemicals have been reduced, and recovery of the ozone layer … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: ["Montreal = ODS controls; not the same as Paris climate architecture"],
         traps: ["Merging Montreal and Paris into one agreement"],
       },
@@ -1520,7 +2037,18 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         title: "PEPA and institutional roles",
         summary: "Statute, agencies, and the federal–provincial split.",
         explanation: "PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and procedures.\n\nEnvironment protection agencies investigate, sample, and pursue compliance within their legal mandates. After the 18th Amendment, students should not assume every function is still centralised in Islamabad. Provincial EPAs and departments carry much of the operational load.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “PEPA and institutional roles”?",
+            solution: "The accurate idea is: PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying PEPA and institutional roles.",
+            solution: "Stay close to the text: PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and proce… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "PEPA = main federal act in standard syllabi; provinces implement much of the work",
         ],
@@ -1533,7 +2061,18 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         title: "NEQS in practice",
         summary: "Limits on paper versus results in the environment.",
         explanation: "NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Industry discharge consents, ambient monitoring, and public debate all refer back to such numbers.\n\nWhen air or water remains polluted despite NEQS, the failure is often in monitoring coverage, laboratory quality, inspection frequency, or sanctions — not in the mere absence of a written limit.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “NEQS in practice”?",
+            solution: "The accurate idea is: NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "NEQS turn policy goals into measurable ceilings or guidelines for pollutants.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying NEQS in practice.",
+            solution: "Stay close to the text: NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Industry discharge consents, ambient monitoring, and public debate all refer back to such numbers. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Standard = limit; compliance = measured performance against that limit",
         ],
@@ -1546,7 +2085,18 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         title: "IEE and EIA",
         summary: "Screening versus full assessment before major projects.",
         explanation: "Project review is staged. An IEE asks whether impacts are modest enough to proceed with limited study. An EIA develops a fuller picture of impacts and mitigation when significance is higher.\n\nGood assessment is early enough to change design, not only to justify a decision already made. Conditions attached to approval need monitoring during construction and operation, or the assessment becomes a filing exercise.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “IEE and EIA”?",
+            solution: "The accurate idea is: Project review is staged. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Project review is staged.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying IEE and EIA.",
+            solution: "Stay close to the text: Project review is staged. An IEE asks whether impacts are modest enough to proceed with limited study. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "IEE = screen; EIA = deep review for significant impact",
         ],
@@ -1629,7 +2179,18 @@ explanationSections: [
         title: "Interconnected environmental challenges",
         summary: "Water, air, land, and climate risks reinforce one another.",
         explanation: "Pakistan’s environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Urban air pollution harms health and productivity. Land degradation, including salinity and waterlogging in irrigated belts, undermines agriculture. Climate change intensifies extremes—floods, heat, glacial and snowmelt variability—on top of these stresses.\n\nA useful way to study the national picture is as a system: energy and transport choices affect air and climate; irrigation management affects soil and water quality; forest and watershed cover affect erosion and flood behaviour. Isolated facts (forest percentage, a city AQI spike, a treaty name) matter more when they are placed inside this web.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Interconnected environmental challenges”?",
+            solution: "The accurate idea is: Pakistanâs environmental pressures do not arrive one at a time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistanâs environmental pressures do not arrive one at a time.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Interconnected environmental challenges.",
+            solution: "Stay close to the text: Pakistanâs environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Link water, air, land, and climate rather than memorising isolated headlines",
         ],
@@ -1642,7 +2203,18 @@ explanationSections: [
         title: "Institutions and policy tools",
         summary: "Law, standards, and implementation capacity.",
         explanation: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functions are shared with or led by provinces, so outcomes vary with provincial capacity as well as federal frameworks.\n\nThe recurring implementation gap is not only the absence of written policy. Monitoring networks, inspection, industrial compliance, municipal waste systems, and urban transport enforcement decide whether standards change the air people breathe or the water they use. International funds and national programmes (including large afforestation drives) can help, but they do not automatically substitute for steady regulation and service delivery.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Institutions and policy tools”?",
+            solution: "The accurate idea is: Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Institutions and policy tools.",
+            solution: "Stay close to the text: Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Written standards ≠ automatic compliance",
           "Provincial capacity shapes results after devolution",
@@ -1656,7 +2228,18 @@ explanationSections: [
         title: "Protected areas and living resources",
         summary: "Why parks and species lists appear in national questions.",
         explanation: "Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protect habitats where species actually live. Their effectiveness depends on management, community relations, and pressure from infrastructure or resource extraction.\n\nStudy these sites as examples of conservation strategy under real constraints, not as a random list of names. Link them back to habitat loss as the dominant global threat and to national forest and land-use pressures discussed under resources.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Protected areas and living resources”?",
+            solution: "The accurate idea is: Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Protected areas and living resources.",
+            solution: "Stay close to the text: Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protec… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [
           "Protected areas = in-situ conservation under management constraints",
         ],

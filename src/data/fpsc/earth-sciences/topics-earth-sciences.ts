@@ -82,7 +82,18 @@ export const topics: Topic[] = [
         title: "Why Earth is not a perfect sphere",
         summary: "Earth's rotation generates centrifugal force that is strongest at the equator (where rotational speed is highest, ~465 m/s) and zero at the…",
         explanation: "Earth's rotation generates centrifugal force that is strongest at the equator (where rotational speed is highest, ~465 m/s) and zero at the poles. Over geological time this force has caused the equator to bulge outward and the poles to flatten slightly, producing the oblate spheroid shape. The difference between equatorial and polar radii is small in human terms (about 21 km, or 0.3%) but is measurable by satellite altimetry, important for precise GPS mapping, and matters for climate (equatorial regions receive more concentrated solar energy partly because they are closer to the Sun at perihelion and farther at aphelion — though obliquity is the dominant cause of seasons).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Earth is not a perfect sphere”?",
+            solution: "The accurate idea is: Earth's rotation generates centrifugal force that is strongest at the equator (where rotational speed is highest, ~465 m/s) and zero at the poles. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earth's rotation generates centrifugal force that is strongest at the equator (where rotational speed is highest, ~465 m/s) and zero at the poles.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Earth is not a perfect sphere.",
+            solution: "Stay close to the text: Earth's rotation generates centrifugal force that is strongest at the equator (where rotational speed is highest, ~465 m/s) and zero at the poles. Over geological time this force has caused the equator to bulge outward a… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -91,7 +102,18 @@ export const topics: Topic[] = [
         title: "Sidereal vs. solar day",
         summary: "A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360° relative to the distant stars. A solar day (24 h) is the…",
         explanation: "A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360° relative to the distant stars. A solar day (24 h) is the time for the Sun to return to the same position in the sky. Because Earth is also moving along its orbit (about 1° per day eastward), it must rotate slightly more than 360° — roughly 1° extra, or about 4 minutes — to bring the Sun back to the same apparent position. This is why the solar day is about 4 minutes longer than the sidereal day, and why astronomers prefer sidereal time for tracking stars.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Sidereal vs. solar day”?",
+            solution: "The accurate idea is: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Sidereal vs. solar day.",
+            solution: "Stay close to the text: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars. A solar day (24 h) is the time for the Sun to return to the same position in the sky. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -100,7 +122,18 @@ export const topics: Topic[] = [
         title: "Precession and nutation",
         summary: "Precession is the slow conical 'wobble' of Earth's axis, similar to a spinning top, driven by the gravitational pull of the Sun and Moon on…",
         explanation: "Precession is the slow conical 'wobble' of Earth's axis, similar to a spinning top, driven by the gravitational pull of the Sun and Moon on Earth's equatorial bulge. A full precessional cycle takes about 26,000 years, which means the pole star changes over millennia: Polaris is our current pole star; in ~12,000 years, Vega will be closest to the north celestial pole. Precession is one of the Milankovitch cycles that contributes to long-term climate variation. Nutation is a smaller wobble of period ~18.6 years layered on top of precession, caused mainly by the Moon's orbital plane being inclined ~5° to the ecliptic.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Precession and nutation”?",
+            solution: "The accurate idea is: Precession is the slow conical 'wobble' of Earth's axis, similar to a spinning top, driven by the gravitational pull of the Sun and Moon on Earth's equatorial bulge. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Precession is the slow conical 'wobble' of Earth's axis, similar to a spinning top, driven by the gravitational pull of the Sun and Moon on Earth's equatorial bulge.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Precession and nutation.",
+            solution: "Stay close to the text: Precession is the slow conical 'wobble' of Earth's axis, similar to a spinning top, driven by the gravitational pull of the Sun and Moon on Earth's equatorial bulge. A full precessional cycle takes about 26,000 years, wh… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -164,7 +197,18 @@ export const topics: Topic[] = [
         title: "Origin: the geodynamo (self-exciting dynamo)",
         summary: "Earth's magnetic field is generated by the movement of electrically conducting liquid iron in the outer core. Convection currents (driven…",
         explanation: "Earth's magnetic field is generated by the movement of electrically conducting liquid iron in the outer core. Convection currents (driven by heat escaping from the inner core), combined with Earth's rotation (Coriolis effect), organize this flow into spiraling columns. The mechanism is a self-exciting dynamo: any small initial magnetic field induces electrical currents in the moving conductive fluid, and these currents reinforce the field, sustaining it indefinitely as long as convection continues. Without this molten, convecting outer core, Earth would have no significant magnetic field, much like Mars today, which has only a weak remnant crustal field.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Origin: the geodynamo (self-exciting dynamo)”?",
+            solution: "The accurate idea is: Earth's magnetic field is generated by the movement of electrically conducting liquid iron in the outer core. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earth's magnetic field is generated by the movement of electrically conducting liquid iron in the outer core.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Origin: the geodynamo (self-exciting dynamo).",
+            solution: "Stay close to the text: Earth's magnetic field is generated by the movement of electrically conducting liquid iron in the outer core. Convection currents (driven by heat escaping from the inner core), combined with Earth's rotation (Coriolis ef… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -173,7 +217,18 @@ export const topics: Topic[] = [
         title: "Declination and inclination in practice",
         summary: "A compass needle points to magnetic north, NOT true north. The angle between them is the declination, which varies from place to place and…",
         explanation: "A compass needle points to magnetic north, NOT true north. The angle between them is the declination, which varies from place to place and changes slowly over time. Along an 'agonic line' declination is zero; elsewhere it can be tens of degrees east or west. Inclination is observed by tilting a compass needle on a horizontal axis: at the magnetic equator the needle lies horizontal (inclination = 0°); at the magnetic poles it stands vertical (inclination = 90°). Both declination and inclination are essential for navigation, aeromagnetic surveys, mineral exploration, and core sampling.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Declination and inclination in practice”?",
+            solution: "The accurate idea is: A compass needle points to magnetic north, NOT true north. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A compass needle points to magnetic north, NOT true north.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Declination and inclination in practice.",
+            solution: "Stay close to the text: A compass needle points to magnetic north, NOT true north. The angle between them is the declination, which varies from place to place and changes slowly over time. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -182,7 +237,18 @@ export const topics: Topic[] = [
         title: "Magnetic reversals and seafloor evidence",
         summary: "When new basaltic crust forms at a mid-ocean ridge, magnetic minerals (mainly magnetite) in the cooling lava lock in the direction of…",
         explanation: "When new basaltic crust forms at a mid-ocean ridge, magnetic minerals (mainly magnetite) in the cooling lava lock in the direction of Earth's field at that moment, like a tiny compass frozen in place. As the seafloor spreads outward symmetrically, it preserves a 'tape recording' of reversals. Symmetric magnetic stripes on either side of mid-ocean ridges, first mapped in the 1960s, were one of the strongest pieces of evidence for seafloor spreading and convinced most geologists of plate tectonics within a few years.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Magnetic reversals and seafloor evidence”?",
+            solution: "The accurate idea is: When new basaltic crust forms at a mid-ocean ridge, magnetic minerals (mainly magnetite) in the cooling lava lock in the direction of Earth's field at that moment, like a tiny compass frozen in place. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When new basaltic crust forms at a mid-ocean ridge, magnetic minerals (mainly magnetite) in the cooling lava lock in the direction of Earth's field at that moment, like a tiny comp…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Magnetic reversals and seafloor evidence.",
+            solution: "Stay close to the text: When new basaltic crust forms at a mid-ocean ridge, magnetic minerals (mainly magnetite) in the cooling lava lock in the direction of Earth's field at that moment, like a tiny compass frozen in place. As the seafloor spr… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -255,7 +321,18 @@ export const topics: Topic[] = [
         title: "How we know the layers exist — seismic wave behaviour",
         summary: "No one has ever drilled through the crust to the mantle (the deepest hole, the Kola Superdeep Borehole, reached only ~12 km). All knowledge…",
         explanation: "No one has ever drilled through the crust to the mantle (the deepest hole, the Kola Superdeep Borehole, reached only ~12 km). All knowledge of the deeper interior comes from seismic waves. P-waves (compressional, ~6–13 km/s) refract and change speed at layer boundaries, while S-waves (shear, ~3.5–7 km/s) cannot travel through liquids and so vanish at the outer core. The S-wave shadow zone — a region between 103° and 180° from an earthquake's epicentre where no direct S-waves arrive — is direct, unambiguous evidence that the outer core is liquid. The P-wave shadow zone (~103°–140°) is due to refraction at the core-mantle boundary and is also consistent with a liquid outer core.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How we know the layers exist — seismic wave behaviour”?",
+            solution: "The accurate idea is: No one has ever drilled through the crust to the mantle (the deepest hole, the Kola Superdeep Borehole, reached only ~12 km). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "No one has ever drilled through the crust to the mantle (the deepest hole, the Kola Superdeep Borehole, reached only ~12 km).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How we know the layers exist — seismic wave behaviour.",
+            solution: "Stay close to the text: No one has ever drilled through the crust to the mantle (the deepest hole, the Kola Superdeep Borehole, reached only ~12 km). All knowledge of the deeper interior comes from seismic waves. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -264,7 +341,18 @@ export const topics: Topic[] = [
         title: "The role of discontinuities",
         summary: "Each discontinuity marks a sharp change in composition or physical state. The Moho is primarily a compositional change (crustal rocks to…",
         explanation: "Each discontinuity marks a sharp change in composition or physical state. The Moho is primarily a compositional change (crustal rocks to ultramafic mantle peridotite). The Gutenberg discontinuity is both compositional (silicate to iron–nickel) and a phase change (solid to liquid). The Lehmann discontinuity is mainly a phase change (liquid to solid iron under immense pressure), even though composition is similar on both sides. The Repetti discontinuity (~670 km) marks a phase change in mantle minerals (ringwoodite to bridgmanite + ferropericlase) without a major compositional shift.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The role of discontinuities”?",
+            solution: "The accurate idea is: Each discontinuity marks a sharp change in composition or physical state. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Each discontinuity marks a sharp change in composition or physical state.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The role of discontinuities.",
+            solution: "Stay close to the text: Each discontinuity marks a sharp change in composition or physical state. The Moho is primarily a compositional change (crustal rocks to ultramafic mantle peridotite). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -319,7 +407,18 @@ export const topics: Topic[] = [
         title: "Lithosphere vs. crust — they are not the same",
         summary: "A common error is to use 'lithosphere' and 'crust' interchangeably. The crust is only the topmost compositional layer (0–70 km on…",
         explanation: "A common error is to use 'lithosphere' and 'crust' interchangeably. The crust is only the topmost compositional layer (0–70 km on continents, 0–10 km under oceans). The lithosphere is the rigid mechanical layer, which includes the crust plus the very top of the upper mantle. It is defined by behaviour (it bends and breaks) rather than by composition. The lithosphere-asthenosphere boundary is therefore a mechanical/thermal boundary, not a chemical one — and its depth varies from ~5 km at mid-ocean ridges to ~200 km beneath ancient cratons.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Lithosphere vs. crust — they are not the same”?",
+            solution: "The accurate idea is: A common error is to use 'lithosphere' and 'crust' interchangeably. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A common error is to use 'lithosphere' and 'crust' interchangeably.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Lithosphere vs. crust — they are not the same.",
+            solution: "Stay close to the text: A common error is to use 'lithosphere' and 'crust' interchangeably. The crust is only the topmost compositional layer (0â70 km on continents, 0â10 km under oceans). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -328,7 +427,18 @@ export const topics: Topic[] = [
         title: "Why the asthenosphere flows",
         summary: "Rocks at asthenospheric depths are near their melting temperature. A small fraction of partial melt (a few percent) coats mineral grains,…",
         explanation: "Rocks at asthenospheric depths are near their melting temperature. A small fraction of partial melt (a few percent) coats mineral grains, allowing them to slide past each other under stress. The result is plastic flow over geological timescales — fast enough for plates to move (a few cm/year) but so slow that, on human timescales, the asthenosphere behaves as a solid. This is why S-waves slow down in the asthenosphere (the 'low-velocity zone').",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the asthenosphere flows”?",
+            solution: "The accurate idea is: Rocks at asthenospheric depths are near their melting temperature. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Rocks at asthenospheric depths are near their melting temperature.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the asthenosphere flows.",
+            solution: "Stay close to the text: Rocks at asthenospheric depths are near their melting temperature. A small fraction of partial melt (a few percent) coats mineral grains, allowing them to slide past each other under stress. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -337,7 +447,18 @@ export const topics: Topic[] = [
         title: "Convection: the engine of plate tectonics",
         summary: "Heat from the core and from radioactive decay warms the lower mantle. Hot material rises, cooler material near the surface sinks, and this…",
         explanation: "Heat from the core and from radioactive decay warms the lower mantle. Hot material rises, cooler material near the surface sinks, and this circulation — mantle convection — drags plates along and provides much of the force that drives plate motion. Ridge push and slab pull (covered in Plate Tectonics) are partly expressions of the same convective system, but the fundamental energy source is internal heat. The geothermal gradient is non-linear: it is steepest in the upper crust (where conduction dominates) and flattens out at greater depths as convection takes over.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Convection: the engine of plate tectonics”?",
+            solution: "The accurate idea is: Heat from the core and from radioactive decay warms the lower mantle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Heat from the core and from radioactive decay warms the lower mantle.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Convection: the engine of plate tectonics.",
+            solution: "Stay close to the text: Heat from the core and from radioactive decay warms the lower mantle. Hot material rises, cooler material near the surface sinks, and this circulation â mantle convection â drags plates along and provides much of the… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -409,7 +530,18 @@ export const topics: Topic[] = [
         title: "Why gravity varies across Earth's surface",
         summary: "Earth's rotation produces a centrifugal acceleration that is strongest at the equator, partly offsetting gravity there. The equator is also…",
         explanation: "Earth's rotation produces a centrifugal acceleration that is strongest at the equator, partly offsetting gravity there. The equator is also ~21 km farther from Earth's centre than the poles, weakening gravity by the inverse-square law. The combination makes equatorial gravity about 0.5% weaker than polar gravity. Local geology introduces further small variations called gravity anomalies: dense bodies (ore deposits, basaltic intrusions) produce positive anomalies; light bodies (salt domes, voids) produce negative anomalies. These are measured with sensitive gravimeters and used in mineral and petroleum exploration.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why gravity varies across Earth's surface”?",
+            solution: "The accurate idea is: Earth's rotation produces a centrifugal acceleration that is strongest at the equator, partly offsetting gravity there. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earth's rotation produces a centrifugal acceleration that is strongest at the equator, partly offsetting gravity there.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why gravity varies across Earth's surface.",
+            solution: "Stay close to the text: Earth's rotation produces a centrifugal acceleration that is strongest at the equator, partly offsetting gravity there. The equator is also ~21 km farther from Earth's centre than the poles, weakening gravity by the inve… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -418,7 +550,18 @@ export const topics: Topic[] = [
         title: "Isostasy — the 'floating crust' principle",
         summary: "Think of the crust as blocks of wood floating in water: a thicker, less dense block (like a mountain range) floats higher and has a deeper…",
         explanation: "Think of the crust as blocks of wood floating in water: a thicker, less dense block (like a mountain range) floats higher and has a deeper submerged portion, just as a tall iceberg has a deeper underwater root. When mass is added to the surface (e.g., a thick ice sheet), the underlying crust sinks deeper into the mantle. When mass is removed (e.g., the ice melts), the crust slowly rebounds upward. This vertical adjustment happens over thousands of years because the mantle flows very slowly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Isostasy — the 'floating crust' principle”?",
+            solution: "The accurate idea is: Think of the crust as blocks of wood floating in water: a thicker, less dense block (like a mountain range) floats higher and has a deeper submerged portion, just as a tall iceberg has a deeper underwater root. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Think of the crust as blocks of wood floating in water: a thicker, less dense block (like a mountain range) floats higher and has a deeper submerged portion, just as a tall iceberg…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Isostasy — the 'floating crust' principle.",
+            solution: "Stay close to the text: Think of the crust as blocks of wood floating in water: a thicker, less dense block (like a mountain range) floats higher and has a deeper submerged portion, just as a tall iceberg has a deeper underwater root. When mass… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -427,7 +570,18 @@ export const topics: Topic[] = [
         title: "Airy vs. Pratt: two ways to explain the same thing",
         summary: "In the Airy model, the crust has uniform density but variable thickness: mountains are tall because they have deep roots. In the Pratt…",
         explanation: "In the Airy model, the crust has uniform density but variable thickness: mountains are tall because they have deep roots. In the Pratt model, the crust has uniform thickness but variable density: mountains stand high because they are made of lighter rock. Real Earth combines both effects. Both models predict the same observable outcome: regions standing higher above sea level have more mass 'missing' below them in some sense, balanced by the floating condition. The isostatic anomaly is the difference between observed gravity and the gravity predicted by assuming full isostatic compensation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Airy vs. Pratt: two ways to explain the same thing”?",
+            solution: "The accurate idea is: In the Airy model, the crust has uniform density but variable thickness: mountains are tall because they have deep roots. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In the Airy model, the crust has uniform density but variable thickness: mountains are tall because they have deep roots.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Airy vs. Pratt: two ways to explain the same thing.",
+            solution: "Stay close to the text: In the Airy model, the crust has uniform density but variable thickness: mountains are tall because they have deep roots. In the Pratt model, the crust has uniform thickness but variable density: mountains stand high bec… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -500,7 +654,18 @@ export const topics: Topic[] = [
         title: "Why each property matters",
         summary: "A single property is rarely enough to identify a mineral — color is especially misleading because many minerals come in multiple colors…",
         explanation: "A single property is rarely enough to identify a mineral — color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Hardness, streak, cleavage, and special properties (like the fizz of calcite in dilute HCl, or the magnetism of magnetite) together give a unique 'fingerprint'. In the field, hardness is tested with simple tools: fingernail (~2.5), copper coin (~3.5), steel knife (~5.5), glass plate (~5.5).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why each property matters”?",
+            solution: "The accurate idea is: A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, p…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why each property matters.",
+            solution: "Stay close to the text: A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Hardness, streak, cleavag… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -509,7 +674,18 @@ export const topics: Topic[] = [
         title: "Cleavage vs. fracture — a common confusion",
         summary: "Cleavage and fracture both describe how a mineral breaks, but they are not the same. Cleavage occurs along specific, smooth, flat planes…",
         explanation: "Cleavage and fracture both describe how a mineral breaks, but they are not the same. Cleavage occurs along specific, smooth, flat planes determined by weak bonds in the crystal structure (e.g., mica splits into thin sheets). Fracture occurs when a mineral has no planes of weakness and breaks irregularly (e.g., quartz shows conchoidal fracture — smooth, curved, shell-like surfaces, similar to broken glass). A mineral can have both: e.g., galena shows perfect cubic cleavage but, if hit hard enough, can also fracture irregularly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Cleavage vs. fracture — a common confusion”?",
+            solution: "The accurate idea is: Cleavage and fracture both describe how a mineral breaks, but they are not the same. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Cleavage and fracture both describe how a mineral breaks, but they are not the same.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Cleavage vs. fracture — a common confusion.",
+            solution: "Stay close to the text: Cleavage and fracture both describe how a mineral breaks, but they are not the same. Cleavage occurs along specific, smooth, flat planes determined by weak bonds in the crystal structure (e.g., mica splits into thin shee… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -518,7 +694,18 @@ export const topics: Topic[] = [
         title: "The 7 crystal systems",
         summary: "All minerals crystallize into one of 7 crystal systems, defined by the lengths and angles of their crystallographic axes: cubic (e.g.,…",
         explanation: "All minerals crystallize into one of 7 crystal systems, defined by the lengths and angles of their crystallographic axes: cubic (e.g., pyrite, halite), tetragonal (e.g., zircon), orthorhombic (e.g., olivine), hexagonal (e.g., quartz, ice), trigonal (e.g., calcite, dolomite), monoclinic (e.g., orthoclase, gypsum), and triclinic (e.g., plagioclase feldspar). The crystal system is the deepest expression of a mineral's internal atomic order.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The 7 crystal systems”?",
+            solution: "The accurate idea is: All minerals crystallize into one of 7 crystal systems, defined by the lengths and angles of their crystallographic axes: cubic (e.g., pyrite, halite), tetragonal (e.g., zircon), orthorhombic (e.g., olivine), hexagonal (e.g., quartz, ice), trigonal (e.g., calcite, dolomite), monoclinic (e.g., orthoclase, gypsum), and triclinic (e.g., plagioclase feldspar). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "All minerals crystallize into one of 7 crystal systems, defined by the lengths and angles of their crystallographic axes: cubic (e.g., pyrite, halite), tetragonal (e.g., zircon), o…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The 7 crystal systems.",
+            solution: "Stay close to the text: All minerals crystallize into one of 7 crystal systems, defined by the lengths and angles of their crystallographic axes: cubic (e.g., pyrite, halite), tetragonal (e.g., zircon), orthorhombic (e.g., olivine), hexagonal (… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -588,7 +775,18 @@ export const topics: Topic[] = [
         title: "Why silicates dominate",
         summary: "Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). They combine to form the…",
         explanation: "Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). They combine to form the silicon–oxygen tetrahedron (SiO₄⁴⁻), the fundamental building block of all silicate minerals. By sharing oxygen atoms between tetrahedra in different ways, silicates form the structural families: isolated tetrahedra (olivine), single chains (pyroxene), double chains (amphibole), sheets (mica), and frameworks (quartz, feldspar). This structural diversity explains why silicates cover such a wide range of physical properties.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why silicates dominate”?",
+            solution: "The accurate idea is: Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why silicates dominate.",
+            solution: "Stay close to the text: Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). They combine to form the siliconâoxygen tetrahedron (SiOââ´â»), the fundamental building block of all silicate m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -597,7 +795,18 @@ export const topics: Topic[] = [
         title: "Quartz — the unweatherable mineral",
         summary: "Quartz is exceptional because it is highly resistant to both chemical and physical weathering. It has no cleavage, only conchoidal…",
         explanation: "Quartz is exceptional because it is highly resistant to both chemical and physical weathering. It has no cleavage, only conchoidal fracture, and is made of pure Si–O bonds that are extremely strong. As a result, quartz survives long after other minerals have broken down, and it concentrates in mature sediments (sandstone) and residual soils. The white sands of many beaches are almost pure quartz.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Quartz — the unweatherable mineral”?",
+            solution: "The accurate idea is: Quartz is exceptional because it is highly resistant to both chemical and physical weathering. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Quartz is exceptional because it is highly resistant to both chemical and physical weathering.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Quartz — the unweatherable mineral.",
+            solution: "Stay close to the text: Quartz is exceptional because it is highly resistant to both chemical and physical weathering. It has no cleavage, only conchoidal fracture, and is made of pure SiâO bonds that are extremely strong. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -606,7 +815,18 @@ export const topics: Topic[] = [
         title: "The feldspar family — most of the crust",
         summary: "Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. They are framework silicates with two…",
         explanation: "Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. They are framework silicates with two cleavage planes at approximately 90°. The K-feldspars (orthoclase, microcline) carry potassium; the plagioclase series ranges from sodium-rich (albite) to calcium-rich (anorthite). Feldspars weather chemically to form clay minerals, releasing ions that eventually reach the ocean to form new minerals.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The feldspar family — most of the crust”?",
+            solution: "The accurate idea is: Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The feldspar family — most of the crust.",
+            solution: "Stay close to the text: Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. They are framework silicates with two cleavage planes at approximately 90Â°. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -670,7 +890,18 @@ export const topics: Topic[] = [
         title: "Texture: the cooling-rate fingerprint",
         summary: "The grain size of an igneous rock is a direct record of its cooling rate. Magma that cools slowly deep underground has time to grow large,…",
         explanation: "The grain size of an igneous rock is a direct record of its cooling rate. Magma that cools slowly deep underground has time to grow large, visible crystals — producing coarse-grained (phaneritic) rocks like granite. Lava that cools quickly at the surface has too little time for crystal growth, producing fine-grained (aphanitic) rocks like basalt. Very rapid cooling (e.g., lava entering water) produces glassy textures with no crystals at all, as in obsidian. Gas-rich magmas produce vesicular textures full of bubble holes, as in pumice (so light it floats on water).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Texture: the cooling-rate fingerprint”?",
+            solution: "The accurate idea is: The grain size of an igneous rock is a direct record of its cooling rate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The grain size of an igneous rock is a direct record of its cooling rate.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Texture: the cooling-rate fingerprint.",
+            solution: "Stay close to the text: The grain size of an igneous rock is a direct record of its cooling rate. Magma that cools slowly deep underground has time to grow large, visible crystals â producing coarse-grained (phaneritic) rocks like granite. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -679,7 +910,18 @@ export const topics: Topic[] = [
         title: "Composition: silica content and rock behaviour",
         summary: "Silica (SiO₂) content controls both the mineralogy and the behaviour of a magma. Felsic magmas (>65% SiO₂) are rich in quartz and feldspar,…",
         explanation: "Silica (SiO₂) content controls both the mineralogy and the behaviour of a magma. Felsic magmas (>65% SiO₂) are rich in quartz and feldspar, low in iron and magnesium, light in colour, and very viscous — they erupt explosively because gases cannot easily escape. Mafic magmas (45–55% SiO₂) are rich in pyroxene, olivine, and Ca-plagioclase, dark in colour, and fluid — they erupt effusively as in Hawaiian-style lava flows. Ultramafic magmas (<45% SiO₂) are very rare at the surface but dominate the upper mantle.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Composition: silica content and rock behaviour”?",
+            solution: "The accurate idea is: Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Composition: silica content and rock behaviour.",
+            solution: "Stay close to the text: Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma. Felsic magmas (>65% SiOâ) are rich in quartz and feldspar, low in iron and magnesium, light in colour, and very viscous â they erupt … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -688,7 +930,18 @@ export const topics: Topic[] = [
         title: "Bowen's Reaction Series — the cooling order",
         summary: "N. L. Bowen's reaction series (1922) describes the order in which minerals crystallize from a cooling magma, and explains why certain…",
         explanation: "N. L. Bowen's reaction series (1922) describes the order in which minerals crystallize from a cooling magma, and explains why certain minerals are always found together. The discontinuous branch goes olivine → pyroxene → amphibole → biotite, with each mineral becoming unstable as temperature drops and reacting with the melt to form the next. The continuous branch shows plagioclase gradually shifting from Ca-rich to Na-rich. Quartz and K-feldspar crystallize last at the lowest temperatures. The series also explains why quartz and olivine are almost never found in the same rock — they form at opposite ends of the cooling sequence.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Bowen's Reaction Series — the cooling order”?",
+            solution: "The accurate idea is: N. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "N.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Bowen's Reaction Series — the cooling order.",
+            solution: "Stay close to the text: N. L. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -756,7 +1009,18 @@ export const topics: Topic[] = [
         title: "From sediment to rock — lithification",
         summary: "Loose sediment at the surface becomes solid rock through lithification, a two-step process. First, as more sediment piles on top, the…",
         explanation: "Loose sediment at the surface becomes solid rock through lithification, a two-step process. First, as more sediment piles on top, the weight compacts the deeper layers, squeezing out water and reducing pore space. Second, minerals dissolved in groundwater (commonly calcite, silica, or iron oxides) precipitate in the remaining pore spaces, acting as a 'cement' that binds the grains together. Without this cement, sandstone would crumble in your hand.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From sediment to rock — lithification”?",
+            solution: "The accurate idea is: Loose sediment at the surface becomes solid rock through lithification, a two-step process. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Loose sediment at the surface becomes solid rock through lithification, a two-step process.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From sediment to rock — lithification.",
+            solution: "Stay close to the text: Loose sediment at the surface becomes solid rock through lithification, a two-step process. First, as more sediment piles on top, the weight compacts the deeper layers, squeezing out water and reducing pore space. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -765,7 +1029,18 @@ export const topics: Topic[] = [
         title: "Why sedimentary rocks are special",
         summary: "Sedimentary rocks are the only rocks that routinely contain fossils and that record past surface environments. A sandstone with…",
         explanation: "Sedimentary rocks are the only rocks that routinely contain fossils and that record past surface environments. A sandstone with cross-bedding tells us about ancient wind or water direction; a shale with marine fossils tells us the area was once under the sea; a conglomerate with angular clasts tells us of rapid erosion near a mountain front. This is why sedimentary rocks are central to stratigraphy, paleontology, and the search for oil, gas, and water.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why sedimentary rocks are special”?",
+            solution: "The accurate idea is: Sedimentary rocks are the only rocks that routinely contain fossils and that record past surface environments. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Sedimentary rocks are the only rocks that routinely contain fossils and that record past surface environments.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why sedimentary rocks are special.",
+            solution: "Stay close to the text: Sedimentary rocks are the only rocks that routinely contain fossils and that record past surface environments. A sandstone with cross-bedding tells us about ancient wind or water direction; a shale with marine fossils te… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -774,7 +1049,18 @@ export const topics: Topic[] = [
         title: "Chemical and organic rocks",
         summary: "Not all sedimentary rocks are made of broken fragments. Chemical sedimentary rocks form when dissolved minerals precipitate out of water.…",
         explanation: "Not all sedimentary rocks are made of broken fragments. Chemical sedimentary rocks form when dissolved minerals precipitate out of water. Limestone (CaCO₃) precipitates from warm shallow seas and from coral reefs; evaporites (halite, gypsum) form when restricted bodies of seawater evaporate. Organic sedimentary rocks (coal, some limestones) are made from the remains of once-living organisms. Coal, for example, forms from compressed plant material in swampy environments.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Chemical and organic rocks”?",
+            solution: "The accurate idea is: Not all sedimentary rocks are made of broken fragments. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Not all sedimentary rocks are made of broken fragments.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Chemical and organic rocks.",
+            solution: "Stay close to the text: Not all sedimentary rocks are made of broken fragments. Chemical sedimentary rocks form when dissolved minerals precipitate out of water. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -842,7 +1128,18 @@ export const topics: Topic[] = [
         title: "Why metamorphism happens without melting",
         summary: "Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes).…",
         explanation: "Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes). Temperatures of ~200–800 °C and pressures of a few hundred MPa to >1 GPa are typical. At these conditions, existing minerals become unstable and recrystallize into new minerals that are stable at the new conditions, all while the rock remains solid. If temperatures exceed the melting point, the rock becomes magma and the process is no longer metamorphism but rather the start of the igneous cycle.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why metamorphism happens without melting”?",
+            solution: "The accurate idea is: Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why metamorphism happens without melting.",
+            solution: "Stay close to the text: Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes). Temperatures of ~200â800 Â°C and pressures of a few hundred MPa to >1 GPa are typical. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -851,7 +1148,18 @@ export const topics: Topic[] = [
         title: "Foliation: the directed-pressure fingerprint",
         summary: "Foliation is the parallel alignment of platy minerals (micas, chlorite) or the segregation of minerals into light and dark bands. It forms…",
         explanation: "Foliation is the parallel alignment of platy minerals (micas, chlorite) or the segregation of minerals into light and dark bands. It forms when pressure is directional (differential stress), as in tectonic collisions and mountain building. With increasing metamorphic grade, foliation becomes more pronounced: slate (slaty cleavage) → phyllite (silky sheen) → schist (visible mica flakes) → gneiss (alternating light and dark bands). In contrast, contact metamorphism around magma bodies has uniform pressure, so it typically produces non-foliated rocks like hornfels and marble.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Foliation: the directed-pressure fingerprint”?",
+            solution: "The accurate idea is: Foliation is the parallel alignment of platy minerals (micas, chlorite) or the segregation of minerals into light and dark bands. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Foliation is the parallel alignment of platy minerals (micas, chlorite) or the segregation of minerals into light and dark bands.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Foliation: the directed-pressure fingerprint.",
+            solution: "Stay close to the text: Foliation is the parallel alignment of platy minerals (micas, chlorite) or the segregation of minerals into light and dark bands. It forms when pressure is directional (differential stress), as in tectonic collisions and… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -860,7 +1168,18 @@ export const topics: Topic[] = [
         title: "Protolith control: parent rock matters",
         summary: "The protolith determines the chemical starting point and limits the possible metamorphic products. Shale (rich in clay) → slate, phyllite,…",
         explanation: "The protolith determines the chemical starting point and limits the possible metamorphic products. Shale (rich in clay) → slate, phyllite, schist, gneiss. Limestone (CaCO₃) → marble. Quartz sandstone (SiO₂) → quartzite. Basalt (mafic igneous) → greenschist, amphibolite, or eclogite (with increasing grade). The same metamorphic conditions on different protoliths produce different rocks — an important point when interpreting metamorphic terranes in the field.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Protolith control: parent rock matters”?",
+            solution: "The accurate idea is: The protolith determines the chemical starting point and limits the possible metamorphic products. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The protolith determines the chemical starting point and limits the possible metamorphic products.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Protolith control: parent rock matters.",
+            solution: "Stay close to the text: The protolith determines the chemical starting point and limits the possible metamorphic products. Shale (rich in clay) â slate, phyllite, schist, gneiss. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -919,7 +1238,18 @@ export const topics: Topic[] = [
         title: "Why the rock cycle has no beginning or end",
         summary: "Unlike a biological life cycle, the rock cycle has no fixed starting point. A granite (igneous) exposed at the surface may weather into…",
         explanation: "Unlike a biological life cycle, the rock cycle has no fixed starting point. A granite (igneous) exposed at the surface may weather into sand grains, which become sandstone (sedimentary); that sandstone may be buried and heated into quartzite (metamorphic); that quartzite may be carried deep into the mantle by subduction and melt, becoming magma that cools into a new igneous rock — perhaps a different granite. The same granite could also be buried and metamorphosed into gneiss without ever becoming a sediment. The path depends on what tectonic processes act on the rock.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the rock cycle has no beginning or end”?",
+            solution: "The accurate idea is: Unlike a biological life cycle, the rock cycle has no fixed starting point. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Unlike a biological life cycle, the rock cycle has no fixed starting point.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the rock cycle has no beginning or end.",
+            solution: "Stay close to the text: Unlike a biological life cycle, the rock cycle has no fixed starting point. A granite (igneous) exposed at the surface may weather into sand grains, which become sandstone (sedimentary); that sandstone may be buried and … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -928,7 +1258,18 @@ export const topics: Topic[] = [
         title: "Energy sources for the rock cycle",
         summary: "Two main energy sources power the rock cycle. (1) Earth's internal heat (primordial + radiogenic) drives processes that occur at depth:…",
         explanation: "Two main energy sources power the rock cycle. (1) Earth's internal heat (primordial + radiogenic) drives processes that occur at depth: melting (igneous), and high-T/high-P recrystallization (metamorphic). It also drives plate tectonics, which transports rocks between settings. (2) Solar energy + gravity drive processes at the surface: heating/cooling breaks rocks (physical weathering); water, wind, and ice erode and transport sediments; gravity pulls material downslope. Without the Sun, surface processes would freeze; without Earth's heat, deep processes would stop.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Energy sources for the rock cycle”?",
+            solution: "The accurate idea is: Two main energy sources power the rock cycle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Two main energy sources power the rock cycle.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Energy sources for the rock cycle.",
+            solution: "Stay close to the text: Two main energy sources power the rock cycle. (1) Earth's internal heat (primordial + radiogenic) drives processes that occur at depth: melting (igneous), and high-T/high-P recrystallization (metamorphic). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -937,7 +1278,18 @@ export const topics: Topic[] = [
         title: "Tectonic settings and rock types",
         summary: "Different tectonic settings produce different rock types. Mid-ocean ridges produce basalt (mafic igneous) by decompression melting.…",
         explanation: "Different tectonic settings produce different rock types. Mid-ocean ridges produce basalt (mafic igneous) by decompression melting. Subduction zones produce andesite, granite, and metamorphic rocks (schist, gneiss) at depth, while surface volcanoes erupt andesite and rhyolite. Continental collision zones produce regional metamorphic rocks (schist, gneiss, marble) and folded sedimentary rocks. Stable cratons are dominated by ancient igneous and metamorphic rocks, with thin sedimentary cover. The rock cycle is therefore tightly coupled to plate tectonics.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Tectonic settings and rock types”?",
+            solution: "The accurate idea is: Different tectonic settings produce different rock types. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Different tectonic settings produce different rock types.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Tectonic settings and rock types.",
+            solution: "Stay close to the text: Different tectonic settings produce different rock types. Mid-ocean ridges produce basalt (mafic igneous) by decompression melting. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1007,7 +1359,18 @@ export const topics: Topic[] = [
         title: "Why the principles are so robust",
         summary: "Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Sediment settles in water under…",
         explanation: "Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Sediment settles in water under gravity — naturally horizontal. New sediment is deposited on top of old — superposition. A fracture or intrusion cannot exist before the rock it cuts — cross-cutting. These simple logical rules, applied consistently, allow geologists to reconstruct sequences of events in regions where no absolute dates are available. The principles were first articulated by Nicolas Steno (17th century) and remain foundational.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the principles are so robust”?",
+            solution: "The accurate idea is: Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the principles are so robust.",
+            solution: "Stay close to the text: Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Sediment settles in water under gravity â naturally horizontal. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1016,7 +1379,18 @@ export const topics: Topic[] = [
         title: "Unconformities — windows of missing time",
         summary: "An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Three main types are…",
         explanation: "An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Three main types are recognized: (1) disconformity — an erosional surface between parallel sedimentary layers; (2) angular unconformity — tilted or folded rocks below, overlain by horizontal layers (the classic case: tilted beds eroded, then new horizontal beds deposited on top); (3) non-conformity — sedimentary rocks resting on eroded igneous or metamorphic rocks. Each represents uplift, erosion, and renewed subsidence.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Unconformities — windows of missing time”?",
+            solution: "The accurate idea is: An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Unconformities — windows of missing time.",
+            solution: "Stay close to the text: An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Three main types are recognized: (1) disconformity â an erosional surface between parallel sediment… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1025,7 +1399,18 @@ export const topics: Topic[] = [
         title: "The logic of inclusions and cross-cutting",
         summary: "Two of the most useful principles for working out complex sequences are inclusions and cross-cutting. A granite intrusion cutting sandstone…",
         explanation: "Two of the most useful principles for working out complex sequences are inclusions and cross-cutting. A granite intrusion cutting sandstone must be younger than the sandstone. A granite boulder embedded in the sandstone must be OLDER than the sandstone (it was eroded from a pre-existing granite and incorporated as a clast). These two principles often work together to pin down the order of events in regions with igneous activity, faulting, and sedimentation interleaved.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The logic of inclusions and cross-cutting”?",
+            solution: "The accurate idea is: Two of the most useful principles for working out complex sequences are inclusions and cross-cutting. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Two of the most useful principles for working out complex sequences are inclusions and cross-cutting.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The logic of inclusions and cross-cutting.",
+            solution: "Stay close to the text: Two of the most useful principles for working out complex sequences are inclusions and cross-cutting. A granite intrusion cutting sandstone must be younger than the sandstone. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1088,7 +1473,18 @@ export const topics: Topic[] = [
         title: "How radiometric dating works",
         summary: "When a mineral crystallizes from magma, it incorporates certain elements but excludes others. For example, zircon (ZrSiO₄) readily accepts…",
         explanation: "When a mineral crystallizes from magma, it incorporates certain elements but excludes others. For example, zircon (ZrSiO₄) readily accepts uranium (U) but strongly rejects lead (Pb). The moment the zircon crystal forms, its U-Pb 'clock' is set to zero — no lead, only uranium. From that moment on, the fixed rate of U decay produces Pb at a known rate. Measuring the current U/Pb ratio therefore gives the time since the crystal formed. Other parent–daughter pairs work similarly, each best suited to a particular age range and mineral.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How radiometric dating works”?",
+            solution: "The accurate idea is: When a mineral crystallizes from magma, it incorporates certain elements but excludes others. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When a mineral crystallizes from magma, it incorporates certain elements but excludes others.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How radiometric dating works.",
+            solution: "Stay close to the text: When a mineral crystallizes from magma, it incorporates certain elements but excludes others. For example, zircon (ZrSiOâ) readily accepts uranium (U) but strongly rejects lead (Pb). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1097,7 +1493,18 @@ export const topics: Topic[] = [
         title: "Half-life mathematics",
         summary: "If a sample starts with N₀ parent atoms, after one half-life it has N₀/2; after two, N₀/4; after three, N₀/8, and so on. The fraction…",
         explanation: "If a sample starts with N₀ parent atoms, after one half-life it has N₀/2; after two, N₀/4; after three, N₀/8, and so on. The fraction remaining is (1/2)ⁿ where n is the number of half-lives elapsed. The age is calculated as t = (ln(N₀/N))/λ, where N is the current number of parent atoms. In practice, labs measure the parent/daughter ratio (P/D) and use t = (ln(1 + D/P))/λ. A key point: after ~10 half-lives, less than 0.1% of the parent remains, and the measurement becomes very imprecise — this is why each method has a practical age range.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Half-life mathematics”?",
+            solution: "The accurate idea is: If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Half-life mathematics.",
+            solution: "Stay close to the text: If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on. The fraction remaining is (1/2)â¿ where n is the number of half-lives elapsed. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1106,7 +1513,18 @@ export const topics: Topic[] = [
         title: "Why dating sedimentary rocks is harder",
         summary: "Sedimentary rocks are made of fragments eroded from older rocks, so any mineral grain in a sandstone is older than the sandstone itself.…",
         explanation: "Sedimentary rocks are made of fragments eroded from older rocks, so any mineral grain in a sandstone is older than the sandstone itself. Dating a sandstone directly would give the age of the source, not the deposition. The standard workaround is to find volcanic layers (ash beds, lava flows) interbedded with the sedimentary sequence and date those — the sedimentary layer is then bracketed between the two volcanic ages. This is one reason why the geological time scale is built primarily from igneous and metamorphic rocks, with sedimentary ages interpolated.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why dating sedimentary rocks is harder”?",
+            solution: "The accurate idea is: Sedimentary rocks are made of fragments eroded from older rocks, so any mineral grain in a sandstone is older than the sandstone itself. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Sedimentary rocks are made of fragments eroded from older rocks, so any mineral grain in a sandstone is older than the sandstone itself.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why dating sedimentary rocks is harder.",
+            solution: "Stay close to the text: Sedimentary rocks are made of fragments eroded from older rocks, so any mineral grain in a sandstone is older than the sandstone itself. Dating a sandstone directly would give the age of the source, not the deposition. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1181,7 +1599,18 @@ export const topics: Topic[] = [
         title: "How the time scale is built",
         summary: "The geological time scale is constructed by combining absolute (radiometric) dates with relative (fossil-based) correlations. The absolute…",
         explanation: "The geological time scale is constructed by combining absolute (radiometric) dates with relative (fossil-based) correlations. The absolute dates come from volcanic layers interbedded with fossil-bearing sediments. The fossils allow rocks of the same age to be correlated across continents — for example, a Cambrian trilobite in Wales matches a Cambrian trilobite in China. The two methods together produce a globally consistent time scale whose boundaries are now formally defined by 'Global Boundary Stratotype Sections and Points' (GSSPs) — the international reference outcrops for each boundary.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How the time scale is built”?",
+            solution: "The accurate idea is: The geological time scale is constructed by combining absolute (radiometric) dates with relative (fossil-based) correlations. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The geological time scale is constructed by combining absolute (radiometric) dates with relative (fossil-based) correlations.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How the time scale is built.",
+            solution: "Stay close to the text: The geological time scale is constructed by combining absolute (radiometric) dates with relative (fossil-based) correlations. The absolute dates come from volcanic layers interbedded with fossil-bearing sediments. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1190,7 +1619,18 @@ export const topics: Topic[] = [
         title: "Fossils and what they tell us",
         summary: "Fossils are the primary record of the history of life, but they also reveal ancient environments, climates, and geographies. Coral reefs in…",
         explanation: "Fossils are the primary record of the history of life, but they also reveal ancient environments, climates, and geographies. Coral reefs in a limestone tells of a tropical sea; fossil leaves with broad flat shapes indicate a warm, humid climate; marine plankton in deep-sea sediments tells of open ocean; coal seams with tropical plant fossils suggest a former equatorial swamp. Plate tectonics uses fossils to reconstruct past positions of continents (e.g., the same Glossopteris flora in South America, Africa, India, and Australia was key evidence for Gondwana).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Fossils and what they tell us”?",
+            solution: "The accurate idea is: Fossils are the primary record of the history of life, but they also reveal ancient environments, climates, and geographies. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Fossils are the primary record of the history of life, but they also reveal ancient environments, climates, and geographies.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Fossils and what they tell us.",
+            solution: "Stay close to the text: Fossils are the primary record of the history of life, but they also reveal ancient environments, climates, and geographies. Coral reefs in a limestone tells of a tropical sea; fossil leaves with broad flat shapes indica… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1199,7 +1639,18 @@ export const topics: Topic[] = [
         title: "Mass extinctions and the boundaries",
         summary: "Many of the major boundaries on the time scale correspond to mass extinction events. The 'Big Five' mass extinctions are: end-Ordovician…",
         explanation: "Many of the major boundaries on the time scale correspond to mass extinction events. The 'Big Five' mass extinctions are: end-Ordovician (~445 Ma), Late Devonian (~375 Ma), end-Permian (~252 Ma, the largest), end-Triassic (~201 Ma), and end-Cretaceous (66 Ma, the K-Pg event that ended non-avian dinosaurs). Each is marked by a sharp drop in fossil diversity in the rock record and is associated with major environmental changes — flood basalts, asteroid impacts, ocean anoxia, or glaciations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Mass extinctions and the boundaries”?",
+            solution: "The accurate idea is: Many of the major boundaries on the time scale correspond to mass extinction events. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Many of the major boundaries on the time scale correspond to mass extinction events.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Mass extinctions and the boundaries.",
+            solution: "Stay close to the text: Many of the major boundaries on the time scale correspond to mass extinction events. The 'Big Five' mass extinctions are: end-Ordovician (~445 Ma), Late Devonian (~375 Ma), end-Permian (~252 Ma, the largest), end-Triassi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1262,7 +1713,18 @@ export const topics: Topic[] = [
         title: "The case Wegener built",
         summary: "Wegener compiled four main lines of evidence, all of which individually had alternative explanations but together were very persuasive. The…",
         explanation: "Wegener compiled four main lines of evidence, all of which individually had alternative explanations but together were very persuasive. The jigsaw fit of Atlantic coastlines had been noticed earlier, but Wegener showed that the match was even better at the continental shelf edge, not just the modern coastline. Fossils like Mesosaurus and Glossopteris are found only on continents now separated by oceans, but the organisms could not have crossed vast saltwater barriers — especially a freshwater reptile. Matching mountain belts and rock types across the Atlantic (Appalachians–Caledonides) implied a continuous range that had been split apart. And the distribution of Permo-Carboniferous glacial deposits across all southern continents could only be explained if those continents were joined together near the South Pole.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The case Wegener built”?",
+            solution: "The accurate idea is: Wegener compiled four main lines of evidence, all of which individually had alternative explanations but together were very persuasive. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Wegener compiled four main lines of evidence, all of which individually had alternative explanations but together were very persuasive.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The case Wegener built.",
+            solution: "Stay close to the text: Wegener compiled four main lines of evidence, all of which individually had alternative explanations but together were very persuasive. The jigsaw fit of Atlantic coastlines had been noticed earlier, but Wegener showed t… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1271,7 +1733,18 @@ export const topics: Topic[] = [
         title: "Why continental drift was rejected in Wegener's lifetime",
         summary: "Although Wegener's evidence was compelling, his proposed mechanism — that continents plowed through oceanic crust like ships through sea…",
         explanation: "Although Wegener's evidence was compelling, his proposed mechanism — that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces — was physically impossible. The oceanic crust is too strong, and the forces he proposed far too weak. Prominent geologists of the day (especially in the USA and Britain) ridiculed the hypothesis. Wegener died in 1930 on a Greenland expedition, with his ideas still largely rejected. It took the discovery of seafloor spreading (Hess, 1960) and magnetic stripes on the seafloor (Vine & Matthews, 1963) to provide the missing mechanism and convince the geological community.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why continental drift was rejected in Wegener's lifetime”?",
+            solution: "The accurate idea is: Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces â was physically impossible. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forc…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why continental drift was rejected in Wegener's lifetime.",
+            solution: "Stay close to the text: Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces â was physically impossible. The oc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1280,7 +1753,18 @@ export const topics: Topic[] = [
         title: "Pangaea to present",
         summary: "Pangaea began breaking apart in the Mesozoic (~200 Ma). First, a north-south rift split it into Laurasia and Gondwana (with the Tethys Sea…",
         explanation: "Pangaea began breaking apart in the Mesozoic (~200 Ma). First, a north-south rift split it into Laurasia and Gondwana (with the Tethys Sea between them). Then Gondwana fragmented: South America–Africa separated from the rest, then South America split from Africa (opening the South Atlantic), and India rifted from Antarctica and drifted north to collide with Asia (forming the Himalayas). Australia separated from Antarctica ~50 Ma. Today the continents are still moving — the Atlantic is widening at ~2–4 cm/year, and the Pacific is shrinking.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pangaea to present”?",
+            solution: "The accurate idea is: Pangaea began breaking apart in the Mesozoic (~200 Ma). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pangaea began breaking apart in the Mesozoic (~200 Ma).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pangaea to present.",
+            solution: "Stay close to the text: Pangaea began breaking apart in the Mesozoic (~200 Ma). First, a north-south rift split it into Laurasia and Gondwana (with the Tethys Sea between them). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1344,7 +1828,18 @@ export const topics: Topic[] = [
         title: "Why plate tectonics finally succeeded",
         summary: "Three discoveries in the early 1960s converted most geologists to plate tectonics. (1) Harry Hess proposed seafloor spreading in 1960: new…",
         explanation: "Three discoveries in the early 1960s converted most geologists to plate tectonics. (1) Harry Hess proposed seafloor spreading in 1960: new oceanic crust forms at mid-ocean ridges and spreads outward. (2) Fred Vine and Drummond Matthews (1963) showed that magnetic stripes symmetric about mid-ocean ridges record reversals of Earth's field — direct evidence of spreading. (3) Global earthquake patterns (mapped by Lynn Sykes and others) showed that earthquakes occur in narrow bands that exactly match plate boundaries. By the late 1960s, plate tectonics was the consensus framework.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why plate tectonics finally succeeded”?",
+            solution: "The accurate idea is: Three discoveries in the early 1960s converted most geologists to plate tectonics. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Three discoveries in the early 1960s converted most geologists to plate tectonics.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why plate tectonics finally succeeded.",
+            solution: "Stay close to the text: Three discoveries in the early 1960s converted most geologists to plate tectonics. (1) Harry Hess proposed seafloor spreading in 1960: new oceanic crust forms at mid-ocean ridges and spreads outward. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1353,7 +1848,18 @@ export const topics: Topic[] = [
         title: "The driving forces — which one matters most?",
         summary: "Three main forces are commonly cited. Mantle convection provides a long-term, distributed drag on the base of plates. Ridge push acts at…",
         explanation: "Three main forces are commonly cited. Mantle convection provides a long-term, distributed drag on the base of plates. Ridge push acts at mid-ocean ridges, where new, hot, elevated lithosphere slides down-slope under gravity. Slab pull acts where a dense, cold oceanic slab sinks into the mantle at a subduction zone — the weight of the slab pulls the rest of the plate along, much like pulling a tablecloth off a table. Most modern modelling suggests slab pull is the dominant force, accounting for the fastest plates (those attached to large subducting slabs). Plates without subducting slabs (e.g., the African plate) tend to move slowly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The driving forces — which one matters most?”?",
+            solution: "The accurate idea is: Three main forces are commonly cited. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Three main forces are commonly cited.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The driving forces — which one matters most?.",
+            solution: "Stay close to the text: Three main forces are commonly cited. Mantle convection provides a long-term, distributed drag on the base of plates. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1362,7 +1868,18 @@ export const topics: Topic[] = [
         title: "Hotspots and absolute plate motion",
         summary: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from the core-mantle boundary. Because…",
         explanation: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from the core-mantle boundary. Because the plumes are anchored deep in the mantle, they stay roughly fixed while the plate above moves over them. The result is a chain of progressively older volcanoes: the active volcano is over the plume now, while older, extinct volcanoes trail off in the direction the plate has moved. The Hawaiian–Emperor seamount chain records the change in direction of the Pacific Plate: from roughly north-northwest to west-northwest about 50 million years ago. Hotspots therefore provide a way to measure 'absolute' plate motion relative to the deep mantle.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hotspots and absolute plate motion”?",
+            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hotspots and absolute plate motion.",
+            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary. Because the plumes are anchored deep in the mantle, they stay roughly fixed while the p… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1425,7 +1942,18 @@ export const topics: Topic[] = [
         title: "Why subduction produces volcanism",
         summary: "When an oceanic plate subducts beneath another plate, it carries with it water and other volatiles trapped in its minerals and sediments.…",
         explanation: "When an oceanic plate subducts beneath another plate, it carries with it water and other volatiles trapped in its minerals and sediments. As the slab descends to ~100 km depth, the rising temperature and pressure release these fluids, which lower the melting point of the overlying mantle wedge. The result is flux melting — magma forms and rises to feed volcanoes on the overriding plate. This is why subduction zones are volcanic (e.g., Andes, Japan, Cascades) and why the volcanism is typically explosive andesitic, not quiet basaltic.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why subduction produces volcanism”?",
+            solution: "The accurate idea is: When an oceanic plate subducts beneath another plate, it carries with it water and other volatiles trapped in its minerals and sediments. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When an oceanic plate subducts beneath another plate, it carries with it water and other volatiles trapped in its minerals and sediments.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why subduction produces volcanism.",
+            solution: "Stay close to the text: When an oceanic plate subducts beneath another plate, it carries with it water and other volatiles trapped in its minerals and sediments. As the slab descends to ~100 km depth, the rising temperature and pressure release… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1434,7 +1962,18 @@ export const topics: Topic[] = [
         title: "Why continent–continent collisions lack volcanism",
         summary: "When two continental plates collide, both are too buoyant to subduct deeply into the mantle. Instead, the collision shortens and thickens…",
         explanation: "When two continental plates collide, both are too buoyant to subduct deeply into the mantle. Instead, the collision shortens and thickens the crust, producing high fold mountains (Himalayas, Alps) and pushing rock layers up along thrust faults. There is little or no subduction-related volcanism because no slab is descending into the mantle to release water and trigger melting. Small amounts of magmatism may occur from crustal thickening and radiogenic heating, but it is minor compared to ocean–continent or ocean–ocean subduction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why continent–continent collisions lack volcanism”?",
+            solution: "The accurate idea is: When two continental plates collide, both are too buoyant to subduct deeply into the mantle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When two continental plates collide, both are too buoyant to subduct deeply into the mantle.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why continent–continent collisions lack volcanism.",
+            solution: "Stay close to the text: When two continental plates collide, both are too buoyant to subduct deeply into the mantle. Instead, the collision shortens and thickens the crust, producing high fold mountains (Himalayas, Alps) and pushing rock layers… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1443,7 +1982,18 @@ export const topics: Topic[] = [
         title: "Earthquake depth and the Wadati–Benioff zone",
         summary: "The depth distribution of earthquakes is a key diagnostic of plate boundary type. At divergent and transform boundaries, earthquakes are…",
         explanation: "The depth distribution of earthquakes is a key diagnostic of plate boundary type. At divergent and transform boundaries, earthquakes are all shallow (<70 km), reflecting the thin, brittle lithosphere. At subduction zones, earthquakes define a dipping plane of seismicity from the surface down to ~700 km — the Wadati–Benioff zone, named after the two seismologists who independently identified it. The deeper earthquakes occur within the cold, brittle descending slab before it warms up enough to deform plastically. The dip angle of the Benioff zone reflects the subduction angle: shallow for flat subduction, steep for normal subduction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Earthquake depth and the Wadati–Benioff zone”?",
+            solution: "The accurate idea is: The depth distribution of earthquakes is a key diagnostic of plate boundary type. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The depth distribution of earthquakes is a key diagnostic of plate boundary type.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Earthquake depth and the Wadati–Benioff zone.",
+            solution: "Stay close to the text: The depth distribution of earthquakes is a key diagnostic of plate boundary type. At divergent and transform boundaries, earthquakes are all shallow (<70 km), reflecting the thin, brittle lithosphere. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1500,7 +2050,18 @@ export const topics: Topic[] = [
         title: "The Wilson cycle — repeated opening and closing of oceans",
         summary: "J. Tuzo Wilson realized in the 1960s that the same ocean can open, close, and reopen many times through Earth history. The cycle starts…",
         explanation: "J. Tuzo Wilson realized in the 1960s that the same ocean can open, close, and reopen many times through Earth history. The cycle starts with a continental rift (e.g., East African Rift today), which evolves into a narrow sea (Red Sea) and then a full ocean (Atlantic). Subduction eventually consumes the ocean from one or both sides, closing it and ending in a continent–continent collision (e.g., India–Eurasia → Himalayas). The Appalachian–Caledonide mountains of today are the eroded remnants of an earlier Wilson cycle (the Iapetus Ocean closed in the Paleozoic, producing the Caledonides; the remaining Iapetan ocean closed later to form the Appalachians). This framework explains why the same continental margins have experienced multiple phases of rifting and collision.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Wilson cycle — repeated opening and closing of oceans”?",
+            solution: "The accurate idea is: J. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "J.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Wilson cycle — repeated opening and closing of oceans.",
+            solution: "Stay close to the text: J. Tuzo Wilson realized in the 1960s that the same ocean can open, close, and reopen many times through Earth history. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1509,7 +2070,18 @@ export const topics: Topic[] = [
         title: "Hotspots as deep-Earth probes",
         summary: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from a boundary layer at the…",
         explanation: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from a boundary layer at the core–mantle boundary, or from a shallower boundary in the upper mantle. They are anchored (relatively) deep in the mantle, so the plate above moves while the plume stays put. The result is a chain of progressively older volcanoes: the youngest (and currently active) volcano is over the plume, while older extinct volcanoes trail off in the direction of plate motion. Examples: the Hawaiian–Emperor seamount chain (Pacific Plate); the Yellowstone hotspot track (North American Plate); the Réunion hotspot track, which led to the Deccan Traps flood basalt eruption ~66 Ma — possibly connected to the K-Pg mass extinction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hotspots as deep-Earth probes”?",
+            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower boundary in the upper mantle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower bound…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hotspots as deep-Earth probes.",
+            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower boundary in the upper mantle. They are anchor… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1518,7 +2090,18 @@ export const topics: Topic[] = [
         title: "Tectonics and sea level",
         summary: "Two main tectonic factors control long-term global sea level. First, the volume of mid-ocean ridges: faster seafloor spreading produces…",
         explanation: "Two main tectonic factors control long-term global sea level. First, the volume of mid-ocean ridges: faster seafloor spreading produces hotter, more buoyant, larger ridges that displace more water, raising sea level. Second, the growth and decay of continental ice caps: at the peak of the last ice age (~20,000 years ago), so much water was locked up in ice that sea level was ~120 m lower than today. Sea level has been rising since then as ice melted, and continues to rise today due to anthropogenic global warming.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Tectonics and sea level”?",
+            solution: "The accurate idea is: Two main tectonic factors control long-term global sea level. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Two main tectonic factors control long-term global sea level.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Tectonics and sea level.",
+            solution: "Stay close to the text: Two main tectonic factors control long-term global sea level. First, the volume of mid-ocean ridges: faster seafloor spreading produces hotter, more buoyant, larger ridges that displace more water, raising sea level. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1604,7 +2187,18 @@ export const topics: Topic[] = [
         title: "How physical and chemical weathering work together",
         summary: "Physical and chemical weathering are not independent. Physical weathering breaks rock into smaller pieces, increasing the surface area…",
         explanation: "Physical and chemical weathering are not independent. Physical weathering breaks rock into smaller pieces, increasing the surface area exposed to air and water. More surface area means more places for chemical reactions to occur, so chemical weathering proceeds faster. Conversely, chemical weathering weakens the rock and makes it more susceptible to physical breakup. In a cold climate, frost wedging dominates; in a hot, wet tropical climate, hydrolysis of feldspar to clay and dissolution of limestone dominate. Biological processes contribute to both — root wedging is physical; lichen acids are chemical.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How physical and chemical weathering work together”?",
+            solution: "The accurate idea is: Physical and chemical weathering are not independent. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Physical and chemical weathering are not independent.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How physical and chemical weathering work together.",
+            solution: "Stay close to the text: Physical and chemical weathering are not independent. Physical weathering breaks rock into smaller pieces, increasing the surface area exposed to air and water. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1613,7 +2207,18 @@ export const topics: Topic[] = [
         title: "Carbonation and karst landscapes",
         summary: "When rainwater absorbs CO₂ from the atmosphere and soil, it becomes a weak carbonic acid. This acid reacts with calcium carbonate…",
         explanation: "When rainwater absorbs CO₂ from the atmosphere and soil, it becomes a weak carbonic acid. This acid reacts with calcium carbonate (limestone) to form soluble calcium bicarbonate, which is carried away in solution: CaCO₃ + H₂CO₃ → Ca²⁺ + 2 HCO₃⁻. Over geological time, this process dissolves huge volumes of limestone, creating karst landscapes with caves, sinkholes, disappearing streams, and tower karst (e.g., Guilin, China). The dissolved bicarbonate eventually reaches the ocean, where marine organisms use it to build new calcium carbonate shells, completing the long-term carbon cycle.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Carbonation and karst landscapes”?",
+            solution: "The accurate idea is: When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Carbonation and karst landscapes.",
+            solution: "Stay close to the text: When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid. This acid reacts with calcium carbonate (limestone) to form soluble calcium bicarbonate, which is carried away in solution: CaCO… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1622,7 +2227,18 @@ export const topics: Topic[] = [
         title: "Climate as the master control",
         summary: "Climate is the most important control on the type and rate of weathering. Cold climates favour physical weathering (ice, frost wedging).…",
         explanation: "Climate is the most important control on the type and rate of weathering. Cold climates favour physical weathering (ice, frost wedging). Hot, wet climates favour chemical weathering (hydrolysis, dissolution). Arid climates are dominated by physical processes (thermal expansion, salt weathering). Tropical rainforests have intense chemical weathering, producing deep, nutrient-poor but clay-rich soils. The same granite in a tropical climate may be reduced to a deep clay-rich saprolite in a few million years, while in a polar desert it may remain nearly fresh for tens of millions of years.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Climate as the master control”?",
+            solution: "The accurate idea is: Climate is the most important control on the type and rate of weathering. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Climate is the most important control on the type and rate of weathering.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Climate as the master control.",
+            solution: "Stay close to the text: Climate is the most important control on the type and rate of weathering. Cold climates favour physical weathering (ice, frost wedging). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1689,7 +2305,18 @@ export const topics: Topic[] = [
         title: "Running water — the master sculptor",
         summary: "Although glaciers and wind receive more attention, running water is the dominant erosional force across most of Earth's continental…",
         explanation: "Although glaciers and wind receive more attention, running water is the dominant erosional force across most of Earth's continental surface. Rivers carve V-shaped valleys in their upper reaches, transport enormous quantities of sediment (the Amazon alone carries ~1.2 billion tonnes per year), and shape landscapes over geological time. Erosion by water is most effective in steep, wet terrain and where the rock is poorly cemented. The balance between uplift and erosion determines whether mountains stand high or are worn down to plains.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Running water — the master sculptor”?",
+            solution: "The accurate idea is: Although glaciers and wind receive more attention, running water is the dominant erosional force across most of Earth's continental surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Although glaciers and wind receive more attention, running water is the dominant erosional force across most of Earth's continental surface.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Running water — the master sculptor.",
+            solution: "Stay close to the text: Although glaciers and wind receive more attention, running water is the dominant erosional force across most of Earth's continental surface. Rivers carve V-shaped valleys in their upper reaches, transport enormous quanti… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1698,7 +2325,18 @@ export const topics: Topic[] = [
         title: "Why mass wasting happens",
         summary: "Mass wasting occurs whenever the shear stress (driving force: gravity along the slope) exceeds the shear strength (resistance: friction,…",
         explanation: "Mass wasting occurs whenever the shear stress (driving force: gravity along the slope) exceeds the shear strength (resistance: friction, cohesion, root strength). Triggers increase shear stress or reduce shear strength. Heavy rain saturates soil, increasing weight and reducing friction. Earthquakes shake slopes, momentarily reducing friction. Undercutting by rivers or waves steepens slopes. Vegetation removal (fires, deforestation) reduces root strength. The result can be sudden catastrophic landslides or slow continuous creep.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why mass wasting happens”?",
+            solution: "The accurate idea is: Mass wasting occurs whenever the shear stress (driving force: gravity along the slope) exceeds the shear strength (resistance: friction, cohesion, root strength). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Mass wasting occurs whenever the shear stress (driving force: gravity along the slope) exceeds the shear strength (resistance: friction, cohesion, root strength).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why mass wasting happens.",
+            solution: "Stay close to the text: Mass wasting occurs whenever the shear stress (driving force: gravity along the slope) exceeds the shear strength (resistance: friction, cohesion, root strength). Triggers increase shear stress or reduce shear strength. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1707,7 +2345,18 @@ export const topics: Topic[] = [
         title: "Creep vs. landslides — the speed spectrum",
         summary: "Mass wasting covers an enormous range of speeds. Creep is so slow (mm/yr) that you only notice it by tilted fence posts, curved tree trunks…",
         explanation: "Mass wasting covers an enormous range of speeds. Creep is so slow (mm/yr) that you only notice it by tilted fence posts, curved tree trunks (pistol-butt trees), and disrupted soil horizons. Solifluction is faster (cm/yr) — saturated soil flows over impermeable permafrost. At the other extreme, rockfalls, debris flows, and lahars can move at tens of km/hr, devastating everything in their path. The 2014 Oso landslide in Washington state moved at up to ~70 km/hr, killing 43 people. The 1985 Nevado del Ruiz lahar in Colombia killed ~25,000 people when a volcanic mudflow swept down the river valleys.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Creep vs. landslides — the speed spectrum”?",
+            solution: "The accurate idea is: Mass wasting covers an enormous range of speeds. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Mass wasting covers an enormous range of speeds.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Creep vs. landslides — the speed spectrum.",
+            solution: "Stay close to the text: Mass wasting covers an enormous range of speeds. Creep is so slow (mm/yr) that you only notice it by tilted fence posts, curved tree trunks (pistol-butt trees), and disrupted soil horizons. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1773,7 +2422,18 @@ export const topics: Topic[] = [
         title: "From V-shape to oxbow — the river's life",
         summary: "A river's character changes from source to mouth. In its upper course the gradient is steep and erosion dominates — the river cuts…",
         explanation: "A river's character changes from source to mouth. In its upper course the gradient is steep and erosion dominates — the river cuts downward, producing V-shaped valleys, gorges, and waterfalls. As the gradient lessens in the middle course, the river begins to meander, with erosion on the outer (cut) bank and deposition on the inner (slip-off) bank. In the lower course, the gradient is gentle and deposition dominates — wide floodplains, natural levees, and ultimately a delta or alluvial fan at the mouth. The same river can therefore be erosional in one part and depositional in another at the same time.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From V-shape to oxbow — the river's life”?",
+            solution: "The accurate idea is: A river's character changes from source to mouth. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A river's character changes from source to mouth.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From V-shape to oxbow — the river's life.",
+            solution: "Stay close to the text: A river's character changes from source to mouth. In its upper course the gradient is steep and erosion dominates â the river cuts downward, producing V-shaped valleys, gorges, and waterfalls. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1782,7 +2442,18 @@ export const topics: Topic[] = [
         title: "Drainage patterns — fingerprints of geology",
         summary: "The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Dendritic ('tree-like') patterns develop on…",
         explanation: "The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Dendritic ('tree-like') patterns develop on uniform, flat-lying rock where there is no structural control — they are the most common pattern globally. Trellis patterns form on tilted alternating hard and soft sedimentary rocks: short tributaries flow down the soft layers, while long parallel streams follow the strike of resistant beds. Radial patterns form on isolated domes or volcanoes, with streams flowing outward in all directions. Rectangular patterns are controlled by joints or faults at right angles. Centripetal patterns drain inward to a central basin (e.g., a closed lake basin).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Drainage patterns — fingerprints of geology”?",
+            solution: "The accurate idea is: The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The pattern a river system makes on a map is a sensitive indicator of the underlying geology.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Drainage patterns — fingerprints of geology.",
+            solution: "Stay close to the text: The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Dendritic ('tree-like') patterns develop on uniform, flat-lying rock where there is no structural control â they are the mos… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1791,7 +2462,18 @@ export const topics: Topic[] = [
         title: "Meanders, oxbows, and deltas",
         summary: "Meanders form because of a positive feedback: any small bend in a channel causes faster flow on the outside (eroding the cut bank) and…",
         explanation: "Meanders form because of a positive feedback: any small bend in a channel causes faster flow on the outside (eroding the cut bank) and slower flow on the inside (depositing a slip-off slope), amplifying the bend. Over time, the meander loop becomes more pronounced. During a flood, the river may take a shortcut across the narrow neck, leaving the meander cut off as an oxbow lake, which gradually fills with sediment and vegetation. Deltas form where a river enters standing water: the flow slows abruptly, the river drops its sediment load, and the deposit builds outward in a characteristic shape — bird-foot (Mississippi), arcuate (Nile), or cuspate (Ebro).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Meanders, oxbows, and deltas”?",
+            solution: "The accurate idea is: Meanders form because of a positive feedback: any small bend in a channel causes faster flow on the outside (eroding the cut bank) and slower flow on the inside (depositing a slip-off slope), amplifying the bend. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Meanders form because of a positive feedback: any small bend in a channel causes faster flow on the outside (eroding the cut bank) and slower flow on the inside (depositing a slip-…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Meanders, oxbows, and deltas.",
+            solution: "Stay close to the text: Meanders form because of a positive feedback: any small bend in a channel causes faster flow on the outside (eroding the cut bank) and slower flow on the inside (depositing a slip-off slope), amplifying the bend. Over ti… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1869,7 +2551,18 @@ export const topics: Topic[] = [
         title: "Glacial erosion — from V to U and beyond",
         summary: "A glacier does not simply flow down a pre-existing river valley — it transforms the landscape. The ice is much more rigid and powerful than…",
         explanation: "A glacier does not simply flow down a pre-existing river valley — it transforms the landscape. The ice is much more rigid and powerful than water: it widens and deepens the valley, producing the characteristic U-shape (glacial trough). At the head of the glacier, a bowl-shaped cirque is excavated by plucking and abrasion. Where two cirques on opposite sides of a ridge meet back-to-back, they form a sharp arête. Where three or more cirques converge on a single peak, they leave a pyramidal horn like the Matterhorn. Tributary glacial valleys are not deepened as much as the main glacier, so when the ice melts, they are left as hanging valleys high on the trough walls — often with spectacular waterfalls plunging from them.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Glacial erosion — from V to U and beyond”?",
+            solution: "The accurate idea is: A glacier does not simply flow down a pre-existing river valley â it transforms the landscape. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A glacier does not simply flow down a pre-existing river valley â it transforms the landscape.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Glacial erosion — from V to U and beyond.",
+            solution: "Stay close to the text: A glacier does not simply flow down a pre-existing river valley â it transforms the landscape. The ice is much more rigid and powerful than water: it widens and deepens the valley, producing the characteristic U-shape … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1878,7 +2571,18 @@ export const topics: Topic[] = [
         title: "Desert processes — wind vs. water",
         summary: "A common misconception is that deserts are shaped primarily by wind. In fact, running water during rare but intense storms does most of the…",
         explanation: "A common misconception is that deserts are shaped primarily by wind. In fact, running water during rare but intense storms does most of the erosional work in deserts, carving canyons, alluvial fans, and pediments. Wind shapes landforms primarily in areas with abundant loose sand (ergs) and where the surface dries out and allows grains to be picked up. The four main dune types reflect sand supply and wind constancy: barchan dunes (crescent) form where sand is limited and wind is constant; longitudinal dunes form where wind comes from two directions; transverse dunes form where sand is abundant and wind is constant; star dunes form in areas with variable wind directions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Desert processes — wind vs. water”?",
+            solution: "The accurate idea is: A common misconception is that deserts are shaped primarily by wind. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A common misconception is that deserts are shaped primarily by wind.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Desert processes — wind vs. water.",
+            solution: "Stay close to the text: A common misconception is that deserts are shaped primarily by wind. In fact, running water during rare but intense storms does most of the erosional work in deserts, carving canyons, alluvial fans, and pediments. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1887,7 +2591,18 @@ export const topics: Topic[] = [
         title: "Moraines — till and the trail of the ice",
         summary: "Glaciers transport enormous amounts of rock debris — collectively called till. Where this debris is deposited marks the past extent and…",
         explanation: "Glaciers transport enormous amounts of rock debris — collectively called till. Where this debris is deposited marks the past extent and movement of the ice. Lateral moraines form along the sides of a valley glacier. Where two glaciers merge, their inner lateral moraines combine to form a medial moraine, visible as a dark stripe running down the ice. The terminal (end) moraine marks the farthest advance of the glacier. Recessional moraines mark pauses during retreat. Drumlins and eskers record the flow of ice and meltwater within the glacier. Erratics — boulders of a rock type different from the local bedrock — are clear evidence of glacial transport, sometimes hundreds of kilometres from their source.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Moraines — till and the trail of the ice”?",
+            solution: "The accurate idea is: Glaciers transport enormous amounts of rock debris â collectively called till. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Glaciers transport enormous amounts of rock debris â collectively called till.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Moraines — till and the trail of the ice.",
+            solution: "Stay close to the text: Glaciers transport enormous amounts of rock debris â collectively called till. Where this debris is deposited marks the past extent and movement of the ice. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1968,7 +2683,18 @@ export const topics: Topic[] = [
         title: "How waves shape the coast",
         summary: "Waves attack the coast through three main processes. Hydraulic action is the force of water compressing air in cracks, which can break rock…",
         explanation: "Waves attack the coast through three main processes. Hydraulic action is the force of water compressing air in cracks, which can break rock apart. Abrasion is the sandpaper effect of sediment thrown against the cliff by waves. Solution dissolves soluble rocks (especially limestone). The result is a sequence of features that develops over time: a crack becomes a notch, the notch becomes a cave, the cave becomes an arch, the arch collapses to leave a stack, and the stack is eventually eroded to a stump. Meanwhile, between headlands, sediment is deposited as beaches, spits, and barrier islands.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How waves shape the coast”?",
+            solution: "The accurate idea is: Waves attack the coast through three main processes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Waves attack the coast through three main processes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How waves shape the coast.",
+            solution: "Stay close to the text: Waves attack the coast through three main processes. Hydraulic action is the force of water compressing air in cracks, which can break rock apart. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1977,7 +2703,18 @@ export const topics: Topic[] = [
         title: "Reefs, atolls, and the coral requirement",
         summary: "Coral reefs are restricted to warm (>20 °C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Reef-building corals have a…",
         explanation: "Coral reefs are restricted to warm (>20 °C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Reef-building corals have a symbiotic relationship with photosynthetic algae (zooxanthellae) that need sunlight. The three main types are fringing reefs (close to shore), barrier reefs (separated from shore by a lagoon, e.g., the Great Barrier Reef), and atolls (a ring of reef surrounding a central lagoon, formed when a volcanic island sinks and the reef grows upward). Darwin correctly deduced the atoll sequence in 1842 — long before plate tectonics explained the sinking.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reefs, atolls, and the coral requirement”?",
+            solution: "The accurate idea is: Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reefs, atolls, and the coral requirement.",
+            solution: "Stay close to the text: Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Reef-building corals have a symbiotic relationship with photosynthetic algae (zooxanthellae) that need sunlight… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1986,7 +2723,18 @@ export const topics: Topic[] = [
         title: "Karst — the underground landscape",
         summary: "Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution.…",
         explanation: "Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution. Rainwater absorbs CO₂ from the air and soil, becoming a weak carbonic acid that dissolves CaCO₃. Over time, this creates underground drainage networks, caves, sinkholes, and tower karst. Famous karst regions include the Guilin area of China (tower karst), Halong Bay in Vietnam, the Yucatán Peninsula (cenotes), Kentucky's Mammoth Cave system, and Slovenia's karst (the original type locality for the term). In Pakistan, the Kirthar Range and parts of the Salt Range show some karst development.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Karst — the underground landscape”?",
+            solution: "The accurate idea is: Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Karst — the underground landscape.",
+            solution: "Stay close to the text: Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution. Rainwater absorbs COâ from the air and soil, becoming a weak carbonic acid that dis… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2065,7 +2813,18 @@ export const topics: Topic[] = [
         title: "Why the same stress produces different outcomes",
         summary: "The same applied stress can produce very different deformation depending on the conditions. A granite sample in a lab will deform brittlely…",
         explanation: "The same applied stress can produce very different deformation depending on the conditions. A granite sample in a lab will deform brittlely if stressed quickly at room temperature (it breaks with a snap). The same granite, slowly heated and squeezed deep in the crust over millions of years, will deform plastically and fold without breaking. This is why we see folded gneiss deep in mountain roots but jointed and faulted granite in outcrops at the surface — the same rock type, the same stress direction, but different T and P conditions. Strain rate matters too: even at low T, a rock can deform plastically if the strain is applied extremely slowly (a phenomenon called 'cold flow').",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the same stress produces different outcomes”?",
+            solution: "The accurate idea is: The same applied stress can produce very different deformation depending on the conditions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The same applied stress can produce very different deformation depending on the conditions.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the same stress produces different outcomes.",
+            solution: "Stay close to the text: The same applied stress can produce very different deformation depending on the conditions. A granite sample in a lab will deform brittlely if stressed quickly at room temperature (it breaks with a snap). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2074,7 +2833,18 @@ export const topics: Topic[] = [
         title: "The brittle–ductile transition and earthquakes",
         summary: "Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Above the brittle–ductile…",
         explanation: "Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Above the brittle–ductile transition (typically 10–15 km in continental crust, shallower in oceanic crust), rocks behave elastically and can store stress as elastic strain energy, which is released suddenly as an earthquake. Below the transition, rocks deform plastically and aseismically — they flow rather than break. The deep-focus earthquakes (up to ~700 km) recorded at subduction zones occur within the cold interior of the subducting slab, which is still brittle even at great depth because it has not had time to warm up to ambient mantle temperatures.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The brittle–ductile transition and earthquakes”?",
+            solution: "The accurate idea is: Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The brittle–ductile transition and earthquakes.",
+            solution: "Stay close to the text: Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Above the brittleâductile transition (typically 10â15 km in continental crust, shallower in oceanic crust), roc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2083,7 +2853,18 @@ export const topics: Topic[] = [
         title: "Putting it all together — T, P, rate, and rock type",
         summary: "The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. In a continent–continent collision,…",
         explanation: "The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. In a continent–continent collision, the upper crust (cool, low P) deforms by brittle faulting (thrust faults, earthquakes); the middle crust (warmer, higher P) deforms plastically, producing folds and ductile shear zones; the lower crust (hot, high P) flows like putty. This vertical zonation of deformation style is critical for understanding how mountain belts work.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Putting it all together — T, P, rate, and rock type”?",
+            solution: "The accurate idea is: The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Putting it all together — T, P, rate, and rock type.",
+            solution: "Stay close to the text: The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. In a continentâcontinent collision, the upper crust (cool, low P) deforms by brittle faulting (thrust faults, earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2156,7 +2937,18 @@ export const topics: Topic[] = [
         title: "Anticline vs. syncline — the trap to avoid",
         summary: "Many students assume anticlines are always hills and synclines are always valleys. In fact, the topographic expression of a fold depends on…",
         explanation: "Many students assume anticlines are always hills and synclines are always valleys. In fact, the topographic expression of a fold depends on its age and erosion. A young anticline may indeed form a hill, but as erosion proceeds, the crest of the anticline is removed first (because it is most stretched and fractured), and the anticline can become a valley. Conversely, a syncline may initially form a valley, but as erosion removes weaker rock from the limbs, the synclinal trough may end up as a hill. The 'anticline = hill, syncline = valley' rule is therefore a useful starting point, not a universal truth.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Anticline vs. syncline — the trap to avoid”?",
+            solution: "The accurate idea is: Many students assume anticlines are always hills and synclines are always valleys. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Many students assume anticlines are always hills and synclines are always valleys.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Anticline vs. syncline — the trap to avoid.",
+            solution: "Stay close to the text: Many students assume anticlines are always hills and synclines are always valleys. In fact, the topographic expression of a fold depends on its age and erosion. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2165,7 +2957,18 @@ export const topics: Topic[] = [
         title: "Plunging folds and their patterns",
         summary: "When a fold's hinge line is not horizontal but tilts into the ground, the fold is said to plunge. Plunging folds produce distinctive…",
         explanation: "When a fold's hinge line is not horizontal but tilts into the ground, the fold is said to plunge. Plunging folds produce distinctive 'V'-shaped or 'nose'-shaped outcrop patterns on geological maps: plunging anticlines close (nose out) in the direction of plunge, and plunging synclines close in the opposite direction. The classic V-shape is a powerful tool for interpreting structure from a map. Domes and basins are doubly plunging — the hinge closes in two opposite directions. The Black Hills of South Dakota are a classic eroded dome; the Michigan Basin is a classic basin structure.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Plunging folds and their patterns”?",
+            solution: "The accurate idea is: When a fold's hinge line is not horizontal but tilts into the ground, the fold is said to plunge. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When a fold's hinge line is not horizontal but tilts into the ground, the fold is said to plunge.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Plunging folds and their patterns.",
+            solution: "Stay close to the text: When a fold's hinge line is not horizontal but tilts into the ground, the fold is said to plunge. Plunging folds produce distinctive 'V'-shaped or 'nose'-shaped outcrop patterns on geological maps: plunging anticlines cl… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2174,7 +2977,18 @@ export const topics: Topic[] = [
         title: "How folds form",
         summary: "Folds form by ductile deformation under compressional stress, typically in convergent tectonic settings (continental collision,…",
         explanation: "Folds form by ductile deformation under compressional stress, typically in convergent tectonic settings (continental collision, subduction-related compression). They range from gentle warps in sedimentary basins (draping over basement faults) to tight, isoclinal, recumbent folds in the cores of mountain belts. Folds can also form by drape folding (layers bent over a basement high), by buckling (a competent layer folds while a weaker layer flows), or by flow in weak layers like salt (salt tectonics produces spectacular folds in salt basins).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How folds form”?",
+            solution: "The accurate idea is: Folds form by ductile deformation under compressional stress, typically in convergent tectonic settings (continental collision, subduction-related compression). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Folds form by ductile deformation under compressional stress, typically in convergent tectonic settings (continental collision, subduction-related compression).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How folds form.",
+            solution: "Stay close to the text: Folds form by ductile deformation under compressional stress, typically in convergent tectonic settings (continental collision, subduction-related compression). They range from gentle warps in sedimentary basins (draping… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2248,7 +3062,18 @@ export const topics: Topic[] = [
         title: "Hanging wall vs. footwall — the rule of the V",
         summary: "A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault — your head touches the…",
         explanation: "A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault — your head touches the hanging wall (above), your feet rest on the footwall (below). Another mnemonic: hang your hat on the hanging wall, put your boots on the footwall. Whether the hanging wall moves up (reverse/thrust) or down (normal) determines the type of fault and the stress regime. This is also the basis of the 'stick figure' trick for finding dip direction on a geological map: a stick figure drawn across the trace of a fault on a map has its head on the hanging wall side and feet on the footwall side.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hanging wall vs. footwall — the rule of the V”?",
+            solution: "The accurate idea is: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on the footwall (below). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hanging wall vs. footwall — the rule of the V.",
+            solution: "Stay close to the text: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on the footwall (below). Another mnemonic:… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2257,7 +3082,18 @@ export const topics: Topic[] = [
         title: "The stress-fault correspondence",
         summary: "The type of fault directly indicates the type of stress that produced it. Normal faults (hanging wall DOWN) result from tensional stress —…",
         explanation: "The type of fault directly indicates the type of stress that produced it. Normal faults (hanging wall DOWN) result from tensional stress — the rock is being pulled apart. Reverse and thrust faults (hanging wall UP) result from compressional stress — the rock is being squeezed. Strike-slip faults (horizontal motion) result from shear stress. In any deformed region, the mix of fault types tells the geologist about the orientation and type of tectonic stress. This is widely used in earthquake hazard assessment and in hydrocarbon exploration (faults can trap oil and gas in structural closures).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The stress-fault correspondence”?",
+            solution: "The accurate idea is: The type of fault directly indicates the type of stress that produced it. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The type of fault directly indicates the type of stress that produced it.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The stress-fault correspondence.",
+            solution: "Stay close to the text: The type of fault directly indicates the type of stress that produced it. Normal faults (hanging wall DOWN) result from tensional stress â the rock is being pulled apart. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2266,7 +3102,18 @@ export const topics: Topic[] = [
         title: "Thrust faults — long-distance transport",
         summary: "Thrust faults are low-angle reverse faults (dip <30°) that can transport large sheets of rock for tens or even hundreds of kilometres. The…",
         explanation: "Thrust faults are low-angle reverse faults (dip <30°) that can transport large sheets of rock for tens or even hundreds of kilometres. The Lewis Overthrust in Montana/Canada moved a slab of Precambrian rock ~80 km eastward. In the Himalayas, the Main Central Thrust has placed Higher Himalayan crystalline rocks over the Lesser Himalayan sequence. The phenomenon of older rocks being thrust over younger rocks along a low-angle fault is so distinctive that any such relationship deserves close examination — it almost always indicates major tectonic shortening.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Thrust faults — long-distance transport”?",
+            solution: "The accurate idea is: Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Thrust faults — long-distance transport.",
+            solution: "Stay close to the text: Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres. The Lewis Overthrust in Montana/Canada moved a slab of Precambrian rock ~80 km eastw… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2275,7 +3122,18 @@ export const topics: Topic[] = [
         title: "Right-lateral vs. left-lateral — the apparent motion",
         summary: "Naming a strike-slip fault 'right-lateral' or 'left-lateral' describes how the OPPOSITE side of the fault appears to move, relative to a…",
         explanation: "Naming a strike-slip fault 'right-lateral' or 'left-lateral' describes how the OPPOSITE side of the fault appears to move, relative to a fixed observer on one side. To determine which type it is: stand on one side of the fault and look across — if the features on the other side have moved to the right, it is right-lateral (dextral). This is the reason the San Andreas is right-lateral: a fence across the fault would, after an earthquake, appear to have the far side shifted to the right. The choice of which side you stand on does not matter — the fault is right-lateral regardless of viewpoint.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Right-lateral vs. left-lateral — the apparent motion”?",
+            solution: "The accurate idea is: Naming a strike-slip fault 'right-lateral' or 'left-lateral' describes how the OPPOSITE side of the fault appears to move, relative to a fixed observer on one side. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Naming a strike-slip fault 'right-lateral' or 'left-lateral' describes how the OPPOSITE side of the fault appears to move, relative to a fixed observer on one side.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Right-lateral vs. left-lateral — the apparent motion.",
+            solution: "Stay close to the text: Naming a strike-slip fault 'right-lateral' or 'left-lateral' describes how the OPPOSITE side of the fault appears to move, relative to a fixed observer on one side. To determine which type it is: stand on one side of the… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2335,7 +3193,18 @@ export const topics: Topic[] = [
         title: "Columnar jointing — a spectacular exception",
         summary: "Most joints are irregular or part of a regional tectonic joint set, but some are spectacularly regular. Columnar jointing forms when a…",
         explanation: "Most joints are irregular or part of a regional tectonic joint set, but some are spectacularly regular. Columnar jointing forms when a thick lava flow or shallow igneous intrusion cools slowly and uniformly: as the rock cools and contracts, it fractures into polygonal columns (typically hexagonal) that are perpendicular to the cooling surface. Famous examples include the Giant's Causeway in Northern Ireland, Devils Tower in Wyoming, and the 'organ pipes' of Mount Kaputar in Australia. The columns form perpendicular to the cooling surface, so in a vertical lava flow the columns are horizontal; in a horizontal lava flow they are vertical.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Columnar jointing — a spectacular exception”?",
+            solution: "The accurate idea is: Most joints are irregular or part of a regional tectonic joint set, but some are spectacularly regular. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Most joints are irregular or part of a regional tectonic joint set, but some are spectacularly regular.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Columnar jointing — a spectacular exception.",
+            solution: "Stay close to the text: Most joints are irregular or part of a regional tectonic joint set, but some are spectacularly regular. Columnar jointing forms when a thick lava flow or shallow igneous intrusion cools slowly and uniformly: as the rock … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2344,7 +3213,18 @@ export const topics: Topic[] = [
         title: "The anatomy of a mountain belt",
         summary: "A mature compressional mountain belt has a characteristic architecture. From the suture (the line of the original collision) outward, one…",
         explanation: "A mature compressional mountain belt has a characteristic architecture. From the suture (the line of the original collision) outward, one typically finds: (1) a metamorphic core of high-grade gneiss and schist, with granitic intrusions; (2) a stack of thrust sheets carrying older rocks over younger ones; (3) a foreland fold-and-thrust belt, where sedimentary rocks are folded and thrust over undeformed foreland; (4) a foreland basin, where sediment eroded from the rising mountains accumulates. The Alps, Himalayas, Appalachians, and Andes all show this general architecture, with local variations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The anatomy of a mountain belt”?",
+            solution: "The accurate idea is: A mature compressional mountain belt has a characteristic architecture. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A mature compressional mountain belt has a characteristic architecture.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The anatomy of a mountain belt.",
+            solution: "Stay close to the text: A mature compressional mountain belt has a characteristic architecture. From the suture (the line of the original collision) outward, one typically finds: (1) a metamorphic core of high-grade gneiss and schist, with gran… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2353,7 +3233,18 @@ export const topics: Topic[] = [
         title: "Erosion and isostatic rebound",
         summary: "Erosion and uplift are coupled by isostasy. As a mountain belt is eroded, mass is removed from the top of the crust. To maintain isostatic…",
         explanation: "Erosion and uplift are coupled by isostasy. As a mountain belt is eroded, mass is removed from the top of the crust. To maintain isostatic equilibrium, the underlying asthenosphere flows inward and the crust rises (rebound). This means the mountains 'feel' the erosion and respond by rising — at the same time as they are being worn down. In a steady state, erosion and uplift can be in balance, with the mountains maintaining a roughly constant mean elevation while mass is continuously being cycled. In the Himalayas, for example, the rate of erosion is comparable to the rate of uplift, allowing the mountains to maintain their extraordinary heights.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Erosion and isostatic rebound”?",
+            solution: "The accurate idea is: Erosion and uplift are coupled by isostasy. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Erosion and uplift are coupled by isostasy.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Erosion and isostatic rebound.",
+            solution: "Stay close to the text: Erosion and uplift are coupled by isostasy. As a mountain belt is eroded, mass is removed from the top of the crust. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2432,7 +3323,18 @@ export const topics: Topic[] = [
         title: "Why composition matters so much",
         summary: "The silica content of magma is the single most important control on eruption style. Silica forms long polymerised chains in the melt, much…",
         explanation: "The silica content of magma is the single most important control on eruption style. Silica forms long polymerised chains in the melt, much like a tangled ball of string. A felsic magma with >65% SiO₂ has so many of these chains that it flows like cold honey; a basaltic magma with 50% SiO₂ has fewer chains and flows like warm syrup. The viscosity controls whether gases can escape: in a fluid basalt, bubbles of CO₂ and H₂O rise and pop quietly; in a sticky felsic magma, bubbles cannot escape and pressure builds until the magma explodes. This is why basaltic volcanoes (Hawaii) are gentle and felsic ones (Mount St. Helens, Yellowstone) are explosive.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why composition matters so much”?",
+            solution: "The accurate idea is: The silica content of magma is the single most important control on eruption style. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The silica content of magma is the single most important control on eruption style.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why composition matters so much.",
+            solution: "Stay close to the text: The silica content of magma is the single most important control on eruption style. Silica forms long polymerised chains in the melt, much like a tangled ball of string. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2441,7 +3343,18 @@ export const topics: Topic[] = [
         title: "Where magmas come from",
         summary: "Three main tectonic settings produce most of Earth's magmas. (1) Decompression melting at mid-ocean ridges and hotspots: hot mantle rises…",
         explanation: "Three main tectonic settings produce most of Earth's magmas. (1) Decompression melting at mid-ocean ridges and hotspots: hot mantle rises and the pressure drops, allowing it to melt without any change in temperature. This produces basaltic magma, the dominant magma type on Earth. (2) Flux melting at subduction zones: water released from the subducting slab lowers the melting point of the overlying mantle wedge, producing basaltic to andesitic magma. (3) Crustal melting in continental rifts and arcs: hot basalt intrudes the crust and partially melts it, producing felsic (rhyolitic) magma. The mix of these three processes explains the global distribution of volcanoes.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Where magmas come from”?",
+            solution: "The accurate idea is: Three main tectonic settings produce most of Earth's magmas. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Three main tectonic settings produce most of Earth's magmas.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Where magmas come from.",
+            solution: "Stay close to the text: Three main tectonic settings produce most of Earth's magmas. (1) Decompression melting at mid-ocean ridges and hotspots: hot mantle rises and the pressure drops, allowing it to melt without any change in temperature. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2450,7 +3363,18 @@ export const topics: Topic[] = [
         title: "Magma evolution: fractional crystallisation",
         summary: "Magma composition can change after it forms. As a basaltic magma cools, high-temperature minerals (olivine, Ca-plagioclase) crystallise and…",
         explanation: "Magma composition can change after it forms. As a basaltic magma cools, high-temperature minerals (olivine, Ca-plagioclase) crystallise and settle out, leaving the remaining melt more silica-rich. This process, called fractional crystallisation, can drive a basaltic magma to andesitic and eventually rhyolitic compositions. The layered intrusions of the Bushveld Complex (South Africa) and the Stillwater Complex (Montana) are dramatic records of this process — a single cooling magma chamber produced a graded sequence of rocks from mafic at the bottom to felsic at the top.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Magma evolution: fractional crystallisation”?",
+            solution: "The accurate idea is: Magma composition can change after it forms. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Magma composition can change after it forms.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Magma evolution: fractional crystallisation.",
+            solution: "Stay close to the text: Magma composition can change after it forms. As a basaltic magma cools, high-temperature minerals (olivine, Ca-plagioclase) crystallise and settle out, leaving the remaining melt more silica-rich. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2526,7 +3450,18 @@ export const topics: Topic[] = [
         title: "Shape follows magma",
         summary: "The shape of a volcano is a direct consequence of its magma. Fluid basaltic lava flows long distances before solidifying, building a low,…",
         explanation: "The shape of a volcano is a direct consequence of its magma. Fluid basaltic lava flows long distances before solidifying, building a low, broad shield — Mauna Loa is the classic example. Sticky felsic or andesitic lava piles up near the vent, building a steep cone — Mt. Fuji is the classic example. Pyroclastic material (ash, cinders) also piles up at the angle of repose (~35°), so cinder cones built entirely of tephra are always steep and small. A composite volcano is a long-lived, multi-source structure that alternates between effusive and explosive activity, building up a layered edifice of lava flows and pyroclastic deposits.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Shape follows magma”?",
+            solution: "The accurate idea is: The shape of a volcano is a direct consequence of its magma. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The shape of a volcano is a direct consequence of its magma.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Shape follows magma.",
+            solution: "Stay close to the text: The shape of a volcano is a direct consequence of its magma. Fluid basaltic lava flows long distances before solidifying, building a low, broad shield â Mauna Loa is the classic example. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2535,7 +3470,18 @@ export const topics: Topic[] = [
         title: "Why some eruptions are explosive and others are not",
         summary: "The explosivity of a volcanic eruption is controlled by magma viscosity and gas content. In fluid basaltic magma, gas bubbles rise and…",
         explanation: "The explosivity of a volcanic eruption is controlled by magma viscosity and gas content. In fluid basaltic magma, gas bubbles rise and escape gently, producing 'fire-fountain' eruptions (Hawaiian style). In viscous felsic or andesitic magma, gas bubbles cannot escape — pressure builds until the magma literally explodes, fragmenting into ash and pumice and producing a tall eruption column (Plinian style, named after Pliny the Younger's description of the 79 AD Vesuvius eruption). Water-magma interaction (Surtseyan style) adds another explosive pathway when magma contacts groundwater, lakes, or seawater.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why some eruptions are explosive and others are not”?",
+            solution: "The accurate idea is: The explosivity of a volcanic eruption is controlled by magma viscosity and gas content. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The explosivity of a volcanic eruption is controlled by magma viscosity and gas content.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why some eruptions are explosive and others are not.",
+            solution: "Stay close to the text: The explosivity of a volcanic eruption is controlled by magma viscosity and gas content. In fluid basaltic magma, gas bubbles rise and escape gently, producing 'fire-fountain' eruptions (Hawaiian style). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2544,7 +3490,18 @@ export const topics: Topic[] = [
         title: "Calderas and supervolcanoes",
         summary: "When a very large volume of magma is erupted in a short time, the underlying chamber empties and the surface collapses, forming a caldera.…",
         explanation: "When a very large volume of magma is erupted in a short time, the underlying chamber empties and the surface collapses, forming a caldera. Crater Lake in Oregon is a 10-km-wide caldera formed about 7,700 years ago when Mt. Mazama erupted ~50 km³ of material and collapsed. Yellowstone is a much larger caldera (~70 × 50 km) that has produced three 'supereruptions' in the past 2 million years, each ejecting >1,000 km³ of material. The largest known caldera-forming eruptions (e.g., Toba, ~74,000 years ago, ~2,800 km³) can have global climate effects, triggering a 'volcanic winter' of several years.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Calderas and supervolcanoes”?",
+            solution: "The accurate idea is: When a very large volume of magma is erupted in a short time, the underlying chamber empties and the surface collapses, forming a caldera. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When a very large volume of magma is erupted in a short time, the underlying chamber empties and the surface collapses, forming a caldera.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Calderas and supervolcanoes.",
+            solution: "Stay close to the text: When a very large volume of magma is erupted in a short time, the underlying chamber empties and the surface collapses, forming a caldera. Crater Lake in Oregon is a 10-km-wide caldera formed about 7,700 years ago when M… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2627,7 +3584,18 @@ export const topics: Topic[] = [
         title: "Pyroclastic flows — the deadliest volcanic phenomenon",
         summary: "Pyroclastic flows are hot (300–700 °C), fast-moving (100–700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the…",
         explanation: "Pyroclastic flows are hot (300–700 °C), fast-moving (100–700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. They are produced when an explosive eruption ejects material that is too dense to rise as an eruption column, so it collapses and flows downslope under gravity. Their high temperature and speed make them the most deadly volcanic phenomenon: the 1902 Mt. Pelée pyroclastic flow killed ~28,000 people in St. Pierre, Martinique, in minutes. The AD 79 eruption of Vesuvius produced pyroclastic flows that buried Pompeii and Herculaneum. The 1980 Mt. St. Helens lateral blast was a kind of pyroclastic flow (a lateral blast rather than a vertical column collapse).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pyroclastic flows — the deadliest volcanic phenomenon”?",
+            solution: "The accurate idea is: Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pyroclastic flows — the deadliest volcanic phenomenon.",
+            solution: "Stay close to the text: Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. They are produced when an explosive eruption ejects mater… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2636,7 +3604,18 @@ export const topics: Topic[] = [
         title: "Volcanoes and climate",
         summary: "Volcanic eruptions can cause both short-term cooling and long-term warming. SO₂ injected into the stratosphere converts to sulphate…",
         explanation: "Volcanic eruptions can cause both short-term cooling and long-term warming. SO₂ injected into the stratosphere converts to sulphate aerosols, which reflect sunlight and cause global cooling. The 1991 Pinatubo eruption cooled global temperatures by ~0.5 °C for about a year; the 1815 Tambora eruption caused the 'Year Without a Summer' (1816) in Europe and North America, with frosts in summer and widespread crop failure. Over geological time, large flood basalt eruptions (e.g., the Deccan Traps in India ~66 Ma) released enormous volumes of CO₂, contributing to greenhouse warming and possibly triggering mass extinctions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Volcanoes and climate”?",
+            solution: "The accurate idea is: Volcanic eruptions can cause both short-term cooling and long-term warming. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Volcanic eruptions can cause both short-term cooling and long-term warming.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Volcanoes and climate.",
+            solution: "Stay close to the text: Volcanic eruptions can cause both short-term cooling and long-term warming. SOâ injected into the stratosphere converts to sulphate aerosols, which reflect sunlight and cause global cooling. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2645,7 +3624,18 @@ export const topics: Topic[] = [
         title: "Why people live near volcanoes",
         summary: "Despite the hazards, hundreds of millions of people live within the danger zone of active volcanoes. The reason is that volcanic regions…",
         explanation: "Despite the hazards, hundreds of millions of people live within the danger zone of active volcanoes. The reason is that volcanic regions are extraordinarily fertile. Andesitic and basaltic ash weathers to produce rich, mineral-rich soils ideal for agriculture — the rice terraces of Java, the vineyards of Italy, the coffee of Central America, and the wheat of the Pacific Northwest all depend on volcanic soils. Volcanoes also provide geothermal energy (Iceland generates ~25% of its electricity from geothermal sources), mineral resources (porphyry copper, gold, silver, sulfur), and tourism. The decision to live in a volcanic zone is a calculation of risk versus reward, and successful cultures have learned to read the signs of impending eruptions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why people live near volcanoes”?",
+            solution: "The accurate idea is: Despite the hazards, hundreds of millions of people live within the danger zone of active volcanoes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Despite the hazards, hundreds of millions of people live within the danger zone of active volcanoes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why people live near volcanoes.",
+            solution: "Stay close to the text: Despite the hazards, hundreds of millions of people live within the danger zone of active volcanoes. The reason is that volcanic regions are extraordinarily fertile. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2721,7 +3711,18 @@ export const topics: Topic[] = [
         title: "The Elastic Rebound Theory",
         summary: "Before the 1906 San Francisco earthquake, H. F. Reid studied offset fences, roads, and field boundaries across the San Andreas Fault. After…",
         explanation: "Before the 1906 San Francisco earthquake, H. F. Reid studied offset fences, roads, and field boundaries across the San Andreas Fault. After the quake, he noted that the same features were now offset by several metres — but in opposite directions, indicating elastic rebound. His theory explains the earthquake cycle: (1) tectonic stress slowly deforms the rock on either side of a fault; (2) the rock stores this strain elastically, like a stretched spring; (3) when the stress exceeds the fault's frictional strength, the fault slips suddenly; (4) the rock rebounds to a less-strained state, releasing its stored elastic energy as seismic waves. This simple model is the foundation of modern earthquake science.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Elastic Rebound Theory”?",
+            solution: "The accurate idea is: Before the 1906 San Francisco earthquake, H. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Before the 1906 San Francisco earthquake, H.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Elastic Rebound Theory.",
+            solution: "Stay close to the text: Before the 1906 San Francisco earthquake, H. F. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2730,7 +3731,18 @@ export const topics: Topic[] = [
         title: "Why aftershocks happen",
         summary: "A mainshock redistributes stress in the surrounding rock. Some nearby areas experience increased stress (and may fail in subsequent…",
         explanation: "A mainshock redistributes stress in the surrounding rock. Some nearby areas experience increased stress (and may fail in subsequent aftershocks); others experience decreased stress (and become more stable). Aftershocks follow a general pattern: their frequency decreases roughly as 1/t (Omori's law, 1894), and their magnitudes are typically up to about 1.1 units lower than the mainshock (Båth's law). Large aftershocks can be deadly — the 2011 Tōhoku (Japan) mainshock was followed by a large aftershock that complicated rescue and recovery.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why aftershocks happen”?",
+            solution: "The accurate idea is: A mainshock redistributes stress in the surrounding rock. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A mainshock redistributes stress in the surrounding rock.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why aftershocks happen.",
+            solution: "Stay close to the text: A mainshock redistributes stress in the surrounding rock. Some nearby areas experience increased stress (and may fail in subsequent aftershocks); others experience decreased stress (and become more stable). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2739,7 +3751,18 @@ export const topics: Topic[] = [
         title: "Foreshocks, swarms, and predicting earthquakes",
         summary: "Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background…",
         explanation: "Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens. Earthquake swarms — sequences of many small quakes with no clear mainshock — are common in volcanic regions (e.g., Yellowstone, Long Valley) and in zones of active fluid injection. Short-term earthquake prediction (hours to days) remains unreliable; modern efforts focus instead on long-term hazard assessment (probabilities over decades) and rapid early warning after a quake has begun.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Foreshocks, swarms, and predicting earthquakes”?",
+            solution: "The accurate idea is: Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Foreshocks, swarms, and predicting earthquakes.",
+            solution: "Stay close to the text: Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens. Earthquake swarms â sequences of many s… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2811,7 +3834,18 @@ export const topics: Topic[] = [
         title: "P-waves vs. S-waves — the diagnostic pair",
         summary: "P-waves and S-waves are the diagnostic duo of seismology. P-waves (compressional) work like sound waves: they push and pull material in the…",
         explanation: "P-waves and S-waves are the diagnostic duo of seismology. P-waves (compressional) work like sound waves: they push and pull material in the direction of travel. They are the fastest and can pass through anything. S-waves (shear) work like shaking a rope: they move material side-to-side perpendicular to the direction of travel. Because fluids do not support shear stress, S-waves cannot pass through liquids. The disappearance of S-waves at ~2,890 km depth (the Gutenberg discontinuity) was the original evidence that the outer core is liquid. The fact that P-waves still arrive in the S-wave shadow zone (just slower) confirmed that the outer core is liquid but not gas — and is also useful for imaging the deep Earth.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “P-waves vs. S-waves — the diagnostic pair”?",
+            solution: "The accurate idea is: P-waves and S-waves are the diagnostic duo of seismology. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "P-waves and S-waves are the diagnostic duo of seismology.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying P-waves vs. S-waves — the diagnostic pair.",
+            solution: "Stay close to the text: P-waves and S-waves are the diagnostic duo of seismology. P-waves (compressional) work like sound waves: they push and pull material in the direction of travel. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2820,7 +3854,18 @@ export const topics: Topic[] = [
         title: "Surface waves and earthquake damage",
         summary: "Surface waves arrive after the body waves and usually have larger amplitudes, especially at large distances from the epicenter. The two…",
         explanation: "Surface waves arrive after the body waves and usually have larger amplitudes, especially at large distances from the epicenter. The two main types are Love waves (horizontal shear, side-to-side, like a snake) and Rayleigh waves (rolling, elliptical, like ocean waves but in solid ground). Because surface waves are confined to the surface and have larger amplitudes, they cause most of the damage to buildings and infrastructure during an earthquake. The collapse of bridges, the buckling of rail lines, and the liquefaction of soils are all predominantly surface-wave effects.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Surface waves and earthquake damage”?",
+            solution: "The accurate idea is: Surface waves arrive after the body waves and usually have larger amplitudes, especially at large distances from the epicenter. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Surface waves arrive after the body waves and usually have larger amplitudes, especially at large distances from the epicenter.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Surface waves and earthquake damage.",
+            solution: "Stay close to the text: Surface waves arrive after the body waves and usually have larger amplitudes, especially at large distances from the epicenter. The two main types are Love waves (horizontal shear, side-to-side, like a snake) and Rayleig… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2829,7 +3874,18 @@ export const topics: Topic[] = [
         title: "Reading a seismogram",
         summary: "A seismogram is a record of ground motion over time at a single station. The first wiggle to appear is the P-wave. After a time interval…",
         explanation: "A seismogram is a record of ground motion over time at a single station. The first wiggle to appear is the P-wave. After a time interval that depends on the distance from the epicenter, the larger-amplitude S-wave arrives. The time delay between P and S is the key measurement for locating the earthquake: at a distance of 100 km the delay is about 12 seconds; at 1,000 km it is about 2 minutes. The later, even-larger arrivals are the surface waves, which can persist for many minutes in a great earthquake.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading a seismogram”?",
+            solution: "The accurate idea is: A seismogram is a record of ground motion over time at a single station. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A seismogram is a record of ground motion over time at a single station.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading a seismogram.",
+            solution: "Stay close to the text: A seismogram is a record of ground motion over time at a single station. The first wiggle to appear is the P-wave. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2895,7 +3951,18 @@ export const topics: Topic[] = [
         title: "From P–S delay to distance",
         summary: "Both P-waves and S-waves travel at known (different) speeds through Earth's interior. Because P-waves are faster, the gap between P and S…",
         explanation: "Both P-waves and S-waves travel at known (different) speeds through Earth's interior. Because P-waves are faster, the gap between P and S arrivals increases as the waves travel farther. This time gap, multiplied by the appropriate velocity, gives the distance from the station to the epicenter. Travel-time curves are pre-computed tables or graphs that convert a P–S time delay into a distance. They account for the fact that velocity increases with depth — waves that travel deeper arrive faster than they would in a uniform Earth.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From P–S delay to distance”?",
+            solution: "The accurate idea is: Both P-waves and S-waves travel at known (different) speeds through Earth's interior. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Both P-waves and S-waves travel at known (different) speeds through Earth's interior.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From P–S delay to distance.",
+            solution: "Stay close to the text: Both P-waves and S-waves travel at known (different) speeds through Earth's interior. Because P-waves are faster, the gap between P and S arrivals increases as the waves travel farther. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2904,7 +3971,18 @@ export const topics: Topic[] = [
         title: "Triangulation with three stations",
         summary: "A single station gives a distance, but not a direction. Drawing a circle of that radius around the station on a map gives a locus of…",
         explanation: "A single station gives a distance, but not a direction. Drawing a circle of that radius around the station on a map gives a locus of possible epicenters. With a second station, the two circles intersect at two points. A third station removes the ambiguity: the three circles intersect at a single point — the epicenter. In practice, the global seismic network has hundreds of stations, and the location is overdetermined: small errors at any one station are smoothed out. A computer solves the system of equations in milliseconds.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Triangulation with three stations”?",
+            solution: "The accurate idea is: A single station gives a distance, but not a direction. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A single station gives a distance, but not a direction.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Triangulation with three stations.",
+            solution: "Stay close to the text: A single station gives a distance, but not a direction. Drawing a circle of that radius around the station on a map gives a locus of possible epicenters. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2913,7 +3991,18 @@ export const topics: Topic[] = [
         title: "From seismograph to seismogram",
         summary: "A classic seismograph uses inertia: a heavy mass is suspended on a spring or pendulum inside a frame anchored to the ground. When the…",
         explanation: "A classic seismograph uses inertia: a heavy mass is suspended on a spring or pendulum inside a frame anchored to the ground. When the ground shakes, the frame moves, but the mass tends to stay in place due to inertia. The relative motion between the mass and the frame is amplified (mechanically or electronically) and recorded. Modern broadband seismometers use electronic feedback to keep the mass nearly stationary, then measure the force needed to do so — this gives a very clean, broad-frequency record. The resulting seismogram can be digitised and analysed with software.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From seismograph to seismogram”?",
+            solution: "The accurate idea is: A classic seismograph uses inertia: a heavy mass is suspended on a spring or pendulum inside a frame anchored to the ground. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A classic seismograph uses inertia: a heavy mass is suspended on a spring or pendulum inside a frame anchored to the ground.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From seismograph to seismogram.",
+            solution: "Stay close to the text: A classic seismograph uses inertia: a heavy mass is suspended on a spring or pendulum inside a frame anchored to the ground. When the ground shakes, the frame moves, but the mass tends to stay in place due to inertia. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2982,7 +4071,18 @@ export const topics: Topic[] = [
         title: "Why the moment magnitude replaced the Richter scale",
         summary: "Charles Richter's 1935 scale was calibrated for a specific type of seismograph (the Wood-Anderson) in southern California. It worked well…",
         explanation: "Charles Richter's 1935 scale was calibrated for a specific type of seismograph (the Wood-Anderson) in southern California. It worked well for local, shallow, moderate earthquakes but 'saturated' (maxed out) for very large events — a M8.3 and a M8.9 both read M8.3 on the Richter scale. The Moment Magnitude (Mw), introduced in 1979 by Hiroo Kanamori and Thomas Hanks, is based on the seismic moment — a direct physical measure of the energy released. It is valid for any earthquake size, any focal depth, and any region. Today, Mw is the standard used in research, in the news, and in seismic hazard assessment.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the moment magnitude replaced the Richter scale”?",
+            solution: "The accurate idea is: Charles Richter's 1935 scale was calibrated for a specific type of seismograph (the Wood-Anderson) in southern California. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Charles Richter's 1935 scale was calibrated for a specific type of seismograph (the Wood-Anderson) in southern California.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the moment magnitude replaced the Richter scale.",
+            solution: "Stay close to the text: Charles Richter's 1935 scale was calibrated for a specific type of seismograph (the Wood-Anderson) in southern California. It worked well for local, shallow, moderate earthquakes but 'saturated' (maxed out) for very larg… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2991,7 +4091,18 @@ export const topics: Topic[] = [
         title: "Intensity: what people actually feel",
         summary: "Intensity is a measure of the shaking and damage at a specific location — a 12-point scale (Modified Mercalli Intensity, MMI) running from…",
         explanation: "Intensity is a measure of the shaking and damage at a specific location — a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I — Not felt' to 'XII — Total destruction'. A single earthquake has many intensity values: high near the epicenter, low far away. The pattern of intensities (the 'isoseismal map') reveals the geography of shaking and helps engineers design for the worst expected shaking in a region. Intensity depends not only on distance but on local site conditions: soft, water-saturated soils amplify shaking dramatically (e.g., Mexico City, 1985) compared to nearby bedrock sites.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Intensity: what people actually feel”?",
+            solution: "The accurate idea is: Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total destruction'. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total dest…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Intensity: what people actually feel.",
+            solution: "Stay close to the text: Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total destruction'. A single earthquake has many i… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3000,7 +4111,18 @@ export const topics: Topic[] = [
         title: "Seismic hazard and risk reduction",
         summary: "Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss…",
         explanation: "Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard. Reducing risk requires: (1) hazard assessment — identifying active faults, recurrence intervals, and maximum credible earthquakes; (2) building codes designed for expected shaking; (3) earthquake-resistant design (base isolation, shear walls, ductile frames); (4) early warning systems that detect the first P-waves and warn before the damaging S- and surface waves arrive; (5) public education and emergency preparedness. Japan, Chile, and California lead in these areas; Pakistan, Nepal, and many other developing countries are still building their capacity.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Seismic hazard and risk reduction”?",
+            solution: "The accurate idea is: Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Seismic hazard and risk reduction.",
+            solution: "Stay close to the text: Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard. Reducing risk requires: (1) hazard assessment â identifying a… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3077,7 +4199,18 @@ export const topics: Topic[] = [
         title: "Why the Ring of Fire is so active",
         summary: "The Pacific Ring of Fire is a near-continuous chain of subduction zones surrounding the Pacific Ocean. The Pacific Plate is being subducted…",
         explanation: "The Pacific Ring of Fire is a near-continuous chain of subduction zones surrounding the Pacific Ocean. The Pacific Plate is being subducted beneath the Americas (forming the Andes, Cascades, and Aleutians), Japan, the Philippines, and Indonesia, while smaller plates (Nazca, Cocos, Juan de Fuca) are also being consumed. Subduction produces megathrust earthquakes — the largest on Earth, including the 1960 Valdivia (M9.5), 2004 Sumatra (M9.1), and 2011 Tōhoku (M9.1) events. The same subduction produces explosive andesitic volcanism, making the Ring of Fire also the most volcanically active region on Earth.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the Ring of Fire is so active”?",
+            solution: "The accurate idea is: The Pacific Ring of Fire is a near-continuous chain of subduction zones surrounding the Pacific Ocean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Pacific Ring of Fire is a near-continuous chain of subduction zones surrounding the Pacific Ocean.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the Ring of Fire is so active.",
+            solution: "Stay close to the text: The Pacific Ring of Fire is a near-continuous chain of subduction zones surrounding the Pacific Ocean. The Pacific Plate is being subducted beneath the Americas (forming the Andes, Cascades, and Aleutians), Japan, the Ph… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3086,7 +4219,18 @@ export const topics: Topic[] = [
         title: "How tsunamis work",
         summary: "A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). In the open ocean, the wave…",
         explanation: "A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). In the open ocean, the wave is only a fraction of a metre high but moves at 500–800 km/h — about as fast as a jet plane. As the wave enters shallow water near the coast, the front slows down due to friction with the seafloor, but the back keeps moving at full speed. The water piles up: the wave slows to 30–50 km/h but the height grows dramatically — sometimes tens of metres. The first sign on shore is often a drawdown of the sea, exposing the seabed, before the first (often smaller) wave arrives. The largest wave may be the third or fourth, not the first — a key reason for staying out of the danger zone for many hours after a warning.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How tsunamis work”?",
+            solution: "The accurate idea is: A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How tsunamis work.",
+            solution: "Stay close to the text: A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). In the open ocean, the wave is only a fraction of a metre high but moves at 500â800 km/h â about as fast … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3095,7 +4239,18 @@ export const topics: Topic[] = [
         title: "Tsunami warning systems",
         summary: "Modern tsunami warning systems combine seismic data with deep-ocean pressure sensors. DART buoys sit on the seafloor and detect the small…",
         explanation: "Modern tsunami warning systems combine seismic data with deep-ocean pressure sensors. DART buoys sit on the seafloor and detect the small pressure change caused by a passing tsunami wave; they transmit this data to a surface buoy, which relays it by satellite. The first sign of a major subduction earthquake triggers a regional warning within minutes; deep-ocean confirmation follows within an hour. The Pacific Tsunami Warning Center (PTWC, Hawaii) and the Indian Ocean Tsunami Warning Center (IOTWS, established after 2004) provide round-the-clock monitoring and alerts to coastal communities.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Tsunami warning systems”?",
+            solution: "The accurate idea is: Modern tsunami warning systems combine seismic data with deep-ocean pressure sensors. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Modern tsunami warning systems combine seismic data with deep-ocean pressure sensors.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Tsunami warning systems.",
+            solution: "Stay close to the text: Modern tsunami warning systems combine seismic data with deep-ocean pressure sensors. DART buoys sit on the seafloor and detect the small pressure change caused by a passing tsunami wave; they transmit this data to a sur… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3169,7 +4324,18 @@ export const topics: Topic[] = [
         title: "Liquefaction — the silent hazard",
         summary: "Liquefaction is one of the most dramatic and least appreciated earthquake hazards. Water-saturated, unconsolidated sandy soils can lose…",
         explanation: "Liquefaction is one of the most dramatic and least appreciated earthquake hazards. Water-saturated, unconsolidated sandy soils can lose their strength almost completely during strong shaking: the shaking rearranges the sand grains, transfers the load from grain-to-grain contact to the pore water, and the soil briefly behaves as a liquid. Buildings can sink, tilt, or float; buried tanks, manholes, and pipelines rise to the surface. The 1989 Loma Prieta earthquake in California caused dramatic liquefaction damage in San Francisco's Marina District (built on sandy fill) and near the Cypress Freeway in Oakland. The 2010–2011 Canterbury (New Zealand) sequence produced spectacular liquefaction in Christchurch, with 'sand boils' covering entire suburbs and buildings rendered uninhabitable.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Liquefaction — the silent hazard”?",
+            solution: "The accurate idea is: Liquefaction is one of the most dramatic and least appreciated earthquake hazards. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Liquefaction is one of the most dramatic and least appreciated earthquake hazards.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Liquefaction — the silent hazard.",
+            solution: "Stay close to the text: Liquefaction is one of the most dramatic and least appreciated earthquake hazards. Water-saturated, unconsolidated sandy soils can lose their strength almost completely during strong shaking: the shaking rearranges the s… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3178,7 +4344,18 @@ export const topics: Topic[] = [
         title: "Why building codes matter most",
         summary: "Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. The 2010 Haiti…",
         explanation: "Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. The 2010 Haiti earthquake (M7.0) killed an estimated 200,000–300,000 people — primarily because Haiti's building stock consisted of unreinforced masonry and concrete that had no ductility or shear resistance. By contrast, the 1989 Loma Prieta earthquake (M6.9) in California killed only 63 people, because California had enforced strict building codes for decades. The 1995 Kobe earthquake (M6.9) in Japan killed 6,434 — a tragedy, but far less than Haiti for a similar magnitude. Code enforcement saves lives.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why building codes matter most”?",
+            solution: "The accurate idea is: Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why building codes matter most.",
+            solution: "Stay close to the text: Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. The 2010 Haiti earthquake (M7.0) killed an estimated 200,000â300,000 people â primarily becaus… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3187,7 +4364,18 @@ export const topics: Topic[] = [
         title: "Earthquake early warning",
         summary: "Earthquake early warning (EEW) systems detect the first P-waves (which travel fast but are not very damaging) and send an alert before the…",
         explanation: "Earthquake early warning (EEW) systems detect the first P-waves (which travel fast but are not very damaging) and send an alert before the S-waves and surface waves (which are slow but damaging) arrive. Because P-waves outrun S-waves by about 1.7×, the warning time equals (distance to epicenter) × (1/VP − 1/VS). For a quake 100 km away, this gives about 15–20 seconds; for a quake 30 km away, only 5–8 seconds. That is not much, but it is enough for trains to slow, surgeons to lift scalpels, gas valves to close, and people to take cover. Japan's EEW system has been operational since 2007; Mexico's SASMEX has been operating since 1991. ShakeAlert in the US West Coast is in public rollout. Pakistan is in the early stages of EEW development for high-risk areas.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Earthquake early warning”?",
+            solution: "The accurate idea is: Earthquake early warning (EEW) systems detect the first P-waves (which travel fast but are not very damaging) and send an alert before the S-waves and surface waves (which are slow but damaging) arrive. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earthquake early warning (EEW) systems detect the first P-waves (which travel fast but are not very damaging) and send an alert before the S-waves and surface waves (which are slow…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Earthquake early warning.",
+            solution: "Stay close to the text: Earthquake early warning (EEW) systems detect the first P-waves (which travel fast but are not very damaging) and send an alert before the S-waves and surface waves (which are slow but damaging) arrive. Because P-waves o… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3275,7 +4463,18 @@ export const topics: Topic[] = [
         title: "The Indian–Eurasian collision and Pakistan's mountains",
         summary: "About 50 million years ago, the Indian Plate — moving northward at ~20 cm/year — collided with the Eurasian Plate. The Tethys Ocean between…",
         explanation: "About 50 million years ago, the Indian Plate — moving northward at ~20 cm/year — collided with the Eurasian Plate. The Tethys Ocean between them closed, and the sediments and crustal fragments of its floor were thrust up into the world's highest mountain belt. In Pakistan, this collision has produced three great mountain ranges: the Karakoram (a Trans-Himalayan range), the western Himalayas (anchored by Nanga Parbat), and the Hindu Kush (a continuation of the Pamir orogeny). Nanga Parbat is rising at ~4–7 mm/year (geodetic) with recent exhumation pulses up to 9–13 mm/year — one of the fastest uplift rates on Earth — driven by active thrust faulting. K2 in the Karakoram is the world's second-highest peak; only Mount Everest is taller.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Indian–Eurasian collision and Pakistan's mountains”?",
+            solution: "The accurate idea is: About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Indian–Eurasian collision and Pakistan's mountains.",
+            solution: "Stay close to the text: About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate. The Tethys Ocean between them closed, and the sediments and crustal fragments of its floor were thrus… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3284,7 +4483,18 @@ export const topics: Topic[] = [
         title: "The Indus Basin and Salt Range",
         summary: "The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous…",
         explanation: "The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin — the Indus Basin. Drill holes have encountered more than 5 km of alluvial fill in places, making this one of the deepest sedimentary basins in the world. The Salt Range, on the southern edge of the Potwar Plateau, is geologically remarkable: it exposes some of the oldest rocks in South Asia, including the Precambrian Salt Range Formation (a thick sequence of rock salt), the Cambrian Khewra Sandstone, and the Eocene Sakesar Limestone. The Khewra Salt Mine, operating since antiquity, is the second-largest salt mine in the world.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Indus Basin and Salt Range”?",
+            solution: "The accurate idea is: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â the Indus Basin. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Indus Basin and Salt Range.",
+            solution: "Stay close to the text: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â the Indus Basin. Drill holes have enc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3293,7 +4503,18 @@ export const topics: Topic[] = [
         title: "The Makran — a different tectonic setting",
         summary: "Southwestern Pakistan's Makran coast has a very different tectonic setting from the rest of the country. Here, the Arabian Plate is…",
         explanation: "Southwestern Pakistan's Makran coast has a very different tectonic setting from the rest of the country. Here, the Arabian Plate is subducting northward beneath the Eurasian Plate at the Makran Subduction Zone, producing a wide accretionary wedge (the Makran) and a chain of volcanic arc volcanoes inland (e.g., Bazman, Taftan in Iran). The Makran has produced major earthquakes and tsunamis in the past, including the 1945 Makran earthquake (M8.1) and tsunami. The 2013 Awaran earthquake (M7.7) occurred inland on the Chaman Fault system, not the subduction zone, but the region remains one of the most seismically hazardous in Pakistan.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Makran — a different tectonic setting”?",
+            solution: "The accurate idea is: Southwestern Pakistan's Makran coast has a very different tectonic setting from the rest of the country. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Southwestern Pakistan's Makran coast has a very different tectonic setting from the rest of the country.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Makran — a different tectonic setting.",
+            solution: "Stay close to the text: Southwestern Pakistan's Makran coast has a very different tectonic setting from the rest of the country. Here, the Arabian Plate is subducting northward beneath the Eurasian Plate at the Makran Subduction Zone, producing… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3364,7 +4585,18 @@ export const topics: Topic[] = [
         title: "Why Pakistan is so seismically active",
         summary: "Pakistan's high seismicity is a direct consequence of its position at the active Indian–Eurasian collision. The Indian Plate continues to…",
         explanation: "Pakistan's high seismicity is a direct consequence of its position at the active Indian–Eurasian collision. The Indian Plate continues to push northward at ~3–5 cm/year, and the resulting strain is released in earthquakes along several major structures. In the north, the Karakoram, Hindu Kush, and western Himalayan fronts produce shallow and intermediate-depth earthquakes from thrust faulting. In the Hindu Kush, intermediate-depth earthquakes (70–300 km) record the subduction/underthrusting of one slab beneath another — a special feature of this complex region. In Balochistan, the Makran subduction zone produces large megathrust earthquakes (like 1945 M8.1), and the Chaman Fault system produces shallow strike-slip earthquakes (like 2013 Awaran M7.7).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Pakistan is so seismically active”?",
+            solution: "The accurate idea is: Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Pakistan is so seismically active.",
+            solution: "Stay close to the text: Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision. The Indian Plate continues to push northward at ~3â5 cm/year, and the resulting strain is released in earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3373,7 +4605,18 @@ export const topics: Topic[] = [
         title: "Lessons from the 2005 Kashmir earthquake",
         summary: "The 2005 Kashmir (Muzaffarabad) earthquake (Mw 7.6) is the most important recent event for Pakistan. It killed over 87,000 people, injured…",
         explanation: "The 2005 Kashmir (Muzaffarabad) earthquake (Mw 7.6) is the most important recent event for Pakistan. It killed over 87,000 people, injured more than 100,000, and left 3.5 million homeless. The earthquake occurred on the Muzaffarabad fault (part of the active Himalayan thrust system) at a depth of ~26 km. The main reason for the high death toll was the vulnerability of building stock in the affected region: most buildings were unreinforced masonry or non-ductile concrete, which collapsed catastrophically under the shaking. The disaster led to major reforms in building codes, the establishment of the National Disaster Management Authority (NDMA), and a renewed focus on seismic risk reduction in Pakistan.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Lessons from the 2005 Kashmir earthquake”?",
+            solution: "The accurate idea is: The 2005 Kashmir (Muzaffarabad) earthquake (Mw 7.6) is the most important recent event for Pakistan. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The 2005 Kashmir (Muzaffarabad) earthquake (Mw 7.6) is the most important recent event for Pakistan.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Lessons from the 2005 Kashmir earthquake.",
+            solution: "Stay close to the text: The 2005 Kashmir (Muzaffarabad) earthquake (Mw 7.6) is the most important recent event for Pakistan. It killed over 87,000 people, injured more than 100,000, and left 3.5 million homeless. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3382,7 +4625,18 @@ export const topics: Topic[] = [
         title: "Karachi's quiet but real risk",
         summary: "Karachi — Pakistan's largest city (~20 million people) and economic hub — is often perceived as having low seismic risk, but this…",
         explanation: "Karachi — Pakistan's largest city (~20 million people) and economic hub — is often perceived as having low seismic risk, but this perception is misleading. The city lies within ~150 km of the Makran Subduction Zone, which produced the M8.1 1945 earthquake and tsunami. The city itself sits on soft alluvial and coastal sediments that can amplify shaking. The Rann of Kutch, just to the south, has produced significant intraplate earthquakes (e.g., 2001 Bhuj M7.7, ~400 km away, caused damage in Karachi). A future M8+ event on the Makran Subduction Zone could cause severe damage in Karachi, with potentially hundreds of thousands of casualties.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Karachi's quiet but real risk”?",
+            solution: "The accurate idea is: Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Karachi's quiet but real risk.",
+            solution: "Stay close to the text: Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading. The city lies within ~150 km of the Makran Subduction Zone, … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3442,7 +4696,18 @@ export const topics: Topic[] = [
         title: "The Chaman Fault — a giant strike-slip",
         summary: "The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly north–south through Balochistan…",
         explanation: "The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly north–south through Balochistan for over 800 km. It is a left-lateral fault, accommodating part of the relative motion between the Indian Plate (to the east) and the Eurasian/Afghan blocks (to the west). The 1893 and 1935 Quetta earthquakes are believed to have occurred on segments of the Chaman system, as were the 2008 Ziarat and 2013 Awaran events. The 1935 event (M7.7) destroyed most of Quetta and killed ~30,000–60,000 people — leading the British colonial government to rebuild the city further from the fault, in its present location.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Chaman Fault — a giant strike-slip”?",
+            solution: "The accurate idea is: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Chaman Fault — a giant strike-slip.",
+            solution: "Stay close to the text: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km. It is a left-lateral fault, accommodating part of the relative m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3451,7 +4716,18 @@ export const topics: Topic[] = [
         title: "The Makran Subduction Zone — a sleeping giant",
         summary: "The Makran Subduction Zone, offshore of Pakistan's southwestern coast, is one of the largest but least-monitored subduction zones in the…",
         explanation: "The Makran Subduction Zone, offshore of Pakistan's southwestern coast, is one of the largest but least-monitored subduction zones in the world. Here, the Arabian Plate is subducting northward beneath the Eurasian Plate at ~2 cm/year, building a wide accretionary wedge (the onshore Makran ranges, with their famous mud volcanoes) and producing a chain of volcanic arc volcanoes inland (Bazman, Taftan in Iran). The 1945 earthquake (M8.1) and tsunami demonstrated that the Makran can produce major megathrust events. Because the subduction rate is slow and recurrence intervals may be long (centuries), the hazard is underappreciated. A future M8+ event could devastate the Makran coast and produce a damaging tsunami in Karachi.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Makran Subduction Zone — a sleeping giant”?",
+            solution: "The accurate idea is: The Makran Subduction Zone, offshore of Pakistan's southwestern coast, is one of the largest but least-monitored subduction zones in the world. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Makran Subduction Zone, offshore of Pakistan's southwestern coast, is one of the largest but least-monitored subduction zones in the world.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Makran Subduction Zone — a sleeping giant.",
+            solution: "Stay close to the text: The Makran Subduction Zone, offshore of Pakistan's southwestern coast, is one of the largest but least-monitored subduction zones in the world. Here, the Arabian Plate is subducting northward beneath the Eurasian Plate a… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3460,7 +4736,18 @@ export const topics: Topic[] = [
         title: "Tsunami preparedness in Pakistan",
         summary: "Pakistan's tsunami preparedness has improved since the 2004 Indian Ocean disaster, but it remains limited compared to countries like Japan,…",
         explanation: "Pakistan's tsunami preparedness has improved since the 2004 Indian Ocean disaster, but it remains limited compared to countries like Japan, Chile, or Indonesia. The Pakistan Meteorological Department (PMD) operates a small network of tide gauges and seismic stations; the National Tsunami Warning Centre was established in Karachi. Evacuation plans exist for the Makran coast but are not well-practised. International collaboration with the IOC Indian Ocean Tsunami Warning System and PTWC provides some early-warning capability. The main gaps are: limited offshore DART buoys, limited public education, and limited building code enforcement in vulnerable coastal communities.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Tsunami preparedness in Pakistan”?",
+            solution: "The accurate idea is: Pakistan's tsunami preparedness has improved since the 2004 Indian Ocean disaster, but it remains limited compared to countries like Japan, Chile, or Indonesia. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan's tsunami preparedness has improved since the 2004 Indian Ocean disaster, but it remains limited compared to countries like Japan, Chile, or Indonesia.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Tsunami preparedness in Pakistan.",
+            solution: "Stay close to the text: Pakistan's tsunami preparedness has improved since the 2004 Indian Ocean disaster, but it remains limited compared to countries like Japan, Chile, or Indonesia. The Pakistan Meteorological Department (PMD) operates a sma… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3531,7 +4818,18 @@ export const topics: Topic[] = [
         title: "Why Pakistan has so many resources",
         summary: "Pakistan's diverse mineral endowment is a direct consequence of its geological history. The Tethys Ocean, which closed during the…",
         explanation: "Pakistan's diverse mineral endowment is a direct consequence of its geological history. The Tethys Ocean, which closed during the India–Eurasian collision, deposited thick sequences of sedimentary rocks (limestones, sandstones, shales) that host oil, gas, coal, and gypsum. The subsequent tectonic compression produced the Hindu Kush–Karakoram–Himalayan orogen, with its associated magmatism, metamorphism, and hydrothermal systems — the source of the porphyry copper-gold deposits of the Chagai Hills, the emeralds of the Swat Valley, and the gemstones of Gilgit-Baltistan. The Makran subduction zone has its own mineral potential (mud volcanoes, brine pools). The Salt Range and Potwar Plateau are rich in evaporites (salt, gypsum) and hydrocarbons.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Pakistan has so many resources”?",
+            solution: "The accurate idea is: Pakistan's diverse mineral endowment is a direct consequence of its geological history. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan's diverse mineral endowment is a direct consequence of its geological history.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Pakistan has so many resources.",
+            solution: "Stay close to the text: Pakistan's diverse mineral endowment is a direct consequence of its geological history. The Tethys Ocean, which closed during the IndiaâEurasian collision, deposited thick sequences of sedimentary rocks (limestones, sa… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3540,7 +4838,18 @@ export const topics: Topic[] = [
         title: "The Thar Coalfield — Pakistan's energy future",
         summary: "The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion…",
         explanation: "The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite. It is shallow (overburden of 100–250 m), amenable to open-pit mining, and lies close to the demand centres of Sindh and southern Punjab. Development has been slow but is accelerating: several mine-mouth power plants are operating or under construction, using coal-gasification or circulating fluidised bed technology. The Thar coal could provide a major part of Pakistan's energy mix for centuries, reducing dependence on imported oil and LNG.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Thar Coalfield — Pakistan's energy future”?",
+            solution: "The accurate idea is: The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Thar Coalfield — Pakistan's energy future.",
+            solution: "Stay close to the text: The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite. It is shallow (overburden of 100â250 m), amenable to open-pit m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3549,7 +4858,18 @@ export const topics: Topic[] = [
         title: "Reko Diq and Saindak — the copper-gold belt",
         summary: "The Chagai Hills in Balochistan lie in a complex tectonic zone related to the Makran subduction and the collision of the Arabian, Iranian,…",
         explanation: "The Chagai Hills in Balochistan lie in a complex tectonic zone related to the Makran subduction and the collision of the Arabian, Iranian, and Eurasian plates. The region hosts several large porphyry copper-gold deposits, formed by hydrothermal fluids associated with mid-Tertiary intrusions. Reko Diq is one of the world's largest undeveloped copper-gold deposits (~5.9 billion tonnes of ore at 0.4–0.5% Cu and 0.2–0.3 g/t Au), with a mine life of >50 years. Saindak has been producing since 2002 in partnership with China. The development of these resources is a major national priority but has been delayed by legal disputes (especially Reko Diq) and security challenges.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reko Diq and Saindak — the copper-gold belt”?",
+            solution: "The accurate idea is: The Chagai Hills in Balochistan lie in a complex tectonic zone related to the Makran subduction and the collision of the Arabian, Iranian, and Eurasian plates. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Chagai Hills in Balochistan lie in a complex tectonic zone related to the Makran subduction and the collision of the Arabian, Iranian, and Eurasian plates.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reko Diq and Saindak — the copper-gold belt.",
+            solution: "Stay close to the text: The Chagai Hills in Balochistan lie in a complex tectonic zone related to the Makran subduction and the collision of the Arabian, Iranian, and Eurasian plates. The region hosts several large porphyry copper-gold deposits… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3635,7 +4955,18 @@ export const topics: Topic[] = [
         title: "Why the cycle matters for geology",
         summary: "The hydrologic cycle is the engine of most surface geological processes. Water erodes mountains, transports sediment, carves valleys,…",
         explanation: "The hydrologic cycle is the engine of most surface geological processes. Water erodes mountains, transports sediment, carves valleys, dissolves limestone to form caves, and recharges the aquifers that supply drinking water. The cycle also links the surface and the deep Earth: water that infiltrates the ground recharges aquifers; water that reaches deep faults can facilitate earthquakes (pore pressure reduces fault strength); and water returned to the oceans via rivers carries dissolved ions that eventually form sedimentary rocks. Understanding the cycle is therefore central to understanding landscape evolution, groundwater resources, and even seismicity.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the cycle matters for geology”?",
+            solution: "The accurate idea is: The hydrologic cycle is the engine of most surface geological processes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The hydrologic cycle is the engine of most surface geological processes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the cycle matters for geology.",
+            solution: "Stay close to the text: The hydrologic cycle is the engine of most surface geological processes. Water erodes mountains, transports sediment, carves valleys, dissolves limestone to form caves, and recharges the aquifers that supply drinking wat… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3644,7 +4975,18 @@ export const topics: Topic[] = [
         title: "Residence time — why groundwater is precious",
         summary: "Residence time is the average time a water molecule spends in a given reservoir. Atmospheric water turns over in days; river water in…",
         explanation: "Residence time is the average time a water molecule spends in a given reservoir. Atmospheric water turns over in days; river water in weeks; lake water in years; but groundwater can remain underground for centuries to millennia. Some deep groundwater is 'fossil water' from past pluvial periods — for example, the deep aquifers of the Sahara and Arabian Peninsula contain water left over from wetter climates thousands of years ago. This explains why groundwater is so precious: when we extract it, we are mining a resource that took thousands of years to accumulate, and we cannot replace it on human timescales. Over-extraction leads to falling water tables, land subsidence, and saltwater intrusion in coastal areas.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Residence time — why groundwater is precious”?",
+            solution: "The accurate idea is: Residence time is the average time a water molecule spends in a given reservoir. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Residence time is the average time a water molecule spends in a given reservoir.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Residence time — why groundwater is precious.",
+            solution: "Stay close to the text: Residence time is the average time a water molecule spends in a given reservoir. Atmospheric water turns over in days; river water in weeks; lake water in years; but groundwater can remain underground for centuries to mi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3719,7 +5061,18 @@ export const topics: Topic[] = [
         title: "How groundwater moves",
         summary: "Groundwater moves slowly through rock and soil under the force of gravity, from areas of high hydraulic head to areas of low head. The…",
         explanation: "Groundwater moves slowly through rock and soil under the force of gravity, from areas of high hydraulic head to areas of low head. The hydraulic head is the sum of elevation head and pressure head. In an unconfined aquifer, water flows downhill along the water table. In a confined aquifer, water moves under pressure from the recharge zone toward the discharge zone, often rising above the aquifer when tapped (artesian flow). Typical flow rates are very slow — cm to metres per day — but in fractured limestone (karst), flow can be much faster: underground rivers in karst can transport water for kilometres in hours.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How groundwater moves”?",
+            solution: "The accurate idea is: Groundwater moves slowly through rock and soil under the force of gravity, from areas of high hydraulic head to areas of low head. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Groundwater moves slowly through rock and soil under the force of gravity, from areas of high hydraulic head to areas of low head.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How groundwater moves.",
+            solution: "Stay close to the text: Groundwater moves slowly through rock and soil under the force of gravity, from areas of high hydraulic head to areas of low head. The hydraulic head is the sum of elevation head and pressure head. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3728,7 +5081,18 @@ export const topics: Topic[] = [
         title: "Porosity vs. permeability — the crucial distinction",
         summary: "Porosity is the fraction of void space in a rock; permeability is the ability to transmit fluid through those voids. A rock can have high…",
         explanation: "Porosity is the fraction of void space in a rock; permeability is the ability to transmit fluid through those voids. A rock can have high porosity but low permeability (e.g., shale: many small pores, but they are poorly connected, so water does not flow freely). Conversely, a rock can have low porosity but high permeability (e.g., fractured granite: only a few percent void, but the fractures are open and well-connected). The best aquifers combine high porosity AND high permeability — well-sorted sandstone, fractured limestone, and unconsolidated gravel are classic examples.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Porosity vs. permeability — the crucial distinction”?",
+            solution: "The accurate idea is: Porosity is the fraction of void space in a rock; permeability is the ability to transmit fluid through those voids. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Porosity is the fraction of void space in a rock; permeability is the ability to transmit fluid through those voids.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Porosity vs. permeability — the crucial distinction.",
+            solution: "Stay close to the text: Porosity is the fraction of void space in a rock; permeability is the ability to transmit fluid through those voids. A rock can have high porosity but low permeability (e.g., shale: many small pores, but they are poorly … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3737,7 +5101,18 @@ export const topics: Topic[] = [
         title: "Artesian wells and confined aquifers",
         summary: "A confined aquifer is sandwiched between two aquitards, with the water under pressure from the weight of the overlying rock and the…",
         explanation: "A confined aquifer is sandwiched between two aquitards, with the water under pressure from the weight of the overlying rock and the hydraulic head at the recharge zone. When a well is drilled into the aquifer, water rises — sometimes to the surface without pumping (a flowing artesian well), sometimes to a level above the aquifer but still below the surface. The Great Artesian Basin in Australia, the Dakota Aquifer in the US, and parts of the Indus Basin in Pakistan are all major confined aquifer systems. Artesian water is often very old (thousands of years), which means it is a non-renewable resource on human timescales.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Artesian wells and confined aquifers”?",
+            solution: "The accurate idea is: A confined aquifer is sandwiched between two aquitards, with the water under pressure from the weight of the overlying rock and the hydraulic head at the recharge zone. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A confined aquifer is sandwiched between two aquitards, with the water under pressure from the weight of the overlying rock and the hydraulic head at the recharge zone.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Artesian wells and confined aquifers.",
+            solution: "Stay close to the text: A confined aquifer is sandwiched between two aquitards, with the water under pressure from the weight of the overlying rock and the hydraulic head at the recharge zone. When a well is drilled into the aquifer, water rise… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3746,7 +5121,18 @@ export const topics: Topic[] = [
         title: "Pakistan focus: Indus Basin groundwater",
         summary: "The Indus Basin is Pakistan's primary freshwater reservoir. Thick alluvial sediments (locally >5 km) form a vast…",
         explanation: "The Indus Basin is Pakistan's primary freshwater reservoir. Thick alluvial sediments (locally >5 km) form a vast unconfined-to-semi-confined aquifer system recharged by the Indus and its tributaries plus monsoon rains. Intensive irrigation pumping since the mid-20th century has caused widespread water-table declines (metres to tens of metres in many districts), reduced well yields, and increased energy costs. In coastal Sindh and parts of Balochistan, over-abstraction has triggered saltwater intrusion, degrading water quality. Sustainable management (regulated pumping, artificial recharge, canal lining) is a major national challenge. Karst is limited in Pakistan but occurs in some limestone terrains of the Salt Range and northern areas.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pakistan focus: Indus Basin groundwater”?",
+            solution: "The accurate idea is: The Indus Basin is Pakistan's primary freshwater reservoir. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Indus Basin is Pakistan's primary freshwater reservoir.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pakistan focus: Indus Basin groundwater.",
+            solution: "Stay close to the text: The Indus Basin is Pakistan's primary freshwater reservoir. Thick alluvial sediments (locally >5 km) form a vast unconfined-to-semi-confined aquifer system recharged by the Indus and its tributaries plus monsoon rains. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3820,7 +5206,18 @@ export const topics: Topic[] = [
         title: "Why geophysics is so widely used",
         summary: "Geophysics lets us 'see' into the Earth without drilling. Drilling is expensive (a deep oil well can cost tens of millions of dollars) and…",
         explanation: "Geophysics lets us 'see' into the Earth without drilling. Drilling is expensive (a deep oil well can cost tens of millions of dollars) and only provides information at a single point. Geophysical methods, by contrast, can cover many square kilometres in a single survey and provide a continuous picture of the subsurface. This is why geophysics is the primary tool in oil and gas exploration, mineral exploration, groundwater studies, and crustal research. The trade-off is that geophysical data are indirect: the raw measurements (travel times, gravity values, magnetic field strength) must be processed and inverted to produce a model of the subsurface, and the model is non-unique — many different subsurface configurations can produce the same measurements. Skilled interpretation is essential.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why geophysics is so widely used”?",
+            solution: "The accurate idea is: Geophysics lets us 'see' into the Earth without drilling. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Geophysics lets us 'see' into the Earth without drilling.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why geophysics is so widely used.",
+            solution: "Stay close to the text: Geophysics lets us 'see' into the Earth without drilling. Drilling is expensive (a deep oil well can cost tens of millions of dollars) and only provides information at a single point. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3829,7 +5226,18 @@ export const topics: Topic[] = [
         title: "Choosing the right method",
         summary: "Different methods probe different physical properties and are suited to different targets. Seismic is the workhorse for oil and gas, where…",
         explanation: "Different methods probe different physical properties and are suited to different targets. Seismic is the workhorse for oil and gas, where the acoustic contrast between reservoir rock and surrounding shale is large. Gravity surveys are excellent for mapping large-scale basin structure and dense ore bodies (e.g., chromite, magnetite). Magnetic surveys are ideal for locating magnetite-rich ore, basaltic intrusions, and buried steel (e.g., unexploded ordnance, pipes). Electrical methods (resistivity, induced polarisation) are best for groundwater, clay layers, and metallic mineral deposits. Radiometric methods map the natural radioactivity of surface rocks, useful for geology mapping and mineral exploration. Most modern surveys use multiple methods to reduce ambiguity.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Choosing the right method”?",
+            solution: "The accurate idea is: Different methods probe different physical properties and are suited to different targets. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Different methods probe different physical properties and are suited to different targets.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Choosing the right method.",
+            solution: "Stay close to the text: Different methods probe different physical properties and are suited to different targets. Seismic is the workhorse for oil and gas, where the acoustic contrast between reservoir rock and surrounding shale is large. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3893,7 +5301,18 @@ export const topics: Topic[] = [
         title: "How seismic reflection works",
         summary: "A seismic survey is conceptually like an ultrasound of the Earth. A source (small dynamite charge, vibrating truck, or air gun in water)…",
         explanation: "A seismic survey is conceptually like an ultrasound of the Earth. A source (small dynamite charge, vibrating truck, or air gun in water) generates seismic waves. The waves travel down into the Earth, and whenever they encounter a boundary where rock properties change (e.g., a sandstone overlying a shale), part of the wave is reflected back to the surface. The reflected waves are recorded by an array of geophones. The time between generation and reception gives the depth to the reflector (since wave speed is known). Modern surveys use thousands of geophones and produce detailed 2D or 3D images of the subsurface to depths of several km — sufficient to map the structures that trap oil and gas.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How seismic reflection works”?",
+            solution: "The accurate idea is: A seismic survey is conceptually like an ultrasound of the Earth. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A seismic survey is conceptually like an ultrasound of the Earth.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How seismic reflection works.",
+            solution: "Stay close to the text: A seismic survey is conceptually like an ultrasound of the Earth. A source (small dynamite charge, vibrating truck, or air gun in water) generates seismic waves. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3902,7 +5321,18 @@ export const topics: Topic[] = [
         title: "3D and 4D seismic — the modern standard",
         summary: "3D seismic is the workhorse of modern oil and gas exploration. Instead of a single line of geophones, a dense grid of receivers is laid out…",
         explanation: "3D seismic is the workhorse of modern oil and gas exploration. Instead of a single line of geophones, a dense grid of receivers is laid out (often several km in each direction) and a source is moved across the grid. The resulting data set is a 3D volume of subsurface reflectivity, which can be sliced in any direction. 4D seismic is the same idea but repeated over time: by comparing successive 3D surveys, oil companies can monitor how fluids move within a reservoir during production or CO₂ injection. 4D has been a game-changer for reservoir management and for carbon capture and storage (CCS) monitoring.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “3D and 4D seismic — the modern standard”?",
+            solution: "The accurate idea is: 3D seismic is the workhorse of modern oil and gas exploration. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "3D seismic is the workhorse of modern oil and gas exploration.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying 3D and 4D seismic — the modern standard.",
+            solution: "Stay close to the text: 3D seismic is the workhorse of modern oil and gas exploration. Instead of a single line of geophones, a dense grid of receivers is laid out (often several km in each direction) and a source is moved across the grid. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3911,7 +5341,18 @@ export const topics: Topic[] = [
         title: "Limitations and ambiguities",
         summary: "Seismic is the highest-resolution deep-imaging method, but it has limits. The main one is that the seismic image is not a direct picture of…",
         explanation: "Seismic is the highest-resolution deep-imaging method, but it has limits. The main one is that the seismic image is not a direct picture of the rock — it is a picture of acoustic impedance (velocity × density) contrasts. Different rock types can have similar acoustic impedance, leading to ambiguity. Another limit is resolution: seismic cannot resolve features smaller than about a quarter of the wavelength, and longer wavelengths (needed for deeper imaging) reduce resolution. Finally, the image depends heavily on processing: different processing flows can produce somewhat different images of the same data, and skill is needed to choose the right approach. Despite these limits, seismic remains the most important tool for subsurface imaging.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Limitations and ambiguities”?",
+            solution: "The accurate idea is: Seismic is the highest-resolution deep-imaging method, but it has limits. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Seismic is the highest-resolution deep-imaging method, but it has limits.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Limitations and ambiguities.",
+            solution: "Stay close to the text: Seismic is the highest-resolution deep-imaging method, but it has limits. The main one is that the seismic image is not a direct picture of the rock â it is a picture of acoustic impedance (velocity Ã density) contras… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3985,7 +5426,18 @@ export const topics: Topic[] = [
         title: "Gravity method — what the anomalies tell us",
         summary: "The gravity method measures how much stronger or weaker gravity is at one point compared to another. A dense body (e.g., a buried ore…",
         explanation: "The gravity method measures how much stronger or weaker gravity is at one point compared to another. A dense body (e.g., a buried ore deposit, a basement high) produces a positive anomaly; a low-density body (e.g., a salt dome, an air-filled cave) produces a negative anomaly. The shape of the anomaly gives information about the depth and geometry of the body: broad, smooth anomalies come from deep sources; sharp, narrow anomalies come from shallow sources. Gravity surveys are used in oil exploration to map basin structure, in mineral exploration to locate dense ore, and in regional geological studies to understand isostasy and crustal structure.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Gravity method — what the anomalies tell us”?",
+            solution: "The accurate idea is: The gravity method measures how much stronger or weaker gravity is at one point compared to another. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The gravity method measures how much stronger or weaker gravity is at one point compared to another.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Gravity method — what the anomalies tell us.",
+            solution: "Stay close to the text: The gravity method measures how much stronger or weaker gravity is at one point compared to another. A dense body (e.g., a buried ore deposit, a basement high) produces a positive anomaly; a low-density body (e.g., a sal… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3994,7 +5446,18 @@ export const topics: Topic[] = [
         title: "Magnetic method — the workhorse of regional mapping",
         summary: "Magnetic surveys are extremely fast and cheap to collect, especially from aircraft (aeromagnetic surveys), and are routinely used to map…",
         explanation: "Magnetic surveys are extremely fast and cheap to collect, especially from aircraft (aeromagnetic surveys), and are routinely used to map basement structure under sedimentary cover, locate iron ore and other magnetic minerals, and identify faults and intrusions. The key contrast is magnetite content: mafic and ultramafic rocks (rich in magnetite) produce strong positive anomalies; granites and sediments produce weak or negative anomalies. Magnetic data also provide spectacular images of seafloor spreading (the magnetic stripes that record reversals of Earth's field) and are a primary tool for volcanic and tectonic studies.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Magnetic method — the workhorse of regional mapping”?",
+            solution: "The accurate idea is: Magnetic surveys are extremely fast and cheap to collect, especially from aircraft (aeromagnetic surveys), and are routinely used to map basement structure under sedimentary cover, locate iron ore and other magnetic minerals, and identify faults and intrusions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Magnetic surveys are extremely fast and cheap to collect, especially from aircraft (aeromagnetic surveys), and are routinely used to map basement structure under sedimentary cover,…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Magnetic method — the workhorse of regional mapping.",
+            solution: "Stay close to the text: Magnetic surveys are extremely fast and cheap to collect, especially from aircraft (aeromagnetic surveys), and are routinely used to map basement structure under sedimentary cover, locate iron ore and other magnetic mine… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4003,7 +5466,18 @@ export const topics: Topic[] = [
         title: "Electrical methods — groundwater and ore",
         summary: "Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Salt water is the most conductive…",
         explanation: "Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Salt water is the most conductive (resistivity ~0.2 Ω·m); clean sand and gravel (good aquifers) are highly resistive (~100–1,000 Ω·m); clay is conductive because of its bound ions; metallic ore is very conductive. This contrast makes resistivity surveys ideal for groundwater exploration (locating aquifers and distinguishing fresh from salt water), for mineral exploration (locating conductive sulphide ore bodies), and for environmental studies (mapping contamination plumes). Modern multi-electrode systems can produce 2D and 3D resistivity images of the subsurface to depths of hundreds of metres.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Electrical methods — groundwater and ore”?",
+            solution: "The accurate idea is: Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Electrical methods exploit the huge range of electrical resistivity between common Earth materials.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Electrical methods — groundwater and ore.",
+            solution: "Stay close to the text: Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Salt water is the most conductive (resistivity ~0.2 Î©Â·m); clean sand and gravel (good aquifers) are highly resistive (… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4082,7 +5556,18 @@ export const topics: Topic[] = [
         title: "Radiometric methods in exploration and mapping",
         summary: "Every rock contains small amounts of radioactive isotopes (K-40, U-238, Th-232 and their decay products). The gamma rays they emit can be…",
         explanation: "Every rock contains small amounts of radioactive isotopes (K-40, U-238, Th-232 and their decay products). The gamma rays they emit can be measured with a spectrometer, giving a rapid indication of the rock's composition. Granitic and other felsic rocks are typically rich in K, U, and Th; mafic rocks like basalt are relatively low. This makes airborne gamma-ray surveys a fast, cheap way to map regional geology: the colour-coded 'radioelement maps' they produce are now a standard tool in geological mapping. Radiometric methods are also used in mineral exploration (locating U and Th deposits), in environmental work (radon hazard mapping), and in borehole logging.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Radiometric methods in exploration and mapping”?",
+            solution: "The accurate idea is: Every rock contains small amounts of radioactive isotopes (K-40, U-238, Th-232 and their decay products). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Every rock contains small amounts of radioactive isotopes (K-40, U-238, Th-232 and their decay products).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Radiometric methods in exploration and mapping.",
+            solution: "Stay close to the text: Every rock contains small amounts of radioactive isotopes (K-40, U-238, Th-232 and their decay products). The gamma rays they emit can be measured with a spectrometer, giving a rapid indication of the rock's composition. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4091,7 +5576,18 @@ export const topics: Topic[] = [
         title: "Geodesy and plate motion",
         summary: "Geodesy used to be a slow, ground-based science. Today, it is dominated by satellites: GPS receivers can measure position to within a few…",
         explanation: "Geodesy used to be a slow, ground-based science. Today, it is dominated by satellites: GPS receivers can measure position to within a few millimetres, allowing scientists to track the slow drift of continents (a few cm/year) and the build-up of strain before earthquakes. The continuous GPS network around the world has shown, for example, that the Indian Plate is moving northward at ~3–5 cm/year, that the Himalayas are shortening at a similar rate, and that strain accumulation in locked faults can be measured years to decades before a major earthquake. InSAR complements GPS by providing dense spatial coverage (cm-scale deformation maps) from radar satellites.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Geodesy and plate motion”?",
+            solution: "The accurate idea is: Geodesy used to be a slow, ground-based science. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Geodesy used to be a slow, ground-based science.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Geodesy and plate motion.",
+            solution: "Stay close to the text: Geodesy used to be a slow, ground-based science. Today, it is dominated by satellites: GPS receivers can measure position to within a few millimetres, allowing scientists to track the slow drift of continents (a few cm/y… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4100,7 +5596,18 @@ export const topics: Topic[] = [
         title: "Earth's gravity field and sea level",
         summary: "Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. The GRACE satellites (2002–2017) and their…",
         explanation: "Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. The GRACE satellites (2002–2017) and their successor GRACE-FO (launched 2018) measure month-to-month changes in Earth's gravity field, which reflect changes in mass distribution — melting ice sheets, depleting aquifers, changing ocean currents. These data have revolutionised our understanding of the global water cycle and climate change. Satellite altimetry (TOPEX/Poseidon, Jason-1, 2, 3) measures sea surface height to within a few cm, providing the global record of sea level rise: about 3.4 mm/year averaged over the past few decades, with significant regional variation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Earth's gravity field and sea level”?",
+            solution: "The accurate idea is: Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Modern geodesy measures not only the solid Earth but also its gravity field and the oceans.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Earth's gravity field and sea level.",
+            solution: "Stay close to the text: Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. The GRACE satellites (2002â2017) and their successor GRACE-FO (launched 2018) measure month-to-month changes in Earth's gravit… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },

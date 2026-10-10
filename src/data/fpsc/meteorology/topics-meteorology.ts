@@ -48,7 +48,18 @@ export const topics: Topic[] = [
         title: "Why the first atmosphere was lost",
         summary: "Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to…",
         explanation: "Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to space, stripping away the primitive atmosphere.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the first atmosphere was lost”?",
+            solution: "The accurate idea is: Hydrogen and helium are light, fast-moving gases. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hydrogen and helium are light, fast-moving gases.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the first atmosphere was lost.",
+            solution: "Stay close to the text: Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to space, stripping away the primitive atmosphere. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -57,7 +68,18 @@ export const topics: Topic[] = [
         title: "From secondary atmosphere to oxygen-rich atmosphere",
         summary: "Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen,…",
         explanation: "Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen, but the major shift came from cyanobacteria, whose photosynthesis (CO2 + H2O + light → organic matter + O2) built up atmospheric oxygen over geological time, culminating in the Great Oxidation Event.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From secondary atmosphere to oxygen-rich atmosphere”?",
+            solution: "The accurate idea is: Condensation removed water vapour into the oceans and locked away CO2 into rock. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Condensation removed water vapour into the oceans and locked away CO2 into rock.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From secondary atmosphere to oxygen-rich atmosphere.",
+            solution: "Stay close to the text: Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen, but the major shift came from cyanobacteria, whose photosynthesis (CO2 + H2O + li… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -104,7 +126,18 @@ export const topics: Topic[] = [
         title: "Permanent vs. variable gases",
         summary: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour,…",
         explanation: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour, CO2, O3) change significantly with time and location despite often being minor by volume, and have outsized effects on weather and climate.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Permanent vs. variable gases”?",
+            solution: "The accurate idea is: Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Permanent vs. variable gases.",
+            solution: "Stay close to the text: Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour, CO2, O3) change significantly with time and location despite often being minor b… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -113,7 +146,18 @@ export const topics: Topic[] = [
         title: "Aerosols",
         summary: "Aerosols — dust, soot, sea salt, volcanic ash — act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence…",
         explanation: "Aerosols — dust, soot, sea salt, volcanic ash — act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Aerosols”?",
+            solution: "The accurate idea is: Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Aerosols.",
+            solution: "Stay close to the text: Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -159,7 +203,18 @@ export const topics: Topic[] = [
         title: "Why the stratosphere warms with height",
         summary: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the…",
         explanation: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the stratosphere warms with height”?",
+            solution: "The accurate idea is: Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the stratosphere warms with height.",
+            solution: "Stay close to the text: Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -168,7 +223,18 @@ export const topics: Topic[] = [
         title: "Why the thermosphere is 'hot' but doesn't feel hot",
         summary: "Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high…",
         explanation: "Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high molecular speeds, it carries negligible total heat energy.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the thermosphere is 'hot' but doesn't feel hot”?",
+            solution: "The accurate idea is: Temperature measures the kinetic energy of individual molecules, not heat capacity. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Temperature measures the kinetic energy of individual molecules, not heat capacity.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the thermosphere is 'hot' but doesn't feel hot.",
+            solution: "Stay close to the text: Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high molecular speeds, it carries negligible total heat energy. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -552,7 +618,18 @@ export const topics: Topic[] = [
         title: "Why the deflection occurs",
         summary: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath…",
         explanation: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath it is moving eastward more slowly, so the parcel appears to curve to the right (NH). The same relative-velocity logic produces leftward deflection in the SH.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the deflection occurs”?",
+            solution: "The accurate idea is: An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "An air parcel moving northward retains the larger eastward linear speed it had at lower latitude.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the deflection occurs.",
+            solution: "Stay close to the text: An air parcel moving northward retains the larger eastward linear speed it had at lower latitude. As it moves poleward the ground beneath it is moving eastward more slowly, so the parcel appears to curve to the right (NH… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -561,7 +638,18 @@ export const topics: Topic[] = [
         title: "Role in large-scale flow",
         summary: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow…",
         explanation: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Without Coriolis, air would simply rush from high to low pressure; with it, the classic cyclonic/anticyclonic circulation patterns appear.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Role in large-scale flow”?",
+            solution: "The accurate idea is: On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Role in large-scale flow.",
+            solution: "Stay close to the text: On synoptic and larger scales the Coriolis force becomes comparable to the pressure-gradient force, producing near-geostrophic flow parallel to isobars. Without Coriolis, air would simply rush from high to low pressure; … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -614,7 +702,18 @@ export const topics: Topic[] = [
         title: "Parcel method",
         summary: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than…",
         explanation: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than the environment it is positively buoyant and continues to rise (unstable); if cooler, it sinks back (stable).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Parcel method”?",
+            solution: "The accurate idea is: Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Parcel method.",
+            solution: "Stay close to the text: Imagine lifting a small air parcel and allowing it to cool at the DALR (unsaturated) or SALR (saturated). If the parcel becomes warmer than the environment it is positively buoyant and continues to rise (unstable); if co… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -623,7 +722,18 @@ export const topics: Topic[] = [
         title: "CAPE and CIN in practice",
         summary: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when…",
         explanation: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when CAPE is large until the cap is broken by strong forcing or surface heating.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “CAPE and CIN in practice”?",
+            solution: "The accurate idea is: High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying CAPE and CIN in practice.",
+            solution: "Stay close to the text: High CAPE with low CIN favours vigorous thunderstorms once a trigger lifts parcels to the LFC. High CIN can suppress convection even when CAPE is large until the cap is broken by strong forcing or surface heating. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -795,7 +905,18 @@ export const topics: Topic[] = [
         title: "Pressure-Gradient Force",
         summary: "The primary force initiating wind; stronger when isobars are closely packed.",
         explanation: "The primary force initiating wind; stronger when isobars are closely packed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Pressure-Gradient Force”?",
+            solution: "The accurate idea is: The primary force initiating wind; stronger when isobars are closely packed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The primary force initiating wind; stronger when isobars are closely packed.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Pressure-Gradient Force.",
+            solution: "Stay close to the text: The primary force initiating wind; stronger when isobars are closely packed. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -804,7 +925,18 @@ export const topics: Topic[] = [
         title: "Coriolis Force",
         summary: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
         explanation: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Coriolis Force”?",
+            solution: "The accurate idea is: Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Coriolis Force.",
+            solution: "Stay close to the text: Deflects right in the Northern Hemisphere, left in the Southern; changes direction, not speed. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -813,7 +945,18 @@ export const topics: Topic[] = [
         title: "Friction",
         summary: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
         explanation: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Friction”?",
+            solution: "The accurate idea is: Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Friction.",
+            solution: "Stay close to the text: Slows the wind, which in turn weakens the Coriolis force, letting PGF dominate near the surface. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -920,7 +1063,18 @@ export const topics: Topic[] = [
         title: "Cyclonic flow",
         summary: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal…",
         explanation: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal acceleration, but as a result wind speed ends up slower than the geostrophic value — hence 'subgeostrophic'.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Cyclonic flow”?",
+            solution: "The accurate idea is: Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Cyclonic flow.",
+            solution: "Stay close to the text: Around a Low, PGF points inward and is stronger than the outward-acting Coriolis force. This net inward force supplies the centripetal acceleration, but as a result wind speed ends up slower than the geostrophic value â… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -929,7 +1083,18 @@ export const topics: Topic[] = [
         title: "Anticyclonic flow",
         summary: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic —…",
         explanation: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic — 'supergeostrophic'.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Anticyclonic flow”?",
+            solution: "The accurate idea is: Around a High, Coriolis force is stronger than PGF and provides the net inward pull. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Around a High, Coriolis force is stronger than PGF and provides the net inward pull.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Anticyclonic flow.",
+            solution: "Stay close to the text: Around a High, Coriolis force is stronger than PGF and provides the net inward pull. This makes the flow faster than geostrophic â 'supergeostrophic'. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1122,7 +1287,18 @@ export const topics: Topic[] = [
         title: "The β-effect and wave formation",
         summary: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an…",
         explanation: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. This restoring mechanism produces the oscillatory Rossby-wave pattern.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The β-effect and wave formation”?",
+            solution: "The accurate idea is: Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The β-effect and wave formation.",
+            solution: "Stay close to the text: Because f increases toward the poles, a northward-displaced air parcel gains cyclonic relative vorticity when it returns south, and an anticyclonic anomaly when it returns north. This restoring mechanism produces the osc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1131,7 +1307,18 @@ export const topics: Topic[] = [
         title: "Steering of weather systems",
         summary: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft…",
         explanation: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft that intensifies a surface low; a ridge provides the convergence that strengthens a surface high.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Steering of weather systems”?",
+            solution: "The accurate idea is: Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Steering of weather systems.",
+            solution: "Stay close to the text: Surface cyclones and anticyclones tend to move with the upper-level Rossby-wave flow. A deep upper trough provides the divergence aloft that intensifies a surface low; a ridge provides the convergence that strengthens a … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1227,7 +1414,18 @@ export const topics: Topic[] = [
         title: "Why mixing ratio is preferred for tracking moisture",
         summary: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative…",
         explanation: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why mixing ratio is preferred for tracking moisture”?",
+            solution: "The accurate idea is: Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually pre…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why mixing ratio is preferred for tracking moisture.",
+            solution: "Stay close to the text: Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1236,7 +1434,18 @@ export const topics: Topic[] = [
         title: "Temperature–dew point spread",
         summary: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
         explanation: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Temperature–dew point spread”?",
+            solution: "The accurate idea is: A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Temperature–dew point spread.",
+            solution: "Stay close to the text: A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1338,7 +1547,18 @@ export const topics: Topic[] = [
         title: "High Clouds",
         summary: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
         explanation: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “High Clouds”?",
+            solution: "The accurate idea is: Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying High Clouds.",
+            solution: "Stay close to the text: Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1347,7 +1567,18 @@ export const topics: Topic[] = [
         title: "Middle & Low Clouds",
         summary: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
         explanation: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Middle & Low Clouds”?",
+            solution: "The accurate idea is: Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Middle & Low Clouds.",
+            solution: "Stay close to the text: Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1356,7 +1587,18 @@ export const topics: Topic[] = [
         title: "Vertical Development",
         summary: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning,…",
         explanation: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Vertical Development”?",
+            solution: "The accurate idea is: Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Vertical Development.",
+            solution: "Stay close to the text: Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1773,7 +2015,18 @@ export const topics: Topic[] = [
         title: "How a mercury barometer works",
         summary: "A glass tube closed at one end is filled with mercury, then inverted into a reservoir of mercury. The mercury in the tube falls until the…",
         explanation: "A glass tube closed at one end is filled with mercury, then inverted into a reservoir of mercury. The mercury in the tube falls until the weight of the column is balanced by the atmospheric pressure pushing down on the reservoir. At standard sea-level pressure, the column is 760 mm tall. As air pressure changes, the column rises or falls. The space above the mercury in the closed tube is a near-vacuum (Torricellian vacuum), since any mercury vapor pressure is negligible. Mercury is used because it is the densest liquid at room temperature (13,600 kg/m³), minimizing the column height needed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How a mercury barometer works”?",
+            solution: "The accurate idea is: A glass tube closed at one end is filled with mercury, then inverted into a reservoir of mercury. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A glass tube closed at one end is filled with mercury, then inverted into a reservoir of mercury.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How a mercury barometer works.",
+            solution: "Stay close to the text: A glass tube closed at one end is filled with mercury, then inverted into a reservoir of mercury. The mercury in the tube falls until the weight of the column is balanced by the atmospheric pressure pushing down on the r… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1782,7 +2035,18 @@ export const topics: Topic[] = [
         title: "Why aneroid barometers enable barographs",
         summary: "Because the aneroid cell's mechanical expansion/contraction can be linked directly to a pen arm via a lever system, it allows continuous,…",
         explanation: "Because the aneroid cell's mechanical expansion/contraction can be linked directly to a pen arm via a lever system, it allows continuous, automatic pressure recording without needing to read a mercury column — the basis of the barograph. The barograph trace shows not only the current pressure but the rate and character of pressure change (e.g., a rapid fall indicates an approaching low or front; a slow rise indicates clearing and stabilizing conditions). This is why barographs remain standard equipment at meteorological stations despite the availability of digital sensors.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why aneroid barometers enable barographs”?",
+            solution: "The accurate idea is: Because the aneroid cell's mechanical expansion/contraction can be linked directly to a pen arm via a lever system, it allows continuous, automatic pressure recording without needing to read a mercury column â the basis of the barograph. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Because the aneroid cell's mechanical expansion/contraction can be linked directly to a pen arm via a lever system, it allows continuous, automatic pressure recording without needi…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why aneroid barometers enable barographs.",
+            solution: "Stay close to the text: Because the aneroid cell's mechanical expansion/contraction can be linked directly to a pen arm via a lever system, it allows continuous, automatic pressure recording without needing to read a mercury column â the basi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1833,7 +2097,18 @@ export const topics: Topic[] = [
         title: "Why cup anemometers rotate at a rate proportional to wind speed",
         summary: "The cups are designed so that the concave (inside) surface experiences more drag than the convex (outside) surface. As wind hits the…",
         explanation: "The cups are designed so that the concave (inside) surface experiences more drag than the convex (outside) surface. As wind hits the concave side, the cup experiences a stronger force than on the convex side, creating a net torque on the shaft. The shaft rotates until the friction in the bearings balances the wind torque, at which point the rotation rate is proportional to wind speed. Above ~5 m/s, the relationship is nearly linear; below that, friction and threshold effects make it nonlinear, so cup anemometers are calibrated against a known standard.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why cup anemometers rotate at a rate proportional to wind speed”?",
+            solution: "The accurate idea is: The cups are designed so that the concave (inside) surface experiences more drag than the convex (outside) surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The cups are designed so that the concave (inside) surface experiences more drag than the convex (outside) surface.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why cup anemometers rotate at a rate proportional to wind speed.",
+            solution: "Stay close to the text: The cups are designed so that the concave (inside) surface experiences more drag than the convex (outside) surface. As wind hits the concave side, the cup experiences a stronger force than on the convex side, creating a … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1842,7 +2117,18 @@ export const topics: Topic[] = [
         title: "Naming convention for wind direction",
         summary: "Winds are always named for the direction they originate from, not the direction they're heading toward — a north wind blows from the north…",
         explanation: "Winds are always named for the direction they originate from, not the direction they're heading toward — a north wind blows from the north southward. This convention is rooted in navigation and traditional weather observation: a sailor or farmer facing into the wind experiences the source direction first. The vane is designed to point into the wind (toward the source), so the pointer indicates the source bearing. This is a frequent point of confusion in exams because the natural-language interpretation of 'a north wind is blowing' can be misread as wind moving northward.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Naming convention for wind direction”?",
+            solution: "The accurate idea is: Winds are always named for the direction they originate from, not the direction they're heading toward â a north wind blows from the north southward. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Winds are always named for the direction they originate from, not the direction they're heading toward â a north wind blows from the north southward.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Naming convention for wind direction.",
+            solution: "Stay close to the text: Winds are always named for the direction they originate from, not the direction they're heading toward â a north wind blows from the north southward. This convention is rooted in navigation and traditional weather obse… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1897,7 +2183,18 @@ export const topics: Topic[] = [
         title: "Why the wet-bulb reads lower than the dry-bulb",
         summary: "Water evaporating from the wet wick absorbs latent heat from the thermometer bulb, cooling it below the ambient (dry-bulb) temperature. The…",
         explanation: "Water evaporating from the wet wick absorbs latent heat from the thermometer bulb, cooling it below the ambient (dry-bulb) temperature. The size of this wet-bulb depression indicates how much evaporation occurred, which in turn indicates the ambient humidity: in dry air, evaporation is rapid and the depression is large; in nearly saturated air, evaporation is slow and the depression is small. When the air is fully saturated (RH = 100%), no net evaporation occurs and the wet-bulb equals the dry-bulb. The wet-bulb temperature is also used as a key metric for heat stress (wet-bulb globe temperature, WBGT) in occupational and athletic settings.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the wet-bulb reads lower than the dry-bulb”?",
+            solution: "The accurate idea is: Water evaporating from the wet wick absorbs latent heat from the thermometer bulb, cooling it below the ambient (dry-bulb) temperature. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Water evaporating from the wet wick absorbs latent heat from the thermometer bulb, cooling it below the ambient (dry-bulb) temperature.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the wet-bulb reads lower than the dry-bulb.",
+            solution: "Stay close to the text: Water evaporating from the wet wick absorbs latent heat from the thermometer bulb, cooling it below the ambient (dry-bulb) temperature. The size of this wet-bulb depression indicates how much evaporation occurred, which … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1906,7 +2203,18 @@ export const topics: Topic[] = [
         title: "Hair hygrometer mechanics and limitations",
         summary: "Human hair, like many organic fibers, absorbs water vapor from the surrounding air, causing it to lengthen. A bundle of hairs is anchored…",
         explanation: "Human hair, like many organic fibers, absorbs water vapor from the surrounding air, causing it to lengthen. A bundle of hairs is anchored at one end and connected via a lever to a pointer at the other; as humidity rises, the hairs lengthen and the pointer moves; as humidity falls, the hairs contract and the pointer moves back. Hair hygrometers are simple, require no power, and can be read remotely via mechanical linkage, but they have several limitations: (1) they require periodic re-calibration as hair ages, (2) they are less accurate at very high and very low humidities, (3) they have slow response at low temperatures, and (4) they can be contaminated by dust and oils.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hair hygrometer mechanics and limitations”?",
+            solution: "The accurate idea is: Human hair, like many organic fibers, absorbs water vapor from the surrounding air, causing it to lengthen. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Human hair, like many organic fibers, absorbs water vapor from the surrounding air, causing it to lengthen.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hair hygrometer mechanics and limitations.",
+            solution: "Stay close to the text: Human hair, like many organic fibers, absorbs water vapor from the surrounding air, causing it to lengthen. A bundle of hairs is anchored at one end and connected via a lever to a pointer at the other; as humidity rises,… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1956,7 +2264,18 @@ export const topics: Topic[] = [
         title: "The constriction mechanism in the maximum thermometer",
         summary: "In a maximum thermometer, the narrow constriction in the capillary lets mercury expand past it as temperature rises (because expansion…",
         explanation: "In a maximum thermometer, the narrow constriction in the capillary lets mercury expand past it as temperature rises (because expansion force exceeds the surface tension holding the mercury at the constriction), but prevents it from contracting back once temperature falls (because the surface tension now exceeds the contraction force, breaking the mercury column at the constriction). This leaves a separated mercury thread above the constriction, marking the highest temperature reached. To reset, the observer spins the thermometer (or shakes it, in older designs), forcing the mercury back through the constriction and reuniting the column with the reservoir.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The constriction mechanism in the maximum thermometer”?",
+            solution: "The accurate idea is: In a maximum thermometer, the narrow constriction in the capillary lets mercury expand past it as temperature rises (because expansion force exceeds the surface tension holding the mercury at the constriction), but prevents it from contracting back once temperature falls (because the surface tension now exceeds the contraction force, breaking the mercury column at the constriction). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In a maximum thermometer, the narrow constriction in the capillary lets mercury expand past it as temperature rises (because expansion force exceeds the surface tension holding the…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The constriction mechanism in the maximum thermometer.",
+            solution: "Stay close to the text: In a maximum thermometer, the narrow constriction in the capillary lets mercury expand past it as temperature rises (because expansion force exceeds the surface tension holding the mercury at the constriction), but preve… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1965,7 +2284,18 @@ export const topics: Topic[] = [
         title: "Why minimum thermometers use alcohol, not mercury",
         summary: "Mercury freezes at −38.83°C, which is too warm for cold-climate use. Alcohol (typically ethanol) freezes at −114°C, making it suitable for…",
         explanation: "Mercury freezes at −38.83°C, which is too warm for cold-climate use. Alcohol (typically ethanol) freezes at −114°C, making it suitable for recording very low temperatures. The colored index marker is designed to be moved only by the receding alcohol surface as temperature falls — when the alcohol expands on warming, it flows around the index without moving it, leaving the index at the lowest temperature reached. The observer tilts the thermometer to reset: the index slides down the alcohol column back to the bulb.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why minimum thermometers use alcohol, not mercury”?",
+            solution: "The accurate idea is: Mercury freezes at â38.83Â°C, which is too warm for cold-climate use. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Mercury freezes at â38.83Â°C, which is too warm for cold-climate use.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why minimum thermometers use alcohol, not mercury.",
+            solution: "Stay close to the text: Mercury freezes at â38.83Â°C, which is too warm for cold-climate use. Alcohol (typically ethanol) freezes at â114Â°C, making it suitable for recording very low temperatures. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2016,7 +2346,18 @@ export const topics: Topic[] = [
         title: "Radiosonde vs. rawinsonde terminology",
         summary: "A radiosonde alone measures temperature, humidity, and pressure as it ascends. Only when the balloon's position is also tracked from the…",
         explanation: "A radiosonde alone measures temperature, humidity, and pressure as it ascends. Only when the balloon's position is also tracked from the ground — allowing wind speed and direction to be calculated from its drift — does the system become a rawinsonde. In practice, almost all operational radiosondes are now rawinsondes, since GPS tracking is built into the package. The distinction is mostly historical and terminological: the 'sonde' part is the instrument package; the 'rawin' (radio wind) part refers to the wind measurement by tracking the balloon.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Radiosonde vs. rawinsonde terminology”?",
+            solution: "The accurate idea is: A radiosonde alone measures temperature, humidity, and pressure as it ascends. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A radiosonde alone measures temperature, humidity, and pressure as it ascends.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Radiosonde vs. rawinsonde terminology.",
+            solution: "Stay close to the text: A radiosonde alone measures temperature, humidity, and pressure as it ascends. Only when the balloon's position is also tracked from the ground â allowing wind speed and direction to be calculated from its drift â do… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2025,7 +2366,18 @@ export const topics: Topic[] = [
         title: "How a sounding is used in forecasting and analysis",
         summary: "The vertical profile of temperature, humidity, and wind is the foundation of nearly all weather analysis. A sounding plotted on a…",
         explanation: "The vertical profile of temperature, humidity, and wind is the foundation of nearly all weather analysis. A sounding plotted on a skew-T/log-P diagram reveals: the environmental lapse rate (and thus stability), the LCL and LFC (for convective potential), the freezing level (for precipitation type), the tropopause (for jet stream location), frontal inversions, and the vertical wind shear. Soundings are used to initialize NWP models (via data assimilation), to monitor the current state of the atmosphere, and to support aviation forecasting (e.g., turbulence, icing, and clear-air turbulence prediction).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How a sounding is used in forecasting and analysis”?",
+            solution: "The accurate idea is: The vertical profile of temperature, humidity, and wind is the foundation of nearly all weather analysis. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The vertical profile of temperature, humidity, and wind is the foundation of nearly all weather analysis.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How a sounding is used in forecasting and analysis.",
+            solution: "Stay close to the text: The vertical profile of temperature, humidity, and wind is the foundation of nearly all weather analysis. A sounding plotted on a skew-T/log-P diagram reveals: the environmental lapse rate (and thus stability), the LCL a… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2075,7 +2427,18 @@ export const topics: Topic[] = [
         title: "Why each design feature exists",
         summary: "Every feature of the Stevenson Screen exists to isolate the true shaded ambient air temperature from confounding factors: white paint…",
         explanation: "Every feature of the Stevenson Screen exists to isolate the true shaded ambient air temperature from confounding factors: white paint reflects sunlight and prevents the screen itself from heating up and radiating heat to the air inside; the double roof adds insulation by creating an air gap that disrupts conductive heat transfer; louvered sides permit horizontal airflow (so the air inside is representative of the surrounding air) while blocking direct sun and precipitation; elevation above the ground avoids contamination from ground-radiated heat and grass-surface radiative cooling. Together, these features ensure that a thermometer inside the screen measures the true ambient air temperature, comparable between stations worldwide.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why each design feature exists”?",
+            solution: "The accurate idea is: Every feature of the Stevenson Screen exists to isolate the true shaded ambient air temperature from confounding factors: white paint reflects sunlight and prevents the screen itself from heating up and radiating heat to the air inside; the double roof adds insulation by creating an air gap that disrupts conductive heat transfer; louvered sides permit horizontal airflow (so the air inside is representative of the surrounding air) while blocking direct sun and precipitation; elevation above the ground avoids contamination from ground-radiated heat and grass-surface radiative cooling. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Every feature of the Stevenson Screen exists to isolate the true shaded ambient air temperature from confounding factors: white paint reflects sunlight and prevents the screen itse…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why each design feature exists.",
+            solution: "Stay close to the text: Every feature of the Stevenson Screen exists to isolate the true shaded ambient air temperature from confounding factors: white paint reflects sunlight and prevents the screen itself from heating up and radiating heat to… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2084,7 +2447,18 @@ export const topics: Topic[] = [
         title: "Common siting errors and their impact on temperature",
         summary: "Poor siting of a temperature sensor is one of the largest sources of error in climate records. A sensor placed on an asphalt surface can…",
         explanation: "Poor siting of a temperature sensor is one of the largest sources of error in climate records. A sensor placed on an asphalt surface can read 10–20°C higher than a properly sited sensor on grass; a sensor on the north side of a building (in the NH) records systematically cooler temperatures than one on the south side; a sensor near a building or tree is shaded from the sun, giving cooler daytime readings and warmer nighttime readings (due to reduced sky view and longwave radiation). These siting errors can create artificial 'warming' or 'cooling' trends in climate records, which is why WMO siting standards are strict and why historical station relocations are carefully documented.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Common siting errors and their impact on temperature”?",
+            solution: "The accurate idea is: Poor siting of a temperature sensor is one of the largest sources of error in climate records. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Poor siting of a temperature sensor is one of the largest sources of error in climate records.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Common siting errors and their impact on temperature.",
+            solution: "Stay close to the text: Poor siting of a temperature sensor is one of the largest sources of error in climate records. A sensor placed on an asphalt surface can read 10â20Â°C higher than a properly sited sensor on grass; a sensor on the north… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2149,7 +2523,18 @@ export const topics: Topic[] = [
         title: "How Doppler radar detects rotation",
         summary: "A single radar beam measures only the radial component of motion (toward or away from the radar), so a single beam cannot directly detect…",
         explanation: "A single radar beam measures only the radial component of motion (toward or away from the radar), so a single beam cannot directly detect rotation. However, when the radar scans a complete circle at a given elevation, the radial velocities from different azimuths reveal the rotational signature: on one side of the rotation, targets move toward the radar (negative Doppler shift); on the other side, they move away (positive Doppler shift). A 'velocity couplet' — a tight juxtaposition of inbound and outbound velocities — is the radar signature of a mesocyclone, the precursor to a tornado. The same principle is used to detect microbursts (a divergent velocity pattern: outflow moving away in all directions).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How Doppler radar detects rotation”?",
+            solution: "The accurate idea is: A single radar beam measures only the radial component of motion (toward or away from the radar), so a single beam cannot directly detect rotation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A single radar beam measures only the radial component of motion (toward or away from the radar), so a single beam cannot directly detect rotation.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How Doppler radar detects rotation.",
+            solution: "Stay close to the text: A single radar beam measures only the radial component of motion (toward or away from the radar), so a single beam cannot directly detect rotation. However, when the radar scans a complete circle at a given elevation, th… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2158,7 +2543,18 @@ export const topics: Topic[] = [
         title: "Why infrared works at night but visible doesn't",
         summary: "Visible imagery depends entirely on reflected sunlight, so it is unavailable after dark. Infrared imagery instead measures thermal…",
         explanation: "Visible imagery depends entirely on reflected sunlight, so it is unavailable after dark. Infrared imagery instead measures thermal radiation emitted by cloud tops and the surface — a signal present regardless of sunlight, because all objects above 0 K emit thermal radiation. The wavelength of the IR channel determines what is sensed: the 10–12 μm window channel senses surface and cloud-top temperatures; the 6.5–7.0 μm water vapor channel senses upper-tropospheric moisture; the 3.9 μm channel can detect fires and low clouds. This makes IR the workhorse of 24-hour satellite monitoring.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why infrared works at night but visible doesn't”?",
+            solution: "The accurate idea is: Visible imagery depends entirely on reflected sunlight, so it is unavailable after dark. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Visible imagery depends entirely on reflected sunlight, so it is unavailable after dark.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why infrared works at night but visible doesn't.",
+            solution: "Stay close to the text: Visible imagery depends entirely on reflected sunlight, so it is unavailable after dark. Infrared imagery instead measures thermal radiation emitted by cloud tops and the surface â a signal present regardless of sunlig… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2167,7 +2563,18 @@ export const topics: Topic[] = [
         title: "Geosynchronous vs. polar-orbiting trade-offs",
         summary: "Geosynchronous satellites provide continuous coverage of a fixed region at the cost of coarser spatial resolution (~3–5 km visible, ~5–10…",
         explanation: "Geosynchronous satellites provide continuous coverage of a fixed region at the cost of coarser spatial resolution (~3–5 km visible, ~5–10 km IR per pixel) and a fixed viewing angle (which can be a problem at high latitudes). Polar-orbiting satellites provide global coverage at much higher spatial resolution (~1 km or better) but only see a given location twice per day (once in daylight, once at night), making them less useful for tracking rapidly evolving weather. In practice, both are used together: geosynchronous for nowcasting and continuous monitoring, polar-orbiting for detailed snapshots and high-latitude coverage.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Geosynchronous vs. polar-orbiting trade-offs”?",
+            solution: "The accurate idea is: Geosynchronous satellites provide continuous coverage of a fixed region at the cost of coarser spatial resolution (~3â5 km visible, ~5â10 km IR per pixel) and a fixed viewing angle (which can be a problem at high latitudes). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Geosynchronous satellites provide continuous coverage of a fixed region at the cost of coarser spatial resolution (~3â5 km visible, ~5â10 km IR per pixel) and a fixed viewing a…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Geosynchronous vs. polar-orbiting trade-offs.",
+            solution: "Stay close to the text: Geosynchronous satellites provide continuous coverage of a fixed region at the cost of coarser spatial resolution (~3â5 km visible, ~5â10 km IR per pixel) and a fixed viewing angle (which can be a problem at high lat… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2239,7 +2646,18 @@ export const topics: Topic[] = [
         title: "Why weighing gauges suit frozen precipitation",
         summary: "Tipping bucket and standard gauges rely on liquid water flowing into a measuring mechanism, which frozen precipitation cannot do reliably —…",
         explanation: "Tipping bucket and standard gauges rely on liquid water flowing into a measuring mechanism, which frozen precipitation cannot do reliably — snow would accumulate without filling the funnel, and a tipping bucket would not tip on a slow snow accumulation. A weighing gauge instead measures mass directly, regardless of the precipitation's phase, making it effective for snow, sleet, and hail. The mass is then converted to a liquid-equivalent depth by dividing by the density of water.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why weighing gauges suit frozen precipitation”?",
+            solution: "The accurate idea is: Tipping bucket and standard gauges rely on liquid water flowing into a measuring mechanism, which frozen precipitation cannot do reliably â snow would accumulate without filling the funnel, and a tipping bucket would not tip on a slow snow accumulation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Tipping bucket and standard gauges rely on liquid water flowing into a measuring mechanism, which frozen precipitation cannot do reliably â snow would accumulate without filling …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why weighing gauges suit frozen precipitation.",
+            solution: "Stay close to the text: Tipping bucket and standard gauges rely on liquid water flowing into a measuring mechanism, which frozen precipitation cannot do reliably â snow would accumulate without filling the funnel, and a tipping bucket would n… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2248,7 +2666,18 @@ export const topics: Topic[] = [
         title: "Microbursts and why they matter for aviation",
         summary: "A microburst is a localized, intense downdraft (<4 km horizontal scale) that descends from a thunderstorm and hits the ground, spreading…",
         explanation: "A microburst is a localized, intense downdraft (<4 km horizontal scale) that descends from a thunderstorm and hits the ground, spreading out as damaging straight-line winds. The danger for aircraft is severe: an aircraft on approach or departure that encounters a microburst first experiences a strong headwind (increasing lift), then a strong downdraft, then a strong tailwind (decreasing lift) — a sequence that can cause the aircraft to lose altitude rapidly and crash. Major accidents (Delta 191, 1985; USAir 1016, 1994) prompted the development of Doppler radar-based microburst detection, LLWAS anemometer networks at airports, and on-board predictive wind shear systems. Detection uses the radial divergence signature in Doppler velocity data: outflow moving away in all directions from the impact point.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Microbursts and why they matter for aviation”?",
+            solution: "The accurate idea is: A microburst is a localized, intense downdraft (<4 km horizontal scale) that descends from a thunderstorm and hits the ground, spreading out as damaging straight-line winds. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A microburst is a localized, intense downdraft (<4 km horizontal scale) that descends from a thunderstorm and hits the ground, spreading out as damaging straight-line winds.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Microbursts and why they matter for aviation.",
+            solution: "Stay close to the text: A microburst is a localized, intense downdraft (<4 km horizontal scale) that descends from a thunderstorm and hits the ground, spreading out as damaging straight-line winds. The danger for aircraft is severe: an aircraft… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2257,7 +2686,18 @@ export const topics: Topic[] = [
         title: "How dual-polarization radar identifies hail",
         summary: "Conventional radar sends out horizontally polarized microwaves; dual-polarization (dual-pol) radar sends both horizontal and vertical…",
         explanation: "Conventional radar sends out horizontally polarized microwaves; dual-polarization (dual-pol) radar sends both horizontal and vertical pulses. The differences in how hydrometeors reflect these two polarizations reveal their shape: raindrops (oblate, flattened) have a characteristic differential reflectivity Zdr; hail (more spherical or tumbling) has a different Zdr and a low correlation coefficient ρhv. By analyzing Zdr, ρhv, and reflectivity together, forecasters can identify hail cores within storms, estimate hail size, and distinguish hail from heavy rain — a major improvement over conventional radar for severe weather warnings.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How dual-polarization radar identifies hail”?",
+            solution: "The accurate idea is: Conventional radar sends out horizontally polarized microwaves; dual-polarization (dual-pol) radar sends both horizontal and vertical pulses. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Conventional radar sends out horizontally polarized microwaves; dual-polarization (dual-pol) radar sends both horizontal and vertical pulses.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How dual-polarization radar identifies hail.",
+            solution: "Stay close to the text: Conventional radar sends out horizontally polarized microwaves; dual-polarization (dual-pol) radar sends both horizontal and vertical pulses. The differences in how hydrometeors reflect these two polarizations reveal the… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2331,7 +2771,18 @@ export const topics: Topic[] = [
         title: "How to decode a METAR step by step",
         summary: "A METAR is decoded in groups, each separated by a space. Example: METAR OPKC 081030Z 27015KT 9999 SCT040 BKN100 28/22 Q1013 NOSIG. (1)…",
         explanation: "A METAR is decoded in groups, each separated by a space. Example: METAR OPKC 081030Z 27015KT 9999 SCT040 BKN100 28/22 Q1013 NOSIG. (1) METAR = routine observation (SPECI = special); (2) OPKC = ICAO station identifier (Karachi Jinnah); (3) 081030Z = day 8 of the month at 10:30 UTC; (4) 27015KT = wind from 270° (west) at 15 knots; (5) 9999 = visibility 10+ km (in meters; 9999 means '10 km or more'); (6) SCT040 BKN100 = scattered clouds at 4000 ft AGL, broken at 10000 ft AGL; (7) 28/22 = temperature 28°C / dewpoint 22°C; (8) Q1013 = QNH 1013 hPa; (9) NOSIG = no significant change expected in the next 2 hours. Variations include wind gusts (27015G25KT = wind 270° at 15 kt gusting to 25 kt), variable wind direction (270V290 = wind varying between 270° and 290°), and weather phenomena (TS = thunderstorm, RA = rain, FG = fog, BR = mist, HZ = haze).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to decode a METAR step by step”?",
+            solution: "The accurate idea is: A METAR is decoded in groups, each separated by a space. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A METAR is decoded in groups, each separated by a space.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to decode a METAR step by step.",
+            solution: "Stay close to the text: A METAR is decoded in groups, each separated by a space. Example: METAR OPKC 081030Z 27015KT 9999 SCT040 BKN100 28/22 Q1013 NOSIG. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2340,7 +2791,18 @@ export const topics: Topic[] = [
         title: "TAF structure and change groups",
         summary: "A TAF has three main parts: (1) header — station ID, issue time, valid period (e.g., 081100Z 081500 = issued on the 8th at 11:00 UTC, valid…",
         explanation: "A TAF has three main parts: (1) header — station ID, issue time, valid period (e.g., 081100Z 081500 = issued on the 8th at 11:00 UTC, valid from 15:00 UTC); (2) body — prevailing conditions (wind, visibility, weather, cloud); (3) change groups — BECMG, TEMPO, PROB30/40 indicating expected variations. For example, a TAF segment 'BECMG 0814/0816 5000 -TSRA BKN015CB' means: becoming, between 14:00 and 16:00 UTC on the 8th, visibility 5000 m in light thunderstorm rain, broken cumulonimbus at 1500 ft. Pilots and dispatchers use the TAF to plan fuel, alternates, and route decisions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “TAF structure and change groups”?",
+            solution: "The accurate idea is: A TAF has three main parts: (1) header â station ID, issue time, valid period (e.g., 081100Z 081500 = issued on the 8th at 11:00 UTC, valid from 15:00 UTC); (2) body â prevailing conditions (wind, visibility, weather, cloud); (3) change groups â BECMG, TEMPO, PROB30/40 indicating expected variations. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A TAF has three main parts: (1) header â station ID, issue time, valid period (e.g., 081100Z 081500 = issued on the 8th at 11:00 UTC, valid from 15:00 UTC); (2) body â prevaili…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying TAF structure and change groups.",
+            solution: "Stay close to the text: A TAF has three main parts: (1) header â station ID, issue time, valid period (e.g., 081100Z 081500 = issued on the 8th at 11:00 UTC, valid from 15:00 UTC); (2) body â prevailing conditions (wind, visibility, weather… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2349,7 +2811,18 @@ export const topics: Topic[] = [
         title: "SIGMET vs. AIRMET — when each is issued",
         summary: "SIGMETs are issued for severe phenomena that affect ALL aircraft regardless of type or equipment: severe turbulence, severe icing,…",
         explanation: "SIGMETs are issued for severe phenomena that affect ALL aircraft regardless of type or equipment: severe turbulence, severe icing, thunderstorms with hail, volcanic ash, dust storms reducing visibility below a threshold, and tropical cyclones. AIRMETs are issued for moderate phenomena that affect smaller or less-equipped aircraft: moderate turbulence, moderate icing, mountain wave activity, IFR conditions (ceilings 1000–3000 ft and/or visibility 3–5 statute miles). The threshold distinction is critical: 'severe' vs. 'moderate' turbulence is a quantitative criterion (e.g., severe = aircraft experiences large abrupt changes in altitude/attitude; moderate = changes in altitude/attitude but aircraft remains in control). Pilots are required to check SIGMETs and AIRMETs as part of pre-flight planning.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “SIGMET vs. AIRMET — when each is issued”?",
+            solution: "The accurate idea is: SIGMETs are issued for severe phenomena that affect ALL aircraft regardless of type or equipment: severe turbulence, severe icing, thunderstorms with hail, volcanic ash, dust storms reducing visibility below a threshold, and tropical cyclones. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "SIGMETs are issued for severe phenomena that affect ALL aircraft regardless of type or equipment: severe turbulence, severe icing, thunderstorms with hail, volcanic ash, dust storm…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying SIGMET vs. AIRMET — when each is issued.",
+            solution: "Stay close to the text: SIGMETs are issued for severe phenomena that affect ALL aircraft regardless of type or equipment: severe turbulence, severe icing, thunderstorms with hail, volcanic ash, dust storms reducing visibility below a threshold,… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2414,7 +2887,18 @@ export const topics: Topic[] = [
         title: "The logic behind Köppen's boundaries",
         summary: "Köppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to…",
         explanation: "Köppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns — making the system both climatically and ecologically meaningful. The 18°C coldest-month threshold for Group A reflects the limit of tropical rainforest (which cannot tolerate any cold month); the −3°C coldest-month threshold for the C/D boundary reflects the southern limit of boreal forests and the northern limit of temperate forests; the 10°C warmest-month threshold for D vs. E reflects the limit of tree growth (trees generally cannot survive where no month is warm enough). These boundaries are not arbitrary: each one corresponds to a real ecological transition.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The logic behind Köppen's boundaries”?",
+            solution: "The accurate idea is: KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns â making the system both climatically and ecologically meaningful. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patte…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The logic behind Köppen's boundaries.",
+            solution: "Stay close to the text: KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns â making the system both climatica… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2423,7 +2907,18 @@ export const topics: Topic[] = [
         title: "How the letter code is constructed",
         summary: "Each climate type is coded with 2–3 letters. The first letter is the major group (A, B, C, D, E, H). The second letter describes the…",
         explanation: "Each climate type is coded with 2–3 letters. The first letter is the major group (A, B, C, D, E, H). The second letter describes the precipitation regime: f = no dry season (fully humid), s = dry summer (Mediterranean), w = dry winter, m = monsoon (short dry season but heavy summer rain), S = steppe (semi-arid), W = desert (arid). The third letter describes the temperature regime: a = hot summer (warmest month ≥22°C), b = warm summer (warmest month <22°C, ≥4 months ≥10°C), c = cool summer (1–3 months ≥10°C), d = very cold winter (coldest month <−38°C), h = hot (annual T ≥18°C), k = cold (annual T <18°C). For example, 'Cfa' = mild mid-latitude, fully humid, hot summer (e.g., humid subtropical climate of the southeastern US). 'BWh' = arid, hot (e.g., Sahara). 'Dfc' = severe mid-latitude, fully humid, cool summer (e.g., much of Siberia).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How the letter code is constructed”?",
+            solution: "The accurate idea is: Each climate type is coded with 2â3 letters. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Each climate type is coded with 2â3 letters.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How the letter code is constructed.",
+            solution: "Stay close to the text: Each climate type is coded with 2â3 letters. The first letter is the major group (A, B, C, D, E, H). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2499,7 +2994,18 @@ export const topics: Topic[] = [
         title: "The latitudinal zonation of global climate",
         summary: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation…",
         explanation: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); the subtropics (20–30°) are dominated by the descending branch of the Hadley Cell and the subtropical highs, producing the world's great deserts; the mid-latitudes (30–60°) are dominated by the westerlies and mid-latitude cyclones, producing the temperate climates (Mediterranean, humid subtropical, marine west coast, humid continental); the high latitudes (60–90°) are dominated by the polar cell and polar highs, producing tundra and ice caps. The zonation is modified by continentality (interior of continents have larger T ranges), ocean currents (cold currents on west coasts at subtropical latitudes enhance aridity; warm currents on west coasts at high latitudes moderate T), and orography (mountains create rain shadows).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The latitudinal zonation of global climate”?",
+            solution: "The accurate idea is: Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); the subtropics (20â30Â°) are dominated by the descending branch of the Hadley Cell and the subtropical highs, producing the world's great deserts; the mid-latitudes (30â60Â°) are dominated by the westerlies and mid-latitude cyclones, producing the temperate climates (Mediterranean, humid subtropical, marine west coast, humid continental); the high latitudes (60â90Â°) are dominated by the polar cell and polar highs, producing tundra and ice caps. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep con…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The latitudinal zonation of global climate.",
+            solution: "Stay close to the text: Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2508,7 +3014,18 @@ export const topics: Topic[] = [
         title: "Monsoon climate as a regional modifier",
         summary: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong…",
         explanation: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian Ocean and the Asian landmass), East Asia (driven by the Pacific and the Asian landmass), West Africa (driven by the Atlantic and the African landmass), northern Australia (driven by the Indian Ocean and the Australian landmass), and parts of Central and South America. The monsoon is characterized by a pronounced seasonal reversal of wind direction (SW monsoon in summer bringing rain, NE trades in winter bringing dry conditions) and a strong annual precipitation cycle, with most rain falling in 3–5 summer months.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Monsoon climate as a regional modifier”?",
+            solution: "The accurate idea is: The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian Ocean and the Asian landmass), East Asia (driven by the Pacific and the Asian landmass), West Africa (driven by the Atlantic and the African landmass), northern Australia (driven by the Indian Ocean and the Australian landmass), and parts of Central and South America. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent o…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Monsoon climate as a regional modifier.",
+            solution: "Stay close to the text: The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian O… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2517,7 +3034,18 @@ export const topics: Topic[] = [
         title: "Why Mediterranean climates are on the western coasts of continents",
         summary: "The Mediterranean climate is found on the western coasts of continents at 30–45° latitude because of the seasonal migration of the…",
         explanation: "The Mediterranean climate is found on the western coasts of continents at 30–45° latitude because of the seasonal migration of the subtropical high-pressure belt. In summer, the subtropical high shifts poleward and dominates these latitudes, suppressing precipitation and creating the dry summer. In winter, the subtropical high shifts equatorward and the mid-latitude westerlies move in, bringing frontal precipitation from mid-latitude cyclones. This seasonal pattern is consistent across all five Mediterranean regions globally (California, central Chile, Mediterranean Basin, Cape Town, SW Australia), and is responsible for the characteristic Mediterranean vegetation (sclerophyllous shrubs, olive trees, drought-resistant evergreens).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Mediterranean climates are on the western coasts of continents”?",
+            solution: "The accurate idea is: The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Mediterranean climates are on the western coasts of continents.",
+            solution: "Stay close to the text: The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt. In summer, the subtropical high shifts poleward and do… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2575,7 +3103,18 @@ export const topics: Topic[] = [
         title: "How PE is calculated and why it matters",
         summary: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher…",
         explanation: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher temperatures, PE increases rapidly (the saturation vapor pressure rises exponentially with T, per the Clausius-Clapeyron relation), so warm-season PE often greatly exceeds warm-season P even in regions with substantial summer rainfall. The Thornthwaite water balance tracks this monthly: in months when P > PE, the excess water first refills soil moisture storage, then runs off or recharges groundwater; in months when PE > P, the deficit is drawn from soil moisture storage until it is exhausted, after which plants experience water stress and irrigation becomes necessary. This is why the system is so useful for irrigation planning: it tells you exactly when and how much water is needed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How PE is calculated and why it matters”?",
+            solution: "The accurate idea is: PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How PE is calculated and why it matters.",
+            solution: "Stay close to the text: PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher temperatures, PE increases rapidly (the saturation vapor pressure rises exponentially with T,… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2584,7 +3123,18 @@ export const topics: Topic[] = [
         title: "Thornthwaite vs. Köppen: when to use which",
         summary: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use…",
         explanation: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. Köppen is best for vegetation distribution and ecological questions: where do forests, grasslands, and deserts naturally occur, and what are the major climate zones of the world. The two systems are complementary: Köppen gives the broad pattern, Thornthwaite gives the water-balance details. For example, Multan (Pakistan) is BSh in Köppen (hot steppe, semi-arid) and D in Thornthwaite (semi-arid) — the same conclusion, but Thornthwaite quantifies the deficit and surplus months explicitly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Thornthwaite vs. Köppen: when to use which”?",
+            solution: "The accurate idea is: Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Thornthwaite vs. Köppen: when to use which.",
+            solution: "Stay close to the text: Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. KÃ¶ppen is best for vegetation distribution and ecological que… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2648,7 +3198,18 @@ export const topics: Topic[] = [
         title: "Why most of Pakistan is 'dry' despite receiving monsoon rain",
         summary: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal…",
         explanation: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall despite visible monsoon rainfall. This is the key insight from the Thornthwaite perspective: a region can have a substantial monsoon season (e.g., 500 mm in 3 months) and still be 'arid' in the water-balance sense because the rest of the year has very high PE and very low P. The Indus River system partially compensates for this by providing irrigation water from snow and glacier melt, effectively reducing the climatic aridity to a manageable level — but the natural climate is still classified as dry.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why most of Pakistan is 'dry' despite receiving monsoon rain”?",
+            solution: "The accurate idea is: Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall despite visible monsoon rainfall. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classif…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why most of Pakistan is 'dry' despite receiving monsoon rain.",
+            solution: "Stay close to the text: Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2657,7 +3218,18 @@ export const topics: Topic[] = [
         title: "The role of Group H in Pakistan's water economy",
         summary: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab,…",
         explanation: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Although this zone occupies only about 30% of Pakistan's area, it provides 70–80% of the Indus River's flow through snow and glacier melt. The snowpack accumulates during winter (driven by Western Disturbances) and melts during spring and summer, releasing water when downstream agriculture needs it most. This 'water tower' function makes Group H the most economically and ecologically valuable climate zone in Pakistan — and also the most vulnerable to climate change, since warming temperatures can shift the balance between snow and rain, alter melt timing, and ultimately reduce summer water availability.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The role of Group H in Pakistan's water economy”?",
+            solution: "The accurate idea is: Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The role of Group H in Pakistan's water economy.",
+            solution: "Stay close to the text: Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Although this zone occupies only about 30% of Pakis… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2915,7 +3487,18 @@ export const topics: Topic[] = [
         title: "Why the mountains matter",
         summary: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense…",
         explanation: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Without this orographic lift, far less rain would fall despite the moist air arriving. The same mountains also block the cold dry winter winds from Central Asia from reaching the plains, keeping winter temperatures moderate south of the mountain front.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the mountains matter”?",
+            solution: "The accurate idea is: As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the countr…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the mountains matter.",
+            solution: "Stay close to the text: As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Without this orographi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2924,7 +3507,18 @@ export const topics: Topic[] = [
         title: "Why the monsoon has an annual reversal",
         summary: "The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan…",
         explanation: "The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan Plateau) heats much faster than the surrounding Indian Ocean, creating a thermal low over the continent and drawing moist ocean air inland — the summer monsoon. In winter, the landmass cools faster than the ocean, creating the Siberian High and reversing the flow to dry northeasterly winds — the winter monsoon. This is essentially a giant seasonal sea breeze operating at continental scale, amplified by the elevated heat source of the Tibetan Plateau.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the monsoon has an annual reversal”?",
+            solution: "The accurate idea is: The monsoon exists because land and ocean heat up and cool down at different rates. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The monsoon exists because land and ocean heat up and cool down at different rates.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the monsoon has an annual reversal.",
+            solution: "Stay close to the text: The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan Plateau) heats much faster than the surrounding Indian Ocean, creating a thermal l… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2982,7 +3576,18 @@ export const topics: Topic[] = [
         title: "How western disturbances are structured",
         summary: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough…",
         explanation: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may or may not be vertically aligned with the upper trough; (3) a southwesterly to westerly low-level flow ahead of the trough that transports Mediterranean/Caspian moisture eastward; (4) a precipitation shield that extends from the surface low eastward and southward, with the most intense precipitation typically on the windward (western and northern) slopes of the mountains. The vertical structure is often 'cold core' aloft with a 'warm seclusion' at the surface — a configuration that promotes instability and convection embedded in the larger-scale ascent.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How western disturbances are structured”?",
+            solution: "The accurate idea is: A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may or may not be vertically aligned with the upper trough; (3) a southwesterly to westerly low-level flow ahead of the trough that transports Mediterranean/Caspian moisture eastward; (4) a precipitation shield that extends from the surface low eastward and southward, with the most intense precipitation typically on the windward (western and northern) slopes of the mountains. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, of…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How western disturbances are structured.",
+            solution: "Stay close to the text: A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may o… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2991,7 +3596,18 @@ export const topics: Topic[] = [
         title: "Why WDs matter for Pakistan's water resources",
         summary: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water…",
         explanation: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. The snowpack holds water from December through April, releasing it gradually as meltwater during spring and summer — feeding the Indus River and its tributaries when downstream regions need it most. Without WDs, the mountains would receive little winter precipitation (the summer monsoon rarely reaches the high Karakoram), the snowpack would be thin, and the Indus would have severely reduced summer baseflow. The vulnerability: if WDs become less frequent or weaker under climate change, the entire Indus-dependent agricultural and hydropower system is at risk.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why WDs matter for Pakistan's water resources”?",
+            solution: "The accurate idea is: The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why WDs matter for Pakistan's water resources.",
+            solution: "Stay close to the text: The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. The snowpack holds water from December through April, releasin… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3000,7 +3616,18 @@ export const topics: Topic[] = [
         title: "Differentiating WDs from the monsoon",
         summary: "Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones — they form…",
         explanation: "Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones — they form in the westerlies, travel eastward along the jet stream, and draw moisture from the Mediterranean/Caspian region. The summer monsoon is a tropical circulation driven by continental heating — moisture comes from the Indian Ocean, and the flow is southwesterly. A common exam error is to attribute winter precipitation over the northern mountains to the winter monsoon; in fact, the winter monsoon brings DRY northeasterly winds, and the winter precipitation comes from WDs — a separate, mid-latitude mechanism.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Differentiating WDs from the monsoon”?",
+            solution: "The accurate idea is: Western Disturbances and the summer monsoon are fundamentally different systems. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Western Disturbances and the summer monsoon are fundamentally different systems.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Differentiating WDs from the monsoon.",
+            solution: "Stay close to the text: Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones â they form in the westerlies, travel eastward along the jet stream, and draw moisture from… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3059,7 +3686,18 @@ export const topics: Topic[] = [
         title: "Why Arabian Sea cyclones are intensifying",
         summary: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface…",
         explanation: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures — the Arabian Sea has warmed ~1°C over the past 40 years, partly due to a weakening of the southwest monsoon and reduced upwelling, (2) reduced aerosol loading over the northern Indian Ocean (less 'loading' of dust and pollution that previously inhibited cyclone formation), and (3) increased mid-level moisture. The 2007 Cyclone Gonu was the first super cyclonic storm in the Arabian Sea since 1945; the post-1990 trend shows roughly a doubling of major cyclones per decade.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Arabian Sea cyclones are intensifying”?",
+            solution: "The accurate idea is: The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warmed ~1Â°C over the past 40 years, partly due to a weakening of the southwest monsoon and reduced upwelling, (2) reduced aerosol loading over the northern Indian Ocean (less 'loading' of dust and pollution that previously inhibited cyclone formation), and (3) increased mid-level moisture. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warme…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Arabian Sea cyclones are intensifying.",
+            solution: "Stay close to the text: The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warmed ~1Â°C over the past 40 years, partly d… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3068,7 +3706,18 @@ export const topics: Topic[] = [
         title: "The summer heat low and monsoon anchoring",
         summary: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the…",
         explanation: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the Asian landmass heats in late spring, a heat low forms over the hottest region (typically the Balochistan Plateau and adjacent Iranian plateau), with central MSLP dropping to 990–996 hPa by July. This low is not just a passive feature — it actively anchors the monsoon trough, draws the southwesterly monsoon flow inland, and intensifies the moisture convergence over South Asia. The heat low is so persistent that it is sometimes called the 'Monsoon Low' rather than a typical heat low.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The summer heat low and monsoon anchoring”?",
+            solution: "The accurate idea is: The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The summer heat low and monsoon anchoring.",
+            solution: "Stay close to the text: The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the Asian landmass heats in late spring, a heat low forms over the hottest region (typic… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3077,7 +3726,18 @@ export const topics: Topic[] = [
         title: "Winter fog formation over the Punjab plains",
         summary: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow…",
         explanation: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surface temperature inversion to develop; (3) abundant moisture from the previous monsoon and irrigation; (4) aerosol particles (pollution, dust) that act as cloud condensation nuclei. Once fog forms, the droplets reflect solar radiation, preventing daytime heating and fog dissipation — a self-sustaining 'fog feedback' that can maintain fog for days. When this fog mixes with vehicle and industrial emissions, it becomes smog, with serious health implications. The 2016 Lahore smog crisis, the 2023 Indo-Gangetic Plain smog, and recurrent disruptions to motorway traffic are all manifestations of this fog-smog complex.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Winter fog formation over the Punjab plains”?",
+            solution: "The accurate idea is: Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surface temperature inversion to develop; (3) abundant moisture from the previous monsoon and irrigation; (4) aerosol particles (pollution, dust) that act as cloud condensation nuclei. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) l…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Winter fog formation over the Punjab plains.",
+            solution: "Stay close to the text: Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surf… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3128,7 +3788,18 @@ export const topics: Topic[] = [
         title: "Why Balochistan's rain doesn't come from the monsoon",
         summary: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer…",
         explanation: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into it. The scant annual rainfall it does receive (mostly <150 mm) instead arrives via winter westerly depressions that travel along the subtropical jet stream — the opposite seasonal source from most of the rest of the country. This makes Balochistan meteorologically distinct: a winter-rainfall pattern in a predominantly summer-monsoon country.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why Balochistan's rain doesn't come from the monsoon”?",
+            solution: "The accurate idea is: Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into it. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or ov…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why Balochistan's rain doesn't come from the monsoon.",
+            solution: "Stay close to the text: Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3137,7 +3808,18 @@ export const topics: Topic[] = [
         title: "The four climate zones of Pakistan",
         summary: "Pakistan can be divided into four broad climate zones based on Köppen classification: (1) BWh (hot desert) — covers most of southern Sindh,…",
         explanation: "Pakistan can be divided into four broad climate zones based on Köppen classification: (1) BWh (hot desert) — covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2) BSh (hot semi-arid/steppe) — covers the upper Indus plains and parts of NWFP; somewhat cooler and wetter than BWh; (3) Cwa/Csa (humid subtropical) — small areas of upper Punjab and the foothills; (4) H (highland) — the northern mountains (Karakoram, Hindu Kush, western Himalaya); cold winters, cool summers, precipitation in both seasons. The H zone contains most of Pakistan's glacier mass and is the source of nearly all Indus River flow.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The four climate zones of Pakistan”?",
+            solution: "The accurate idea is: Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2) BSh (hot semi-arid/steppe) â covers the upper Indus plains and parts of NWFP; somewhat cooler and wetter than BWh; (3) Cwa/Csa (humid subtropical) â small areas of upper Punjab and the foothills; (4) H (highland) â the northern mountains (Karakoram, Hindu Kush, western Himalaya); cold winters, cool summers, precipitation in both seasons. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; ext…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The four climate zones of Pakistan.",
+            solution: "Stay close to the text: Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2)… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3189,7 +3871,18 @@ export const topics: Topic[] = [
         title: "The GLOF causal chain",
         summary: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater…",
         explanation: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. The chain is: (1) climate warming raises temperatures above freezing at high elevations, (2) glaciers melt faster than they accumulate snow, (3) meltwater pools in depressions behind moraine dams or within/under the glacier itself, (4) the lake grows and the dam becomes unstable (often with a 'floating ice tongue' that suddenly fails), (5) the lake drains catastrophically in hours, releasing a flood wave that can travel 100+ km downstream and arrive with little warning. Pakistan has an estimated 3000+ glacial lakes in the Karakoram and Hindu Kush, of which ~30+ are classified as 'potentially dangerous' and monitored for GLOF risk.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The GLOF causal chain”?",
+            solution: "The accurate idea is: Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The GLOF causal chain.",
+            solution: "Stay close to the text: Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. The chain is: (1) climate warming raises temperatur… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3198,7 +3891,18 @@ export const topics: Topic[] = [
         title: "Why the 2010 and 2022 floods were so extreme",
         summary: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La Niña conditions, but their mechanisms…",
         explanation: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La Niña conditions, but their mechanisms differed. 2010: a stationary monsoon low over Balochistan combined with a strong La Niña to produce 4–5 days of continuous torrential rain in the Indus headwaters (Khyber Pakhtunkhwa), generating the worst riverine flooding in Pakistan's history. 2022: a multi-stage event with a pre-monsoon heat wave that accelerated snow and ice melt, followed by extreme August rainfall from a southward-displaced monsoon trough combined with La Niña, producing cumulative flooding across the Indus basin that affected 33 million people. Both events highlight how climate change is amplifying the natural variability of the monsoon, and how La Niña (or La Niña-transition) phases create conditions favorable for extreme Pakistan rainfall.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the 2010 and 2022 floods were so extreme”?",
+            solution: "The accurate idea is: The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the 2010 and 2022 floods were so extreme.",
+            solution: "Stay close to the text: The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed. 2010: a stationary monsoon low over Balochistan combined with a strong La Ni… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3207,7 +3911,18 @@ export const topics: Topic[] = [
         title: "Drought as a slow-onset disaster",
         summary: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and…",
         explanation: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. The 1999–2002 drought affected primarily Sindh and Balochistan, reducing reservoir levels to historic lows, depleting groundwater, and causing widespread crop failure and rural-to-urban migration. The 2018 drought in Balochistan (combined with poor snowpack) was similarly severe. Droughts are linked to monsoon failure (often associated with El Niño, though not deterministic) and to the positive IOD phase, which can disrupt moisture transport to South Asia. Pakistan's reliance on the Indus River system and on rain-fed agriculture makes drought a particularly severe hazard, with cascading effects on food security, energy (hydropower), and public health.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Drought as a slow-onset disaster”?",
+            solution: "The accurate idea is: Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Drought as a slow-onset disaster.",
+            solution: "Stay close to the text: Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. The 1999â2002 drought affected primarily Sindh and Balochistan, redu… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3262,7 +3977,18 @@ export const topics: Topic[] = [
         title: "How PMD's regional structure maps to climate zones",
         summary: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical…",
         explanation: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab and the Indus plains (responsible for the persistent winter fog, summer monsoon, heat waves, and smog monitoring); Peshawar covers KPK (responsible for both the summer monsoon and winter WDs in the western mountains); Quetta covers Balochistan (responsible for the winter WD precipitation, summer dust storms, and ongoing drought monitoring); Gilgit covers the northern mountains (responsible for GLOF monitoring, glacier mass balance, and winter snowfall). This regional structure ensures that forecast offices are staffed with meteorologists familiar with the local climate and weather patterns of their area.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How PMD's regional structure maps to climate zones”?",
+            solution: "The accurate idea is: PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab and the Indus plains (responsible for the persistent winter fog, summer monsoon, heat waves, and smog monitoring); Peshawar covers KPK (responsible for both the summer monsoon and winter WDs in the western mountains); Quetta covers Balochistan (responsible for the winter WD precipitation, summer dust storms, and ongoing drought monitoring); Gilgit covers the northern mountains (responsible for GLOF monitoring, glacier mass balance, and winter snowfall). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Ka…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How PMD's regional structure maps to climate zones.",
+            solution: "Stay close to the text: PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3271,7 +3997,18 @@ export const topics: Topic[] = [
         title: "PMD's role in flood and GLOF warning",
         summary: "PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall,…",
         explanation: "PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall, river levels in cooperation with WAPDA, soil moisture) and runs the NWP models that produce quantitative precipitation forecasts (QPFs); these are passed to the Federal Flood Commission and provincial irrigation departments for hydrological modeling and flood routing. The final flood warning is issued jointly. For GLOFs, PMD operates a network of automated weather stations (AWS) in vulnerable valleys, lake-level sensors on monitored glacial lakes, and downstream river-level gauges; the GLOF early warning system issues SMS-based warnings to local communities when lake levels rise above critical thresholds, often 1–4 hours before the flood wave arrives. PMD's GLOF program is supported by international partners including ICIMOD, UNDP, and the World Bank.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “PMD's role in flood and GLOF warning”?",
+            solution: "The accurate idea is: PMD plays a central role in Pakistan's disaster warning chain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PMD plays a central role in Pakistan's disaster warning chain.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying PMD's role in flood and GLOF warning.",
+            solution: "Stay close to the text: PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall, river levels in cooperation with WAPDA, soil moisture) and runs the NWP models tha… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3280,7 +4017,18 @@ export const topics: Topic[] = [
         title: "Limitations and challenges of PMD operations",
         summary: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps — Pakistan's upper-air sounding network is…",
         explanation: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps — Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; (2) limited radar coverage — Doppler radar is available at major airports but not for the whole country; (3) capacity constraints — PMD's supercomputing and NWP model run capability is limited compared to global centers, so it relies on imported model output (ECMWF, GFS, UKMO) for medium-range guidance; (4) GLOF monitoring — only ~30 of ~3000+ glacial lakes are actively monitored due to cost and remoteness; (5) communication — getting warnings to vulnerable rural communities in time remains a challenge, especially in remote mountain valleys. The National Disaster Management Authority (NDMA) and provincial disaster management authorities (PDMAs) work with PMD to disseminate warnings and coordinate response.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Limitations and challenges of PMD operations”?",
+            solution: "The accurate idea is: Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; (2) limited radar coverage â Doppler radar is available at major airports but not for the whole country; (3) capacity constraints â PMD's supercomputing and NWP model run capability is limited compared to global centers, so it relies on imported model output (ECMWF, GFS, UKMO) for medium-range guidance; (4) GLOF monitoring â only ~30 of ~3000+ glacial lakes are actively monitored due to cost and remoteness; (5) communication â getting warnings to vulnerable rural communities in time remains a challenge, especially in remote mountain valleys. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Limitations and challenges of PMD operations.",
+            solution: "Stay close to the text: Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3333,7 +4081,18 @@ export const topics: Topic[] = [
         title: "How the objectives map to the hazards",
         summary: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake…",
         explanation: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake hazards (see i-extreme-events). Heat-resistant crops and climate-smart agriculture address the rising temperatures in arid plains (see i-temp-rainfall-distribution) and protect food security against heat stress and drought. Afforestation serves dual roles: carbon sequestration (mitigation) and ecosystem restoration (adaptation, including reduced flooding, improved soil, biodiversity). Energy transition addresses the fact that Pakistan's energy mix is dominated by fossil fuels (coal, gas, oil), making the power sector the largest single source of greenhouse gas emissions. Disaster risk reduction strengthens the warning-response chain that links PMD forecasts to community action.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How the objectives map to the hazards”?",
+            solution: "The accurate idea is: Each NCCP objective targets a specific vulnerability covered elsewhere in this section. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How the objectives map to the hazards.",
+            solution: "Stay close to the text: Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake hazards (see i-extreme-events). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3342,7 +4101,18 @@ export const topics: Topic[] = [
         title: "Implementation challenges and progress",
         summary: "Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning…",
         explanation: "Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning systems) have seen significant progress, while others (energy transition, large-scale agricultural reform) lag behind due to financing constraints, political priorities, and capacity gaps. The 2022 super flood served as a stress test for Pakistan's climate adaptation framework, highlighting both the progress made (GLOF early warning systems in place in several valleys) and the work remaining (flood forecasting and response in remote areas, climate-resilient infrastructure). The 2022 floods also led to 'loss and damage' discussions at COP27, with Pakistan advocating for compensation from high-emission countries for climate-induced disasters.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Implementation challenges and progress”?",
+            solution: "The accurate idea is: Despite the comprehensive scope of the NCCP, implementation has been uneven. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Despite the comprehensive scope of the NCCP, implementation has been uneven.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Implementation challenges and progress.",
+            solution: "Stay close to the text: Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning systems) have seen significant progress, while others (energy transition, large-scale… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3394,7 +4164,18 @@ export const topics: Topic[] = [
         title: "Why persistence fails beyond a few hours",
         summary: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting — simply…",
         explanation: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting — simply assuming tomorrow's weather equals today's — works reasonably well for the first few hours because weather changes gradually on short timescales. But beyond roughly 6–12 hours, the cumulative effect of unaccounted-for pressure tendencies, moving fronts, and diurnal heating cycles makes persistence forecasts no better than random guessing.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why persistence fails beyond a few hours”?",
+            solution: "The accurate idea is: The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why persistence fails beyond a few hours.",
+            solution: "Stay close to the text: The atmosphere is a chaotic system where small initial uncertainties grow exponentially over time. Persistence forecasting â simply assuming tomorrow's weather equals today's â works reasonably well for the first few… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3403,7 +4184,18 @@ export const topics: Topic[] = [
         title: "When climatology is useful and when it fails",
         summary: "Climatology-based forecasts use 30-year averages for a given location and date — predicting, for example, that Islamabad in July will be…",
         explanation: "Climatology-based forecasts use 30-year averages for a given location and date — predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. This is useful for planning agriculture, tourism, or seasonal resource allocation, but it cannot predict whether a specific day will see a thunderstorm or clear skies, because it ignores the actual current atmospheric state entirely.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “When climatology is useful and when it fails”?",
+            solution: "The accurate idea is: Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon ra…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying When climatology is useful and when it fails.",
+            solution: "Stay close to the text: Climatology-based forecasts use 30-year averages for a given location and date â predicting, for example, that Islamabad in July will be hot and humid with a chance of monsoon rain. This is useful for planning agricult… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3412,7 +4204,18 @@ export const topics: Topic[] = [
         title: "The analog method's fundamental limitation",
         summary: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that…",
         explanation: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. In theory this is sound, but in practice the atmosphere rarely repeats an identical configuration — even superficially similar maps differ in upper-level flow, moisture fields, and seasonal context. As the historical archive grows, analog matching improves, but the method remains inherently limited by atmospheric uniqueness.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The analog method's fundamental limitation”?",
+            solution: "The accurate idea is: The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The analog method's fundamental limitation.",
+            solution: "Stay close to the text: The analog approach searches historical records for a weather map resembling today's and assumes the future will evolve as it did in that past case. In theory this is sound, but in practice the atmosphere rarely repeats … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3464,7 +4267,18 @@ export const topics: Topic[] = [
         title: "Why data assimilation matters more than the model itself",
         summary: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a…",
         explanation: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a slightly wrong initial condition will diverge from reality within days. Data assimilation — the process of merging sparse, noisy observations with a model background using statistical methods like 3D-Var, 4D-Var, or Kalman filters — is what makes the initial analysis as accurate as possible. Without high-quality assimilation, even the best NWP model cannot produce useful forecasts beyond a day or two.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why data assimilation matters more than the model itself”?",
+            solution: "The accurate idea is: The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why data assimilation matters more than the model itself.",
+            solution: "Stay close to the text: The atmosphere is chaotic, meaning the forecast is extremely sensitive to the accuracy of the initial state. Even a perfect model with a slightly wrong initial condition will diverge from reality within days. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3473,7 +4287,18 @@ export const topics: Topic[] = [
         title: "Why ensembles replace single deterministic runs",
         summary: "A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20–50 times…",
         explanation: "A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20–50 times with slightly different initial conditions and physics parameterizations, producing a spread of outcomes. A tight cluster of ensemble members indicates high confidence; a wide spread indicates low confidence and high uncertainty. The ensemble mean typically outperforms the deterministic run beyond 3–5 days because it averages out chaotic divergence.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why ensembles replace single deterministic runs”?",
+            solution: "The accurate idea is: A single deterministic forecast gives one possible future with no indication of confidence. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A single deterministic forecast gives one possible future with no indication of confidence.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why ensembles replace single deterministic runs.",
+            solution: "Stay close to the text: A single deterministic forecast gives one possible future with no indication of confidence. Ensemble forecasting runs the model 20â50 times with slightly different initial conditions and physics parameterizations, prod… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3482,7 +4307,18 @@ export const topics: Topic[] = [
         title: "Global vs. regional model trade-off",
         summary: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9–25 km — too coarse to…",
         explanation: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9–25 km — too coarse to resolve individual thunderstorms or local terrain effects. Regional models nest inside a global model's output at their domain boundaries, achieving 1–5 km resolution that captures convection, mountain valleys, and coastlines, but they inherit any errors in the global model's boundary conditions and cannot correct large-scale errors that originate outside their domain.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Global vs. regional model trade-off”?",
+            solution: "The accurate idea is: Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local terrain effects. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Global vs. regional model trade-off.",
+            solution: "Stay close to the text: Global models must cover the entire planet on one computational grid, limiting their horizontal resolution to ~9â25 km â too coarse to resolve individual thunderstorms or local terrain effects. Regional models nest i… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3534,7 +4370,18 @@ export const topics: Topic[] = [
         title: "Why ACC is the standard for medium-range verification",
         summary: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed…",
         explanation: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. A high ACC means the forecast correctly captured the shape and placement of weather systems — troughs, ridges, pressure centers — even if their exact intensity is slightly off. ACC is used operationally because it summarizes large-scale pattern skill in a single number and degrades smoothly with lead time, making it easy to track model performance over days or seasons.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why ACC is the standard for medium-range verification”?",
+            solution: "The accurate idea is: The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why ACC is the standard for medium-range verification.",
+            solution: "Stay close to the text: The Anomaly Correlation Coefficient compares the spatial pattern of forecast anomalies (departures from climatology) against observed anomalies. A high ACC means the forecast correctly captured the shape and placement of… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3543,7 +4390,18 @@ export const topics: Topic[] = [
         title: "Threat Score vs. RMSE: categorical vs. continuous",
         summary: "RMSE measures errors in continuous variables like temperature or pressure — it tells you the average error magnitude but not whether the…",
         explanation: "RMSE measures errors in continuous variables like temperature or pressure — it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Threat Score, by contrast, evaluates binary events: did the forecast predict rain when rain occurred? TS combines three outcomes — hits, misses, and false alarms — into one score, making it ideal for verifying high-impact events like frost, heavy rain, or severe wind, where the yes/no decision matters more than the exact value.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Threat Score vs. RMSE: categorical vs. continuous”?",
+            solution: "The accurate idea is: RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurren…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Threat Score vs. RMSE: categorical vs. continuous.",
+            solution: "Stay close to the text: RMSE measures errors in continuous variables like temperature or pressure â it tells you the average error magnitude but not whether the forecast correctly predicted the occurrence of an event. Threat Score, by contras… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3552,7 +4410,18 @@ export const topics: Topic[] = [
         title: "Why 'skill' requires a reference forecast",
         summary: "A forecast that predicts 30°C and the observed temperature is 30°C looks perfect — but if the climatological average for that date is also…",
         explanation: "A forecast that predicts 30°C and the observed temperature is 30°C looks perfect — but if the climatological average for that date is also 30°C, simply predicting climatology would have been equally correct. Skill scores subtract the reference forecast's performance: a forecast has genuine skill only if it outperforms the reference (climatology or persistence). This prevents inflating forecast quality by crediting easy wins on stable, predictable days.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why 'skill' requires a reference forecast”?",
+            solution: "The accurate idea is: A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology would have been equally correct. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why 'skill' requires a reference forecast.",
+            solution: "Stay close to the text: A forecast that predicts 30Â°C and the observed temperature is 30Â°C looks perfect â but if the climatological average for that date is also 30Â°C, simply predicting climatology would have been equally correct. Skill s… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3619,7 +4488,18 @@ export const topics: Topic[] = [
         title: "How to decode the 3-digit pressure code",
         summary: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space.…",
         explanation: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. The rule: if the three plotted digits begin with 5, 6, 7, 8, or 9, prepend a 9 (giving 9500–9999, e.g., 587 = 958.7 hPa — impossible, so this case is rare at sea level but common at high-altitude stations). If the three plotted digits begin with 0, 1, 2, 3, or 4, prepend a 10 (giving 1000–1049 hPa, e.g., 027 = 1002.7 hPa; 145 = 1014.5 hPa). To decode: 10 if leading digit is 0–4, 9 if leading digit is 5–8. The last digit is always tenths of a hPa.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to decode the 3-digit pressure code”?",
+            solution: "The accurate idea is: Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to decode the 3-digit pressure code.",
+            solution: "Stay close to the text: Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. The rule: if the three plotted digits begin with 5, 6, 7, 8, or 9, prepend a 9 (gi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3628,7 +4508,18 @@ export const topics: Topic[] = [
         title: "Reading wind direction and speed from the barb",
         summary: "The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are…",
         explanation: "The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are attached to the upwind end of the shaft. For example, if the shaft points from the upper-left toward the lower-right (NE direction), the wind is blowing FROM the southwest (SW wind) — a common source of confusion because the shaft direction indicates the wind's source, not its destination. To read the speed, sum the barbs: 1 half barb + 1 full barb + 1 flag = 5 + 10 + 50 = 65 knots. If no barbs are drawn, the wind is calm (or less than 1–2 knots, sometimes shown as a small circle at the shaft end).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading wind direction and speed from the barb”?",
+            solution: "The accurate idea is: The wind shaft is a straight line that points FROM the direction the wind is coming. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The wind shaft is a straight line that points FROM the direction the wind is coming.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading wind direction and speed from the barb.",
+            solution: "Stay close to the text: The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are attached to the upwind end of the shaft. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3637,7 +4528,18 @@ export const topics: Topic[] = [
         title: "Cloud cover and present weather interpretation",
         summary: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left…",
         explanation: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left of the station circle and describe phenomena occurring at the observation time — dots for drizzle/dust, asterisks for snow, triangles for hail, brackets for thunderstorms, etc. Past weather (6 hours ago) is plotted below the station in a separate symbol. The full WMO present-weather code table is large, but the most commonly tested symbols are: rain (·), snow (*), thunderstorm (R), fog (≡), drizzle (°), and shower (∇).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Cloud cover and present weather interpretation”?",
+            solution: "The accurate idea is: The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Cloud cover and present weather interpretation.",
+            solution: "Stay close to the text: The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left of the station circle and describe phenomena occurring at the observation time â… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3695,7 +4597,18 @@ export const topics: Topic[] = [
         title: "How to draw isobars correctly",
         summary: "Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every…",
         explanation: "Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every station where pressure equals or is very close to that value. Draw a smooth curve through these marks, allowing the isobar to bend around high and low centers. Repeat for the next interval (1004, 1008, ...). Rules to follow strictly: (1) isobars never cross or touch, (2) they should pass through or very near stations with that exact pressure, (3) they form closed curves around highs and lows, (4) they are drawn as smooth curves without sharp kinks, (5) they are labeled at the ends and where the line is broken for readability. A common error is to draw isobars that follow station locations too literally — they should represent the underlying pressure field, not the station positions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to draw isobars correctly”?",
+            solution: "The accurate idea is: Begin by identifying all station pressures and their 3-digit codes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Begin by identifying all station pressures and their 3-digit codes.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to draw isobars correctly.",
+            solution: "Stay close to the text: Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every station where pressure equals or is very close to that value. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3704,7 +4617,18 @@ export const topics: Topic[] = [
         title: "Reading wind speed from isobar spacing",
         summary: "The geostrophic wind is Vg = (1/(ρf)) × (Δp/Δn), where Δp/Δn is the pressure gradient (pressure change per unit distance perpendicular to…",
         explanation: "The geostrophic wind is Vg = (1/(ρf)) × (Δp/Δn), where Δp/Δn is the pressure gradient (pressure change per unit distance perpendicular to the isobars). On a chart, the spacing between adjacent isobars is inversely proportional to the pressure gradient: if isobars are 100 km apart, the gradient is weak and winds are light; if 50 km apart, the gradient is stronger; if 20 km apart, winds are gale-force. For the same spacing, winds are stronger at higher latitudes (larger f, but the f-dependence in Vg means stronger winds for the same gradient at higher latitudes is incorrect — actually Vg is INVERSELY proportional to f, so for the same gradient, winds are WEAKER at higher latitudes; this is a common misconception). The latitude dependence is small for mid-latitude analysis but matters for high-latitude or tropical charts.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading wind speed from isobar spacing”?",
+            solution: "The accurate idea is: The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading wind speed from isobar spacing.",
+            solution: "Stay close to the text: The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars). On a chart, the spacing between adjacent isobars is inversely … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3713,7 +4637,18 @@ export const topics: Topic[] = [
         title: "Identifying pressure patterns on a chart",
         summary: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the…",
         explanation: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars with the highest pressure at the center, marked with an 'H' (e.g., 1028 hPa); (3) a TROUGH is an elongated extension of low pressure, marked by a dashed line along its axis; (4) a RIDGE is an elongated extension of high pressure, marked by a zigzag line along its axis; (5) a COL is a neutral point between alternating high and low centers, often marked with an 'X' or left implicit. These patterns drive the weather: lows bring ascent, clouds, and precipitation; highs bring descent, clear skies, and calm weather.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Identifying pressure patterns on a chart”?",
+            solution: "The accurate idea is: Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars with the highest pressure at the center, marked with an 'H' (e.g., 1028 hPa); (3) a TROUGH is an elongated extension of low pressure, marked by a dashed line along its axis; (4) a RIDGE is an elongated extension of high pressure, marked by a zigzag line along its axis; (5) a COL is a neutral point between alternating high and low centers, often marked with an 'X' or left implicit. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Identifying pressure patterns on a chart.",
+            solution: "Stay close to the text: Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3771,7 +4706,18 @@ export const topics: Topic[] = [
         title: "How to identify an air mass from a station report",
         summary: "An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the…",
         explanation: "An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the dewpoint depression (T − Td). A station with T = 5°C, Td = 4°C (depression 1°C) is moist — likely mP or mT depending on temperature. A station with T = 30°C, Td = 5°C (depression 25°C) is dry — likely cT. Air masses are also classified by their stability: a cold air mass moving over a warm surface becomes unstable (cP over warm ocean = cold-air convection, lake-effect snow); a warm air mass moving over a cold surface becomes stable (mT over cold land = stratus, fog). On a chart, air masses are usually inferred from the source region and trajectory rather than labeled directly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to identify an air mass from a station report”?",
+            solution: "The accurate idea is: An air mass is identified by its thermodynamic properties, not its location. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "An air mass is identified by its thermodynamic properties, not its location.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to identify an air mass from a station report.",
+            solution: "Stay close to the text: An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the dewpoint depression (T â Td). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3780,7 +4726,18 @@ export const topics: Topic[] = [
         title: "How to locate a front on a surface chart",
         summary: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line — a 5–10°C drop over 50–100 km…",
         explanation: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line — a 5–10°C drop over 50–100 km is typical; (2) a dewpoint gradient — dry air on one side, moist on the other; (3) a wind shift — winds veer (rotate clockwise, e.g., SE → SW → W) across a cold front, back (rotate counter-clockwise) across a warm front; (4) a pressure trough — pressure falls ahead of the front and rises behind, with a minimum along the front; (5) a cloud and precipitation band — cumuliform (showery) along or behind a cold front, stratiform (layered) ahead of a warm front. If all five indicators line up, the front is well-defined; if only some are present, the boundary may be a 'shear line' or 'diffuse front' rather than a true front.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to locate a front on a surface chart”?",
+            solution: "The accurate idea is: Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradient â dry air on one side, moist on the other; (3) a wind shift â winds veer (rotate clockwise, e.g., SE â SW â W) across a cold front, back (rotate counter-clockwise) across a warm front; (4) a pressure trough â pressure falls ahead of the front and rises behind, with a minimum along the front; (5) a cloud and precipitation band â cumuliform (showery) along or behind a cold front, stratiform (layered) ahead of a warm front. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradien…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to locate a front on a surface chart.",
+            solution: "Stay close to the text: Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradient â dry air on one side, moist on the … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3789,7 +4746,18 @@ export const topics: Topic[] = [
         title: "Front symbols and their meaning",
         summary: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the…",
         explanation: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triangles on the south side of a line mean the front is moving south). (2) Warm front: red line with solid semicircles on the side the front is moving toward. (3) Occluded front: purple line with alternating triangles and semicircles, both pointing in the direction of motion; used for both cold and warm occlusions. (4) Stationary front: alternating triangles and semicircles on OPPOSITE sides of the line, indicating the front is not moving. On color charts, blue is cold, red is warm, purple is occluded; on black-and-white charts, the symbols alone convey the information. A common exam question asks to draw or interpret these symbols on a simplified chart.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Front symbols and their meaning”?",
+            solution: "The accurate idea is: The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triangles on the south side of a line mean the front is moving south). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Front symbols and their meaning.",
+            solution: "Stay close to the text: The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triang… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3866,7 +4834,18 @@ export const topics: Topic[] = [
         title: "Why the DALR and SALR differ",
         summary: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8°C/km) because no phase change occurs. Once the parcel cools to its…",
         explanation: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8°C/km) because no phase change occurs. Once the parcel cools to its dewpoint, condensation begins and latent heat is released. This latent heat partially offsets the adiabatic cooling, so the saturated parcel cools more slowly — at the SALR (~6°C/km). The SALR is not a fixed number because the amount of latent heat released depends on the amount of water vapor condensed, which depends on temperature: in warm moist air, more water condenses per km of ascent, releasing more heat, so the SALR is lower (~4°C/km); in cold dry air, little water condenses, so the SALR approaches the DALR (~9°C/km). This temperature dependence is why the SALR is specified as a range, not a single value.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the DALR and SALR differ”?",
+            solution: "The accurate idea is: When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the DALR and SALR differ.",
+            solution: "Stay close to the text: When an unsaturated parcel rises, it expands and cools at the DALR (9.8Â°C/km) because no phase change occurs. Once the parcel cools to its dewpoint, condensation begins and latent heat is released. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3875,7 +4854,18 @@ export const topics: Topic[] = [
         title: "Stability determination by comparing ELR, DALR, and SALR",
         summary: "The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower…",
         explanation: "The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower of the two parcel rates), then any rising parcel — saturated or not — will cool faster than the environment and sink back: absolutely stable. This is the case during a temperature inversion (ELR negative, i.e., temperature increasing with height). If the ELR is greater than the DALR, even a dry parcel will remain warmer than the environment as it rises and will accelerate upward: absolutely unstable. The most common real-atmosphere case is conditional instability: ELR between DALR and SALR, so dry parcels are stable but saturated parcels are unstable. Whether convection actually occurs depends on whether the parcel can be lifted to the LCL and beyond to the LFC.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Stability determination by comparing ELR, DALR, and SALR”?",
+            solution: "The accurate idea is: The simplest stability test compares the three rates numerically. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The simplest stability test compares the three rates numerically.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Stability determination by comparing ELR, DALR, and SALR.",
+            solution: "Stay close to the text: The simplest stability test compares the three rates numerically. If the ELR (the actual atmosphere) is less than even the SALR (the slower of the two parcel rates), then any rising parcel â saturated or not â will c… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3884,7 +4874,18 @@ export const topics: Topic[] = [
         title: "The LCL and LFC in parcel ascent",
         summary: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment.…",
         explanation: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. The parcel first cools at the DALR until it reaches the LCL (saturation), then at the SALR above. The LCL height can be estimated as 125 m per °C of dewpoint depression (T − Td) at the surface. Above the LCL, if the parcel's SALR curve crosses the environmental temperature profile, it becomes warmer than the environment and rises freely — this crossing point is the LFC. The parcel continues rising until its temperature again falls below the environment's, at the Equilibrium Level (EL), typically near the tropopause. The vertical distance from the LFC to the EL is the 'convective available potential energy' (CAPE) layer — taller layers mean stronger storms.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The LCL and LFC in parcel ascent”?",
+            solution: "The accurate idea is: To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The LCL and LFC in parcel ascent.",
+            solution: "Stay close to the text: To determine if a parcel will actually rise freely, you must lift it from the surface and track its temperature against the environment. The parcel first cools at the DALR until it reaches the LCL (saturation), then at t… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3976,7 +4977,18 @@ export const topics: Topic[] = [
         title: "Why saturation vapor pressure is so temperature-dependent",
         summary: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 × exp(L/Rv × (1/T₀ − 1/T)) where L is…",
         explanation: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 × exp(L/Rv × (1/T₀ − 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor. The physical reason: at higher temperatures, water molecules have more kinetic energy and can escape the liquid phase more easily, so the equilibrium vapor pressure (saturation) is higher. The practical consequence is dramatic — air at 30°C can hold about 7 times more water vapor than air at 0°C (42.4 / 6.11 ≈ 6.9). This is why tropical air is so much more humid than polar air, and why a small temperature drop in warm moist air can produce heavy precipitation while the same drop in cold dry air produces nothing.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why saturation vapor pressure is so temperature-dependent”?",
+            solution: "The accurate idea is: The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why saturation vapor pressure is so temperature-dependent.",
+            solution: "Stay close to the text: The Clausius-Clapeyron relation describes how es depends exponentially on temperature: es(T) = 6.112 Ã exp(L/Rv Ã (1/Tâ â 1/T)) where L is the latent heat of vaporization and Rv is the gas constant for water vapor.… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3985,7 +4997,18 @@ export const topics: Topic[] = [
         title: "How to use the Magnus formula step by step",
         summary: "For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e ≈ 6.112 × exp(17.67 ×…",
         explanation: "For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e ≈ 6.112 × exp(17.67 × Td / (Td + 243.5)) hPa. To find RH: first compute e from Td, then compute es from T using the same formula, then RH = e/es × 100%. Example: T = 25°C, Td = 20°C. es at 25°C = 6.112 × exp(17.67 × 25 / (25 + 243.5)) = 6.112 × exp(441.75/268.5) = 6.112 × exp(1.645) = 6.112 × 5.18 ≈ 31.7 hPa. e at Td = 20°C = 6.112 × exp(17.67 × 20 / 263.5) = 6.112 × exp(1.341) = 6.112 × 3.82 ≈ 23.4 hPa. RH = 23.4 / 31.7 × 100% ≈ 73.8%.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to use the Magnus formula step by step”?",
+            solution: "The accurate idea is: For exam calculations, the Magnus formula is the standard tool. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "For exam calculations, the Magnus formula is the standard tool.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to use the Magnus formula step by step.",
+            solution: "Stay close to the text: For exam calculations, the Magnus formula is the standard tool. To find the actual vapor pressure from a dewpoint: e â 6.112 Ã exp(17.67 Ã Td / (Td + 243.5)) hPa. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3994,7 +5017,18 @@ export const topics: Topic[] = [
         title: "Why mixing ratio is conserved in adiabatic ascent",
         summary: "The mixing ratio w = 0.622 × e / (p − e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added…",
         explanation: "The mixing ratio w = 0.622 × e / (p − e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. This makes w a useful 'tracer' for identifying air-parcel history: two parcels with the same w at different heights and temperatures must have come from the same source region. Above the LCL, however, water vapor is lost to condensation, so the saturation mixing ratio (ws) becomes the conserved quantity, and the liquid water content increases as the parcel rises.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why mixing ratio is conserved in adiabatic ascent”?",
+            solution: "The accurate idea is: The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evapor…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why mixing ratio is conserved in adiabatic ascent.",
+            solution: "Stay close to the text: The mixing ratio w = 0.622 Ã e / (p â e) is approximately conserved when a parcel rises dry-adiabatically, because no water vapor is added or removed (no condensation, no evaporation) until the LCL is reached. This ma… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4073,7 +5107,18 @@ export const topics: Topic[] = [
         title: "Why 1 hPa per 8 m in the lower atmosphere",
         summary: "The hydrostatic equation gives dp/dz = −ρg. Rearranging, dz/dp = −1/(ρg). With ρ ≈ 1.2 kg/m³ at the surface and g = 9.81 m/s², dz/dp = −1 /…",
         explanation: "The hydrostatic equation gives dp/dz = −ρg. Rearranging, dz/dp = −1/(ρg). With ρ ≈ 1.2 kg/m³ at the surface and g = 9.81 m/s², dz/dp = −1 / (1.2 × 9.81) = −1 / 11.77 ≈ −0.085 m/Pa = −8.5 m/hPa. So a 1 hPa pressure change corresponds to about 8.5 m of height change near the surface. This conversion is the basis for the altimeter setting in aircraft and for the vertical scale on most sounding diagrams. As one goes higher, the air density decreases, so dz/dp becomes larger — at 5 km, dz/dp ≈ −15 m/hPa.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why 1 hPa per 8 m in the lower atmosphere”?",
+            solution: "The accurate idea is: The hydrostatic equation gives dp/dz = âÏg. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The hydrostatic equation gives dp/dz = âÏg.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why 1 hPa per 8 m in the lower atmosphere.",
+            solution: "Stay close to the text: The hydrostatic equation gives dp/dz = âÏg. Rearranging, dz/dp = â1/(Ïg). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4082,7 +5127,18 @@ export const topics: Topic[] = [
         title: "The hypsometric equation and layer thickness",
         summary: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ΔZ = (Rd × T_v…",
         explanation: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ΔZ = (Rd × T_v / g) × ln(p1/p2). This is the hypsometric equation, and it has two key applications: (1) given the mean temperature of a layer and the pressures at its top and bottom, compute the layer thickness (e.g., the 1000–500 hPa thickness is about 5500 m at standard conditions); (2) given the layer thickness and the boundary pressure, infer the mean temperature (used in thickness charts for weather analysis). Warm layers are thicker; cold layers are thinner — a 1000–500 hPa thickness of 5400 m or less indicates a cold air mass; 5760 m or more indicates a warm air mass.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The hypsometric equation and layer thickness”?",
+            solution: "The accurate idea is: Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The hypsometric equation and layer thickness.",
+            solution: "Stay close to the text: Integrating the hydrostatic equation between two pressure levels gives the layer thickness (geopotential height difference): ÎZ = (Rd Ã T_v / g) Ã ln(p1/p2). This is the hypsometric equation, and it has two key applic… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4091,7 +5147,18 @@ export const topics: Topic[] = [
         title: "Practical use of standard pressure levels",
         summary: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography…",
         explanation: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. The 500 hPa height (typically around 5500 m) varies with temperature: higher in warm columns, lower in cold columns. By tracking the 500 hPa height pattern, meteorologists identify troughs (lower heights, colder air, often stormy) and ridges (higher heights, warmer air, often fair). The 850 hPa chart (~1500 m) is used for identifying frontal boundaries and moisture transport; the 300 hPa chart (~9000 m) is used for the jet stream and upper-level divergence.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Practical use of standard pressure levels”?",
+            solution: "The accurate idea is: Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Practical use of standard pressure levels.",
+            solution: "Stay close to the text: Constant-pressure charts (e.g., the 500 hPa chart) are the workhorse of synoptic and NWP analysis because they are essentially topography maps of a pressure surface. The 500 hPa height (typically around 5500 m) varies wi… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4168,7 +5235,18 @@ export const topics: Topic[] = [
         title: "Why the geostrophic wind blows along isobars",
         summary: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure,…",
         explanation: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, directed 90° to the right of the wind in the NH). If these two are equal and opposite, the wind must blow parallel to the isobars — perpendicular to the pressure gradient (to balance Coriolis) and at a speed sufficient to produce exactly the right Coriolis force (to balance pressure gradient). Any deviation from this balance produces an acceleration that restores it. The geostrophic wind is therefore the 'natural' wind for straight, evenly-spaced isobars in the free atmosphere.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the geostrophic wind blows along isobars”?",
+            solution: "The accurate idea is: In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, directed 90Â° to the right of the wind in the NH). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis f…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the geostrophic wind blows along isobars.",
+            solution: "Stay close to the text: In the free atmosphere (above the friction layer), two forces balance: the pressure-gradient force (directed from high to low pressure, perpendicular to isobars) and the Coriolis force (proportional to wind speed, direct… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4177,7 +5255,18 @@ export const topics: Topic[] = [
         title: "Reading geostrophic wind from a chart qualitatively",
         summary: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent…",
         explanation: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars — closer spacing means stronger winds; (2) check the latitude — for the same spacing, winds are stronger at lower latitudes (because f is smaller); (3) check the isobar orientation — the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot); (4) check the isobar shape — if curved cyclonically (around a low), actual wind is slightly weaker than geostrophic; if curved anticyclonically (around a high), slightly stronger. A rule of thumb: 1° latitude is ~111 km, so a 4 hPa pressure change over 1° latitude at 30°N corresponds to Vg ≈ 15–20 m/s.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading geostrophic wind from a chart qualitatively”?",
+            solution: "The accurate idea is: Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger winds; (2) check the latitude â for the same spacing, winds are stronger at lower latitudes (because f is smaller); (3) check the isobar orientation â the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot); (4) check the isobar shape â if curved cyclonically (around a low), actual wind is slightly weaker than geostrophic; if curved anticyclonically (around a high), slightly stronger. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading geostrophic wind from a chart qualitatively.",
+            solution: "Stay close to the text: Without any calculation, you can estimate the geostrophic wind from isobar spacing and latitude: (1) look at the spacing between adjacent isobars â closer spacing means stronger winds; (2) check the latitude â for th… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4186,7 +5275,18 @@ export const topics: Topic[] = [
         title: "The thermal wind and the jet stream",
         summary: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal…",
         explanation: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: ∂Vg/∂z ∝ ∇T. Where there is a strong temperature contrast (e.g., across the polar front), the geostrophic wind must increase rapidly with height. This is why the jet stream is found aloft above strong horizontal temperature gradients — the polar-front jet sits at ~250–300 hPa above the polar front where the temperature contrast is largest. The thermal wind is also why upper-level charts (500 hPa, 300 hPa) are so useful for diagnosing mid-latitude weather: the 500 hPa height pattern reflects the column-averaged temperature, and the 500 hPa wind is a good approximation to the mid-tropospheric geostrophic flow.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The thermal wind and the jet stream”?",
+            solution: "The accurate idea is: The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The thermal wind and the jet stream.",
+            solution: "Stay close to the text: The thermal wind relation states that the vertical change in the geostrophic wind (the wind shear) is proportional to the horizontal temperature gradient: âVg/âz â âT. Where there is a strong temperature contrast… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4253,7 +5353,18 @@ export const topics: Topic[] = [
         title: "The Bjerknes feedback loop",
         summary: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28–30°C) and…",
         explanation: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28–30°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22–24°C). The warm western pool fuels deep convection and rising air, while the cool east has sinking air — this east-west overturning is the Walker Circulation. During El Niño, a slight initial weakening of trade winds reduces upwelling in the east, allowing the thermocline to deepen and warm water to slosh eastward along the equator. The warmer eastern SSTs shift convection eastward, which further weakens the west-to-east pressure gradient and thus the trade winds — a positive feedback that amplifies the initial perturbation into a full El Niño event. The mirror process operates for La Niña: strengthened trades → enhanced upwelling → colder east → stronger Walker Circulation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Bjerknes feedback loop”?",
+            solution: "The accurate idea is: In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22â24Â°C). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Bjerknes feedback loop.",
+            solution: "Stay close to the text: In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22â24Â°C).… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4262,7 +5373,18 @@ export const topics: Topic[] = [
         title: "Why ENSO is the strongest interannual climate signal on Earth",
         summary: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the…",
         explanation: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the Walker Circulation shifts eastward during El Niño, the entire tropical convection belt follows, altering the position of the ITCZ, weakening the Indian summer monsoon, and shifting precipitation away from the western Pacific (Indonesia, Australia) toward the central and eastern Pacific (Peru, Ecuador). Because the atmosphere transmits these tropical perturbations poleward via Rossby waves and jet-stream changes, ENSO's influence extends to mid-latitudes through teleconnections — affecting North American winter storms, European summer heat, African rainfall, and the South Asian monsoon.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why ENSO is the strongest interannual climate signal on Earth”?",
+            solution: "The accurate idea is: The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why ENSO is the strongest interannual climate signal on Earth.",
+            solution: "Stay close to the text: The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the Walker Circulation shifts eastward during El NiÃ±o, the entire tropical convecti… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4271,7 +5393,18 @@ export const topics: Topic[] = [
         title: "The Niño-3.4 region and ENSO thresholds",
         summary: "ENSO events are defined operationally using SST anomalies in the Niño-3.4 region (5°N–5°S, 120°–170°W). A 3-month running mean anomaly of…",
         explanation: "ENSO events are defined operationally using SST anomalies in the Niño-3.4 region (5°N–5°S, 120°–170°W). A 3-month running mean anomaly of ≥+0.5°C for at least 5 consecutive overlapping seasons defines El Niño; ≤−0.5°C defines La Niña. The Niño-3.4 region is preferred over Niño-1+2, Niño-3, or Niño-4 because it sits at the heart of the coupled ocean-atmosphere interaction zone where SST anomalies, wind anomalies, and convective anomalies co-vary most strongly. Strength categories: weak (±0.5 to ±0.9°C), moderate (±1.0 to ±1.4°C), strong (±1.5 to ±1.9°C), very strong (≥±2.0°C).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The Niño-3.4 region and ENSO thresholds”?",
+            solution: "The accurate idea is: ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The Niño-3.4 region and ENSO thresholds.",
+            solution: "Stay close to the text: ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W). A 3-month running mean anomaly of â¥+0.5Â°C for at least 5 consecutive overlapping seasons defines El NiÃ±… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4334,7 +5467,18 @@ export const topics: Topic[] = [
         title: "Why western boundary currents are fast and warm",
         summary: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a…",
         explanation: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. To conserve mass, the return flow on the western side is compressed into a narrow, deep, fast-moving current — the western boundary current. Because these currents originate in the warm tropics and flow poleward along the western edges of continents (e.g., Gulf Stream along the US East Coast, Kuroshio along Japan), they carry enormous quantities of tropical heat to mid-latitudes, moderating the climate of adjacent coastlines. The Kuroshio and Gulf Stream together transport roughly 1.5 petawatts (10¹⁵ W) of heat poleward — comparable to the atmosphere's entire meridional heat transport at those latitudes — and are the dominant mechanism by which tropical ocean heat reaches mid-latitudes.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why western boundary currents are fast and warm”?",
+            solution: "The accurate idea is: In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the easter…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why western boundary currents are fast and warm.",
+            solution: "Stay close to the text: In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. To conserve mass, the return flo… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4343,7 +5487,18 @@ export const topics: Topic[] = [
         title: "Eastern boundary currents and coastal upwelling",
         summary: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the…",
         explanation: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Ekman transport deflects surface water to the left of the wind in the Southern Hemisphere and to the right in the Northern Hemisphere — in both cases, away from the coast. This offshore divergence pulls deeper, colder, nutrient-rich water upward (upwelling), fueling the world's most productive fisheries (Peru/Humboldt, Benguela, California, Canary). Eastern boundary currents are therefore cold not because they originate in polar regions, but because coastal upwelling brings deep cold water to the surface. Upwelling zones cover only ~1% of the ocean surface but support roughly 50% of global fish catches.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Eastern boundary currents and coastal upwelling”?",
+            solution: "The accurate idea is: On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Eastern boundary currents and coastal upwelling.",
+            solution: "Stay close to the text: On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Ekman transport deflects surface water to the left of the w… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4352,7 +5507,18 @@ export const topics: Topic[] = [
         title: "How salinity controls density and drives deep sinking",
         summary: "Seawater density depends primarily on temperature and salinity — colder and saltier water is denser. At high latitudes, two processes…",
         explanation: "Seawater density depends primarily on temperature and salinity — colder and saltier water is denser. At high latitudes, two processes increase density dramatically: (1) cooling of surface water by frigid polar air masses, and (2) sea-ice formation, which rejects salt into the surrounding water (brine rejection), increasing salinity. The resulting cold, salty, dense water becomes unstable and sinks, initiating deep-water formation. The Labrador Sea and Nordic Seas (North Atlantic) and the Weddell and Ross Seas (Antarctica) are the primary sites of deep-water formation — their sinking water masses (NADW and AABW) spread southward and eastward into the rest of the global ocean. Without this sinking, the conveyor belt stalls — and without the conveyor belt, the poleward heat transport that warms Western Europe and maintains the tropical-to-polar temperature gradient is fundamentally reduced.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How salinity controls density and drives deep sinking”?",
+            solution: "The accurate idea is: Seawater density depends primarily on temperature and salinity â colder and saltier water is denser. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Seawater density depends primarily on temperature and salinity â colder and saltier water is denser.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How salinity controls density and drives deep sinking.",
+            solution: "Stay close to the text: Seawater density depends primarily on temperature and salinity â colder and saltier water is denser. At high latitudes, two processes increase density dramatically: (1) cooling of surface water by frigid polar air mass… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4361,7 +5527,18 @@ export const topics: Topic[] = [
         title: "The conveyor-belt timescale and why it matters for climate",
         summary: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years — a transit time set by…",
         explanation: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years — a transit time set by the slow, turbulent mixing and advection of the deep ocean. This long residence time means the ocean stores heat, carbon, and freshwater on millennial timescales, buffering the climate system against rapid changes. However, it also means that a disruption to deep-water formation (e.g., from massive freshwater input from Greenland ice-sheet melt) would not be quickly reversible — the climate impacts would unfold over centuries, even if the trigger occurred in a single decade. This is why paleoclimate records of abrupt shutdowns and restarts of the conveyor belt (Heinrich events, Dansgaard–Oeschger events, the Younger Dryas) are central to understanding climate sensitivity and tipping-point behavior.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The conveyor-belt timescale and why it matters for climate”?",
+            solution: "The accurate idea is: A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advection of the deep ocean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advecti…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The conveyor-belt timescale and why it matters for climate.",
+            solution: "Stay close to the text: A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advection of the deep ocean. This long residenc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4370,7 +5547,18 @@ export const topics: Topic[] = [
         title: "Linking surface currents, ENSO, and thermohaline circulation",
         summary: "Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same…",
         explanation: "Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same waters that, when advected through the Indonesian Throughflow into the Indian Ocean, around Africa in the Agulhas Current, and ultimately into the North Atlantic, may eventually sink to form NADW. Changes in surface salinity, temperature, or wind patterns can therefore affect both the strength of the conveyor belt and the frequency of ENSO events. For example, a slowdown of the Atlantic conveyor (as suggested by some climate models under global warming) would reduce the poleward heat transport that currently keeps Western Europe anomalously warm relative to its latitude, while also altering tropical Pacific conditions that modulate ENSO — a coupling between two of Earth's most important climate systems.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Linking surface currents, ENSO, and thermohaline circulation”?",
+            solution: "The accurate idea is: Surface and deep circulation are not independent. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Surface and deep circulation are not independent.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Linking surface currents, ENSO, and thermohaline circulation.",
+            solution: "Stay close to the text: Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same waters that, when advected through the Indonesian Throughflow into the Indian Ocean, … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4425,7 +5613,18 @@ export const topics: Topic[] = [
         title: "How tropical Pacific SST anomalies reach mid-latitudes",
         summary: "When El Niño shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves — large-scale planetary…",
         explanation: "When El Niño shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves — large-scale planetary waves that propagate energy poleward and eastward. These waves alter the position and strength of the subtropical and polar-front jet streams, which in turn redirect storm tracks. The result is a chain of remote impacts: more storms hitting California, fewer hitting the Pacific Northwest, a shifted Atlantic hurricane track, and a weakened Indian monsoon — all traceable back to the original tropical Pacific SST anomaly. The Pacific-North American (PNA) teleconnection pattern is the most prominent mid-latitude response: a chain of alternating high and low pressure centers linking the tropical Pacific to North America.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How tropical Pacific SST anomalies reach mid-latitudes”?",
+            solution: "The accurate idea is: When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and eastward. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How tropical Pacific SST anomalies reach mid-latitudes.",
+            solution: "Stay close to the text: When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and eastward. These waves alter the positio… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4434,7 +5633,18 @@ export const topics: Topic[] = [
         title: "ENSO's impact on the South Asian monsoon and Pakistan",
         summary: "During El Niño, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which…",
         explanation: "During El Niño, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer monsoon. Pakistan, which receives over 70% of its annual rainfall from the summer monsoon, tends to experience below-normal rainfall and drought risk during El Niño years. La Niña years tend to bring above-normal monsoon rainfall and increased flood risk — the 2010 and 2022 super floods both occurred during La Niña or transition-to-La-Niña phases. However, this is a probabilistic, not deterministic, relationship: the 2015 strong El Niño did not produce a severe drought in Pakistan because a strong positive IOD compensated, illustrating the importance of the ENSO–IOD interaction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “ENSO's impact on the South Asian monsoon and Pakistan”?",
+            solution: "The accurate idea is: During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer monsoon. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal c…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying ENSO's impact on the South Asian monsoon and Pakistan.",
+            solution: "Stay close to the text: During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer mo… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4443,7 +5653,18 @@ export const topics: Topic[] = [
         title: "Why teleconnections are probabilistic, not deterministic",
         summary: "ENSO is one of several factors influencing regional climate in any given year — other modes (IOD, NAO, MJO), local sea-surface…",
         explanation: "ENSO is one of several factors influencing regional climate in any given year — other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. An El Niño year does not guarantee a weak monsoon; it increases the probability of a weak monsoon. Some El Niño years produce normal monsoons because other factors compensated. This probabilistic nature is why seasonal forecasts are expressed as probability shifts (e.g., '60% chance of below-normal rainfall') rather than deterministic predictions, and why climate model ensembles — which capture the range of possible outcomes — are essential tools for seasonal forecasting.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why teleconnections are probabilistic, not deterministic”?",
+            solution: "The accurate idea is: ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why teleconnections are probabilistic, not deterministic.",
+            solution: "Stay close to the text: ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. An El NiÃ±o… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4506,7 +5727,18 @@ export const topics: Topic[] = [
         title: "The IOD mechanism: a mini-Walker Circulation in the Indian Ocean",
         summary: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD,…",
         explanation: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD, anomalous easterly winds along the equator push warm surface water westward toward East Africa and induce upwelling in the southeast, cooling the SSTs off Indonesia. The warm west fuels convection and rainfall over East Africa, while the cool east suppresses convection over Indonesia and Australia. The resulting pressure gradient reinforces the easterly anomalies — a Bjerknes-like feedback that sustains the dipole for several months, typically peaking in boreal autumn (September–November). The IOD's seasonality is set by the seasonal reversal of the Asian monsoon winds: the equatorial easterly anomalies that drive +IOD are most easily established after the summer monsoon has weakened.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The IOD mechanism: a mini-Walker Circulation in the Indian Ocean”?",
+            solution: "The accurate idea is: The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The IOD mechanism: a mini-Walker Circulation in the Indian Ocean.",
+            solution: "Stay close to the text: The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD, anomalous easterly winds along the equator push warm surface water westward towa… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4515,7 +5747,18 @@ export const topics: Topic[] = [
         title: "Why the IOD matters for Pakistan's monsoon",
         summary: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture…",
         explanation: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture supply to the monsoon circulation and tends to strengthen rainfall over South Asia, including Pakistan. A negative IOD shifts convection eastward toward Indonesia, reducing moisture availability for the monsoon and weakening rainfall. The IOD's influence is particularly important because it can either amplify or counteract ENSO's monsoon impact: a positive IOD during an El Niño year can partially offset the monsoon-weakening effect of El Niño, as observed in 2015 when El Niño did not produce the expected drought because a strong positive IOD compensated.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why the IOD matters for Pakistan's monsoon”?",
+            solution: "The accurate idea is: A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why the IOD matters for Pakistan's monsoon.",
+            solution: "Stay close to the text: A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture supply to the monsoon circulation and tends to strengthen rainfall over South Asia, in… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4524,7 +5767,18 @@ export const topics: Topic[] = [
         title: "The interaction between IOD and ENSO",
         summary: "IOD and ENSO are partially correlated — El Niño events tend to favor positive IOD development through atmospheric bridge mechanisms (the…",
         explanation: "IOD and ENSO are partially correlated — El Niño events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El Niño in the Pacific can trigger easterly wind anomalies in the Indian Ocean), but the correlation is imperfect. When both modes are in phases that weaken the monsoon (El Niño + negative IOD), the drought risk is substantially elevated. When they oppose (El Niño + positive IOD), the monsoon outcome is less predictable and depends on the relative strength of each mode. This interaction is why seasonal monsoon forecasting remains challenging despite understanding both modes individually.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The interaction between IOD and ENSO”?",
+            solution: "The accurate idea is: IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El NiÃ±o in the Pacific can trigger easterly wind anomalies in the Indian Ocean), but the correlation is imperfect. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that pro…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The interaction between IOD and ENSO.",
+            solution: "Stay close to the text: IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El NiÃ±o in the Pacific can trigger… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4578,7 +5832,18 @@ export const topics: Topic[] = [
         title: "The NAO pressure seesaw and its winter impacts",
         summary: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates…",
         explanation: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. These strong westerlies carry mild, moist maritime air deep into northern Europe, producing warmer-than-average winters. The same strong flow suppresses meridional (north-south) exchange, keeping cold Arctic air bottled up near the pole. In the negative phase, both pressure centers weaken, the westerlies slow, and blocking anticyclones form over Greenland or Scandinavia, allowing cold Arctic air to spill southward into Europe and the Mediterranean while storms are deflected southward.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The NAO pressure seesaw and its winter impacts”?",
+            solution: "The accurate idea is: In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The NAO pressure seesaw and its winter impacts.",
+            solution: "Stay close to the text: In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. These strong westerlies carry mild, moist mari… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4587,7 +5852,18 @@ export const topics: Topic[] = [
         title: "How the AO relates to the NAO",
         summary: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar…",
         explanation: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60°N) and the mid-latitudes (37°–45°N). The NAO is essentially the AO's signature over the North Atlantic sector, where the signal is strongest. When the AO is positive, the polar vortex is strong and cold air stays trapped near the pole; when negative, the polar vortex weakens and cold air outbreaks reach mid-latitudes. Because the NAO and AO are so closely related, they are often used interchangeably in operational forecasting, though the AO captures additional Pacific and Siberian sector variability that the NAO does not.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How the AO relates to the NAO”?",
+            solution: "The accurate idea is: The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitudes (37Â°â45Â°N). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitud…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How the AO relates to the NAO.",
+            solution: "Stay close to the text: The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitudes (37Â°â45Â°N). The NAO is essentiall… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4596,7 +5872,18 @@ export const topics: Topic[] = [
         title: "Relevance to South Asian winter weather",
         summary: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward…",
         explanation: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances that reach Pakistan and northern India as winter western disturbances (WDs). A negative NAO can favor a more southerly storm track, potentially bringing more winter precipitation to Pakistan's northern regions via these disturbances, though this teleconnection is weaker and less robust than the ENSO-monsoon link. WDs are the primary winter precipitation source for northern Pakistan and are critical for the Indus basin's snowpack.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Relevance to South Asian winter weather”?",
+            solution: "The accurate idea is: During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances that reach Pakistan and northern India as winter western disturbances (WDs). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path …",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Relevance to South Asian winter weather.",
+            solution: "Stay close to the text: During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances th… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4651,7 +5938,18 @@ export const topics: Topic[] = [
         title: "How the MJO propagates eastward",
         summary: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective…",
         explanation: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective cluster matures, it excites Kelvin waves and Rossby waves that shift the convection eastward through the Maritime Continent (Indonesia) and into the western Pacific. Behind the active convective region, a suppressed phase (reduced convection, dry conditions) follows. The entire envelope moves eastward at about 5 m/s, completing a circuit from the Indian Ocean to the central Pacific in roughly 30–60 days before dissipating over the cooler eastern Pacific. The RMM index captures this propagation in 8 phases: phases 1–2 (Indian Ocean), phases 3–4 (Maritime Continent), phases 5–6 (western Pacific), phases 7–8 (western Hemisphere).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How the MJO propagates eastward”?",
+            solution: "The accurate idea is: The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How the MJO propagates eastward.",
+            solution: "Stay close to the text: The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective cluster matures, it excites Kelvin waves and Rossby waves that shift the convectio… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4660,7 +5958,18 @@ export const topics: Topic[] = [
         title: "MJO and the Indian/Pakistan monsoon connection",
         summary: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2–3), it enhances the large-scale rising motion that feeds…",
         explanation: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2–3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan. When the suppressed phase passes (RMM phases 5–6), it weakens monsoon convection, producing 'monsoon breaks' — multi-day dry spells within the monsoon season. Because the MJO cycle is 30–60 days, a single monsoon season (June–September) typically experiences 2–4 MJO cycles, each producing an active-break sequence. This is why monsoon rainfall is not continuous but comes in pulses, and why sub-seasonal forecasting of monsoon breaks — critical for agriculture and flood management — requires MJO prediction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “MJO and the Indian/Pakistan monsoon connection”?",
+            solution: "The accurate idea is: When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy r…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying MJO and the Indian/Pakistan monsoon connection.",
+            solution: "Stay close to the text: When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4669,7 +5978,18 @@ export const topics: Topic[] = [
         title: "MJO vs. ENSO: timescale and mechanism",
         summary: "ENSO operates on interannual timescales (2–7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that…",
         explanation: "ENSO operates on interannual timescales (2–7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. The MJO operates on sub-seasonal timescales (30–60 days) and is primarily an atmospheric wave phenomenon — it does not require a sustained SST anomaly to exist. However, the MJO is modulated by ENSO: during El Niño, the MJO's convection tends to be shifted eastward, and MJO events initiating over the western Pacific are more common. The two modes interact but operate on fundamentally different timescales, filling different forecasting gaps: ENSO for seasonal (months ahead), MJO for sub-seasonal (weeks ahead).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “MJO vs. ENSO: timescale and mechanism”?",
+            solution: "The accurate idea is: ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying MJO vs. ENSO: timescale and mechanism.",
+            solution: "Stay close to the text: ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. The MJO operates on sub-seasonal timescales (30â60 days) an… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4720,7 +6040,18 @@ export const topics: Topic[] = [
         title: "Why freshening weakens the AMOC",
         summary: "Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude…",
         explanation: "Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude precipitation lowers surface salinity and density, reducing the sinking rate and thereby weakening the entire overturning loop.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why freshening weakens the AMOC”?",
+            solution: "The accurate idea is: Sinking in the North Atlantic requires cold, salty, dense water. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Sinking in the North Atlantic requires cold, salty, dense water.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why freshening weakens the AMOC.",
+            solution: "Stay close to the text: Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude precipitation lowers surface salinity and density, reducing the sinking rate and thereby w… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4729,7 +6060,18 @@ export const topics: Topic[] = [
         title: "Observational fingerprints",
         summary: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat…",
         explanation: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Direct measurements by the RAPID-MOCHA array at 26.5°N since 2004 also show a declining trend.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Observational fingerprints”?",
+            solution: "The accurate idea is: A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Observational fingerprints.",
+            solution: "Stay close to the text: A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Direct measurements by the RAPID-MOCHA array at 26.5… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },

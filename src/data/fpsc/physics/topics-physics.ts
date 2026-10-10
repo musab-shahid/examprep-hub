@@ -108,7 +108,13 @@ export const topics: Topic[] = [
         title: "Scalar vs vector quantities",
         summary: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has…",
         explanation: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has travelled 400 m distance but has zero displacement, because the finish coincides with the start. Two cars may have the same speed but opposite velocities if they move in opposite directions.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -117,7 +123,13 @@ export const topics: Topic[] = [
         title: "Reading motion graphs",
         summary: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph,…",
         explanation: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph, a horizontal line means constant velocity (zero acceleration), an upward slope means speeding up in the positive direction, and the signed area between the line and the time axis gives displacement.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -126,7 +138,13 @@ export const topics: Topic[] = [
         title: "Sign conventions for acceleration",
         summary: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A…",
         explanation: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A ball thrown upward has negative acceleration (g downward) throughout its flight, even at the instant it is momentarily at rest at the top.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Sign conventions for acceleration” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Sign conventions for acceleration",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -135,7 +153,13 @@ export const topics: Topic[] = [
         title: "How FPSC tests this",
         summary: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v.…",
         explanation: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v. Always check whether the question gives total path length or net change in position, and whether the object reverses direction.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -220,7 +244,13 @@ export const topics: Topic[] = [
         title: "Inertia and the First Law",
         summary: "Inertia is the resistance of an object to changes in its state of motion. A book on a table stays at rest because the net force on it is…",
         explanation: "Inertia is the resistance of an object to changes in its state of motion. A book on a table stays at rest because the net force on it is zero, not because no forces act. A passenger lurches forward when a braking bus slows because the passenger's body tends to keep moving.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 5 kg box accelerates at 3 m/s² on a frictionless surface. What net force acts on it?",
+            solution: "Newton’s second law: F = ma = 5 kg × 3 m/s² = 15 N in the direction of acceleration.",
+            answer: "15 N",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -229,7 +259,13 @@ export const topics: Topic[] = [
         title: "F = ma as the working equation",
         summary: "The Second Law is the quantitative heart of mechanics. For a fixed mass, doubling the net force doubles the acceleration. For a fixed…",
         explanation: "The Second Law is the quantitative heart of mechanics. For a fixed mass, doubling the net force doubles the acceleration. For a fixed force, doubling the mass halves the acceleration. Always use net force — the vector sum of all forces acting on the object — not just one applied force.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 5 kg box accelerates at 3 m/s² on a frictionless surface. What net force acts on it?",
+            solution: "Newton’s second law: F = ma = 5 kg × 3 m/s² = 15 N in the direction of acceleration.",
+            answer: "15 N",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -238,7 +274,13 @@ export const topics: Topic[] = [
         title: "Why action-reaction does not cancel",
         summary: "Action and reaction forces act on different objects. A book on a table pushes down on the table; the table pushes up on the book. These two…",
         explanation: "Action and reaction forces act on different objects. A book on a table pushes down on the table; the table pushes up on the book. These two forces are equal and opposite but cannot cancel because they act on different bodies. The book remains still because the upward normal force from the table balances the book's weight, both acting on the book.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Why action-reaction does not cancel” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Action and reaction forces act on different objects. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Why action-reaction does not cancel",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -247,7 +289,13 @@ export const topics: Topic[] = [
         title: "Mass vs weight",
         summary: "Mass is an intrinsic property measured in kilograms; weight is a force measured in newtons. A 60 kg person has the same mass on Earth and…",
         explanation: "Mass is an intrinsic property measured in kilograms; weight is a force measured in newtons. A 60 kg person has the same mass on Earth and the Moon, but weighs about 588 N on Earth and only 96 N on the Moon because the Moon's gravitational field is weaker.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Mass vs weight” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Mass is an intrinsic property measured in kilograms; weight is a force measured in newtons. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Mass vs weight",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -333,7 +381,13 @@ export const topics: Topic[] = [
         title: "Weight as a gravitational force",
         summary: "Weight is not a fixed property of an object. A 10 kg object weighs 98 N on Earth but about 16 N on the Moon and about 370 N on Jupiter's…",
         explanation: "Weight is not a fixed property of an object. A 10 kg object weighs 98 N on Earth but about 16 N on the Moon and about 370 N on Jupiter's surface. Its mass remains 10 kg everywhere. In free fall, an object is weightless because there is no supporting force, but its mass and the gravitational pull on it are unchanged.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Weight as a gravitational force” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Weight is not a fixed property of an object. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Weight as a gravitational force",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -342,7 +396,13 @@ export const topics: Topic[] = [
         title: "Static and kinetic friction",
         summary: "If you push a heavy box gently, static friction matches your push and the box does not move. As you push harder, static friction increases…",
         explanation: "If you push a heavy box gently, static friction matches your push and the box does not move. As you push harder, static friction increases only up to a limit. Once motion starts, kinetic friction takes over and is usually slightly smaller, so the box may suddenly feel easier to push.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -351,7 +411,13 @@ export const topics: Topic[] = [
         title: "What friction depends on",
         summary: "For dry solid surfaces, friction depends mainly on the materials in contact and the normal force pressing them together. Polishing,…",
         explanation: "For dry solid surfaces, friction depends mainly on the materials in contact and the normal force pressing them together. Polishing, lubrication or rolling reduce friction. Contrary to intuition, widening the contact area does not normally increase friction because the pressure decreases proportionally.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -360,7 +426,13 @@ export const topics: Topic[] = [
         title: "Friction in FPSC problems",
         summary: "Many problems ask for the net force when friction opposes motion. Subtract the friction force from the applied force before using F = ma.…",
         explanation: "Many problems ask for the net force when friction opposes motion. Subtract the friction force from the applied force before using F = ma. On an incline, resolve the weight into components parallel and perpendicular to the surface; the normal force equals the perpendicular component.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 5 kg box accelerates at 3 m/s² on a frictionless surface. What net force acts on it?",
+            solution: "Newton’s second law: F = ma = 5 kg × 3 m/s² = 15 N in the direction of acceleration.",
+            answer: "15 N",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -452,7 +524,13 @@ export const topics: Topic[] = [
         title: "Momentum as a measure of motion",
         summary: "A heavy truck moving slowly and a light bullet moving fast can have similar momenta. Because momentum is a vector, two objects moving in…",
         explanation: "A heavy truck moving slowly and a light bullet moving fast can have similar momenta. Because momentum is a vector, two objects moving in opposite directions have opposite momenta. A system with equal and opposite momenta has zero total momentum.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Momentum as a measure of motion” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A heavy truck moving slowly and a light bullet moving fast can have similar momenta. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Momentum as a measure of motion",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -461,7 +539,13 @@ export const topics: Topic[] = [
         title: "Impulse and change in momentum",
         summary: "The same change in momentum can be produced by a large force acting briefly or a small force acting for a long time. Airbags, crumple zones…",
         explanation: "The same change in momentum can be produced by a large force acting briefly or a small force acting for a long time. Airbags, crumple zones and cushioned floors increase stopping time, reducing peak force while producing the same impulse (change in momentum).",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Impulse and change in momentum” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The same change in momentum can be produced by a large force acting briefly or a small force acting for a long time. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Impulse and change in momentum",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -470,7 +554,13 @@ export const topics: Topic[] = [
         title: "Conservation of momentum",
         summary: "Momentum is conserved because Newton's Third Law makes internal forces in a system cancel in pairs. For collisions, set total momentum…",
         explanation: "Momentum is conserved because Newton's Third Law makes internal forces in a system cancel in pairs. For collisions, set total momentum before impact equal to total momentum after impact. Include direction with signs. This works for explosions too, where the total initial momentum is zero and the fragments move in opposite directions.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Conservation of momentum” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Momentum is conserved because Newton's Third Law makes internal forces in a system cancel in pairs. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Conservation of momentum",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -479,7 +569,13 @@ export const topics: Topic[] = [
         title: "Elastic vs inelastic collisions",
         summary: "Most everyday collisions are inelastic because some kinetic energy becomes sound, heat or deformation. Momentum is conserved in both types.…",
         explanation: "Most everyday collisions are inelastic because some kinetic energy becomes sound, heat or deformation. Momentum is conserved in both types. Do not assume kinetic energy is conserved unless the question states an elastic collision.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -582,7 +678,13 @@ export const topics: Topic[] = [
         title: "When is work done?",
         summary: "A force must produce a displacement in its own direction. Pushing a wall until you are tired does no work on the wall if the wall does not…",
         explanation: "A force must produce a displacement in its own direction. Pushing a wall until you are tired does no work on the wall if the wall does not move. Carrying a suitcase horizontally does no work against gravity because the upward force is perpendicular to the horizontal displacement.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -591,7 +693,13 @@ export const topics: Topic[] = [
         title: "Kinetic and potential energy",
         summary: "Kinetic energy is energy of motion and is always positive. Gravitational potential energy depends on vertical height relative to a…",
         explanation: "Kinetic energy is energy of motion and is always positive. Gravitational potential energy depends on vertical height relative to a reference point. A book on a shelf has PE relative to the floor; if the floor reference changes, the PE value changes, but changes in PE are physically meaningful.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -600,7 +708,13 @@ export const topics: Topic[] = [
         title: "Conservation of mechanical energy",
         summary: "For a falling object or a swinging pendulum with negligible air resistance, KE + PE stays constant. At the highest point PE is maximum and…",
         explanation: "For a falling object or a swinging pendulum with negligible air resistance, KE + PE stays constant. At the highest point PE is maximum and KE is minimum; at the lowest point the reverse is true. Friction or air resistance means mechanical energy is not conserved; the lost energy appears as internal energy (heat) in the object and surroundings.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -609,7 +723,13 @@ export const topics: Topic[] = [
         title: "How FPSC tests energy",
         summary: "Common traps include asking for work done by a single force when friction is present, or assuming energy is conserved on rough surfaces.…",
         explanation: "Common traps include asking for work done by a single force when friction is present, or assuming energy is conserved on rough surfaces. Always identify whether non-conservative forces such as friction do work.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -706,7 +826,13 @@ export const topics: Topic[] = [
         title: "Power as a rate",
         summary: "Two cranes may lift the same load to the same height, doing the same work, but the more powerful crane finishes faster. Power tells you how…",
         explanation: "Two cranes may lift the same load to the same height, doing the same work, but the more powerful crane finishes faster. Power tells you how quickly energy is transferred, not how much energy is transferred.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Power as a rate” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Two cranes may lift the same load to the same height, doing the same work, but the more powerful crane finishes faster. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Power as a rate",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -715,7 +841,13 @@ export const topics: Topic[] = [
         title: "Useful vs wasted energy",
         summary: "In a car engine, only part of the chemical energy in fuel becomes kinetic energy of the car; the rest heats the engine, exhaust and…",
         explanation: "In a car engine, only part of the chemical energy in fuel becomes kinetic energy of the car; the rest heats the engine, exhaust and surroundings. Efficiency is always less than 100% because of these unavoidable losses.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -724,7 +856,13 @@ export const topics: Topic[] = [
         title: "The P = F v form",
         summary: "When a vehicle climbs a hill at steady speed, the engine force balances gravity and resistance. A more powerful engine can maintain a…",
         explanation: "When a vehicle climbs a hill at steady speed, the engine force balances gravity and resistance. A more powerful engine can maintain a higher speed for the same force. This form is useful when time is not directly given.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “The P = F v form” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When a vehicle climbs a hill at steady speed, the engine force balances gravity and resistance. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "The P = F v form",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -733,7 +871,13 @@ export const topics: Topic[] = [
         title: "Efficiency calculations",
         summary: "Efficiency compares useful output with total input. If a motor consumes 1 000 J of electrical energy and delivers 750 J of mechanical work,…",
         explanation: "Efficiency compares useful output with total input. If a motor consumes 1 000 J of electrical energy and delivers 750 J of mechanical work, its efficiency is 75%. The wasted 250 J is not destroyed; it becomes heat and sound.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Efficiency calculations” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Efficiency compares useful output with total input. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Efficiency calculations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -793,7 +937,13 @@ export const topics: Topic[] = [
         title: "Why solids keep their shape",
         summary: "In a solid, strong intermolecular forces hold particles in a regular lattice. The particles vibrate but do not move freely, so the solid…",
         explanation: "In a solid, strong intermolecular forces hold particles in a regular lattice. The particles vibrate but do not move freely, so the solid retains a fixed shape and volume. Heating increases vibration until the solid melts.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Why solids keep their shape” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In a solid, strong intermolecular forces hold particles in a regular lattice. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Why solids keep their shape",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -802,7 +952,13 @@ export const topics: Topic[] = [
         title: "Liquids and gases compared",
         summary: "A liquid can flow and take the shape of its container because its particles have enough energy to move past one another, but intermolecular…",
         explanation: "A liquid can flow and take the shape of its container because its particles have enough energy to move past one another, but intermolecular attractions still keep them close. In a gas, particles are far apart and move rapidly in random motion; the gas expands to fill space.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Liquids and gases compared” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A liquid can flow and take the shape of its container because its particles have enough energy to move past one another, but intermolecular attractions still keep them close. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Liquids and gases compared",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -811,7 +967,13 @@ export const topics: Topic[] = [
         title: "Change of state and latent heat",
         summary: "When ice melts, the temperature stays at 0 °C until all the ice has turned to water. The supplied thermal energy weakens bonds rather than…",
         explanation: "When ice melts, the temperature stays at 0 °C until all the ice has turned to water. The supplied thermal energy weakens bonds rather than raising kinetic energy. This is why melting and boiling require latent heat.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -820,7 +982,13 @@ export const topics: Topic[] = [
         title: "FPSC angle",
         summary: "Questions often contrast the spacing and motion of particles in solids, liquids and gases, or ask which state has the highest internal…",
         explanation: "Questions often contrast the spacing and motion of particles in solids, liquids and gases, or ask which state has the highest internal energy at the same temperature. Remember that internal energy includes both kinetic and potential energy of particles.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -887,7 +1055,13 @@ export const topics: Topic[] = [
         title: "Density as a material property",
         summary: "A small iron nail and a large iron anvil have the same density. Density depends on how tightly mass is packed, not on how much material…",
         explanation: "A small iron nail and a large iron anvil have the same density. Density depends on how tightly mass is packed, not on how much material there is. To find density, measure mass and volume, then divide.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Density as a material property” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A small iron nail and a large iron anvil have the same density. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Density as a material property",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -896,7 +1070,13 @@ export const topics: Topic[] = [
         title: "Floating and sinking",
         summary: "A solid iron block sinks in water because iron is denser than water. A ship made of steel floats because its overall volume contains a lot…",
         explanation: "A solid iron block sinks in water because iron is denser than water. A ship made of steel floats because its overall volume contains a lot of air, so its average density is less than water. Ice floats because it is less dense than liquid water.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Floating and sinking” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A solid iron block sinks in water because iron is denser than water. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Floating and sinking",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -905,7 +1085,13 @@ export const topics: Topic[] = [
         title: "Thermal expansion and density",
         summary: "Heating usually makes a substance expand. Since mass is unchanged, the same mass occupies more volume, so density falls. This is why hot…",
         explanation: "Heating usually makes a substance expand. Since mass is unchanged, the same mass occupies more volume, so density falls. This is why hot air rises and why warm surface water can sit above cooler water.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Thermal expansion and density” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Heating usually makes a substance expand. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Thermal expansion and density",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -914,7 +1100,13 @@ export const topics: Topic[] = [
         title: "Exam technique",
         summary: "When a question mixes units (e.g. g and cm³), convert to kg and m³ before using SI formulas, or convert the answer correctly. Remember the…",
         explanation: "When a question mixes units (e.g. g and cm³), convert to kg and m³ before using SI formulas, or convert the answer correctly. Remember the factor 1 g/cm³ = 1 000 kg/m³.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Exam technique” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When a question mixes units (e.g. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Exam technique",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1002,7 +1194,13 @@ export const topics: Topic[] = [
         title: "Why pressure increases with depth",
         summary: "The deeper you go in a fluid, the greater the weight of fluid above you. This extra weight produces extra pressure. The pressure depends on…",
         explanation: "The deeper you go in a fluid, the greater the weight of fluid above you. This extra weight produces extra pressure. The pressure depends on the vertical depth, not on the total amount of fluid or the container's shape.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1011,7 +1209,13 @@ export const topics: Topic[] = [
         title: "Pascal's principle",
         summary: "Pressure applied to an enclosed fluid is transmitted undiminished to every portion of the fluid and to the walls of the container. This…",
         explanation: "Pressure applied to an enclosed fluid is transmitted undiminished to every portion of the fluid and to the walls of the container. This principle underlies hydraulic brakes, car jacks and hydraulic presses.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1020,7 +1224,13 @@ export const topics: Topic[] = [
         title: "Gauge vs absolute pressure",
         summary: "A pressure gauge often reads zero at atmospheric pressure, so it shows gauge pressure. A flat tyre still has atmospheric air inside; its…",
         explanation: "A pressure gauge often reads zero at atmospheric pressure, so it shows gauge pressure. A flat tyre still has atmospheric air inside; its gauge pressure is zero but absolute pressure is about 101 kPa. Divers and engineers must be careful which one a problem asks for.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1029,7 +1239,13 @@ export const topics: Topic[] = [
         title: "Pressure and area",
         summary: "A sharp knife cuts more easily than a blunt one because the same force is concentrated on a smaller area, giving a larger pressure.…",
         explanation: "A sharp knife cuts more easily than a blunt one because the same force is concentrated on a smaller area, giving a larger pressure. Conversely, snowshoes and camel feet spread weight over a large area to reduce pressure on soft ground.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1097,7 +1313,13 @@ export const topics: Topic[] = [
         title: "Why the atmosphere exerts pressure",
         summary: "Air has mass. Gravity pulls air molecules downward, so the air above any surface pushes on it. At sea level the weight of the entire air…",
         explanation: "Air has mass. Gravity pulls air molecules downward, so the air above any surface pushes on it. At sea level the weight of the entire air column produces about 101 kPa, equivalent to about 10 N pressing on every square centimetre.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1106,7 +1328,13 @@ export const topics: Topic[] = [
         title: "Altitude dependence",
         summary: "As altitude increases, there is less air above, so atmospheric pressure falls. The rate of decrease is not uniform because air is…",
         explanation: "As altitude increases, there is less air above, so atmospheric pressure falls. The rate of decrease is not uniform because air is compressible and density also decreases with height. This is why mountaintops have lower boiling points for water.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1115,7 +1343,13 @@ export const topics: Topic[] = [
         title: "Barometers",
         summary: "A mercury barometer balances atmospheric pressure against the pressure due to a column of mercury. At sea level the mercury column is about…",
         explanation: "A mercury barometer balances atmospheric pressure against the pressure due to a column of mercury. At sea level the mercury column is about 760 mm high. Aneroid barometers are more portable and are used in aircraft altimeters and weather stations.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1124,7 +1358,13 @@ export const topics: Topic[] = [
         title: "Physics vs meteorology",
         summary: "Physics explains the origin of atmospheric pressure and the hydrostatic equation; meteorology applies these to weather systems, pressure…",
         explanation: "Physics explains the origin of atmospheric pressure and the hydrostatic equation; meteorology applies these to weather systems, pressure gradients and wind. The boundary is clean: learn the general law here, the atmospheric application in Meteorology.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1204,7 +1444,13 @@ export const topics: Topic[] = [
         title: "Why buoyancy occurs",
         summary: "Pressure in a fluid increases with depth. The upward pressure on the bottom of a submerged object is greater than the downward pressure on…",
         explanation: "Pressure in a fluid increases with depth. The upward pressure on the bottom of a submerged object is greater than the downward pressure on its top, producing a net upward force. This force equals the weight of the fluid that would occupy the object's volume.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1213,7 +1459,13 @@ export const topics: Topic[] = [
         title: "Floating condition",
         summary: "An object floats when the buoyant force equals its weight. A floating ship displaces enough water so that the weight of that water equals…",
         explanation: "An object floats when the buoyant force equals its weight. A floating ship displaces enough water so that the weight of that water equals the ship's weight. If the ship is loaded, it sinks deeper and displaces more water.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Floating condition” requires you to distinguish or calculate.",
+            solution: "Use the core idea: An object floats when the buoyant force equals its weight. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Floating condition",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1222,7 +1474,13 @@ export const topics: Topic[] = [
         title: "Apparent weight",
         summary: "When an object is immersed, its apparent weight is its true weight minus the buoyant force. This is why objects feel lighter in water. A…",
         explanation: "When an object is immersed, its apparent weight is its true weight minus the buoyant force. This is why objects feel lighter in water. A spring balance reads less when a mass is submerged.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Apparent weight” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When an object is immersed, its apparent weight is its true weight minus the buoyant force. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Apparent weight",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1231,7 +1489,13 @@ export const topics: Topic[] = [
         title: "Application to gases",
         summary: "A helium balloon rises because the buoyant force due to the displaced air is greater than the weight of the balloon and helium. Hot-air…",
         explanation: "A helium balloon rises because the buoyant force due to the displaced air is greater than the weight of the balloon and helium. Hot-air balloons rise because heated air inside is less dense than the cooler air outside.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Application to gases” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A helium balloon rises because the buoyant force due to the displaced air is greater than the weight of the balloon and helium. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Application to gases",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1310,7 +1574,13 @@ export const topics: Topic[] = [
         title: "Continuity: narrowing speeds up flow",
         summary: "For an incompressible fluid, the volume flow rate is constant. If a pipe narrows, the same volume must pass through a smaller area each…",
         explanation: "For an incompressible fluid, the volume flow rate is constant. If a pipe narrows, the same volume must pass through a smaller area each second, so the fluid must speed up. This is why water shoots faster from a narrow nozzle.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Continuity: narrowing speeds up flow” requires you to distinguish or calculate.",
+            solution: "Use the core idea: For an incompressible fluid, the volume flow rate is constant. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Continuity: narrowing speeds up flow",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1319,7 +1589,13 @@ export const topics: Topic[] = [
         title: "Bernoulli's principle qualitatively",
         summary: "Faster-moving fluid has lower pressure sideways because some of the pressure energy has been converted to kinetic energy. This explains why…",
         explanation: "Faster-moving fluid has lower pressure sideways because some of the pressure energy has been converted to kinetic energy. This explains why a sheet of paper lifts when you blow over it, why shower curtains move inward and why aircraft wings generate lift.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1328,7 +1604,13 @@ export const topics: Topic[] = [
         title: "Limitations",
         summary: "Bernoulli's principle ignores viscosity, turbulence and compressibility. It is a good approximation for water and for air at low speeds,…",
         explanation: "Bernoulli's principle ignores viscosity, turbulence and compressibility. It is a good approximation for water and for air at low speeds, but not for supersonic flight or very viscous fluids like honey.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Limitations” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Bernoulli's principle ignores viscosity, turbulence and compressibility. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Limitations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1337,7 +1619,13 @@ export const topics: Topic[] = [
         title: "FPSC-style applications",
         summary: "Expect qualitative questions: a ping-pong ball stays in an upward air jet because low pressure on the sides traps it; a fast-moving train…",
         explanation: "Expect qualitative questions: a ping-pong ball stays in an upward air jet because low pressure on the sides traps it; a fast-moving train creates low pressure that can pull objects toward the track. Numerical Bernoulli problems at FPSC level are usually simple.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1430,7 +1718,13 @@ export const topics: Topic[] = [
         title: "Heat vs temperature",
         summary: "A cup of coffee at 80 °C has a higher temperature than a swimming pool at 25 °C, but the pool contains far more internal energy because it…",
         explanation: "A cup of coffee at 80 °C has a higher temperature than a swimming pool at 25 °C, but the pool contains far more internal energy because it has much more mass. Temperature measures the average kinetic energy per particle; heat is the energy transferred due to a temperature difference.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1439,7 +1733,13 @@ export const topics: Topic[] = [
         title: "Specific heat capacity",
         summary: "Substances with high specific heat capacity need a lot of heat for a small temperature rise. Water's high value moderates coastal climates:…",
         explanation: "Substances with high specific heat capacity need a lot of heat for a small temperature rise. Water's high value moderates coastal climates: the sea warms slowly by day and cools slowly by night. Metals heat and cool quickly because their specific heat capacities are low.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Specific heat capacity” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Substances with high specific heat capacity need a lot of heat for a small temperature rise. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Specific heat capacity",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1448,7 +1748,13 @@ export const topics: Topic[] = [
         title: "Thermal equilibrium",
         summary: "When two bodies are in contact, heat flows from the hotter to the colder until their temperatures become equal. At equilibrium, there is no…",
         explanation: "When two bodies are in contact, heat flows from the hotter to the colder until their temperatures become equal. At equilibrium, there is no net heat flow, although particles still exchange energy randomly.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Thermal equilibrium” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When two bodies are in contact, heat flows from the hotter to the colder until their temperatures become equal. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Thermal equilibrium",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1457,7 +1763,13 @@ export const topics: Topic[] = [
         title: "Method of mixtures",
         summary: "In a calorimetry problem, heat lost by the hot body equals heat gained by the cold body and container, assuming no heat escapes. Write…",
         explanation: "In a calorimetry problem, heat lost by the hot body equals heat gained by the cold body and container, assuming no heat escapes. Write Q_lost = Q_gained, substitute Q = mcΔT for each part, and solve for the unknown temperature.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Method of mixtures” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In a calorimetry problem, heat lost by the hot body equals heat gained by the cold body and container, assuming no heat escapes. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Method of mixtures",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1528,7 +1840,13 @@ export const topics: Topic[] = [
         title: "Why expansion occurs",
         summary: "When heated, particles vibrate with greater amplitude. On average, they take up slightly more space, making the material expand. In solids…",
         explanation: "When heated, particles vibrate with greater amplitude. On average, they take up slightly more space, making the material expand. In solids the expansion is small but significant over large structures.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Why expansion occurs” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When heated, particles vibrate with greater amplitude. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Why expansion occurs",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1537,7 +1855,13 @@ export const topics: Topic[] = [
         title: "Linear, area and volume expansion",
         summary: "For a rod, length increases proportionally to temperature change. For a sheet, area increases approximately as ΔA = 2α A₀ ΔT. For a solid…",
         explanation: "For a rod, length increases proportionally to temperature change. For a sheet, area increases approximately as ΔA = 2α A₀ ΔT. For a solid block, volume increases as ΔV = 3α V₀ ΔT. Liquids expand in volume only.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Linear, area and volume expansion” requires you to distinguish or calculate.",
+            solution: "Use the core idea: For a rod, length increases proportionally to temperature change. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Linear, area and volume expansion",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1546,7 +1870,13 @@ export const topics: Topic[] = [
         title: "Anomalous expansion of water",
         summary: "Water contracts as it cools from room temperature to 4 °C, reaching maximum density at 4 °C. Below 4 °C it expands as it approaches…",
         explanation: "Water contracts as it cools from room temperature to 4 °C, reaching maximum density at 4 °C. Below 4 °C it expands as it approaches freezing. This is why ice floats and why deep lakes stay near 4 °C in winter.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Anomalous expansion of water” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Water contracts as it cools from room temperature to 4 Â°C, reaching maximum density at 4 Â°C. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Anomalous expansion of water",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1555,7 +1885,13 @@ export const topics: Topic[] = [
         title: "Practical applications",
         summary: "Bimetallic strips bend when heated because the two metals expand by different amounts, making them useful in thermostats. Expansion gaps in…",
         explanation: "Bimetallic strips bend when heated because the two metals expand by different amounts, making them useful in thermostats. Expansion gaps in railway tracks and bridges prevent buckling in hot weather.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Practical applications” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Bimetallic strips bend when heated because the two metals expand by different amounts, making them useful in thermostats. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Practical applications",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1614,7 +1950,13 @@ export const topics: Topic[] = [
         title: "Conduction",
         summary: "In solids, vibrating particles pass kinetic energy to neighbours. Metals conduct well because free electrons carry energy rapidly. Wood,…",
         explanation: "In solids, vibrating particles pass kinetic energy to neighbours. Metals conduct well because free electrons carry energy rapidly. Wood, plastic and air are poor conductors. A metal spoon in hot soup heats up quickly at the handle; a wooden spoon does not.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1623,7 +1965,13 @@ export const topics: Topic[] = [
         title: "Convection",
         summary: "When a fluid is heated, it usually expands, becomes less dense and rises. Cooler, denser fluid sinks to take its place, creating a…",
         explanation: "When a fluid is heated, it usually expands, becomes less dense and rises. Cooler, denser fluid sinks to take its place, creating a convection current. This is how room heaters warm air, how sea breezes form and how magma moves in the mantle.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Convection” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When a fluid is heated, it usually expands, becomes less dense and rises. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Convection",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1632,7 +1980,13 @@ export const topics: Topic[] = [
         title: "Radiation",
         summary: "All objects emit infrared radiation because of their temperature. The hotter the object, the more radiation it emits and the shorter the…",
         explanation: "All objects emit infrared radiation because of their temperature. The hotter the object, the more radiation it emits and the shorter the average wavelength. Radiation does not need a medium, so the Sun warms Earth across empty space.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1641,7 +1995,13 @@ export const topics: Topic[] = [
         title: "Reaching thermal equilibrium",
         summary: "When a hot object is placed in contact with a cold one, heat flows until both reach the same temperature. At equilibrium, individual…",
         explanation: "When a hot object is placed in contact with a cold one, heat flows until both reach the same temperature. At equilibrium, individual particles still exchange energy, but the average energy per particle is the same, so there is no net flow.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Reaching thermal equilibrium” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When a hot object is placed in contact with a cold one, heat flows until both reach the same temperature. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Reaching thermal equilibrium",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1729,7 +2089,13 @@ export const topics: Topic[] = [
         title: "Internal energy",
         summary: "Internal energy includes the kinetic energy of particles (related to temperature) and the potential energy stored in intermolecular bonds.…",
         explanation: "Internal energy includes the kinetic energy of particles (related to temperature) and the potential energy stored in intermolecular bonds. Heating a solid raises its temperature by increasing kinetic energy; melting it increases potential energy by breaking bonds while temperature stays fixed.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1738,7 +2104,13 @@ export const topics: Topic[] = [
         title: "First Law of Thermodynamics",
         summary: "The first law is conservation of energy for thermal systems. If you heat a gas (Q positive) and it expands, doing work on its surroundings…",
         explanation: "The first law is conservation of energy for thermal systems. If you heat a gas (Q positive) and it expands, doing work on its surroundings (W positive), the change in internal energy is Q − W. If the gas is compressed (work done on it), W is negative and internal energy rises more.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “First Law of Thermodynamics” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The first law is conservation of energy for thermal systems. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "First Law of Thermodynamics",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1747,7 +2119,13 @@ export const topics: Topic[] = [
         title: "Second Law and direction of heat flow",
         summary: "Heat naturally flows from hot to cold. A refrigerator can move heat from cold to hot, but only by doing work. The second law also means no…",
         explanation: "Heat naturally flows from hot to cold. A refrigerator can move heat from cold to hot, but only by doing work. The second law also means no heat engine can be 100% efficient because some heat must be rejected to a cold reservoir.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 5 kg box accelerates at 3 m/s² on a frictionless surface. What net force acts on it?",
+            solution: "Newton’s second law: F = ma = 5 kg × 3 m/s² = 15 N in the direction of acceleration.",
+            answer: "15 N",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1756,7 +2134,13 @@ export const topics: Topic[] = [
         title: "Latent heat",
         summary: "Boiling water at 100 °C stays at 100 °C while energy goes into separating molecules against intermolecular forces. The large latent heat of…",
         explanation: "Boiling water at 100 °C stays at 100 °C while energy goes into separating molecules against intermolecular forces. The large latent heat of vaporisation of water makes it an effective coolant: sweating removes a lot of heat when sweat evaporates.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Latent heat” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Boiling water at 100 Â°C stays at 100 Â°C while energy goes into separating molecules against intermolecular forces. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Latent heat",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1815,7 +2199,13 @@ export const topics: Topic[] = [
         title: "Conduction in metals vs insulators",
         summary: "Metals have free electrons that move quickly and carry kinetic energy from hot to cold regions. In insulators, only vibrating atoms pass…",
         explanation: "Metals have free electrons that move quickly and carry kinetic energy from hot to cold regions. In insulators, only vibrating atoms pass energy along, which is slower. This is why a metal door handle feels colder than a wooden door at the same air temperature.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1824,7 +2214,13 @@ export const topics: Topic[] = [
         title: "Convection cells",
         summary: "In a heated room, warm air near a radiator rises, spreads across the ceiling, cools, sinks and returns to be reheated, forming a convection…",
         explanation: "In a heated room, warm air near a radiator rises, spreads across the ceiling, cools, sinks and returns to be reheated, forming a convection cell. Similar cells drive Hadley, Ferrel and Polar circulation in the atmosphere.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Convection cells” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In a heated room, warm air near a radiator rises, spreads across the ceiling, cools, sinks and returns to be reheated, forming a convection cell. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Convection cells",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1833,7 +2229,13 @@ export const topics: Topic[] = [
         title: "Radiation and temperature",
         summary: "Hotter objects radiate more intensely and at shorter wavelengths. A red-hot poker is cooler than a white-hot one. The Sun emits mostly…",
         explanation: "Hotter objects radiate more intensely and at shorter wavelengths. A red-hot poker is cooler than a white-hot one. The Sun emits mostly visible and ultraviolet; Earth emits infrared.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1842,7 +2244,13 @@ export const topics: Topic[] = [
         title: "Earth's energy balance",
         summary: "Earth absorbs solar radiation and emits infrared radiation. Greenhouse gases absorb some outgoing infrared and re-radiate it back downward,…",
         explanation: "Earth absorbs solar radiation and emits infrared radiation. Greenhouse gases absorb some outgoing infrared and re-radiate it back downward, keeping the surface warmer than it would be otherwise. This is the natural greenhouse effect; human activity enhances it.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1922,7 +2330,13 @@ export const topics: Topic[] = [
         title: "Pressure from collisions",
         summary: "Each gas particle collision with a wall exerts a tiny force. With billions of particles colliding every second, the average force is steady…",
         explanation: "Each gas particle collision with a wall exerts a tiny force. With billions of particles colliding every second, the average force is steady and produces measurable pressure. Faster particles or more particles mean more frequent, harder collisions and higher pressure.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1931,7 +2345,13 @@ export const topics: Topic[] = [
         title: "Temperature and kinetic energy",
         summary: "Raising the temperature increases the average kinetic energy of particles. At the same temperature, light hydrogen molecules move faster…",
         explanation: "Raising the temperature increases the average kinetic energy of particles. At the same temperature, light hydrogen molecules move faster than heavy oxygen molecules, but their average kinetic energies are equal. Absolute zero is the temperature at which particle motion is minimum.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1940,7 +2360,13 @@ export const topics: Topic[] = [
         title: "Ideal gas assumptions",
         summary: "An ideal gas consists of point particles that move randomly and collide elastically, with no intermolecular forces except during…",
         explanation: "An ideal gas consists of point particles that move randomly and collide elastically, with no intermolecular forces except during collisions. Real gases approximate ideal behaviour best at low pressure and high temperature.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1949,7 +2375,13 @@ export const topics: Topic[] = [
         title: "Connecting to meteorology",
         summary: "The ideal gas law explains why warm air at constant pressure expands and becomes less dense, leading to rising motion and cloud formation.…",
         explanation: "The ideal gas law explains why warm air at constant pressure expands and becomes less dense, leading to rising motion and cloud formation. It underlies the gas law topic in Meteorology.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2028,7 +2460,13 @@ export const topics: Topic[] = [
         title: "Wave speed depends on the medium",
         summary: "Sound travels faster through steel than air because particles in steel are closer and stiffer. Light slows down when entering glass from…",
         explanation: "Sound travels faster through steel than air because particles in steel are closer and stiffer. Light slows down when entering glass from air. For a given medium, if frequency increases, wavelength decreases so that the product fλ stays constant.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2037,7 +2475,13 @@ export const topics: Topic[] = [
         title: "Amplitude and energy",
         summary: "A loud sound has large amplitude; a bright light has large amplitude. Energy carried by a wave is proportional to amplitude squared.…",
         explanation: "A loud sound has large amplitude; a bright light has large amplitude. Energy carried by a wave is proportional to amplitude squared. Doubling the amplitude quadruples the energy.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2046,7 +2490,13 @@ export const topics: Topic[] = [
         title: "Graphs of waves",
         summary: "A displacement-distance graph shows the shape of the wave at one instant. A displacement-time graph shows how one point oscillates. The…",
         explanation: "A displacement-distance graph shows the shape of the wave at one instant. A displacement-time graph shows how one point oscillates. The wavelength is read from the first graph; the period from the second.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2055,7 +2505,13 @@ export const topics: Topic[] = [
         title: "FPSC traps",
         summary: "Students often confuse frequency with speed or loudness with speed. A high-pitched sound has high frequency and short wavelength, but its…",
         explanation: "Students often confuse frequency with speed or loudness with speed. A high-pitched sound has high frequency and short wavelength, but its speed in air is the same as a low-pitched sound at the same temperature.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2116,7 +2572,13 @@ export const topics: Topic[] = [
         title: "Transverse waves",
         summary: "Imagine shaking a rope up and down. The wave travels horizontally while each piece of rope moves vertically. Light and other…",
         explanation: "Imagine shaking a rope up and down. The wave travels horizontally while each piece of rope moves vertically. Light and other electromagnetic waves are transverse, with electric and magnetic fields oscillating perpendicular to the direction of travel.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2125,7 +2587,13 @@ export const topics: Topic[] = [
         title: "Longitudinal waves",
         summary: "In a sound wave, air particles oscillate back and forth along the direction the sound travels. Regions of compression have higher pressure…",
         explanation: "In a sound wave, air particles oscillate back and forth along the direction the sound travels. Regions of compression have higher pressure and density; rarefactions have lower pressure and density.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2134,7 +2602,13 @@ export const topics: Topic[] = [
         title: "Mechanical vs electromagnetic",
         summary: "Mechanical waves need a medium because they move by disturbing particles. Electromagnetic waves are self-propagating oscillations of…",
         explanation: "Mechanical waves need a medium because they move by disturbing particles. Electromagnetic waves are self-propagating oscillations of electric and magnetic fields and travel through empty space at about 3 × 10⁸ m/s.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Mechanical vs electromagnetic” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Mechanical waves need a medium because they move by disturbing particles. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Mechanical vs electromagnetic",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2143,7 +2617,13 @@ export const topics: Topic[] = [
         title: "Exam clues",
         summary: "If a question asks about compressions and rarefactions, it is longitudinal. If it asks about crests, troughs or polarisation, it is…",
         explanation: "If a question asks about compressions and rarefactions, it is longitudinal. If it asks about crests, troughs or polarisation, it is transverse. Only transverse waves can be polarised.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Exam clues” requires you to distinguish or calculate.",
+            solution: "Use the core idea: If a question asks about compressions and rarefactions, it is longitudinal. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Exam clues",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2210,7 +2690,13 @@ export const topics: Topic[] = [
         title: "How sound travels",
         summary: "A vibrating source pushes neighbouring air molecules together, creating a compression. The compressed region expands into the next region,…",
         explanation: "A vibrating source pushes neighbouring air molecules together, creating a compression. The compressed region expands into the next region, leaving a rarefaction behind. The disturbance travels while individual air molecules oscillate about fixed positions.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “How sound travels” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A vibrating source pushes neighbouring air molecules together, creating a compression. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "How sound travels",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2219,7 +2705,13 @@ export const topics: Topic[] = [
         title: "Pitch, loudness and quality",
         summary: "Pitch corresponds to frequency: a whistle has high pitch, a drum has low pitch. Loudness corresponds to amplitude and is measured on a…",
         explanation: "Pitch corresponds to frequency: a whistle has high pitch, a drum has low pitch. Loudness corresponds to amplitude and is measured on a logarithmic scale (decibels). The same note played on a piano and a flute sounds different because of harmonics, called quality or timbre.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2228,7 +2720,13 @@ export const topics: Topic[] = [
         title: "Speed of sound in different media",
         summary: "Sound travels about 15 times faster through steel than through air and about 4 times faster through water than air. This is because…",
         explanation: "Sound travels about 15 times faster through steel than through air and about 4 times faster through water than air. This is because particles in solids and liquids are closer and more strongly coupled, so vibrations transfer faster.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Speed of sound in different media” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Sound travels about 15 times faster through steel than through air and about 4 times faster through water than air. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Speed of sound in different media",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2237,7 +2735,13 @@ export const topics: Topic[] = [
         title: "Echoes and reverberation",
         summary: "An echo is a reflected sound heard distinctly after a delay. The minimum delay the human ear notices is about 0.1 s, so an echo requires a…",
         explanation: "An echo is a reflected sound heard distinctly after a delay. The minimum delay the human ear notices is about 0.1 s, so an echo requires a reflecting surface roughly 17 m away. Reverberation is multiple rapid reflections that blur the sound.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Echoes and reverberation” requires you to distinguish or calculate.",
+            solution: "Use the core idea: An echo is a reflected sound heard distinctly after a delay. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Echoes and reverberation",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2312,7 +2816,13 @@ export const topics: Topic[] = [
         title: "Sound example",
         summary: "An ambulance siren sounds higher pitched as it approaches because the sound waves in front of it are compressed, shortening wavelength and…",
         explanation: "An ambulance siren sounds higher pitched as it approaches because the sound waves in front of it are compressed, shortening wavelength and raising frequency. As it passes and moves away, the waves behind it are stretched, lowering the frequency. The siren itself has not changed; only the observer's measurement has.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2321,7 +2831,13 @@ export const topics: Topic[] = [
         title: "Light and redshift",
         summary: "Light from a receding star or galaxy is shifted toward longer wavelengths (red end of the spectrum). This redshift is key evidence for the…",
         explanation: "Light from a receding star or galaxy is shifted toward longer wavelengths (red end of the spectrum). This redshift is key evidence for the expansion of the universe. Approaching sources show blueshift.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2330,7 +2846,13 @@ export const topics: Topic[] = [
         title: "Speed of wave vs observed frequency",
         summary: "The Doppler effect does not change the speed of the wave in the medium. It changes how many wave crests reach the observer each second. For…",
         explanation: "The Doppler effect does not change the speed of the wave in the medium. It changes how many wave crests reach the observer each second. For sound, the speed in air is still about 340 m/s regardless of source motion.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2339,7 +2861,13 @@ export const topics: Topic[] = [
         title: "Applications",
         summary: "Police radar guns, weather Doppler radar, medical ultrasound and astronomy all use the Doppler effect. In meteorology, Doppler radar…",
         explanation: "Police radar guns, weather Doppler radar, medical ultrasound and astronomy all use the Doppler effect. In meteorology, Doppler radar measures wind speed by detecting frequency shifts from moving raindrops.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2424,7 +2952,13 @@ export const topics: Topic[] = [
         title: "Reflection",
         summary: "A smooth surface such as a mirror reflects parallel light rays in one direction, producing a clear image. A rough surface scatters light in…",
         explanation: "A smooth surface such as a mirror reflects parallel light rays in one direction, producing a clear image. A rough surface scatters light in many directions, causing diffuse reflection, which is why paper looks white from any angle.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Reflection” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A smooth surface such as a mirror reflects parallel light rays in one direction, producing a clear image. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Reflection",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2433,7 +2967,13 @@ export const topics: Topic[] = [
         title: "Refraction",
         summary: "Light slows down in glass or water. When a ray enters such a medium at an angle, the part that enters first slows down first, bending the…",
         explanation: "Light slows down in glass or water. When a ray enters such a medium at an angle, the part that enters first slows down first, bending the ray toward the normal. Upon exiting, the reverse happens and the ray bends away from the normal.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Refraction” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Light slows down in glass or water. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Refraction",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2442,7 +2982,13 @@ export const topics: Topic[] = [
         title: "Total internal reflection",
         summary: "When light inside glass strikes the glass-air boundary at a large angle, it can be completely reflected back into the glass. This principle…",
         explanation: "When light inside glass strikes the glass-air boundary at a large angle, it can be completely reflected back into the glass. This principle is used in optical fibres, prismatic binoculars and diamonds, where the critical angle is small because of the high refractive index.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Total internal reflection” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When light inside glass strikes the glass-air boundary at a large angle, it can be completely reflected back into the glass. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Total internal reflection",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2451,7 +2997,13 @@ export const topics: Topic[] = [
         title: "Real-world examples",
         summary: "A swimming pool looks shallower than it is because light from the bottom bends away from the normal as it leaves the water. A straw in a…",
         explanation: "A swimming pool looks shallower than it is because light from the bottom bends away from the normal as it leaves the water. A straw in a glass of water appears bent at the surface. Mirages and atmospheric refraction make the Sun visible slightly after it has geometrically set.",
-        examples: [],
+                examples: [
+          {
+            problem: "An object is placed 30 cm from a thin lens of focal length 10 cm. Where is the image (lens formula)?",
+            solution: "1/v − 1/u = 1/f. With u = −30 cm, f = +10 cm: 1/v = 1/10 + 1/(−30) wait sign convention: 1/v = 1/f + 1/u = 1/10 − 1/30 = 1/15, so v = 15 cm (real image on the far side for a converging lens with object beyond f).",
+            answer: "v = +15 cm (typical real image for convex lens)",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2519,7 +3071,13 @@ export const topics: Topic[] = [
         title: "Diffraction",
         summary: "When waves pass through a narrow slit, they spread out. Sound bends around doorways because its wavelength is similar to the doorway width.…",
         explanation: "When waves pass through a narrow slit, they spread out. Sound bends around doorways because its wavelength is similar to the doorway width. Light has a very short wavelength, so it diffracts only through very narrow slits or around sharp edges.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2528,7 +3086,13 @@ export const topics: Topic[] = [
         title: "Interference",
         summary: "When two coherent waves meet, their displacements add. If crest meets crest, the result is a larger wave (constructive interference). If…",
         explanation: "When two coherent waves meet, their displacements add. If crest meets crest, the result is a larger wave (constructive interference). If crest meets trough, they cancel (destructive interference). The pattern depends on the path difference between the waves.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2537,7 +3101,13 @@ export const topics: Topic[] = [
         title: "Young's double slits",
         summary: "A single light source illuminates two closely spaced slits. The slits act as coherent sources. On a distant screen, bright and dark fringes…",
         explanation: "A single light source illuminates two closely spaced slits. The slits act as coherent sources. On a distant screen, bright and dark fringes appear because the path difference to the screen varies with angle. This was crucial evidence for the wave theory of light.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Young's double slits” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A single light source illuminates two closely spaced slits. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Young's double slits",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2546,7 +3116,13 @@ export const topics: Topic[] = [
         title: "Everyday examples",
         summary: "CDs and DVDs show rainbow colours because the closely spaced tracks diffract light. Soap films show colours because light reflected from…",
         explanation: "CDs and DVDs show rainbow colours because the closely spaced tracks diffract light. Soap films show colours because light reflected from the front and back surfaces interferes.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Everyday examples” requires you to distinguish or calculate.",
+            solution: "Use the core idea: CDs and DVDs show rainbow colours because the closely spaced tracks diffract light. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Everyday examples",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2621,7 +3197,13 @@ export const topics: Topic[] = [
         title: "Converging and diverging lenses",
         summary: "A convex lens bends incoming rays toward the principal axis. Parallel rays from a distant object meet at the focal point on the opposite…",
         explanation: "A convex lens bends incoming rays toward the principal axis. Parallel rays from a distant object meet at the focal point on the opposite side. A concave lens bends rays away from the axis; the focal point is on the same side as the incoming light and is virtual.",
-        examples: [],
+                examples: [
+          {
+            problem: "An object is placed 30 cm from a thin lens of focal length 10 cm. Where is the image (lens formula)?",
+            solution: "1/v − 1/u = 1/f. With u = −30 cm, f = +10 cm: 1/v = 1/10 + 1/(−30) wait sign convention: 1/v = 1/f + 1/u = 1/10 − 1/30 = 1/15, so v = 15 cm (real image on the far side for a converging lens with object beyond f).",
+            answer: "v = +15 cm (typical real image for convex lens)",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2630,7 +3212,13 @@ export const topics: Topic[] = [
         title: "Mirror shapes",
         summary: "A concave mirror reflects parallel rays to a real focus, so it is used in telescopes and shaving mirrors. A convex mirror always produces a…",
         explanation: "A concave mirror reflects parallel rays to a real focus, so it is used in telescopes and shaving mirrors. A convex mirror always produces a diminished, upright, virtual image, giving a wide field of view for car wing mirrors and shop security mirrors.",
-        examples: [],
+                examples: [
+          {
+            problem: "An object is placed 30 cm from a thin lens of focal length 10 cm. Where is the image (lens formula)?",
+            solution: "1/v − 1/u = 1/f. With u = −30 cm, f = +10 cm: 1/v = 1/10 + 1/(−30) wait sign convention: 1/v = 1/f + 1/u = 1/10 − 1/30 = 1/15, so v = 15 cm (real image on the far side for a converging lens with object beyond f).",
+            answer: "v = +15 cm (typical real image for convex lens)",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2639,7 +3227,13 @@ export const topics: Topic[] = [
         title: "Electromagnetic spectrum",
         summary: "All EM waves are transverse and consist of oscillating electric and magnetic fields. Frequency and wavelength are inversely related: c =…",
         explanation: "All EM waves are transverse and consist of oscillating electric and magnetic fields. Frequency and wavelength are inversely related: c = fλ. Higher frequency means higher photon energy and greater potential to ionise matter.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2648,7 +3242,13 @@ export const topics: Topic[] = [
         title: "Practical uses",
         summary: "Radio and microwaves carry communications. Infrared is felt as heat. Visible light enables sight. Ultraviolet causes tanning and vitamin D…",
         explanation: "Radio and microwaves carry communications. Infrared is felt as heat. Visible light enables sight. Ultraviolet causes tanning and vitamin D production but can damage skin. X-rays image bones. Gamma rays are used in radiotherapy and arise in nuclear reactions.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Practical uses” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Radio and microwaves carry communications. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Practical uses",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2747,7 +3347,13 @@ export const topics: Topic[] = [
         title: "Sign convention",
         summary: "Use the real-is-positive convention commonly taught in FSc/O-Level: real objects and real images have positive distances on the…",
         explanation: "Use the real-is-positive convention commonly taught in FSc/O-Level: real objects and real images have positive distances on the incident-light side and image side respectively. Virtual images have negative image distances. A positive focal length is converging; a negative focal length is diverging. Always state your convention.",
-        examples: [],
+                examples: [
+          {
+            problem: "An object is placed 30 cm from a thin lens of focal length 10 cm. Where is the image (lens formula)?",
+            solution: "1/v − 1/u = 1/f. With u = −30 cm, f = +10 cm: 1/v = 1/10 + 1/(−30) wait sign convention: 1/v = 1/f + 1/u = 1/10 − 1/30 = 1/15, so v = 15 cm (real image on the far side for a converging lens with object beyond f).",
+            answer: "v = +15 cm (typical real image for convex lens)",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2756,7 +3362,13 @@ export const topics: Topic[] = [
         title: "Ray diagrams",
         summary: "For a converging lens, draw a ray parallel to the axis refracting through the far focus, and a ray through the optical centre continuing…",
         explanation: "For a converging lens, draw a ray parallel to the axis refracting through the far focus, and a ray through the optical centre continuing straight. Their intersection locates the image. For mirrors, a ray parallel to the axis reflects through (or appears to come from) the focus.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Ray diagrams” requires you to distinguish or calculate.",
+            solution: "Use the core idea: For a converging lens, draw a ray parallel to the axis refracting through the far focus, and a ray through the optical centre continuing straight. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Ray diagrams",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2765,7 +3377,13 @@ export const topics: Topic[] = [
         title: "Real vs virtual images",
         summary: "A real image forms where light rays actually converge; it can be projected on a screen. A virtual image forms where rays only appear to…",
         explanation: "A real image forms where light rays actually converge; it can be projected on a screen. A virtual image forms where rays only appear to diverge from; it is seen by looking through the lens or into the mirror.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Real vs virtual images” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A real image forms where light rays actually converge; it can be projected on a screen. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Real vs virtual images",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2774,7 +3392,13 @@ export const topics: Topic[] = [
         title: "Image characteristics by position",
         summary: "For a converging lens: object at infinity → image at focus; beyond 2F → real, inverted, diminished; at 2F → real, inverted, same size;…",
         explanation: "For a converging lens: object at infinity → image at focus; beyond 2F → real, inverted, diminished; at 2F → real, inverted, same size; between F and 2F → real, inverted, magnified; inside F → virtual, upright, magnified.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Image characteristics by position” requires you to distinguish or calculate.",
+            solution: "Use the core idea: For a converging lens: object at infinity â image at focus; beyond 2F â real, inverted, diminished; at 2F â real, inverted, same size; between F and 2F â real, inverted, magnified; inside F â virtual, upright, magnified. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Image characteristics by position",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2853,7 +3477,13 @@ export const topics: Topic[] = [
         title: "Charge transfer",
         summary: "Objects become charged by gaining or losing electrons. Rubbing a rod with cloth can transfer electrons, leaving one object positively…",
         explanation: "Objects become charged by gaining or losing electrons. Rubbing a rod with cloth can transfer electrons, leaving one object positively charged and the other negatively charged. Charge is always conserved in these processes.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Charge transfer” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Objects become charged by gaining or losing electrons. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Charge transfer",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2862,7 +3492,13 @@ export const topics: Topic[] = [
         title: "Coulomb's law",
         summary: "The electrostatic force between two point charges is proportional to the product of the charges and inversely proportional to the square of…",
         explanation: "The electrostatic force between two point charges is proportional to the product of the charges and inversely proportional to the square of their separation. The force is attractive for opposite charges and repulsive for like charges. It acts along the line joining the charges.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Coulomb's law” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The electrostatic force between two point charges is proportional to the product of the charges and inversely proportional to the square of their separation. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Coulomb's law",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2871,7 +3507,13 @@ export const topics: Topic[] = [
         title: "Conductors and insulators",
         summary: "In conductors such as metals, electrons move freely, so charge spreads out. In insulators, electrons are tightly bound to atoms. Charging…",
         explanation: "In conductors such as metals, electrons move freely, so charge spreads out. In insulators, electrons are tightly bound to atoms. Charging by induction uses a conductor's mobile charges without direct contact.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Conductors and insulators” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In conductors such as metals, electrons move freely, so charge spreads out. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Conductors and insulators",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2880,7 +3522,13 @@ export const topics: Topic[] = [
         title: "Inverse-square pattern",
         summary: "Doubling the distance between two charges reduces the force to one-quarter. Halving the distance quadruples the force. This inverse-square…",
         explanation: "Doubling the distance between two charges reduces the force to one-quarter. Halving the distance quadruples the force. This inverse-square dependence is shared by gravity and electric force, but electric force can be attractive or repulsive.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Inverse-square pattern” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Doubling the distance between two charges reduces the force to one-quarter. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Inverse-square pattern",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2965,7 +3613,13 @@ export const topics: Topic[] = [
         title: "Field as a force per unit charge",
         summary: "Electric field strength tells you the force that would act on a small positive test charge placed at a point. A negative charge experiences…",
         explanation: "Electric field strength tells you the force that would act on a small positive test charge placed at a point. A negative charge experiences a force in the opposite direction to the field.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Field as a force per unit charge” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Electric field strength tells you the force that would act on a small positive test charge placed at a point. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Field as a force per unit charge",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2974,7 +3628,13 @@ export const topics: Topic[] = [
         title: "Field lines",
         summary: "Field lines show the direction of force on a positive charge. They never cross, because a charge cannot experience two force directions at…",
         explanation: "Field lines show the direction of force on a positive charge. They never cross, because a charge cannot experience two force directions at one point. Closer lines mean a stronger field.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Field lines” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Field lines show the direction of force on a positive charge. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Field lines",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2983,7 +3643,13 @@ export const topics: Topic[] = [
         title: "Electric potential",
         summary: "Potential measures how much potential energy each coulomb of charge has. A 9 V battery gives each coulomb 9 J of energy. Positive charges…",
         explanation: "Potential measures how much potential energy each coulomb of charge has. A 9 V battery gives each coulomb 9 J of energy. Positive charges tend to move from high potential to low potential; negative charges move the other way.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2992,7 +3658,13 @@ export const topics: Topic[] = [
         title: "Uniform fields",
         summary: "Between two parallel charged plates, the electric field is approximately uniform. In a uniform field E, the potential difference between…",
         explanation: "Between two parallel charged plates, the electric field is approximately uniform. In a uniform field E, the potential difference between plates separated by distance d is V = E d.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3088,7 +3760,13 @@ export const topics: Topic[] = [
         title: "Current as flow of charge",
         summary: "In a metal, current is the drift of free electrons. The direction of conventional current is from positive to negative, opposite to the…",
         explanation: "In a metal, current is the drift of free electrons. The direction of conventional current is from positive to negative, opposite to the electron flow. In a circuit, charge is already present everywhere; the battery provides the energy that drives it around.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3097,7 +3775,13 @@ export const topics: Topic[] = [
         title: "Voltage as energy per charge",
         summary: "A 12 V battery gives 12 joules of energy to each coulomb of charge that passes through it. Voltage is not a force or a current; it is the…",
         explanation: "A 12 V battery gives 12 joules of energy to each coulomb of charge that passes through it. Voltage is not a force or a current; it is the driving energy for charge.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3106,7 +3790,13 @@ export const topics: Topic[] = [
         title: "Resistance",
         summary: "Resistance arises from collisions between charge carriers and the lattice of the conductor. Thinner, longer and hotter wires have higher…",
         explanation: "Resistance arises from collisions between charge carriers and the lattice of the conductor. Thinner, longer and hotter wires have higher resistance. Materials with constant resistance obey Ohm's law and give a straight-line I-V graph through the origin.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3115,7 +3805,13 @@ export const topics: Topic[] = [
         title: "Series and parallel at a glance",
         summary: "In series, current is the same everywhere and voltages add. In parallel, voltage is the same across each branch and currents add. These…",
         explanation: "In series, current is the same everywhere and voltages add. In parallel, voltage is the same across each branch and currents add. These rules are the starting point for almost all circuit calculations.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Series and parallel at a glance” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In series, current is the same everywhere and voltages add. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Series and parallel at a glance",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3218,7 +3914,13 @@ export const topics: Topic[] = [
         title: "Series circuits",
         summary: "Components are connected end-to-end, so there is only one path for current. If one component fails, the circuit is broken. The total…",
         explanation: "Components are connected end-to-end, so there is only one path for current. If one component fails, the circuit is broken. The total resistance increases as more resistors are added, reducing the current from a given supply.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Series circuits” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Components are connected end-to-end, so there is only one path for current. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Series circuits",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3227,7 +3929,13 @@ export const topics: Topic[] = [
         title: "Parallel circuits",
         summary: "Components are connected across common points, so each branch has the full supply voltage. Adding more branches increases total current but…",
         explanation: "Components are connected across common points, so each branch has the full supply voltage. Adding more branches increases total current but does not affect the voltage across existing branches. Household circuits are wired in parallel so each appliance receives the same voltage.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Parallel circuits” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Components are connected across common points, so each branch has the full supply voltage. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Parallel circuits",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3236,7 +3944,13 @@ export const topics: Topic[] = [
         title: "Power forms",
         summary: "P = IV is the general definition. Using Ohm's law, it becomes I²R or V²/R for resistors. Use whichever form matches the known quantities.…",
         explanation: "P = IV is the general definition. Using Ohm's law, it becomes I²R or V²/R for resistors. Use whichever form matches the known quantities. For example, if current and resistance are known, P = I²R avoids calculating voltage first.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3245,7 +3959,13 @@ export const topics: Topic[] = [
         title: "Energy and cost",
         summary: "Electricity meters measure energy in kilowatt-hours. To find cost, multiply energy in kWh by the price per kWh. Remember that power in kW…",
         explanation: "Electricity meters measure energy in kilowatt-hours. To find cost, multiply energy in kWh by the price per kWh. Remember that power in kW is power in W divided by 1 000.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3324,7 +4044,13 @@ export const topics: Topic[] = [
         title: "How a capacitor stores energy",
         summary: "When connected to a battery, charge builds up on the capacitor plates. Positive charge accumulates on one plate and negative charge on the…",
         explanation: "When connected to a battery, charge builds up on the capacitor plates. Positive charge accumulates on one plate and negative charge on the other, creating an electric field between them. Energy is stored in this field. Removing the battery leaves the charge in place until a path is provided.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3333,7 +4059,13 @@ export const topics: Topic[] = [
         title: "Capacitance",
         summary: "A capacitor with large capacitance stores more charge for the same voltage. Capacitance depends on plate area, plate separation and the…",
         explanation: "A capacitor with large capacitance stores more charge for the same voltage. Capacitance depends on plate area, plate separation and the material between the plates. Larger plates and smaller separation give larger capacitance.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Capacitance” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A capacitor with large capacitance stores more charge for the same voltage. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Capacitance",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3342,7 +4074,13 @@ export const topics: Topic[] = [
         title: "Charging and discharging",
         summary: "When a capacitor charges through a resistor, current is initially high and then falls as the capacitor voltage approaches the supply…",
         explanation: "When a capacitor charges through a resistor, current is initially high and then falls as the capacitor voltage approaches the supply voltage. The product RC gives the time constant: after one time constant the capacitor has charged to about 63% of the supply voltage.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Charging and discharging” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When a capacitor charges through a resistor, current is initially high and then falls as the capacitor voltage approaches the supply voltage. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Charging and discharging",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3351,7 +4089,13 @@ export const topics: Topic[] = [
         title: "AC behaviour",
         summary: "A capacitor continuously charges and discharges in an AC circuit, so current appears to flow. The opposition to AC is called capacitive…",
         explanation: "A capacitor continuously charges and discharges in an AC circuit, so current appears to flow. The opposition to AC is called capacitive reactance, which decreases as frequency increases.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3422,7 +4166,13 @@ export const topics: Topic[] = [
         title: "Magnetic fields around magnets",
         summary: "A bar magnet has a north pole and a south pole. Magnetic field lines leave the north pole, curve around outside the magnet and enter the…",
         explanation: "A bar magnet has a north pole and a south pole. Magnetic field lines leave the north pole, curve around outside the magnet and enter the south pole. The field is strongest where the lines are closest together, near the poles.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Magnetic fields around magnets” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A bar magnet has a north pole and a south pole. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Magnetic fields around magnets",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3431,7 +4181,13 @@ export const topics: Topic[] = [
         title: "Magnetic field due to current",
         summary: "An electric current creates a magnetic field. For a straight wire, the field lines are circles centred on the wire. For a coil or solenoid,…",
         explanation: "An electric current creates a magnetic field. For a straight wire, the field lines are circles centred on the wire. For a coil or solenoid, the field inside is nearly uniform and similar to a bar magnet; the end where field lines emerge is the north pole.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3440,7 +4196,13 @@ export const topics: Topic[] = [
         title: "Force on a current-carrying conductor",
         summary: "When a wire carrying current is placed in a magnetic field, the wire experiences a force. The force is greatest when the wire is…",
         explanation: "When a wire carrying current is placed in a magnetic field, the wire experiences a force. The force is greatest when the wire is perpendicular to the field and zero when parallel. Fleming's left-hand rule gives the direction of the force: First finger = Field, seCond finger = Current, thuMb = Motion.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3449,7 +4211,13 @@ export const topics: Topic[] = [
         title: "Electromagnets",
         summary: "A coil of wire wound on a soft iron core becomes a strong magnet when current flows. Soft iron loses its magnetism quickly when the current…",
         explanation: "A coil of wire wound on a soft iron core becomes a strong magnet when current flows. Soft iron loses its magnetism quickly when the current stops, making electromagnets useful in relays, cranes, loudspeakers and MRI machines.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Electromagnets” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A coil of wire wound on a soft iron core becomes a strong magnet when current flows. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Electromagnets",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3524,7 +4292,13 @@ export const topics: Topic[] = [
         title: "What causes induction",
         summary: "To induce an emf, the magnetic field through a coil must change. This can happen by moving a magnet, moving the coil, changing the current…",
         explanation: "To induce an emf, the magnetic field through a coil must change. This can happen by moving a magnet, moving the coil, changing the current in a nearby circuit or rotating a coil in a magnetic field. Stationary magnet and stationary coil produce no emf.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “What causes induction” requires you to distinguish or calculate.",
+            solution: "Use the core idea: To induce an emf, the magnetic field through a coil must change. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "What causes induction",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3533,7 +4307,13 @@ export const topics: Topic[] = [
         title: "Faraday's and Lenz's laws",
         summary: "Faraday's law tells us how much emf is induced: faster change means larger emf. Lenz's law tells us the direction: the induced current…",
         explanation: "Faraday's law tells us how much emf is induced: faster change means larger emf. Lenz's law tells us the direction: the induced current creates a magnetic field that opposes the motion or change. This opposition is a consequence of conservation of energy.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Faraday's and Lenz's laws” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Faraday's law tells us how much emf is induced: faster change means larger emf. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Faraday's and Lenz's laws",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3542,7 +4322,13 @@ export const topics: Topic[] = [
         title: "Generators and dynamos",
         summary: "A coil rotating in a magnetic field has a continuously changing flux linkage, producing an alternating emf. This is the working principle…",
         explanation: "A coil rotating in a magnetic field has a continuously changing flux linkage, producing an alternating emf. This is the working principle of power-station generators and bicycle dynamos. Faster rotation or stronger fields give larger peak voltage.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Generators and dynamos” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A coil rotating in a magnetic field has a continuously changing flux linkage, producing an alternating emf. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Generators and dynamos",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3551,7 +4337,13 @@ export const topics: Topic[] = [
         title: "Electromagnetic waves",
         summary: "A changing electric field generates a changing magnetic field, and vice versa. The result is a self-sustaining wave that needs no medium.…",
         explanation: "A changing electric field generates a changing magnetic field, and vice versa. The result is a self-sustaining wave that needs no medium. The spectrum ranges from low-frequency radio waves to high-frequency gamma rays; all travel at the speed of light in a vacuum.",
-        examples: [],
+                examples: [
+          {
+            problem: "A wave has frequency 50 Hz and wavelength 4 m. Find its speed.",
+            solution: "v = fλ = 50 × 4 = 200 m/s.",
+            answer: "200 m/s",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3618,7 +4410,13 @@ export const topics: Topic[] = [
         title: "How a transformer works",
         summary: "An alternating current in the primary coil produces a changing magnetic field in the iron core. This changing field links the secondary…",
         explanation: "An alternating current in the primary coil produces a changing magnetic field in the iron core. This changing field links the secondary coil and induces an alternating emf. The ratio of secondary to primary voltage equals the ratio of turns.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3627,7 +4425,13 @@ export const topics: Topic[] = [
         title: "Step-up and step-down",
         summary: "If the secondary has more turns than the primary, the secondary voltage is higher (step-up). To conserve power, the secondary current is…",
         explanation: "If the secondary has more turns than the primary, the secondary voltage is higher (step-up). To conserve power, the secondary current is lower. Step-down transformers do the reverse and are used to convert high transmission voltage to safer household voltage.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Step-up and step-down” requires you to distinguish or calculate.",
+            solution: "Use the core idea: If the secondary has more turns than the primary, the secondary voltage is higher (step-up). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Step-up and step-down",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3636,7 +4440,13 @@ export const topics: Topic[] = [
         title: "Why AC is used",
         summary: "A transformer needs a changing magnetic flux, so it requires alternating current. Direct current would produce a steady field and no…",
         explanation: "A transformer needs a changing magnetic flux, so it requires alternating current. Direct current would produce a steady field and no induced emf in the secondary. This is why mains electricity is AC.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Why AC is used” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A transformer needs a changing magnetic flux, so it requires alternating current. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Why AC is used",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3645,7 +4455,13 @@ export const topics: Topic[] = [
         title: "Power transmission",
         summary: "Power loss in cables is I²R. By transmitting at high voltage, the current is reduced for the same power, cutting cable losses dramatically.…",
         explanation: "Power loss in cables is I²R. By transmitting at high voltage, the current is reduced for the same power, cutting cable losses dramatically. Step-down transformers then reduce voltage at substations and local transformers.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Power transmission” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Power loss in cables is IÂ²R. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Power transmission",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3698,7 +4514,13 @@ export const topics: Topic[] = [
         title: "Nuclear notation",
         summary: "A nucleus is written as ᴬ_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton…",
         explanation: "A nucleus is written as ᴬ_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton number). For example, ¹⁴_₆C has 6 protons and 8 neutrons.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Nuclear notation” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A nucleus is written as á´¬_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton number). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Nuclear notation",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3707,7 +4529,13 @@ export const topics: Topic[] = [
         title: "Isotopes",
         summary: "Isotopes have the same number of protons and therefore the same chemical properties, but different numbers of neutrons. Hydrogen-1,…",
         explanation: "Isotopes have the same number of protons and therefore the same chemical properties, but different numbers of neutrons. Hydrogen-1, deuterium and tritium are isotopes of hydrogen. Some isotopes are stable; others are radioactive.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Isotopes” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Isotopes have the same number of protons and therefore the same chemical properties, but different numbers of neutrons. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Isotopes",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3716,7 +4544,13 @@ export const topics: Topic[] = [
         title: "Rutherford's experiment",
         summary: "Alpha particles fired at a thin gold foil were mostly undeflected, but a few bounced back. Rutherford concluded that the atom's mass and…",
         explanation: "Alpha particles fired at a thin gold foil were mostly undeflected, but a few bounced back. Rutherford concluded that the atom's mass and positive charge are concentrated in a tiny nucleus, with electrons orbiting at relatively large distances.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Rutherford's experiment” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Alpha particles fired at a thin gold foil were mostly undeflected, but a few bounced back. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Rutherford's experiment",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3725,7 +4559,13 @@ export const topics: Topic[] = [
         title: "Energy levels",
         summary: "Electrons in an atom can occupy only certain allowed energy levels. When an electron drops from a higher level to a lower one, a photon is…",
         explanation: "Electrons in an atom can occupy only certain allowed energy levels. When an electron drops from a higher level to a lower one, a photon is emitted with energy equal to the difference between the levels. This produces line spectra.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3800,7 +4640,13 @@ export const topics: Topic[] = [
         title: "Alpha, beta and gamma",
         summary: "Alpha particles are relatively heavy and slow, so they ionise matter strongly but are stopped by paper or a few centimetres of air. Beta…",
         explanation: "Alpha particles are relatively heavy and slow, so they ionise matter strongly but are stopped by paper or a few centimetres of air. Beta particles are lighter and faster, stopped by a few millimetres of aluminium. Gamma rays are uncharged electromagnetic waves and require thick lead or concrete to reduce their intensity significantly.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Alpha, beta and gamma” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Alpha particles are relatively heavy and slow, so they ionise matter strongly but are stopped by paper or a few centimetres of air. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Alpha, beta and gamma",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3809,7 +4655,13 @@ export const topics: Topic[] = [
         title: "Nuclear equations",
         summary: "In nuclear equations, both mass number A and atomic number Z must balance. In alpha decay, A decreases by 4 and Z decreases by 2. In…",
         explanation: "In nuclear equations, both mass number A and atomic number Z must balance. In alpha decay, A decreases by 4 and Z decreases by 2. In beta-minus decay, A stays the same and Z increases by 1 because a neutron becomes a proton and an electron.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Nuclear equations” requires you to distinguish or calculate.",
+            solution: "Use the core idea: In nuclear equations, both mass number A and atomic number Z must balance. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Nuclear equations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3818,7 +4670,13 @@ export const topics: Topic[] = [
         title: "Fission chain reaction",
         summary: "When uranium-235 absorbs a neutron, it splits into two smaller nuclei plus two or three neutrons. These neutrons can cause further…",
         explanation: "When uranium-235 absorbs a neutron, it splits into two smaller nuclei plus two or three neutrons. These neutrons can cause further fissions, producing a chain reaction. Control rods in a reactor absorb excess neutrons to keep the reaction steady.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Fission chain reaction” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When uranium-235 absorbs a neutron, it splits into two smaller nuclei plus two or three neutrons. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Fission chain reaction",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3827,7 +4685,13 @@ export const topics: Topic[] = [
         title: "Fusion",
         summary: "Fusion releases more energy per kilogram of fuel than fission and produces less radioactive waste, but it requires extremely high…",
         explanation: "Fusion releases more energy per kilogram of fuel than fission and produces less radioactive waste, but it requires extremely high temperatures and pressures to overcome electrostatic repulsion between nuclei. Controlled fusion is still a major research goal.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3918,7 +4782,13 @@ export const topics: Topic[] = [
         title: "Meaning of half-life",
         summary: "Half-life is a statistical property of a large number of nuclei. We cannot predict when an individual nucleus will decay, but we can say…",
         explanation: "Half-life is a statistical property of a large number of nuclei. We cannot predict when an individual nucleus will decay, but we can say that after one half-life about half of a large sample remains undecayed. After two half-lives, one-quarter remains, and so on.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Meaning of half-life” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Half-life is a statistical property of a large number of nuclei. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Meaning of half-life",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3927,7 +4797,13 @@ export const topics: Topic[] = [
         title: "Decay constant",
         summary: "The decay constant λ tells us the fraction of nuclei expected to decay per unit time. A large λ means a short half-life and rapid decay.…",
         explanation: "The decay constant λ tells us the fraction of nuclei expected to decay per unit time. A large λ means a short half-life and rapid decay. The relationship t½ = 0.693/λ is useful for converting between the two quantities.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Decay constant” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The decay constant Î» tells us the fraction of nuclei expected to decay per unit time. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Decay constant",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3936,7 +4812,13 @@ export const topics: Topic[] = [
         title: "Radioactive dating",
         summary: "Living things absorb carbon-14 while alive. After death, the ¹⁴C decays with a half-life of 5 730 years. By comparing the remaining ¹⁴C…",
         explanation: "Living things absorb carbon-14 while alive. After death, the ¹⁴C decays with a half-life of 5 730 years. By comparing the remaining ¹⁴C activity to that in living material, archaeologists estimate age. For much older rocks, uranium-lead dating is used.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Radioactive dating” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Living things absorb carbon-14 while alive. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Radioactive dating",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3945,7 +4827,13 @@ export const topics: Topic[] = [
         title: "Exponential decay",
         summary: "Radioactive decay follows N = N₀ e^−λt. The curve falls rapidly at first and then more slowly. This is why small samples can still be…",
         explanation: "Radioactive decay follows N = N₀ e^−λt. The curve falls rapidly at first and then more slowly. This is why small samples can still be hazardous long after their initial activity has fallen.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Exponential decay” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Radioactive decay follows N = Nâ e^âÎ»t. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Exponential decay",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4012,7 +4900,13 @@ export const topics: Topic[] = [
         title: "Energy from fission",
         summary: "The total mass of the fission products and released neutrons is slightly less than the mass of the original nucleus plus neutron. This mass…",
         explanation: "The total mass of the fission products and released neutrons is slightly less than the mass of the original nucleus plus neutron. This mass difference is converted to energy via E = mc², mostly as kinetic energy of the fragments, which becomes heat.",
-        examples: [],
+                examples: [
+          {
+            problem: "A 2 kg object moves at 4 m/s. What is its kinetic energy?",
+            solution: "KE = ½mv² = ½ × 2 × 16 = 16 J.",
+            answer: "16 J",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4021,7 +4915,13 @@ export const topics: Topic[] = [
         title: "Chain reaction",
         summary: "One fission releases two or three neutrons. If at least one neutron on average causes another fission, the reaction is self-sustaining. In…",
         explanation: "One fission releases two or three neutrons. If at least one neutron on average causes another fission, the reaction is self-sustaining. In a bomb, the reaction runs away; in a reactor, control rods keep exactly one neutron per fission causing another fission.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Chain reaction” requires you to distinguish or calculate.",
+            solution: "Use the core idea: One fission releases two or three neutrons. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Chain reaction",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4030,7 +4930,13 @@ export const topics: Topic[] = [
         title: "Reactor components",
         summary: "Fuel rods contain enriched uranium. A moderator slows fast neutrons so they are more likely to cause fission. Coolant removes heat to…",
         explanation: "Fuel rods contain enriched uranium. A moderator slows fast neutrons so they are more likely to cause fission. Coolant removes heat to generate steam and drive turbines. A containment structure prevents radiation release.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Reactor components” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Fuel rods contain enriched uranium. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Reactor components",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4039,7 +4945,13 @@ export const topics: Topic[] = [
         title: "Pros and cons",
         summary: "Nuclear power produces large amounts of energy without CO₂ emissions during operation, but it produces radioactive waste, carries accident…",
         explanation: "Nuclear power produces large amounts of energy without CO₂ emissions during operation, but it produces radioactive waste, carries accident risk and has high construction costs. FPSC questions often test safety, waste and chain-reaction concepts rather than detailed engineering.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Pros and cons” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Nuclear power produces large amounts of energy without COâ emissions during operation, but it produces radioactive waste, carries accident risk and has high construction costs. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Pros and cons",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4131,7 +5043,13 @@ export const topics: Topic[] = [
         title: "Inverse-square law",
         summary: "The gravitational force between two masses weakens rapidly with distance. If the distance between their centres doubles, the force becomes…",
         explanation: "The gravitational force between two masses weakens rapidly with distance. If the distance between their centres doubles, the force becomes one-quarter. If the distance triples, the force becomes one-ninth. This is why astronauts in low orbit still feel most of Earth's gravity, while distant spacecraft feel very little.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Inverse-square law” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The gravitational force between two masses weakens rapidly with distance. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Inverse-square law",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4140,7 +5058,13 @@ export const topics: Topic[] = [
         title: "Gravitational field strength",
         summary: "The value of g at a planet's surface depends on the planet's mass and radius. More massive planets have stronger g; larger planets (for the…",
         explanation: "The value of g at a planet's surface depends on the planet's mass and radius. More massive planets have stronger g; larger planets (for the same mass) have weaker surface g. This is why Jupiter's surface gravity is much greater than Mercury's.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Gravitational field strength” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The value of g at a planet's surface depends on the planet's mass and radius. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Gravitational field strength",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4149,7 +5073,13 @@ export const topics: Topic[] = [
         title: "Weight on other bodies",
         summary: "Your mass is the same everywhere, but your weight changes because g changes. On the Moon, g ≈ 1.6 N/kg, so a 60 kg person weighs about 96 N…",
         explanation: "Your mass is the same everywhere, but your weight changes because g changes. On the Moon, g ≈ 1.6 N/kg, so a 60 kg person weighs about 96 N instead of 588 N on Earth.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Weight on other bodies” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Your mass is the same everywhere, but your weight changes because g changes. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Weight on other bodies",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4158,7 +5088,13 @@ export const topics: Topic[] = [
         title: "Satellite motion",
         summary: "A satellite in a stable orbit is in free fall. Gravity provides the centripetal force needed for circular motion. For a given orbital…",
         explanation: "A satellite in a stable orbit is in free fall. Gravity provides the centripetal force needed for circular motion. For a given orbital radius, there is one specific speed that produces a circular orbit. Higher orbits have lower orbital speeds and longer periods.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Satellite motion” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A satellite in a stable orbit is in free fall. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Satellite motion",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4223,7 +5159,13 @@ export const topics: Topic[] = [
         title: "Base and derived units",
         summary: "Base units are defined independently. Derived units are combinations of base units. For example, speed is m/s, force is kg·m/s² and…",
         explanation: "Base units are defined independently. Derived units are combinations of base units. For example, speed is m/s, force is kg·m/s² and pressure is kg/(m·s²). Knowing these combinations helps check equations.",
-        examples: [],
+                examples: [
+          {
+            problem: "A force of 200 N acts uniformly on an area of 0.5 m². Find the pressure.",
+            solution: "P = F/A = 200 / 0.5 = 400 Pa.",
+            answer: "400 Pa",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4232,7 +5174,13 @@ export const topics: Topic[] = [
         title: "Using prefixes",
         summary: "A milligram is 10⁻³ g and a kilometre is 10³ m. Be careful with squared or cubed units: 1 cm² = (10⁻² m)² = 10⁻⁴ m², and 1 cm³ = 10⁻⁶ m³.…",
         explanation: "A milligram is 10⁻³ g and a kilometre is 10³ m. Be careful with squared or cubed units: 1 cm² = (10⁻² m)² = 10⁻⁴ m², and 1 cm³ = 10⁻⁶ m³. These conversions are a frequent source of error.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Using prefixes” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A milligram is 10â»Â³ g and a kilometre is 10Â³ m. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Using prefixes",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4241,7 +5189,13 @@ export const topics: Topic[] = [
         title: "Dimensional analysis",
         summary: "If a formula claims F = m v, check units: left side is kg·m/s², right side is kg·m/s. They do not match, so the formula is wrong.…",
         explanation: "If a formula claims F = m v, check units: left side is kg·m/s², right side is kg·m/s. They do not match, so the formula is wrong. Dimensional analysis does not prove a formula is right, but it can prove it wrong.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Dimensional analysis” requires you to distinguish or calculate.",
+            solution: "Use the core idea: If a formula claims F = m v, check units: left side is kgÂ·m/sÂ², right side is kgÂ·m/s. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Dimensional analysis",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4250,7 +5204,13 @@ export const topics: Topic[] = [
         title: "Significant figures",
         summary: "Final answers should be given to a sensible number of significant figures, usually matching the least precise given value. In competitive…",
         explanation: "Final answers should be given to a sensible number of significant figures, usually matching the least precise given value. In competitive exams, choosing the correct option often depends on rounding carefully.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Significant figures” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Final answers should be given to a sensible number of significant figures, usually matching the least precise given value. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Significant figures",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4314,7 +5274,13 @@ export const topics: Topic[] = [
         title: "Why direction matters",
         summary: "A displacement of 5 km north is different from 5 km east, even though both have magnitude 5 km. A force of 10 N upward has a different…",
         explanation: "A displacement of 5 km north is different from 5 km east, even though both have magnitude 5 km. A force of 10 N upward has a different effect from 10 N downward. Direction is part of the physical meaning of a vector.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4323,7 +5289,13 @@ export const topics: Topic[] = [
         title: "Representing vectors",
         summary: "A vector arrow points in the direction of the quantity. The arrow's length is drawn to scale to represent magnitude. In equations, vectors…",
         explanation: "A vector arrow points in the direction of the quantity. The arrow's length is drawn to scale to represent magnitude. In equations, vectors may be written in bold (F) or with an arrow (F⃗).",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4332,7 +5304,13 @@ export const topics: Topic[] = [
         title: "Adding and subtracting",
         summary: "Vectors are added by placing them tip-to-tail. The resultant runs from the tail of the first to the tip of the last. Subtracting a vector…",
         explanation: "Vectors are added by placing them tip-to-tail. The resultant runs from the tail of the first to the tip of the last. Subtracting a vector is the same as adding its negative. These operations are essential for finding net force, resultant velocity and total displacement.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4341,7 +5319,13 @@ export const topics: Topic[] = [
         title: "Common scalar/vector pairs",
         summary: "Distance (scalar) and displacement (vector); speed (scalar) and velocity (vector); mass (scalar) and weight (vector). Recognising the pair…",
         explanation: "Distance (scalar) and displacement (vector); speed (scalar) and velocity (vector); mass (scalar) and weight (vector). Recognising the pair prevents sign and direction errors.",
-        examples: [],
+                examples: [
+          {
+            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
+            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
+            answer: "Distance 400 m; displacement 0",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4417,7 +5401,13 @@ export const topics: Topic[] = [
         title: "Tip-to-tail addition",
         summary: "To add vectors A and B, place the tail of B at the tip of A. The resultant R runs from the tail of A to the tip of B. This works for any…",
         explanation: "To add vectors A and B, place the tail of B at the tip of A. The resultant R runs from the tail of A to the tip of B. This works for any number of vectors and is the basis of graphical vector addition.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Tip-to-tail addition” requires you to distinguish or calculate.",
+            solution: "Use the core idea: To add vectors A and B, place the tail of B at the tip of A. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Tip-to-tail addition",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4426,7 +5416,13 @@ export const topics: Topic[] = [
         title: "Parallelogram rule",
         summary: "Draw the two vectors from the same point and complete the parallelogram. The diagonal from the common starting point is the resultant. This…",
         explanation: "Draw the two vectors from the same point and complete the parallelogram. The diagonal from the common starting point is the resultant. This is equivalent to the tip-to-tail method.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Parallelogram rule” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Draw the two vectors from the same point and complete the parallelogram. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Parallelogram rule",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4435,7 +5431,13 @@ export const topics: Topic[] = [
         title: "Resolving into components",
         summary: "A vector at an angle can be split into perpendicular parts. If a force F acts at angle θ above the horizontal, its horizontal component is…",
         explanation: "A vector at an angle can be split into perpendicular parts. If a force F acts at angle θ above the horizontal, its horizontal component is F cos θ and its vertical component is F sin θ. Components are scalars with signs.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Resolving into components” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A vector at an angle can be split into perpendicular parts. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Resolving into components",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4444,7 +5446,13 @@ export const topics: Topic[] = [
         title: "Analytical addition",
         summary: "Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = √(R_x² +…",
         explanation: "Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = √(R_x² + R_y²) and θ = tan⁻¹(R_y/R_x). This method is precise and avoids scale-drawing errors.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Analytical addition” requires you to distinguish or calculate.",
+            solution: "Use the core idea: Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = â(R_xÂ² + R_yÂ²) and Î¸ = tanâ»Â¹(R_y/R_x). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Analytical addition",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4507,7 +5515,13 @@ export const topics: Topic[] = [
         title: "Inclined planes",
         summary: "A block on a slope is pulled downward by a component of its weight along the slope: mg sin θ. The normal force from the slope balances the…",
         explanation: "A block on a slope is pulled downward by a component of its weight along the slope: mg sin θ. The normal force from the slope balances the perpendicular component mg cos θ. Friction, if present, acts up the slope opposing motion.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Inclined planes” requires you to distinguish or calculate.",
+            solution: "Use the core idea: A block on a slope is pulled downward by a component of its weight along the slope: mg sin Î¸. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Inclined planes",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4516,7 +5530,13 @@ export const topics: Topic[] = [
         title: "Projectile motion",
         summary: "The horizontal motion of a projectile has constant velocity (ignoring air resistance), while the vertical motion has constant downward…",
         explanation: "The horizontal motion of a projectile has constant velocity (ignoring air resistance), while the vertical motion has constant downward acceleration g. The two motions are independent. The time of flight depends only on vertical motion.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Projectile motion” requires you to distinguish or calculate.",
+            solution: "Use the core idea: The horizontal motion of a projectile has constant velocity (ignoring air resistance), while the vertical motion has constant downward acceleration g. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Projectile motion",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4525,7 +5545,13 @@ export const topics: Topic[] = [
         title: "Wind and current problems",
         summary: "A plane's velocity relative to the ground is the vector sum of its velocity relative to the air and the wind velocity. Similarly, a boat's…",
         explanation: "A plane's velocity relative to the ground is the vector sum of its velocity relative to the air and the wind velocity. Similarly, a boat's velocity relative to the shore is the vector sum of its velocity in still water and the current velocity.",
-        examples: [],
+                examples: [
+          {
+            problem: "A resistor of 10 Ω carries 0.5 A. What is the potential difference across it?",
+            solution: "V = IR = 0.5 × 10 = 5 V.",
+            answer: "5 V",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -4534,7 +5560,13 @@ export const topics: Topic[] = [
         title: "Equilibrium",
         summary: "When the vector sum of all forces on an object is zero, the object is in equilibrium. Draw the force polygon; if it closes, the forces…",
         explanation: "When the vector sum of all forces on an object is zero, the object is in equilibrium. Draw the force polygon; if it closes, the forces balance. This is used for suspended signs, towed objects and structural problems.",
-        examples: [],
+                examples: [
+          {
+            problem: "In one exam-style sentence, state what “Equilibrium” requires you to distinguish or calculate.",
+            solution: "Use the core idea: When the vector sum of all forces on an object is zero, the object is in equilibrium. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            answer: "Equilibrium",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },

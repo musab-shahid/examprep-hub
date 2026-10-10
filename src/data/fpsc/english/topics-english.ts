@@ -79,7 +79,13 @@ export const topics: Topic[] = [
         title: "Parts of speech as the diagnostic tool",
         summary: "Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the…",
         explanation: "Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the diagnosis fails. The categories themselves are simple; the skill is applying them under pressure. The diagnostic: (1) Can you put ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Parts of speech as the diagnostic tool”.",
+            solution: "From the notes: Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the diagnosis fails. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Every error-spotting or correction item begins with recognising what each word is doing.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -88,7 +94,13 @@ export const topics: Topic[] = [
         title: "The three tense pairs that matter most",
         summary: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus…",
         explanation: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus past perfect (earlier than another past action). Present perfect (past action with present relevance) versus past simple (finished past with no present link). Time markers help: since, for, yet, already, recently, so far → present perfect; yesterday, ago, last week, in 1995 → past simple. These three contrasts generate the large majority of tense questions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The three tense pairs that matter most”.",
+            solution: "From the notes: Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus past perfect (earlier than another past action). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -97,7 +109,13 @@ export const topics: Topic[] = [
         title: "Stative verbs",
         summary: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own,…",
         explanation: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Stative verbs”.",
+            solution: "From the notes: Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -106,7 +124,13 @@ export const topics: Topic[] = [
         title: "for and since",
         summary: "for measures duration (for five years). since marks the starting point (since 2010, since Monday). Both normally take present perfect or…",
         explanation: "for measures duration (for five years). since marks the starting point (since 2010, since Monday). Both normally take present perfect or present perfect continuous when the situation continues to the present. The diagnostic: can you put a duration number in front? → for. Is it a calendar date or named event? → since. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “for and since”.",
+            solution: "From the notes: for measures duration (for five years). since marks the starting point (since 2010, since Monday). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "for measures duration (for five years).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -115,7 +139,13 @@ export const topics: Topic[] = [
         title: "Link to the rest of the module",
         summary: "Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries.…",
         explanation: "Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries. Modals, voice and narration (A4) rest on verb forms. Common-error items (A5) recycle every preceding rule. A1 is therefore the foundation, not an optional first chapter — without secure identification of verb and tense, no later rule can be applied.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Link to the rest of the module”.",
+            solution: "From the notes: Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Agreement (A2) needs accurate identification of subjects.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -202,7 +232,12 @@ export const topics: Topic[] = [
         title: "Prepositional phrases are distractors",
         summary: "",
         explanation: "",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Prepositional phrases are distractors”.",
+            solution: "From the notes:  Prefer the option that matches standard formal usage and the rule stated above.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -211,7 +246,13 @@ export const topics: Topic[] = [
         title: "a / an is phonetic",
         summary: "Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound — even if the…",
         explanation: "Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound — even if the letter is a vowel — takes a (a university, a European, a one-rupee note, an MBA where vowel pronunciation is ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “a / an is phonetic”.",
+            solution: "From the notes: Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound â even if the letter is a vowel â takes a (a university, a European, a one-rupee note, an MBA where vowel pronunciation is Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Listen for the first sound, not the first letter.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -220,7 +261,13 @@ export const topics: Topic[] = [
         title: "the versus zero article",
         summary: "Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and…",
         explanation: "Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and most proper nouns. Many geographical features are an exception and require the: rivers (the Indus), seas (the Arabian Sea), mountain ranges (the Himalayas), oceans (the Atlantic). Most countries take zero article (Pakistan, France, China), except plurals (the Netherlands, the Philippines) and compound forms (the USA, the UK).",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “the versus zero article”.",
+            solution: "From the notes: Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and most proper nouns. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Use the when the noun is unique, already known, or made specific by a clause or superlative.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -229,7 +276,13 @@ export const topics: Topic[] = [
         title: "Link forward",
         summary: "Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself…",
         explanation: "Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself a parts-of-speech issue from A1. Pronoun-antecedent agreement in A3 reuses the same singular/plural matching logic. Common-error items in A5 test wrong article choice (most usefully: an UNCLE or a UNCLE? — vowel sound → an) and agreement with uncountable nouns (information IS, news IS).",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Link forward”.",
+            solution: "From the notes: Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself a parts-of-speech issue from A1. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Agreement and article rules reappear in almost every later error-identification item.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -324,7 +377,13 @@ export const topics: Topic[] = [
         title: "who versus whom",
         summary: "Replace the relative pronoun with he/she or him/her. Subject form → who; object form → whom. ",
         explanation: "Replace the relative pronoun with he/she or him/her. Subject form → who; object form → whom. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “who versus whom”.",
+            solution: "From the notes: Replace the relative pronoun with he/she or him/her. Subject form â who; object form â whom. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Replace the relative pronoun with he/she or him/her.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -333,7 +392,13 @@ export const topics: Topic[] = [
         title: "at / in / on for time",
         summary: "at = precise point. in = larger blocks. on = specific days and dates. ",
         explanation: "at = precise point. in = larger blocks. on = specific days and dates. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “at / in / on for time”.",
+            solution: "From the notes: at = precise point. in = larger blocks. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "at = precise point.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -342,7 +407,13 @@ export const topics: Topic[] = [
         title: "Conjunction redundancy",
         summary: "Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Use one connector, not…",
         explanation: "Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Use one connector, not both. The same rule applies to while + but, since + so, and other subordinate + coordinating pairs. The diagnostic: if the subordinate conjunction already establishes the relationship, do not add a coordinating conjunction that says the same thing.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Conjunction redundancy”.",
+            solution: "From the notes: Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Although already signals contrast; adding but is redundant.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -351,7 +422,13 @@ export const topics: Topic[] = [
         title: "Correlative parallelism",
         summary: "Correlative conjunctions (both…and, either…or, neither…nor, not only…but also) come in PAIRS and demand PARALLEL structure on both sides. ",
         explanation: "Correlative conjunctions (both…and, either…or, neither…nor, not only…but also) come in PAIRS and demand PARALLEL structure on both sides. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Correlative parallelism”.",
+            solution: "From the notes: Correlative conjunctions (bothâ¦and, eitherâ¦or, neitherâ¦nor, not onlyâ¦but also) come in PAIRS and demand PARALLEL structure on both sides. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Correlative conjunctions (bothâ¦and, eitherâ¦or, neitherâ¦nor, not onlyâ¦but also) come in PAIRS and demand PARALLEL structure on both sides.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -360,7 +437,13 @@ export const topics: Topic[] = [
         title: "Link forward",
         summary: "Pronoun case and agreement rest on subject/object identification from A1–A2. Prepositional phrases are the same distractors that appear in…",
         explanation: "Pronoun case and agreement rest on subject/object identification from A1–A2. Prepositional phrases are the same distractors that appear in agreement. Conjunctions determine the clause boundaries that later sentence-structure topics will exploit. A4 (Modals, Voice, Narration) reuses the relative pronouns (who, which, that) for sentence combination. A5 (Common Errors) heavily tests fixed prepositions (discuss ABOUT, married WITH, different THAN, prefer X THAN) — most of these errors live in this chapter.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Link forward”.",
+            solution: "From the notes: Pronoun case and agreement rest on subject/object identification from A1âA2. Prepositional phrases are the same distractors that appear in agreement. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Pronoun case and agreement rest on subject/object identification from A1âA2.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -465,7 +548,13 @@ export const topics: Topic[] = [
         title: "Modal perfects",
         summary: "must have left = I am sure he left. should have informed = you did not, but it was advisable. could have helped = it was possible but did…",
         explanation: "must have left = I am sure he left. should have informed = you did not, but it was advisable. could have helped = it was possible but did not happen. may/might have missed = it is possible that he missed. These four patterns are tested repeatedly. Mnemonic: modal + HAVE + PAST PARTICIPLE = past situation viewed through the modal\'s meaning. The modal keeps its MEANING (advice, deduction, possibility); HAVE+PP moves the action to the past.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Modal perfects”.",
+            solution: "From the notes: must have left = I am sure he left. should have informed = you did not, but it was advisable. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "must have left = I am sure he left.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -474,7 +563,13 @@ export const topics: Topic[] = [
         title: "Passive — when and when not",
         summary: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive…",
         explanation: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive because they have no object: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Passive — when and when not”.",
+            solution: "From the notes: Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive because they have no object: Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -483,7 +578,13 @@ export const topics: Topic[] = [
         title: "Two-object verbs in the passive",
         summary: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either…",
         explanation: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either can become the passive subject. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Two-object verbs in the passive”.",
+            solution: "From the notes: Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either can become the passive subject. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -492,7 +593,13 @@ export const topics: Topic[] = [
         title: "Reported speech is mechanical",
         summary: "Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for ",
         explanation: "Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Reported speech is mechanical”.",
+            solution: "From the notes: Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Once the reporting verb is past, the back-shift is automatic.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -501,7 +608,13 @@ export const topics: Topic[] = [
         title: "Commands, questions and exclamations in reported form",
         summary: "Commands (imperatives): ",
         explanation: "Commands (imperatives): ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Commands, questions and exclamations in reported form”.",
+            solution: "From the notes: Commands (imperatives): Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Commands (imperatives):",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -510,7 +623,13 @@ export const topics: Topic[] = [
         title: "say vs tell",
         summary: "SAY + optional ",
         explanation: "SAY + optional ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “say vs tell”.",
+            solution: "From the notes: SAY + optional Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "SAY + optional",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -519,7 +638,13 @@ export const topics: Topic[] = [
         title: "Link forward",
         summary: "Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there.…",
         explanation: "Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there. Common-error questions (A5) frequently test modal mistakes (can + to, can + ing, must + -s) and passive mistakes (showed vs shown, was happened). B-section vocabulary often uses modal idioms (",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Link forward”.",
+            solution: "From the notes: Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Modals and passive forms rest on the verb knowledge from A1.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -626,7 +751,13 @@ export const topics: Topic[] = [
         title: "Four families of error",
         summary: "Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Order (hardly I had). Comparison or structure…",
         explanation: "Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Order (hardly I had). Comparison or structure (prefer X than Y, senior than). Treating the errors as families makes revision efficient and reveals patterns that single lists hide.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Four families of error”.",
+            solution: "From the notes: Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Form (affect/effect, real/really).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -635,7 +766,13 @@ export const topics: Topic[] = [
         title: "Affect / effect — substitution test",
         summary: "If you can replace the word with ",
         explanation: "If you can replace the word with ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Affect / effect — substitution test”.",
+            solution: "From the notes: If you can replace the word with Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "If you can replace the word with",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -644,7 +781,13 @@ export const topics: Topic[] = [
         title: "Fixed prepositions and no-preposition verbs",
         summary: "Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from,…",
         explanation: "Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from, according to, senior to are fixed phrases that must be memorised; logic does not reliably predict them. Other fixed prepositions: depend ON, insist ON, believe IN, succeed IN, angry WITH, similar TO, fond OF, afraid OF, interested IN, capable OF, aware OF, accustomed TO, devoted TO, prefer X TO Y.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Fixed prepositions and no-preposition verbs”.",
+            solution: "From the notes: Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from, according to, senior to are fixed phrases that must be memorised; logic does not reliably predict them. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Discuss, enter, resemble, approach and several others take a direct object with no preposition.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -653,7 +796,13 @@ export const topics: Topic[] = [
         title: "Inversion after negative adverbials",
         summary: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: ",
         explanation: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Inversion after negative adverbials”.",
+            solution: "From the notes: When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject:",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -662,7 +811,13 @@ export const topics: Topic[] = [
         title: "Gerund vs infinitive verb patterns",
         summary: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): ",
         explanation: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Gerund vs infinitive verb patterns”.",
+            solution: "From the notes: GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk):",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -671,7 +826,13 @@ export const topics: Topic[] = [
         title: "Tricky verb pairs — lie/lay, rise/raise, sit/set",
         summary: "LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Past of LIE is ",
         explanation: "LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Past of LIE is ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Tricky verb pairs — lie/lay, rise/raise, sit/set”.",
+            solution: "From the notes: LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "LIE (intransitive, to recline): lie, lay, lain, lying.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -680,7 +841,13 @@ export const topics: Topic[] = [
         title: "Consolidation role of A5",
         summary: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and…",
         explanation: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4). A5 is therefore both a high-yield exam topic and a revision chapter for the whole module. The error list here should be reviewed as a reference sheet before exams — re-read it once and it passes.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Consolidation role of A5”.",
+            solution: "From the notes: Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4). A5 is therefore both a high-yield exam topic and a revision chapter for the whole module. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -805,7 +972,13 @@ export const topics: Topic[] = [
         title: "Substitution beats intuition — the universal method",
         summary: "When two options look similar, insert each one into the original sentence. The option that keeps the sentence grammatical, logical, and…",
         explanation: "When two options look similar, insert each one into the original sentence. The option that keeps the sentence grammatical, logical, and natural is almost always correct. Pure ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Substitution beats intuition — the universal method”.",
+            solution: "From the notes: When two options look similar, insert each one into the original sentence. The option that keeps the sentence grammatical, logical, and natural is almost always correct. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "When two options look similar, insert each one into the original sentence.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -814,7 +987,13 @@ export const topics: Topic[] = [
         title: "Antonyms — negation first, then match",
         summary: "Antonym questions require you to find the STRONGEST opposite. The method: (1) Identify the core meaning of the original word (",
         explanation: "Antonym questions require you to find the STRONGEST opposite. The method: (1) Identify the core meaning of the original word (",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Antonyms — negation first, then match”.",
+            solution: "From the notes: Antonym questions require you to find the STRONGEST opposite. The method: (1) Identify the core meaning of the original word ( Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Antonym questions require you to find the STRONGEST opposite.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -823,7 +1002,13 @@ export const topics: Topic[] = [
         title: "Confusables — the substitution test for each pair",
         summary: "For each confusable pair, run the same test — substitute one, then the other, into a sample sentence. AFFECT/EFFECT: ",
         explanation: "For each confusable pair, run the same test — substitute one, then the other, into a sample sentence. AFFECT/EFFECT: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Confusables — the substitution test for each pair”.",
+            solution: "From the notes: For each confusable pair, run the same test â substitute one, then the other, into a sample sentence. AFFECT/EFFECT: Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "For each confusable pair, run the same test â substitute one, then the other, into a sample sentence.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -832,7 +1017,13 @@ export const topics: Topic[] = [
         title: "Domain vocabulary — the BS-17 high-yield list",
         summary: "BS-17 papers disproportionately test weather, climate, and environmental vocabulary. Memorize these in pairs: ABATE (subside, decrease) /…",
         explanation: "BS-17 papers disproportionately test weather, climate, and environmental vocabulary. Memorize these in pairs: ABATE (subside, decrease) / INTENSIFY (grow stronger); MITIGATE (make less severe) / AGGRAVATE (make worse) / EXACERBATE (formal: make worse); HUMID (moist air) / ARID (dry); EMPIRICAL (based on observation/evidence) / THEORETICAL (based on theory); CORRELATION (statistical association) / CAUSATION (A causes B — the much stronger claim). Words like precipitation, condensation, evaporation, atmosphere, monsoon, drought, and forecasting appear repeatedly. Knowing these in a sentence context is far more useful than memorizing long general synonym lists.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Domain vocabulary — the BS-17 high-yield list”.",
+            solution: "From the notes: BS-17 papers disproportionately test weather, climate, and environmental vocabulary. Memorize these in pairs: ABATE (subside, decrease) / INTENSIFY (grow stronger); MITIGATE (make less severe) / AGGRAVATE (make worse) / EXACERBATE (formal: make worse); HUMID (moist air) / ARID (dry); EMPIRICAL (based on observation/evidence) / THEORETICAL (based on theory); CORRELATION (statistical association) / CAUSATION (A causes B â the much stronger claim). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "BS-17 papers disproportionately test weather, climate, and environmental vocabulary.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -841,7 +1032,13 @@ export const topics: Topic[] = [
         title: "How B1 connects to upcoming topics",
         summary: "B1 sets the foundation for the rest of Module B and the C-section. B2 (Idioms & Phrases) reuses the substitution method for unfamiliar…",
         explanation: "B1 sets the foundation for the rest of Module B and the C-section. B2 (Idioms & Phrases) reuses the substitution method for unfamiliar idioms. B3 (Word Formation & Contextual Vocabulary) reuses context substitution for unknown technical words. C-section (Sentence Completion & Rearrangement) depends on this vocabulary for fill-in-the-blank items. The confusables list overlaps with Module A\'s common-error chapter (affect/effect, principal/principle appear in both) — once mastered here, you\'ve covered both modules. The domain vocabulary list overlaps with meteorology, environment, and research-analysis topics elsewhere in the subject bank.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How B1 connects to upcoming topics”.",
+            solution: "From the notes: B1 sets the foundation for the rest of Module B and the C-section. B2 (Idioms & Phrases) reuses the substitution method for unfamiliar idioms. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "B1 sets the foundation for the rest of Module B and the C-section.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -966,7 +1163,13 @@ export const topics: Topic[] = [
         title: "Idioms are arbitrary — memorise in sentences",
         summary: "Unlike many vocabulary items, idioms cannot be reasoned out from the words themselves. ",
         explanation: "Unlike many vocabulary items, idioms cannot be reasoned out from the words themselves. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Idioms are arbitrary — memorise in sentences”.",
+            solution: "From the notes: Unlike many vocabulary items, idioms cannot be reasoned out from the words themselves. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Unlike many vocabulary items, idioms cannot be reasoned out from the words themselves.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -975,7 +1178,13 @@ export const topics: Topic[] = [
         title: "Elimination strategy for unknown idioms",
         summary: "If you encounter an idiom you have never seen, do not panic. Read the WHOLE sentence and eliminate options that cannot fit the context.…",
         explanation: "If you encounter an idiom you have never seen, do not panic. Read the WHOLE sentence and eliminate options that cannot fit the context. Worked example: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Elimination strategy for unknown idioms”.",
+            solution: "From the notes: If you encounter an idiom you have never seen, do not panic. Read the WHOLE sentence and eliminate options that cannot fit the context. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "If you encounter an idiom you have never seen, do not panic.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -984,7 +1193,13 @@ export const topics: Topic[] = [
         title: "Near-synonym idioms — the confusion list",
         summary: "Some idioms look similar but have subtle differences. (a) Spill the beans vs let the cat out of the bag — both = reveal a secret. Modern…",
         explanation: "Some idioms look similar but have subtle differences. (a) Spill the beans vs let the cat out of the bag — both = reveal a secret. Modern usage treats them as interchangeable; FPSC papers do not test the difference. (b) Bite the bullet vs face the music — both = confront difficulty. Bite the bullet = accept bravely (voluntary); face the music = accept consequences (involuntary). ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Near-synonym idioms — the confusion list”.",
+            solution: "From the notes: Some idioms look similar but have subtle differences. (a) Spill the beans vs let the cat out of the bag â both = reveal a secret. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Some idioms look similar but have subtle differences.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -993,7 +1208,13 @@ export const topics: Topic[] = [
         title: "Common idiom traps in FPSC papers",
         summary: "Three traps appear frequently. (1) Literal vs idiomatic — the test sometimes includes the literal meaning as an option. Always choose the…",
         explanation: "Three traps appear frequently. (1) Literal vs idiomatic — the test sometimes includes the literal meaning as an option. Always choose the IDIOMATIC meaning in formal exam contexts. (2) Partial idiom — test gives an idiom partially and asks you to complete it. Memorise the EXACT phrase, not just the gist. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Common idiom traps in FPSC papers”.",
+            solution: "From the notes: Three traps appear frequently. (1) Literal vs idiomatic â the test sometimes includes the literal meaning as an option. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Three traps appear frequently.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1002,7 +1223,13 @@ export const topics: Topic[] = [
         title: "How B2 connects to upcoming topics",
         summary: "Idioms show up not only as pure vocabulary items (B2 MCQs) but also embedded in longer sentence-completion and sentence-insertion questions…",
         explanation: "Idioms show up not only as pure vocabulary items (B2 MCQs) but also embedded in longer sentence-completion and sentence-insertion questions (C-section). The same contextual-elimination skill is applied in B3 (Word Formation & Contextual Vocabulary). C-section sentence-rearrangement questions often include idiom chunks that must be placed correctly. Master the high-priority list with sample sentences and you\'ll recognise idioms in any context they appear. The substitution and elimination methods are also useful in research-analysis passages where idiomatic phrases sometimes appear in quoted speech.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How B2 connects to upcoming topics”.",
+            solution: "From the notes: Idioms show up not only as pure vocabulary items (B2 MCQs) but also embedded in longer sentence-completion and sentence-insertion questions (C-section). The same contextual-elimination skill is applied in B3 (Word Formation & Contextual Vocabulary). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Idioms show up not only as pure vocabulary items (B2 MCQs) but also embedded in longer sentence-completion and sentence-insertion questions (C-section).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1097,7 +1324,13 @@ export const topics: Topic[] = [
         title: "Word formation as a free mark source",
         summary: "Even when you have never seen a particular word, its parts often reveal the meaning. Worked examples: HYDROLOGY = hydro- (water) + -ology…",
         explanation: "Even when you have never seen a particular word, its parts often reveal the meaning. Worked examples: HYDROLOGY = hydro- (water) + -ology (study of) = the study of water. UNSUSTAINABILITY = un- (not) + sustain (continue) + -able (capable of) + -ility (quality) = the quality of not being sustainable. ANTIBIOTIC = anti- (against) + bio (life) + -tic (relating to) = against life (of the bacteria). A modest list of prefixes (anti-, auto-, bio-, de-, dis-, hydro-, inter-, pre-, re-, sub-, trans-, un-), suffixes (-tion, -ment, -ity, -ology, -able, -ous, -ive, -ful, -less), and roots (aqua, bio, geo, graph, meter, photo, therm, sphere) unlocks hundreds of academic terms. This skill is especially valuable for scientific and environmental vocabulary that appears repeatedly in BS-17 papers.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Word formation as a free mark source”.",
+            solution: "From the notes: Even when you have never seen a particular word, its parts often reveal the meaning. Worked examples: HYDROLOGY = hydro- (water) + -ology (study of) = the study of water. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Even when you have never seen a particular word, its parts often reveal the meaning.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1106,7 +1339,13 @@ export const topics: Topic[] = [
         title: "Context substitution is the universal fallback",
         summary: "When formation does not help, insert each answer choice into the original sentence. Worked example: ",
         explanation: "When formation does not help, insert each answer choice into the original sentence. Worked example: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Context substitution is the universal fallback”.",
+            solution: "From the notes: When formation does not help, insert each answer choice into the original sentence. Worked example: Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "When formation does not help, insert each answer choice into the original sentence.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1115,7 +1354,13 @@ export const topics: Topic[] = [
         title: "Grammar check — the half-option technique",
         summary: "Before choosing a word, check what GRAMMATICAL FORM the blank requires. If the blank is ",
         explanation: "Before choosing a word, check what GRAMMATICAL FORM the blank requires. If the blank is ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Grammar check — the half-option technique”.",
+            solution: "From the notes: Before choosing a word, check what GRAMMATICAL FORM the blank requires. If the blank is Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Before choosing a word, check what GRAMMATICAL FORM the blank requires.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1124,7 +1369,13 @@ export const topics: Topic[] = [
         title: "Scientific vocabulary — the BS-19 pre-baked list",
         summary: "BS-19 papers lean on academic and scientific vocabulary. Words formed from the listed prefixes/suffixes/roots dominate: meteorology,…",
         explanation: "BS-19 papers lean on academic and scientific vocabulary. Words formed from the listed prefixes/suffixes/roots dominate: meteorology, climatology, hydrology (study of weather/climate/water); atmospheric, environmental, agricultural, sustainable (relating to environments/farming); condensation, precipitation, evaporation (water cycle/transitions); hydrograph, barometer, thermometer, seismograph (instruments that write/measure something); biodegradable, sustainable, intensive (qualities of systems). Knowing these in context — for example, ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Scientific vocabulary — the BS-19 pre-baked list”.",
+            solution: "From the notes: BS-19 papers lean on academic and scientific vocabulary. Words formed from the listed prefixes/suffixes/roots dominate: meteorology, climatology, hydrology (study of weather/climate/water); atmospheric, environmental, agricultural, sustainable (relating to environments/farming); condensation, precipitation, evaporation (water cycle/transitions); hydrograph, barometer, thermometer, seismograph (instruments that write/measure something); biodegradable, sustainable, intensive (qualities of systems). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "BS-19 papers lean on academic and scientific vocabulary.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1133,7 +1384,13 @@ export const topics: Topic[] = [
         title: "How B3 connects to upcoming topics",
         summary: "Word-formation knowledge supports synonym/antonym questions (B1) and sentence-completion items (C-section). Contextual substitution is the…",
         explanation: "Word-formation knowledge supports synonym/antonym questions (B1) and sentence-completion items (C-section). Contextual substitution is the same skill used for confusables (B1) and idioms (B2). The same scientific vocabulary reappears in reading passages and in cross-subject topics elsewhere in the bank: env-international-climate-policy, env-ozone-depletion, meteo-pakistan-nccp, and ra-scientific-reporting all use the same technical vocabulary. Master the prefix/suffix/root lists once and they unlock vocabulary across English, environment, and meteorology — efficient cross-subject study.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How B3 connects to upcoming topics”.",
+            solution: "From the notes: Word-formation knowledge supports synonym/antonym questions (B1) and sentence-completion items (C-section). Contextual substitution is the same skill used for confusables (B1) and idioms (B2). Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Word-formation knowledge supports synonym/antonym questions (B1) and sentence-completion items (C-section).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1419,7 +1676,13 @@ export const topics: Topic[] = [
         title: "The phrase-vs-clause test — the one diagnostic that fixes every structural error",
         summary: "The single most useful test in English grammar asks two questions of any word group. (1) Is there a SUBJECT? (2) Is there a FINITE VERB…",
         explanation: "The single most useful test in English grammar asks two questions of any word group. (1) Is there a SUBJECT? (2) Is there a FINITE VERB (one that changes with tense: is, was, will be, has, did)? Both present → CLAUSE. One or both missing → PHRASE. Apply this first; everything else is downstream of it. Worked examples: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The phrase-vs-clause test — the one diagnostic that fixes every structural error”.",
+            solution: "From the notes: The single most useful test in English grammar asks two questions of any word group. (1) Is there a SUBJECT? Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "The single most useful test in English grammar asks two questions of any word group.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1428,7 +1691,13 @@ export const topics: Topic[] = [
         title: "The eight phrase types — what they look like and how to recognise each",
         summary: "Phrases are NOT all the same; they play different roles in sentences. (1) NOUN phrase: a noun + its modifiers — ",
         explanation: "Phrases are NOT all the same; they play different roles in sentences. (1) NOUN phrase: a noun + its modifiers — ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The eight phrase types — what they look like and how to recognise each”.",
+            solution: "From the notes: Phrases are NOT all the same; they play different roles in sentences. (1) NOUN phrase: a noun + its modifiers â Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Phrases are NOT all the same; they play different roles in sentences.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1437,7 +1706,13 @@ export const topics: Topic[] = [
         title: "The three subordinate-clause functions — how to tell which is which",
         summary: "A dependent clause can perform three distinct jobs. (1) ADVERBIAL clause — answers when, why, how, or under what condition. It opens with a…",
         explanation: "A dependent clause can perform three distinct jobs. (1) ADVERBIAL clause — answers when, why, how, or under what condition. It opens with a subordinator of time (when, after, before), cause (because, since), concession (although, though), purpose (so that), or condition (if, unless). ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The three subordinate-clause functions — how to tell which is which”.",
+            solution: "From the notes: A dependent clause can perform three distinct jobs. (1) ADVERBIAL clause â answers when, why, how, or under what condition. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "A dependent clause can perform three distinct jobs.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1446,7 +1721,13 @@ export const topics: Topic[] = [
         title: "Fragments — three common forms and the fix for each",
         summary: "A FRAGMENT is a phrase or dependent clause punctuated as if it were a sentence. Three forms appear most often. (1) PARTICIPIAL phrase as…",
         explanation: "A FRAGMENT is a phrase or dependent clause punctuated as if it were a sentence. Three forms appear most often. (1) PARTICIPIAL phrase as fragment: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Fragments — three common forms and the fix for each”.",
+            solution: "From the notes: A FRAGMENT is a phrase or dependent clause punctuated as if it were a sentence. Three forms appear most often. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "A FRAGMENT is a phrase or dependent clause punctuated as if it were a sentence.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1455,7 +1736,13 @@ export const topics: Topic[] = [
         title: "Defining vs non-defining relative clauses — when to use commas",
         summary: "RELATIVE clauses split into two categories that look identical until you test them. (1) DEFINING (restrictive) — narrows down WHICH noun is…",
         explanation: "RELATIVE clauses split into two categories that look identical until you test them. (1) DEFINING (restrictive) — narrows down WHICH noun is meant; NO commas; the meaning is ESSENTIAL. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Defining vs non-defining relative clauses — when to use commas”.",
+            solution: "From the notes: RELATIVE clauses split into two categories that look identical until you test them. (1) DEFINING (restrictive) â narrows down WHICH noun is meant; NO commas; the meaning is ESSENTIAL. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "RELATIVE clauses split into two categories that look identical until you test them.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1464,7 +1751,13 @@ export const topics: Topic[] = [
         title: "How C1 connects to the rest of the module",
         summary: "C1 is the foundation for every later chapter in Module C and feeds back into Module A. C2 (Sentence Types & Errors) uses the…",
         explanation: "C1 is the foundation for every later chapter in Module C and feeds back into Module A. C2 (Sentence Types & Errors) uses the phrase-vs-clause test to identify fragments, run-ons, comma splices, and dangling modifiers. C3 (Completion, Rearrangement, Combining) requires you to see clause structure to choose the right grammatical slot (completion), identify the topic sentence (rearrangement), and join sentences without creating errors. Even Module A benefits: agreement requires identifying the subject (often inside a phrase); voice change requires identifying the object (inside a clause); reported speech requires identifying what is independent vs dependent. Master the phrase-vs-clause diagnostic and you will recognise structural errors everywhere they appear.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How C1 connects to the rest of the module”.",
+            solution: "From the notes: C1 is the foundation for every later chapter in Module C and feeds back into Module A. C2 (Sentence Types & Errors) uses the phrase-vs-clause test to identify fragments, run-ons, comma splices, and dangling modifiers. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "C1 is the foundation for every later chapter in Module C and feeds back into Module A.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1826,7 +2119,13 @@ export const topics: Topic[] = [
         title: "The four structure types — recognise each by counting clauses",
         summary: "To classify a sentence, count its INDEPENDENT clauses (subject + finite verb + can stand alone) and its DEPENDENT clauses (subject + finite…",
         explanation: "To classify a sentence, count its INDEPENDENT clauses (subject + finite verb + can stand alone) and its DEPENDENT clauses (subject + finite verb + subordinator at the start). The combination tells you the type. (1) SIMPLE: 1 IC + 0 DCs. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The four structure types — recognise each by counting clauses”.",
+            solution: "From the notes: To classify a sentence, count its INDEPENDENT clauses (subject + finite verb + can stand alone) and its DEPENDENT clauses (subject + finite verb + subordinator at the start). The combination tells you the type. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "To classify a sentence, count its INDEPENDENT clauses (subject + finite verb + can stand alone) and its DEPENDENT clauses (subject + finite verb + subordinator at the start).",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1835,7 +2134,13 @@ export const topics: Topic[] = [
         title: "The four classic construction errors and how to fix each",
         summary: "Each error has a defined diagnostic and a defined fix. FRAGMENT — phrase or dependent clause written as a sentence. Fix: attach the…",
         explanation: "Each error has a defined diagnostic and a defined fix. FRAGMENT — phrase or dependent clause written as a sentence. Fix: attach the fragment to a neighbouring main clause (",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “The four classic construction errors and how to fix each”.",
+            solution: "From the notes: Each error has a defined diagnostic and a defined fix. FRAGMENT â phrase or dependent clause written as a sentence. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Each error has a defined diagnostic and a defined fix.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1844,7 +2149,13 @@ export const topics: Topic[] = [
         title: "Misplaced vs dangling modifiers — the placement test",
         summary: "Both errors attach descriptive phrases to the wrong place. (1) MISPLACED: the modifier is placed too far from the noun it modifies,…",
         explanation: "Both errors attach descriptive phrases to the wrong place. (1) MISPLACED: the modifier is placed too far from the noun it modifies, creating ambiguity. ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Misplaced vs dangling modifiers — the placement test”.",
+            solution: "From the notes: Both errors attach descriptive phrases to the wrong place. (1) MISPLACED: the modifier is placed too far from the noun it modifies, creating ambiguity. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Both errors attach descriptive phrases to the wrong place.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1853,7 +2164,13 @@ export const topics: Topic[] = [
         title: "Transformation — controlled rewriting preserves meaning",
         summary: "Five common transformation types. (1) ACTIVE → PASSIVE: move the object to subject position; verb → be + past participle; optional ",
         explanation: "Five common transformation types. (1) ACTIVE → PASSIVE: move the object to subject position; verb → be + past participle; optional ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Transformation — controlled rewriting preserves meaning”.",
+            solution: "From the notes: Five common transformation types. (1) ACTIVE â PASSIVE: move the object to subject position; verb â be + past participle; optional Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Five common transformation types.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1862,7 +2179,13 @@ export const topics: Topic[] = [
         title: "How C2 connects to upcoming topics",
         summary: "C2 builds on C1\\'s phrase/clause diagnostic and feeds directly into C3. C3 (Completion, Rearrangement, Combining) uses the four-structure…",
         explanation: "C2 builds on C1\'s phrase/clause diagnostic and feeds directly into C3. C3 (Completion, Rearrangement, Combining) uses the four-structure classification (simple / compound / complex / compound-complex) for combining tasks, the parallel-structure rule for completion, and the four-error diagnostic for spotting problems in jumbled paragraphs. The skills also transfer to research-analysis writing (ra-scientific-reporting) where transforming active to passive and combining choppy data sentences are routine. Master the four-error fix list (fragment, run-on, comma splice, modifier) and the transformation table (active ↔ passive, simple ↔ compound ↔ complex), and you will handle every construction-error question in FPSC papers.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How C2 connects to upcoming topics”.",
+            solution: "From the notes: C2 builds on C1's phrase/clause diagnostic and feeds directly into C3. C3 (Completion, Rearrangement, Combining) uses the four-structure classification (simple / compound / complex / compound-complex) for combining tasks, the parallel-structure rule for completion, and the four-error diagnostic for spotting problems in jumbled paragraphs. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "C2 builds on C1's phrase/clause diagnostic and feeds directly into C3.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2157,7 +2480,13 @@ export const topics: Topic[] = [
         title: "Completion — four filters in order",
         summary: "Apply filters in this sequence for speed and accuracy. (1) GRAMMAR / SLOT: read the whole sentence and identify what kind of word fills the…",
         explanation: "Apply filters in this sequence for speed and accuracy. (1) GRAMMAR / SLOT: read the whole sentence and identify what kind of word fills the blank — noun, verb, adjective, adverb, preposition, conjunction. The slot defines the grammatical category. (2) AGREEMENT and FORM: if the slot needs a singular noun, eliminate plural options; if past tense, remove present and future options. (3) WORD CLASS fit: even if the option is the right part of speech, check it agrees with surrounding grammar (e.g., the determiner ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Completion — four filters in order”.",
+            solution: "From the notes: Apply filters in this sequence for speed and accuracy. (1) GRAMMAR / SLOT: read the whole sentence and identify what kind of word fills the blank â noun, verb, adjective, adverb, preposition, conjunction. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Apply filters in this sequence for speed and accuracy.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2166,7 +2495,13 @@ export const topics: Topic[] = [
         title: "Rearrangement — start with the topic sentence",
         summary: "The opening sentence of a coherent paragraph almost never begins with a REFERRING pronoun (",
         explanation: "The opening sentence of a coherent paragraph almost never begins with a REFERRING pronoun (",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Rearrangement — start with the topic sentence”.",
+            solution: "From the notes: The opening sentence of a coherent paragraph almost never begins with a REFERRING pronoun ( Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "The opening sentence of a coherent paragraph almost never begins with a REFERRING pronoun (",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2175,7 +2510,13 @@ export const topics: Topic[] = [
         title: "Combining — five techniques to merge short sentences",
         summary: "Two short, related sentences can be joined using one of five techniques. Choose the technique that best preserves emphasis and rhythm. (a)…",
         explanation: "Two short, related sentences can be joined using one of five techniques. Choose the technique that best preserves emphasis and rhythm. (a) SUBORDINATION — make one sentence a dependent clause using a subordinator: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Combining — five techniques to merge short sentences”.",
+            solution: "From the notes: Two short, related sentences can be joined using one of five techniques. Choose the technique that best preserves emphasis and rhythm. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Two short, related sentences can be joined using one of five techniques.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2184,7 +2525,13 @@ export const topics: Topic[] = [
         title: "Five common paragraph patterns to recognise",
         summary: "Five patterns appear repeatedly in FPSC papers. (1) CHRONOLOGICAL: events in time order — First… Then… Finally. (2) CAUSE-EFFECT: A causes…",
         explanation: "Five patterns appear repeatedly in FPSC papers. (1) CHRONOLOGICAL: events in time order — First… Then… Finally. (2) CAUSE-EFFECT: A causes B — Because/Since X, Y. Therefore/Consequently. (3) PROBLEM-SOLUTION: problem stated → solution proposed. (4) COMPARE-CONTRAST: two ideas compared — Similarly/However/In contrast. (5) GENERAL-TO-SPECIFIC: broad statement → specific examples (For example / For instance). Recognising which pattern the jumbled paragraph follows lets you arrange sentences logically even without reading each one in detail. The connectors and pronoun references almost always fit one of these five patterns. When in doubt, ask: what is the paragraph trying to do — tell a story, explain a cause, propose a fix, compare ideas, or illustrate a concept?",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Five common paragraph patterns to recognise”.",
+            solution: "From the notes: Five patterns appear repeatedly in FPSC papers. (1) CHRONOLOGICAL: events in time order â Firstâ¦ Thenâ¦ Finally. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Five patterns appear repeatedly in FPSC papers.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2193,7 +2540,13 @@ export const topics: Topic[] = [
         title: "Combining — choosing the right technique",
         summary: "Not all combinations are equally effective. Choose based on three principles. (1) EMPHASIS: the more important idea goes in the INDEPENDENT…",
         explanation: "Not all combinations are equally effective. Choose based on three principles. (1) EMPHASIS: the more important idea goes in the INDEPENDENT clause (the one that can stand alone); the less important idea goes in the DEPENDENT clause. (2) RHYTHM: too many short simple sentences sound choppy; vary with complex structures. (3) SUBJECT MATCH: if both sentences have the SAME subject, a participial phrase works well; if subjects DIFFER, use subordination or coordination. Worked example: ",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “Combining — choosing the right technique”.",
+            solution: "From the notes: Not all combinations are equally effective. Choose based on three principles. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "Not all combinations are equally effective.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2202,7 +2555,13 @@ export const topics: Topic[] = [
         title: "How C3 connects to the rest of the module and the exam",
         summary: "C3 is the integrative chapter — it pulls together everything from C1, C2, and even Module A. Completion requires the phrase / clause…",
         explanation: "C3 is the integrative chapter — it pulls together everything from C1, C2, and even Module A. Completion requires the phrase / clause diagnostic from C1 to identify the slot, and the error-fixing rules from C2 to detect problems in jumbled paragraphs. Rearrangement requires structural recognition (simple / compound / complex) and the modifier rules from C1. Combining uses subordination, coordination, and participial phrases — all taught in C2. C3 skills transfer to research-analysis writing (ra-scientific-reporting) where combining choppy data sentences is a routine task, and to environmental-science passages where general-to-specific structures dominate. Master the four completion filters and the three rearrangement signals (topic sentence + connectors + pronoun chains), and you will handle every integrative English question in FPSC papers.",
-        examples: [],
+                examples: [
+          {
+            problem: "Choose the option that correctly applies the idea in “How C3 connects to the rest of the module and the exam”.",
+            solution: "From the notes: C3 is the integrative chapter â it pulls together everything from C1, C2, and even Module A. Completion requires the phrase / clause diagnostic from C1 to identify the slot, and the error-fixing rules from C2 to detect problems in jumbled paragraphs. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "C3 is the integrative chapter â it pulls together everything from C1, C2, and even Module A.",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },

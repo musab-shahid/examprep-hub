@@ -59,7 +59,18 @@ export const topics: Topic[] = [
         title: "Why falsifiability matters",
         summary: "The hallmark of science is FALSIFIABILITY — a hypothesis must be capable of being proven wrong by evidence. 'It is what it is' or…",
         explanation: "The hallmark of science is FALSIFIABILITY — a hypothesis must be capable of being proven wrong by evidence. 'It is what it is' or 'supernatural forces did it' are not scientific because they cannot be tested. The hypothesis 'all swans are white' is testable and was falsified when black swans were found in Australia. This is what separates science from non-science.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why falsifiability matters”?",
+            solution: "The accurate idea is: The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why falsifiability matters.",
+            solution: "Stay close to the text: The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence. 'It is what it is' or 'supernatural forces did it' are not scientific because they cannot be tested. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -68,7 +79,18 @@ export const topics: Topic[] = [
         title: "Variables — the three types",
         summary: "INDEPENDENT variable: what the researcher MANIPULATES (the cause — e.g., amount of fertilizer). DEPENDENT variable: what is MEASURED (the…",
         explanation: "INDEPENDENT variable: what the researcher MANIPULATES (the cause — e.g., amount of fertilizer). DEPENDENT variable: what is MEASURED (the effect — e.g., plant growth). CONTROLLED variables: held CONSTANT (e.g., same soil, same light, same water) to isolate the independent variable's effect. EXTRANEOUS (confounding) variables: unintended factors that vary and affect the dependent variable, threatening the study's validity. Good experimental design controls or accounts for extraneous variables.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Variables — the three types”?",
+            solution: "The accurate idea is: INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Variables — the three types.",
+            solution: "Stay close to the text: INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer). DEPENDENT variable: what is MEASURED (the effect â e.g., plant growth). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -77,7 +99,18 @@ export const topics: Topic[] = [
         title: "Deductive vs Inductive vs Abductive reasoning",
         summary: "DEDUCTIVE: starts with a general principle and derives specific predictions (theory → specific). INDUCTIVE: starts with specific…",
         explanation: "DEDUCTIVE: starts with a general principle and derives specific predictions (theory → specific). INDUCTIVE: starts with specific observations and forms a general conclusion (observations → theory). ABDUCTIVE: starts with observations and infers the BEST EXPLANATION among competing possibilities (most likely cause). The scientific method often uses all three: abductive to generate hypotheses, deductive to make testable predictions, inductive to build theories from repeated results.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Deductive vs Inductive vs Abductive reasoning”?",
+            solution: "The accurate idea is: DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Deductive vs Inductive vs Abductive reasoning.",
+            solution: "Stay close to the text: DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific). INDUCTIVE: starts with specific observations and forms a general conclusion (observations â theory). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -140,7 +173,18 @@ export const topics: Topic[] = [
         title: "Quantitative vs Qualitative vs Mixed",
         summary: "QUANTITATIVE research deals with numbers and statistics — temperature readings, rainfall measurements, survey counts. QUALITATIVE deals…",
         explanation: "QUANTITATIVE research deals with numbers and statistics — temperature readings, rainfall measurements, survey counts. QUALITATIVE deals with words, themes, and meanings — interview transcripts, behavioral observations, cultural interpretations. MIXED METHODS combines both — e.g., a survey of climate attitudes (quantitative) PLUS follow-up interviews (qualitative). The choice depends on your research question: 'how many' = quantitative; 'why/how' = qualitative; both = mixed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Quantitative vs Qualitative vs Mixed”?",
+            solution: "The accurate idea is: QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Quantitative vs Qualitative vs Mixed.",
+            solution: "Stay close to the text: QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts. QUALITATIVE deals with words, themes, and meanings â interview transcripts, behavioral observation… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -149,7 +193,18 @@ export const topics: Topic[] = [
         title: "Sampling methods — which to use when",
         summary: "SIMPLE RANDOM: every member equal chance (best for generalizability, needs complete list). SYSTEMATIC: every kth member (good for ordered…",
         explanation: "SIMPLE RANDOM: every member equal chance (best for generalizability, needs complete list). SYSTEMATIC: every kth member (good for ordered lists, e.g., every 10th customer). STRATIFIED: random within subgroups (best for heterogeneous populations, e.g., by gender/age). CLUSTER: random clusters (good for geographically spread populations, e.g., random villages). CONVENIENCE: easily accessible (fast but biased). SNOWBALL: referrals (good for hard-to-reach populations, e.g., drug users). PURPOSIVE: researcher's judgment (qualitative research).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Sampling methods — which to use when”?",
+            solution: "The accurate idea is: SIMPLE RANDOM: every member equal chance (best for generalizability, needs complete list). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "SIMPLE RANDOM: every member equal chance (best for generalizability, needs complete list).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Sampling methods — which to use when.",
+            solution: "Stay close to the text: SIMPLE RANDOM: every member equal chance (best for generalizability, needs complete list). SYSTEMATIC: every kth member (good for ordered lists, e.g., every 10th customer). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -158,7 +213,18 @@ export const topics: Topic[] = [
         title: "Types of bias — the main threats",
         summary: "SELECTION BIAS: sample not representative (e.g., only surveying willing respondents). MEASUREMENT BIAS: inaccurate measurements (e.g.,…",
         explanation: "SELECTION BIAS: sample not representative (e.g., only surveying willing respondents). MEASUREMENT BIAS: inaccurate measurements (e.g., faulty instrument). RECALL BIAS: subjects remember inaccurately (e.g., dietary recall). OBSERVER/RESEARCHER BIAS: researcher's expectations influence observations. CONFIRMATION BIAS: seeking evidence that confirms beliefs. SURVIVORSHIP BIAS: only studying 'survivors' (e.g., only successful businesses, not failed ones). All of these can be minimized but rarely eliminated — good design mitigates bias.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Types of bias — the main threats”?",
+            solution: "The accurate idea is: SELECTION BIAS: sample not representative (e.g., only surveying willing respondents). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "SELECTION BIAS: sample not representative (e.g., only surveying willing respondents).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Types of bias — the main threats.",
+            solution: "Stay close to the text: SELECTION BIAS: sample not representative (e.g., only surveying willing respondents). MEASUREMENT BIAS: inaccurate measurements (e.g., faulty instrument). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -216,7 +282,18 @@ export const topics: Topic[] = [
         title: "The 4 measurement scales — most-testable in stats",
         summary: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue >…",
         explanation: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue > brown. ORDINAL: ordered categories but the gaps between them aren't equal (e.g., satisfaction: poor/fair/good/excellent — the 'gap' between poor and fair may differ from fair and good). INTERVAL: ordered, equal intervals, but NO true zero (°C: 0°C doesn't mean 'no temperature'). RATIO: ordered, equal intervals, TRUE zero (height: 0m means no height; Kelvin: 0K means absolute zero — no thermal energy). Ratio data supports ALL operations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The 4 measurement scales — most-testable in stats”?",
+            solution: "The accurate idea is: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The 4 measurement scales — most-testable in stats.",
+            solution: "Stay close to the text: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and â  operations valid â you can't say blue > brown. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -225,7 +302,18 @@ export const topics: Topic[] = [
         title: "Why scale matters for statistical operations",
         summary: "The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. ORDINAL: counts, mode, median,…",
         explanation: "The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. ORDINAL: counts, mode, median, rank correlation. INTERVAL: + and − (means, standard deviations, Pearson correlation, t-tests). RATIO: all operations including × and ÷ (geometric mean, ratios, logarithms). Using the wrong operation is a common error — e.g., computing a 'mean climate type' is meaningless because nominal data has no numerical order.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why scale matters for statistical operations”?",
+            solution: "The accurate idea is: The scale of measurement determines which statistical operations are valid. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The scale of measurement determines which statistical operations are valid.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why scale matters for statistical operations.",
+            solution: "Stay close to the text: The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -234,7 +322,18 @@ export const topics: Topic[] = [
         title: "Discrete vs Continuous — the real-world distinction",
         summary: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data:…",
         explanation: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data: any value within a range (e.g., temperature, pressure, wind speed, time). This distinction matters for choosing graphs: bar charts for discrete/categorical, line graphs for continuous over time, histograms for continuous distributions.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Discrete vs Continuous — the real-world distinction”?",
+            solution: "The accurate idea is: DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Discrete vs Continuous — the real-world distinction.",
+            solution: "Stay close to the text: DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data: any value within a range (e.g., temperature, pressure, wind speed, time). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -299,7 +398,18 @@ export const topics: Topic[] = [
         title: "Three means — when to use which",
         summary: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers…",
         explanation: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers (better when data is skewed or has outliers). MODE: the most frequent value; useful for categorical data. For symmetric, outlier-free data, mean is best. For skewed or outlier-containing data, median is more representative. GEOMETRIC MEAN is used for growth rates (e.g., 'the population grew at an average rate of 3% per year'). HARMONIC MEAN is used for rates (e.g., average speed over equal distances).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Three means — when to use which”?",
+            solution: "The accurate idea is: ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Three means — when to use which.",
+            solution: "Stay close to the text: ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers (better when data is skewed or has outliers). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -308,7 +418,18 @@ export const topics: Topic[] = [
         title: "Why standard deviation matters",
         summary: "Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data…",
         explanation: "Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1σ of mean, ~95% within 2σ, ~99.7% within 3σ. This is the empirical rule (68-95-99.7). A small SD = data clustered tightly around mean. A large SD = data spread out. SD is in the original units of the data, making it interpretable (e.g., 'temperatures vary by ±2°C').",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Why standard deviation matters”?",
+            solution: "The accurate idea is: Standard deviation (Ï) measures the average distance of data points from the mean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Standard deviation (Ï) measures the average distance of data points from the mean.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Why standard deviation matters.",
+            solution: "Stay close to the text: Standard deviation (Ï) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1Ï of mean, ~95% within 2Ï, ~99.7% within 3Ï. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -317,7 +438,18 @@ export const topics: Topic[] = [
         title: "Skewness and what mean vs median tells you",
         summary: "In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few…",
         explanation: "In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). In a LEFT-SKEWED distribution (long left tail, e.g., exam scores when most students do well): mean < median. The MEDIAN is more robust to skewness and outliers, which is why income is usually reported as median, not mean.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Skewness and what mean vs median tells you”?",
+            solution: "The accurate idea is: In a SYMMETRIC distribution: mean â median â mode. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In a SYMMETRIC distribution: mean â median â mode.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Skewness and what mean vs median tells you.",
+            solution: "Stay close to the text: In a SYMMETRIC distribution: mean â median â mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -378,7 +510,18 @@ export const topics: Topic[] = [
         title: "Classical vs Empirical vs Subjective probability",
         summary: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) =…",
         explanation: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. EMPIRICAL probability is based on OBSERVED DATA: P(event) = (times it happened) / (total trials). This is what we use in real research where outcomes aren't equally likely. SUBJECTIVE probability is based on EXPERT JUDGMENT when data is scarce (e.g., 'what's the probability of a major earthquake in the next 10 years?'). The three types correspond to different epistemic situations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Classical vs Empirical vs Subjective probability”?",
+            solution: "The accurate idea is: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Classical vs Empirical vs Subjective probability.",
+            solution: "Stay close to the text: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -387,7 +530,18 @@ export const topics: Topic[] = [
         title: "The two fundamental rules — addition and multiplication",
         summary: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. For…",
         explanation: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. For MUTUALLY EXCLUSIVE events (cannot both occur), this simplifies to P(A) + P(B). MULTIPLICATION RULE (AND): P(A and B) = P(A) × P(B) when A and B are INDEPENDENT. If they're not independent, you need conditional probability. The complement rule P(not A) = 1 − P(A) is often the easiest way to solve 'at least one' problems.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The two fundamental rules — addition and multiplication”?",
+            solution: "The accurate idea is: ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The two fundamental rules — addition and multiplication.",
+            solution: "Stay close to the text: ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -447,7 +601,18 @@ export const topics: Topic[] = [
         title: "Choosing the right chart type",
         summary: "CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. PARTS OF WHOLE (≤6 parts) → pie. TWO CONTINUOUS VARIABLES → scatter.…",
         explanation: "CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. PARTS OF WHOLE (≤6 parts) → pie. TWO CONTINUOUS VARIABLES → scatter. DISTRIBUTION of one continuous variable → histogram. COMPARING DISTRIBUTIONS between groups → box plot. The wrong chart makes data misleading regardless of accuracy. A pie chart with 20 slices is unreadable; a line chart for categorical data implies false trends; a bar chart with a truncated y-axis exaggerates differences.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Choosing the right chart type”?",
+            solution: "The accurate idea is: CATEGORICAL comparison â bar/column. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "CATEGORICAL comparison â bar/column.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Choosing the right chart type.",
+            solution: "Stay close to the text: CATEGORICAL comparison â bar/column. TIME SERIES or TREND â line. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -456,7 +621,18 @@ export const topics: Topic[] = [
         title: "Good practices vs misleading graphs",
         summary: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis…",
         explanation: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). MISLEADING PRACTICES: truncated y-axis (exaggerates differences), inappropriate scale (using log when linear is appropriate), cherry-picked data (showing only a subset that supports a claim), 3D pie charts that distort proportions, starting the y-axis at a non-zero value to amplify changes.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Good practices vs misleading graphs”?",
+            solution: "The accurate idea is: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clea…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Good practices vs misleading graphs.",
+            solution: "Stay close to the text: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series,… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -524,7 +700,18 @@ export const topics: Topic[] = [
         title: "Reading the correlation coefficient r",
         summary: "r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. MAGNITUDE…",
         explanation: "r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. MAGNITUDE indicates STRENGTH: |r| close to 1 = strong linear relationship; |r| close to 0 = weak or no linear relationship. r = 1 is perfect positive; r = −1 is perfect negative; r = 0 is no LINEAR relationship. NOTE: r = 0 doesn't mean NO relationship — just no LINEAR one. A U-shaped relationship could have r ≈ 0 but strong association.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reading the correlation coefficient r”?",
+            solution: "The accurate idea is: r ranges from â1 to +1. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "r ranges from â1 to +1.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reading the correlation coefficient r.",
+            solution: "Stay close to the text: r ranges from â1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -533,7 +720,18 @@ export const topics: Topic[] = [
         title: "Correlation ≠ causation — the most important concept",
         summary: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes…",
         explanation: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH — more ice cream sales and more swimming/drowning in summer. This is the classic 'lurking variable' problem. Other reasons for high correlation without causation: REVERSE CAUSATION (Y causes X, not X causes Y), COINCIDENCE (especially in small samples or with many variables tested). Establishing causation requires a CONTROLLED EXPERIMENT (random assignment to treatment/control groups) or strong causal inference (Bradford Hill criteria).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Correlation ≠ causation — the most important concept”?",
+            solution: "The accurate idea is: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Correlation ≠ causation — the most important concept.",
+            solution: "Stay close to the text: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH â more ice cream sales and more swimming/drowning in summer. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -542,7 +740,18 @@ export const topics: Topic[] = [
         title: "Regression for prediction",
         summary: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. The…",
         explanation: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. The INTERCEPT a is Y when X = 0 (often not meaningful if X = 0 is outside data range). The line is fit by LEAST SQUARES — minimizing the sum of squared RESIDUALS (observed Y − predicted Y). PREDICTION: substitute a new X to get estimated Y. Be cautious about EXTRAPOLATION (predicting far outside the data range) — relationships may not hold. R² (coefficient of determination) is the proportion of Y's variance explained by X: R² = 0.8 means 80% of Y's variation is explained by X.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Regression for prediction”?",
+            solution: "The accurate idea is: LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Regression for prediction.",
+            solution: "Stay close to the text: LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -607,7 +816,18 @@ export const topics: Topic[] = [
         title: "From sample to population — the logic of inference",
         summary: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure.…",
         explanation: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure. A PARAMETER describes the population (μ, σ); a STATISTIC describes the sample (x̄, s). We use sample statistics to ESTIMATE population parameters. The STANDARD ERROR (SE = s/√n) measures the uncertainty in our estimate — it shrinks as sample size n grows. A CONFIDENCE INTERVAL (e.g., 95% CI) gives a range likely to contain the true parameter. '95% confidence' means: if we repeated this sampling process many times, 95% of the resulting intervals would contain the true parameter.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “From sample to population — the logic of inference”?",
+            solution: "The accurate idea is: POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying From sample to population — the logic of inference.",
+            solution: "Stay close to the text: POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -616,7 +836,18 @@ export const topics: Topic[] = [
         title: "Hypothesis testing — the logic",
         summary: "We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data…",
         explanation: "We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. If p is small (typically < 0.05), we REJECT H₀ — the data is too unlikely under H₀. We choose a SIGNIFICANCE LEVEL α (usually 0.05) as our threshold. The two types of error: TYPE I (α): rejecting true H₀ (false positive). TYPE II (β): failing to reject false H₀ (false negative). POWER (1 − β): probability of correctly rejecting a false H₀. More sample size = more power. The test STATISTIC depends on the test type (t, F, χ², z, etc.).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Hypothesis testing — the logic”?",
+            solution: "The accurate idea is: We start by assuming Hâ (null hypothesis: no effect/difference). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "We start by assuming Hâ (null hypothesis: no effect/difference).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Hypothesis testing — the logic.",
+            solution: "Stay close to the text: We start by assuming Hâ (null hypothesis: no effect/difference). We then ask: 'If Hâ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -625,7 +856,18 @@ export const topics: Topic[] = [
         title: "Common tests — which to use when",
         summary: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data…",
         explanation: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data (e.g., is there an association between climate type and species distribution?). ANOVA: compare means of THREE OR MORE groups (extension of t-test). CORRELATION TEST: test whether r is significantly different from zero. The choice depends on your data type (continuous vs categorical) and question (compare groups vs test association).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Common tests — which to use when”?",
+            solution: "The accurate idea is: T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Common tests — which to use when.",
+            solution: "Stay close to the text: T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data (e.g., is there an association between climate type and species distribution?). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -687,7 +929,18 @@ export const topics: Topic[] = [
         title: "Three types of validity — what each means",
         summary: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something…",
         explanation: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Random assignment to treatment/control groups maximizes internal validity. EXTERNAL VALIDITY is about GENERALIZATION: do these results apply to other people, places, times? A study on Pakistani university students may not generalize to rural farmers. CONSTRUCT VALIDITY is about MEASUREMENT: does the test/instrument actually measure the abstract concept it claims to (e.g., does an 'anxiety test' really measure anxiety, not just nervousness)? The three are often in tension: highly controlled lab experiments have great internal validity but poor external validity.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Three types of validity — what each means”?",
+            solution: "The accurate idea is: INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it?",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Three types of validity — what each means.",
+            solution: "Stay close to the text: INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Random assignment to treatment/control groups maxim… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -696,7 +949,18 @@ export const topics: Topic[] = [
         title: "Reliability vs validity — they're different",
         summary: "RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). A broken…",
         explanation: "RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). A broken thermometer that always reads 100°C is RELIABLE (consistent) but NOT VALID (not measuring actual temperature correctly). You can have reliability without validity, but NOT validity without reliability (if measurements are inconsistent, they can't be accurate). Good research needs BOTH.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Reliability vs validity — they're different”?",
+            solution: "The accurate idea is: RELIABILITY = consistency (same measurement gives same result). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "RELIABILITY = consistency (same measurement gives same result).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Reliability vs validity — they're different.",
+            solution: "Stay close to the text: RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -705,7 +969,18 @@ export const topics: Topic[] = [
         title: "Error types — random vs systematic",
         summary: "RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases…",
         explanation: "RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases with n). SYSTEMATIC ERROR is BIAS — measurements consistently skewed in one direction. NOT reduced by larger samples (a biased scale stays biased no matter how many times you weigh). Examples of systematic error: miscalibrated instrument, non-representative sampling, leading questions in surveys. GROSS ERROR is blunder/mistake — preventable by careful procedures. A study can be precise (low random error) but inaccurate (high systematic error).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Error types — random vs systematic”?",
+            solution: "The accurate idea is: RANDOM ERROR is noise â measurements scatter around the true value. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "RANDOM ERROR is noise â measurements scatter around the true value.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Error types — random vs systematic.",
+            solution: "Stay close to the text: RANDOM ERROR is noise â measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/ân decreases with n). Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -763,7 +1038,18 @@ export const topics: Topic[] = [
         title: "How to read tables and graphs critically",
         summary: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? — without units, the number is meaningless). (2) Check the…",
         explanation: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? — without units, the number is meaningless). (2) Check the SCALE (linear or log? truncated y-axis?). (3) Understand the CONTEXT (what was measured, when, where, how?). (4) Look for TRENDS — increasing, decreasing, cyclical, linear vs. non-linear. (5) Identify OUTLIERS and INFLECTION POINTS (where the trend changes). A common error is reading the number without checking the units, leading to misinterpretation by orders of magnitude.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “How to read tables and graphs critically”?",
+            solution: "The accurate idea is: Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C?",
+          },
+          {
+            problem: "Give one exam trap students hit when studying How to read tables and graphs critically.",
+            solution: "Stay close to the text: Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C? mm? Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -772,7 +1058,18 @@ export const topics: Topic[] = [
         title: "The base rate fallacy — a classic trap",
         summary: "The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. The disease affects 1% of the…",
         explanation: "The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. The disease affects 1% of the population. You test positive. What's the probability you have the disease? Most people say 99%. WRONG. The answer is ~50%. Why? Of 10,000 people: 100 have the disease (99 test positive, 1 false negative). 9,900 don't have it (9,900 × 0.01 = 99 false positives). So 99 true positives + 99 false positives = 198 positives, only 99 of which are real = 50%. The base rate (1% disease prevalence) matters enormously. Always consider base rates.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The base rate fallacy — a classic trap”?",
+            solution: "The accurate idea is: The base rate fallacy: ignoring background frequency. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The base rate fallacy: ignoring background frequency.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The base rate fallacy — a classic trap.",
+            solution: "Stay close to the text: The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -781,7 +1078,18 @@ export const topics: Topic[] = [
         title: "Spotting misleading statistics",
         summary: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES:…",
         explanation: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES: truncated y-axis exaggerates small differences. (3) MIXING PERCENTAGES: '100% increase from 1 to 2 cases' sounds dramatic but is just 1 additional case. (4) FALSE CORRELATIONS: two trends rising together don't prove causation. (5) SURVIVORSHIP BIAS: only the 'winners' are visible. The exam often tests whether you can spot these manipulations in presented data — the key is to ask 'what's missing? what was the baseline? could this be coincidence?'",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Spotting misleading statistics”?",
+            solution: "The accurate idea is: Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Spotting misleading statistics.",
+            solution: "Stay close to the text: Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES: truncated y-axis exaggerates small differences. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -842,7 +1150,18 @@ export const topics: Topic[] = [
         title: "The IMRaD structure — why it works",
         summary: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research…",
         explanation: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Discussion). This structure makes papers easy to read and evaluate. The METHODS must be detailed enough for REPLICATION — another researcher should be able to repeat your study. The RESULTS present findings OBJECTIVELY (no interpretation — that goes in Discussion). The DISCUSSION interprets, compares to literature, and addresses limitations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The IMRaD structure — why it works”?",
+            solution: "The accurate idea is: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Methods) â WHAT (Results) â SO WHAT (Discussion). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Meth…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The IMRaD structure — why it works.",
+            solution: "Stay close to the text: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Methods) â WHAT (Results) â SO WHAT (Dis… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -851,7 +1170,18 @@ export const topics: Topic[] = [
         title: "Citations and references — academic integrity",
         summary: "REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association,…",
         explanation: "REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association, common in social sciences), Harvard (similar, common in sciences), Vancouver (common in medical journals). Each style has specific rules for formatting. The KEY elements: author(s), year, title, journal/source, volume/issue/pages, DOI (for digital). In-text citations (Author, Year) link to the full reference. PLAGIARISM (using others' words, ideas, or data without attribution) is a serious ethical violation that can end careers. Paraphrase, quote, and cite properly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Citations and references — academic integrity”?",
+            solution: "The accurate idea is: REFERENCES give credit to prior work and allow readers to verify your sources. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "REFERENCES give credit to prior work and allow readers to verify your sources.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Citations and references — academic integrity.",
+            solution: "Stay close to the text: REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association, common in social sciences), Harvard (similar, common in sciences), Vancouver (common … Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -860,7 +1190,18 @@ export const topics: Topic[] = [
         title: "Peer review — strengths and limitations",
         summary: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates…",
         explanation: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates findings. Limitations: SLOW (months to years), reviewers can be biased or miss things, and 'publication bias' means positive results are over-represented (negative results often don't get published). The replication crisis in many fields shows peer review alone is not enough. PRE-PRINTS (online before peer review) and REGISTERED REPORTS (pre-registered study design) are modern solutions to some of these limitations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Peer review — strengths and limitations”?",
+            solution: "The accurate idea is: PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication.",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Peer review — strengths and limitations.",
+            solution: "Stay close to the text: PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates findings. Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -919,7 +1260,18 @@ export const topics: Topic[] = [
         title: "The hierarchy of research integrity violations",
         summary: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION:…",
         explanation: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION: manipulating real data to support a hypothesis (e.g., excluding 'outliers' that contradict your theory). (3) PLAGIARISM: stealing others' work. (4) UNETHICAL AUTHORSHIP: honorary or ghost authorship. (5) UNDISCLOSED CONFLICTS OF INTEREST. (6) FAILURE TO OBTAIN ETHICS APPROVAL for human subjects research. The first three are the most career-ending offenses. Most journals now require raw data submission for verification.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “The hierarchy of research integrity violations”?",
+            solution: "The accurate idea is: The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study).",
+          },
+          {
+            problem: "Give one exam trap students hit when studying The hierarchy of research integrity violations.",
+            solution: "Stay close to the text: The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION: manipulating real data to support a hypothesis (e.g., excluding 'outliers' that contrad… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -928,7 +1280,18 @@ export const topics: Topic[] = [
         title: "Authorship and credit",
         summary: "Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2)…",
         explanation: "Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2) data acquisition, (3) analysis or interpretation, AND (4) drafting or critical revision. All four should contribute. Honorary authorship (giving authorship to a senior person who didn't really contribute) and ghost authorship (omitting someone who did) are both unethical. The 'first author' is usually the person who did the most work; the 'corresponding author' handles communication. ORDER MATTERS — the first and last positions are typically the most prestigious.",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Authorship and credit”?",
+            solution: "The accurate idea is: Who deserves authorship? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Who deserves authorship?",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Authorship and credit.",
+            solution: "Stay close to the text: Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2) data acquisition, (3) analysis or interpretation, AND (4) drafting or critical re… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -937,7 +1300,18 @@ export const topics: Topic[] = [
         title: "Ethics approval and human subjects protection",
         summary: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional…",
         explanation: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. This protects participants from harm and ensures informed consent. The IRB reviews: (1) risk/benefit ratio, (2) informed consent process, (3) confidentiality protections, (4) recruitment procedures. Researchers must report serious adverse events. ETHICS VIOLATIONS (e.g., Tuskegee syphilis study, Milgram obedience experiments) led to the development of modern research ethics frameworks (Belmont Report, Declaration of Helsinki).",
-        examples: [],
+                examples: [
+          {
+            problem: "Which statement best matches “Ethics approval and human subjects protection”?",
+            solution: "The accurate idea is: Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFOR…",
+          },
+          {
+            problem: "Give one exam trap students hit when studying Ethics approval and human subjects protection.",
+            solution: "Stay close to the text: Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. This protects par… Mis-reading a definition or swapping two technical terms is the usual error.",
+            answer: "Do not swap the paired technical terms; quote the definition precisely",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },

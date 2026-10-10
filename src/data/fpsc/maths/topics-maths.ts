@@ -69,7 +69,13 @@ export const topics: Topic[] = [
         title: "1. The Hierarchy of Number Sets",
         summary: "Number sets nest inside each other. Every natural number is also a whole number; every whole number is also an integer; every integer is…",
         explanation: "Number sets nest inside each other. Every natural number is also a whole number; every whole number is also an integer; every integer is also a rational number; every rational number is also a real number. The only place the nesting ends is the jump from rationals to all reals — beyond rationals, you reach irrationals, which are real but not rational.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Hierarchy of Number Sets” to a short numerical or identification check.",
+            solution: "Key idea: Number sets nest inside each other. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -78,7 +84,13 @@ export const topics: Topic[] = [
         title: "2. Rational vs Irrational: The Test",
         summary: "A number is rational if and only if it can be written as p/q with integer p, q and q ≠ 0. This includes all terminating decimals (e.g.,…",
         explanation: "A number is rational if and only if it can be written as p/q with integer p, q and q ≠ 0. This includes all terminating decimals (e.g., 0.75 = 3/4) and all repeating decimals (e.g., 0.333... = 1/3). Irrationals cannot be written in this form — their decimal expansion never terminates and never repeats. √2 is the classic example: no matter how many digits you compute, the pattern never repeats.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -87,7 +99,13 @@ export const topics: Topic[] = [
         title: "3. Why This Matters in Practice",
         summary: "In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in…",
         explanation: "In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in physics formulas involving energy and motion). The fact that they are irrational does not make them less 'real' — they are called real numbers because every irrational still has a precise position on the number line.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Why This Matters in Practice” to a short numerical or identification check.",
+            solution: "Key idea: In science you will see irrationals constantly: Ï (geometry, circular motion), e (exponential growth, radioactive decay), and â2, â3 (in physics formulas involving energy and motion). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -96,7 +114,13 @@ export const topics: Topic[] = [
         title: "4. Common Misconceptions",
         summary: "A frequent mistake is to assume that any decimal with many digits is irrational. The opposite is often true: 0.333... (repeating 3) is…",
         explanation: "A frequent mistake is to assume that any decimal with many digits is irrational. The opposite is often true: 0.333... (repeating 3) is rational because 0.333... = 1/3 exactly. The distinguishing feature of an irrational decimal is that it neither terminates (like 0.5) nor repeats in a fixed pattern. Another common error: assuming a number with a square root is automatically irrational. √4 = 2 is rational; √9 = 3 is rational — the square root must be of a non-perfect square to be irrational.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “4. Common Misconceptions” to a short numerical or identification check.",
+            solution: "Key idea: A frequent mistake is to assume that any decimal with many digits is irrational. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -159,7 +183,13 @@ export const topics: Topic[] = [
         title: "1. Why a Standard Order Exists",
         summary: "Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Mathematics is unambiguous, so the…",
         explanation: "Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Mathematics is unambiguous, so the convention is: multiplication before addition. The order is universal: brackets, then exponents, then multiplication/division, then addition/subtraction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Why a Standard Order Exists” to a short numerical or identification check.",
+            solution: "Key idea: Without a fixed order, the expression 2 + 3 Ã 4 could mean (2 + 3) Ã 4 = 20 or 2 + (3 Ã 4) = 14. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -168,7 +198,13 @@ export const topics: Topic[] = [
         title: "2. The Equal-Priority Trap",
         summary: "Multiplication and division are NOT 'multiplication first, then division'. They have the SAME priority. So 12 ÷ 3 × 2 = (12 ÷ 3) × 2 = 8,…",
         explanation: "Multiplication and division are NOT 'multiplication first, then division'. They have the SAME priority. So 12 ÷ 3 × 2 = (12 ÷ 3) × 2 = 8, not 12 ÷ (3 × 2) = 2. Work strictly left to right when operations share priority.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Equal-Priority Trap” to a short numerical or identification check.",
+            solution: "Key idea: Multiplication and division are NOT 'multiplication first, then division'. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -177,7 +213,13 @@ export const topics: Topic[] = [
         title: "3. The Unary Minus vs Subtraction Minus",
         summary: "In an expression like -3², the − is unary (negation), not subtraction. Convention: exponentiation binds tighter than unary minus, so -3² =…",
         explanation: "In an expression like -3², the − is unary (negation), not subtraction. Convention: exponentiation binds tighter than unary minus, so -3² = -(3²) = -9. To square a negative number, use parentheses: (-3)² = 9.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. The Unary Minus vs Subtraction Minus” to a short numerical or identification check.",
+            solution: "Key idea: In an expression like -3Â², the â is unary (negation), not subtraction. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -234,7 +276,13 @@ export const topics: Topic[] = [
         title: "1. Why 1 is Neither Prime Nor Composite",
         summary: "By definition, a prime has exactly two distinct factors. The number 1 has only one factor (itself), so it cannot be prime. The definition…",
         explanation: "By definition, a prime has exactly two distinct factors. The number 1 has only one factor (itself), so it cannot be prime. The definition of composite also requires at least two distinct proper factors, which 1 does not have. This is not arbitrary — if 1 were prime, the Fundamental Theorem of Arithmetic would fail because every number could be factored in infinitely many ways.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -243,7 +291,13 @@ export const topics: Topic[] = [
         title: "2. Prime Factorization",
         summary: "Any integer greater than 1 can be written uniquely as a product of prime numbers. For example: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. To find the…",
         explanation: "Any integer greater than 1 can be written uniquely as a product of prime numbers. For example: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. To find the prime factorization, divide by the smallest possible prime repeatedly until you reach 1. Example: 84 ÷ 2 = 42; 42 ÷ 2 = 21; 21 ÷ 3 = 7; 7 ÷ 7 = 1. So 84 = 2² × 3 × 7.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -252,7 +306,13 @@ export const topics: Topic[] = [
         title: "3. Divisibility Rules in Practice",
         summary: "These rules let you test divisibility without long division. For 11: 627 — compute 6 − 2 + 7 = 11, which is divisible by 11, so 627 is…",
         explanation: "These rules let you test divisibility without long division. For 11: 627 — compute 6 − 2 + 7 = 11, which is divisible by 11, so 627 is divisible by 11. For 9: 738 — sum = 7 + 3 + 8 = 18, divisible by 9, so 738 is divisible by 9. These shortcuts save significant time in exams.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Divisibility Rules in Practice” to a short numerical or identification check.",
+            solution: "Key idea: These rules let you test divisibility without long division. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -315,7 +375,13 @@ export const topics: Topic[] = [
         title: "1. Prime Factorization Method for HCF",
         summary: "Write each number as a product of prime factors. HCF uses the LOWEST power of each prime that appears in ALL numbers. Example: 24 = 2³ × 3…",
         explanation: "Write each number as a product of prime factors. HCF uses the LOWEST power of each prime that appears in ALL numbers. Example: 24 = 2³ × 3 and 36 = 2² × 3². Common primes: 2 (lowest power 2²) and 3 (lowest power 3¹). HCF = 2² × 3 = 12.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -324,7 +390,13 @@ export const topics: Topic[] = [
         title: "2. Prime Factorization Method for LCM",
         summary: "Using the same factorizations, LCM uses the HIGHEST power of each prime appearing in ANY number. For 24 and 36: highest powers of 2 (2³)…",
         explanation: "Using the same factorizations, LCM uses the HIGHEST power of each prime appearing in ANY number. For 24 and 36: highest powers of 2 (2³) and 3 (3²). LCM = 2³ × 3² = 8 × 9 = 72.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -333,7 +405,13 @@ export const topics: Topic[] = [
         title: "3. The HCF-LCM Product Rule",
         summary: "For any two positive integers a and b: a × b = HCF(a, b) × LCM(a, b). This is a fast verification and a quick way to find LCM when HCF is…",
         explanation: "For any two positive integers a and b: a × b = HCF(a, b) × LCM(a, b). This is a fast verification and a quick way to find LCM when HCF is known: LCM = (a × b) ÷ HCF. Example: if a = 30, b = 36, HCF = 6, then LCM = (30 × 36) ÷ 6 = 180.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -342,7 +420,13 @@ export const topics: Topic[] = [
         title: "4. Co-prime Numbers",
         summary: "Two numbers are co-prime (or relatively prime) if their HCF is 1. They share no common factors greater than 1. Example: 8 and 15 are…",
         explanation: "Two numbers are co-prime (or relatively prime) if their HCF is 1. They share no common factors greater than 1. Example: 8 and 15 are co-prime (HCF = 1) even though neither is prime. Co-prime numbers are important in many algorithms and in fraction simplification.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -399,7 +483,13 @@ export const topics: Topic[] = [
         title: "1. Adding and Subtracting Fractions",
         summary: "To add or subtract fractions, you need a COMMON denominator. The simplest is the LCM of the two denominators. Then: a/b + c/d = (ad +…",
         explanation: "To add or subtract fractions, you need a COMMON denominator. The simplest is the LCM of the two denominators. Then: a/b + c/d = (ad + bc)/bd. Example: 1/4 + 1/6. LCM(4, 6) = 12. Rewrite: 3/12 + 2/12 = 5/12. Subtraction follows the same pattern.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -408,7 +498,13 @@ export const topics: Topic[] = [
         title: "2. Multiplying and Dividing Fractions",
         summary: "Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. (3/4) × (2/5) = 6/20 = 3/10.…",
         explanation: "Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. (3/4) × (2/5) = 6/20 = 3/10. Division: invert the second fraction and multiply. (3/4) ÷ (2/5) = (3/4) × (5/2) = 15/8 = 1 7/8.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Multiplying and Dividing Fractions” to a short numerical or identification check.",
+            solution: "Key idea: Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -417,7 +513,13 @@ export const topics: Topic[] = [
         title: "3. Comparing Fractions",
         summary: "Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. (2) convert to decimals: 3/7 ≈ 0.4286, 5/12 ≈ 0.4167, so 3/7 > 5/12.…",
         explanation: "Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. (2) convert to decimals: 3/7 ≈ 0.4286, 5/12 ≈ 0.4167, so 3/7 > 5/12. Cross-multiplication is faster for exact comparison.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Comparing Fractions” to a short numerical or identification check.",
+            solution: "Key idea: Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -426,7 +528,13 @@ export const topics: Topic[] = [
         title: "4. Conversion Between Forms",
         summary: "Fraction to decimal: divide. Decimal to fraction: write the digits as the numerator, and the appropriate power of 10 as the denominator,…",
         explanation: "Fraction to decimal: divide. Decimal to fraction: write the digits as the numerator, and the appropriate power of 10 as the denominator, then simplify. 0.625 = 625/1000 = 5/8 (after dividing by HCF 125). Mixed to improper: multiply whole by denominator, add numerator: 2 1/4 = (2×4 + 1)/4 = 9/4.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -489,7 +597,13 @@ export const topics: Topic[] = [
         title: "1. Decimal Place Value",
         summary: "Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place…",
         explanation: "Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place = 10⁻³ = 0.001. So 3.142 = 3 + 0.1 + 0.04 + 0.002. Operations follow the same rules as whole numbers, but alignment of decimal points is critical for addition and subtraction.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Decimal Place Value” to a short numerical or identification check.",
+            solution: "Key idea: Each position to the right of the decimal point represents a power of 10: first place = 10â»Â¹ = 0.1, second place = 10â»Â² = 0.01, third place = 10â»Â³ = 0.001. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -498,7 +612,13 @@ export const topics: Topic[] = [
         title: "2. Rounding Rules",
         summary: "To round to N decimal places: look at the (N+1)th digit. If it is 5 or higher, round the Nth digit up. Otherwise, leave the Nth digit…",
         explanation: "To round to N decimal places: look at the (N+1)th digit. If it is 5 or higher, round the Nth digit up. Otherwise, leave the Nth digit unchanged. Example: 3.1459 rounded to 2 decimal places — look at 3rd decimal (5), round up: 3.15. The 'banker's rounding' rule rounds to the nearest even digit when exactly 5, but standard school rounding always rounds 5 up.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Rounding Rules” to a short numerical or identification check.",
+            solution: "Key idea: To round to N decimal places: look at the (N+1)th digit. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -507,7 +627,13 @@ export const topics: Topic[] = [
         title: "3. Significant Figures",
         summary: "Significant figures are the meaningful digits in a measurement. Rules: (1) all non-zero digits are significant, (2) zeros between non-zero…",
         explanation: "Significant figures are the meaningful digits in a measurement. Rules: (1) all non-zero digits are significant, (2) zeros between non-zero digits are significant, (3) leading zeros are NOT significant, (4) trailing zeros AFTER a decimal point ARE significant, (5) trailing zeros in a whole number are ambiguous. Example: 0.00420 has 3 sig figs (4, 2, 0); 4200 has 2 to 4 sig figs depending on context.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Significant Figures” to a short numerical or identification check.",
+            solution: "Key idea: Significant figures are the meaningful digits in a measurement. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -516,7 +642,13 @@ export const topics: Topic[] = [
         title: "4. Scientific Notation Applications",
         summary: "Used in science for very large and very small numbers. 1.36 × 10³ = 1360; 6.022 × 10²³ = Avogadro's number; 1.6 × 10⁻¹⁹ = electron charge…",
         explanation: "Used in science for very large and very small numbers. 1.36 × 10³ = 1360; 6.022 × 10²³ = Avogadro's number; 1.6 × 10⁻¹⁹ = electron charge in Coulombs. To multiply: (2 × 10³) × (3 × 10⁴) = 6 × 10⁷. To divide: (8 × 10⁵) ÷ (2 × 10²) = 4 × 10³. Scientific notation keeps the coefficient between 1 and 10.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “4. Scientific Notation Applications” to a short numerical or identification check.",
+            solution: "Key idea: Used in science for very large and very small numbers. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -578,7 +710,13 @@ export const topics: Topic[] = [
         title: "1. Basic Percentage Operations",
         summary: "To find X% of Y, convert X% to a decimal (X/100) and multiply by Y. Example: 25% of 80 = 0.25 × 80 = 20. To express a number as a…",
         explanation: "To find X% of Y, convert X% to a decimal (X/100) and multiply by Y. Example: 25% of 80 = 0.25 × 80 = 20. To express a number as a percentage, multiply by 100: 0.375 = 37.5%. To find what percentage one number is of another: (part / whole) × 100: 15 is what % of 60? (15/60) × 100 = 25%.",
-        examples: [],
+                examples: [
+          {
+            problem: "What is 15% of 240?",
+            solution: "15% = 0.15; 0.15 × 240 = 36.",
+            answer: "36",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -587,7 +725,13 @@ export const topics: Topic[] = [
         title: "2. Percentage Change",
         summary: "Percentage change = ((New − Old) / Old) × 100%. The denominator is ALWAYS the old value. Example: price went from 80 to 100. Change = (100…",
         explanation: "Percentage change = ((New − Old) / Old) × 100%. The denominator is ALWAYS the old value. Example: price went from 80 to 100. Change = (100 − 80)/80 × 100% = 25%. If price went from 100 to 80, change = (80 − 100)/100 × 100% = −20% (a 20% decrease).",
-        examples: [],
+                examples: [
+          {
+            problem: "What is 15% of 240?",
+            solution: "15% = 0.15; 0.15 × 240 = 36.",
+            answer: "36",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -596,7 +740,13 @@ export const topics: Topic[] = [
         title: "3. Successive Percentages",
         summary: "A 20% increase followed by a 20% decrease does NOT cancel out. Use multipliers: after 20% up, factor = 1.20; after 20% down, factor = 0.80.…",
         explanation: "A 20% increase followed by a 20% decrease does NOT cancel out. Use multipliers: after 20% up, factor = 1.20; after 20% down, factor = 0.80. Net = 1.20 × 0.80 = 0.96, meaning a 4% net DECREASE, not 0%. The rule: successive changes multiply, they do not add.",
-        examples: [],
+                examples: [
+          {
+            problem: "What is 15% of 240?",
+            solution: "15% = 0.15; 0.15 × 240 = 36.",
+            answer: "36",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -605,7 +755,13 @@ export const topics: Topic[] = [
         title: "4. Reverse Percentages",
         summary: "To find the original value before a percentage change: divide the final value by (1 + rate) for an increase, or (1 − rate) for a decrease.…",
         explanation: "To find the original value before a percentage change: divide the final value by (1 + rate) for an increase, or (1 − rate) for a decrease. Example: after a 10% increase, value is 110. Original = 110 / 1.10 = 100. This is the most common error in exams — confusing original and final values.",
-        examples: [],
+                examples: [
+          {
+            problem: "What is 15% of 240?",
+            solution: "15% = 0.15; 0.15 × 240 = 36.",
+            answer: "36",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -667,7 +823,13 @@ export const topics: Topic[] = [
         title: "1. Ratios and Sharing",
         summary: "The ratio a:b tells you how a and b compare. To divide a quantity Q in ratio a:b, the parts are Q × a/(a+b) and Q × b/(a+b). For three…",
         explanation: "The ratio a:b tells you how a and b compare. To divide a quantity Q in ratio a:b, the parts are Q × a/(a+b) and Q × b/(a+b). For three parts a:b:c, the divisor becomes a+b+c. The parts always sum back to Q. Example: divide 720 in 2:3:4. Total parts = 9. Shares = 160, 240, 320.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -676,7 +838,13 @@ export const topics: Topic[] = [
         title: "2. Direct Proportion",
         summary: "Two quantities are directly proportional if y = kx for some constant k. Doubling x doubles y. Tripling x triples y. The graph is a straight…",
         explanation: "Two quantities are directly proportional if y = kx for some constant k. Doubling x doubles y. Tripling x triples y. The graph is a straight line through the origin. Common examples: distance and time at constant speed; cost and quantity at unit price. To find k: k = y/x.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -685,7 +853,13 @@ export const topics: Topic[] = [
         title: "3. Inverse Proportion",
         summary: "Two quantities are inversely proportional if xy = k (constant), or y = k/x. Doubling x halves y. The graph is a hyperbola. Common examples:…",
         explanation: "Two quantities are inversely proportional if xy = k (constant), or y = k/x. Doubling x halves y. The graph is a hyperbola. Common examples: time and number of workers (more workers → less time); speed and travel time for fixed distance. To find k: k = xy.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -694,7 +868,13 @@ export const topics: Topic[] = [
         title: "4. Solving Proportion Problems",
         summary: "Use cross-multiplication: a/b = c/d → ad = bc. Example: if 3 books cost Rs. 450, how much do 7 cost? 3/450 = 7/x → 3x = 3150 → x = 1050.…",
         explanation: "Use cross-multiplication: a/b = c/d → ad = bc. Example: if 3 books cost Rs. 450, how much do 7 cost? 3/450 = 7/x → 3x = 3150 → x = 1050. For inverse: if 6 workers finish in 10 days, how long for 10 workers? 6 × 10 = 10 × d → d = 6 days.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -762,7 +942,13 @@ export const topics: Topic[] = [
         title: "1. The Arithmetic Mean",
         summary: "Add all values, then divide by how many there are. For example, the mean of 2, 4, 6, 8 is (2+4+6+8)/4 = 20/4 = 5. The mean is the 'balance…",
         explanation: "Add all values, then divide by how many there are. For example, the mean of 2, 4, 6, 8 is (2+4+6+8)/4 = 20/4 = 5. The mean is the 'balance point' of the data — values below the mean and above it are equally offset on average.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the mean of 4, 8, 6, 10.",
+            solution: "Sum = 28; count = 4; mean = 28/4 = 7.",
+            answer: "7",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -771,7 +957,13 @@ export const topics: Topic[] = [
         title: "2. The Weighted Mean",
         summary: "When some values matter more than others, use weights. Example: a course has quiz (30% weight) and exam (70% weight). If quiz = 80 and exam…",
         explanation: "When some values matter more than others, use weights. Example: a course has quiz (30% weight) and exam (70% weight). If quiz = 80 and exam = 90: weighted mean = (80 × 0.30 + 90 × 0.70) / (0.30 + 0.70) = (24 + 63)/1 = 87. The weights do not need to sum to 1, but you divide by their sum.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the mean of 4, 8, 6, 10.",
+            solution: "Sum = 28; count = 4; mean = 28/4 = 7.",
+            answer: "7",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -780,7 +972,13 @@ export const topics: Topic[] = [
         title: "3. When to Use Mean vs Median",
         summary: "Use the mean for data that is roughly symmetric and has no extreme values. Use the median when there are outliers or skewed data (e.g.,…",
         explanation: "Use the mean for data that is roughly symmetric and has no extreme values. Use the median when there are outliers or skewed data (e.g., income data — one billionaire distorts the mean). For example, mean of 1, 2, 3, 4, 100 is 22, but the median is 3, which better represents 'typical' value.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the mean of 4, 8, 6, 10.",
+            solution: "Sum = 28; count = 4; mean = 28/4 = 7.",
+            answer: "7",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -835,7 +1033,13 @@ export const topics: Topic[] = [
         title: "1. The Conversion Factor Method",
         summary: "To convert from unit A to unit B, multiply by the ratio (B/A). This ratio equals 1, so it does not change the value, only the units.…",
         explanation: "To convert from unit A to unit B, multiply by the ratio (B/A). This ratio equals 1, so it does not change the value, only the units. Example: convert 5 km to m. 5 km × (1000 m / 1 km) = 5000 m. The km cancels, leaving m.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -844,7 +1048,13 @@ export const topics: Topic[] = [
         title: "2. Temperature Conversions",
         summary: "Temperature scales have different zero points, so simple multiplication does not work. To convert: °C → K: add 273.15. °C → °F: multiply by…",
         explanation: "Temperature scales have different zero points, so simple multiplication does not work. To convert: °C → K: add 273.15. °C → °F: multiply by 9/5 then add 32. Example: 100°C = 100 × 9/5 + 32 = 180 + 32 = 212°F. Reverse conversions: K → °C subtract 273.15; °F → °C subtract 32, then multiply by 5/9.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Temperature Conversions” to a short numerical or identification check.",
+            solution: "Key idea: Temperature scales have different zero points, so simple multiplication does not work. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -853,7 +1063,13 @@ export const topics: Topic[] = [
         title: "3. Speed and Pressure Conversions (Meteorology)",
         summary: "Speed: 1 km/h = 1000 m / 3600 s = 1/3.6 m/s ≈ 0.2778 m/s. So 1 m/s = 3.6 km/h. Pressure in meteorology is typically measured in hPa…",
         explanation: "Speed: 1 km/h = 1000 m / 3600 s = 1/3.6 m/s ≈ 0.2778 m/s. So 1 m/s = 3.6 km/h. Pressure in meteorology is typically measured in hPa (hectopascals) or mb (millibars), which are numerically equal. 1 hPa = 100 Pa. Standard atmospheric pressure = 1013.25 hPa = 760 mmHg.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Speed and Pressure Conversions (Meteorology)” to a short numerical or identification check.",
+            solution: "Key idea: Speed: 1 km/h = 1000 m / 3600 s = 1/3.6 m/s â 0.2778 m/s. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -900,7 +1116,13 @@ export const topics: Topic[] = [
         title: "1. Identifying Like Terms",
         summary: "Only terms with exactly the same variable part can be combined. 4x², -3x², and 7x² are like terms (sum = 8x²). But 4x² and 4x are NOT like…",
         explanation: "Only terms with exactly the same variable part can be combined. 4x², -3x², and 7x² are like terms (sum = 8x²). But 4x² and 4x are NOT like (different powers). 5xy and 5x are NOT like (different variable count). The constants 7, -2, 4 are all like terms and can be summed.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Identifying Like Terms” to a short numerical or identification check.",
+            solution: "Key idea: Only terms with exactly the same variable part can be combined. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -909,7 +1131,13 @@ export const topics: Topic[] = [
         title: "2. The Distributive Law",
         summary: "When a term multiplies a sum in parentheses, it distributes: -3(2x - 5) = -6x + 15. Watch the sign carefully: a negative outside flips both…",
         explanation: "When a term multiplies a sum in parentheses, it distributes: -3(2x - 5) = -6x + 15. Watch the sign carefully: a negative outside flips both signs inside. This is the most common source of errors in simplification. Forgetting the sign flip is the #1 algebra error.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Distributive Law” to a short numerical or identification check.",
+            solution: "Key idea: When a term multiplies a sum in parentheses, it distributes: -3(2x - 5) = -6x + 15. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -918,7 +1146,13 @@ export const topics: Topic[] = [
         title: "3. FOIL for Binomial Products",
         summary: "To multiply two binomials: (a + b)(c + d) = ac + ad + bc + bd. The acronym FOIL reminds you: First (ac), Outer (ad), Inner (bc), Last (bd).…",
         explanation: "To multiply two binomials: (a + b)(c + d) = ac + ad + bc + bd. The acronym FOIL reminds you: First (ac), Outer (ad), Inner (bc), Last (bd). This always works for two binomials. After expansion, combine like terms.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. FOIL for Binomial Products” to a short numerical or identification check.",
+            solution: "Key idea: To multiply two binomials: (a + b)(c + d) = ac + ad + bc + bd. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -970,7 +1204,13 @@ export const topics: Topic[] = [
         title: "1. Factoring Out the GCF",
         summary: "First step in any factorization: extract the GCF. For 6x³ + 9x², the GCF is 3x². So 6x³ + 9x² = 3x²(2x + 3). If you skip this step, you'll…",
         explanation: "First step in any factorization: extract the GCF. For 6x³ + 9x², the GCF is 3x². So 6x³ + 9x² = 3x²(2x + 3). If you skip this step, you'll often fail on the more complex factorizations.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -979,7 +1219,13 @@ export const topics: Topic[] = [
         title: "2. Factoring by Grouping",
         summary: "Used for 4-term expressions. Group in pairs, factor each pair, then factor the common binomial. Example: ax + ay + bx + by = a(x + y) + b(x…",
         explanation: "Used for 4-term expressions. Group in pairs, factor each pair, then factor the common binomial. Example: ax + ay + bx + by = a(x + y) + b(x + y) = (a + b)(x + y). The grouping works when the same binomial appears in both groups.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the HCF of 24 and 36.",
+            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
+            answer: "12",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -988,7 +1234,13 @@ export const topics: Topic[] = [
         title: "3. Recognizing Identities",
         summary: "Many factorizations match the standard identities. x² - 25 = x² - 5² = (x + 5)(x - 5) [difference of squares]. x² + 6x + 9 = (x + 3)²…",
         explanation: "Many factorizations match the standard identities. x² - 25 = x² - 5² = (x + 5)(x - 5) [difference of squares]. x² + 6x + 9 = (x + 3)² [perfect square trinomial]. Recognizing the pattern is faster than trial and error.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Recognizing Identities” to a short numerical or identification check.",
+            solution: "Key idea: Many factorizations match the standard identities. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1049,7 +1301,13 @@ export const topics: Topic[] = [
         title: "1. The Square Identities (Most Tested)",
         summary: "(a+b)² is NOT a² + b² — the middle term 2ab is missing in that common error. Always remember: square of a sum is sum of squares PLUS twice…",
         explanation: "(a+b)² is NOT a² + b² — the middle term 2ab is missing in that common error. Always remember: square of a sum is sum of squares PLUS twice the product. Same caution for (a-b)². The signs of the middle term and the squares match.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Square Identities (Most Tested)” to a short numerical or identification check.",
+            solution: "Key idea: (a+b)Â² is NOT aÂ² + bÂ² â the middle term 2ab is missing in that common error. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1058,7 +1316,13 @@ export const topics: Topic[] = [
         title: "2. Difference of Squares",
         summary: "a² - b² factors as (a + b)(a - b). This is one of the most useful identities. Example: x² - 25 = (x + 5)(x - 5). Note: a² + b² does NOT…",
         explanation: "a² - b² factors as (a + b)(a - b). This is one of the most useful identities. Example: x² - 25 = (x + 5)(x - 5). Note: a² + b² does NOT factor over real numbers (it factors only over complex numbers as (a + bi)(a - bi)).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Difference of Squares” to a short numerical or identification check.",
+            solution: "Key idea: aÂ² - bÂ² factors as (a + b)(a - b). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1067,7 +1331,13 @@ export const topics: Topic[] = [
         title: "3. Cube Identities",
         summary: "Memorize in paired form: (a + b)³ and a³ + b³ both involve (a + b) as a factor; (a - b)³ and a³ - b³ both involve (a - b) as a factor. The…",
         explanation: "Memorize in paired form: (a + b)³ and a³ + b³ both involve (a + b) as a factor; (a - b)³ and a³ - b³ both involve (a - b) as a factor. The second factor in each pair is a² - ab + b² or a² + ab + b² — the middle sign matches the original sign.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Cube Identities” to a short numerical or identification check.",
+            solution: "Key idea: Memorize in paired form: (a + b)Â³ and aÂ³ + bÂ³ both involve (a + b) as a factor; (a - b)Â³ and aÂ³ - bÂ³ both involve (a - b) as a factor. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1120,7 +1390,13 @@ export const topics: Topic[] = [
         title: "1. The Standard Solution Method (One Variable)",
         summary: "Example: 3x + 7 = 25. Subtract 7: 3x = 18. Divide by 3: x = 6. The same operations work in reverse. The goal is to isolate the variable on…",
         explanation: "Example: 3x + 7 = 25. Subtract 7: 3x = 18. Divide by 3: x = 6. The same operations work in reverse. The goal is to isolate the variable on one side of the equation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Standard Solution Method (One Variable)” to a short numerical or identification check.",
+            solution: "Key idea: Example: 3x + 7 = 25. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1129,7 +1405,13 @@ export const topics: Topic[] = [
         title: "2. Variables on Both Sides",
         summary: "When the variable appears on both sides (e.g., 5x - 3 = 2x + 9), first move all variable terms to one side and constants to the other. 5x -…",
         explanation: "When the variable appears on both sides (e.g., 5x - 3 = 2x + 9), first move all variable terms to one side and constants to the other. 5x - 2x = 9 + 3 → 3x = 12 → x = 4.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Variables on Both Sides” to a short numerical or identification check.",
+            solution: "Key idea: When the variable appears on both sides (e.g., 5x - 3 = 2x + 9), first move all variable terms to one side and constants to the other. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1138,7 +1420,13 @@ export const topics: Topic[] = [
         title: "3. Equations with Parentheses",
         summary: "Distribute first to remove parentheses, then solve. Example: 2(x - 3) = 4x + 8. Distribute: 2x - 6 = 4x + 8. Subtract 2x: -6 = 2x + 8.…",
         explanation: "Distribute first to remove parentheses, then solve. Example: 2(x - 3) = 4x + 8. Distribute: 2x - 6 = 4x + 8. Subtract 2x: -6 = 2x + 8. Subtract 8: -14 = 2x. Divide: x = -7.",
-        examples: [],
+                examples: [
+          {
+            problem: "Solve 2x + 5 = 17.",
+            solution: "2x = 12 → x = 6.",
+            answer: "x = 6",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1147,7 +1435,13 @@ export const topics: Topic[] = [
         title: "4. Linear Equations in Two Variables",
         summary: "A single equation like y = 2x + 1 has infinitely many solutions (one for each x). Two equations (a system) are needed to find a unique…",
         explanation: "A single equation like y = 2x + 1 has infinitely many solutions (one for each x). Two equations (a system) are needed to find a unique point. Methods for solving systems: substitution and elimination, covered in the next topic.",
-        examples: [],
+                examples: [
+          {
+            problem: "Solve 2x + 5 = 17.",
+            solution: "2x = 12 → x = 6.",
+            answer: "x = 6",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1202,7 +1496,13 @@ export const topics: Topic[] = [
         title: "1. The Substitution Method",
         summary: "Solve one equation for one variable in terms of the others, then substitute into the other equation. Example: from x = y + 3, substitute…",
         explanation: "Solve one equation for one variable in terms of the others, then substitute into the other equation. Example: from x = y + 3, substitute into 2x + y = 12 to get 2(y+3) + y = 12, so 3y = 6, y = 2, then x = 5.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Substitution Method” to a short numerical or identification check.",
+            solution: "Key idea: Solve one equation for one variable in terms of the others, then substitute into the other equation. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1211,7 +1511,13 @@ export const topics: Topic[] = [
         title: "2. The Elimination Method",
         summary: "Multiply equations to make coefficients of one variable equal in magnitude but opposite in sign, then add. Example: 2x + 3y = 12 and x - y…",
         explanation: "Multiply equations to make coefficients of one variable equal in magnitude but opposite in sign, then add. Example: 2x + 3y = 12 and x - y = 1. Multiply the second by 3: 3x - 3y = 3. Add: 5x = 15, so x = 3, then y = 2.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Elimination Method” to a short numerical or identification check.",
+            solution: "Key idea: Multiply equations to make coefficients of one variable equal in magnitude but opposite in sign, then add. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1220,7 +1526,13 @@ export const topics: Topic[] = [
         title: "3. Linear Inequalities",
         summary: "Use the same steps as equations, with one critical exception: multiplying or dividing by a negative flips the inequality sign. So -2x < 6…",
         explanation: "Use the same steps as equations, with one critical exception: multiplying or dividing by a negative flips the inequality sign. So -2x < 6 becomes x > -3 (sign flipped because we divided by -2). On a number line: open circle (○) means endpoint NOT included; closed (●) means included.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Linear Inequalities” to a short numerical or identification check.",
+            solution: "Key idea: Use the same steps as equations, with one critical exception: multiplying or dividing by a negative flips the inequality sign. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1277,7 +1589,13 @@ export const topics: Topic[] = [
         title: "1. The Five Core Laws",
         summary: "These four laws (multiply, divide, power of a power, power of a product) cover almost all exponent problems. The key insight: exponents add…",
         explanation: "These four laws (multiply, divide, power of a power, power of a product) cover almost all exponent problems. The key insight: exponents add when bases are the same and you are multiplying, and subtract when dividing. Power of a power multiplies the exponents. For example, (2³)² = 2⁶ = 64.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Five Core Laws” to a short numerical or identification check.",
+            solution: "Key idea: These four laws (multiply, divide, power of a power, power of a product) cover almost all exponent problems. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1286,7 +1604,13 @@ export const topics: Topic[] = [
         title: "2. Negative and Zero Exponents",
         summary: "a⁰ = 1 for any non-zero a. This seems strange but is consistent: a³/a³ = a⁰ = 1. Negative exponents mean reciprocals: a⁻² = 1/a². This is…",
         explanation: "a⁰ = 1 for any non-zero a. This seems strange but is consistent: a³/a³ = a⁰ = 1. Negative exponents mean reciprocals: a⁻² = 1/a². This is how we move terms across fraction bars. Example: x⁻³ = 1/x³; 1/x⁻³ = x³.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Negative and Zero Exponents” to a short numerical or identification check.",
+            solution: "Key idea: aâ° = 1 for any non-zero a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1295,7 +1619,13 @@ export const topics: Topic[] = [
         title: "3. Fractional Exponents",
         summary: "A fractional exponent represents a root: a^(1/2) = √a; a^(1/3) = ∛a. More generally, a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ. Example: 8^(2/3) =…",
         explanation: "A fractional exponent represents a root: a^(1/2) = √a; a^(1/3) = ∛a. More generally, a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ. Example: 8^(2/3) = (8^(1/3))² = 2² = 4. Always compute the root first if it comes out cleanly.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Fractional Exponents” to a short numerical or identification check.",
+            solution: "Key idea: A fractional exponent represents a root: a^(1/2) = âa; a^(1/3) = âa. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1356,7 +1686,13 @@ export const topics: Topic[] = [
         title: "1. Simplifying Radicals",
         summary: "Look for perfect square (or perfect cube) factors inside the radical. √72 = √(36 × 2) = 6√2. For cube roots, look for perfect cube factors:…",
         explanation: "Look for perfect square (or perfect cube) factors inside the radical. √72 = √(36 × 2) = 6√2. For cube roots, look for perfect cube factors: ∛54 = ∛(27 × 2) = 3∛2. The goal is to extract the largest perfect power so that the remaining radicand has no perfect factors.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Simplifying Radicals” to a short numerical or identification check.",
+            solution: "Key idea: Look for perfect square (or perfect cube) factors inside the radical. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1365,7 +1701,13 @@ export const topics: Topic[] = [
         title: "2. The Absolute Value Trap",
         summary: "√(a²) = |a|, not simply a. If a = -3, then a² = 9, and √9 = 3 = |−3|. In practice, when working with variable expressions whose sign is…",
         explanation: "√(a²) = |a|, not simply a. If a = -3, then a² = 9, and √9 = 3 = |−3|. In practice, when working with variable expressions whose sign is unknown, the radical of a square is the absolute value. In exams, when the radicand is known to be non-negative, the absolute value is implied.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Absolute Value Trap” to a short numerical or identification check.",
+            solution: "Key idea: â(aÂ²) = |a|, not simply a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1374,7 +1716,13 @@ export const topics: Topic[] = [
         title: "3. Rationalizing the Denominator",
         summary: "Standard form has no radicals in the denominator. For 1/√3, multiply by √3/√3 to get √3/3. For 1/(a + √b), multiply by the conjugate (a −…",
         explanation: "Standard form has no radicals in the denominator. For 1/√3, multiply by √3/√3 to get √3/3. For 1/(a + √b), multiply by the conjugate (a − √b)/(a − √b) to get (a − √b)/(a² − b). This works because (a + √b)(a − √b) = a² − b, which is rational.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1442,7 +1790,13 @@ export const topics: Topic[] = [
         title: "1. Reading Logarithmic Notation",
         summary: "log₂(8) = 3 because 2³ = 8. The base is 2, the argument is 8, and the value 3 is the exponent. Read as 'log base 2 of 8 equals 3.' The…",
         explanation: "log₂(8) = 3 because 2³ = 8. The base is 2, the argument is 8, and the value 3 is the exponent. Read as 'log base 2 of 8 equals 3.' The argument must always be positive; the base must be positive and not equal to 1.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Reading Logarithmic Notation” to a short numerical or identification check.",
+            solution: "Key idea: logâ(8) = 3 because 2Â³ = 8. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1451,7 +1805,13 @@ export const topics: Topic[] = [
         title: "2. The Three Laws",
         summary: "The product rule, quotient rule, and power rule are derived directly from the laws of exponents. They let you simplify complex logarithmic…",
         explanation: "The product rule, quotient rule, and power rule are derived directly from the laws of exponents. They let you simplify complex logarithmic expressions: log(20) = log(4 × 5) = log(4) + log(5). Note: log(xy) is NOT log(x) · log(y) — the product rule is about ADDITION, not multiplication.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Three Laws” to a short numerical or identification check.",
+            solution: "Key idea: The product rule, quotient rule, and power rule are derived directly from the laws of exponents. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1460,7 +1820,13 @@ export const topics: Topic[] = [
         title: "3. Real-World Applications",
         summary: "Logarithms appear in many scientific scales: Richter scale for earthquakes (each unit = 10× amplitude, ~32× energy), pH for acidity (each…",
         explanation: "Logarithms appear in many scientific scales: Richter scale for earthquakes (each unit = 10× amplitude, ~32× energy), pH for acidity (each unit = 10× H+ concentration), decibels for sound intensity, and exponential decay/growth models in physics and biology. Radioactive decay uses the natural exponential: N = N₀ · e^(-λt), where λ is the decay constant.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Real-World Applications” to a short numerical or identification check.",
+            solution: "Key idea: Logarithms appear in many scientific scales: Richter scale for earthquakes (each unit = 10Ã amplitude, ~32Ã energy), pH for acidity (each unit = 10Ã H+ concentration), decibels for sound intensity, and exponential decay/growth models in physics and biology. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1522,7 +1888,13 @@ export const topics: Topic[] = [
         title: "1. Converting to Scientific Notation",
         summary: "Move the decimal point until only one non-zero digit is to its left. The exponent equals the number of places moved, positive if moved left…",
         explanation: "Move the decimal point until only one non-zero digit is to its left. The exponent equals the number of places moved, positive if moved left (large number), negative if moved right (small number). Example: 450,000 → 4.5 × 10⁵ (moved 5 places left). Example: 0.00032 → 3.2 × 10⁻⁴ (moved 4 places right).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Converting to Scientific Notation” to a short numerical or identification check.",
+            solution: "Key idea: Move the decimal point until only one non-zero digit is to its left. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1531,7 +1903,13 @@ export const topics: Topic[] = [
         title: "2. Multiplication and Division",
         summary: "Multiplying: multiply the coefficients and ADD the exponents. (3 × 10⁴) × (2 × 10³) = 6 × 10⁷. Dividing: divide the coefficients and…",
         explanation: "Multiplying: multiply the coefficients and ADD the exponents. (3 × 10⁴) × (2 × 10³) = 6 × 10⁷. Dividing: divide the coefficients and SUBTRACT the exponents. (8 × 10⁶) ÷ (2 × 10²) = 4 × 10⁴. If the resulting coefficient is ≥ 10 or < 1, adjust the exponent.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Multiplication and Division” to a short numerical or identification check.",
+            solution: "Key idea: Multiplying: multiply the coefficients and ADD the exponents. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1540,7 +1918,13 @@ export const topics: Topic[] = [
         title: "3. Addition and Subtraction",
         summary: "For addition and subtraction, the exponents MUST be the same. Convert to the same exponent first, then add/subtract the coefficients. (3.2…",
         explanation: "For addition and subtraction, the exponents MUST be the same. Convert to the same exponent first, then add/subtract the coefficients. (3.2 × 10³) + (4.5 × 10²) = (3.2 × 10³) + (0.45 × 10³) = 3.65 × 10³. The result may need to be renormalized if the coefficient falls outside [1, 10).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Addition and Subtraction” to a short numerical or identification check.",
+            solution: "Key idea: For addition and subtraction, the exponents MUST be the same. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1600,7 +1984,13 @@ export const topics: Topic[] = [
         title: "1. Types of Angles",
         summary: "An angle is formed by two rays meeting at a vertex. Measured in degrees (°) or radians. Acute (< 90°), right (= 90°), obtuse (90°–180°),…",
         explanation: "An angle is formed by two rays meeting at a vertex. Measured in degrees (°) or radians. Acute (< 90°), right (= 90°), obtuse (90°–180°), straight (= 180°), and reflex (> 180° and < 360°). A full rotation = 360°.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Types of Angles” to a short numerical or identification check.",
+            solution: "Key idea: An angle is formed by two rays meeting at a vertex. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1609,7 +1999,13 @@ export const topics: Topic[] = [
         title: "2. Angle Relationships at Intersections",
         summary: "When two lines cross, they form two pairs of vertical (opposite) angles, which are equal. Adjacent angles on a straight line are…",
         explanation: "When two lines cross, they form two pairs of vertical (opposite) angles, which are equal. Adjacent angles on a straight line are supplementary (sum to 180°). When a transversal crosses two parallel lines, alternate interior angles are equal, corresponding angles are equal, and co-interior (same-side) angles are supplementary.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Angle Relationships at Intersections” to a short numerical or identification check.",
+            solution: "Key idea: When two lines cross, they form two pairs of vertical (opposite) angles, which are equal. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1618,7 +2014,13 @@ export const topics: Topic[] = [
         title: "3. Angle Sum Theorems",
         summary: "Sum of interior angles in a triangle = 180°. Sum of interior angles in a quadrilateral = 360°. Sum of interior angles in an n-gon = (n − 2)…",
         explanation: "Sum of interior angles in a triangle = 180°. Sum of interior angles in a quadrilateral = 360°. Sum of interior angles in an n-gon = (n − 2) × 180°. The exterior angle of a triangle equals the sum of the two non-adjacent interior angles — useful for finding unknown angles in figures.",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1681,7 +2083,13 @@ export const topics: Topic[] = [
         title: "1. The Pythagorean Theorem",
         summary: "In any right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides. The hypotenuse is the longest…",
         explanation: "In any right triangle, the square of the hypotenuse equals the sum of the squares of the other two sides. The hypotenuse is the longest side, opposite the right angle. Example: a ladder 13 m long with base 5 m from a wall reaches √(13² − 5²) = √(169 − 25) = √144 = 12 m up the wall.",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1690,7 +2098,13 @@ export const topics: Topic[] = [
         title: "2. Pythagorean Triples",
         summary: "Memorize the common triples (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25). Any multiple of a triple is also a triple: (6, 8, 10) is…",
         explanation: "Memorize the common triples (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25). Any multiple of a triple is also a triple: (6, 8, 10) is 2×(3, 4, 5). Recognizing a triple saves time in exams.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Pythagorean Triples” to a short numerical or identification check.",
+            solution: "Key idea: Memorize the common triples (3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1699,7 +2113,13 @@ export const topics: Topic[] = [
         title: "3. Triangle Types and Properties",
         summary: "Equilateral: all sides equal, all angles 60°. Isosceles: two sides equal, two base angles equal. Scalene: all sides and angles different. A…",
         explanation: "Equilateral: all sides equal, all angles 60°. Isosceles: two sides equal, two base angles equal. Scalene: all sides and angles different. A right triangle has one 90° angle; the other two sum to 90°. The triangle inequality (sum of any two sides > third) must hold for any valid triangle.",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1753,7 +2173,13 @@ export const topics: Topic[] = [
         title: "1. Quadrilateral Hierarchy",
         summary: "Each shape is a special case of the one above it. A square has all the properties of a rectangle (4 right angles) and a rhombus (4 equal…",
         explanation: "Each shape is a special case of the one above it. A square has all the properties of a rectangle (4 right angles) and a rhombus (4 equal sides). A rectangle is a parallelogram with right angles. A parallelogram is a trapezium with two pairs of parallel sides.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Quadrilateral Hierarchy” to a short numerical or identification check.",
+            solution: "Key idea: Each shape is a special case of the one above it. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1762,7 +2188,13 @@ export const topics: Topic[] = [
         title: "2. Angle Sum in Polygons",
         summary: "Sum of interior angles = (n − 2) × 180°. For a triangle: (3 − 2) × 180° = 180°. Quadrilateral: (4 − 2) × 180° = 360°. Pentagon: 540°.…",
         explanation: "Sum of interior angles = (n − 2) × 180°. For a triangle: (3 − 2) × 180° = 180°. Quadrilateral: (4 − 2) × 180° = 360°. Pentagon: 540°. Hexagon: 720°. Sum of exterior angles of any convex polygon = 360° (one full rotation).",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1771,7 +2203,13 @@ export const topics: Topic[] = [
         title: "3. Properties Summary",
         summary: "Square: 4 equal sides, 4 right angles, diagonals bisect at 90°. Rectangle: opposite sides equal, 4 right angles, diagonals equal.…",
         explanation: "Square: 4 equal sides, 4 right angles, diagonals bisect at 90°. Rectangle: opposite sides equal, 4 right angles, diagonals equal. Parallelogram: opposite sides parallel and equal, opposite angles equal, diagonals bisect each other. Rhombus: 4 equal sides, diagonals perpendicular but not equal. Trapezium: at least one pair of parallel sides.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Properties Summary” to a short numerical or identification check.",
+            solution: "Key idea: Square: 4 equal sides, 4 right angles, diagonals bisect at 90Â°. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1839,7 +2277,13 @@ export const topics: Topic[] = [
         title: "1. The Fundamental Circle Relationships",
         summary: "The number π is the ratio of a circle's circumference to its diameter, approximately 3.14159. So C = πd = 2πr. Area A = πr². Note that the…",
         explanation: "The number π is the ratio of a circle's circumference to its diameter, approximately 3.14159. So C = πd = 2πr. Area A = πr². Note that the area formula has r² because area is a two-dimensional measure.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Fundamental Circle Relationships” to a short numerical or identification check.",
+            solution: "Key idea: The number Ï is the ratio of a circle's circumference to its diameter, approximately 3.14159. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1848,7 +2292,13 @@ export const topics: Topic[] = [
         title: "2. Parts of a Circle",
         summary: "A chord is any line segment with both endpoints on the circle; the diameter is the longest chord. An arc is a portion of the circumference.…",
         explanation: "A chord is any line segment with both endpoints on the circle; the diameter is the longest chord. An arc is a portion of the circumference. A sector is the region bounded by two radii and the arc between them. A segment is the region bounded by a chord and the arc.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Parts of a Circle” to a short numerical or identification check.",
+            solution: "Key idea: A chord is any line segment with both endpoints on the circle; the diameter is the longest chord. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1857,7 +2307,13 @@ export const topics: Topic[] = [
         title: "3. Tangent and Secant Properties",
         summary: "A tangent line touches the circle at exactly one point and is perpendicular to the radius at that point. A secant line cuts the circle at…",
         explanation: "A tangent line touches the circle at exactly one point and is perpendicular to the radius at that point. A secant line cuts the circle at two points. Two tangent segments from an external point to a circle are equal in length — useful in many geometry problems.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Tangent and Secant Properties” to a short numerical or identification check.",
+            solution: "Key idea: A tangent line touches the circle at exactly one point and is perpendicular to the radius at that point. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1921,7 +2377,13 @@ export const topics: Topic[] = [
         title: "1. Why Height Matters for Triangles",
         summary: "A triangle's area depends on the perpendicular height from a base, not the lengths of the other two sides. The same triangle 'slid' along…",
         explanation: "A triangle's area depends on the perpendicular height from a base, not the lengths of the other two sides. The same triangle 'slid' along its base has the same area. This is why the area formula uses base × height, not all three sides.",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1930,7 +2392,13 @@ export const topics: Topic[] = [
         title: "2. Heron's Formula",
         summary: "When you know all three sides but not the height, use Heron's formula. First find s (half the perimeter), then compute √(s(s-a)(s-b)(s-c)).…",
         explanation: "When you know all three sides but not the height, use Heron's formula. First find s (half the perimeter), then compute √(s(s-a)(s-b)(s-c)). Useful for 'given three sides' problems. Quick test: for an equilateral triangle with side a, area = (√3/4)a².",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -1939,7 +2407,13 @@ export const topics: Topic[] = [
         title: "3. Perimeter vs Area Units",
         summary: "Perimeter is measured in LINEAR units (cm, m, km). Area is measured in SQUARE units (cm², m², km²). Confusion between the two is a common…",
         explanation: "Perimeter is measured in LINEAR units (cm, m, km). Area is measured in SQUARE units (cm², m², km²). Confusion between the two is a common source of error — always check what the problem is asking for.",
-        examples: [],
+                examples: [
+          {
+            problem: "Solve 2x + 5 = 17.",
+            solution: "2x = 12 → x = 6.",
+            answer: "x = 6",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2004,7 +2478,13 @@ export const topics: Topic[] = [
         title: "1. The Cylinder vs Cone Relationship",
         summary: "A cone is exactly 1/3 the volume of the cylinder with the same base and height. This is a beautiful geometric result: filling a cylinder…",
         explanation: "A cone is exactly 1/3 the volume of the cylinder with the same base and height. This is a beautiful geometric result: filling a cylinder with cones requires exactly 3 cones. The cone's curved surface area uses slant height (l), not vertical height (h). The slant height satisfies l = √(r² + h²) by Pythagoras.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Cylinder vs Cone Relationship” to a short numerical or identification check.",
+            solution: "Key idea: A cone is exactly 1/3 the volume of the cylinder with the same base and height. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2013,7 +2493,13 @@ export const topics: Topic[] = [
         title: "2. Sphere Formulas",
         summary: "The sphere has the smallest surface area for a given volume of any 3D shape — which is why soap bubbles and water droplets are spherical.…",
         explanation: "The sphere has the smallest surface area for a given volume of any 3D shape — which is why soap bubbles and water droplets are spherical. Both volume and SA depend only on radius. Memorize: V = (4/3)πr³ and SA = 4πr².",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Sphere Formulas” to a short numerical or identification check.",
+            solution: "Key idea: The sphere has the smallest surface area for a given volume of any 3D shape â which is why soap bubbles and water droplets are spherical. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2022,7 +2508,13 @@ export const topics: Topic[] = [
         title: "3. Unit Awareness",
         summary: "Volume units are CUBIC (cm³, m³, liters). Surface area units are SQUARE (cm², m²). 1 liter = 1000 cm³ = 1 dm³. Always check units in word…",
         explanation: "Volume units are CUBIC (cm³, m³, liters). Surface area units are SQUARE (cm², m²). 1 liter = 1000 cm³ = 1 dm³. Always check units in word problems — converting between liters and cm³ is common.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Unit Awareness” to a short numerical or identification check.",
+            solution: "Key idea: Volume units are CUBIC (cmÂ³, mÂ³, liters). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2079,7 +2571,13 @@ export const topics: Topic[] = [
         title: "1. Reading and Plotting Coordinates",
         summary: "The point (3, 5) means 3 units right of the origin and 5 units up. The point (-2, -4) means 2 units left and 4 units down — it lies in…",
         explanation: "The point (3, 5) means 3 units right of the origin and 5 units up. The point (-2, -4) means 2 units left and 4 units down — it lies in Quadrant III. To plot, move along the x-axis first, then parallel to the y-axis. Points on an axis have one coordinate equal to 0.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Reading and Plotting Coordinates” to a short numerical or identification check.",
+            solution: "Key idea: The point (3, 5) means 3 units right of the origin and 5 units up. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2088,7 +2586,13 @@ export const topics: Topic[] = [
         title: "2. The Four Quadrants",
         summary: "The axes divide the plane into four quadrants. Quadrant I (+, +): upper right. Quadrant II (-, +): upper left. Quadrant III (-, -): lower…",
         explanation: "The axes divide the plane into four quadrants. Quadrant I (+, +): upper right. Quadrant II (-, +): upper left. Quadrant III (-, -): lower left. Quadrant IV (+, -): lower right. The origin (0, 0) is on the boundary, not in any quadrant.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Four Quadrants” to a short numerical or identification check.",
+            solution: "Key idea: The axes divide the plane into four quadrants. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2097,7 +2601,13 @@ export const topics: Topic[] = [
         title: "3. Why This Matters",
         summary: "Coordinate geometry lets us translate geometric problems into algebraic ones. The position of a point, the slope of a line, the area of a…",
         explanation: "Coordinate geometry lets us translate geometric problems into algebraic ones. The position of a point, the slope of a line, the area of a polygon — all can be computed using just the coordinates. This is the foundation for graphs, functions, and data visualization.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Why This Matters” to a short numerical or identification check.",
+            solution: "Key idea: Coordinate geometry lets us translate geometric problems into algebraic ones. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2158,7 +2668,13 @@ export const topics: Topic[] = [
         title: "1. The Distance Formula",
         summary: "Treat the two points as opposite corners of a right triangle. The horizontal leg is |x₂ - x₁|, the vertical leg is |y₂ - y₁|, and the…",
         explanation: "Treat the two points as opposite corners of a right triangle. The horizontal leg is |x₂ - x₁|, the vertical leg is |y₂ - y₁|, and the hypotenuse is the distance. By Pythagoras: d² = (x₂ - x₁)² + (y₂ - y₁)², so d = √[(x₂ - x₁)² + (y₂ - y₁)²].",
-        examples: [],
+                examples: [
+          {
+            problem: "Area of a triangle with base 10 cm and height 6 cm?",
+            solution: "Area = ½ × base × height = ½ × 10 × 6 = 30 cm².",
+            answer: "30 cm²",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2167,7 +2683,13 @@ export const topics: Topic[] = [
         title: "2. The Midpoint Formula",
         summary: "The midpoint is the point exactly halfway between the two endpoints. The x-coordinate is the average of the two x-values; the y-coordinate…",
         explanation: "The midpoint is the point exactly halfway between the two endpoints. The x-coordinate is the average of the two x-values; the y-coordinate is the average of the two y-values. M = ((x₁ + x₂)/2, (y₁ + y₂)/2). Note: it is an AVERAGE, not a sum or difference.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Midpoint Formula” to a short numerical or identification check.",
+            solution: "Key idea: The midpoint is the point exactly halfway between the two endpoints. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2176,7 +2698,13 @@ export const topics: Topic[] = [
         title: "3. The Section Formula",
         summary: "For a point P that divides the line segment from A(x₁, y₁) to B(x₂, y₂) in the ratio m:n internally, P = ((mx₂ + nx₁)/(m+n), (my₂ +…",
         explanation: "For a point P that divides the line segment from A(x₁, y₁) to B(x₂, y₂) in the ratio m:n internally, P = ((mx₂ + nx₁)/(m+n), (my₂ + ny₁)/(m+n)). The midpoint is the special case where m = n = 1.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. The Section Formula” to a short numerical or identification check.",
+            solution: "Key idea: For a point P that divides the line segment from A(xâ, yâ) to B(xâ, yâ) in the ratio m:n internally, P = ((mxâ + nxâ)/(m+n), (myâ + nyâ)/(m+n)). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2240,7 +2768,13 @@ export const topics: Topic[] = [
         title: "1. Reading Slope from the Equation",
         summary: "In y = mx + c, the slope is the coefficient of x. In 2y = 4x + 6, rewrite as y = 2x + 3 — slope is 2, y-intercept is 3. The slope tells…",
         explanation: "In y = mx + c, the slope is the coefficient of x. In 2y = 4x + 6, rewrite as y = 2x + 3 — slope is 2, y-intercept is 3. The slope tells you: for every 1 unit right, the line goes 2 units up.",
-        examples: [],
+                examples: [
+          {
+            problem: "Solve 2x + 5 = 17.",
+            solution: "2x = 12 → x = 6.",
+            answer: "x = 6",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2249,7 +2783,13 @@ export const topics: Topic[] = [
         title: "2. Choosing the Right Form",
         summary: "Use slope-intercept (y = mx + c) for graphing — easiest to visualize. Use point-slope (y - y₁ = m(x - x₁)) when you know one point and the…",
         explanation: "Use slope-intercept (y = mx + c) for graphing — easiest to visualize. Use point-slope (y - y₁ = m(x - x₁)) when you know one point and the slope. Use standard form (Ax + By = C) for integer coefficients and systems of equations. All three are equivalent forms of the same line.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Choosing the Right Form” to a short numerical or identification check.",
+            solution: "Key idea: Use slope-intercept (y = mx + c) for graphing â easiest to visualize. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2258,7 +2798,13 @@ export const topics: Topic[] = [
         title: "3. Parallel and Perpendicular Lines",
         summary: "Parallel lines have the same slope but different y-intercepts. Perpendicular lines have slopes that are negative reciprocals: product = -1.…",
         explanation: "Parallel lines have the same slope but different y-intercepts. Perpendicular lines have slopes that are negative reciprocals: product = -1. Example: a line with slope 2/3 is perpendicular to one with slope -3/2. (Reciprocal AND sign change.)",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Parallel and Perpendicular Lines” to a short numerical or identification check.",
+            solution: "Key idea: Parallel lines have the same slope but different y-intercepts. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2322,7 +2868,13 @@ export const topics: Topic[] = [
         title: "1. Identifying Function Types from Graphs",
         summary: "A straight line means linear (constant rate of change). A U-shape (or inverted U) means quadratic (parabolic, with one turning point). A…",
         explanation: "A straight line means linear (constant rate of change). A U-shape (or inverted U) means quadratic (parabolic, with one turning point). A curve that shoots up rapidly (or approaches zero) means exponential. A curve that grows slowly at first and then faster means logarithmic. Identifying the type is the first step in interpretation.",
-        examples: [],
+                examples: [
+          {
+            problem: "Solve 2x + 5 = 17.",
+            solution: "2x = 12 → x = 6.",
+            answer: "x = 6",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2331,7 +2883,13 @@ export const topics: Topic[] = [
         title: "2. Slope in Real Contexts",
         summary: "On a distance-time graph, slope is speed. On a velocity-time graph, slope is acceleration and the area under the curve is distance. On a…",
         explanation: "On a distance-time graph, slope is speed. On a velocity-time graph, slope is acceleration and the area under the curve is distance. On a cost-quantity graph, slope is unit price. On a temperature-time graph, slope is the rate of temperature change. Always identify the axes first — slope and area have context-specific meanings.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Slope in Real Contexts” to a short numerical or identification check.",
+            solution: "Key idea: On a distance-time graph, slope is speed. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2340,7 +2898,13 @@ export const topics: Topic[] = [
         title: "3. Reading Off Values and Trends",
         summary: "Given a value on one axis, find the corresponding value on the other axis. This is interpolation. If the value is outside the plotted…",
         explanation: "Given a value on one axis, find the corresponding value on the other axis. This is interpolation. If the value is outside the plotted range, it's extrapolation — a more uncertain process. Identify trends: increasing, decreasing, constant, cyclical, or irregular. Note the maximum, minimum, and any sudden changes (kinks or discontinuities).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Reading Off Values and Trends” to a short numerical or identification check.",
+            solution: "Key idea: Given a value on one axis, find the corresponding value on the other axis. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2408,7 +2972,13 @@ export const topics: Topic[] = [
         title: "1. Identifying an Arithmetic Sequence",
         summary: "Check if consecutive differences are constant. For 2, 5, 8, 11, 14, the differences are 3, 3, 3, 3 — constant — so this is arithmetic with…",
         explanation: "Check if consecutive differences are constant. For 2, 5, 8, 11, 14, the differences are 3, 3, 3, 3 — constant — so this is arithmetic with a = 2 and d = 3. If the differences are not constant, the sequence is not arithmetic.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Identifying an Arithmetic Sequence” to a short numerical or identification check.",
+            solution: "Key idea: Check if consecutive differences are constant. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2417,7 +2987,13 @@ export const topics: Topic[] = [
         title: "2. The nth Term Formula",
         summary: "Each term is a plus (n-1) times d. aₙ = a + (n-1)d. This lets you find any term without computing all preceding terms. Example: for 5, 8,…",
         explanation: "Each term is a plus (n-1) times d. aₙ = a + (n-1)d. This lets you find any term without computing all preceding terms. Example: for 5, 8, 11, 14, ..., the 20th term = 5 + (20-1) × 3 = 5 + 57 = 62.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The nth Term Formula” to a short numerical or identification check.",
+            solution: "Key idea: Each term is a plus (n-1) times d. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2426,7 +3002,13 @@ export const topics: Topic[] = [
         title: "3. The Sum Formula",
         summary: "Sum of first n terms: Sₙ = n/2 × (2a + (n-1)d) = n/2 × (a + aₙ). The second form (n/2 × (first + last)) is often the easiest to remember.…",
         explanation: "Sum of first n terms: Sₙ = n/2 × (2a + (n-1)d) = n/2 × (a + aₙ). The second form (n/2 × (first + last)) is often the easiest to remember. Example: sum of first 10 terms of 3, 7, 11, 15, ... : n=10, a=3, d=4. S₁₀ = 10/2 × (2(3) + 9(4)) = 5 × (6 + 36) = 5 × 42 = 210.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. The Sum Formula” to a short numerical or identification check.",
+            solution: "Key idea: Sum of first n terms: Sâ = n/2 Ã (2a + (n-1)d) = n/2 Ã (a + aâ). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2493,7 +3075,13 @@ export const topics: Topic[] = [
         title: "1. Identifying a Geometric Sequence",
         summary: "Check if consecutive ratios are constant. For 2, 6, 18, 54, the ratios are 3, 3, 3 — constant — so this is geometric with a = 2 and r = 3.…",
         explanation: "Check if consecutive ratios are constant. For 2, 6, 18, 54, the ratios are 3, 3, 3 — constant — so this is geometric with a = 2 and r = 3. If the ratios are not constant, the sequence is not geometric. Negative ratios alternate signs: e.g., 2, -6, 18, -54, 162, ... has r = -3.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Identifying a Geometric Sequence” to a short numerical or identification check.",
+            solution: "Key idea: Check if consecutive ratios are constant. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2502,7 +3090,13 @@ export const topics: Topic[] = [
         title: "2. The nth Term Formula",
         summary: "Each term is a times r^(n-1). aₙ = ar^(n-1). Example: for 3, 6, 12, 24, ..., the 8th term = 3 × 2^7 = 3 × 128 = 384. If r is negative,…",
         explanation: "Each term is a times r^(n-1). aₙ = ar^(n-1). Example: for 3, 6, 12, 24, ..., the 8th term = 3 × 2^7 = 3 × 128 = 384. If r is negative, alternate terms are negative.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The nth Term Formula” to a short numerical or identification check.",
+            solution: "Key idea: Each term is a times r^(n-1). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2511,7 +3105,13 @@ export const topics: Topic[] = [
         title: "3. Sum and Infinite Sum",
         summary: "For finite sum: Sₙ = a(1 - rⁿ)/(1 - r) when r ≠ 1. For infinite sum: S∞ = a/(1 - r), which converges only when |r| < 1. Example: 1 + 1/2 +…",
         explanation: "For finite sum: Sₙ = a(1 - rⁿ)/(1 - r) when r ≠ 1. For infinite sum: S∞ = a/(1 - r), which converges only when |r| < 1. Example: 1 + 1/2 + 1/4 + 1/8 + ... has a = 1, r = 1/2. S∞ = 1/(1 - 1/2) = 2.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Sum and Infinite Sum” to a short numerical or identification check.",
+            solution: "Key idea: For finite sum: Sâ = a(1 - râ¿)/(1 - r) when r â  1. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2574,7 +3174,13 @@ export const topics: Topic[] = [
         title: "1. The Pattern Identification Method",
         summary: "Step 1: Write the sequence. Step 2: Compute first differences. If constant → arithmetic. Step 3: If not, compute second differences. If…",
         explanation: "Step 1: Write the sequence. Step 2: Compute first differences. If constant → arithmetic. Step 3: If not, compute second differences. If constant → quadratic. Step 4: If not, try ratios. If constant → geometric. Step 5: Otherwise, look for squares, cubes, factorials, or other rules.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Pattern Identification Method” to a short numerical or identification check.",
+            solution: "Key idea: Step 1: Write the sequence. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2583,7 +3189,13 @@ export const topics: Topic[] = [
         title: "2. Common Named Patterns",
         summary: "Square numbers: 1², 2², 3², 4², ... = 1, 4, 9, 16, 25. Cube numbers: 1³, 2³, 3³, 4³, ... = 1, 8, 27, 64. Triangular numbers Tₙ = n(n+1)/2 =…",
         explanation: "Square numbers: 1², 2², 3², 4², ... = 1, 4, 9, 16, 25. Cube numbers: 1³, 2³, 3³, 4³, ... = 1, 8, 27, 64. Triangular numbers Tₙ = n(n+1)/2 = 1, 3, 6, 10, 15. Fibonacci: F₁ = F₂ = 1, Fₙ = Fₙ₋₁ + Fₙ₋₂, giving 1, 1, 2, 3, 5, 8, 13, 21.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Common Named Patterns” to a short numerical or identification check.",
+            solution: "Key idea: Square numbers: 1Â², 2Â², 3Â², 4Â², ... Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2592,7 +3204,13 @@ export const topics: Topic[] = [
         title: "3. Pattern Completion and Sums",
         summary: "Once a pattern is identified, completing it or summing it is straightforward. For arithmetic and geometric, use the formulas from the…",
         explanation: "Once a pattern is identified, completing it or summing it is straightforward. For arithmetic and geometric, use the formulas from the previous topics. For other patterns (squares, cubes, factorials), there are known formulas (e.g., sum of first n squares = n(n+1)(2n+1)/6).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Pattern Completion and Sums” to a short numerical or identification check.",
+            solution: "Key idea: Once a pattern is identified, completing it or summing it is straightforward. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2664,7 +3282,13 @@ export const topics: Topic[] = [
         title: "1. Vector Basics and Magnitude",
         summary: "A vector is a directed quantity: it has both a size (magnitude, e.g., 5 m/s) and a direction (e.g., northeast). The magnitude is the length…",
         explanation: "A vector is a directed quantity: it has both a size (magnitude, e.g., 5 m/s) and a direction (e.g., northeast). The magnitude is the length of the vector when drawn as an arrow. Notation uses $\\vec{a}$ (with arrow) or bold a. The magnitude is written $|\\vec{a}|$ or just $a$ (when context is clear). For a 2D vector with components $(a_x, a_y)$, the magnitude is $|\\vec{a}| = \\sqrt{a_x^2 + a_y^2}$ — directly from the Pythagorean theorem.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Vector Basics and Magnitude” to a short numerical or identification check.",
+            solution: "Key idea: A vector is a directed quantity: it has both a size (magnitude, e.g., 5 m/s) and a direction (e.g., northeast). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2673,7 +3297,13 @@ export const topics: Topic[] = [
         title: "2. Vector Operations",
         summary: "Addition is done component-wise: $(a_x, a_y) + (b_x, b_y) = (a_x + b_x, a_y + b_y)$. Geometrically, place the tail of the second vector at…",
         explanation: "Addition is done component-wise: $(a_x, a_y) + (b_x, b_y) = (a_x + b_x, a_y + b_y)$. Geometrically, place the tail of the second vector at the head of the first (head-to-tail rule). Subtraction is similar: $(a_x, a_y) - (b_x, b_y) = (a_x - b_x, a_y - b_y)$. Scalar multiplication: $k(a_x, a_y) = (k a_x, k a_y)$ scales the magnitude by $|k|$ and reverses direction if k is negative.",
-        examples: [],
+                examples: [
+          {
+            problem: "Divide 80 in the ratio 3 : 5.",
+            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
+            answer: "30 and 50",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2682,7 +3312,13 @@ export const topics: Topic[] = [
         title: "3. Components and Unit Vectors",
         summary: "Any 2D vector can be written as $\\\\vec{a} = a_x \\\\hat{i} + a_y \\\\hat{j}$, where $\\\\hat{i} = (1, 0)$ and $\\\\hat{j} = (0, 1)$ are unit…",
         explanation: "Any 2D vector can be written as $\\vec{a} = a_x \\hat{i} + a_y \\hat{j}$, where $\\hat{i} = (1, 0)$ and $\\hat{j} = (0, 1)$ are unit vectors along the x- and y-axes. The unit vector in the direction of $\\vec{a}$ is $\\hat{a} = \\vec{a}/|\\vec{a}|$. This is essential for converting between magnitude-direction form and component form.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Components and Unit Vectors” to a short numerical or identification check.",
+            solution: "Key idea: Any 2D vector can be written as $\\vec{a} = a_x \\hat{i} + a_y \\hat{j}$, where $\\hat{i} = (1, 0)$ and $\\hat{j} = (0, 1)$ are unit vectors along the x- and y-axes. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2691,7 +3327,13 @@ export const topics: Topic[] = [
         title: "4. Dot Product (Concept)",
         summary: "The dot product $\\\\vec{a} \\\\cdot \\\\vec{b} = a_x b_x + a_y b_y$ gives a scalar (not a vector). Geometrically, $\\\\vec{a} \\\\cdot \\\\vec{b} =…",
         explanation: "The dot product $\\vec{a} \\cdot \\vec{b} = a_x b_x + a_y b_y$ gives a scalar (not a vector). Geometrically, $\\vec{a} \\cdot \\vec{b} = |\\vec{a}||\\vec{b}|\\cos\\theta$, where $\\theta$ is the angle between them. Two vectors are perpendicular iff their dot product is 0. This is the basis for finding angles between vectors and testing orthogonality.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “4. Dot Product (Concept)” to a short numerical or identification check.",
+            solution: "Key idea: The dot product $\\vec{a} \\cdot \\vec{b} = a_x b_x + a_y b_y$ gives a scalar (not a vector). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2760,7 +3402,13 @@ export const topics: Topic[] = [
         title: "1. When to Use Each Measure of Center",
         summary: "Use the mean for symmetric data without outliers. Use the median for skewed data or data with outliers (income, house prices). Use the mode…",
         explanation: "Use the mean for symmetric data without outliers. Use the median for skewed data or data with outliers (income, house prices). Use the mode for categorical data or to find the most common value. In a perfectly symmetric distribution, all three are equal.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the mean of 4, 8, 6, 10.",
+            solution: "Sum = 28; count = 4; mean = 28/4 = 7.",
+            answer: "7",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2769,7 +3417,13 @@ export const topics: Topic[] = [
         title: "2. Standard Deviation Interpretation",
         summary: "Standard deviation measures the average distance from the mean. Larger SD = more spread. For a normal (bell-shaped) distribution: ~68% of…",
         explanation: "Standard deviation measures the average distance from the mean. Larger SD = more spread. For a normal (bell-shaped) distribution: ~68% of data is within 1 SD, ~95% within 2 SD, ~99.7% within 3 SD. This is the empirical rule and is essential for interpreting many scientific measurements.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Standard Deviation Interpretation” to a short numerical or identification check.",
+            solution: "Key idea: Standard deviation measures the average distance from the mean. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2778,7 +3432,13 @@ export const topics: Topic[] = [
         title: "3. Population vs Sample Standard Deviation",
         summary: "For the entire population, use $\\\\sigma = \\\\sqrt{\\\\sum(x_i - \\\\mu)^2/n}$. For a sample (most real-world cases), use $s = \\\\sqrt{\\\\sum(x_i -…",
         explanation: "For the entire population, use $\\sigma = \\sqrt{\\sum(x_i - \\mu)^2/n}$. For a sample (most real-world cases), use $s = \\sqrt{\\sum(x_i - \\bar{x})^2/(n-1)}$. The $n-1$ (Bessel's correction) gives an unbiased estimate of the population variance.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Population vs Sample Standard Deviation” to a short numerical or identification check.",
+            solution: "Key idea: For the entire population, use $\\sigma = \\sqrt{\\sum(x_i - \\mu)^2/n}$. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2844,7 +3504,13 @@ export const topics: Topic[] = [
         title: "1. Classical vs Empirical Probability",
         summary: "Classical probability assumes equally likely outcomes (e.g., a fair die: P(any face) = 1/6). Empirical probability is based on observed…",
         explanation: "Classical probability assumes equally likely outcomes (e.g., a fair die: P(any face) = 1/6). Empirical probability is based on observed frequencies: P(E) ≈ (times E occurred) / (total trials). As the number of trials grows, empirical probability approaches the true value (Law of Large Numbers).",
-        examples: [],
+                examples: [
+          {
+            problem: "A fair die is rolled. Probability of getting an even number?",
+            solution: "Even faces {2,4,6} → 3/6 = 1/2.",
+            answer: "1/2",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2853,7 +3519,13 @@ export const topics: Topic[] = [
         title: "2. Complementary Events",
         summary: "P(not E) = 1 - P(E) is often easier than computing P(E) directly. Example: P(at least one head in 3 coin flips) = 1 - P(all tails) = 1 -…",
         explanation: "P(not E) = 1 - P(E) is often easier than computing P(E) directly. Example: P(at least one head in 3 coin flips) = 1 - P(all tails) = 1 - (1/2)³ = 7/8. This is the standard trick for 'at least one' problems.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. Complementary Events” to a short numerical or identification check.",
+            solution: "Key idea: P(not E) = 1 - P(E) is often easier than computing P(E) directly. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2862,7 +3534,13 @@ export const topics: Topic[] = [
         title: "3. Independent vs Mutually Exclusive",
         summary: "Independent events: can both occur; their joint probability is the product. Mutually exclusive: cannot both occur; their joint probability…",
         explanation: "Independent events: can both occur; their joint probability is the product. Mutually exclusive: cannot both occur; their joint probability is 0; their OR probability is the sum. Critical distinction: 'independent' is about non-influence; 'mutually exclusive' is about impossibility of co-occurrence.",
-        examples: [],
+                examples: [
+          {
+            problem: "A fair die is rolled. Probability of getting an even number?",
+            solution: "Even faces {2,4,6} → 3/6 = 1/2.",
+            answer: "1/2",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2925,7 +3603,13 @@ export const topics: Topic[] = [
         title: "1. The Conversion Trick",
         summary: "To convert km/h to m/s, multiply by 5/18 (since 1 km/h = 1000 m / 3600 s = 1/3.6 = 5/18 m/s). To convert m/s to km/h, multiply by 3.6.…",
         explanation: "To convert km/h to m/s, multiply by 5/18 (since 1 km/h = 1000 m / 3600 s = 1/3.6 = 5/18 m/s). To convert m/s to km/h, multiply by 3.6. Example: 90 km/h = 90 × 5/18 = 25 m/s. This conversion is high-frequency in physics and meteorology (wind speeds are often in m/s or knots).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Conversion Trick” to a short numerical or identification check.",
+            solution: "Key idea: To convert km/h to m/s, multiply by 5/18 (since 1 km/h = 1000 m / 3600 s = 1/3.6 = 5/18 m/s). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2934,7 +3618,13 @@ export const topics: Topic[] = [
         title: "2. Average Speed Trap",
         summary: "Average speed is NOT the average of two speeds. If you go 60 km at 30 km/h and return 60 km at 60 km/h, the average speed is NOT 45 km/h.…",
         explanation: "Average speed is NOT the average of two speeds. If you go 60 km at 30 km/h and return 60 km at 60 km/h, the average speed is NOT 45 km/h. Total distance = 120 km. Total time = 2 h + 1 h = 3 h. Average speed = 120/3 = 40 km/h. Use the harmonic mean formula for equal distances.",
-        examples: [],
+                examples: [
+          {
+            problem: "Find the mean of 4, 8, 6, 10.",
+            solution: "Sum = 28; count = 4; mean = 28/4 = 7.",
+            answer: "7",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -2943,7 +3633,13 @@ export const topics: Topic[] = [
         title: "3. Relative Speed",
         summary: "When two objects move toward each other, their relative speed is the sum of their speeds. When in the same direction, it's the difference.…",
         explanation: "When two objects move toward each other, their relative speed is the sum of their speeds. When in the same direction, it's the difference. Used for meeting problems and overtaking problems. Example: two trains 200 km apart, one at 60 km/h and the other at 80 km/h, moving toward each other: relative speed = 140 km/h, time to meet = 200/140 = 10/7 hours.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Relative Speed” to a short numerical or identification check.",
+            solution: "Key idea: When two objects move toward each other, their relative speed is the sum of their speeds. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3005,7 +3701,13 @@ export const topics: Topic[] = [
         title: "1. The Work-Rate Framework",
         summary: "Convert 'time to complete task' into 'rate of work' (1/time). Workers working together add their rates. If A does a job in 6 hours (rate =…",
         explanation: "Convert 'time to complete task' into 'rate of work' (1/time). Workers working together add their rates. If A does a job in 6 hours (rate = 1/6) and B in 4 hours (rate = 1/4), together their rate is 1/6 + 1/4 = 5/12, so time = 12/5 = 2.4 hours = 2 h 24 min. The result is always LESS than the faster worker's individual time.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. The Work-Rate Framework” to a short numerical or identification check.",
+            solution: "Key idea: Convert 'time to complete task' into 'rate of work' (1/time). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3014,7 +3716,13 @@ export const topics: Topic[] = [
         title: "2. The Work-Rate Formula",
         summary: "If M₁ workers each doing the job in T₁ hours and M₂ workers each doing it in T₂ hours, combined rate = M₁/T₁ + M₂/T₂. Time = 1 / combined…",
         explanation: "If M₁ workers each doing the job in T₁ hours and M₂ workers each doing it in T₂ hours, combined rate = M₁/T₁ + M₂/T₂. Time = 1 / combined rate. Equivalently, the 'man-hours' of work is fixed: T₁ × M₁ (if 1 worker) is the total work in worker-hours. So M₁/T₁ + M₂/T₂ = 1/T.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “2. The Work-Rate Formula” to a short numerical or identification check.",
+            solution: "Key idea: If Mâ workers each doing the job in Tâ hours and Mâ workers each doing it in Tâ hours, combined rate = Mâ/Tâ + Mâ/Tâ. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3023,7 +3731,13 @@ export const topics: Topic[] = [
         title: "3. Mixture Problems (Alligation)",
         summary: "The total amount of solute (concentration × volume) is conserved. If 10 L of 30% acid is mixed with 20 L of 50% acid, total acid = 3 + 10 =…",
         explanation: "The total amount of solute (concentration × volume) is conserved. If 10 L of 30% acid is mixed with 20 L of 50% acid, total acid = 3 + 10 = 13 L in 30 L of mixture, giving 13/30 ≈ 43.3% concentration. The alligation shortcut: the ratio of two solutions to achieve a target concentration is inversely proportional to the differences in concentration.",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “3. Mixture Problems (Alligation)” to a short numerical or identification check.",
+            solution: "Key idea: The total amount of solute (concentration Ã volume) is conserved. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3089,7 +3803,13 @@ export const topics: Topic[] = [
         title: "1. Alligation Method for Mixtures",
         summary: "To find the ratio in which to mix two solutions of different concentrations to obtain a target concentration: difference between target and…",
         explanation: "To find the ratio in which to mix two solutions of different concentrations to obtain a target concentration: difference between target and lower concentration is the part for the higher-concentration solution; difference between higher and target is the part for the lower-concentration solution. So mix in the ratio (target - lower) : (higher - target).",
-        examples: [],
+                examples: [
+          {
+            problem: "Apply the rule in “1. Alligation Method for Mixtures” to a short numerical or identification check.",
+            solution: "Key idea: To find the ratio in which to mix two solutions of different concentrations to obtain a target concentration: difference between target and lower concentration is the part for the higher-concentration solution; difference between higher and target is the part for the lower-concentration solution. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            answer: "Follow the stated rule; check units and order of operations",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3098,7 +3818,13 @@ export const topics: Topic[] = [
         title: "2. Simple vs Compound Interest",
         summary: "In simple interest, interest is calculated only on the original principal every period. In compound interest, interest is calculated on…",
         explanation: "In simple interest, interest is calculated only on the original principal every period. In compound interest, interest is calculated on principal PLUS accumulated interest — so the effective rate is higher and the amount grows exponentially. The Rule of 72 gives a quick approximation: years to double ≈ 72/rate%.",
-        examples: [],
+                examples: [
+          {
+            problem: "Simple interest on Rs 2000 at 5% per year for 3 years?",
+            solution: "SI = PRT/100 = 2000 × 5 × 3 / 100 = 300.",
+            answer: "Rs 300",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
@@ -3107,7 +3833,13 @@ export const topics: Topic[] = [
         title: "3. Successive Discounts",
         summary: "Two successive discounts of 20% and 10% are NOT the same as a 30% discount. Multiply the multipliers: 0.80 × 0.90 = 0.72, so the equivalent…",
         explanation: "Two successive discounts of 20% and 10% are NOT the same as a 30% discount. Multiply the multipliers: 0.80 × 0.90 = 0.72, so the equivalent single discount is 28%, not 30%. For three successive discounts, multiply three factors. Profit/Loss percentages are always on COST price, while discounts are on MARKED price.",
-        examples: [],
+                examples: [
+          {
+            problem: "What is 15% of 240?",
+            solution: "15% = 0.15; 0.15 × 240 = 36.",
+            answer: "36",
+          },
+        ],
         shortcuts: [],
         traps: [],
       },
