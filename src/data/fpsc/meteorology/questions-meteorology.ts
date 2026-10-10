@@ -1874,4 +1874,193 @@ export const questions: Question[] = [
   explanation: "True. Freshwater is less dense than seawater. Increased meltwater from the Greenland Ice Sheet (and Arctic sea-ice loss) adds a layer of less-dense water at the surface of the North Atlantic. This reduces the surface water density, preventing the sinking that drives the AMOC, weakening or potentially shutting down the overturning circulation. Paleoclimate records show AMOC has shut down abruptly in the past (e.g., during Heinrich events and the Younger Dryas).",
   sourceCitation: "Standard meteorology references" },
 
+// ---------------------------------------------------------------------------
+// Alignment wave — new subtopics (CAPE/CIN, ozone trap, UHI, climograph,
+// foehn/katabatic, Beaufort) + teach-then-test links to upgraded material
+// ---------------------------------------------------------------------------
+
+// METEO-01 — composition ozone trap + UHI
+{ id: "METEO-01-Q020", sectionId: "METEO-01", topicId: "meteo-composition-today", difficulty: "medium", type: "single",
+  question: "Why is it incorrect to say the Antarctic ozone hole is the main cause of global greenhouse warming?",
+  options: [
+    "Because ozone depletion and CO₂ greenhouse warming are different mechanisms",
+    "Because ozone only exists at the surface",
+    "Because the ozone hole increases ultraviolet radiation, which cools the planet only",
+    "Because greenhouse gases do not absorb infrared radiation"
+  ],
+  correctAnswer: 0,
+  explanation: "Stratospheric ozone depletion is primarily a UV-protection and stratospheric-chemistry issue. Greenhouse warming is driven mainly by long-lived greenhouse gases that trap longwave (infrared) radiation. Both can be human-influenced, but they are not the same process — a common exam trap.",
+  sourceCitation: "Aligned to meteo-composition-today-ozone-vs-ghg" },
+
+{ id: "METEO-01-Q021", sectionId: "METEO-01", topicId: "meteo-composition-today", difficulty: "easy", type: "single",
+  question: "Stratospheric ozone is especially important because it:",
+  options: [
+    "Absorbs harmful ultraviolet radiation",
+    "Is the largest dry-air gas by volume",
+    "Provides most of the atmosphere’s mass near the surface",
+    "Is the only greenhouse gas in air"
+  ],
+  correctAnswer: 0,
+  explanation: "In the stratosphere, ozone absorbs UV radiation and protects the biosphere. Near the ground, ozone is a pollutant. Do not confuse the UV-shield role with the separate greenhouse problem of CO₂ and other longwave absorbers.",
+  sourceCitation: "Aligned to meteo-composition-today-ozone-vs-ghg" },
+
+{ id: "METEO-01-Q022", sectionId: "METEO-01", topicId: "meteo-weather-vs-climate", difficulty: "easy", type: "single",
+  question: "The urban heat island effect is often strongest under which conditions?",
+  options: [
+    "Clear, calm nights",
+    "Strong daytime sea breezes only",
+    "Heavy widespread rain",
+    "Dense fog with strong winds"
+  ],
+  correctAnswer: 0,
+  explanation: "Cities retain heat in built surfaces and cool more slowly than rural areas. The urban–rural temperature difference is frequently largest on clear, calm nights when rural radiative cooling is efficient.",
+  sourceCitation: "Aligned to meteo-weather-vs-climate-uhi" },
+
+{ id: "METEO-01-Q023", sectionId: "METEO-01", topicId: "meteo-weather-vs-climate", difficulty: "medium", type: "true_false",
+  question: "True or False: The urban heat island fully explains long-term global mean warming in place of greenhouse-gas forcing.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. UHI is a real local climate effect important for stations, health, and planning, but it does not replace greenhouse-gas forcing as the explanation of global mean temperature rise.",
+  sourceCitation: "Aligned to meteo-weather-vs-climate-uhi" },
+
+// METEO-03 — foehn / katabatic
+{ id: "METEO-03-Q032", sectionId: "METEO-03", topicId: "meteo-local-seasonal-winds", difficulty: "medium", type: "single",
+  question: "A sudden warm, dry wind on the lee side of a mountain range, after moisture was removed on the windward side, is best described as:",
+  options: ["A foehn (chinook-type) wind", "A sea breeze", "A katabatic drainage wind", "The summer monsoon inflow"],
+  correctAnswer: 0,
+  explanation: "Foehn/chinook winds warm and dry by descent on the lee after windward precipitation strips moisture. Katabatic winds are cold downslope flows; sea breezes are diurnal coastal circulations.",
+  sourceCitation: "Aligned to meteo-local-seasonal-winds-foehn-katabatic" },
+
+{ id: "METEO-03-Q033", sectionId: "METEO-03", topicId: "meteo-local-seasonal-winds", difficulty: "easy", type: "single",
+  question: "Katabatic winds are best characterised as:",
+  options: [
+    "Cold, dense air flowing downslope",
+    "Warm moist air rising on heated slopes only at noon",
+    "Trade winds crossing the equator",
+    "Jet-stream cores at 200 hPa"
+  ],
+  correctAnswer: 0,
+  explanation: "Katabatic winds occur when cold, dense air drains downslope — common at night in mountains or off ice sheets — distinct from warm lee foehn winds.",
+  sourceCitation: "Aligned to meteo-local-seasonal-winds-foehn-katabatic" },
+
+// METEO-04 — CAPE area / lid on diagrams
+{ id: "METEO-04-Q036", sectionId: "METEO-04", topicId: "meteo-thermodynamic-diagrams", difficulty: "medium", type: "single",
+  question: "On a thermodynamic diagram, the area where a lifted parcel is warmer than the environment is most directly related to:",
+  options: ["CAPE (positive buoyancy)", "The Beaufort force number", "Sea-level pressure reduction", "The Köppen B-climate dryness index only"],
+  correctAnswer: 0,
+  explanation: "Where the parcel path is warmer than the environmental sounding, the parcel is positively buoyant. That positive area is the diagram expression of CAPE-related energy available for deep convection once the parcel is freely rising.",
+  sourceCitation: "Aligned to meteo-thermodynamic-diagrams-cape-lid" },
+
+{ id: "METEO-04-Q037", sectionId: "METEO-04", topicId: "meteo-thermodynamic-diagrams", difficulty: "hard", type: "single",
+  question: "A sounding shows a warm layer near the surface where the environment is warmer than a lifted parcel, but a large positive area higher up. The near-surface warm layer acts mainly as:",
+  options: [
+    "A lid (CIN-related inhibition) until heating or lift removes it",
+    "Proof that CAPE is zero everywhere",
+    "Evidence the atmosphere is absolutely unstable at all heights",
+    "A requirement to use only the dry adiabat above 300 hPa"
+  ],
+  correctAnswer: 0,
+  explanation: "A near-surface inversion or warm layer can inhibit convection (CIN) even when substantial CAPE exists aloft. Storms may wait until surface heating or dynamic lift breaks the lid.",
+  sourceCitation: "Aligned to meteo-thermodynamic-diagrams-cape-lid" },
+
+// METEO-05 — lightning + CAPE/CIN
+{ id: "METEO-05-Q024", sectionId: "METEO-05", topicId: "meteo-thunderstorms", difficulty: "easy", type: "single",
+  question: "By definition, a thunderstorm must produce:",
+  options: ["Lightning (and thus thunder)", "A tornado", "Hail larger than 5 cm", "A hurricane eye"],
+  correctAnswer: 0,
+  explanation: "Lightning defines the thunderstorm. Tornadoes and large hail are possible in some storms but not required for the definition.",
+  sourceCitation: "Aligned to meteo-thunderstorms-lightning-cape" },
+
+{ id: "METEO-05-Q025", sectionId: "METEO-05", topicId: "meteo-thunderstorms", difficulty: "medium", type: "single",
+  question: "CAPE in a thunderstorm environment is best described as:",
+  options: [
+    "A measure of buoyant energy available to a rising parcel once it freely ascends",
+    "The exact rainfall total in millimetres",
+    "The Beaufort scale force at the surface only",
+    "Sea-level pressure in hPa"
+  ],
+  correctAnswer: 0,
+  explanation: "CAPE (Convective Available Potential Energy) integrates positive buoyancy for a lifted parcel. Large CAPE favours stronger updrafts if storms initiate, but does not by itself guarantee initiation.",
+  sourceCitation: "Aligned to meteo-thunderstorms-lightning-cape" },
+
+{ id: "METEO-05-Q026", sectionId: "METEO-05", topicId: "meteo-thunderstorms", difficulty: "hard", type: "true_false",
+  question: "True or False: Large CAPE guarantees thunderstorms will form that afternoon even if CIN is strong.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Strong convective inhibition (CIN) can prevent parcels from reaching the level of free convection. CAPE is fuel; CIN is the lid. Both must be considered.",
+  sourceCitation: "Aligned to meteo-thunderstorms-lightning-cape" },
+
+// METEO-06 — Beaufort
+{ id: "METEO-06-Q031", sectionId: "METEO-06", topicId: "meteo-wind-instruments", difficulty: "easy", type: "single",
+  question: "The Beaufort scale estimates wind force primarily from:",
+  options: [
+    "Observed effects on sea or land when a precise anemometer reading may be unavailable",
+    "Only satellite infrared brightness temperature",
+    "Only the station-model pressure group",
+    "Köppen climate letters"
+  ],
+  correctAnswer: 0,
+  explanation: "Beaufort force numbers are tied to visual effects (smoke, leaves, wave state, damage). Modern networks prefer measured speeds, but Beaufort remains a standard estimate method.",
+  sourceCitation: "Aligned to meteo-wind-instruments-beaufort" },
+
+{ id: "METEO-06-Q032", sectionId: "METEO-06", topicId: "meteo-wind-instruments", difficulty: "easy", type: "single",
+  question: "On the Beaufort scale, force 0 corresponds to:",
+  options: ["Calm", "Hurricane-force winds", "A strong gale", "The subtropical jet core speed"],
+  correctAnswer: 0,
+  explanation: "Beaufort force 0 is calm. Higher force numbers indicate stronger winds based on observed effects.",
+  sourceCitation: "Aligned to meteo-wind-instruments-beaufort" },
+
+// METEO-07 — climograph
+{ id: "METEO-07-Q019", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "medium", type: "single",
+  question: "A climograph shows high temperatures every month and a clear dry season in winter with a wet summer. Which Köppen seasonal letter is most appropriate?",
+  options: ["w (dry winter)", "s (dry summer)", "f (no dry season)", "E (polar)"],
+  correctAnswer: 0,
+  explanation: "When the dry season falls in winter, the seasonal precipitation letter is typically 'w' (as in Aw). Dry summer uses 's' (Mediterranean-type). Always read the seasonal shape of the precip bars, not only the annual total.",
+  sourceCitation: "Aligned to meteo-koppen-system-climograph" },
+
+{ id: "METEO-07-Q020", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
+  question: "What two monthly climate elements does a standard climograph display for classification clues?",
+  options: [
+    "Temperature and precipitation",
+    "Only wind direction and Beaufort force",
+    "Only CAPE and CIN",
+    "Only station pressure and dew-point depression in hPa"
+  ],
+  correctAnswer: 0,
+  explanation: "Climographs combine average monthly temperature and precipitation so students can judge thermal regime and dry-season timing — the core of Köppen letter assignment.",
+  sourceCitation: "Aligned to meteo-koppen-system-climograph" },
+
+// Extra alignment: monsoon vs WD (Pakistan) + RH trap (moisture)
+{ id: "METEO-09-Q023", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
+  question: "Winter rainfall and snowfall in northern Pakistan are primarily associated with:",
+  options: [
+    "Western disturbances",
+    "The peak summer monsoon trough alone",
+    "The Beaufort scale",
+    "Positive AMOC only"
+  ],
+  correctAnswer: 0,
+  explanation: "Western disturbances are the main cool-season precipitation systems for northern Pakistan. They must not be confused with the summer monsoon.",
+  sourceCitation: "Aligned to upgraded meteo-western-disturbances" },
+
+{ id: "METEO-04-Q038", sectionId: "METEO-04", topicId: "meteo-moisture-metrics", difficulty: "medium", type: "true_false",
+  question: "True or False: A high relative humidity always means the air contains a large absolute amount of water vapour.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. RH is e/e_s. Cold air can be saturated (high RH) with little actual vapour. Dew point and mixing ratio better track absolute moisture.",
+  sourceCitation: "Aligned to upgraded meteo-moisture-metrics" },
+
+{ id: "METEO-12-Q013", sectionId: "METEO-12", topicId: "meteo-lapse-calc", difficulty: "medium", type: "single",
+  question: "If ELR = 8 °C/km, DALR = 10 °C/km, and SALR = 6 °C/km, the layer is:",
+  options: [
+    "Conditionally unstable",
+    "Absolutely stable",
+    "Absolutely unstable",
+    "Impossible because ELR cannot exceed SALR"
+  ],
+  correctAnswer: 0,
+  explanation: "When SALR < ELR < DALR, the layer is conditionally unstable: stable for unsaturated parcels, unstable for saturated ascent.",
+  sourceCitation: "Aligned to upgraded meteo-lapse-calc" },
+
+
 ];
