@@ -12,79 +12,117 @@ export const topics: Topic[] = [
 
 // ============================= SECTION A =============================
 
+
 {
   id: "meteo-origin-evolution",
   sectionId: "METEO-01",
   order: 1,
   title: "Origin & Chemical Evolution of the Atmosphere",
-  definition: "Earth's atmosphere evolved through three major stages since the planet's formation ~4.6 billion years ago (BYA): a primitive H/He atmosphere, a secondary outgassed atmosphere, and the modern oxygen-rich atmosphere.",
+  definition: "Earth's atmosphere did not appear ready-made. Over roughly 4.6 billion years it passed through three broad stages: a short-lived primitive envelope of hydrogen and helium, a secondary atmosphere built by volcanic outgassing, and the modern oxygen-bearing atmosphere shaped by ocean chemistry and life. Understanding that sequence explains why today's air is mostly nitrogen and oxygen, why free oxygen is geologically young, and why the ozone layer could form only after oxygen had accumulated.",
   keyFacts: [
-    "Primitive atmosphere (~4.6 BYA): mostly hydrogen and helium, lost to space because the young Earth was hot and had low gravity",
-    "Secondary atmosphere (~4.0–2.5 BYA): produced by volcanic outgassing — ~80% water vapour, ~10% CO2, nitrogen, methane, ammonia; no free O2",
-    "Water vapour condensed to form the oceans; CO2 dissolved into oceans and reacted with silicates, reducing atmospheric CO2",
-    "Photodissociation split water vapour (2H2O + UV → 2H2 + O2); light H2 escaped, leaving trace O2",
-    "Oxygenic photosynthesis by cyanobacteria drove the Great Oxidation Event (~2.4 BYA)",
-    "UV photolysis of accumulated O2 in the stratosphere produced the ozone layer (~15–35 km), protecting surface life"
+    "Primitive atmosphere (~4.6 BYA): dominated by hydrogen and helium; lost early because the young Earth was hot and gravity could not retain such light, fast-moving gases",
+    "Secondary atmosphere (~4.0–2.5 BYA): volcanic outgassing supplied mostly water vapour (~80%), CO₂ (~10%), plus nitrogen compounds, methane, and ammonia — still essentially no free O₂",
+    "Ocean formation: water vapour condensed; CO₂ dissolved into seawater and reacted with crustal minerals, drawing carbon out of the air",
+    "Trace early O₂: ultraviolet photodissociation of water vapour released some oxygen, but this pathway alone cannot explain modern O₂ levels",
+    "Great Oxidation Event (~2.4 BYA): oxygenic photosynthesis by cyanobacteria produced the first sustained rise of free atmospheric oxygen",
+    "Ozone layer: once free O₂ was available, UV photolysis in the stratosphere built O₃ (~15–35 km), shielding the surface from harmful ultraviolet radiation"
   ],
   explanationSections: [
-    { heading: "Why the first atmosphere was lost", body: "Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to space, stripping away the primitive atmosphere." },
-    { heading: "From secondary atmosphere to oxygen-rich atmosphere", body: "Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen, but the major shift came from cyanobacteria, whose photosynthesis (CO2 + H2O + light → organic matter + O2) built up atmospheric oxygen over geological time, culminating in the Great Oxidation Event." }
+    {
+      heading: "Three stages at a glance",
+      body: "It helps to keep a single timeline in mind. First, a hydrogen–helium envelope briefly surrounded the young planet and was lost to space. Second, volcanoes rebuilt an atmosphere rich in water vapour and carbon dioxide but almost free of molecular oxygen. Third, cooling, ocean chemistry, and photosynthesis transformed that secondary mixture into the nitrogen–oxygen air we breathe. Every major exam fact about atmospheric origin is a detail of one of these three stages."
+    },
+    {
+      heading: "Why the story matters for later topics",
+      body: "Composition, greenhouse warming, and the ozone layer all inherit this history. There is no protective ozone without free oxygen; there is no modern oxygen without photosynthesis and earlier ocean-mediated carbon storage. When later topics discuss CO₂, water vapour, or stratospheric ozone, they are describing the latest chapter of the same evolution."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-origin-evolution-loss-of-primitive-atmosphere",
+      title: "Loss of the primitive atmosphere",
+      summary: "Hydrogen and helium escaped the young, hot Earth; the first atmosphere did not become today's air.",
+      explanation: "Hydrogen and helium atoms are light and, at high temperature, move quickly. On the early Earth, many of them exceeded escape velocity and streamed into space. The important teaching point is negative as well as positive: the modern N₂–O₂ mixture is not a leftover of the solar nebula's light gases. Whatever atmosphere we study in weather and climate is a later construction.",
+      examples: [
+        {
+          problem: "Why is today's atmosphere not mainly hydrogen and helium, even though those gases dominate the Sun?",
+          solution: "The young Earth was hot and relatively low in gravity for retaining the lightest gases. H and He escaped to space, so the primitive envelope was lost rather than evolving directly into modern air.",
+          answer: "Light H/He escaped early; modern air is a secondary and biological product."
+        }
+      ],
+      shortcuts: [
+        "Primitive = H/He → lost",
+        "If a question says 'original atmosphere', do not answer N₂–O₂"
+      ],
+      traps: [
+        "Assuming today's nitrogen–oxygen air is the primary atmosphere from planetary formation"
+      ]
+    },
+    {
+      id: "meteo-origin-evolution-secondary-outgassing",
+      title: "Secondary atmosphere and ocean–rock carbon storage",
+      summary: "Volcanic gases rebuilt the air; condensation and chemistry removed much water vapour and CO₂ from the open atmosphere.",
+      explanation: "Volcanic outgassing supplied a mixture dominated by water vapour and carbon dioxide, with nitrogen-bearing gases and reduced species such as methane and ammonia. As the planet cooled, water vapour condensed to form oceans. Carbon dioxide dissolved into seawater and combined with silicates, so a large fraction of Earth's carbon was locked into sediments and rocks rather than left as an atmospheric greenhouse burden. Free molecular oxygen was still essentially absent — a fact exams often test.",
+      examples: [
+        {
+          problem: "A statement claims the secondary volcanic atmosphere already resembled modern dry air (≈78% N₂, 21% O₂). What is wrong with that claim?",
+          solution: "The secondary atmosphere was rich in water vapour and CO₂ and lacked free O₂. Modern proportions appear only after ocean chemistry and the later rise of oxygenic photosynthesis.",
+          answer: "Secondary air had H₂O and CO₂, not free O₂-dominated modern dry air."
+        }
+      ],
+      shortcuts: [
+        "Secondary ≈ volcanic H₂O + CO₂, no free O₂",
+        "Oceans + rocks = major CO₂ sink"
+      ],
+      traps: [
+        "Giving the secondary atmosphere modern O₂ levels",
+        "Forgetting that water vapour condensed into oceans"
+      ]
+    },
+    {
+      id: "meteo-origin-evolution-oxygen-and-ozone",
+      title: "Rise of oxygen and the ozone shield",
+      summary: "Cyanobacteria drove the Great Oxidation Event; ozone could form only after free O₂ existed.",
+      explanation: "Ultraviolet light can split water vapour and release some oxygen, but the decisive, sustained source was oxygenic photosynthesis: cyanobacteria used light to convert CO₂ and water into organic matter and O₂. Over geological time this produced the Great Oxidation Event around 2.4 billion years ago. Only after free O₂ accumulated could stratospheric photochemistry build the ozone layer (roughly 15–35 km), which absorbs biologically harmful UV and makes complex surface life more viable.",
+      examples: [
+        {
+          problem: "Which came first: the ozone layer or abundant free atmospheric oxygen? Why?",
+          solution: "Abundant free O₂ came first. Ozone (O₃) is produced from oxygen through UV-driven reactions. Without a reservoir of O₂, a persistent ozone shield cannot form.",
+          answer: "Free O₂ first; ozone is derived from O₂."
+        }
+      ],
+      shortcuts: [
+        "GOE ≈ cyanobacteria ≈ free O₂ rise",
+        "O₃ needs O₂ + UV (stratosphere ~15–35 km)"
+      ],
+      traps: [
+        "Crediting animals or land plants for the first major oxygen rise",
+        "Placing ozone formation before free oxygen was available"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Three atmospheric stages",
+    headers: ["Stage", "Main gases", "Free O₂?", "Key process"],
+    rows: [
+      ["Primitive", "H₂, He", "No", "Escape to space"],
+      ["Secondary", "H₂O, CO₂, N-compounds", "Essentially no", "Volcanic outgassing; oceans form"],
+      ["Modern", "N₂, O₂, Ar (+ variable gases)", "Yes", "Photosynthesis + photochemistry"],
+    ],
+  },
   examPoints: [
-    "The secondary atmosphere had NO free molecular oxygen — this is a common exam trap",
-    "The Great Oxidation Event is linked specifically to cyanobacteria, not later plants",
-    "Ozone forms from O2 via UV photolysis, concentrated 15–35 km altitude"
+    "Secondary atmosphere: no free molecular oxygen — classic trap",
+    "Great Oxidation Event is linked to cyanobacteria, not later land plants",
+    "Ozone forms from O₂ under UV influence and is concentrated near 15–35 km",
+    "Modern dry-air percentages describe today's atmosphere, not the secondary stage"
   ],
   commonMistakes: [
-    "Thinking today's N2–O2 atmosphere is the original primary atmosphere (H/He was lost early).",
-    "Crediting animals, not photosynthetic organisms, for the rise of oxygen.",
-    "Assuming ozone formed before free O2 was available.",
-    "Mixing secondary volcanic atmosphere with the modern composition.",
+    "Thinking today's N₂–O₂ air is the original primary atmosphere.",
+    "Crediting animals rather than photosynthetic microbes for the rise of oxygen.",
+    "Assuming the ozone layer could exist before free O₂ accumulated.",
+    "Mixing the volcanic secondary mixture with modern composition."
   ],
   relatedTopics: ["meteo-composition-today", "meteo-vertical-structure"],
-    subtopics: [
-      {
-        id: "meteo-origin-evolution-why-the-first-atmosphere-was-lost",
-        title: "Why the first atmosphere was lost",
-        summary: "Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to…",
-        explanation: "Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to space, stripping away the primitive atmosphere.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the first atmosphere was lost”?",
-            solution: "The accurate idea is: Hydrogen and helium are light, fast-moving gases. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Hydrogen and helium are light, fast-moving gases.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the first atmosphere was lost.",
-            solution: "Stay close to the text: Hydrogen and helium are light, fast-moving gases. On the young, hot, low-gravity Earth they could exceed escape velocity and were lost to space, stripping away the primitive atmosphere. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-origin-evolution-from-secondary-atmosphere-to-oxygen-rich",
-        title: "From secondary atmosphere to oxygen-rich atmosphere",
-        summary: "Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen,…",
-        explanation: "Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen, but the major shift came from cyanobacteria, whose photosynthesis (CO2 + H2O + light → organic matter + O2) built up atmospheric oxygen over geological time, culminating in the Great Oxidation Event.",
-                examples: [
-          {
-            problem: "Which statement best matches “From secondary atmosphere to oxygen-rich atmosphere”?",
-            solution: "The accurate idea is: Condensation removed water vapour into the oceans and locked away CO2 into rock. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Condensation removed water vapour into the oceans and locked away CO2 into rock.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying From secondary atmosphere to oxygen-rich atmosphere.",
-            solution: "Stay close to the text: Condensation removed water vapour into the oceans and locked away CO2 into rock. Photodissociation produced a small amount of free oxygen, but the major shift came from cyanobacteria, whose photosynthesis (CO2 + H2O + li… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["phy-states-of-matter", "earth-a4", "earth-g3"],
   leadsTo: ["meteo-composition-today"],
@@ -96,73 +134,109 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 2,
   title: "Composition of Today's Atmosphere",
-  definition: "The modern atmosphere consists of permanent (constant) gases, variable gases, and suspended aerosols, together protecting life and maintaining Earth's thermal equilibrium.",
+  definition: "The air we measure is a mixture of permanent gases, variable gases, and suspended aerosols. Permanent gases keep nearly fixed proportions in the well-mixed lower atmosphere; variable gases change with place and time and disproportionately shape weather, radiation, and climate; aerosols provide surfaces for clouds and scatter or absorb sunlight.",
   keyFacts: [
-    "Nitrogen (N2): 78.08% — most abundant, chemically inert, essential via the nitrogen cycle",
-    "Oxygen (O2): 20.95% — supports respiration/combustion, replenished by photosynthesis",
-    "Argon (Ar): 0.93% — inert noble gas, third most abundant",
-    "Water vapour: 0–4% by volume, highly variable, most powerful greenhouse gas, transports latent heat",
-    "CO2: ~410–420 ppm, rising ~2 ppm/year (>0.5%/year)",
-    "Ozone (O3): ~0.04 ppm near surface (pollutant); far more concentrated in the stratosphere (protective)"
+    "Dry-air bulk: N₂ ≈ 78.08%, O₂ ≈ 20.95%, Ar ≈ 0.93%",
+    "Water vapour: typically 0–4% by volume — highly variable and the most important gaseous greenhouse agent in many local atmospheric columns",
+    "CO₂ ≈ 410–420 ppm and rising by about 2 ppm per year",
+    "Ozone is a pollutant near the surface but a protective absorber of UV in the stratosphere",
+    "Permanent gases stay well mixed up to great height; variable gases and aerosols do not behave like fixed percentages",
+    "Aerosols act as cloud condensation nuclei and affect the radiation balance"
   ],
   explanationSections: [
-    { heading: "Permanent vs. variable gases", body: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour, CO2, O3) change significantly with time and location despite often being minor by volume, and have outsized effects on weather and climate." },
-    { heading: "Aerosols", body: "Aerosols — dust, soot, sea salt, volcanic ash — act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate." }
+    {
+      heading: "Read composition in two columns",
+      body: "First column: the permanent bulk of dry air — nitrogen, oxygen, argon — percentages you can memorise. Second column: the variable minority — water vapour, carbon dioxide, ozone, and particles — small by volume yet central to greenhouse warming, air quality, and clouds. Exam questions often punish anyone who treats every gas as if it were as fixed as nitrogen."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-composition-today-permanent-gases",
+      title: "Permanent gases and dry air",
+      summary: "N₂, O₂, and Ar dominate dry air and stay nearly constant in proportion through the well-mixed atmosphere.",
+      explanation: "Nitrogen is chemically relatively inert in everyday air yet cycles through ecosystems. Oxygen supports respiration and combustion and is continuously replenished by photosynthesis. Argon, though rarely discussed in weather stories, is the third largest dry-air component. Because turbulent mixing is efficient through much of the homosphere, these proportions remain stable with height compared with water vapour.",
+      examples: [
+        {
+          problem: "On a completely dry sample of air, which three gases account for almost all of the volume?",
+          solution: "Nitrogen (~78%), oxygen (~21%), and argon (~0.93%). Together they make up more than 99% of dry air.",
+          answer: "N₂, O₂, and Ar"
+        }
+      ],
+      shortcuts: [
+        "Dry air ≈ 78% N₂, 21% O₂, 1% Ar",
+        "Argon is third — not a rare curiosity only"
+      ],
+      traps: [
+        "Leaving argon out of the 'major gases' list",
+        "Treating water vapour as a fixed dry-air percentage"
+      ]
+    },
+    {
+      id: "meteo-composition-today-variable-gases",
+      title: "Variable gases: water vapour, CO₂, ozone",
+      summary: "Small or changing amounts, large effects on radiation, weather, and life.",
+      explanation: "Water vapour varies from nearly zero in cold polar air to several percent in warm tropical air. It transports latent heat and is often the strongest greenhouse gas in a local column. Carbon dioxide is measured in parts per million, yet it is well mixed and central to long-term climate forcing. Ozone's role depends on altitude: near the ground it irritates lungs and is a pollutant; in the stratosphere the same molecule absorbs ultraviolet radiation and protects the biosphere.",
+      examples: [
+        {
+          problem: "Why can water vapour be called the most important greenhouse gas even though CO₂ dominates many climate headlines?",
+          solution: "In much of the troposphere, water vapour absorbs and emits longwave radiation very effectively and is present in far higher concentration than CO₂. CO₂ still matters globally because it is long-lived and well mixed; the two statements are not contradictions.",
+          answer: "Local greenhouse strength often led by H₂O; CO₂ still critical globally."
+        }
+      ],
+      shortcuts: [
+        "Variable ≠ unimportant",
+        "Same O₃: bad at surface, protective aloft"
+      ],
+      traps: [
+        "Saying CO₂ is always the strongest greenhouse gas in every local atmosphere",
+        "Treating surface ozone and stratospheric ozone as different molecules with the same role"
+      ]
+    },
+    {
+      id: "meteo-composition-today-aerosols",
+      title: "Aerosols and cloud nuclei",
+      summary: "Solid and liquid particles shape clouds and the solar radiation that reaches the ground.",
+      explanation: "Dust, soot, sea salt, and volcanic ash are not gases, but they belong in any serious account of atmospheric composition. Many aerosols serve as cloud condensation nuclei, so cloud droplet numbers depend on the particle load. Particles also scatter and absorb sunlight, linking air chemistry and climate. Volcanic injections are a classic way exams connect aerosols to temporary cooling.",
+      examples: [
+        {
+          problem: "How do aerosols connect to cloud formation in a single sentence useful for MCQs?",
+          solution: "Many aerosols act as cloud condensation nuclei on which water vapour can condense to form cloud droplets.",
+          answer: "Aerosols often provide CCN for cloud droplets."
+        }
+      ],
+      shortcuts: [
+        "Aerosol → CCN → clouds",
+        "Scatter/absorb sunlight → climate effect"
+      ],
+      traps: [
+        "Ignoring particles because they are not listed in the N₂/O₂ percentage table"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Permanent vs variable constituents",
+    headers: ["Constituent", "Typical amount", "Behaviour", "Exam role"],
+    rows: [
+      ["N₂, O₂, Ar", "Percent level (dry air)", "Nearly constant proportions", "Bulk composition"],
+      ["Water vapour", "0–4% (variable)", "Changes with weather", "Latent heat; strong GHG"],
+      ["CO₂", "~420 ppm", "Well mixed; slowly rising", "Long-term climate forcing"],
+      ["O₃", "ppb–ppm by layer", "Surface vs stratosphere", "Pollutant vs UV shield"],
+      ["Aerosols", "Trace mass", "Spatially patchy", "CCN; radiation"],
+    ],
+  },
   examPoints: [
-    "Water vapour is the most powerful greenhouse gas, not CO2 — commonly confused",
-    "Near-surface ozone is a pollutant; stratospheric ozone is protective — same molecule, opposite role by altitude"
+    "Water vapour is often the dominant local greenhouse gas — not always CO₂",
+    "Surface ozone pollutes; stratospheric ozone protects — altitude changes the story",
+    "Argon is the third major dry-air gas after nitrogen and oxygen",
+    "Permanent vs variable is a classification of behaviour, not of importance"
   ],
   commonMistakes: [
-    "Treating water vapor as a fixed percentage like N2 or O2 — it varies strongly.",
-    "Ignoring argon as a major dry-air component after N2 and O2.",
-    "Assuming CO2 is the largest greenhouse gas by concentration (water vapor often dominates locally).",
-    "Confusing permanent gases with variable gases.",
+    "Treating water vapour as a fixed percentage like N₂ or O₂.",
+    "Ignoring argon after nitrogen and oxygen.",
+    "Assuming CO₂ always outranks water vapour as a greenhouse absorber in every column.",
+    "Confusing permanent gases with variable gases."
   ],
   relatedTopics: ["meteo-origin-evolution", "meteo-greenhouse-effect"],
-    subtopics: [
-      {
-        id: "meteo-composition-today-permanent-vs-variable-gases",
-        title: "Permanent vs. variable gases",
-        summary: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour,…",
-        explanation: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour, CO2, O3) change significantly with time and location despite often being minor by volume, and have outsized effects on weather and climate.",
-                examples: [
-          {
-            problem: "Which statement best matches “Permanent vs. variable gases”?",
-            solution: "The accurate idea is: Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Permanent vs. variable gases.",
-            solution: "Stay close to the text: Permanent gases (N2, O2, Ar) hold nearly constant proportions up to ~80 km due to continuous vertical mixing. Variable gases (water vapour, CO2, O3) change significantly with time and location despite often being minor b… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-composition-today-aerosols",
-        title: "Aerosols",
-        summary: "Aerosols — dust, soot, sea salt, volcanic ash — act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence…",
-        explanation: "Aerosols — dust, soot, sea salt, volcanic ash — act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate.",
-                examples: [
-          {
-            problem: "Which statement best matches “Aerosols”?",
-            solution: "The accurate idea is: Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Aerosols.",
-            solution: "Stay close to the text: Aerosols â dust, soot, sea salt, volcanic ash â act as cloud condensation nuclei (CCN), scatter and absorb solar radiation, and influence clouds, weather, and climate. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-origin-evolution", "math-1-7", "math-3-4"],
   leadsTo: ["meteo-vertical-structure", "meteo-greenhouse-effect"],
@@ -174,72 +248,108 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 3,
   title: "Vertical Thermal Structure of the Atmosphere",
-  definition: "The atmosphere is divided into four primary layers by how temperature changes with altitude: troposphere, stratosphere, mesosphere, thermosphere, separated by boundaries called 'pauses'.",
+  definition: "Temperature does not fall steadily from the ground to space. The atmosphere is divided into layers — troposphere, stratosphere, mesosphere, and thermosphere — according to whether temperature decreases or increases with height. The boundaries are the tropopause, stratopause, and mesopause. Most weather and atmospheric mass sit in the lowest layer.",
   keyFacts: [
-    "Troposphere: 0–~11 km, ELR ~6.5°C/km, holds ~75–80% of atmospheric mass and virtually all weather/water vapour",
-    "Tropopause height varies: ~16–18 km at the equator/summer, ~8 km near the poles/winter",
-    "Stratosphere: ~11–50 km, warms with height due to ozone absorbing UV, dry and stable",
-    "Mesosphere: 50–~85 km, coldest layer (−90 to −100°C near mesopause), meteors burn up here",
-    "Thermosphere: 85–~600 km, temperature can exceed 1,500°C from X-ray/UV absorption, but air is too tenuous to feel warm; contains the ionosphere"
+    "Troposphere (~0–11 km on average): contains most mass and almost all weather and water vapour; environmental lapse rate often near 6.5 °C/km",
+    "Tropopause height: higher in the tropics (~16–18 km) and lower toward the poles (~8 km), and higher in summer than in winter at a given latitude",
+    "Stratosphere (~11–50 km): temperature generally increases with height because ozone absorbs ultraviolet radiation",
+    "Mesosphere (~50–85 km): temperature falls again; the mesopause region is among the coldest parts of the atmosphere",
+    "Thermosphere (above ~85 km): very high kinetic temperatures are possible, but the air is extremely thin",
+    "Layer order from the surface upward: troposphere → stratosphere → mesosphere → thermosphere"
   ],
   explanationSections: [
-    { heading: "Why the stratosphere warms with height", body: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere." },
-    { heading: "Why the thermosphere is 'hot' but doesn't feel hot", body: "Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high molecular speeds, it carries negligible total heat energy." }
+    {
+      heading: "Layers are thermal stories, not arbitrary labels",
+      body: "Each layer is defined by its temperature-height trend. In the troposphere, rising parcels and radiation typically yield cooling with height. In the stratosphere, ozone heating reverses that trend. In the mesosphere, cooling returns; in the thermosphere, absorption of energetic solar radiation raises molecular speeds dramatically. Memorising the order is useful only when tied to these mechanisms."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-vertical-structure-troposphere-tropopause",
+      title: "Troposphere and tropopause",
+      summary: "The weather layer: most mass, most water, and a tropopause whose height changes with latitude and season.",
+      explanation: "The troposphere holds roughly three-quarters of the atmosphere's mass and virtually all of the water vapour that participates in clouds and precipitation. Its depth is not fixed. Strong tropical convection pushes the tropopause upward; polar winter profiles are shallower. That single geographic fact underpins many exam questions about where the highest tropopause is found.",
+      examples: [
+        {
+          problem: "Where is the tropopause typically highest, and why does that matter for 'weather height'?",
+          solution: "Near the equator, especially in the warm season, the tropopause can reach about 16–18 km. Deep convection and a deeper weather-bearing layer are possible there compared with polar regions, where the tropopause may lie near 8 km.",
+          answer: "Highest in the tropics (~16–18 km); deeper tropospheric weather layer."
+        }
+      ],
+      shortcuts: [
+        "Troposphere = weather + most mass",
+        "Tropopause: high tropics, low poles"
+      ],
+      traps: [
+        "Treating tropopause height as the same everywhere",
+        "Placing most weather in the stratosphere"
+      ]
+    },
+    {
+      id: "meteo-vertical-structure-stratosphere-ozone",
+      title: "Stratosphere and ozone heating",
+      summary: "Temperature rises with height because ozone absorbs UV and warms the layer.",
+      explanation: "Unlike the troposphere, the stratosphere is generally stable against deep moist convection. Ozone absorption of ultraviolet radiation provides a heat source that increases temperature toward the stratopause. The dryness and stability of this layer contrast sharply with the turbulent, weather-filled troposphere below.",
+      examples: [
+        {
+          problem: "Why does temperature often increase with height in the stratosphere?",
+          solution: "Ozone absorbs incoming ultraviolet radiation and converts that energy into heat, so the thermal profile can warm upward through much of the layer.",
+          answer: "Ozone UV absorption heats the stratosphere."
+        }
+      ],
+      shortcuts: [
+        "Stratosphere: ozone → warm with height",
+        "Stable, dry, little weather"
+      ],
+      traps: [
+        "Applying tropospheric cooling-with-height to the whole atmosphere"
+      ]
+    },
+    {
+      id: "meteo-vertical-structure-mesosphere-thermosphere",
+      title: "Mesosphere and thermosphere",
+      summary: "Cold mesopause region above; thermosphere 'hot' in kinetic temperature but too thin to feel hot.",
+      explanation: "In the mesosphere, temperature declines again and meteors commonly burn up. The thermosphere can show extremely high temperatures based on molecular kinetic energy, yet density is so low that a physical object does not gain heat the way it would in room air. The ionosphere — important for radio — largely overlaps thermospheric altitudes and is an electrical, not purely thermal, description of the same height range.",
+      examples: [
+        {
+          problem: "How can the thermosphere be described as very hot yet not 'feel' hot to a spacecraft surface in the way a warm room does?",
+          solution: "Temperature reflects average molecular kinetic energy. In the thermosphere molecules are sparse, so the total heat energy transferred is small despite high individual speeds.",
+          answer: "High kinetic temperature, extremely low density → little heat content."
+        }
+      ],
+      shortcuts: [
+        "Mesosphere: colder upward to mesopause",
+        "Thermosphere: hot molecules, thin air"
+      ],
+      traps: [
+        "Equating thermospheric temperature with comfortable surface heat",
+        "Swapping mesosphere and thermosphere behaviour"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Thermal layers (surface upward)",
+    headers: ["Layer", "Approx. height", "Temperature trend with height", "Signature"],
+    rows: [
+      ["Troposphere", "0–~11 km (varies)", "Generally cools", "Weather; most mass"],
+      ["Stratosphere", "~11–50 km", "Generally warms", "Ozone UV heating"],
+      ["Mesosphere", "~50–85 km", "Cools", "Cold mesopause; meteors"],
+      ["Thermosphere", "~85 km upward", "Warms strongly", "Very thin; ionosphere overlap"],
+    ],
+  },
   examPoints: [
-    "Tropopause height varies with latitude and season — higher/equatorial-summer, lower/polar-winter",
-    "Order of layers bottom to top: Troposphere → Stratosphere → Mesosphere → Thermosphere"
+    "Layer order: troposphere → stratosphere → mesosphere → thermosphere",
+    "Tropopause height varies with latitude and season",
+    "Stratospheric warming with height is tied to ozone",
+    "Most weather is tropospheric"
   ],
   commonMistakes: [
-    "Mixing troposphere and stratosphere temperature trends (troposphere generally cools with height; stratosphere warms).",
-    "Thinking the tropopause is a fixed altitude everywhere.",
+    "Mixing tropospheric and stratospheric temperature trends.",
+    "Thinking the tropopause is a fixed altitude worldwide.",
     "Confusing mesosphere and thermosphere temperature behaviour.",
-    "Assuming weather systems occupy the whole atmosphere equally — most weather is tropospheric.",
+    "Assuming weather is distributed evenly through all layers."
   ],
   relatedTopics: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
-    subtopics: [
-      {
-        id: "meteo-vertical-structure-why-the-stratosphere-warms-with-height",
-        title: "Why the stratosphere warms with height",
-        summary: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the…",
-        explanation: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the stratosphere warms with height”?",
-            solution: "The accurate idea is: Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the stratosphere warms with height.",
-            solution: "Stay close to the text: Ozone in the stratosphere absorbs incoming UV radiation, releasing heat and reversing the normal cooling-with-height trend seen in the troposphere. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-vertical-structure-why-the-thermosphere-is-hot-but-doesn-t-",
-        title: "Why the thermosphere is 'hot' but doesn't feel hot",
-        summary: "Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high…",
-        explanation: "Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high molecular speeds, it carries negligible total heat energy.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the thermosphere is 'hot' but doesn't feel hot”?",
-            solution: "The accurate idea is: Temperature measures the kinetic energy of individual molecules, not heat capacity. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Temperature measures the kinetic energy of individual molecules, not heat capacity.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the thermosphere is 'hot' but doesn't feel hot.",
-            solution: "Stay close to the text: Temperature measures the kinetic energy of individual molecules, not heat capacity. Thermosphere air is so tenuous that despite very high molecular speeds, it carries negligible total heat energy. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-composition-today", "phy-temperature-heat", "phy-heat-transfer-mechanisms"],
   leadsTo: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
@@ -251,26 +361,82 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 4,
   title: "The Ionosphere and Exosphere",
-  definition: "The ionosphere is an electrically charged region spanning the thermosphere; the exosphere is the outermost, most tenuous layer where gases escape into space.",
+  definition: "Above the well-mixed weather atmosphere, two ideas extend the vertical picture. The ionosphere is a region of free electrons and ions created by solar radiation, largely overlapping the thermosphere. The exosphere is the outermost fringe where collisions are rare and light atoms may escape to space.",
   keyFacts: [
-    "Ionosphere begins ~60 km, is not a distinct thermal layer but an electrified region within the thermosphere",
-    "High-energy solar radiation strips electrons from molecules/atoms, producing free electrons and ions",
-    "Ionosphere reflects standard AM radio waves at night, enabling long-distance transmission; TV/FM generally pass through",
-    "Exosphere begins ~500 km, mean free path of molecules exceeds 1 km",
-    "In the exosphere, light atoms (H, He) can gain enough thermal energy to exceed escape velocity"
+    "Ionosphere: begins near ~60 km; electrified region rather than a separate temperature layer in the standard four-layer thermal scheme",
+    "Solar UV and X-rays ionise atoms and molecules, releasing free electrons",
+    "AM radio can reflect from ionospheric layers, especially at night; higher-frequency FM and TV signals more often pass through",
+    "Exosphere: begins on the order of ~500 km; mean free paths become very long",
+    "Light species such as hydrogen and helium are the most likely to escape from the exosphere"
   ],
   explanationSections: [
-    { heading: "Radio wave behavior", body: "AM radio waves reflect off the ionosphere, especially at night, allowing signals to travel far beyond line-of-sight. Higher-frequency FM and TV signals pass through the ionosphere rather than reflecting." }
+    {
+      heading: "Electrical region versus thermal layer",
+      body: "Students sometimes try to insert the ionosphere as a fifth thermal layer between mesosphere and thermosphere. It is more accurate to say that ionization becomes important through a height range that coincides mainly with the thermosphere. The four thermal layers still describe temperature structure; the ionosphere describes charge."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-ionosphere-exosphere-ionization-radio",
+      title: "Ionization and radio propagation",
+      summary: "Solar radiation creates free electrons; AM and FM/TV behave differently.",
+      explanation: "When energetic solar radiation strips electrons from atmospheric particles, the resulting plasma can refract or reflect certain radio frequencies. Medium-frequency AM broadcasts may travel long distances via ionospheric reflection, particularly at night when absorption conditions change. Higher-frequency FM and television signals are less readily reflected and usually require line-of-sight paths. That contrast is a standard examination distinction.",
+      examples: [
+        {
+          problem: "Why might a distant AM station be heard at night more readily than a distant FM station?",
+          solution: "AM frequencies can reflect from the ionosphere under suitable conditions, extending range beyond the horizon. FM frequencies more often pass through the ionosphere, so reception stays closer to line-of-sight.",
+          answer: "AM can reflect from the ionosphere; FM usually does not."
+        }
+      ],
+      shortcuts: [
+        "AM reflects (often); FM/TV pass through",
+        "Ionosphere ≈ charged region, not a fifth thermal layer"
+      ],
+      traps: [
+        "Calling the ionosphere a separate thermal layer like the troposphere",
+        "Assuming all radio frequencies behave identically"
+      ]
+    },
+    {
+      id: "meteo-ionosphere-exosphere-escape",
+      title: "Exosphere and atmospheric escape",
+      summary: "At the outer edge, collisions are rare and light atoms can leave the planet.",
+      explanation: "In the exosphere the atmosphere is so thin that a molecule may travel a long distance before colliding with another. Light atoms that reach high speeds in the tail of the thermal distribution can exceed escape velocity and be lost to space. This is the final geometric end of the atmospheric column discussed in origin topics when hydrogen escaped the early Earth — the same physics, at the modern outer boundary.",
+      examples: [
+        {
+          problem: "Which gases are most prone to escape from the exosphere, and why?",
+          solution: "The lightest species, especially hydrogen and helium, because for a given temperature they have higher average speeds and more readily exceed escape velocity.",
+          answer: "H and He — light, high thermal speeds."
+        }
+      ],
+      shortcuts: [
+        "Exosphere = escape region",
+        "Light gases leave most easily"
+      ],
+      traps: [
+        "Thinking escape requires zero gravity rather than exceeding escape speed in a thin gas"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Ionosphere vs exosphere",
+    headers: ["Feature", "Ionosphere", "Exosphere"],
+    rows: [
+      ["Main idea", "Ionisation / free electrons", "Extreme thinness / escape"],
+      ["Relation to thermal layers", "Overlaps thermosphere heights", "Outermost fringe"],
+      ["Human-relevant effect", "Radio propagation", "Atmospheric loss of light gases"],
+    ],
+  },
   examPoints: [
-    "AM reflects, FM/TV pass through — a frequently tested distinction",
-    "The exosphere is where atmospheric gas is finally lost to space"
+    "AM tends to reflect; FM/TV tend to pass through the ionosphere",
+    "Ionosphere is an electrified region, not an extra thermal layer in the basic four-layer scheme",
+    "Exosphere is where atmospheric gases are finally lost to space"
   ],
   commonMistakes: [
-    "Thinking the ionosphere is a separate layer independent of thermosphere altitudes.",
-    "Assuming radio propagation effects only depend on weather, not ionization.",
-    "Confusing exosphere with outer space having zero gravity.",
-    "Mixing aurora mechanisms with ordinary tropospheric storms.",
+    "Treating the ionosphere as independent of thermospheric altitudes.",
+    "Assuming radio range depends only on tropospheric weather.",
+    "Confusing the exosphere with a region of zero gravity.",
+    "Mixing aurora physics casually with ordinary thunderstorms."
   ],
   relatedTopics: ["meteo-vertical-structure"],
   content: true,
@@ -284,23 +450,104 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 5,
   title: "Weather vs. Climate & Climatic Controls",
-  definition: "Weather is the transient atmospheric state at a given time and place; climate is the long-term statistical average of weather, typically over 30 years, including seasonal variation and extremes.",
+  definition: "Weather is the atmospheric state at a particular time and place — the next hour's temperature, wind, and rain. Climate is the long-term statistical description of weather, including averages, seasonal cycles, and extremes, conventionally summarised over periods such as 30 years. Climatic controls are the geographic and physical factors that shape why one region is desert and another is persistently wet.",
   keyFacts: [
-    "Seven weather elements: air temperature, air pressure, humidity, clouds, precipitation, visibility, wind",
-    "Climate is calculated over a specified period, generally 30 years",
-    "Seven climatic controls: solar intensity/latitude, land-water distribution, ocean currents, prevailing winds, semipermanent pressure systems, mountain barriers, elevation"
+    "Seven weather elements commonly listed: air temperature, air pressure, humidity, clouds, precipitation, visibility, wind",
+    "Climate baselines are often computed over ~30 years so that single unusual years do not redefine the climate",
+    "Climate includes variability and extremes, not only the mean",
+    "Seven climatic controls: latitude/solar geometry, land–water distribution, ocean currents, prevailing winds, semipermanent pressure systems, mountain barriers, elevation"
   ],
   explanationSections: [
-    { heading: "Why 30 years", body: "Averaging over 30 years smooths out short-term variability so that climate reflects long-term statistical patterns rather than any single unusual year." }
+    {
+      heading: "Two timescales, one atmosphere",
+      body: "The same physical atmosphere produces both weather and climate. The distinction is statistical and temporal. A heatwave is weather; a shift in the distribution of heatwaves over decades is a climate question. Confusing the two leads to invalid arguments in both everyday discussion and exam options."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-weather-vs-climate-definitions",
+      title: "Weather versus climate",
+      summary: "Snapshot versus long-term statistics, including extremes.",
+      explanation: "Weather answers 'what is happening now or this week?' Climate answers 'what is normal here across many years, and how variable is it?' The familiar thirty-year window is a practical standard for normals, not a law of physics, but it is the convention examinations expect. Climate is not merely the average temperature; rainfall reliability, storm frequency, and record extremes are part of the description.",
+      examples: [
+        {
+          problem: "A city records its coldest day in twenty years. Does that single day disprove a warming climate trend?",
+          solution: "No. One weather extreme does not define climate. Climate assessment uses long records, distributions, and trends, not a single event in isolation.",
+          answer: "No — climate is statistical over long periods."
+        }
+      ],
+      shortcuts: [
+        "Weather = short term; climate = long-term stats",
+        "Climate includes extremes, not only means"
+      ],
+      traps: [
+        "Using one storm or cold day as full proof for or against climate change"
+      ]
+    },
+    {
+      id: "meteo-weather-vs-climate-seven-and-seven",
+      title: "Seven elements and seven controls",
+      summary: "Memorise both lists; they test different ideas.",
+      explanation: "Weather elements are what instruments and observers describe in a synoptic report: temperature, pressure, humidity, cloud, precipitation, visibility, and wind. Climatic controls are the reasons climates differ: how much solar energy arrives (latitude), how land and ocean heat differently, how currents and prevailing winds move heat and moisture, where subtropical highs sit, how mountains force air upward or cast rain shadows, and how elevation cools the air. Mixing the two lists is a common error.",
+      examples: [
+        {
+          problem: "Is 'mountain barrier' a weather element or a climatic control?",
+          solution: "It is a climatic control — a geographic factor that shapes long-term climate (for example by causing orographic rain and rain shadows), not an instantaneous measured element like humidity or wind speed.",
+          answer: "Climatic control"
+        }
+      ],
+      shortcuts: [
+        "Elements = what you measure now",
+        "Controls = why climates differ"
+      ],
+      traps: [
+        "Putting latitude or mountains into the weather-element list"
+      ]
+    },
+    {
+      id: "meteo-weather-vs-climate-why-thirty-years",
+      title: "Why multi-decadal normals",
+      summary: "Long averages reduce the noise of individual seasons.",
+      explanation: "A single wet year or dry decade can mislead. Averaging across roughly thirty years stabilises 'normals' used in agriculture, engineering, and climatology. When normals are updated, the reference period changes; the physical climate may also be shifting, which is why modern practice pays attention both to the baseline and to trends relative to it.",
+      examples: [
+        {
+          problem: "Why might a 5-year average of rainfall be a poor climate normal for planning?",
+          solution: "Five years is short enough that a few unusual seasons can dominate the average. A ~30-year window better represents longer-term central tendency and variability.",
+          answer: "Too short — dominated by a few seasons."
+        }
+      ],
+      shortcuts: [
+        "~30 years ≈ standard normal period",
+        "Short records exaggerate noise"
+      ],
+      traps: [
+        "Treating any short recent stretch as the full climate definition"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Weather elements vs climatic controls",
+    headers: ["Weather elements (measured state)", "Climatic controls (why regions differ)"],
+    rows: [
+      ["Temperature", "Latitude / solar intensity"],
+      ["Pressure", "Land–water distribution"],
+      ["Humidity", "Ocean currents"],
+      ["Clouds", "Prevailing winds"],
+      ["Precipitation", "Semipermanent pressure systems"],
+      ["Visibility", "Mountain barriers"],
+      ["Wind", "Elevation"],
+    ],
+  },
   examPoints: [
-    "Memorize both lists exactly — 7 weather elements vs. 7 climatic controls is a classic FPSC-style distinction question"
+    "Know both sevens: elements vs controls",
+    "Climate ≈ long-term statistics including variability, often over ~30 years",
+    "One extreme weather event is not, by itself, a climate proof"
   ],
   commonMistakes: [
-    "Using one extreme weather event alone as proof of climate change without statistics.",
-    "Treating climate as average weather only — variability and extremes matter too.",
-    "Confusing weather forecasts (days) with climate projections (decades).",
-    "Ignoring that local controls (altitude, continentality) shape climate as much as latitude.",
+    "Using one extreme day as the sole proof of climate change.",
+    "Defining climate as average weather only and ignoring extremes.",
+    "Confusing day-ahead forecasts with multi-decadal projections.",
+    "Ignoring local controls such as altitude and continentality."
   ],
   relatedTopics: ["meteo-scales-of-motion", "meteo-forecasting-methods"],
   content: true,
@@ -314,26 +561,104 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 6,
   title: "Scales of Atmospheric Motion",
-  definition: "Atmospheric motion is organized hierarchically by spatial and temporal scale: microscale, mesoscale, synoptic scale, and global (planetary) scale.",
+  definition: "Atmospheric motions are classified by horizontal size and typical lifetime. From smallest to largest one speaks of microscale, mesoscale, synoptic scale, and global or planetary scale. Larger systems generally last longer and often steer or contain the smaller ones.",
   keyFacts: [
-    "Microscale: cm–m, seconds–minutes (e.g., turbulent eddies)",
-    "Mesoscale: few km–~100 km, minutes–~a day (e.g., land/sea breeze, mountain/valley winds, thunderstorms, tornadoes)",
-    "Synoptic scale: hundreds–thousands of km, days–weeks (e.g., fronts, mid-latitude cyclones, hurricanes)",
-    "Global/planetary scale: entire globe, weeks–months (longwave upper-atmosphere patterns steering synoptic storms)",
-    "Synoptic + global scale together are called macroscale meteorology"
+    "Microscale: centimetres to metres; seconds to minutes (turbulent eddies, small gusts)",
+    "Mesoscale: a few kilometres to about 100 km; minutes to about a day (sea breezes, thunderstorms, tornadoes)",
+    "Synoptic scale: hundreds to thousands of kilometres; days to a week or more (fronts, mid-latitude cyclones, hurricanes)",
+    "Global/planetary scale: continental to global; weeks to months (long waves that steer storm tracks)",
+    "Synoptic and global scales together are sometimes called macroscale",
+    "Tornadoes are mesoscale features even when embedded in a larger synoptic cyclone"
   ],
   explanationSections: [
-    { heading: "Ordering by size and duration", body: "As spatial scale increases, so does typical lifespan — microscale eddies last seconds, while planetary waves persist for weeks to months, generally steering the smaller synoptic-scale systems embedded within them." }
+    {
+      heading: "Scale is about size and duration",
+      body: "A useful habit is to ask two questions of any phenomenon: how wide is it, and how long does it last? Those answers place it on the scale ladder. The Coriolis effect, for example, is crucial for synoptic and planetary flows but negligible for a dust devil that lives only a minute."
+    }
   ],
+  subtopics: [
+    {
+      id: "meteo-scales-of-motion-ladder",
+      title: "The scale ladder",
+      summary: "Micro → meso → synoptic → planetary, with lifetime increasing alongside size.",
+      explanation: "Microscale motion is the gusty turbulence felt in street canyons. Mesoscale systems organise clouds and local winds over a city or coastal strip. Synoptic systems are the highs, lows, and fronts drawn on a national weather map. Planetary waves span ocean basins and set the stage on which synoptic storms travel. Each rung has characteristic dynamics; tools and approximations change as you climb.",
+      examples: [
+        {
+          problem: "Classify a typical mid-latitude cyclone on the weather map that lasts four days and spans 1500 km.",
+          solution: "Horizontal size of hundreds to thousands of kilometres and lifetime of several days place it firmly on the synoptic scale.",
+          answer: "Synoptic scale"
+        }
+      ],
+      shortcuts: [
+        "Bigger usually lasts longer",
+        "Map symbols (fronts, H/L) → synoptic"
+      ],
+      traps: [
+        "Using 'large' loosely without size or time"
+      ]
+    },
+    {
+      id: "meteo-scales-of-motion-meso-vs-synoptic",
+      title: "Mesoscale versus synoptic traps",
+      summary: "Tornadoes and thunderstorms are mesoscale; hurricanes and mid-latitude cyclones are synoptic.",
+      explanation: "Severity is not the same as scale. A tornado is intense but narrow and short-lived, so it is mesoscale. A hurricane is also intense but spans hundreds of kilometres and persists for days, so it is synoptic. Thunderstorm complexes and land–sea breezes likewise sit on the mesoscale even when they produce dramatic local weather.",
+      examples: [
+        {
+          problem: "Is a tornado classified as synoptic scale because it is dangerous?",
+          solution: "No. Classification follows spatial and temporal scale. Tornadoes are mesoscale. Danger does not promote a phenomenon to synoptic scale.",
+          answer: "No — tornadoes are mesoscale."
+        }
+      ],
+      shortcuts: [
+        "Tornado / thunderstorm → mesoscale",
+        "Hurricane / mid-latitude cyclone → synoptic"
+      ],
+      traps: [
+        "Calling tornadoes synoptic because they are severe"
+      ]
+    },
+    {
+      id: "meteo-scales-of-motion-macroscale",
+      title: "Macroscale: synoptic plus planetary",
+      summary: "Together, the two largest rungs organise week-scale weather patterns.",
+      explanation: "When texts group synoptic and planetary motions as macroscale, they are emphasising the chartable, longer-lived flows that dominate medium-range thinking. Planetary waves steer the tracks of synoptic cyclones; understanding one without the other is incomplete for mid-latitude weather.",
+      examples: [
+        {
+          problem: "A longwave pattern in the upper troposphere persists for three weeks and guides storms across the Atlantic. Which scale is that longwave pattern?",
+          solution: "Lifetime of weeks and near-hemispheric wavelength indicate the global or planetary scale (macroscale).",
+          answer: "Planetary / global scale"
+        }
+      ],
+      shortcuts: [
+        "Macroscale = synoptic + planetary",
+        "Planetary waves steer synoptic storms"
+      ],
+      traps: [
+        "Thinking planetary scale replaces synoptic storms rather than steering them"
+      ]
+    }
+  ],
+  comparisonTable: {
+    title: "Scales of motion",
+    headers: ["Scale", "Size", "Time", "Examples"],
+    rows: [
+      ["Microscale", "cm–m", "Seconds–minutes", "Turbulent eddies"],
+      ["Mesoscale", "km–~100 km", "Minutes–~1 day", "Sea breeze, thunderstorm, tornado"],
+      ["Synoptic", "100s–1000s km", "Days–~1 week", "Fronts, mid-latitude cyclone, hurricane"],
+      ["Planetary", "Continental–global", "Weeks–months", "Longwaves, storm-track guides"],
+    ],
+  },
   examPoints: [
-    "Tornadoes are mesoscale, NOT synoptic scale — a common trap since tornadoes feel 'severe'/large-scale",
-    "Hurricanes and mid-latitude cyclones are synoptic scale"
+    "Tornadoes are mesoscale, not synoptic",
+    "Hurricanes and mid-latitude cyclones are synoptic scale",
+    "Larger scale generally implies longer lifetime",
+    "Synoptic + planetary = macroscale in many textbooks"
   ],
   commonMistakes: [
-    "Applying synoptic rules to microscale turbulence without care.",
-    "Thinking the Coriolis force dominates every gust of wind at human scale.",
-    "Mixing temporal and spatial scale labels casually.",
-    "Assuming larger scale always means stronger winds.",
+    "Applying synoptic balance ideas to microscale gusts.",
+    "Expecting Coriolis to dominate every local eddy.",
+    "Mixing size labels with severity labels.",
+    "Assuming larger scale always means stronger instantaneous wind."
   ],
   relatedTopics: ["meteo-weather-vs-climate", "meteo-composition-today"],
   content: true,
@@ -341,6 +666,7 @@ export const topics: Topic[] = [
   leadsTo: ["meteo-forces-governing-wind", "meteo-global-circulation"],
   usedIn: ["meteo-global-circulation", "meteo-rossby-waves", "meteo-cyclones-development"]
 },
+
 
 // ============================= SECTION B =============================
 
