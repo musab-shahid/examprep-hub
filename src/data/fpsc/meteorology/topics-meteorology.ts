@@ -3755,93 +3755,69 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 1,
   title: "The Köppen Climate Classification System",
-  definition: "Developed by Wladimir Köppen (1884, refined 1918–1936), this system classifies world climates into five major groups (A, B, C, D, E) plus Highland (H), based on monthly and annual temperature and precipitation thresholds, with each boundary tied to natural vegetation distribution.",
+  definition: "The Köppen system classifies climates using monthly temperature and precipitation thresholds that approximate natural vegetation boundaries. A letter code (A–E, with second and third letters for precipitation and temperature patterns) summarises each climate type for maps and exams.",
   keyFacts: [
-    "Group A (Tropical): coldest month mean temperature ≥18°C — subtypes Af (tropical rainforest, driest month ≥60 mm), Am (tropical monsoon, driest month <60 mm but ≥100 − annual/25), Aw/As (tropical savanna, driest month <60 mm)",
-    "Group B (Dry): potential evapotranspiration (PE) exceeds precipitation — BW (arid/desert, P/PE < 0.5), BS (semi-arid/steppe, 0.5 ≤ P/PE < 0.65); each subdivided by h (hot, annual T ≥18°C) or k (cold, annual T <18°C): BWh, BWk, BSh, BSk",
-    "Group C (Mild mid-latitude/subtropical): coldest month between −3°C and 18°C, warmest month >10°C — Cfa (humid subtropical, no dry season), Cfb/Cfc (oceanic/marine west coast, warmest month <22°C / <10°C), Csa/Csb (Mediterranean, dry summer)",
-    "Group D (Severe mid-latitude/continental): coldest month ≤−3°C, warmest month >10°C — Dfa/Dwa/Dsa (humid continental, hot summer), Dfb/Dwb/Dsb (humid continental, warm summer), Dfc/Dwc/Dsc (subpolar/boreal, <4 months >10°C), Dfd/Dwd/Dsd (subarctic, coldest month <−38°C)",
-    "Group E (Polar): warmest month <10°C — ET (tundra, warmest month 0–10°C), EF (ice cap, all months <0°C)",
-    "Group H (Highland): climate controlled by elevation rather than latitude — varies with altitude; can include A, B, C, D, and E subtypes at different elevations within a small area",
-    "Letter decoding: capital letter = major group; second letter = precipitation regime (f = no dry season, s = dry summer, w = dry winter, m = monsoon); third letter = temperature regime (a, b, c, d, h, k)"
+    "Main groups: A tropical, B dry, C temperate (mesothermal), D continental (microthermal), E polar",
+    "B climates are defined by dryness relative to temperature (not by temperature alone)",
+    "Second letter often codes seasonal precipitation (f, w, s) or desert/steppe (W, S)",
+    "Third letter often codes heat level (a, b, c, d, h, k depending on group)",
+    "Empirical thresholds — designed to match vegetation, not perfect physics boxes",
+    "Widely used in geography and FPSC-style climate questions"
   ],
   explanationSections: [
-    { heading: "The logic behind Köppen's boundaries", body: "Köppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns — making the system both climatically and ecologically meaningful. The 18°C coldest-month threshold for Group A reflects the limit of tropical rainforest (which cannot tolerate any cold month); the −3°C coldest-month threshold for the C/D boundary reflects the southern limit of boreal forests and the northern limit of temperate forests; the 10°C warmest-month threshold for D vs. E reflects the limit of tree growth (trees generally cannot survive where no month is warm enough). These boundaries are not arbitrary: each one corresponds to a real ecological transition." },
-    { heading: "How the letter code is constructed", body: "Each climate type is coded with 2–3 letters. The first letter is the major group (A, B, C, D, E, H). The second letter describes the precipitation regime: f = no dry season (fully humid), s = dry summer (Mediterranean), w = dry winter, m = monsoon (short dry season but heavy summer rain), S = steppe (semi-arid), W = desert (arid). The third letter describes the temperature regime: a = hot summer (warmest month ≥22°C), b = warm summer (warmest month <22°C, ≥4 months ≥10°C), c = cool summer (1–3 months ≥10°C), d = very cold winter (coldest month <−38°C), h = hot (annual T ≥18°C), k = cold (annual T <18°C). For example, 'Cfa' = mild mid-latitude, fully humid, hot summer (e.g., humid subtropical climate of the southeastern US). 'BWh' = arid, hot (e.g., Sahara). 'Dfc' = severe mid-latitude, fully humid, cool summer (e.g., much of Siberia)." }
+    { heading: "Letters as a climate shorthand", body: "Köppen does not replace process understanding — it packages long-term temperature and rainfall into a code. Learn the five main groups first, then the dry-climate logic, then common subtypes (Af, Am, Aw, BWh, BSk, Cfa, Csa, Dfb, ET, EF)." }
   ],
-  examPoints: [
-    "Memorize the exact temperature thresholds: 18°C (A vs. C), −3°C (C vs. D), 10°C (D vs. E warmest month), 0°C (E for EF) — these boundary numbers are directly testable",
-    "Group B is defined by PE > P, not by temperature — this is a common confusion because B is in the middle of the alphabet but defined by moisture, not temperature",
-    "Group B subdivision: BW (P/PE < 0.5) = desert; BS (0.5 ≤ P/PE < 0.65) = steppe",
-    "Group B temperature subdivision: h (hot, annual T ≥18°C) for hot deserts (Sahara, Arabian); k (cold, annual T <18°C) for cold deserts (Gobi, Great Basin)",
-    "Second letter decoding: f = no dry season; s = dry summer; w = dry winter; m = monsoon; S = steppe; W = desert",
-    "Third letter decoding: a = hot summer (≥22°C); b = warm summer; c = cool summer; d = very cold winter; h = hot; k = cold"
+  subtopics: [
+    {
+      id: "meteo-koppen-system-main-groups",
+      title: "Five main groups (A–E)",
+      summary: "Tropical, dry, temperate, continental, polar.",
+      explanation: "A climates are warm year-round with adequate moisture for tropical vegetation patterns. B climates fail precipitation thresholds relative to evaporative demand. C and D split mid-latitude climates by coldest-month severity. E climates are polar with very low summer warmth.",
+      examples: [
+        { problem: "Which main Köppen group is defined primarily by dryness rather than temperature?", solution: "B — dry climates, based on precipitation relative to temperature.", answer: "B" }
+      ],
+      shortcuts: ["A tropical", "B dry", "C temperate", "D continental", "E polar"],
+      traps: ["Treating B as ‘hot only’ — cold dry climates exist"]
+    },
+    {
+      id: "meteo-koppen-system-second-letters",
+      title: "Precipitation and subtype letters",
+      summary: "f/w/s for seasonal rain; W/S for desert/steppe.",
+      explanation: "In moist climates, f often means no dry season, w dry winter, s dry summer (as in Mediterranean Csa). In B climates, W denotes desert and S steppe. Temperature third letters distinguish hot deserts (h) from cold deserts (k) in common schemes.",
+      examples: [
+        { problem: "What does the ‘s’ typically indicate in a Csa climate?", solution: "Dry summer — Mediterranean-type precipitation seasonality.", answer: "Dry summer" }
+      ],
+      shortcuts: ["f = no dry season (common use)", "s = dry summer", "w = dry winter", "BW desert, BS steppe"],
+      traps: ["Memorising codes without seasonal meaning"]
+    }
   ],
   comparisonTable: {
-    headers: ["Group", "Defining condition", "Example region", "Vegetation"],
+    title: "Köppen main groups",
+    headers: ["Code", "Name", "Core idea"],
     rows: [
-      ["A (Tropical)", "Coldest month ≥18°C", "Amazon, Congo, maritime SE Asia", "Tropical rainforest, monsoon forest, savanna"],
-      ["B (Dry)", "PE > P (PE exceeds precipitation)", "Sahara, Arabian, Gobi, Murray-Darling", "Desert (BW), steppe/grassland (BS)"],
-      ["C (Mild mid-latitude)", "Coldest month −3° to 18°C", "Mediterranean, southern US, central Europe", "Mediterranean shrub, humid subtropical, marine west-coast forest"],
-      ["D (Severe mid-latitude)", "Coldest month ≤−3°C, warmest >10°C", "NE US, central Russia, Manchuria", "Humid continental forest, boreal/taiga"],
-      ["E (Polar)", "Warmest month <10°C", "Arctic Ocean coast, Greenland interior, Antarctica", "Tundra (ET), ice cap (EF)"],
-      ["H (Highland)", "Elevation-controlled, varies with altitude", "Andes, Himalaya, Karakoram, Alps", "Vertical zonation from forest to ice cap"]
+      ["A", "Tropical", "Hot year-round; moist enough"],
+      ["B", "Dry", "P limited relative to demand"],
+      ["C", "Temperate", "Mild winters"],
+      ["D", "Continental", "Cold winters"],
+      ["E", "Polar", "Very low summer T"]
     ]
   },
+  examPoints: [
+    "Five main groups A–E",
+    "B defined by dryness formula/thresholds",
+    "Second letters encode seasonality or desert/steppe"
+  ],
   commonMistakes: [
-    "Forgetting that Group B is defined by PE > P (a moisture criterion), not by temperature — B is in the middle of the alphabet, but conceptually it is the dry group, not a temperature band",
-    "Confusing the B subdivision threshold: BW = P/PE < 0.5, BS = 0.5 ≤ P/PE < 0.65 — these are not simply 'less than 250 mm/year' or similar precipitation-based criteria",
-    "Misapplying the C/D boundary: the C/D threshold is the coldest month being −3°C (or below), not the warmest month. The warmest-month criterion (10°C) is for the D/E boundary",
-    "Treating H as a 'sixth group' equivalent to A–E — H is separate because it is defined by elevation, not by climate statistics; a highland location can have any of A–E at different elevations within a few km of horizontal distance"
+    "Ignoring that B depends on precipitation vs temperature.",
+    "Confusing C and D winter criteria.",
+    "Mixing vegetation outcome with single-year weather.",
+    "Treating codes as process explanations rather than empirical labels."
   ],
   relatedTopics: ["meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"],
-    subtopics: [
-      {
-        id: "meteo-koppen-system-the-logic-behind-k-ppen-s-boundaries",
-        title: "The logic behind Köppen's boundaries",
-        summary: "Köppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to…",
-        explanation: "Köppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns — making the system both climatically and ecologically meaningful. The 18°C coldest-month threshold for Group A reflects the limit of tropical rainforest (which cannot tolerate any cold month); the −3°C coldest-month threshold for the C/D boundary reflects the southern limit of boreal forests and the northern limit of temperate forests; the 10°C warmest-month threshold for D vs. E reflects the limit of tree growth (trees generally cannot survive where no month is warm enough). These boundaries are not arbitrary: each one corresponds to a real ecological transition.",
-                examples: [
-          {
-            problem: "Which statement best matches “The logic behind Köppen's boundaries”?",
-            solution: "The accurate idea is: KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns â making the system both climatically and ecologically meaningful. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patte…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The logic behind Köppen's boundaries.",
-            solution: "Stay close to the text: KÃ¶ppen tied his climate boundaries to the geographic distribution of natural vegetation, since vegetation responds directly and visibly to long-term temperature and moisture patterns â making the system both climatica… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-koppen-system-how-the-letter-code-is-constructed",
-        title: "How the letter code is constructed",
-        summary: "Each climate type is coded with 2–3 letters. The first letter is the major group (A, B, C, D, E, H). The second letter describes the…",
-        explanation: "Each climate type is coded with 2–3 letters. The first letter is the major group (A, B, C, D, E, H). The second letter describes the precipitation regime: f = no dry season (fully humid), s = dry summer (Mediterranean), w = dry winter, m = monsoon (short dry season but heavy summer rain), S = steppe (semi-arid), W = desert (arid). The third letter describes the temperature regime: a = hot summer (warmest month ≥22°C), b = warm summer (warmest month <22°C, ≥4 months ≥10°C), c = cool summer (1–3 months ≥10°C), d = very cold winter (coldest month <−38°C), h = hot (annual T ≥18°C), k = cold (annual T <18°C). For example, 'Cfa' = mild mid-latitude, fully humid, hot summer (e.g., humid subtropical climate of the southeastern US). 'BWh' = arid, hot (e.g., Sahara). 'Dfc' = severe mid-latitude, fully humid, cool summer (e.g., much of Siberia).",
-                examples: [
-          {
-            problem: "Which statement best matches “How the letter code is constructed”?",
-            solution: "The accurate idea is: Each climate type is coded with 2â3 letters. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Each climate type is coded with 2â3 letters.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How the letter code is constructed.",
-            solution: "Stay close to the text: Each climate type is coded with 2â3 letters. The first letter is the major group (A, B, C, D, E, H). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-weather-vs-climate", "meteo-global-precip-patterns"],
   leadsTo: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate"],
-  usedIn: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate"]
+  usedIn: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -3849,126 +3825,69 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 2,
   title: "Global Climate Regions — Sketch Summaries",
-  definition: "Global climate regions are the geographically coherent large-scale climate zones corresponding to the Köppen major groups — each characterized by distinct temperature and precipitation regimes, dominant weather systems, and associated biomes — forming the basis of world regional climatology.",
+  definition: "Global climate regions organise Earth into belts and pockets — tropical wet, tropical wet–dry, deserts, Mediterranean, humid subtropical, marine west coast, continental, subarctic, tundra, ice cap — shaped by latitude, circulation, continentality, and orography. Köppen codes label them; circulation explains them.",
   keyFacts: [
-    "Tropical rainforest (Af): equatorial belt ~10°N to 10°S (Amazon, Congo, maritime SE Asia, islands); mean monthly T 25–28°C year-round; annual P > 2000 mm with no dry season; convection-driven daily thunderstorms (ITCZ); biodiversity hotspots",
-    "Tropical monsoon (Am): Indian subcontinent, SE Asia, northern Australia, West Africa; seasonal reversal of winds (SW monsoon in summer, NE trades in winter); pronounced wet summer / dry winter contrast; annual P 1000–2000 mm",
-    "Tropical savanna (Aw/As): tropical margins ~10–20° latitude (Sudan, Sahel, Brazilian cerrado, northern Australia); distinct wet summer and dry winter; annual P 500–1500 mm; driven by the seasonal migration of the ITCZ",
-    "Hot desert (BWh): subtropical high-pressure belts ~20–30° latitude (Sahara, Arabian, Thar, Kalahari, Sonoran, Australian); extreme aridity (annual P < 250 mm, often <100 mm); large diurnal T range (30–40°C in some locations); dominated by subsidence under the Hadley Cell",
-    "Cold desert / cold steppe (BWk/BSk): mid-latitude interiors (Gobi, Patagonia, Great Basin, Iran, parts of Central Asia); annual P < 250 mm; cold winters, hot summers; rainshadow or continental-interior effect",
-    "Mediterranean (Csa/Csb): western coasts of continents 30–45° latitude (California, central Chile, Mediterranean Basin, Cape Town, SW Australia); hot dry summer, mild wet winter; annual P 400–900 mm; associated with the seasonal shift of the subtropical high",
-    "Humid subtropical (Cfa): eastern coasts of continents 25–40° latitude (southeastern US, southern China, southern Japan, southern Brazil, eastern Australia); hot humid summer, mild winter; year-round precipitation with summer maximum; tropical cyclones in summer/autumn",
-    "Marine west coast / oceanic (Cfb/Cfc): western coasts 40–60° latitude (NW Europe, Pacific Northwest, New Zealand, southern Chile); mild temperatures year-round, abundant precipitation; no dry season; dominated by mid-latitude cyclones and frontal systems",
-    "Humid continental (Dfa/Dfb): interior of large continents 35–55° latitude (NE US, central Europe, northern China, Korea); large annual T range (warm summer, cold winter); summer-convective precipitation; mid-latitude cyclones dominate",
-    "Subpolar / boreal (Dfc/Dwc): 50–70° latitude (Siberia, Scandinavia, Canada, Alaska); long cold winter, short cool summer; 4–8 months below freezing; coniferous taiga forest; vast temperature inversions in winter",
-    "Tundra (ET): Arctic Ocean coast, Antarctic Peninsula, high-latitude islands (northern Canada, Greenland coast, Svalbard, Russian Arctic); warmest month 0–10°C; permafrost; low vegetation (mosses, lichens, dwarf shrubs); polar day/night cycle",
-    "Ice cap (EF): Greenland interior, Antarctica; all months below 0°C; no vegetation; permanent ice cover; katabatic winds; driest climate on Earth (Antarctica interior receives <50 mm/year water equivalent)"
+    "Tropical wet (Af): year-round ITCZ influence; rainforest climates",
+    "Tropical wet–dry / savanna (Aw): wet summer, dry winter",
+    "Subtropical deserts (BWh): under subtropical highs and/or rain shadows",
+    "Mediterranean (Cs): dry summer, wet winter on west coasts ~30–40°",
+    "Humid subtropical (Cfa): wet year-round, hot summers on east sides of continents",
+    "Continental and polar climates dominate high latitudes and continental interiors"
   ],
   explanationSections: [
-    { heading: "The latitudinal zonation of global climate", body: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); the subtropics (20–30°) are dominated by the descending branch of the Hadley Cell and the subtropical highs, producing the world's great deserts; the mid-latitudes (30–60°) are dominated by the westerlies and mid-latitude cyclones, producing the temperate climates (Mediterranean, humid subtropical, marine west coast, humid continental); the high latitudes (60–90°) are dominated by the polar cell and polar highs, producing tundra and ice caps. The zonation is modified by continentality (interior of continents have larger T ranges), ocean currents (cold currents on west coasts at subtropical latitudes enhance aridity; warm currents on west coasts at high latitudes moderate T), and orography (mountains create rain shadows)." },
-    { heading: "Monsoon climate as a regional modifier", body: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian Ocean and the Asian landmass), East Asia (driven by the Pacific and the Asian landmass), West Africa (driven by the Atlantic and the African landmass), northern Australia (driven by the Indian Ocean and the Australian landmass), and parts of Central and South America. The monsoon is characterized by a pronounced seasonal reversal of wind direction (SW monsoon in summer bringing rain, NE trades in winter bringing dry conditions) and a strong annual precipitation cycle, with most rain falling in 3–5 summer months." },
-    { heading: "Why Mediterranean climates are on the western coasts of continents", body: "The Mediterranean climate is found on the western coasts of continents at 30–45° latitude because of the seasonal migration of the subtropical high-pressure belt. In summer, the subtropical high shifts poleward and dominates these latitudes, suppressing precipitation and creating the dry summer. In winter, the subtropical high shifts equatorward and the mid-latitude westerlies move in, bringing frontal precipitation from mid-latitude cyclones. This seasonal pattern is consistent across all five Mediterranean regions globally (California, central Chile, Mediterranean Basin, Cape Town, SW Australia), and is responsible for the characteristic Mediterranean vegetation (sclerophyllous shrubs, olive trees, drought-resistant evergreens)." }
+    { heading: "Map the process onto the name", body: "When you see ‘Mediterranean’, think subtropical high in summer and westerlies/cyclones in winter. When you see ‘tropical wet–dry’, think seasonal ITCZ migration. Names are memory hooks for circulation geography." }
   ],
-  examPoints: [
-    "Tropical rainforest (Af) is in the equatorial belt (~10°N–10°S); annual P > 2000 mm; daily convection driven by ITCZ",
-    "Tropical monsoon (Am) features strong seasonal wind reversal and summer-concentrated rainfall; 1000–2000 mm/year",
-    "Hot deserts (BWh) form under the descending branch of the Hadley Cell at 20–30° latitude; annual P often <100 mm",
-    "Mediterranean climate (Csa/Csb) is on western coasts of continents at 30–45° latitude: dry summer (subtropical high), wet winter (mid-latitude westerlies)",
-    "Humid subtropical (Cfa) is on eastern coasts at 25–40° latitude: hot humid summer, year-round precipitation, summer maximum; prone to tropical cyclones",
-    "Marine west coast (Cfb/Cfc) is on western coasts at 40–60° latitude: mild year-round, no dry season, dominated by mid-latitude cyclones",
-    "Subpolar/boreal (Dfc) is at 50–70° latitude: long cold winter, short cool summer, coniferous taiga forest",
-    "Tundra (ET) and ice cap (EF) are polar climates; ET has warmest month 0–10°C, EF has all months <0°C"
+  subtopics: [
+    {
+      id: "meteo-global-climate-regions-low-lat",
+      title: "Low-latitude regions",
+      summary: "Af, Am, Aw, and hot deserts.",
+      explanation: "Equatorial regions with persistent convection support Af. Monsoon and savanna climates show strong seasonal rainfall contrasts. Hot deserts occupy subtropical subsidence belts and continental interiors with scant moisture.",
+      examples: [
+        { problem: "Why are many deserts near 30° latitude?", solution: "Subtropical high-pressure subsidence suppresses precipitation in the Hadley framework.", answer: "Subtropical subsidence" }
+      ],
+      shortcuts: ["Af = always wet tropical", "Aw = wet summer dry winter", "BWh = hot desert"],
+      traps: ["Placing Mediterranean climates on the equator"]
+    },
+    {
+      id: "meteo-global-climate-regions-mid-high",
+      title: "Mid- and high-latitude regions",
+      summary: "Marine west coast, continental, subarctic, polar.",
+      explanation: "West coasts in mid-latitudes often have mild marine climates; east sides and interiors run hotter in summer and colder in winter. Subarctic and polar climates reflect low solar input and long winters; tundra has a brief thaw, ice cap does not.",
+      examples: [
+        { problem: "Which is colder in winter typical continental D climate or marine west-coast C climate at similar latitude?", solution: "Continental D — away from oceanic moderation.", answer: "Continental D" }
+      ],
+      shortcuts: ["Continentality → extremes", "ET tundra vs EF ice"],
+      traps: ["Assuming all mid-latitude climates are Mediterranean"]
+    }
   ],
   comparisonTable: {
-    headers: ["Climate (Köppen)", "Latitude", "Temperature pattern", "Precipitation pattern", "Dominant system", "Example"],
+    title: "Selected regional sketches",
+    headers: ["Region", "Signature"],
     rows: [
-      ["Tropical rainforest (Af)", "0–10°", "25–28°C year-round", ">2000 mm, no dry season", "ITCZ, daily convection", "Amazon, Congo"],
-      ["Tropical monsoon (Am)", "10–25°", "Warm year-round", "1000–2000 mm, summer max", "Monsoon circulation", "South Asia, SE Asia"],
-      ["Tropical savanna (Aw)", "10–20°", "Warm, slight winter cooling", "500–1500 mm, wet summer / dry winter", "Seasonal ITCZ migration", "Sudan, Sahel, cerrado"],
-      ["Hot desert (BWh)", "20–30°", "Very hot summer, mild winter; large diurnal range", "<250 mm, often <100 mm", "Subtropical high subsidence", "Sahara, Arabian, Thar"],
-      ["Mediterranean (Csa/Csb)", "30–45° west coasts", "Hot dry summer, mild wet winter", "400–900 mm, winter max", "Subtropical high (summer), westerlies (winter)", "California, Mediterranean, Chile"],
-      ["Humid subtropical (Cfa)", "25–40° east coasts", "Hot humid summer, mild winter", "1000–2000 mm, summer max", "Subtropical high (summer), cyclones", "SE US, S China, S Japan"],
-      ["Marine west coast (Cfb)", "40–60° west coasts", "Mild year-round, cool summer", "1000–2000 mm, year-round", "Mid-latitude westerlies, cyclones", "NW Europe, Pacific NW, NZ"],
-      ["Humid continental (Dfa/Dfb)", "35–55° interior", "Warm summer, cold winter; large range", "500–1000 mm, summer max", "Mid-latitude cyclones, continental airmasses", "NE US, central Europe, N China"],
-      ["Subpolar (Dfc)", "50–70°", "Short cool summer, long cold winter", "300–500 mm, summer max", "Polar front, cyclones", "Siberia, N Canada, Scandinavia"],
-      ["Tundra (ET)", "60–75°", "0–10°C warmest month", "<250 mm, mostly snow", "Polar high, Arctic front", "Arctic coast, Antarctic Peninsula"],
-      ["Ice cap (EF)", "70–90°+", "All months <0°C", "<50 mm, very low", "Polar high, katabatic winds", "Greenland interior, Antarctica"]
+      ["Tropical wet", "Year-round rain"],
+      ["Savanna / wet–dry", "Seasonal ITCZ"],
+      ["Hot desert", "Subtropical dry"],
+      ["Mediterranean", "Dry summer"],
+      ["Humid continental", "Cold winter inland"]
     ]
   },
-  commonMistakes: [
-    "Placing Mediterranean climate on eastern coasts — it is on western coasts of continents (30–45° latitude); eastern coasts at the same latitude have humid subtropical climate",
-    "Confusing humid subtropical (Cfa) and humid continental (Dfa) — both have hot summers and year-round precipitation, but Cfa has a mild winter (coldest month >−3°C) while Dfa has a cold winter (coldest month ≤−3°C); the difference is one letter but represents a real ecological boundary",
-    "Assuming all deserts are hot — cold deserts (BWk) like the Gobi and Patagonia are dominated by cold winters; the BWh/BWk distinction is important",
-    "Believing the world's climate zones are uniform across continents — the same latitude can have very different climates on east vs. west coasts due to ocean currents and prevailing winds (e.g., 35°N west coast = Mediterranean, 35°N east coast = humid subtropical)"
+  examPoints: [
+    "Link regions to circulation controls",
+    "Mediterranean = dry summer west coast",
+    "Deserts ≠ only hot sand — cold dry climates exist"
   ],
-  relatedTopics: ["meteo-koppen-system", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution", "meteo-global-circulation"],
-    subtopics: [
-      {
-        id: "meteo-global-climate-regions-the-latitudinal-zonation-of-global-clima",
-        title: "The latitudinal zonation of global climate",
-        summary: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation…",
-        explanation: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); the subtropics (20–30°) are dominated by the descending branch of the Hadley Cell and the subtropical highs, producing the world's great deserts; the mid-latitudes (30–60°) are dominated by the westerlies and mid-latitude cyclones, producing the temperate climates (Mediterranean, humid subtropical, marine west coast, humid continental); the high latitudes (60–90°) are dominated by the polar cell and polar highs, producing tundra and ice caps. The zonation is modified by continentality (interior of continents have larger T ranges), ocean currents (cold currents on west coasts at subtropical latitudes enhance aridity; warm currents on west coasts at high latitudes moderate T), and orography (mountains create rain shadows).",
-                examples: [
-          {
-            problem: "Which statement best matches “The latitudinal zonation of global climate”?",
-            solution: "The accurate idea is: Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); the subtropics (20â30Â°) are dominated by the descending branch of the Hadley Cell and the subtropical highs, producing the world's great deserts; the mid-latitudes (30â60Â°) are dominated by the westerlies and mid-latitude cyclones, producing the temperate climates (Mediterranean, humid subtropical, marine west coast, humid continental); the high latitudes (60â90Â°) are dominated by the polar cell and polar highs, producing tundra and ice caps. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep con…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The latitudinal zonation of global climate.",
-            solution: "Stay close to the text: Global climate regions follow a strong latitudinal zonation driven by the global energy balance: the equator receives the most insolation and is dominated by the ITCZ with deep convection (tropical rainforest, monsoon); … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-global-climate-regions-monsoon-climate-as-a-regional-modifier",
-        title: "Monsoon climate as a regional modifier",
-        summary: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong…",
-        explanation: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian Ocean and the Asian landmass), East Asia (driven by the Pacific and the Asian landmass), West Africa (driven by the Atlantic and the African landmass), northern Australia (driven by the Indian Ocean and the Australian landmass), and parts of Central and South America. The monsoon is characterized by a pronounced seasonal reversal of wind direction (SW monsoon in summer bringing rain, NE trades in winter bringing dry conditions) and a strong annual precipitation cycle, with most rain falling in 3–5 summer months.",
-                examples: [
-          {
-            problem: "Which statement best matches “Monsoon climate as a regional modifier”?",
-            solution: "The accurate idea is: The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian Ocean and the Asian landmass), East Asia (driven by the Pacific and the Asian landmass), West Africa (driven by the Atlantic and the African landmass), northern Australia (driven by the Indian Ocean and the Australian landmass), and parts of Central and South America. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent o…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Monsoon climate as a regional modifier.",
-            solution: "Stay close to the text: The tropical monsoon (Am) climate is a regional variant of the tropical climate that occurs wherever a large landmass creates a strong seasonal thermal contrast with the adjacent ocean: South Asia (driven by the Indian O… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-global-climate-regions-why-mediterranean-climates-are-on-the-we",
-        title: "Why Mediterranean climates are on the western coasts of continents",
-        summary: "The Mediterranean climate is found on the western coasts of continents at 30–45° latitude because of the seasonal migration of the…",
-        explanation: "The Mediterranean climate is found on the western coasts of continents at 30–45° latitude because of the seasonal migration of the subtropical high-pressure belt. In summer, the subtropical high shifts poleward and dominates these latitudes, suppressing precipitation and creating the dry summer. In winter, the subtropical high shifts equatorward and the mid-latitude westerlies move in, bringing frontal precipitation from mid-latitude cyclones. This seasonal pattern is consistent across all five Mediterranean regions globally (California, central Chile, Mediterranean Basin, Cape Town, SW Australia), and is responsible for the characteristic Mediterranean vegetation (sclerophyllous shrubs, olive trees, drought-resistant evergreens).",
-                examples: [
-          {
-            problem: "Which statement best matches “Why Mediterranean climates are on the western coasts of continents”?",
-            solution: "The accurate idea is: The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why Mediterranean climates are on the western coasts of continents.",
-            solution: "Stay close to the text: The Mediterranean climate is found on the western coasts of continents at 30â45Â° latitude because of the seasonal migration of the subtropical high-pressure belt. In summer, the subtropical high shifts poleward and do… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  commonMistakes: [
+    "Memorising names without controls.",
+    "Confusing savanna with equatorial rainforest.",
+    "Putting Mediterranean on east coasts typically.",
+    "Ignoring continentality."
+  ],
+  relatedTopics: ["meteo-koppen-system", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"],
   content: true,
   buildsOn: ["meteo-koppen-system", "meteo-global-circulation"],
   leadsTo: ["meteo-thornthwaite-system"],
-  usedIn: ["meteo-pakistan-macroclimate"]
+  usedIn: ["meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -3976,88 +3895,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 3,
   title: "The Thornthwaite Moisture-Based Classification System",
-  definition: "Developed by C.W. Thornthwaite (1931, refined 1948), this system classifies climate by moisture balance rather than temperature alone, using Potential Evapotranspiration (PE) and the Precipitation-Evaporation (P/E) Index — making it particularly useful for agricultural planning, irrigation design, and hydrology.",
+  definition: "Thornthwaite classification emphasises the water balance: precipitation compared with potential evapotranspiration (PE). Climates are typed by moisture index and thermal efficiency rather than by Köppen’s vegetation-linked temperature–precipitation thresholds alone.",
   keyFacts: [
-    "Potential Evapotranspiration (PE): the amount of moisture that would evaporate and transpire from a fully vegetated surface (e.g., a short grass cover) if water supply were unlimited — a function of temperature, day length, and humidity",
-    "P/E Index: the sum of the twelve monthly P/E ratios (P divided by PE for each month), used to classify the overall moisture regime of a location",
-    "Five moisture provinces (Thornthwaite): A (Wet, P/E > 128), B (Humid, 64 < P/E ≤ 128), C (Subhumid, 32 < P/E ≤ 64), D (Semi-arid, 16 < P/E ≤ 32), E (Arid, P/E ≤ 16)",
-    "Temperature efficiency (T/E Index): the sum of twelve monthly T/E ratios; used to classify thermal efficiency; six thermal provinces: A' (tropical), B' (mesothermal), C' (microthermal), D' (taiga), E' (tundra), F' (frost)",
-    "Seasonal moisture variation: a third classification dimension based on whether moisture surplus or deficit occurs in summer vs. winter; produces types like r (rainfall adequate in all seasons), s (summer moisture deficit), w (winter moisture deficit)",
-    "Thornthwaite water balance: a monthly accounting of incoming precipitation vs. outgoing PE, with soil moisture storage as a buffer; tracks when PE exceeds P (deficit) and when P exceeds PE (surplus, leading to runoff)",
-    "Particularly valuable for agricultural planning (irrigation scheduling, crop selection), hydrology (watershed modeling, runoff prediction), and ecology (vegetation distribution)",
-    "Key contrast with Köppen: Thornthwaite is moisture-balance focused (PE vs. P), while Köppen is temperature/precipitation-threshold focused; Thornthwaite better represents the actual water available to plants, while Köppen better represents natural vegetation zones"
+    "Core idea: water balance — P versus PE",
+    "Potential evapotranspiration rises with temperature and energy availability",
+    "Moisture index distinguishes arid, semi-arid, subhumid, humid, etc.",
+    "Thermal efficiency index relates to energy/temperature regime",
+    "More hydrologic in spirit than classical Köppen",
+    "Useful where irrigation, drought, and soil moisture matter"
   ],
   explanationSections: [
-    { heading: "How PE is calculated and why it matters", body: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher temperatures, PE increases rapidly (the saturation vapor pressure rises exponentially with T, per the Clausius-Clapeyron relation), so warm-season PE often greatly exceeds warm-season P even in regions with substantial summer rainfall. The Thornthwaite water balance tracks this monthly: in months when P > PE, the excess water first refills soil moisture storage, then runs off or recharges groundwater; in months when PE > P, the deficit is drawn from soil moisture storage until it is exhausted, after which plants experience water stress and irrigation becomes necessary. This is why the system is so useful for irrigation planning: it tells you exactly when and how much water is needed." },
-    { heading: "Thornthwaite vs. Köppen: when to use which", body: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. Köppen is best for vegetation distribution and ecological questions: where do forests, grasslands, and deserts naturally occur, and what are the major climate zones of the world. The two systems are complementary: Köppen gives the broad pattern, Thornthwaite gives the water-balance details. For example, Multan (Pakistan) is BSh in Köppen (hot steppe, semi-arid) and D in Thornthwaite (semi-arid) — the same conclusion, but Thornthwaite quantifies the deficit and surplus months explicitly." }
+    { heading: "Moisture demand, not only rainfall", body: "Two places with identical annual rainfall can differ climatically if one is much hotter: PE is higher, so the same rain goes less far. Thornthwaite builds that demand into the classification." }
   ],
-  examPoints: [
-    "Thornthwaite is moisture-balance focused; Köppen is temperature/precipitation-threshold focused — a key conceptual contrast",
-    "PE = potential evapotranspiration; depends on temperature, day length, and humidity",
-    "P/E Index thresholds: Wet >128, Humid 64–128, Subhumid 32–64, Semi-arid 16–32, Arid <16",
-    "Thornthwaite's six thermal provinces: A' tropical, B' mesothermal, C' microthermal, D' taiga, E' tundra, F' frost",
-    "Particularly valuable for agricultural planning, irrigation design, and hydrology"
+  subtopics: [
+    {
+      id: "meteo-thornthwaite-system-water-balance",
+      title: "Precipitation versus PE",
+      summary: "Surplus, deficit, and the moisture index.",
+      explanation: "When P exceeds PE, moisture surplus can support runoff and humid conditions. When PE exceeds P, deficit develops and aridity increases. The moisture index summarises that balance over the year.",
+      examples: [
+        { problem: "Why can a hot region with moderate rainfall still classify as dry in a water-balance system?", solution: "High PE means evaporative demand outstrips supply — deficit despite ‘moderate’ P.", answer: "PE > P → deficit" }
+      ],
+      shortcuts: ["Compare P to PE", "High PE → needs more rain to be ‘humid’"],
+      traps: ["Classifying humidity from rainfall totals alone"]
+    },
+    {
+      id: "meteo-thornthwaite-system-vs-koppen",
+      title: "Contrast with Köppen",
+      summary: "Hydrologic indices vs empirical T/P–vegetation thresholds.",
+      explanation: "Köppen is tuned to vegetation boundaries with simple monthly rules. Thornthwaite is built around PE and moisture indices. Exams may ask which system stresses water balance — answer Thornthwaite.",
+      examples: [
+        { problem: "Which system is more explicitly based on potential evapotranspiration?", solution: "Thornthwaite.", answer: "Thornthwaite" }
+      ],
+      shortcuts: ["Thornthwaite ↔ PE / moisture index", "Köppen ↔ T/P letter codes"],
+      traps: ["Treating the two systems as identical"]
+    }
   ],
   comparisonTable: {
-    headers: ["System", "Primary variable", "Secondary variable", "Best for", "Limitation"],
+    title: "Köppen vs Thornthwaite",
+    headers: ["Aspect", "Köppen", "Thornthwaite"],
     rows: [
-      ["Köppen", "Temperature thresholds", "Precipitation thresholds", "Vegetation distribution, broad climate zones", "Does not directly quantify water balance"],
-      ["Thornthwaite", "Moisture balance (P vs. PE)", "Thermal efficiency, seasonal variation", "Agriculture, irrigation, hydrology, water resources", "Requires monthly data, more complex to compute"]
+      ["Basis", "T & P thresholds", "P vs PE water balance"],
+      ["Output", "Letter codes", "Moisture/thermal indices"],
+      ["Emphasis", "Vegetation correlation", "Hydrologic moisture status"]
     ]
   },
+  examPoints: [
+    "Thornthwaite centres on P versus PE",
+    "Moisture index from water balance",
+    "Distinct from Köppen letter logic"
+  ],
   commonMistakes: [
-    "Confusing PE (potential evapotranspiration) with actual evapotranspiration (AE) — PE is the maximum that would occur with unlimited water; AE is what actually happens given the water supply, and is always ≤ PE",
-    "Using Thornthwaite to identify natural vegetation zones — Thornthwaite is designed for water-resource applications; Köppen (or Holdridge) is the appropriate system for vegetation/ecosystem classification",
-    "Forgetting that Thornthwaite's monthly accounting requires soil moisture storage as a parameter — the soil acts as a buffer between wet and dry seasons, and the water balance depends on assumed storage capacity (typically 100 mm for a standard analysis)"
+    "Ignoring PE and using only rainfall.",
+    "Saying Thornthwaite is only a temperature system.",
+    "Equating moisture index with RH.",
+    "Mixing PE with actual evapotranspiration always."
   ],
   relatedTopics: ["meteo-koppen-system", "meteo-pakistan-macroclimate", "meteo-moisture-metrics", "meteo-temp-rainfall-distribution"],
-    subtopics: [
-      {
-        id: "meteo-thornthwaite-system-how-pe-is-calculated-and-why-it-matters",
-        title: "How PE is calculated and why it matters",
-        summary: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher…",
-        explanation: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher temperatures, PE increases rapidly (the saturation vapor pressure rises exponentially with T, per the Clausius-Clapeyron relation), so warm-season PE often greatly exceeds warm-season P even in regions with substantial summer rainfall. The Thornthwaite water balance tracks this monthly: in months when P > PE, the excess water first refills soil moisture storage, then runs off or recharges groundwater; in months when PE > P, the deficit is drawn from soil moisture storage until it is exhausted, after which plants experience water stress and irrigation becomes necessary. This is why the system is so useful for irrigation planning: it tells you exactly when and how much water is needed.",
-                examples: [
-          {
-            problem: "Which statement best matches “How PE is calculated and why it matters”?",
-            solution: "The accurate idea is: PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How PE is calculated and why it matters.",
-            solution: "Stay close to the text: PE is calculated as a function of mean monthly temperature and day length (and in some versions, humidity and wind). At higher temperatures, PE increases rapidly (the saturation vapor pressure rises exponentially with T,… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-thornthwaite-system-thornthwaite-vs-k-ppen-when-to-use-which",
-        title: "Thornthwaite vs. Köppen: when to use which",
-        summary: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use…",
-        explanation: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. Köppen is best for vegetation distribution and ecological questions: where do forests, grasslands, and deserts naturally occur, and what are the major climate zones of the world. The two systems are complementary: Köppen gives the broad pattern, Thornthwaite gives the water-balance details. For example, Multan (Pakistan) is BSh in Köppen (hot steppe, semi-arid) and D in Thornthwaite (semi-arid) — the same conclusion, but Thornthwaite quantifies the deficit and surplus months explicitly.",
-                examples: [
-          {
-            problem: "Which statement best matches “Thornthwaite vs. Köppen: when to use which”?",
-            solution: "The accurate idea is: Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Thornthwaite vs. Köppen: when to use which.",
-            solution: "Stay close to the text: Thornthwaite is best for applied water-resource questions: how much water do crops need, when is irrigation required, how does land-use change affect runoff. KÃ¶ppen is best for vegetation distribution and ecological que… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-koppen-system", "meteo-moisture-metrics"],
   leadsTo: [],
-  usedIn: ["meteo-pakistan-macroclimate", "env-water-pollution-and-quality"]
+  usedIn: ["meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -4065,94 +3963,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 4,
   title: "Macro-Climatic Classification of Pakistan",
-  definition: "At the macro level, Pakistan falls into two major Köppen groups: Arid/Semi-Arid Basin (Group B) covering most of the country, and Mountainous Highland (Group H) in the north — a classification that reflects the country's position in the subtropical high-pressure belt, the rain-shadow effects of surrounding mountain ranges, and the dominant influence of elevation in the north.",
+  definition: "Pakistan’s climates range from arid and hyper-arid lowlands to humid highland and coastal variants, shaped by subtropical latitude, monsoon moisture, western disturbances, continentality, and the Himalaya–Hindu Kush–Sulaiman orography. Macro-classification groups the country into broad climatic regions for geography and FPSC use.",
   keyFacts: [
-    "Group B — Southern hot deserts (BWh): Jacobabad, Sibi, Dadu, Karachi region — extremely hot summers (T_max >50°C), very low rainfall (often <200 mm/year), high PE, persistent moisture deficiency; dominated by the subtropical high-pressure belt",
-    "Group B — Central/northern hot steppes (BSh): Lahore, Peshawar, Multan, Faisalabad — seasonal monsoon rainfall (Jul–Sep, 300–700 mm), but still moisture-deficient overall because PE exceeds P in most months",
-    "Group B — Cold semi-arid (BSk): parts of interior Balochistan (Quetta, Kalat) and northern KPK highlands — cooler than BSh due to elevation; cold winters with snow; summer convective rainfall; PE still exceeds P",
-    "Group H — Mountainous Highland: Karakoram, Hindu Kush, western Himalaya — climate governed by elevation; vertical zonation from subtropical at the foothills to alpine tundra and ice cap at the highest peaks",
-    "H vertical zonation: 0–1500 m: subtropical/desert; 1500–3000 m: temperate/subalpine; 3000–5000 m: subalpine/alpine; 5000+ m: nival (permanent snow/ice) and EF",
-    "Glaciers in Group H: the Karakoram, Hindu Kush, and Himalaya host some of the largest glacial masses outside the polar regions; they are a major natural water reservoir, supplying meltwater to the Indus River and its tributaries for downstream agriculture",
-    "Indus River dependence: Pakistan's agriculture, hydropower, and drinking water are critically dependent on snow and glacier melt from Group H regions — making this zone the country's most important water source despite covering only ~30% of its area",
-    "Climate change vulnerability: Group H regions are warming faster than the global average (Pakistan's northern areas have warmed 1–2°C since 1960), with major implications for glacier mass balance, snowmelt timing, and downstream water availability"
+    "Large areas are arid or semi-arid (low annual rainfall, high PE)",
+    "Southern/coastal belts influenced by Arabian Sea moisture and occasional tropical systems",
+    "Indus plain: hot summers, modest and uneven monsoon rains in many districts",
+    "Northern mountains: altitude-controlled temperatures; winter precipitation from western disturbances",
+    "Balochistan: extensive aridity; highland pockets differ from deserts",
+    "Monsoon and WD seasons must not be collapsed into one ‘rainy season’ narrative"
   ],
   explanationSections: [
-    { heading: "Why most of Pakistan is 'dry' despite receiving monsoon rain", body: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall despite visible monsoon rainfall. This is the key insight from the Thornthwaite perspective: a region can have a substantial monsoon season (e.g., 500 mm in 3 months) and still be 'arid' in the water-balance sense because the rest of the year has very high PE and very low P. The Indus River system partially compensates for this by providing irrigation water from snow and glacier melt, effectively reducing the climatic aridity to a manageable level — but the natural climate is still classified as dry." },
-    { heading: "The role of Group H in Pakistan's water economy", body: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Although this zone occupies only about 30% of Pakistan's area, it provides 70–80% of the Indus River's flow through snow and glacier melt. The snowpack accumulates during winter (driven by Western Disturbances) and melts during spring and summer, releasing water when downstream agriculture needs it most. This 'water tower' function makes Group H the most economically and ecologically valuable climate zone in Pakistan — and also the most vulnerable to climate change, since warming temperatures can shift the balance between snow and rain, alter melt timing, and ultimately reduce summer water availability." }
+    { heading: "Latitude, mountains, and two moisture engines", body: "Pakistan sits in a subtropical dry belt but borrows moisture from the summer monsoon and from winter extratropical disturbances. Mountains cool and wring moisture on windward slopes while rain shadows and interior basins stay dry. Classification is regional, not a single national climate." }
   ],
-  examPoints: [
-    "Most of Pakistan is Köppen B (BWh hot desert in the south, BSh hot steppe in central/north); only the northern mountains are H (highland)",
-    "BWh cities: Jacobabad, Sibi, Dadu, parts of southern Sindh — extremely hot summers, very low rainfall, T_max >50°C",
-    "BSh cities: Lahore, Peshawar, Multan, Faisalabad — seasonal monsoon rainfall, but still moisture-deficient overall",
-    "BSk (cold semi-arid): Quetta, Kalat, interior Balochistan — cooler due to elevation",
-    "Group H is Pakistan's 'water tower': ~30% of area but provides 70–80% of Indus River flow via snow and glacier melt",
-    "BS-Multan is directly relevant given the candidates' BZU Multan background — Multan sits in the BSh (hot steppe) zone",
-    "Vertical zonation in Group H: from subtropical at the foothills to EF (ice cap) at the highest peaks (K2, Nanga Parbat)"
+  subtopics: [
+    {
+      id: "meteo-pakistan-macroclimate-arid-core",
+      title: "Arid and semi-arid lowlands",
+      summary: "High evaporative demand; uneven monsoon contribution.",
+      explanation: "Much of the Indus plain and interior Balochistan experiences high summer temperatures and rainfall that is modest relative to PE. Irrigation agriculture depends on river systems precisely because climate moisture is insufficient and unreliable in many zones.",
+      examples: [
+        { problem: "Why is ‘moderate monsoon rain’ still compatible with an arid classification in parts of Pakistan?", solution: "Annual PE is high; total P remains low relative to demand, and rain is seasonal and variable.", answer: "P << PE / high demand" }
+      ],
+      shortcuts: ["Many lowlands = arid/semi-arid", "PE is high in hot seasons"],
+      traps: ["Calling all of Pakistan a humid monsoon climate"]
+    },
+    {
+      id: "meteo-pakistan-macroclimate-highland-coast",
+      title: "Highlands, coasts, and seasonal engines",
+      summary: "Altitude, WDs, monsoon, and maritime influence.",
+      explanation: "Northern highlands show strong vertical climate zonation. Winter western disturbances bring much of the northern precipitation. Coastal areas moderate temperature extremes somewhat and can receive different storm influences than deep continental interiors.",
+      examples: [
+        { problem: "Northern Pakistan’s January rainfall is primarily associated with which system type?", solution: "Western disturbances (extratropical/subtropical), not the summer monsoon.", answer: "Western disturbances" }
+      ],
+      shortcuts: ["Winter north → WDs", "Summer rains → monsoon (uneven)", "Altitude → cooler/wetter windward"],
+      traps: ["Attributing all rainfall to summer monsoon"]
+    }
   ],
   comparisonTable: {
-    headers: ["Macro region", "Köppen zone", "Cities/examples", "Climate characteristics", "Pakistan-specific note"],
+    title: "Pakistan macro patterns (sketch)",
+    headers: ["Zone emphasis", "Climatic note"],
     rows: [
-      ["Southern hot desert", "BWh", "Jacobabad, Sibi, Dadu", "T_max >50°C, P <200 mm, large diurnal range", "Among the hottest reliably recorded places on Earth"],
-      ["Coastal desert", "BWh", "Karachi, Makran coast", "Hot humid summer, mild winter, P ~200 mm", "Modified by Arabian Sea, prone to cyclones"],
-      ["Hot steppe", "BSh", "Lahore, Peshawar, Multan, Faisalabad", "Summer monsoon P 300–700 mm, still moisture-deficient", "Core agricultural region of Pakistan"],
-      ["Cold semi-arid", "BSk", "Quetta, Kalat, Zhob", "Cold winters with snow, hot dry summers", "Most precipitation from winter WDs, not monsoon"],
-      ["Highland", "H (vertical zones A–E)", "Skardu, Chitral, Gilgit, mountain peaks", "Vertical zonation from subtropical to ice cap", "Pakistan's 'water tower'; source of Indus flow"]
+      ["Interior plains / basins", "Hot, often arid/semi-arid"],
+      ["Northern mountains", "Altitude zonation; WD winters"],
+      ["Coastal south", "Maritime influence; tropical systems possible"],
+      ["Western highlands", "Arid to semi-arid; complex relief"]
     ]
   },
-  commonMistakes: [
-    "Assuming Multan is a desert city — Multan is BSh (hot steppe, semi-arid), receiving 300–500 mm of monsoon rainfall; it is moisture-deficient by water-balance measures but not as dry as a true BWh desert",
-    "Conflating BWh and BSh — both are 'dry' but BWh (desert) has P/PE < 0.5 while BSh (steppe) has 0.5 ≤ P/PE < 0.65; the difference is significant for agriculture",
-    "Underestimating the role of Group H — it is the source of the Indus River, which is the lifeline of Pakistani agriculture, hydropower, and drinking water; without Group H snow and glacier melt, the Indus basin would be far less productive",
-    "Assuming all of Pakistan's mountains are in the same climate zone — vertical zonation means that within Group H, you can find B (at the foothills), C (at mid-elevation), D (higher), ET (near the snowline), and EF (at the highest peaks), all within a few km of horizontal distance"
+  pakistanExamFocus: [
+    "Pakistan is not uniformly humid monsoon — large arid/semi-arid extent",
+    "Summer monsoon vs winter western disturbances are distinct moisture engines",
+    "Orography and continentality create strong regional contrasts"
   ],
-  relatedTopics: ["meteo-koppen-system", "meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-temp-rainfall-distribution", "meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-extreme-events"],
-    subtopics: [
-      {
-        id: "meteo-pakistan-macroclimate-why-most-of-pakistan-is-dry-despite-rece",
-        title: "Why most of Pakistan is 'dry' despite receiving monsoon rain",
-        summary: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal…",
-        explanation: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall despite visible monsoon rainfall. This is the key insight from the Thornthwaite perspective: a region can have a substantial monsoon season (e.g., 500 mm in 3 months) and still be 'arid' in the water-balance sense because the rest of the year has very high PE and very low P. The Indus River system partially compensates for this by providing irrigation water from snow and glacier melt, effectively reducing the climatic aridity to a manageable level — but the natural climate is still classified as dry.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why most of Pakistan is 'dry' despite receiving monsoon rain”?",
-            solution: "The accurate idea is: Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall despite visible monsoon rainfall. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classif…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why most of Pakistan is 'dry' despite receiving monsoon rain.",
-            solution: "Stay close to the text: Even in the monsoon-affected BSh steppe zones (Lahore, Peshawar, Multan), potential evapotranspiration greatly exceeds the seasonal rainfall received, so the region remains classified as moisture-deficient (dry) overall … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-pakistan-macroclimate-the-role-of-group-h-in-pakistan-s-water-",
-        title: "The role of Group H in Pakistan's water economy",
-        summary: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab,…",
-        explanation: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Although this zone occupies only about 30% of Pakistan's area, it provides 70–80% of the Indus River's flow through snow and glacier melt. The snowpack accumulates during winter (driven by Western Disturbances) and melts during spring and summer, releasing water when downstream agriculture needs it most. This 'water tower' function makes Group H the most economically and ecologically valuable climate zone in Pakistan — and also the most vulnerable to climate change, since warming temperatures can shift the balance between snow and rain, alter melt timing, and ultimately reduce summer water availability.",
-                examples: [
-          {
-            problem: "Which statement best matches “The role of Group H in Pakistan's water economy”?",
-            solution: "The accurate idea is: Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The role of Group H in Pakistan's water economy.",
-            solution: "Stay close to the text: Group H covers the Karakoram, Hindu Kush, and western Himalaya, including the upper Indus basin and the catchments of the Jhelum, Chenab, Ravi, Beas, and Sutlej rivers. Although this zone occupies only about 30% of Pakis… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  examPoints: [
+    "Macro regions reflect aridity, monsoon, WDs, and mountains",
+    "Do not nationalise a single climate type",
+    "Link classification to controls, not only city names"
+  ],
+  commonMistakes: [
+    "One climate for the whole country.",
+    "Mixing WD winter rain with monsoon.",
+    "Ignoring PE when discussing ‘enough rain’.",
+    "Forgetting orographic contrasts."
+  ],
+  relatedTopics: ["meteo-koppen-system", "meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-temp-rainfall-distribution"],
   content: true,
   buildsOn: ["meteo-koppen-system", "meteo-temp-rainfall-distribution", "meteo-monsoon-system"],
   leadsTo: ["meteo-temp-rainfall-distribution"],
-  usedIn: ["meteo-extreme-events", "env-pakistan-environmental-context", "meteo-pakistan-nccp", "ra-descriptive-statistics"]
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-monsoon-system"]
 },
 
 // ============================= SECTION H =============================
