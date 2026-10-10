@@ -844,63 +844,57 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 3,
   title: "Greenhouse Effect & Atmospheric Window",
-  definition: "Greenhouse gases absorb much of the longwave infrared emitted by Earth's surface and re-radiate energy upward and downward. Downward infrared warms the surface above the temperature it would have under pure space balance. Spectral regions of weak absorption form an atmospheric window through which some infrared escapes more freely.",
+  definition: "Greenhouse gases absorb and re-emit terrestrial longwave radiation, keeping the surface warmer than it would be under a pure radiative balance without an atmosphere. The atmospheric window is the infrared band where the clear sky is relatively transparent, so surface emission can escape more easily — unless clouds block it.",
   keyFacts: [
-    "Without the natural greenhouse effect, global mean surface temperature would be near −18 °C rather than about +15 °C",
-    "Solar shortwave largely passes through; surface longwave is selectively absorbed",
-    "Water vapour, CO₂, methane and others contribute; clouds also absorb/emit IR broadly",
-    "Atmospheric window: roughly 8–11 µm",
-    "Cloudy nights are often warmer than clear nights because clouds radiate IR downward",
-    "Enhanced greenhouse effect from rising CO₂ intensifies a natural, necessary process"
+    "Without greenhouse gases, global mean surface temperature would be far colder (order −18 °C vs about +15 °C)",
+    "Important gases: H₂O, CO₂, CH₄, O₃, N₂O — not N₂/O₂ as primary absorbers",
+    "Atmospheric window: roughly 8–12 µm region of relative clear-sky transparency",
+    "Clouds absorb/emit IR strongly even in the window",
+    "Greenhouse effect ≠ ozone-hole UV story"
   ],
   explanationSections: [
-    { heading: "Selective blanket, not a sealed lid", body: "The atmosphere redistributes infrared energy rather than trapping heat in a closed box. Molecules absorb at characteristic wavelengths, collide, and emit again. The surface receives both sunshine and downward atmospheric infrared." }
+    { heading: "Selective absorption", body: "Solar shortwave largely passes through clear air to the surface; the surface emits infrared. Greenhouse gases intercept parts of that infrared and radiate both up and down — the downward part warms the surface climate." }
   ],
   subtopics: [
     {
-      id: "meteo-greenhouse-effect-mechanism",
-      title: "Mechanism of the greenhouse effect",
-      summary: "Shortwave in; longwave absorbed and re-emitted; surface gains extra downward IR.",
-      explanation: "Sunshine warms the surface; the surface emits infrared; greenhouse gases absorb much of that infrared and emit both up and down. The downward flux keeps the lower atmosphere far warmer than the −18 °C pure radiative-equilibrium value.",
+      id: "meteo-greenhouse-effect-window-trap",
+      title: "Window vs clouds vs gases",
+      summary: "Clear-sky window is not a free pass through cloud.",
+      explanation: "In clear air, the window wavelengths let more surface IR escape. Thick clouds close that escape route by absorbing and emitting as near-blackbodies in the infrared. Exam traps often claim clouds are transparent in the window like dry air — they are not.",
       examples: [
-        { problem: "Why is the natural greenhouse effect essential for life as we know it?", solution: "It raises global mean surface temperature by roughly 33 °C above the ≈ −18 °C no-atmosphere equilibrium.", answer: "≈ +33 °C warming vs −18 °C" }
+        { problem: "Clear dry night vs overcast night — which usually cools faster at the surface?", solution: "Clear dry night — more longwave escapes; clouds return IR downward.", answer: "Clear dry night" }
       ],
-      shortcuts: ["GHG absorb IR → emit up and down", "Natural effect ≈ +33 °C"],
-      traps: ["Saying GHGs mainly block solar visible light", "Calling the natural effect purely harmful"]
+      shortcuts: ["Window = clearer IR escape", "Clouds seal the window"],
+      traps: ["Saying clouds are transparent in the atmospheric window"]
     },
     {
-      id: "meteo-greenhouse-effect-window-clouds",
-      title: "Atmospheric window and clouds",
-      summary: "Some IR escapes in the window; clouds can close that leak.",
-      explanation: "Between about 8 and 11 µm absorption by main greenhouse gases is weaker, so surface IR can escape more readily. Cloud water absorbs and emits across a wide IR range, including the window — hence milder cloudy nights.",
+      id: "meteo-greenhouse-effect-not-ozone",
+      title: "Greenhouse vs ozone depletion",
+      summary: "Different wavelengths, different problems.",
+      explanation: "Greenhouse warming is about longwave (infrared) trapping by gases such as CO₂ and water vapour. Stratospheric ozone depletion is mainly an ultraviolet-shield chemistry issue. Linking the Antarctic ozone hole as the main cause of global greenhouse warming is a standard wrong answer.",
       examples: [
-        { problem: "Same afternoon temperature; clear vs cloudy night — which morning is likely warmer?", solution: "Cloudy night: clouds absorb outgoing IR and radiate downward, reducing net cooling.", answer: "Cloudy night" }
+        { problem: "Does the ozone hole explain global mean greenhouse warming the way CO₂ does?", solution: "No — different mechanisms and spectral regions.", answer: "No" }
       ],
-      shortcuts: ["Window ≈ 8–11 µm", "Clouds close the window"],
-      traps: ["Thinking clouds only reflect sunlight, never affect night IR"]
+      shortcuts: ["GHG → infrared", "Ozone hole → UV shield chemistry"],
+      traps: ["Ozone hole = global warming (false equivalence)"]
     }
   ],
-  comparisonTable: {
-    title: "Clear vs cloudy night",
-    headers: ["Sky", "Window", "Night cooling"],
-    rows: [["Clear", "More IR escapes", "Stronger"], ["Cloudy", "Clouds absorb/emit IR", "Weaker"]]
-  },
   examPoints: [
-    "Natural greenhouse ≈ 33 °C relative to −18 °C",
-    "Window ~8–11 µm",
-    "Cloudy nights often warmer via downward IR"
+    "Selective IR absorption by GHG",
+    "Role of atmospheric window",
+    "Clouds vs clear window",
+    "Not the same as ozone depletion"
   ],
   commonMistakes: [
-    "Confusing greenhouse effect with ozone hole.",
-    "Saying CO₂ always outranks water vapour in every local column.",
-    "Believing GHGs primarily block incoming sunlight.",
-    "Ignoring clouds for night temperatures."
+    "Thinking N₂/O₂ are the main greenhouse gases.",
+    "Ignoring clouds in the window.",
+    "Conflating ozone hole with greenhouse effect."
   ],
-  relatedTopics: ["meteo-radiation-laws", "meteo-composition-today", "meteo-radiative-forcing"],
+  relatedTopics: ["meteo-radiation-laws", "meteo-composition-today", "meteo-climate-feedbacks"],
   content: true,
   buildsOn: ["meteo-radiation-laws", "meteo-composition-today"],
-  leadsTo: ["meteo-lapse-rates", "meteo-radiative-forcing"],
-  usedIn: ["meteo-radiative-forcing", "meteo-climate-feedbacks", "env-climate-change-response"]
+  leadsTo: ["meteo-climate-feedbacks", "meteo-radiative-forcing"],
+  usedIn: ["meteo-climate-feedbacks", "meteo-radiative-forcing"]
 },
 
 {
@@ -908,57 +902,60 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 4,
   title: "Lapse Rates",
-  definition: "A lapse rate is how temperature changes with height. The environmental lapse rate (ELR) is the actual atmosphere. The dry adiabatic lapse rate (DALR) and saturated adiabatic lapse rate (SALR) describe rising parcels. Stability compares ELR with DALR and SALR.",
+  definition: "A lapse rate is the rate of temperature change with height. Three rates matter in exams: the dry adiabatic lapse rate (DALR) for unsaturated parcels, the saturated adiabatic lapse rate (SALR) for cloudy parcels, and the environmental lapse rate (ELR) measured in the real atmosphere. Stability is diagnosed by comparing ELR with DALR and SALR.",
   keyFacts: [
-    "DALR ≈ 9.8 °C/km for unsaturated rising parcels",
-    "SALR ≈ 4–7 °C/km typically — latent heat reduces cooling; value depends on T and moisture",
-    "ELR is observed (sounding); DALR/SALR are process rates",
-    "Average tropospheric ELR is often cited near 6.5 °C/km but varies strongly",
-    "Stability is not ELR alone — it is ELR compared with adiabatic rates",
-    "SALR is always less than DALR when condensation releases heat"
+    "DALR ≈ 9.8 °C/km (often 10 °C/km in MCQs) — unsaturated rising/sinking parcel",
+    "SALR < DALR — latent heat release slows cooling; typical exam range ~4–7 °C/km",
+    "ELR — actual sounding slope; varies in time and place",
+    "Stability uses comparisons: ELR vs DALR and SALR",
+    "Inversions: ELR negative (temperature increases with height) — very stable"
   ],
   explanationSections: [
-    { heading: "Environment versus parcel", body: "The sounding plots the environment. Adiabatic rates answer: if a bubble rises without mixing, how fast does it cool? Dry parcels follow the steep DALR; once saturated, latent heat makes SALR smaller." }
+    { heading: "Parcel rates vs environment", body: "DALR and SALR describe process curves for moving air parcels. ELR is what the radiosonde measures. Never treat ELR as a fixed constant equal to DALR." }
   ],
   subtopics: [
     {
-      id: "meteo-lapse-rates-dalr-salr",
-      title: "DALR and SALR",
-      summary: "Dry parcels cool faster with height than saturated parcels.",
-      explanation: "An unsaturated rising parcel expands and cools at about 9.8 °C/km. Condensation releases latent heat, so the saturated rate is smaller and moisture-dependent.",
+      id: "meteo-lapse-rates-decision",
+      title: "Stability decision rule",
+      summary: "Compare ELR with DALR and SALR — one comparison table for exams.",
+      explanation: "Absolutely unstable: ELR > DALR (parcel colder-rate environment — environment cools faster than a dry parcel). Conditionally unstable: SALR < ELR < DALR. Absolutely stable: ELR < SALR. Inversion layers (temperature rising upward) are strongly stable and suppress mixing.",
       examples: [
-        { problem: "Unsaturated parcel rises 1.5 km at the DALR. Approximate cooling?", solution: "9.8 × 1.5 ≈ 14.7 °C.", answer: "≈ 15 °C" }
+        { problem: "ELR = 8 °C/km, DALR = 10, SALR = 6. Classification?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
       ],
-      shortcuts: ["DALR ≈ 10 °C/km", "SALR < DALR"],
-      traps: ["Using SALR before saturation", "Forcing one fixed SALR worldwide"]
+      shortcuts: ["ELR > DALR → absolute instability", "SALR < ELR < DALR → conditional", "ELR < SALR → absolute stability"],
+      traps: ["Using only DALR and ignoring whether the parcel is saturated", "Calling every steep ELR 'conditional' without checking SALR"]
     },
     {
-      id: "meteo-lapse-rates-elr-link",
-      title: "ELR and stability link",
-      summary: "Steep environmental profiles favour buoyancy; the full rules use DALR/SALR.",
-      explanation: "If the environment cools rapidly with height, rising parcels more easily stay warmer than surroundings. Formal criteria appear in the static-stability topic.",
+      id: "meteo-lapse-rates-why-salr",
+      title: "Why SALR is smaller than DALR",
+      summary: "Latent heat, not a second unrelated constant.",
+      explanation: "When vapour condenses, latent heat is released into the parcel, so temperature falls more slowly with height than in dry ascent. In cold dry air SALR approaches DALR; in warm moist air SALR is much smaller. That is why tropical cloudy ascent differs from polar dry ascent.",
       examples: [
-        { problem: "Same surface T; sounding A cools 9 °C in first km, B cools 3 °C. Which favours dry convection more?", solution: "A — steeper ELR, closer to DALR.", answer: "Sounding A" }
+        { problem: "Does SALR stay fixed at 6 °C/km in every cloud?", solution: "No — it varies with temperature and moisture; 6 is only a typical mid-latitude teaching value.", answer: "No — variable" }
       ],
-      shortcuts: ["ELR = actual profile", "Steep ELR often less stable"],
-      traps: ["Equating ELR with DALR by definition"]
+      shortcuts: ["Condensation heats → slower cooling", "Warm moist → smaller SALR"],
+      traps: ["Memorising one SALR number as a physical constant like g"]
     }
   ],
   comparisonTable: {
-    title: "Lapse-rate vocabulary",
-    headers: ["Symbol", "Meaning", "Typical value"],
+    title: "Stability from ELR",
+    headers: ["Condition", "Meaning"],
     rows: [
-      ["ELR", "Actual sounding", "Variable (~6.5 °C/km average)"],
-      ["DALR", "Dry parcel process", "≈ 9.8 °C/km"],
-      ["SALR", "Saturated parcel process", "≈ 4–7 °C/km"]
+      ["ELR > DALR", "Absolutely unstable"],
+      ["SALR < ELR < DALR", "Conditionally unstable"],
+      ["ELR < SALR", "Absolutely stable"],
+      ["Temperature ↑ with height", "Inversion — strongly stable"]
     ]
   },
-  examPoints: ["DALR ≈ 9.8 °C/km", "SALR < DALR", "Stability compares ELR with DALR/SALR"],
+  examPoints: [
+    "Name and approximate DALR",
+    "SALR < DALR and why",
+    "Classify stability from ELR, DALR, SALR"
+  ],
   commonMistakes: [
-    "Equating ELR with DALR.",
-    "Using one fixed SALR everywhere.",
-    "Judging stability from ELR alone without comparison.",
-    "Forgetting latent heat makes SALR smaller."
+    "Treating ELR as always 6.5 °C/km in stability problems.",
+    "Ignoring saturation state of the parcel.",
+    "Confusing process rates (DALR/SALR) with the environmental sounding."
   ],
   relatedTopics: ["meteo-static-stability", "meteo-vertical-structure", "meteo-adiabatic-cloud-formation"],
   content: true,
@@ -1174,63 +1171,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 8,
   title: "Static Stability of the Atmosphere",
-  definition: "Static stability asks whether a displaced parcel accelerates away (unstable), returns (stable), or stays neutral. Dry tests compare ELR with DALR; moisture brings in SALR and conditional instability.",
+  definition: "Static stability describes whether a displaced air parcel accelerates away from its level, returns, or stays put. It is diagnosed from the environmental sounding relative to dry and moist process curves — the same ELR/DALR/SALR logic as lapse rates, applied to weather outcomes (mixing, cloud growth, trapping of pollutants).",
   keyFacts: [
-    "Absolutely stable: ELR < SALR (hence also < DALR)",
-    "Absolutely unstable: ELR > DALR",
-    "Conditionally unstable: SALR < ELR < DALR",
-    "Neutral: ELR equals the relevant adiabatic rate",
-    "Inversions are strongly stable layers",
-    "Soundings and thermodynamic diagrams are the practical tools"
+    "Stable: parcel returns toward original level after displacement",
+    "Unstable: parcel accelerates further from original level",
+    "Conditional instability: depends on whether the parcel is saturated",
+    "Stable layers suppress deep convection and vertical mixing",
+    "Unstable layers favour thermals, cumulus, and turbulence"
   ],
   explanationSections: [
-    { heading: "Three regimes relative to DALR and SALR", body: "Picture two fences: DALR and SALR. Where the environmental sounding sits decides absolute instability, conditional instability, or absolute stability. Conditional instability powers many thunderstorm environments once parcels saturate." }
+    { heading: "From classification to weather", body: "Lapse-rate comparisons give the label; stability explains the consequence — whether the boundary layer mixes, whether CAPE can be realised, and whether smoke stays near the surface." }
   ],
   subtopics: [
     {
-      id: "meteo-static-stability-criteria",
-      title: "Stability criteria",
-      summary: "Compare ELR with DALR and SALR.",
-      explanation: "ELR > DALR means absolutely unstable. ELR < SALR means absolutely stable. Between the adiabatic rates lies conditional instability — the exam favourite.",
+      id: "meteo-static-stability-weather",
+      title: "Weather consequences of stability",
+      summary: "What each regime allows or blocks in the real atmosphere.",
+      explanation: "Strong stability (including inversions) produces smooth stratified flow, trapped pollution, and suppressed cumulus. Instability supports gusty thermals, deep convective clouds, and turbulence. Conditional instability is the usual pre-storm setup: energy is stored until parcels saturate or a lid is removed.",
       examples: [
-        { problem: "ELR = 7 °C/km, DALR ≈ 10, SALR ≈ 6. Classify.", solution: "SALR < ELR < DALR ⇒ conditionally unstable.", answer: "Conditionally unstable" }
+        { problem: "Clear night, strong surface inversion — expect deep thunderstorms or trapped haze?", solution: "Trapped haze / suppressed deep mixing until the inversion erodes.", answer: "Trapped haze / suppressed convection" }
       ],
-      shortcuts: ["ELR > DALR → abs. unstable", "ELR < SALR → abs. stable", "Between → conditional"],
-      traps: ["Forgetting the conditional case"]
+      shortcuts: ["Stable → suppress mixing", "Unstable → thermals & cumulus", "Conditional → fuel with a lid"],
+      traps: ["Equating 'unstable' with 'it is raining now' — instability is potential, not a precipitation gauge"]
     },
     {
-      id: "meteo-static-stability-applications",
-      title: "Applications",
-      summary: "Stable layers trap; unstable layers mix and may storm.",
-      explanation: "Stable profiles suppress exchange — fog and pollution linger. Unstable profiles encourage thermals; with moisture and lift, deep convection. Conditional instability explains quiet-looking dry soundings that become explosive once parcels saturate.",
+      id: "meteo-static-stability-vs-lapse",
+      title: "How this topic differs from 'Lapse Rates'",
+      summary: "Lapse rates name the slopes; stability names the parcel response and impacts.",
+      explanation: "Use the Lapse Rates topic for the numbers and the ELR–DALR–SALR decision table. Use Static Stability for exam questions about mixing, inversions as lids, and why the same ELR means different outcomes once saturation changes. Do not memorise two conflicting classification systems — they share one comparison.",
       examples: [
-        { problem: "Why worse pollution under a strong surface inversion?", solution: "Stable inversion limits vertical mixing so emissions accumulate in a shallow layer.", answer: "Suppressed vertical dispersion" }
+        { problem: "Question asks why smog persists under clear nights — which concept is central?", solution: "Surface stability / inversion suppressing vertical mixing.", answer: "Stable surface layer / inversion" }
       ],
-      shortcuts: ["Stable → trap; unstable → mix", "Conditional needs saturation path"],
-      traps: ["Equating any clouds with absolute instability"]
+      shortcuts: ["Lapse topic = rates & table", "Stability topic = parcel fate & impacts"],
+      traps: ["Rewriting the entire DALR table here instead of applying it"]
     }
   ],
-  comparisonTable: {
-    title: "Static stability regimes",
-    headers: ["Regime", "Criterion", "Behaviour"],
-    rows: [
-      ["Absolutely unstable", "ELR > DALR", "Dry or moist accelerate"],
-      ["Conditionally unstable", "SALR < ELR < DALR", "Saturated may rise; dry resists"],
-      ["Absolutely stable", "ELR < SALR", "Displacements damped"]
-    ]
-  },
-  examPoints: ["Memorise the three inequalities", "Conditional is the middle case", "Inversions are strongly stable"],
-  commonMistakes: [
-    "Omitting conditional instability.",
-    "Confusing static with dynamic stability jargon.",
-    "Reading only surface T without lapse structure.",
-    "Assuming clouds always mean absolute instability."
+  examPoints: [
+    "Stable vs unstable parcel response",
+    "Conditional instability as common storm setup",
+    "Link stability to mixing and pollution"
   ],
-  relatedTopics: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-adiabatic-cloud-formation"],
+  commonMistakes: [
+    "Treating stability as a different formula system from lapse rates.",
+    "Ignoring saturation when saying 'unstable'.",
+    "Assuming instability equals ongoing severe weather."
+  ],
+  relatedTopics: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-thunderstorms"],
   content: true,
-  buildsOn: ["meteo-lapse-rates", "meteo-inversion-mechanics"],
-  leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-thermodynamic-diagrams"],
-  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc", "meteo-thunderstorms"]
+  buildsOn: ["meteo-lapse-rates", "meteo-vertical-structure"],
+  leadsTo: ["meteo-thunderstorms", "meteo-thermodynamic-diagrams"],
+  usedIn: ["meteo-thunderstorms", "meteo-inversion-mechanics", "meteo-lapse-calc"]
 },
 
 {
@@ -1464,77 +1454,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 2,
   title: "Geostrophic Wind",
-  definition: "The geostrophic wind is the horizontal wind that results when the pressure-gradient force exactly balances the Coriolis force for straight flow. It blows parallel to straight isobars (or height contours), with low pressure on the left in the Northern Hemisphere.",
+  definition: "Geostrophic wind is the horizontal wind that results when the pressure-gradient force exactly balances the Coriolis force. Flow is parallel to straight isobars, with speed proportional to isobar packing — a core approximation above the friction layer.",
   keyFacts: [
-    "Balance: PGF = Coriolis (straight isobars, no friction, steady)",
-    "Wind parallel to isobars/contours — not across them",
-    "NH: low pressure to the left when looking downwind (Buys Ballot)",
-    "Speed increases as the pressure gradient increases and as f decreases (toward lower latitude, for the same gradient)",
-    "Excellent approximation in the free troposphere away from the equator and strong curvature",
-    "Fails near the surface (friction) and near the equator (f → 0)"
+    "Balance: PGF + Coriolis = 0 (no friction, no acceleration)",
+    "Wind parallel to isobars / height contours",
+    "Northern Hemisphere: low pressure to the left of the motion",
+    "Tighter isobars → stronger geostrophic wind",
+    "Breaks down near the surface (friction) and in strongly curved flow (gradient wind)"
   ],
   explanationSections: [
-    { heading: "Straight-line balance", body: "When isobars are straight and friction is negligible, air accelerates under PGF until Coriolis grows enough to balance it. The resulting wind runs along the isobars. That idealisation is the geostrophic wind used to interpret upper-air charts." }
+    { heading: "Ideal balance", body: "Geostrophy is the leading-order balance for large-scale mid-latitude flow aloft. Real surface winds cross isobars toward low pressure because friction slows the wind and weakens Coriolis." }
   ],
   subtopics: [
     {
-      id: "meteo-geostrophic-wind-balance-direction",
-      title: "Balance and direction",
-      summary: "PGF ⊥ isobars balanced by Coriolis; flow parallel to isobars.",
-      explanation: "PGF points toward low pressure. Coriolis acts perpendicular to the wind. In balance they cancel and the wind has no net force in the horizontal plane — steady motion along the isobar. In the NH, that geometry puts low pressure on the left.",
+      id: "meteo-geostrophic-wind-buys-ballot",
+      title: "Direction rule (Buys-Ballot)",
+      summary: "NH: back to wind, low on the left.",
+      explanation: "In the Northern Hemisphere, if you stand with the wind at your back, lower pressure lies to the left (approximately). That encodes geostrophic sense: PGF toward low, Coriolis to the right, balance along the isobar.",
       examples: [
-        { problem: "NH upper chart: straight west–east contours with lower heights to the north. Approximate geostrophic wind direction?", solution: "Flow parallel to contours with low on the left → generally west-to-east (westerly).", answer: "Westerly (west → east)" }
+        { problem: "NH geostrophic wind from west to east. Where is lower pressure?", solution: "Toward the north (left of motion).", answer: "North / left of track" }
       ],
-      shortcuts: ["Parallel to isobars", "NH: low on left (Buys Ballot)"],
-      traps: ["Drawing geostrophic wind across isobars toward low"]
+      shortcuts: ["NH low to the left", "SH low to the right"],
+      traps: ["Applying NH rule in the Southern Hemisphere unchanged"]
     },
     {
-      id: "meteo-geostrophic-wind-speed-limits",
-      title: "Speed controls and limits of the approximation",
-      summary: "Stronger gradient → faster wind; invalid with friction or at the equator.",
-      explanation: "For a given density and f, tighter packing of isobars means stronger geostrophic wind. The approximation collapses where friction matters, where curvature demands a gradient-wind correction, or where f is nearly zero.",
+      id: "meteo-geostrophic-wind-limits",
+      title: "When not to use pure geostrophy",
+      summary: "Friction layer, strong curvature, equator.",
+      explanation: "Within the friction layer, winds ageostrophically cross toward low pressure. Around tight highs and lows, gradient-wind corrections matter (subgeostrophic cyclonic, supergeostrophic anticyclonic). Near the equator Coriolis is too weak for geostrophic balance.",
       examples: [
-        { problem: "Why is pure geostrophy a poor model for surface winds in a city?", solution: "Friction is first-order near the ground, so balance is not PGF–Coriolis alone and flow crosses isobars.", answer: "Friction breaks geostrophic balance" }
+        { problem: "Surface wind over rough land crosses isobars toward the low — pure geostrophy?", solution: "No — friction produces cross-isobar flow.", answer: "No — frictional ageostrophy" }
       ],
-      shortcuts: ["Tight contours → strong Vg", "No geostrophy at equator / in PBL without care"],
-      traps: ["Using geostrophy for tornado-scale flows"]
+      shortcuts: ["Friction → cross-isobar", "Curvature → gradient wind", "Equator → no geostrophy"],
+      traps: ["Drawing surface winds parallel to isobars with no cross component"]
     }
   ],
-  formula: {
-    name: "Geostrophic Wind",
-    expression: "Vg = (1 / fρ) × (ΔP / d)",
-    variables: [
-      { symbol: "Vg", meaning: "geostrophic wind speed" },
-      { symbol: "f", meaning: "Coriolis parameter" },
-      { symbol: "ρ", meaning: "air density" },
-      { symbol: "ΔP/d", meaning: "horizontal pressure gradient" }
-    ]
-  },
-  comparisonTable: {
-    title: "Geostrophic vs surface wind",
-    headers: ["Feature", "Geostrophic (ideal)", "Surface (real PBL)"],
-    rows: [
-      ["Friction", "Neglected", "Important"],
-      ["Direction", "Parallel to isobars", "Crosses toward low"],
-      ["Speed", "Often stronger", "Reduced by friction"]
-    ]
-  },
   examPoints: [
-    "PGF balances Coriolis for straight frictionless flow",
-    "Wind parallel to isobars; NH low on left",
-    "Poor near surface and near equator"
+    "Define geostrophic balance",
+    "Parallel flow and NH sense",
+    "Limits: friction, curvature, equator"
   ],
   commonMistakes: [
-    "Pointing geostrophic wind toward low pressure.",
-    "Applying geostrophy in the friction layer.",
-    "Using geostrophy at the equator.",
-    "Ignoring that tighter isobars mean stronger Vg."
+    "Using geostrophy at the surface without friction.",
+    "Wrong hemisphere sense.",
+    "Ignoring isobar spacing for speed."
   ],
-  relatedTopics: ["meteo-forces-governing-wind", "meteo-gradient-wind", "meteo-geostrophic-qual"],
+  relatedTopics: ["meteo-forces-governing-wind", "meteo-gradient-wind", "meteo-isobar-analysis"],
   content: true,
-  buildsOn: ["meteo-forces-governing-wind"],
-  leadsTo: ["meteo-gradient-wind", "meteo-jet-stream"],
-  usedIn: ["meteo-jet-stream", "meteo-upper-air-charts", "meteo-geostrophic-qual", "meteo-isobar-analysis"]
+  buildsOn: ["meteo-forces-governing-wind", "meteo-coriolis-effect"],
+  leadsTo: ["meteo-gradient-wind", "meteo-geostrophic-qual"],
+  usedIn: ["meteo-upper-air-charts", "meteo-isobar-analysis"]
 },
 
 {
@@ -1774,71 +1743,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 6,
   title: "The Monsoon Wind System",
-  definition: "A monsoon is a large-scale seasonal reversal of wind and pressure patterns driven by differential heating of land and ocean, bringing a pronounced wet season and dry season. The South Asian monsoon dominates Pakistan’s summer rainfall and is tightly linked to the monsoon trough, moisture flux from the Arabian Sea and Bay of Bengal, and Himalayan orography.",
+  definition: "A monsoon is a seasonal reversal of large-scale winds driven by differential heating of land and ocean, bringing distinct wet and dry seasons. The South Asian monsoon is the archetype: summer inflow of moist maritime air, winter outflow of drier continental air.",
   keyFacts: [
-    "Classic definition emphasises seasonal wind reversal, not only heavy rain",
-    "Summer: land heats strongly → low pressure over continent → moist onshore flow and rain",
-    "Winter: land cools → higher pressure over continent → dry offshore flow over much of the region",
-    "Pakistan: summer monsoon rains are critical yet spatially uneven; western disturbances dominate much winter precipitation in the north",
-    "Onset, breaks, and withdrawal are as important as total seasonal rainfall",
-    "Teleconnections (ENSO, IOD) modulate monsoon strength and reliability"
+    "Seasonal wind reversal — not just 'heavy rain'",
+    "Summer: land heats → thermal low → moist onshore flow",
+    "Winter: land cools → stronger high → dry offshore flow over much of the region",
+    "Latent heat in deep convection feeds back into the circulation",
+    "Pakistan lies on the northwestern fringe of the South Asian monsoon domain"
   ],
   explanationSections: [
-    { heading: "Continent-scale sea breeze", body: "In summer the Asian landmass becomes a heat source relative to the surrounding oceans. Pressure falls inland, and moist air streams onshore. Mountains lift that moisture and organise rain belts. In winter the thermal contrast reverses and much of the flow dries and turns offshore." }
+    { heading: "More than a rain switch", body: "Monsoon rainfall is organised in active and break spells and interacts with topography. Treating monsoon as a single continuous faucet is wrong for both India and Pakistan." }
   ],
   subtopics: [
     {
-      id: "meteo-monsoon-system-mechanism",
-      title: "Seasonal mechanism",
-      summary: "Land–ocean heating contrast reverses pressure and wind.",
-      explanation: "The monsoon is not magic rainfall — it is a reversible circulation. Summer continental heating deepens the monsoon trough; cross-equatorial and onshore flows import moisture. Winter continental cooling supports dry northeasterlies over large areas of South Asia.",
+      id: "meteo-monsoon-system-drivers",
+      title: "Land–sea heating and feedback",
+      summary: "Thermal contrast starts the flow; convection strengthens it.",
+      explanation: "Summer heating of the Asian landmass deepens the monsoon trough and draws ocean air inland. Condensation heating in towering clouds then intensifies the overturning. Winter reverses the thermal contrast and much of the flow becomes offshore and drier over the subcontinent.",
       examples: [
-        { problem: "Why is ‘monsoon’ more than a synonym for ‘rain’?", solution: "The defining idea is seasonal wind/pressure reversal driven by land–ocean contrast; rain is the consequence where moisture and lift coincide.", answer: "Seasonal wind reversal, not rain alone" }
+        { problem: "Does latent heat release weaken the summer monsoon circulation?", solution: "No — it generally strengthens the large-scale overturning.", answer: "No — it strengthens" }
       ],
-      shortcuts: ["Summer: onshore moist", "Winter: often offshore dry"],
-      traps: ["Defining monsoon only as heavy rain without circulation"]
+      shortcuts: ["Land-sea contrast → seasonal winds", "Convection heats → feedback"],
+      traps: ["Defining monsoon only as 'lots of rain' without wind reversal"]
     },
     {
-      id: "meteo-monsoon-system-pakistan",
-      title: "Pakistan and South Asian context",
-      summary: "Uneven summer rains; winter relies more on western disturbances in the north.",
-      explanation: "Monsoon moisture reaches Pakistan mainly from southern approaches, with strong orographic and latitude gradients. Northern winter precipitation is heavily influenced by western disturbances along the subtropical jet — a different regime students must not collapse into ‘monsoon’.",
+      id: "meteo-monsoon-system-pakistan-fringe",
+      title: "Pakistan on the fringe",
+      summary: "Uneven rains; not identical to core Indian monsoon.",
+      explanation: "Only parts of Pakistan receive reliable summer monsoon totals; many districts stay arid or semi-arid. Year-to-year variability is large, and winter western disturbances are a separate moisture engine. Exam answers should not claim uniform national monsoon flooding every year.",
       examples: [
-        { problem: "Is Islamabad’s January rain typically monsoon rainfall?", solution: "No. Winter rains in northern Pakistan are largely tied to western disturbances, not the summer monsoon circulation.", answer: "No — western disturbances" }
+        { problem: "Why is 'whole Pakistan is a wet tropical monsoon climate' false?", solution: "Large arid/semi-arid areas and fringe location; uneven monsoon penetration.", answer: "Fringe + aridity" }
       ],
-      shortcuts: ["Summer monsoon ≠ winter WD rains", "Orography shapes who gets rain"],
-      traps: ["Calling all Pakistan rain ‘monsoon’"]
+      shortcuts: ["Fringe ≠ core monsoon", "WD ≠ monsoon"],
+      traps: ["One national climate label for all provinces"]
     }
   ],
-  comparisonTable: {
-    title: "Summer vs winter monsoon regime (South Asia)",
-    headers: ["Season", "Land vs ocean", "Typical low-level flow"],
-    rows: [
-      ["Summer", "Land hotter", "Moist onshore / monsoon trough"],
-      ["Winter", "Land cooler", "Drier offshore over much of region"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Summer monsoon is vital but uneven across Pakistan",
-    "Northern winter precipitation: western disturbances, not summer monsoon",
-    "Onset/breaks/withdrawal matter for agriculture and exam framing"
-  ],
   examPoints: [
-    "Monsoon = seasonal wind reversal + rainfall regime",
-    "Driven by land–ocean differential heating",
-    "Do not confuse summer monsoon with winter western disturbances"
+    "Seasonal wind reversal definition",
+    "Summer vs winter pressure patterns",
+    "Pakistan fringe caveat"
   ],
   commonMistakes: [
-    "Equating monsoon solely with rainfall amount.",
-    "Ignoring seasonal wind reversal.",
-    "Mixing western disturbances into summer monsoon.",
-    "Assuming uniform rainfall everywhere in Pakistan."
+    "Monsoon = rain only.",
+    "Uniform rainfall nationwide.",
+    "Ignoring latent-heat feedback."
   ],
-  relatedTopics: ["meteo-local-seasonal-winds", "meteo-indian-ocean-monsoon", "meteo-enso-basics"],
+  relatedTopics: ["meteo-global-circulation", "meteo-indian-ocean-monsoon", "meteo-local-seasonal-winds"],
   content: true,
-  buildsOn: ["meteo-local-seasonal-winds", "meteo-global-circulation"],
-  leadsTo: ["meteo-indian-ocean-monsoon"],
-  usedIn: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "env-water-pollution-and-quality"]
+  buildsOn: ["meteo-global-circulation", "meteo-heat-transfer"],
+  leadsTo: ["meteo-indian-ocean-monsoon", "meteo-iod"],
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -2053,70 +2007,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 1,
   title: "Atmospheric Moisture Metrics",
-  definition: "Atmospheric moisture is measured with several related but distinct quantities: vapour pressure, saturation vapour pressure, relative humidity, dew-point temperature, specific humidity, and mixing ratio. Each answers a different question — how much water is present, how close the air is to saturation, or at what temperature condensation begins.",
+  definition: "Water vapour is measured with several related quantities. Relative humidity compares actual vapour to saturation at the same temperature; dew point and mixing ratio track how much vapour is present more directly. Choosing the right metric avoids the classic trap that 'high RH means lots of moisture'.",
   keyFacts: [
-    "Saturation vapour pressure rises steeply with temperature (Clausius–Clapeyron behaviour)",
-    "Relative humidity RH = (actual vapour pressure / saturation vapour pressure) × 100%",
-    "Dew point: temperature to which air must be cooled at constant pressure to reach saturation",
-    "High RH does not always mean high absolute moisture — cold air can be saturated with little water",
-    "Mixing ratio and specific humidity measure actual water mass relative to dry air or total air",
-    "Dew point is often the better ‘how moist is it?’ indicator for weather than RH alone"
+    "RH = (e / e_s) × 100% — depends on both vapour content and temperature",
+    "Dew point (Td): temperature to which air must cool at constant pressure to saturate",
+    "Mixing ratio w: mass of vapour per mass of dry air — conservative without condensation",
+    "Warm air can hold more vapour (higher e_s) than cold air",
+    "Fog and cloud bases relate closely to dew-point depression"
   ],
   explanationSections: [
-    { heading: "Amount versus closeness to saturation", body: "Relative humidity confuses students because it mixes two ideas: how much vapour is present and how much the air could hold at that temperature. Dew point and mixing ratio track actual moisture more cleanly; RH tracks proximity to cloud or fog formation at the current temperature." }
+    { heading: "Pick the metric for the question", body: "If the question is about closeness to saturation, RH or dew-point depression fits. If it is about actual moisture amount or air-mass comparison, prefer dew point or mixing ratio." }
   ],
   subtopics: [
     {
-      id: "meteo-moisture-metrics-rh-dewpoint",
-      title: "Relative humidity and dew point",
-      summary: "RH is a ratio; dew point is a temperature of saturation.",
-      explanation: "Warm the air without adding vapour and RH falls because saturation vapour pressure rises. Cool the air and RH rises until the dew point is reached and condensation begins on surfaces or nuclei. Two air samples can share the same RH yet hold very different water amounts if their temperatures differ.",
+      id: "meteo-moisture-metrics-which-metric",
+      title: "Which metric answers which question",
+      summary: "Exam decision guide — RH vs Td vs mixing ratio.",
+      explanation: "RH rises when air cools even if vapour amount is fixed — so morning high RH need not mean a humid air mass. Dew point is the better single number for 'how moist is this air.' Mixing ratio is preferred in process calculations because it changes mainly when water is added or removed.",
       examples: [
-        { problem: "Air at 30 °C with dew point 10 °C versus air at 12 °C with dew point 10 °C — which holds more moisture, and which is closer to saturation?", solution: "Both share dew point 10 °C so absolute moisture is similar; the 12 °C sample has much higher RH and is closer to saturation.", answer: "Similar moisture; cooler sample closer to saturation" }
+        { problem: "Same vapour pressure, temperature rises. What happens to RH?", solution: "e_s rises, so RH falls even though vapour amount is unchanged.", answer: "RH decreases" }
       ],
-      shortcuts: ["RH = e/e_s × 100%", "Dew point ↑ → more actual moisture (roughly)"],
-      traps: ["Reading high RH in cold air as ‘lots of water vapour’"]
+      shortcuts: ["RH ≠ absolute moisture", "Td ↑ → more actual vapour (usual reading)", "w for process math"],
+      traps: ["Assuming 90% RH in cold air holds more water than 50% RH in warm tropical air"]
     },
     {
-      id: "meteo-moisture-metrics-absolute",
-      title: "Absolute moisture measures",
-      summary: "Mixing ratio and specific humidity track water mass.",
-      explanation: "Mixing ratio is mass of vapour per mass of dry air; specific humidity is mass of vapour per mass of moist air. They change mainly when water is added or removed, not when temperature changes alone — unlike RH.",
+      id: "meteo-moisture-metrics-depression",
+      title: "Dew-point depression and cloud base",
+      summary: "T − Td links to how much lifting is needed to saturate.",
+      explanation: "A small dew-point depression means the air is close to saturation and cloud bases can be low. A large spread means dry air aloft or at the surface and higher cloud bases for surface-based convection. Pilots and synoptic analysts use this constantly.",
       examples: [
-        { problem: "Why can RH drop through a sunny morning even if moisture content is nearly constant?", solution: "Temperature rises, e_s rises, so RH = e/e_s falls even if e is steady.", answer: "Warming raises e_s, lowering RH" }
+        { problem: "Surface T = 30 °C, Td = 28 °C vs T = 30 °C, Td = 5 °C — which supports lower convective cloud bases?", solution: "The 30/28 case — much smaller depression.", answer: "30 °C / 28 °C" }
       ],
-      shortcuts: ["Absolute metrics stable under pure warming", "RH temperature-sensitive"],
-      traps: ["Treating RH as a pure moisture amount"]
+      shortcuts: ["Small T−Td → near saturation", "Large spread → dry"],
+      traps: ["Reading only temperature and ignoring dew point on a station model"]
     }
   ],
-  formula: {
-    name: "Relative Humidity",
-    expression: "RH = (Vapour Pressure / Saturation Vapour Pressure) × 100%",
-    variables: [
-      { symbol: "RH", meaning: "relative humidity (%)" },
-      { symbol: "e", meaning: "actual vapour pressure" },
-      { symbol: "e_s", meaning: "saturation vapour pressure at air temperature" }
-    ]
-  },
-  comparisonTable: {
-    title: "Moisture metrics",
-    headers: ["Metric", "What it answers"],
-    rows: [
-      ["Vapour pressure / mixing ratio", "How much vapour is present"],
-      ["RH", "How close to saturation at current T"],
-      ["Dew point", "Cooling needed to saturate (also moisture proxy)"]
-    ]
-  },
   examPoints: [
-    "RH ≠ absolute moisture",
-    "Dew point is a saturation temperature",
-    "e_s rises strongly with temperature"
+    "Define RH, dew point, mixing ratio",
+    "RH depends on temperature",
+    "Choose metric appropriately"
   ],
   commonMistakes: [
-    "Equating high RH with high water content always.",
-    "Confusing dew point with air temperature.",
-    "Ignoring temperature when interpreting RH.",
-    "Mixing units of mixing ratio and RH."
+    "Treating RH as absolute moisture.",
+    "Ignoring temperature when comparing RH values.",
+    "Confusing dew point with wet-bulb without care."
   ],
   relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-humidity-calc", "meteo-fog-types"],
   content: true,
@@ -2130,67 +2064,55 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 2,
   title: "Adiabatic Processes & Cloud Formation",
-  definition: "Clouds form when moist air is cooled to saturation, most often by ascent. Rising unsaturated air cools at the dry adiabatic lapse rate until the lifting condensation level (LCL); further ascent follows a saturated rate as condensation releases latent heat. The same physics links stability, cloud bases, and precipitation potential.",
+  definition: "Clouds form when moist air is cooled to saturation, most often by ascent. An unsaturated parcel cools at the DALR until it reaches the lifting condensation level (LCL); further ascent follows a moist (saturated) process and can grow cloud.",
   keyFacts: [
-    "Adiabatic: no heat exchange with surroundings — expansion cooling on ascent, compression warming on descent",
-    "DALR ≈ 9.8 °C/km until saturation",
-    "LCL: level where rising air first reaches saturation — approximate cloud base for convective clouds",
-    "Above LCL, SALR applies while condensation continues",
-    "Descent evaporates droplets and warms the air — clear slots in lee of mountains are one example",
-    "Need moisture + cooling (usually lift) + condensation nuclei for ordinary clouds"
+    "Ascent → expansion → cooling; descent → compression → warming",
+    "LCL: level where rising unsaturated air first saturates",
+    "Below LCL: dry adiabatic; above LCL in cloud: saturated adiabatic",
+    "Forced ascent: orographic, frontal, convergent; free ascent: buoyancy"
   ],
   explanationSections: [
-    { heading: "Lift, cool, saturate, condense", body: "The recipe for most clouds is mechanical or buoyant lift. As pressure falls, parcels expand and cool. When temperature meets dew point, condensation begins on nuclei. Stability decides whether lift continues into deep cloud." }
+    { heading: "Path to cloud base", body: "Surface heating, hills, fronts, and low-level convergence all lift air. The LCL is the first cloud-base estimate for surface-based parcels when dew-point depression is known qualitatively." }
   ],
   subtopics: [
     {
-      id: "meteo-adiabatic-cloud-formation-ascent",
-      title: "Ascent, LCL, and cloud base",
-      summary: "Dry ascent to the LCL; saturated ascent above.",
-      explanation: "An unsaturated parcel cools at about 10 °C/km until it hits the LCL. The higher the dew-point depression at the surface, the higher the LCL and the higher the cloud base, all else equal.",
+      id: "meteo-adiabatic-cloud-formation-lcl-skill",
+      title: "Finding and using the LCL",
+      summary: "Dry adiabat from T meets mixing-ratio line from Td.",
+      explanation: "On a thermodynamic diagram, follow a dry adiabat up from surface temperature and a constant mixing-ratio line up from dew point; their intersection is the LCL. Larger dew-point depression pushes the LCL higher — higher cloud bases.",
       examples: [
-        { problem: "Why do convective clouds often have higher bases in dry desert air than in humid tropical air?", solution: "Larger dew-point depression means a higher LCL — the parcel must rise farther to cool to its dew point.", answer: "Higher LCL in drier air" }
+        { problem: "Surface air is very dry (large T−Td). Is LCL usually low or high?", solution: "High — much lifting is needed to saturate.", answer: "High" }
       ],
-      shortcuts: ["LCL ≈ cloud base (convective)", "Drier → higher base"],
-      traps: ["Assuming all cloud bases sit at a fixed height"]
+      shortcuts: ["LCL ≈ cloud base for surface-based convection", "Large T−Td → high LCL"],
+      traps: ["Placing LCL at a fixed 1 km for every air mass"]
     },
     {
-      id: "meteo-adiabatic-cloud-formation-descent",
-      title: "Descent and clearing",
-      summary: "Sinking air warms and dries relative to saturation.",
-      explanation: "Descending air compresses and warms at the dry adiabatic rate once unsaturated, RH falls, and clouds tend to evaporate. That is one reason for clear lee-side conditions and for holes in cloud decks under subsidence.",
+      id: "meteo-adiabatic-cloud-formation-forcing",
+      title: "What does the lifting",
+      summary: "Four mechanisms — link to Pakistan weather later.",
+      explanation: "Orographic lift on windward slopes, frontal overrunning, low-level convergence (including monsoon troughs), and daytime heating thermals all raise parcels. The microphysics of rain is a later step — first the air must reach saturation by cooling.",
       examples: [
-        { problem: "Air sinks 1 km unsaturated. What happens to its RH, roughly?", solution: "Temperature rises ~10 °C, e_s rises sharply, so RH falls and clouds are less likely.", answer: "RH decreases" }
+        { problem: "Air forced up the western Ghats or Himalayan foothills forms cloud primarily by which process?", solution: "Orographic ascent and adiabatic cooling to saturation.", answer: "Orographic lift" }
       ],
-      shortcuts: ["Descent → warm → lower RH", "Subsidence clears skies"],
-      traps: ["Thinking sinking always creates clouds"]
+      shortcuts: ["Hills, fronts, convergence, heat → lift", "No lift → no adiabatic cloud"],
+      traps: ["Thinking clouds form only by adding moisture without cooling"]
     }
   ],
-  comparisonTable: {
-    title: "Parcel path and moisture",
-    headers: ["Stage", "Lapse rate", "Cloud"],
-    rows: [
-      ["Unsaturated ascent", "DALR", "No cloud yet"],
-      ["At LCL", "Saturation reached", "Cloud base begins"],
-      ["Saturated ascent", "SALR", "Cloud grows with continued lift"]
-    ]
-  },
   examPoints: [
-    "Clouds usually need lift to cool air to saturation",
-    "LCL marks approximate convective cloud base",
-    "Descent warms and reduces RH"
+    "Adiabatic cooling on ascent",
+    "Define LCL",
+    "Dry vs saturated segments of parcel path"
   ],
   commonMistakes: [
-    "Believing clouds form only by adding moisture, never by cooling.",
-    "Ignoring LCL when discussing cloud base.",
-    "Using SALR before saturation.",
-    "Forgetting nuclei are needed for ordinary droplet formation."
+    "Starting moist-adiabatic cooling before saturation.",
+    "Ignoring forced lift mechanisms.",
+    "Confusing LCL with tropopause."
   ],
-  relatedTopics: ["meteo-moisture-metrics", "meteo-cloud-classification", "meteo-static-stability"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-rates", "meteo-orographic-rainshadow"],
   content: true,
-  buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "phy-thermodynamics-laws"],
-  leadsTo: ["meteo-cloud-classification", "meteo-fog-types", "meteo-droplet-microphysics"],
-  usedIn: ["meteo-cloud-classification", "meteo-precipitation-processes", "meteo-thermodynamic-diagrams"]
+  buildsOn: ["meteo-moisture-metrics", "meteo-lapse-rates"],
+  leadsTo: ["meteo-cloud-classification", "meteo-precipitation-processes"],
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-orographic-rainshadow"]
 },
 
 {
@@ -2337,60 +2259,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 5,
   title: "Microphysics of Cloud Droplet Growth",
-  definition: "Cloud droplets begin on condensation nuclei and grow first by vapour condensation, then — for precipitation-sized drops — by collision–coalescence in warm clouds or by ice-phase processes in cold clouds. Not every cloud rains: droplets must grow large enough to fall against updrafts and evaporate slowly.",
+  definition: "Cloud droplets begin on condensation nuclei and grow by condensation. Rain-sized drops need additional growth: collision–coalescence in warm clouds, and ice processes (including Bergeron) in cold mixed-phase clouds.",
   keyFacts: [
-    "Condensation nuclei (CCN) allow droplets to form at modest supersaturations",
-    "Condensation growth alone is slow for reaching raindrop size",
-    "Collision–coalescence: larger drops sweep up smaller ones in warm clouds",
-    "Ice-crystal (Bergeron) process: ice grows at the expense of supercooled liquid in mixed-phase clouds",
-    "Supercooled water can exist below 0 °C until ice appears",
-    "Updraft strength and droplet spectrum control whether rain reaches the ground"
+    "CCN required for droplets at ordinary supersaturations",
+    "Condensation alone is slow to make raindrops",
+    "Warm-cloud path: collision and coalescence",
+    "Cold-cloud path: ice crystals grow at the expense of supercooled droplets (Bergeron)",
+    "Supercooled water can exist below 0 °C until ice forms"
   ],
   explanationSections: [
-    { heading: "From haze droplet to raindrop", body: "Forming a visible cloud is not the same as making rain. Cloud droplets are tiny. Precipitation requires a growth pathway — warm-rain collisions or ice-phase transfer — efficient enough to build fall speeds that overcome the updraft and survive the fall." }
+    { heading: "Two paths to precipitation-sized particles", body: "Tropical warm showers lean on coalescence; mid-latitude cloud systems often rely on ice processes even when surface precipitation is rain after melting." }
   ],
   subtopics: [
     {
-      id: "meteo-droplet-microphysics-warm",
-      title: "Warm-cloud growth",
-      summary: "Condensation then collision–coalescence.",
-      explanation: "After nucleation, droplets grow by diffusion of vapour, but slowly. Once a broad size spectrum exists, larger drops fall relative to smaller ones, collide, and coalesce. Thick warm clouds with strong updrafts and enough liquid water favour this path — common in tropical rains.",
+      id: "meteo-droplet-microphysics-bergeron",
+      title: "Bergeron process — the vapour pressure edge",
+      summary: "Why ice grows while droplets evaporate in mixed-phase air.",
+      explanation: "At the same temperature, saturation vapour pressure over ice is lower than over liquid water. Air that is near equilibrium with droplets is supersaturated relative to ice, so vapour deposits on ice crystals. Droplets shrink; crystals grow and may later fall and melt into rain.",
       examples: [
-        { problem: "Why don’t all warm clouds produce rain?", solution: "Droplets may remain too small if the cloud is shallow or the size spectrum is too narrow for efficient collisions.", answer: "Insufficient growth to fall speeds" }
+        { problem: "In a cloud with both supercooled droplets and ice, which phase grows preferentially by vapour deposition?", solution: "Ice — lower saturation vapour pressure over ice.", answer: "Ice" }
       ],
-      shortcuts: ["Warm rain → collision–coalescence", "Need broad droplet spectrum"],
-      traps: ["Assuming condensation alone makes raindrops quickly"]
+      shortcuts: ["e_sat ice < e_sat liquid", "Ice grows, droplets can evaporate"],
+      traps: ["Thinking Bergeron requires temperatures above 0 °C"]
     },
     {
-      id: "meteo-droplet-microphysics-cold",
-      title: "Cold-cloud / ice processes",
-      summary: "Ice grows from vapour while supercooled droplets evaporate.",
-      explanation: "In mixed-phase regions, saturation vapour pressure over ice is lower than over liquid water. Ice crystals grow, droplets shrink, and precipitation can form via the Bergeron process, then aggregate or rimed into snow/graupel/hail pathways.",
+      id: "meteo-droplet-microphysics-coalescence",
+      title: "Collision–coalescence",
+      summary: "Larger drops fall faster and sweep smaller ones.",
+      explanation: "In warm clouds, drops of different sizes have different fall speeds. Bigger drops collect smaller ones and grow. Clean air with scarce large CCN can slow this path; maritime clouds often precipitate more readily than very clean continental ones.",
       examples: [
-        { problem: "Why can snow grow efficiently in clouds that still contain liquid droplets?", solution: "Vapour prefers deposition on ice; supercooled droplets evaporate and feed crystal growth (Bergeron process).", answer: "Ice–liquid vapour pressure difference" }
+        { problem: "Why do some deep continental clouds stay non-precipitating longer than shallow maritime clouds?", solution: "Fewer large CCN / less efficient coalescence can delay warm rain.", answer: "Less efficient coalescence / CCN spectrum" }
       ],
-      shortcuts: ["Bergeron: ice grows, liquid shrinks", "Supercooled water is common"],
-      traps: ["Thinking all water freezes solid at 0 °C in clouds"]
+      shortcuts: ["Size spectrum → collisions", "Warm rain path"],
+      traps: ["Assuming every cloud rains once it looks grey"]
     }
   ],
-  comparisonTable: {
-    title: "Precipitation growth paths",
-    headers: ["Cloud type", "Main growth path"],
-    rows: [
-      ["Warm (T > 0 °C throughout)", "Collision–coalescence"],
-      ["Cold / mixed-phase", "Ice crystal (Bergeron) + collisions"]
-    ]
-  },
   examPoints: [
-    "CCN required for ordinary droplets",
-    "Warm rain vs Bergeron process",
-    "Not all clouds precipitate"
+    "Role of CCN",
+    "Coalescence vs Bergeron",
+    "Supercooled water exists"
   ],
   commonMistakes: [
-    "Skipping nuclei and imagining pure vapour droplets always.",
-    "Using only condensation for raindrop sizes.",
-    "Forcing all rain to be warm-rain physics.",
-    "Ignoring supercooled liquid."
+    "Condensation alone makes raindrops quickly.",
+    "No ice process in mid-latitudes.",
+    "All clouds below 0 °C are glaciated instantly."
   ],
   relatedTopics: ["meteo-cloud-classification", "meteo-precipitation-processes"],
   content: true,
@@ -2472,69 +2384,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 7,
   title: "Types of Precipitation",
-  definition: "Precipitation types — rain, drizzle, snow, sleet (ice pellets), freezing rain, hail, and graupel — are classified by the hydrometeor that reaches the surface and by the temperature profile it fell through. The same upper cloud may yield different surface types as profiles change.",
+  definition: "Precipitation type at the ground depends on the ice/water processes in the cloud and on the temperature profile below the cloud. Rain, snow, sleet (ice pellets), freezing rain, and hail are distinguished by those profiles and growth processes — not only by surface temperature alone.",
   keyFacts: [
-    "Rain: liquid drops; drizzle: very small drops from shallow low cloud",
-    "Snow: ice crystals/aggregates that never fully melt",
-    "Freezing rain: liquid drops that freeze on contact with sub-freezing surfaces",
-    "Ice pellets (sleet): frozen before reaching the ground after partial melt aloft",
-    "Hail: layered ice grown in strong thunderstorm updrafts",
-    "Sounding shape distinguishes snow vs freezing rain vs ice pellets"
+    "Snow: ice crystals reach the ground without complete melting",
+    "Rain: liquid drops at the surface",
+    "Ice pellets (sleet): melt aloft then refreeze before reaching ground",
+    "Freezing rain: liquid at surface, freezes on contact with sub-freezing objects",
+    "Hail: convective ice grown by updraft recycling — different from sleet"
   ],
   explanationSections: [
-    { heading: "Read the vertical temperature path", body: "Start with ice or liquid in the cloud, then ask what happens in each layer below. A warm nose aloft with a refreezing layer near the ground produces ice pellets; a shallow cold surface layer under all-liquid paths produces freezing rain." }
+    { heading: "Profile decides the type", body: "A warm layer aloft with a refreezing layer below favours ice pellets; a deep warm layer with only a shallow sub-freezing surface layer favours freezing rain." }
   ],
   subtopics: [
     {
-      id: "meteo-precipitation-types-liquid-solid",
-      title: "Liquid and frozen types",
-      summary: "Rain/drizzle versus snow and hail.",
-      explanation: "Drizzle implies small drops and usually shallow stratus. Rain spans light stratiform to heavy convective. Snow requires a sufficiently cold column. Hail requires strong cumulonimbus updrafts and ice growth by riming in intense convection — not ordinary winter stratiform snow.",
+      id: "meteo-precipitation-types-profiles",
+      title: "Sounding profiles: sleet vs freezing rain",
+      summary: "Where the warm layer sits controls the outcome.",
+      explanation: "Both sleet and freezing rain need melting of snow aloft. If a thick cold layer refreezes the drops into ice pellets, sleet results. If the cold layer is shallow and drops stay liquid until contact, freezing rain coats surfaces in ice — often more hazardous for transport.",
       examples: [
-        { problem: "Why is hail associated with thunderstorms rather than gentle winter stratus?", solution: "Hail needs strong updrafts to suspend growing ice long enough for large layered stones to form.", answer: "Strong Cb updrafts required" }
+        { problem: "Snow melts in a warm nose then fully refreezes in a deep cold surface layer. Type at ground?", solution: "Ice pellets (sleet).", answer: "Sleet / ice pellets" }
       ],
-      shortcuts: ["Drizzle = small/shallow", "Hail = intense convection"],
-      traps: ["Calling all ice pellets hail"]
+      shortcuts: ["Deep cold layer after melt → sleet", "Shallow cold surface → freezing rain risk"],
+      traps: ["Calling all icy precipitation hail", "Using only surface T without the profile"]
     },
     {
-      id: "meteo-precipitation-types-profiles",
-      title: "Freezing rain versus ice pellets",
-      summary: "Diagnose from the melting and refreezing layers.",
-      explanation: "Freezing rain: snow melts to rain in a warm layer, then falls into a shallow sub-freezing surface layer and freezes on contact. Ice pellets: melted particles refreeze into ice before reaching the ground in a deeper cold layer.",
+      id: "meteo-precipitation-types-hail-vs-sleet",
+      title: "Hail is not sleet",
+      summary: "Convective updraft growth vs winter profile precipitation.",
+      explanation: "Hailstones grow in strong thunderstorm updrafts by accreting supercooled water. Sleet is a winter-profile product from melting and refreezing stratiform or light precip. Different seasons, clouds, and mechanisms.",
       examples: [
-        { problem: "Deep warm layer aloft, only a very shallow sub-zero layer at the surface — rain or freezing rain risk?", solution: "Freezing rain risk if surface objects are below freezing — drops remain liquid in air then freeze on contact.", answer: "Freezing rain risk" }
+        { problem: "Summer supercell produces large ice stones — hail or sleet?", solution: "Hail.", answer: "Hail" }
       ],
-      shortcuts: ["Freezing rain = freezes on contact", "Ice pellets = frozen before ground"],
-      traps: ["Interchanging sleet and freezing rain definitions"]
+      shortcuts: ["Hail ↔ thunderstorm updraft", "Sleet ↔ melt–refreeze profile"],
+      traps: ["Using the words interchangeably"]
     }
   ],
-  comparisonTable: {
-    title: "Selected precipitation types",
-    headers: ["Type", "What reaches ground"],
-    rows: [
-      ["Rain", "Liquid drops"],
-      ["Snow", "Ice crystals/aggregates"],
-      ["Freezing rain", "Liquid that freezes on surfaces"],
-      ["Ice pellets", "Ice already frozen in air"],
-      ["Hail", "Large thunderstorm ice"]
-    ]
-  },
   examPoints: [
-    "Type depends on temperature profile",
-    "Freezing rain ≠ ice pellets",
-    "Hail needs strong convection"
+    "Distinguish rain, snow, sleet, freezing rain, hail",
+    "Profile logic for freezing rain vs sleet",
+    "Hail requires strong convection"
   ],
   commonMistakes: [
-    "Using snow vs rain based only on surface T without the column.",
-    "Confusing freezing rain and sleet.",
-    "Treating hail as ordinary winter precipitation.",
-    "Ignoring drizzle versus rain size/cloud depth."
+    "Surface temperature as the only control.",
+    "Hail = sleet.",
+    "Ignoring elevated warm layers."
   ],
-  relatedTopics: ["meteo-precipitation-processes", "meteo-orographic-rainshadow"],
+  relatedTopics: ["meteo-precipitation-processes", "meteo-thunderstorms", "meteo-thermodynamic-diagrams"],
   content: true,
-  buildsOn: ["meteo-precipitation-processes"],
-  leadsTo: ["meteo-orographic-rainshadow"],
-  usedIn: ["meteo-orographic-rainshadow", "meteo-temp-rainfall-distribution"]
+  buildsOn: ["meteo-precipitation-processes", "meteo-moisture-metrics"],
+  leadsTo: ["meteo-thunderstorms"],
+  usedIn: ["meteo-thunderstorms", "meteo-aviation-products"]
 },
 
 {
@@ -2613,62 +2512,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 9,
   title: "Global Precipitation Patterns",
-  definition: "Global rainfall is organised by the general circulation: heavy precipitation in the rising branches of the tropics (ITCZ), dry subtropical subsidence belts, storm-track rains in mid-latitudes, and polar dryness from cold air’s low moisture capacity. Continents, monsoons, and orography reshape the idealised zonal picture.",
+  definition: "Annual precipitation is uneven: wet near the ITCZ and on windward mid-latitude coasts, dry under subtropical highs, in continental interiors, and in rain shadows. Patterns follow circulation and topography more than latitude alone.",
   keyFacts: [
-    "ITC Z / equatorial rain belt: frequent deep convection",
-    "Subtropical highs: dry deserts on land under subsidence",
-    "Mid-latitude storm tracks: precipitation tied to cyclones and fronts",
-    "Polar regions: low absolute moisture — often limited precipitation",
-    "Monsoons create strong seasonal swings not seen in pure zonal averages",
-    "Ocean–land contrasts and mountains create regional anomalies"
+    "ITCZ / equatorial belt: heavy convective rain",
+    "Subtropical highs: deserts on landward sides",
+    "Mid-latitude storm tracks: wetter west coasts in many basins",
+    "Rain shadows: dry leeward of major ranges",
+    "Monsoon regions: strong seasonal contrast"
   ],
   explanationSections: [
-    { heading: "Circulation first, geography second", body: "Start with where air rises and sinks on average. Then overlay seasonal ITCZ migration, monsoon reversals, and mountain barriers. That two-step reading explains both the Sahara and the Amazon, both subtropical deserts and mid-latitude rainy coasts." }
+    { heading: "Circulation first, then mountains", body: "Map the three-cell model and storm tracks before memorising country names. Orography rearranges moisture on regional scales." }
   ],
   subtopics: [
     {
       id: "meteo-global-precip-patterns-belts",
-      title: "Zonal precipitation belts",
-      summary: "Wet tropics, dry subtropics, stormy mid-latitudes.",
-      explanation: "Rising motion near the equator supports heavy rain. Sinking near 30° supports deserts. Mid-latitude westerlies and their cyclones deliver frontal precipitation. Poles are moisture-limited even when RH is high.",
+      title: "Wet and dry belts from circulation",
+      summary: "ITCZ wet; subtropical dry; storm-track wet.",
+      explanation: "Rising branches (ITCZ, mid-latitude fronts) favour rain. Sinking branches (subtropical highs) favour deserts such as the Sahara and much of Arabia–Iran–Thar margins. This is the skeleton for Köppen dry-group geography.",
       examples: [
-        { problem: "Why can polar air have high relative humidity yet low annual precipitation?", solution: "Cold air holds little water vapour; absolute moisture and precipitation amounts remain small.", answer: "Low moisture capacity" }
+        { problem: "Why are many deserts near 25–30° latitude?", solution: "Persistent subtropical subsidence dries the column.", answer: "Subtropical high subsidence" }
       ],
-      shortcuts: ["Rise → wet", "Sink → dry", "Cold → low precip capacity"],
-      traps: ["Equating high RH with high rainfall everywhere"]
+      shortcuts: ["Rise → wet", "Sink → dry"],
+      traps: ["Explaining all deserts by latitude without circulation"]
     },
     {
-      id: "meteo-global-precip-patterns-modifiers",
-      title: "Monsoons and orography as modifiers",
-      summary: "Seasonal reversals and mountains break zonal symmetry.",
-      explanation: "South Asian monsoon rains and rain shadows of major ranges create regional patterns that pure latitude cannot predict. Always combine circulation belt with land–sea geometry.",
+      id: "meteo-global-precip-patterns-orography",
+      title: "Orography rearranges the belts",
+      summary: "Windward wet, leeward dry — same air mass, different outcomes.",
+      explanation: "Moisture-laden flow forced over mountains rains out windward; descending lee air warms and dries. Coastal ranges and the Himalaya–Hindu Kush complex create sharp gradients over short distances — essential for South Asian geography questions.",
       examples: [
-        { problem: "Why is the three-cell model alone insufficient for Pakistan’s rainfall map?", solution: "Monsoon dynamics, western disturbances, and orography create strong regional and seasonal structure beyond zonal averages.", answer: "Monsoon + WD + orography" }
+        { problem: "Two stations at similar latitude, one windward of a range, one leeward — which is usually drier?", solution: "Leeward rain-shadow station.", answer: "Leeward" }
       ],
-      shortcuts: ["Add monsoon & mountains to zonal belts", "Season matters"],
-      traps: ["Reading only latitude for local climate"]
+      shortcuts: ["Windward wet", "Leeward dry"],
+      traps: ["Ignoring topography when comparing nearby stations"]
     }
   ],
-  comparisonTable: {
-    title: "Idealised precip vs latitude",
-    headers: ["Zone", "Typical precip character"],
-    rows: [
-      ["Equatorial", "Heavy, convective"],
-      ["Subtropical", "Dry under highs"],
-      ["Mid-latitude", "Frontal / storm-track"],
-      ["Polar", "Low amounts"]
-    ]
-  },
   examPoints: [
-    "Link precip belts to rising/sinking branches",
-    "Subtropical deserts under subsidence",
-    "Monsoon and orography modify the zonal picture"
+    "ITCZ vs subtropical dry",
+    "Storm-track coasts",
+    "Rain-shadow effect"
   ],
   commonMistakes: [
-    "Ignoring circulation when explaining deserts.",
-    "Assuming all tropical areas are equally wet.",
-    "Forgetting polar moisture limitation.",
-    "Using only the three-cell model for regional climates."
+    "Latitude-only explanations.",
+    "Forgetting monsoon seasonal contrast.",
+    "Ignoring orography."
   ],
   relatedTopics: ["meteo-global-circulation", "meteo-orographic-rainshadow", "meteo-koppen-system"],
   content: true,
@@ -2764,62 +2651,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 1,
   title: "Air Masses & Frontal Boundaries",
-  definition: "An air mass is a large body of air with relatively uniform temperature and moisture acquired from its source region. Fronts are the sloping boundaries where contrasting air masses meet. Classifying air masses (cP, mT, etc.) and front types (cold, warm, stationary, occluded) is the language of mid-latitude weather maps.",
+  definition: "An air mass is a large body of air with relatively uniform temperature and moisture inherited from its source region. Fronts are boundaries between air masses; the type of front controls the weather sequence as it passes.",
   keyFacts: [
-    "Source regions: extensive, uniform surfaces (oceans, continents, ice) where air stagnates long enough to take on properties",
-    "c = continental (dry), m = maritime (moist); T = tropical (warm), P = polar (cold), A = arctic (very cold)",
-    "Cold front: cold air advances, steeper slope, often narrow band of sharper weather",
-    "Warm front: warm air advances, gentler slope, broader shield of cloud and steadier precip",
-    "Stationary front: little movement; weather can linger",
-    "Occluded front: cold front catches warm front; complex weather near the occlusion"
+    "Coding: c/m = continental/maritime; T/P/A = tropical/polar/arctic",
+    "Cold front: cold air advances — often narrow band of sharper weather",
+    "Warm front: warm air advances — broader cloud/precip shield ahead",
+    "Stationary front: little movement; rain can persist",
+    "Occluded front: cold front catches warm front in cyclone maturation"
   ],
   explanationSections: [
-    { heading: "Uniform air, sharp edges", body: "Air masses are the ingredients; fronts are where the ingredients clash. Map symbols mark those clashes. Behind a cold front the air is typically colder and the wind shifts; ahead of a warm front layered cloud often arrives long before surface warming." }
+    { heading: "Source regions set the properties", body: "Long residence over snow-covered continents builds cP air; long residence over subtropical oceans builds mT air. Movement carries those properties into new regions until modification occurs." }
   ],
   subtopics: [
     {
-      id: "meteo-air-masses-fronts-classification",
-      title: "Air-mass classification",
-      summary: "Moisture letter + thermal letter from the source region.",
-      explanation: "Continental polar (cP) is cold and dry; maritime tropical (mT) is warm and moist. Pakistan’s summer monsoon inflow is dominated by maritime tropical moisture; winter outbreaks can import cooler continental air from inland Asia depending on the pattern.",
+      id: "meteo-air-masses-fronts-codes",
+      title: "Air-mass codes in MCQs",
+      summary: "Decode cP, mT, mP quickly.",
+      explanation: "First letter is moisture pathway (c dry, m moist); second is thermal type (T warm, P cool/cold). So mT is moist and warm; cP is dry and cold. Pakistan winter outbreaks and summer maritime monsoon air are interpreted with the same logic even when classic North American labels are used in textbooks.",
       examples: [
-        { problem: "Label an air mass that forms over a warm ocean: moist and warm.", solution: "Maritime tropical (mT).", answer: "mT" }
+        { problem: "Air mass formed over a cold dry continent in winter — code?", solution: "cP (or cA if arctic).", answer: "cP" }
       ],
-      shortcuts: ["c dry, m moist", "T warm, P cold, A arctic"],
-      traps: ["Swapping c/m or T/P letters"]
+      shortcuts: ["c = dry, m = moist", "T warm, P cold"],
+      traps: ["Reading letters right-to-left"]
     },
     {
-      id: "meteo-air-masses-fronts-types",
-      title: "Front types and weather",
-      summary: "Cold, warm, stationary, occluded — slope and motion differ.",
-      explanation: "Cold fronts often bring a narrower, more convective line of weather and a sharper temperature drop. Warm fronts bring a wider cloud shield and steadier precipitation before the surface warm sector arrives. Occlusions mark mature cyclone stages when the warm sector is lifted off the surface.",
+      id: "meteo-air-masses-fronts-passage",
+      title: "What changes at frontal passage",
+      summary: "Cold vs warm front signatures at a station.",
+      explanation: "Cold-front passage: temperature drop, dew-point drop, wind shift (often to a more northerly component in NH examples), pressure rise, brief convective band possible. Warm-front passage: temperature rise, moistening, wind shift, and precipitation that often begins earlier ahead of the front. Use multiple fields — not temperature alone.",
       examples: [
-        { problem: "A narrow line of showers and a sharp wind shift with falling temperature — most likely front?", solution: "Cold front.", answer: "Cold front" }
+        { problem: "Sharp T drop, gusty shift to NW, brief heavy band — which front likely passed?", solution: "Cold front.", answer: "Cold front" }
       ],
-      shortcuts: ["Cold front: steeper, sharper", "Warm front: broader, steadier"],
-      traps: ["Expecting identical weather on all front types"]
+      shortcuts: ["Cold front = sharp & narrow", "Warm front = earlier, broader shield"],
+      traps: ["Diagnosing a front from one temperature report only"]
     }
   ],
-  comparisonTable: {
-    title: "Front types",
-    headers: ["Front", "Motion", "Typical weather note"],
-    rows: [
-      ["Cold", "Cold air advances", "Narrower, often convective band"],
-      ["Warm", "Warm air advances", "Broad cloud/precip shield"],
-      ["Stationary", "Little movement", "Lingering weather"],
-      ["Occluded", "Cold catches warm", "Mature cyclone complexity"]
-    ]
-  },
   examPoints: [
-    "Air mass = large uniform T/moisture body",
-    "c/m and T/P/A coding",
-    "Cold vs warm front structure and weather"
+    "Air-mass source coding",
+    "Cold vs warm front weather",
+    "Multi-field front recognition"
   ],
   commonMistakes: [
-    "Confusing air-mass letters.",
-    "Assuming every front produces thunderstorms.",
-    "Ignoring slope differences between cold and warm fronts.",
-    "Treating occlusions as simple cold fronts."
+    "Single-variable front detection.",
+    "Swapping cold and warm front sequences.",
+    "Ignoring modification of air masses over long trajectories."
   ],
   relatedTopics: ["meteo-cyclones-development", "meteo-airmass-front-id"],
   content: true,
@@ -2832,67 +2707,52 @@ export const topics: Topic[] = [
   id: "meteo-cyclones-development",
   sectionId: "METEO-05",
   order: 2,
-  title: "Mid-Latitude Cyclones — Baroclinic Instability & Stages",
-  definition: "Mid-latitude cyclones grow from baroclinic instability along frontal zones under upper-level support from Rossby-wave troughs and jets. The classical life cycle runs from a frontal wave through mature open wave to occlusion and decay. They are the main storm systems of the extratropics.",
+  title: "Mid-Latitude Cyclones — Baroclinic Instability & Growth",
+  definition: "Mid-latitude cyclones grow by baroclinic instability: they extract energy from horizontal temperature gradients (available potential energy) along fronts, typically under upper-level trough and jet support. They are cold-core, frontal systems — not tropical warm-core cyclones.",
   keyFacts: [
-    "Baroclinic zone: strong horizontal temperature gradient (front)",
-    "Upper-level divergence ahead of a trough helps surface pressure fall",
-    "Stages: stationary front → wave → open wave with warm sector → occlusion → dissipation",
-    "Polar-front jet and shortwave troughs organise development",
-    "Lifetime typically a few days",
-    "Western disturbances affecting Pakistan are related mid-latitude/subtropical cyclone features in winter"
+    "Energy source: baroclinic temperature gradients / fronts",
+    "Upper trough and jet streaks favour development by enhancing ascent",
+    "Norwegian life cycle: wave → open wave → occlusion → decay",
+    "Cold-core structure aloft vs tropical cyclone warm core",
+    "Western disturbances are related mid-latitude/subtropical systems affecting Pakistan in winter"
   ],
   explanationSections: [
-    { heading: "Temperature contrast plus upper support", body: "A front alone is potential energy in the temperature field. When an upper trough approaches, divergence aloft can lower surface pressure, the frontal wave amplifies, and a self-reinforcing cyclone develops until occlusion consumes the warm sector." }
+    { heading: "Surface and upper coupling", body: "A surface low deepens when upper divergence and cool air aloft support column ascent. Looking only at the surface chart misses the growth mechanism." }
   ],
   subtopics: [
     {
-      id: "meteo-cyclones-development-baroclinic",
-      title: "Baroclinic growth",
-      summary: "Fronts + jet/trough coupling deepen the surface low.",
-      explanation: "Baroclinic instability converts available potential energy from horizontal temperature gradients into kinetic energy of the storm. Surface cyclogenesis is favoured under upper-level divergence regions linked to jet streaks and troughs.",
+      id: "meteo-cyclones-development-lifecycle",
+      title: "Life-cycle stages to recognise",
+      summary: "Wave, mature open wave, occlusion — what changes on the map.",
+      explanation: "Early on, a frontal wave forms on a baroclinic zone. Maturity shows a clear warm sector between cold and warm fronts. Occlusion wraps cooler air around the low and lifts the warm sector off the surface — the storm often begins to fill afterward. Exam diagrams test stage recognition more than memorising dates.",
       examples: [
-        { problem: "Why do mid-latitude cyclones prefer frontal zones rather than uniform air masses?", solution: "They feed on horizontal temperature contrast — the baroclinic energy source is weak in uniform air.", answer: "Need baroclinic contrast" }
+        { problem: "Warm sector still open at the surface between cold and warm fronts — which stage?", solution: "Open-wave / mature stage before occlusion.", answer: "Open-wave mature" }
       ],
-      shortcuts: ["Baroclinic = T gradient energy", "Upper divergence helps deepen low"],
-      traps: ["Treating cyclones as pure surface phenomena"]
+      shortcuts: ["Open warm sector → mature", "Occlusion → warm air lifted off surface"],
+      traps: ["Calling every closed low an occlusion"]
     },
     {
-      id: "meteo-cyclones-development-stages",
-      title: "Life-cycle stages",
-      summary: "Wave → mature open wave → occlusion → decay.",
-      explanation: "A kink on a stationary front can grow into an open wave with distinct cold and warm fronts and a warm sector. When the cold front catches the warm front, occlusion begins and the storm eventually fills as the temperature contrast at the centre weakens.",
+      id: "meteo-cyclones-development-vs-tropical",
+      title: "Baroclinic vs tropical growth",
+      summary: "Fronts and shear vs warm ocean heat engine.",
+      explanation: "Mid-latitude cyclones need horizontal temperature contrast and usually strong baroclinic shear. Tropical cyclones need warm deep SST, moist instability, and low shear, and they lack mid-latitude-type fronts. Mixing the energy sources is a frequent MCQ error.",
       examples: [
-        { problem: "At which stage is a clear warm sector still present at the surface?", solution: "The mature open-wave stage, before occlusion lifts the warm air off the surface.", answer: "Open-wave / mature stage" }
+        { problem: "System has cold and warm fronts and grows from a temperature gradient — tropical or mid-latitude type?", solution: "Mid-latitude baroclinic cyclone.", answer: "Mid-latitude / baroclinic" }
       ],
-      shortcuts: ["Open wave has warm sector", "Occlusion = mature/late"],
-      traps: ["Skipping occlusion in the life cycle"]
+      shortcuts: ["Fronts + baroclinic = mid-latitude", "Warm core + ocean = tropical"],
+      traps: ["Assuming all circular lows are hurricanes"]
     }
   ],
-  comparisonTable: {
-    title: "Cyclone life-cycle (classic)",
-    headers: ["Stage", "Feature"],
-    rows: [
-      ["Frontal wave", "Kink on front; low begins"],
-      ["Open wave", "Warm sector; distinct fronts"],
-      ["Occlusion", "Cold front catches warm front"],
-      ["Decay", "Filling; contrast weakens"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Western disturbances are winter mid-latitude/subtropical systems affecting northern Pakistan",
-    "Tied to jet and frontal dynamics, not the summer monsoon"
-  ],
   examPoints: [
-    "Baroclinic instability along fronts",
-    "Upper trough/jet support",
-    "Wave → occlusion life cycle"
+    "Baroclinic energy source",
+    "Role of upper trough/jet",
+    "Life-cycle stages",
+    "Contrast with tropical cyclones"
   ],
   commonMistakes: [
-    "Confusing mid-latitude cyclones with tropical cyclones.",
+    "Tropical and extratropical growth mechanisms swapped.",
     "Ignoring upper-level support.",
-    "Stopping the story before occlusion.",
-    "Mixing western disturbances into monsoon."
+    "Skipping occlusion as a stage."
   ],
   relatedTopics: ["meteo-cyclones-structure", "meteo-air-masses-fronts", "meteo-rossby-waves"],
   content: true,
@@ -3056,62 +2916,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 5,
   title: "Tornadoes",
-  definition: "A tornado is a violently rotating column of air in contact with the ground, pendant from a convective cloud. Most strong tornadoes form from supercell thunderstorms. Tornadoes are mesoscale phenomena — intense but narrow and short-lived compared with mid-latitude cyclones.",
+  definition: "A tornado is a violently rotating column of air in contact with the ground, usually from a thunderstorm. Most strong tornadoes come from supercells with mesocyclones. Intensity is rated by damage (Enhanced Fujita scale), not by how scary the cloud looks on the horizon.",
   keyFacts: [
-    "Requires rotation and a parent convective storm (often supercell)",
-    "Mesoscale: typically hundreds of metres across, minutes to an hour-scale lifetime",
-    "Not the same as a funnel cloud (may not reach ground) or a dust devil (fair weather, shallow)",
-    "Damage rated by intensity scales (e.g. Enhanced Fujita in the US tradition)",
-    "Favourable environment: strong shear, instability, low-level moisture, storm-relative helicity",
-    "Rare compared with ordinary thunderstorms"
+    "Requires a parent thunderstorm — often a supercell",
+    "Mesocyclone: rotating updraft in a supercell",
+    "EF scale rates damage-implied wind speeds (EF0–EF5)",
+    "Mesoscale phenomenon — intense but narrow and short-lived",
+    "Radar may show a Tornado Vortex Signature (TVS) in Doppler velocity"
   ],
   explanationSections: [
-    { heading: "Scale and parent storm matter", body: "Tornadoes are not synoptic lows. They are concentrated vortices under convective updrafts. Forecasting focuses on whether supercells can form and whether low-level rotation can be stretched into a tornado." }
+    { heading: "Organisation before the funnel", body: "Shear and instability build a rotating updraft; the tornado is a smaller vortex that may or may not touch down. Spotting a wall cloud is not the same as confirming a tornado on the ground." }
   ],
   subtopics: [
     {
-      id: "meteo-tornadoes-supercell",
-      title: "Supercell link and scale",
-      summary: "Most strong tornadoes from rotating updraft storms; mesoscale size.",
-      explanation: "A mesocyclone in a supercell can provide the parent rotation. Stretching of vorticity in the updraft intensifies spin. Ordinary non-rotating cells rarely produce strong tornadoes.",
+      id: "meteo-tornadoes-ef-and-radar",
+      title: "EF scale and radar clues",
+      summary: "Damage rating vs detection — different jobs.",
+      explanation: "EF ratings are assigned from damage surveys after the event; they are not measured by a handheld anemometer in the core. Doppler radar can detect strong gate-to-gate velocity couplets (TVS) that suggest a tornado, but confirmation still needs ground evidence. Weak landspouts and gustnadoes complicate automated claims.",
       examples: [
-        { problem: "Are tornadoes classified as synoptic-scale systems like mid-latitude cyclones?", solution: "No — they are mesoscale: much smaller and shorter-lived.", answer: "No — mesoscale" }
+        { problem: "Is an EF4 rating assigned from a single wind measurement in the funnel?", solution: "No — primarily from damage indicators and degree of damage.", answer: "No — damage-based" }
       ],
-      shortcuts: ["Strong tornadoes ↔ supercells", "Mesoscale not synoptic"],
-      traps: ["Calling tornadoes synoptic because they are severe"]
+      shortcuts: ["EF = damage scale", "TVS = radar clue, not automatic proof"],
+      traps: ["Thinking EF is measured live like a METAR wind"]
     },
     {
-      id: "meteo-tornadoes-not-dust-devil",
-      title: "Tornado versus lookalikes",
-      summary: "Ground contact under a thunderstorm vs shallow fair-weather vortices.",
-      explanation: "Dust devils form in fair weather from surface heating and are shallow. Funnel clouds are condensed rotating columns that may not reach the ground. A tornado requires the rotating column to affect the surface under a convective cloud.",
+      id: "meteo-tornadoes-not-synoptic",
+      title: "Scale and geography traps",
+      summary: "Mesoscale intensity ≠ synoptic cyclone; rare in Pakistan plains vs US tornado alleys.",
+      explanation: "Tornadoes are not classified as synoptic systems like mid-latitude cyclones despite high local intensity. They are also unevenly distributed worldwide: the US Plains are favoured by recurring supercell setups; South Asia can see tornadoes but they are not the primary severe-weather mode compared with heat, flood, and tropical cyclones.",
       examples: [
-        { problem: "A spinning dust column on a sunny dry field with no thunderstorm — tornado?", solution: "No — typically a dust devil, not a tornado.", answer: "Dust devil (not a tornado)" }
+        { problem: "Why is 'tornado = synoptic scale because it is severe' wrong?", solution: "Scale is size/lifetime, not severity; tornadoes are mesoscale.", answer: "Severity ≠ scale" }
       ],
-      shortcuts: ["Tornado needs storm + ground contact", "Dust devil = fair weather"],
-      traps: ["Labelling every vortex a tornado"]
+      shortcuts: ["Tornado = mesoscale", "Supercell parent most often for violent cases"],
+      traps: ["Equating every funnel cloud with a confirmed tornado"]
     }
   ],
-  comparisonTable: {
-    title: "Rotating phenomena",
-    headers: ["Phenomenon", "Setting"],
-    rows: [
-      ["Tornado", "Convective storm; ground contact"],
-      ["Funnel cloud", "May not reach ground"],
-      ["Dust devil", "Fair weather; shallow"],
-      ["Mid-latitude cyclone", "Synoptic; hundreds of km"]
-    ]
-  },
   examPoints: [
-    "Tornado = rotating column in contact with ground under a storm",
-    "Mesoscale, not synoptic",
-    "Strong tornadoes linked to supercells"
+    "Tornado vs parent storm",
+    "EF damage rating",
+    "Mesoscale classification"
   ],
   commonMistakes: [
-    "Scale confusion with cyclones.",
-    "Calling dust devils tornadoes.",
-    "Assuming every thunderstorm produces tornadoes.",
-    "Ignoring the parent storm requirement."
+    "Severity implies synoptic scale.",
+    "All thunderstorms produce tornadoes.",
+    "EF measured by aircraft in the core as routine."
   ],
   relatedTopics: ["meteo-thunderstorms", "meteo-jet-stream", "meteo-remote-sensing"],
   content: true,
@@ -3909,63 +3757,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 2,
   title: "Global Climate Regions — Sketch Summaries",
-  definition: "Global climate regions organise Earth into belts and pockets — tropical wet, tropical wet–dry, deserts, Mediterranean, humid subtropical, marine west coast, continental, subarctic, tundra, ice cap — shaped by latitude, circulation, continentality, and orography. Köppen codes label them; circulation explains them.",
+  definition: "Climate region names (tropical wet, desert, Mediterranean, humid subtropical, marine west coast, continental, tundra, ice cap) are shorthand for recurring temperature–rainfall patterns. Use them as memory hooks for circulation geography — and use Köppen codes when the exam asks for letters.",
   keyFacts: [
-    "Tropical wet (Af): year-round ITCZ influence; rainforest climates",
-    "Tropical wet–dry / savanna (Aw): wet summer, dry winter",
-    "Subtropical deserts (BWh): under subtropical highs and/or rain shadows",
-    "Mediterranean (Cs): dry summer, wet winter on west coasts ~30–40°",
-    "Humid subtropical (Cfa): wet year-round, hot summers on east sides of continents",
-    "Continental and polar climates dominate high latitudes and continental interiors"
+    "Region names ↔ typical Köppen families (Af, Aw, BWh, Cs, Cfa, Cfb, D, ET, EF)",
+    "Process first: ITCZ, subtropical highs, westerlies, continentality, orography",
+    "Mediterranean: dry summer under subtropical high; wet winter storms",
+    "Tropical wet–dry: seasonal ITCZ migration",
+    "This topic maps patterns; Köppen topic drills letter rules"
   ],
   explanationSections: [
-    { heading: "Map the process onto the name", body: "When you see ‘Mediterranean’, think subtropical high in summer and westerlies/cyclones in winter. When you see ‘tropical wet–dry’, think seasonal ITCZ migration. Names are memory hooks for circulation geography." }
+    { heading: "Division of labour with Köppen", body: "Do not re-list every letter code here. Link each famous region name to one controlling process so the map is explainable, not only memorised." }
   ],
   subtopics: [
     {
-      id: "meteo-global-climate-regions-low-lat",
-      title: "Low-latitude regions",
-      summary: "Af, Am, Aw, and hot deserts.",
-      explanation: "Equatorial regions with persistent convection support Af. Monsoon and savanna climates show strong seasonal rainfall contrasts. Hot deserts occupy subtropical subsidence belts and continental interiors with scant moisture.",
+      id: "meteo-global-climate-regions-process-hooks",
+      title: "Process hooks for famous regions",
+      summary: "Name → controlling circulation, not another code list.",
+      explanation: "Tropical wet: near-persistent deep convection / ITCZ. Savanna/wet–dry: ITCZ in summer only. Hot deserts: subtropical subsidence and/or continental isolation. Mediterranean: summer dry stable highs, winter mid-latitude storms. Marine west coast: year-round oceanic westerlies and mild temperatures.",
       examples: [
-        { problem: "Why are many deserts near 30° latitude?", solution: "Subtropical high-pressure subsidence suppresses precipitation in the Hadley framework.", answer: "Subtropical subsidence" }
+        { problem: "Climate with dry hot summers and wet mild winters on a west coast ~35° — process?", solution: "Subtropical high dominates summer; winter westerly cyclones bring rain.", answer: "Mediterranean regime" }
       ],
-      shortcuts: ["Af = always wet tropical", "Aw = wet summer dry winter", "BWh = hot desert"],
-      traps: ["Placing Mediterranean climates on the equator"]
+      shortcuts: ["Savanna ↔ seasonal ITCZ", "Desert ↔ subsidence", "Mediterranean ↔ summer high / winter storms"],
+      traps: ["Reciting Köppen letters without a process"]
     },
     {
-      id: "meteo-global-climate-regions-mid-high",
-      title: "Mid- and high-latitude regions",
-      summary: "Marine west coast, continental, subarctic, polar.",
-      explanation: "West coasts in mid-latitudes often have mild marine climates; east sides and interiors run hotter in summer and colder in winter. Subarctic and polar climates reflect low solar input and long winters; tundra has a brief thaw, ice cap does not.",
+      id: "meteo-global-climate-regions-continentality",
+      title: "Coasts vs interiors",
+      summary: "Same latitude, different annual range.",
+      explanation: "West-coast marine climates stay mild with smaller annual temperature range. Continental interiors at similar latitude run hotter in summer and colder in winter, and often drier if far from moisture sources. Polar climates add the low-sun constraint.",
       examples: [
-        { problem: "Which is colder in winter typical continental D climate or marine west-coast C climate at similar latitude?", solution: "Continental D — away from oceanic moderation.", answer: "Continental D" }
+        { problem: "Why is a mid-latitude interior often colder in winter than a west coast at the same latitude?", solution: "Continentality — weak marine moderation, strong radiative winter cooling.", answer: "Continentality" }
       ],
-      shortcuts: ["Continentality → extremes", "ET tundra vs EF ice"],
-      traps: ["Assuming all mid-latitude climates are Mediterranean"]
+      shortcuts: ["Ocean → moderate", "Interior → extremes"],
+      traps: ["Assuming latitude alone fixes monthly temperatures"]
     }
   ],
-  comparisonTable: {
-    title: "Selected regional sketches",
-    headers: ["Region", "Signature"],
-    rows: [
-      ["Tropical wet", "Year-round rain"],
-      ["Savanna / wet–dry", "Seasonal ITCZ"],
-      ["Hot desert", "Subtropical dry"],
-      ["Mediterranean", "Dry summer"],
-      ["Humid continental", "Cold winter inland"]
-    ]
-  },
   examPoints: [
-    "Link regions to circulation controls",
-    "Mediterranean = dry summer west coast",
-    "Deserts ≠ only hot sand — cold dry climates exist"
+    "Link region names to circulation",
+    "Mediterranean and savanna mechanisms",
+    "Continentality effect"
   ],
   commonMistakes: [
-    "Memorising names without controls.",
-    "Confusing savanna with equatorial rainforest.",
-    "Putting Mediterranean on east coasts typically.",
-    "Ignoring continentality."
+    "Duplicating the entire Köppen code table here.",
+    "Latitude-only reasoning.",
+    "Mixing region names with single-year weather."
   ],
   relatedTopics: ["meteo-koppen-system", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"],
   content: true,
@@ -4753,71 +4588,54 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 3,
   title: "Arabian Sea Cyclones, Summer Heat Low, Dust Storms & Fog",
-  definition: "Pakistan’s weather also includes Arabian Sea tropical cyclones (less frequent than Bay of Bengal but high impact when they approach), the summer heat low over land, dust storms in dry seasons, and radiation/advection fog in winter — local and regional phenomena layered on monsoon and WD patterns.",
+  definition: "Alongside monsoon and western disturbances, Pakistan’s hazard set includes Arabian Sea tropical cyclones, the summer heat low, dust storms, and winter fog. Each has different ingredients — do not merge them into one 'bad weather' category.",
   keyFacts: [
-    "North Indian Ocean: Bay of Bengal more active; Arabian Sea can still produce intense cyclones",
-    "Cyclone risk for coastal Sindh and adjoining areas when tracks favour landfall or moisture surge",
-    "Summer heat low: intense daytime heating, low pressure over land — part of monsoon dynamics",
-    "Dust storms: strong winds mobilise dry soil — visibility and air-quality hazards",
-    "Winter fog: especially radiation fog in plains under clear, calm, moist near-surface conditions",
-    "These hazards are seasonal and region-specific"
+    "Arabian Sea cyclones: fewer than Bay of Bengal but high impact on Sindh coasts when tracks favour landfall",
+    "Heat low: broad thermal low from intense summer heating — not a tropical cyclone",
+    "Dust storms: dry soil + strong winds; visibility/air-quality hazard",
+    "Winter fog: radiation fog common in calm, moist plains nights",
+    "Season and region decide which hazard dominates"
   ],
   explanationSections: [
-    { heading: "Not only monsoon rain totals", body: "A complete Pakistan weather picture includes coastal cyclone threat, oppressive heat lows, dust, and dense winter fog that disrupts transport — each with different ingredients and seasons." }
+    { heading: "Four hazards, four ingredients", body: "Ask what supplies energy or moisture and what sets the season. Cyclone ≠ heat low; dust ≠ fog." }
   ],
   subtopics: [
     {
-      id: "meteo-arabian-sea-cyclones-local-cyclone-heat",
-      title: "Arabian Sea cyclones and the heat low",
-      summary: "Tropical cyclone risk vs thermal low of summer.",
-      explanation: "Tropical cyclones are organised warm-core storms over warm seas. The summer heat low is a broad thermal low from land heating — important for monsoon inflow but not a cyclone with an eye. Coastal warning focuses on track, surge, and extreme rain when cyclones approach.",
+      id: "meteo-arabian-sea-cyclones-local-cyclone-vs-heatlow",
+      title: "Tropical cyclone vs summer heat low",
+      summary: "Warm-core mesoscale/synoptic storm vs broad thermal low.",
+      explanation: "A tropical cyclone has organised deep convection, a warm core, and a risk of extreme wind, surge, and rainfall near the coast. The summer heat low is a sprawling thermal feature from desert and plain heating that helps monsoon inflow but lacks a cyclone eye or eyewall. Coastal warnings focus on cyclone track and surge; heat-low discussions focus on temperature and monsoon dynamics.",
       examples: [
-        { problem: "Is the summer heat low the same as a tropical cyclone?", solution: "No — it is a broad thermal low from intense land heating, not a warm-core tropical cyclone with eyewall structure.", answer: "No — thermal low ≠ TC" }
+        { problem: "June thermal low over central Pakistan with no ocean core — cyclone?", solution: "No — heat low / thermal low.", answer: "Heat low" }
       ],
-      shortcuts: ["TC = ocean-powered vortex", "Heat low = land heating"],
+      shortcuts: ["Cyclone = organised oceanic storm", "Heat low = land heating"],
       traps: ["Calling every summer low a cyclone"]
     },
     {
       id: "meteo-arabian-sea-cyclones-local-dust-fog",
-      title: "Dust storms and fog",
-      summary: "Dry-season dust vs winter fog visibility hazards.",
-      explanation: "Dust storms need dry surfaces and strong winds, often pre-monsoon or in arid flow. Dense fog needs moisture, cooling, and light winds — classic in winter plains, disrupting aviation and roads.",
+      title: "Dust vs fog — opposite moisture needs",
+      summary: "Dry wind-blown dust versus moist calm-night fog.",
+      explanation: "Dust storms need dry loose surfaces and strong winds (often pre-monsoon). Dense radiation fog needs moisture, nocturnal cooling, and light winds — classic in winter on the plains, shutting airports and motorways. One is a dry-season visibility problem; the other is a cool-season saturation problem.",
       examples: [
-        { problem: "Which season is dense radiation fog most associated with in the Indus plains?", solution: "Winter — clear nights, moist near-surface air, light winds.", answer: "Winter" }
+        { problem: "Calm clear January night on the Indus plain with high RH — dust storm or fog risk?", solution: "Fog risk.", answer: "Fog" }
       ],
-      shortcuts: ["Dust = dry + wind", "Radiation fog = winter calm clear"],
-      traps: ["Expecting fog and dust in the same synoptic setup always"]
+      shortcuts: ["Dust = dry + wind", "Fog = moist + cool + weak wind"],
+      traps: ["Treating all low-visibility events as fog"]
     }
   ],
-  comparisonTable: {
-    title: "Local/regional phenomena",
-    headers: ["Phenomenon", "Seasonal note"],
-    rows: [
-      ["Arabian Sea cyclone", "Ocean storm seasons (region-specific)"],
-      ["Heat low", "Summer land heating"],
-      ["Dust storm", "Dry surfaces + strong wind"],
-      ["Radiation fog", "Winter plains"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Arabian Sea cyclone risk is real though less frequent than Bay of Bengal",
-    "Heat low ≠ tropical cyclone",
-    "Winter fog and dust storms are major operational hazards"
-  ],
   examPoints: [
-    "Distinguish TC, heat low, dust, fog",
-    "Coastal cyclone awareness",
-    "Seasonal hazard matching"
+    "Arabian Sea cyclone impact potential",
+    "Heat low ≠ cyclone",
+    "Dust vs fog ingredients"
   ],
   commonMistakes: [
-    "Equating heat low with hurricane.",
-    "Ignoring fog as a weather hazard.",
-    "Assuming Arabian Sea never produces cyclones.",
-    "Mixing dust-storm season with winter fog ingredients."
+    "Merging all hazards into monsoon.",
+    "Heat low called cyclone.",
+    "Fog and dust swapped seasonally."
   ],
   relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-tropical-cyclones"],
   content: true,
-  buildsOn: ["meteo-tropical-cyclones", "meteo-local-seasonal-winds", "meteo-fog-types"],
+  buildsOn: ["meteo-tropical-cyclones", "meteo-indian-ocean-monsoon"],
   leadsTo: ["meteo-extreme-events"],
   usedIn: ["meteo-extreme-events", "meteo-pmd-operational"]
 },
@@ -5619,75 +5437,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 2,
   title: "Mixing Ratio, Relative Humidity & Dew-Point Calculations",
-  definition: "Humidity calculations convert among vapour pressure, saturation vapour pressure, relative humidity, mixing ratio, and dew point. Relative humidity is a ratio; mixing ratio is a mass ratio; dew point is the saturation temperature for the actual vapour content.",
+  definition: "This quantitative topic applies moisture definitions to numbers: compute RH from e and e_s, interpret dew point, and use mixing-ratio ideas in short exam problems. Conceptual definitions live under Atmospheric Moisture Metrics; here the skill is calculation and unit care.",
   keyFacts: [
     "RH = (e / e_s) × 100%",
-    "e_s rises strongly with temperature (Clausius–Clapeyron)",
-    "Mixing ratio w ≈ mass of vapour / mass of dry air",
-    "At the dew point, e = e_s(T_d) and RH = 100% if cooled at constant pressure/moisture",
-    "Warming without adding moisture lowers RH",
-    "Exam problems often give two of {T, RH, Td, e} and ask for a third"
+    "At saturation, e = e_s, RH = 100%, T = Td (for liquid saturation at constant pressure)",
+    "Cooling toward Td raises RH if vapour content is fixed",
+    "Mixing ratio changes when water is added/removed, not by temperature change alone in a closed unsaturated parcel"
   ],
   explanationSections: [
-    { heading: "Ratio versus amount", body: "Always separate ‘how close to saturation’ (RH) from ‘how much vapour’ (e, w, Td). Many wrong answers come from treating RH as an absolute moisture measure." }
+    { heading: "Concept topic vs calc topic", body: "If a stem asks for meaning, use Moisture Metrics. If it gives numbers for e, e_s, or temperatures, solve here with the RH formula and saturation logic." }
   ],
   subtopics: [
     {
-      id: "meteo-humidity-calc-rh",
-      title: "Relative humidity from e and e_s",
-      summary: "RH is actual over saturation vapour pressure.",
-      explanation: "If e is held fixed and temperature rises, e_s rises and RH falls. If air is cooled toward the dew point, RH rises toward 100%.",
+      id: "meteo-humidity-calc-rh-steps",
+      title: "Worked RH from e and e_s",
+      summary: "Substitute, divide, multiply by 100 — then interpret.",
+      explanation: "Write RH = 100 × e/e_s. Keep e and e_s in the same units (both hPa or both Pa). If the problem cools the air at constant vapour content, e_s falls and RH rises until 100%.",
       examples: [
-        { problem: "e = 12 hPa, e_s = 24 hPa. RH?", solution: "(12/24)×100% = 50%.", answer: "50%" }
+        { problem: "e = 12 hPa, e_s = 30 hPa. RH?", solution: "100 × 12/30 = 40%.", answer: "40%" },
+        { problem: "e fixed, e_s halves. What happens to RH?", solution: "RH doubles (until capped at 100%).", answer: "RH doubles (max 100%)" }
       ],
-      shortcuts: ["RH = e/e_s × 100", "Warm → e_s up → RH down (if e fixed)"],
-      traps: ["Using e_s at the wrong temperature"]
+      shortcuts: ["Same units for e and e_s", "RH = 100e/e_s"],
+      traps: ["Mixing Pa with hPa", "Reporting the ratio without ×100"]
     },
     {
-      id: "meteo-humidity-calc-dewpoint",
-      title: "Dew point and mixing ratio ideas",
-      summary: "Td tracks actual moisture; w is mass-based.",
-      explanation: "Higher dew points mean more vapour in typical interpretations. Mixing ratio changes when water is added or removed, not when temperature changes alone in a closed parcel without condensation.",
+      id: "meteo-humidity-calc-td-logic",
+      title: "Dew-point numerical reasoning",
+      summary: "Td is not computed from a full formula here — use saturation logic.",
+      explanation: "Exam items often ask qualitative numerical reasoning: which air mass has higher Td, or what cooling brings RH to 100%. Higher Td means more vapour for typical comparisons. When T falls to Td, condensation begins on surfaces or nuclei.",
       examples: [
-        { problem: "Air is cooled at constant pressure until fog forms. What is RH at that moment?", solution: "100% — temperature has reached the dew point.", answer: "100%" }
+        { problem: "Parcel A: T=20°C, Td=18°C. Parcel B: T=30°C, Td=5°C. Which is closer to saturation?", solution: "A — depression only 2°C vs 25°C.", answer: "Parcel A" }
       ],
-      shortcuts: ["At Td, RH = 100% (standard story)", "w ≈ vapour mass ratio"],
-      traps: ["Equating Td with wet-bulb in every problem"]
+      shortcuts: ["Closer T and Td → nearer saturation", "Td compares moisture"],
+      traps: ["Picking the warmer parcel as 'more saturated' automatically"]
     }
   ],
-  formula: {
-    name: "Relative Humidity",
-    expression: "RH = (e / e_s) × 100%",
-    variables: [
-      { symbol: "e", meaning: "actual vapour pressure" },
-      { symbol: "e_s", meaning: "saturation vapour pressure at air temperature" }
-    ]
-  },
-  comparisonTable: {
-    title: "Humidity quantities",
-    headers: ["Quantity", "Type"],
-    rows: [
-      ["RH", "Proximity to saturation"],
-      ["e / w", "Actual moisture amount"],
-      ["Td", "Saturation temperature for actual e"]
-    ]
-  },
   examPoints: [
-    "RH formula",
-    "RH ≠ absolute moisture",
-    "Dew point ↔ saturation"
+    "Compute RH from e and e_s",
+    "Interpret Td depression",
+    "Avoid unit mistakes"
   ],
   commonMistakes: [
-    "Inverting e and e_s.",
-    "Ignoring temperature dependence of e_s.",
-    "Confusing mixing ratio with RH.",
-    "Wrong units on vapour pressure."
+    "Redefining RH instead of calculating.",
+    "Unit inconsistency.",
+    "Assuming Td always equals wet-bulb."
   ],
-  relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-calc", "meteo-thermodynamic-diagrams", "meteo-station-model"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
   content: true,
-  buildsOn: ["meteo-moisture-metrics", "meteo-gas-law"],
-  leadsTo: [],
-  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-humidity-instruments"]
+  buildsOn: ["meteo-moisture-metrics", "math-1-7"],
+  leadsTo: ["meteo-lapse-calc"],
+  usedIn: ["meteo-moisture-metrics", "meteo-fog-types"]
 },
 
 {
@@ -6060,65 +5859,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 4,
   title: "Indian Ocean Dipole (IOD): Mechanism and Impacts on South Asia",
-  definition: "The Indian Ocean Dipole is a mode of variability in tropical Indian Ocean sea-surface temperatures: a positive IOD features cooler than normal waters off Sumatra and warmer waters in the western Indian Ocean, with corresponding wind and rainfall shifts. It is a major influence on Indian Ocean rim climate and can interact with ENSO.",
+  definition: "The IOD is an east–west sea-surface temperature dipole in the tropical Indian Ocean with coupled winds and convection. A positive IOD has cooler-than-normal water off Sumatra and warmer water in the western Indian Ocean. It can strengthen or offset ENSO’s influence on South Asian rainfall.",
   keyFacts: [
-    "Positive IOD: west warm, east cool (eastern equatorial Indian Ocean); easterly wind anomalies along the equator",
-    "Negative IOD: roughly the opposite SST pattern",
-    "Affects East African rainfall and maritime continent convection patterns",
-    "Can modulate South Asian monsoon moisture pathways",
-    "Sometimes co-occurs with ENSO phases but can also act independently",
-    "Seasonal — strongest signals in certain calendar windows"
+    "+IOD: west warm, east cool (equatorial Indian Ocean); easterly anomalies along the equator",
+    "−IOD: roughly the opposite SST pattern",
+    "Affects East Africa and maritime continent convection patterns",
+    "Can modulate South Asian monsoon moisture",
+    "Not the same as Niño-3.4 in the Pacific"
   ],
   explanationSections: [
-    { heading: "An Indian Ocean seesaw", body: "Like ENSO, the IOD couples SST gradients to winds and convection. For South Asia, the dipole can alter how moisture is drawn toward the subcontinent even when Pacific ENSO is weak." }
+    { heading: "Indian Ocean, not Pacific", body: "Always locate the poles in the Indian Ocean. Pacific ENSO and Indian Ocean IOD can co-occur but are separate indices." }
   ],
   subtopics: [
     {
-      id: "meteo-iod-mechanism",
-      title: "SST dipole and winds",
-      summary: "East–west Indian Ocean contrast and equatorial wind anomalies.",
-      explanation: "A positive IOD cools the eastern equatorial Indian Ocean and warms the west, shifting convection and reinforcing anomalous winds. The reverse pattern defines a negative event.",
+      id: "meteo-iod-phase-checklist",
+      title: "Phase checklist for MCQs",
+      summary: "SST poles + wind direction sense.",
+      explanation: "For +IOD, remember cold anomalies in the eastern equatorial Indian Ocean and warm anomalies in the west, with anomalous easterlies along the equator. Reverse the SST poles for −IOD. If a map shows Pacific Niño regions only, it is not an IOD question.",
       examples: [
-        { problem: "In a positive IOD, is the eastern equatorial Indian Ocean typically warmer or cooler than normal?", solution: "Cooler than normal.", answer: "Cooler" }
+        { problem: "Eastern equatorial Indian Ocean cooler than normal, west warmer — phase?", solution: "Positive IOD.", answer: "+IOD" }
       ],
-      shortcuts: ["+IOD: west warm, east cool", "Winds couple to SST gradient"],
-      traps: ["Mixing IOD geography with Pacific Niño regions"]
+      shortcuts: ["+IOD: east cool / west warm", "Poles in the Indian Ocean"],
+      traps: ["Placing IOD poles on Niño-3.4"]
     },
     {
-      id: "meteo-iod-south-asia",
-      title: "South Asia and ENSO interaction",
-      summary: "Monsoon moisture and combined modes.",
-      explanation: "Positive and negative IODs shift rainfall risk across the Indian Ocean basin. When IOD and ENSO align unfavourably or favourably, composite impacts on monsoon rains can be stronger than either mode alone.",
+      id: "meteo-iod-with-enso",
+      title: "When IOD and ENSO combine",
+      summary: "Composite risk for monsoon — still probabilistic.",
+      explanation: "A positive IOD can support better monsoon rainfall in some composite studies even during El Niño years, while alignments can also worsen drought risk depending on phase pairing. The teaching point for FPSC is not a single rigid rule but that IOD is an independent Indian Ocean control that may reinforce or oppose ENSO.",
       examples: [
-        { problem: "Can a strong IOD matter for South Asian rainfall even if ENSO is near neutral?", solution: "Yes — IOD can operate with partial independence and still alter regional moisture and convection.", answer: "Yes" }
+        { problem: "Can a strong IOD matter when ENSO is near neutral?", solution: "Yes — IOD can act with partial independence.", answer: "Yes" }
       ],
-      shortcuts: ["IOD ≠ ENSO", "Can reinforce or oppose"],
+      shortcuts: ["IOD ≠ ENSO", "Combined phases change odds"],
       traps: ["Ignoring IOD whenever ENSO is mentioned"]
     }
   ],
-  comparisonTable: {
-    title: "IOD phases",
-    headers: ["Phase", "Eastern Eq. IO SST"],
-    rows: [
-      ["Positive", "Cooler than normal"],
-      ["Negative", "Warmer than normal"]
-    ]
-  },
-  pakistanExamFocus: [
-    "IOD is an Indian Ocean mode relevant to South Asian climate",
-    "Do not confuse IOD SST poles with Niño 3.4 in the Pacific",
-    "Interaction with ENSO can amplify monsoon impacts"
-  ],
   examPoints: [
-    "Positive vs negative IOD SST pattern",
-    "Coupled wind–convection response",
-    "South Asia relevance; ENSO interaction"
+    "+/− IOD SST pattern",
+    "Indian Ocean location",
+    "Interaction with ENSO is probabilistic"
   ],
   commonMistakes: [
-    "Placing IOD in the Pacific.",
-    "Treating IOD as identical to ENSO.",
-    "Ignoring seasonal dependence.",
-    "One-directional impact claims only."
+    "IOD poles in the Pacific.",
+    "Hard deterministic monsoon law from one phase.",
+    "Treating IOD as identical to ENSO."
   ],
   relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-ocean-currents", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
   content: true,
@@ -6132,60 +5916,50 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 5,
   title: "North Atlantic Oscillation (NAO) and Arctic Oscillation (AO)",
-  definition: "The North Atlantic Oscillation describes a seesaw in atmospheric mass between the subtropical Azores high and the Icelandic low, steering North Atlantic storm tracks. The Arctic Oscillation (Northern Annular Mode) is a related hemispheric pattern of pressure anomalies between the polar cap and mid-latitudes. Both shape European and North Atlantic winter climate and can influence downstream wave patterns.",
+  definition: "The NAO is a North Atlantic pressure seesaw between the Icelandic low and Azores high that steers the Atlantic storm track. The AO (Northern Annular Mode) is a wider annular pattern of polar versus mid-latitude pressure. Both matter most for North Atlantic–European winters; they are not tropical Pacific modes like ENSO.",
   keyFacts: [
-    "Positive NAO: stronger Icelandic low / Azores high contrast; stronger westerlies; milder/wetter northern Europe in many classic composites",
-    "Negative NAO: weaker gradient; more blocking; colder outbreaks into parts of Europe/eastern North America in typical patterns",
-    "AO positive: lower-than-normal polar pressure, stronger polar vortex signature in annular sense",
-    "AO negative: higher polar pressure, weaker vortex, more mid-latitude cold-air spills in typical composites",
-    "NAO can be viewed as the Atlantic sector expression related to the AO",
-    "Timescales: days to seasons — important for winter outlooks"
+    "+NAO: stronger Iceland–Azores contrast; stronger westerlies; milder/wetter northern Europe in classic composites",
+    "−NAO: weaker contrast; more blocking; higher odds of cold European outbreaks in classic composites",
+    "AO: annular polar-cap pressure pattern related to NAO but broader",
+    "Timescale: days to seasons — winter focus",
+    "Distinct from ENSO and IOD"
   ],
   explanationSections: [
-    { heading: "Pressure seesaws steer the storm track", body: "When the Atlantic dipole is strong, the jet and storms fire across the ocean into northern Europe. When it collapses, blocking and cold air reconfigure the winter map." }
+    { heading: "Keep the basin straight", body: "If the question is about Azores and Iceland, think NAO. If it is about Niño-3.4 SST, think ENSO. Mixing basins is the main exam failure mode." }
   ],
   subtopics: [
     {
-      id: "meteo-nao-ao-nao",
-      title: "NAO dipole and impacts",
-      summary: "Azores–Iceland mass seesaw controls Atlantic storm path.",
-      explanation: "Positive NAO winters often bring a vigorous storm track and milder maritime air to northwest Europe. Negative NAO winters favour disrupted westerlies and a greater chance of cold continental outbreaks in classic teaching composites.",
+      id: "meteo-nao-ao-winter-composites",
+      title: "Winter composite impacts (classic)",
+      summary: "What +NAO vs −NAO usually means for Europe — tendencies, not guarantees.",
+      explanation: "Positive NAO winters often feature a vigorous Atlantic jet and milder maritime air into northwest Europe. Negative NAO winters favour a weaker jet and blocking patterns that can allow cold continental air to dominate for spells. Always treat composites as probabilistic.",
       examples: [
-        { problem: "Which NAO phase is associated with a stronger-than-normal pressure difference between Iceland and the Azores?", solution: "Positive NAO.", answer: "Positive NAO" }
+        { problem: "Stronger-than-normal Azores high and deeper Icelandic low — which NAO phase?", solution: "Positive NAO.", answer: "+NAO" }
       ],
-      shortcuts: ["+NAO = strong dipole / strong westerlies", "−NAO = weak dipole / more blocking"],
-      traps: ["Applying NAO rules unchanged to South Asian summer monsoon"]
+      shortcuts: ["+NAO = strong dipole / strong westerlies", "−NAO = weak dipole / blocking risk"],
+      traps: ["Guaranteeing a cold winter from one weekly −NAO index"]
     },
     {
-      id: "meteo-nao-ao-ao",
-      title: "AO / annular mode",
-      summary: "Polar vs mid-latitude pressure contrast.",
-      explanation: "The AO index captures a more annular pattern. Positive AO aligns with a tighter polar vortex and less frequent severe cold air in mid-latitudes in typical composites; negative AO does the opposite tendency.",
+      id: "meteo-nao-ao-vs-enso",
+      title: "NAO/AO vs ENSO vs WD",
+      summary: "Different oceans and mechanisms.",
+      explanation: "ENSO is a coupled tropical Pacific SST–Walker mode. NAO/AO are high-latitude atmospheric annular/Atlantic patterns. Western disturbances affecting Pakistan are mid-latitude/subtropical troughs in the westerlies — they may feel downstream influences from large-scale patterns but are not identical to the NAO index.",
       examples: [
-        { problem: "Is the AO primarily a tropical Pacific SST mode like ENSO?", solution: "No — it is a high-latitude / annular atmospheric mode.", answer: "No — annular / high-latitude" }
+        { problem: "Mode defined on tropical Pacific SST anomalies — NAO or ENSO?", solution: "ENSO.", answer: "ENSO" }
       ],
-      shortcuts: ["AO = Northern Annular Mode family", "Related to NAO but wider"],
-      traps: ["Equating AO with El Niño"]
+      shortcuts: ["NAO = Atlantic pressure seesaw", "ENSO = tropical Pacific", "AO = annular high-latitude"],
+      traps: ["Using NAO to explain monsoon SST directly"]
     }
   ],
-  comparisonTable: {
-    title: "NAO phases (classic winter sketch)",
-    headers: ["Phase", "Atlantic westerlies"],
-    rows: [
-      ["Positive", "Stronger"],
-      ["Negative", "Weaker / more blocked"]
-    ]
-  },
   examPoints: [
-    "NAO = Azores–Iceland pressure seesaw",
-    "Positive vs negative winter impacts (classic)",
-    "AO related annular pattern"
+    "NAO dipole centres",
+    "+/− winter tendencies",
+    "Distinguish from ENSO"
   ],
   commonMistakes: [
-    "Confusing NAO with ENSO.",
-    "Ignoring seasonality of impacts.",
-    "Treating composites as every-year certainty.",
-    "Mixing AO with IOD."
+    "NAO = ENSO.",
+    "Deterministic winter forecasts from NAO alone.",
+    "Ignoring hemispheric sense of AO."
   ],
   relatedTopics: ["meteo-enso-global-impacts", "meteo-mjo", "meteo-jet-stream", "meteo-global-circulation", "meteo-rossby-waves", "meteo-western-disturbances"],
   content: true,
