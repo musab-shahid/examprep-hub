@@ -4039,23 +4039,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 1,
   title: "Reconstructing Past Climates",
-  definition: "Paleoclimatologists reconstruct past climates using natural proxy data, since climate is not static and Earth's history includes alternating glacial and interglacial periods.",
+  definition: "Past climates are reconstructed from proxy evidence — ice cores, tree rings, sediments, corals, pollen, and historical documents — because instrumental records cover only a short recent interval. Proxies record environmental conditions that correlate with temperature, precipitation, ice volume, or atmospheric composition.",
   keyFacts: [
-    "Dendrochronology: study of annual tree rings — wider rings generally indicate warm, wet years",
-    "Ice cores: trapped air bubbles reveal prehistoric CO2 levels and temperature anomalies",
-    "Sediment cores: another natural archive of past climate conditions",
-    "The Little Ice Age (1350–1850): unusually cold European period with advancing alpine glaciers and frozen rivers",
-    "20th–21st century warming: ~1.0°C over the past 120 years, primarily anthropogenic"
+    "Instrumental period is short compared with geological and orbital timescales",
+    "Ice cores: isotopes, trapped gases (CO₂, CH₄), dust — multi-proxy archives",
+    "Tree rings: annual resolution for temperature/moisture stress in suitable regions",
+    "Sediments and pollen: vegetation and depositional environment changes",
+    "Marine sediments and corals: ocean temperature and chemistry clues",
+    "Each proxy has resolution limits, dating uncertainty, and interpretation caveats"
   ],
   explanationSections: [
-    { heading: "Why tree rings and ice cores are used together", body: "Tree rings offer high-resolution, annually-dated records of temperature/moisture but only span the tree's lifetime, while ice cores extend much further back in time, trapping direct samples of ancient atmospheric composition — together the two proxies cross-validate and extend the paleoclimate record." }
+    { heading: "Indirect but powerful", body: "No thermometer existed in the ice age, yet ice cores still preserve atmospheric bubbles and isotopic temperature signals. Reconstruction is detective work: multiple proxies are cross-checked rather than trusted in isolation." }
   ],
-  examPoints: ["The Little Ice Age dates (1350–1850) and the ~1.0°C/120-year modern warming figure are specific, testable numbers"],
+  subtopics: [
+    {
+      id: "meteo-past-climate-reconstruction-proxies",
+      title: "Major proxy types",
+      summary: "Ice, trees, sediments, corals, documents.",
+      explanation: "Ice cores combine gas composition with isotopic temperature indicators. Tree rings offer annual dating where growth responds to climate. Lake and ocean sediments archive longer, often coarser records. Historical diaries and harvest records fill recent centuries in some regions.",
+      examples: [
+        { problem: "Which archive can directly sample ancient air composition as trapped bubbles?", solution: "Ice cores — closed bubbles preserve past atmospheric gases.", answer: "Ice cores" }
+      ],
+      shortcuts: ["Ice = gases + isotopes", "Rings = annual (where usable)"],
+      traps: ["Treating every proxy as a perfect thermometer"]
+    },
+    {
+      id: "meteo-past-climate-reconstruction-limits",
+      title: "Dating and uncertainty",
+      summary: "Resolution and calibration constrain claims.",
+      explanation: "A proxy may average seasons or decades. Calibration against the instrumental period is needed to convert ring width or isotope ratios into climate units. Multi-proxy agreement strengthens confidence.",
+      examples: [
+        { problem: "Why combine several proxies rather than rely on one tree-ring site?", solution: "Local non-climate effects and dating gaps can bias a single record; independent archives test robustness.", answer: "Cross-check / reduce local bias" }
+      ],
+      shortcuts: ["Multi-proxy > single series", "Know resolution limits"],
+      traps: ["Over-precise claims beyond proxy resolution"]
+    }
+  ],
+  comparisonTable: {
+    title: "Selected proxies",
+    headers: ["Proxy", "Typical strength"],
+    rows: [
+      ["Ice cores", "Gases + long polar records"],
+      ["Tree rings", "Annual resolution"],
+      ["Sediments / pollen", "Long vegetation/environment history"],
+      ["Corals", "Tropical ocean signals"]
+    ]
+  },
+  examPoints: [
+    "Proxies extend climate history beyond instruments",
+    "Ice cores preserve ancient air",
+    "Uncertainty and multi-proxy checks matter"
+  ],
   commonMistakes: [
-    "Treating proxy data as direct thermometer readings without uncertainty.",
-    "Using one proxy to rewrite all of climate history.",
-    "Ignoring resolution differences (tree rings vs deep-sea cores).",
-    "Mixing weather anecdotes with paleoclimate evidence.",
+    "Equating proxy with direct thermometer readings.",
+    "Ignoring dating uncertainty.",
+    "Using one site as global truth.",
+    "Confusing weather anecdotes with reconstructed climate means."
   ],
   relatedTopics: ["meteo-milankovitch-cycles", "meteo-solar-volcanic-forcing"],
   content: true,
@@ -4069,21 +4108,61 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 2,
   title: "Orbital Milankovitch Cycles",
-  definition: "Milankovitch cycles are periodic variations in Earth's orbit and axial orientation that alter the seasonal/latitudinal distribution of solar energy, driving long-term glacial-interglacial climate cycles.",
+  definition: "Milankovitch cycles are slow changes in Earth’s orbital geometry — eccentricity, obliquity (tilt), and precession — that redistribute insolation by season and latitude. They pace glacial–interglacial cycles when amplified by climate feedbacks, but they are not a complete explanation of modern industrial warming.",
   keyFacts: [
-    "Eccentricity (~100,000-yr cycle): orbit shape varies circular↔elliptical; high eccentricity maximizes perihelion/aphelion energy difference",
-    "Obliquity/tilt (~41,000-yr cycle): axial tilt varies 22.1°–24.5° (currently ~23.5°); higher tilt increases high-latitude seasonal contrast; lower tilt favors glacier growth",
-    "Precession/wobble (~23,000-yr cycle): axis wobbles, changing which hemisphere experiences summer/winter at perihelion/aphelion"
+    "Eccentricity: shape of orbit (≈ 100,000-year scale dominance in many records)",
+    "Obliquity: axial tilt (≈ 41,000 years) — affects seasonality, especially high latitudes",
+    "Precession: timing of seasons relative to perihelion (≈ 19–23,000 years)",
+    "Changes distribution of sunlight more than total solar energy in a simple sense",
+    "Ice-sheet and CO₂ feedbacks amplify orbital pacing",
+    "Orbital cycles operate on millennial+ scales — not year-to-year weather"
   ],
   explanationSections: [
-    { heading: "Why lower tilt favors ice ages", body: "A minimum axial tilt reduces seasonal contrast at high latitudes, producing cooler summers. Cooler summers fail to fully melt the previous winter's snow accumulation, allowing snow/ice to build up year over year — favoring glacier growth and potential ice-age onset." }
+    { heading: "Geometry first, feedbacks second", body: "Orbit tweaks when and where sunlight hits. Ice sheets, albedo, and greenhouse gases then amplify or damp the response. Exams test the three cycle names and the idea of seasonal/latitudinal redistribution." }
   ],
-  examPoints: ["Match each cycle to its exact period: Eccentricity ~100,000 yr, Obliquity ~41,000 yr, Precession ~23,000 yr"],
+  subtopics: [
+    {
+      id: "meteo-milankovitch-cycles-three",
+      title: "Three orbital parameters",
+      summary: "Eccentricity, tilt, precession.",
+      explanation: "Eccentricity modulates how elliptical the orbit is. Obliquity changes the contrast between seasons. Precession shifts whether northern summer occurs near perihelion or aphelion — critical for northern ice sheets.",
+      examples: [
+        { problem: "Which cycle relates to the tilt of Earth’s axis?", solution: "Obliquity.", answer: "Obliquity" }
+      ],
+      shortcuts: ["Eccentricity = orbit shape", "Obliquity = tilt", "Precession = season timing"],
+      traps: ["Calling Milankovitch a single 1-year cycle"]
+    },
+    {
+      id: "meteo-milankovitch-cycles-limits",
+      title: "What orbital forcing does not explain alone",
+      summary: "Modern rapid CO₂-driven warming is a different mechanism and timescale.",
+      explanation: "Orbital changes are slow. The rapid rise of industrial greenhouse gases forces climate on a human timescale not matched by eccentricity or tilt shifts. Orbital theory addresses ice-age pacing, not traffic-emission weather.",
+      examples: [
+        { problem: "Why are Milankovitch cycles a poor sole explanation for warming since ~1850?", solution: "Orbital insolation changes are too slow and do not match the observed greenhouse-gas forcing pattern of the industrial era.", answer: "Wrong timescale / mechanism" }
+      ],
+      shortcuts: ["Orbital = slow ice-age pace", "Modern = GHG forcing dominant"],
+      traps: ["Using Milankovitch to dismiss greenhouse forcing"]
+    }
+  ],
+  comparisonTable: {
+    title: "Orbital elements",
+    headers: ["Element", "Rough period", "Effect emphasis"],
+    rows: [
+      ["Eccentricity", "~100 kyr", "Orbit shape / contrast"],
+      ["Obliquity", "~41 kyr", "Seasonal tilt"],
+      ["Precession", "~20 kyr", "Season vs perihelion"]
+    ]
+  },
+  examPoints: [
+    "Three cycles: eccentricity, obliquity, precession",
+    "Redistribute insolation by season/latitude",
+    "Amplified by feedbacks; not modern warming’s main driver"
+  ],
   commonMistakes: [
-    "Thinking Milankovitch cycles alone explain recent decade-scale warming.",
-    "Mixing eccentricity, obliquity, and precession effects.",
-    "Assuming insolation changes are uniform in every season and latitude.",
-    "Ignoring that cycles pace ice ages together with feedbacks.",
+    "One cycle only.",
+    "Confusing orbital change with solar-output cycles year to year.",
+    "Using Milankovitch for interannual monsoon failure alone.",
+    "Ignoring feedback amplification of ice ages."
   ],
   relatedTopics: ["meteo-past-climate-reconstruction", "meteo-climate-feedbacks"],
   content: true,
@@ -4097,27 +4176,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 3,
   title: "Climate Feedback Mechanisms",
-  definition: "Climate feedbacks either reinforce (positive) or weaken (negative) an initial temperature trend; key examples are water vapour-greenhouse feedback, snow-albedo feedback (both positive), and chemical weathering-CO2 feedback (negative).",
+  definition: "A climate feedback is a process that amplifies (positive) or dampens (negative) an initial temperature change. Ice–albedo, water-vapour, lapse-rate, cloud, and carbon-cycle feedbacks determine how strongly the climate system responds to radiative forcing.",
   keyFacts: [
-    "Water vapour-greenhouse feedback (positive): warming → more evaporation → more atmospheric water vapour (a potent greenhouse gas) → more absorbed IR → further warming",
-    "Snow-albedo feedback (positive): warming melts snow/ice (albedo ~90%) → exposes darker land/water (albedo ~10%) → more solar energy absorbed → further warming",
-    "Chemical weathering-CO2 feedback (negative): warming + more precipitation → faster silicate weathering → CO2 removed from atmosphere → weaker greenhouse effect → cooling, stabilizing climate"
+    "Positive feedback amplifies; negative feedback stabilises",
+    "Ice–albedo: warming melts ice → darker surface → more absorption → more warming",
+    "Water-vapour: warmer air holds more vapour → stronger greenhouse → more warming (positive)",
+    "Some cloud changes can warm or cool depending on type and altitude — still a major uncertainty",
+    "Planck response (hotter planet radiates more) is a fundamental negative feedback",
+    "Feedbacks act on top of external forcings (GHG, volcanoes, orbit, solar)"
   ],
   explanationSections: [
-    { heading: "Positive vs. negative feedback", body: "Positive feedbacks amplify the original temperature change (as with water vapour and snow-albedo), while negative feedbacks oppose and dampen it (as with chemical weathering) — the same warming trigger can be reinforced or counteracted depending on which feedback dominates." }
+    { heading: "Forcing starts; feedbacks shape the gain", body: "Doubling CO₂ provides a forcing. The final warming depends on whether the system amplifies that push through vapour and ice changes or offsets it through radiation to space and other effects." }
   ],
-  examPoints: ["Two positive feedbacks (water vapour, snow-albedo) vs. one negative (chemical weathering) — know which is which, as this is easy to mix up under exam pressure"],
+  subtopics: [
+    {
+      id: "meteo-climate-feedbacks-positive",
+      title: "Positive feedbacks",
+      summary: "Ice–albedo and water vapour as classic amplifiers.",
+      explanation: "Melting reflective ice exposes darker land or ocean, increasing absorbed solar energy. Warming also raises atmospheric water vapour, a powerful greenhouse gas, further warming the surface — as long as other processes do not fully offset it.",
+      examples: [
+        { problem: "Why is ice–albedo called a positive feedback?", solution: "Initial warming causes ice loss that increases absorption and produces additional warming — amplification.", answer: "Amplifies the initial change" }
+      ],
+      shortcuts: ["Positive = amplifies", "Ice melt → lower albedo → more heat in"],
+      traps: ["Thinking positive feedback means ‘good for society’"]
+    },
+    {
+      id: "meteo-climate-feedbacks-negative-cloud",
+      title: "Negative feedbacks and cloud uncertainty",
+      summary: "Hotter Earth radiates more; clouds cut both ways.",
+      explanation: "The Stefan–Boltzmann response is a key negative feedback: higher temperature increases outgoing longwave radiation. Clouds can cool (reflect sunlight) or warm (trap infrared); their net feedback remains a central research and exam nuance.",
+      examples: [
+        { problem: "Name a fundamental negative feedback involving thermal radiation.", solution: "Planck feedback — warmer surfaces emit more longwave energy to space.", answer: "Planck / T⁴ radiation response" }
+      ],
+      shortcuts: ["Hotter → more OLR (negative)", "Clouds: sign can vary"],
+      traps: ["Assuming all feedbacks are positive"]
+    }
+  ],
+  comparisonTable: {
+    title: "Feedback sign",
+    headers: ["Feedback", "Typical sign"],
+    rows: [
+      ["Ice–albedo", "Positive"],
+      ["Water vapour", "Positive"],
+      ["Planck (radiation)", "Negative"],
+      ["Clouds", "Uncertain / mixed"]
+    ]
+  },
+  examPoints: [
+    "Positive amplifies; negative dampens",
+    "Ice–albedo and water-vapour examples",
+    "Feedbacks modify forcing response"
+  ],
   commonMistakes: [
-    "Confusing positive feedback (amplifies) with good and negative with bad.",
-    "Ignoring ice–albedo and water-vapor feedbacks.",
-    "Thinking feedbacks invent energy from nowhere.",
-    "Mixing forcing with feedback.",
+    "Moral meaning of ‘positive’.",
+    "Ignoring Planck negative feedback.",
+    "Treating cloud feedback as settled and simple.",
+    "Confusing feedback with the original forcing."
   ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-greenhouse-effect"],
   content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-milankovitch-cycles"],
   leadsTo: ["meteo-radiative-forcing"],
-  usedIn: ["meteo-radiative-forcing", "meteo-ipcc-rcps", "env-climate-change-response", "ra-correlation-regression"]
+  usedIn: ["meteo-radiative-forcing", "meteo-ipcc-rcps"]
 },
 
 {
@@ -4125,27 +4245,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 4,
   title: "Radiative Forcing",
-  definition: "Radiative forcing is a positive or negative change in net radiant energy at the tropopause that disturbs Earth's radiative equilibrium.",
+  definition: "Radiative forcing is the change in net downward radiative flux at a specified level (often tropopause or top of atmosphere) due to a driver such as greenhouse gases, aerosols, solar output, or land-use change, after stratospheric adjustment in standard definitions. It is a common scale for comparing climate drivers.",
   keyFacts: [
-    "Positive forcing agents: anthropogenic greenhouse gases — CO2, CH4, N2O, CFCs — increase surface warming",
-    "Negative forcing agents: sun-blocking sulfate aerosols from industrial pollution — produce cooling",
-    "Radiative equilibrium can also be altered by solar variability and volcanic aerosols"
+    "Positive forcing → warming tendency; negative → cooling tendency",
+    "CO₂ and other GHGs: positive forcing as concentrations rise",
+    "Aerosols often provide negative forcing (scattering) but with large uncertainty and regional pattern",
+    "Units: W/m²",
+    "Forcing is not the full temperature change — feedbacks convert forcing into response",
+    "IPCC assessments tabulate forcings by component"
   ],
   explanationSections: [
-    { heading: "Forcing sign convention", body: "A positive forcing agent adds net energy to the Earth system (warming), while a negative forcing agent removes or blocks net energy (cooling) — the same framework used to compare very different sources like greenhouse gases and industrial aerosols on one scale." }
+    { heading: "A common currency for drivers", body: "Rather than comparing a volcano to a CO₂ trend in prose only, scientists express both as W/m² perturbations. That does not replace regional impacts or feedback complexity, but it organises global-mean comparisons." }
   ],
-  examPoints: ["Sulfate aerosols from industrial pollution are a NEGATIVE forcing agent — a common point of confusion since pollution is often (wrongly) assumed to only warm the planet"],
+  subtopics: [
+    {
+      id: "meteo-radiative-forcing-sign",
+      title: "Sign and units",
+      summary: "W/m² positive warms, negative cools (global-mean sense).",
+      explanation: "Increasing long-lived GHGs reduces outgoing longwave efficiency and yields positive forcing. Bright aerosols that reflect sunlight yield negative forcing. Local surface effects can differ from global-mean tropopause forcing.",
+      examples: [
+        { problem: "Is a large reflective aerosol burden typically a positive or negative radiative forcing?", solution: "Negative — more sunlight scattered back to space reduces net absorbed energy.", answer: "Negative" }
+      ],
+      shortcuts: ["+RF → warm tendency", "−RF → cool tendency", "Unit W/m²"],
+      traps: ["Equating forcing magnitude directly with local weather"]
+    },
+    {
+      id: "meteo-radiative-forcing-vs-response",
+      title: "Forcing versus temperature response",
+      summary: "Feedbacks and inertia turn forcing into climate change over time.",
+      explanation: "Oceans delay full warming. Feedbacks amplify or reduce the equilibrium response. Two forcings of equal W/m² can still differ in efficacy depending on the driver.",
+      examples: [
+        { problem: "Why doesn’t temperature jump instantly when RF changes?", solution: "The climate system, especially the ocean, has thermal inertia; equilibrium response takes time.", answer: "Thermal inertia / ocean heat uptake" }
+      ],
+      shortcuts: ["RF ≠ ΔT instantly", "Feedbacks shape gain"],
+      traps: ["Ignoring ocean lag"]
+    }
+  ],
+  comparisonTable: {
+    title: "Example drivers",
+    headers: ["Driver", "Typical RF sign"],
+    rows: [
+      ["Rising CO₂", "Positive"],
+      ["Reflective aerosols", "Negative"],
+      ["Large volcanic sulfate peak", "Negative (temporary)"]
+    ]
+  },
+  examPoints: [
+    "RF in W/m²",
+    "Positive vs negative meaning",
+    "Distinct from full temperature response"
+  ],
   commonMistakes: [
-    "Treating all forcings as equally certain.",
-    "Ignoring the sign of forcing (warming vs cooling).",
-    "Mixing concentration change with forcing magnitude casually.",
-    "Assuming forcing equals observed temperature change one-to-one.",
+    "Confusing RF with surface air temperature change.",
+    "Forgetting aerosol negative forcing.",
+    "Treating all forcings as equally effective.",
+    "Ignoring time lags."
   ],
   relatedTopics: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing"],
   content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-radiation-laws", "meteo-climate-feedbacks"],
   leadsTo: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing"],
-  usedIn: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing", "env-climate-change-response", "ra-correlation-regression", "ra-data-interpretation"]
+  usedIn: ["meteo-ipcc-rcps", "meteo-solar-volcanic-forcing", "meteo-pakistan-nccp"]
 },
 
 {
@@ -4153,32 +4313,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 5,
   title: "IPCC Representative Concentration Pathways",
-  definition: "The IPCC uses Representative Concentration Pathways (RCPs) to project future climate scenarios based on different radiative forcing targets by 2100.",
+  definition: "Representative Concentration Pathways (RCPs) are scenarios of future radiative forcing used in climate modelling (e.g. RCP2.6, RCP4.5, RCP6.0, RCP8.5). The number approximates end-of-century forcing in W/m². They are not forecasts of what will happen, but standardised ‘what if’ pathways for comparing model responses.",
   keyFacts: [
-    "RCP2.6: +2.6 W/m², mean +1.0°C — active mitigation, emissions peak immediately then decline to net-zero",
-    "RCP4.5: +4.5 W/m², mean +1.8°C — moderate mitigation, emissions peak ~2040 then decline",
-    "RCP6.0: +6.0 W/m², mean +2.2°C — late mitigation, emissions peak ~2060 then stabilize",
-    "RCP8.5: +8.5 W/m², mean +3.7°C — high-emissions, minimal mitigation, continued fossil-fuel reliance"
+    "RCP2.6: strong mitigation — low forcing pathway",
+    "RCP4.5 / RCP6.0: intermediate pathways",
+    "RCP8.5: high forcing pathway (very high emissions trajectory in classic use)",
+    "Named by approximate 2100 radiative forcing level",
+    "Later IPCC work also uses SSPs (Shared Socioeconomic Pathways) paired with forcing levels",
+    "Scenarios enable comparison across models and studies"
   ],
   explanationSections: [
-    { heading: "Reading the RCP naming convention", body: "Each RCP number denotes its target radiative forcing in W/m² by 2100 relative to pre-industrial levels — so RCP8.5 represents the highest-forcing, least-mitigated pathway, while RCP2.6 represents the most aggressive mitigation scenario." }
+    { heading: "Scenarios, not prophecies", body: "RCPs hold greenhouse gas concentrations/forcing on defined paths so scientists can test climate sensitivity and impacts. Policy choices influence which path the real world resembles; the RCP itself is an input assumption." }
   ],
-  examPoints: ["Memorize both the W/m² figure AND the mean temperature increase for each RCP — commonly tested as a matching question"],
+  subtopics: [
+    {
+      id: "meteo-ipcc-rcps-ladder",
+      title: "The RCP ladder",
+      summary: "2.6 low → 8.5 high end-of-century forcing.",
+      explanation: "Lower RCPs assume rapid emissions reductions; higher RCPs assume continued growth in forcing. Impacts on temperature, extremes, and sea level scale strongly across this ladder in model ensembles.",
+      examples: [
+        { problem: "Which classic RCP represents the highest forcing pathway among 2.6, 4.5, 6.0, and 8.5?", solution: "RCP8.5.", answer: "RCP8.5" }
+      ],
+      shortcuts: ["Number ≈ W/m² in 2100", "Higher number → higher forcing path"],
+      traps: ["Treating RCP8.5 as a certainty rather than a scenario"]
+    },
+    {
+      id: "meteo-ipcc-rcps-use",
+      title: "How RCPs are used",
+      summary: "Inputs to models; basis for impact comparison.",
+      explanation: "Climate models run under each pathway produce temperature and precipitation projections. Impact communities use those outputs for risk assessment. SSPs add socioeconomic storylines to newer scenario frameworks.",
+      examples: [
+        { problem: "Are RCPs observational data or scenario inputs?", solution: "Scenario inputs — prescribed pathways for experiments, not measured history.", answer: "Scenario inputs" }
+      ],
+      shortcuts: ["RCP = scenario input", "Compare models on same path"],
+      traps: ["Calling an RCP a measured forecast"]
+    }
+  ],
   comparisonTable: {
-    headers: ["Pathway", "Forcing (W/m²)", "Mean temp rise"],
-    rows: [["RCP2.6", "+2.6", "1.0°C"], ["RCP4.5", "+4.5", "1.8°C"], ["RCP6.0", "+6.0", "2.2°C"], ["RCP8.5", "+8.5", "3.7°C"]]
+    title: "Classic RCPs (sketch)",
+    headers: ["RCP", "Character"],
+    rows: [
+      ["2.6", "Strong mitigation / low forcing"],
+      ["4.5", "Intermediate"],
+      ["6.0", "Intermediate-high"],
+      ["8.5", "Very high forcing pathway"]
+    ]
   },
+  examPoints: [
+    "RCPs are scenarios labelled by ≈2100 RF",
+    "Not guarantees of the future",
+    "Higher RCP → stronger forcing path"
+  ],
   commonMistakes: [
-    "Treating RCPs/SSPs as next-year weather forecasts.",
-    "Ignoring that pathways depend on human emissions choices.",
-    "Mixing RCP labels with exact °C outcomes without scenario context.",
-    "Assuming higher RCP means linearly higher impacts everywhere equally.",
+    "Treating RCP8.5 as inevitable.",
+    "Confusing RCPs with historical observations.",
+    "Ignoring that mitigation changes pathway likelihood.",
+    "Mixing RCP labels with weather forecasts."
   ],
   relatedTopics: ["meteo-radiative-forcing"],
   content: true,
   buildsOn: ["meteo-radiative-forcing"],
   leadsTo: ["meteo-pakistan-nccp"],
-  usedIn: ["meteo-pakistan-nccp", "env-climate-change-response", "env-international-climate-policy", "ra-data-interpretation", "ra-scientific-reporting"]
+  usedIn: ["meteo-pakistan-nccp", "meteo-nccp-objectives"]
 },
 
 {
@@ -4186,27 +4382,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 6,
   title: "Solar and Volcanic Radiative Forcing",
-  definition: "Radiative equilibrium can be altered naturally by solar variability (e.g., the Maunder Minimum) and by volcanic sulfate aerosols (e.g., Mount Pinatubo, 1991).",
+  definition: "Solar variability and volcanic eruptions impose natural radiative forcings. Solar output changes modestly over cycles; large sulfur-rich volcanic eruptions inject stratospheric aerosols that reflect sunlight and cool the surface for one to a few years. Neither replaces greenhouse-gas forcing as the main driver of long-term industrial-era warming.",
   keyFacts: [
-    "Maunder Minimum (1645–1715): 70-year period of near-zero sunspot activity, coinciding with the coldest phase of the Little Ice Age",
-    "Volcanic process: eruption releases SO2 → reacts with water vapour over weeks to form reflective sulfate aerosols → aerosols persist for years in the stable stratosphere → reflect solar radiation → global cooling ('solar dimming')",
-    "Mount Pinatubo (1991): ejected massive SO2 into the stratosphere, causing ~0.5°C global cooling over the following two years"
+    "Solar cycle ≈ 11 years — small irradiance changes relative to GHG forcing since pre-industrial",
+    "Stratospheric volcanic aerosols: negative RF, short-lived (years)",
+    "Surface cooling after major eruptions is a classic natural experiment",
+    "Tropospheric pollution aerosols differ from stratospheric volcanic sulfate in lifetime and distribution",
+    "Natural forcings are included in climate attribution studies alongside anthropogenic forcings",
+    "A quiet sun does not explain the multi-decadal GHG-linked warming pattern"
   ],
   explanationSections: [
-    { heading: "Why volcanic cooling lasts years, not weeks", body: "Sulfate aerosols form in the stratosphere, which is extremely stable and dry with minimal vertical mixing — unlike the turbulent troposphere, the stratosphere allows these reflective aerosols to persist for years before settling out, prolonging the cooling effect." }
+    { heading: "Natural does not mean dominant today", body: "Volcanoes clearly cool climate temporarily. Solar cycles modulate energy slightly. Attribution science quantifies these against rising greenhouse gases — and finds GHGs dominate the long-term industrial warming signal." }
   ],
-  examPoints: ["The exact figures — Maunder Minimum dates (1645–1715) and Pinatubo's ~0.5°C cooling over two years — are specific, testable numbers"],
+  subtopics: [
+    {
+      id: "meteo-solar-volcanic-forcing-volcano",
+      title: "Volcanic aerosol cooling",
+      summary: "Stratospheric sulfate reflects sunlight; years-scale cooling.",
+      explanation: "Explosive eruptions that reach the stratosphere spread sulfate aerosols globally. They increase planetary albedo, reduce surface insolation, and typically fade within a few years as aerosols settle.",
+      examples: [
+        { problem: "Is volcanic stratospheric aerosol forcing usually positive or negative?", solution: "Negative — more reflection of solar radiation.", answer: "Negative" }
+      ],
+      shortcuts: ["Volcanic sulfate → cool (temporary)", "Stratosphere = longer lifetime than rain-washed troposphere"],
+      traps: ["Expecting volcanoes to cause long-term global warming"]
+    },
+    {
+      id: "meteo-solar-volcanic-forcing-solar",
+      title: "Solar variability",
+      summary: "Small cycle amplitude versus GHG trend.",
+      explanation: "Satellite-era measurements show solar irradiance varies only slightly across the 11-year cycle. That amplitude is much smaller than the positive forcing from accumulated greenhouse gases since the nineteenth century.",
+      examples: [
+        { problem: "Why is the 11-year solar cycle insufficient to explain century-scale industrial warming?", solution: "The irradiance change is small and cyclic, not a sustained forcing matching the observed GHG and temperature trends.", answer: "Too small / cyclic, not sustained GHG-like" }
+      ],
+      shortcuts: ["Solar cycle small in RF terms", "GHG trend dominates long-term"],
+      traps: ["Blaming all climate change on the solar cycle alone"]
+    }
+  ],
+  comparisonTable: {
+    title: "Natural forcings",
+    headers: ["Source", "Typical effect"],
+    rows: [
+      ["Large volcano (stratospheric)", "Short-term cooling"],
+      ["Solar 11-y cycle", "Small modulation"],
+      ["Long-lived GHG rise", "Sustained positive RF"]
+    ]
+  },
+  examPoints: [
+    "Volcanic stratospheric aerosols cool temporarily",
+    "Solar cycle forcing is relatively small",
+    "Does not negate GHG-driven long-term warming"
+  ],
   commonMistakes: [
-    "Crediting volcanoes as the main driver of recent long-term global warming.",
-    "Thinking solar variability is zero — it exists but is smaller than recent GHG forcing.",
-    "Mixing aerosol cooling from eruptions with volcanic CO2 at human timescales.",
-    "Ignoring the short lifetime of volcanic stratospheric aerosols.",
+    "Volcanoes as long-term warming agents.",
+    "Overstating solar cycle magnitude.",
+    "Ignoring attribution literature structure.",
+    "Confusing weather after one eruption with climate policy."
   ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-past-climate-reconstruction"],
   content: true,
   buildsOn: ["meteo-radiative-forcing", "earth-g3", "meteo-radiation-laws"],
   leadsTo: [],
-  usedIn: ["meteo-past-climate-reconstruction"]
+  usedIn: ["meteo-past-climate-reconstruction", "meteo-ipcc-rcps"]
 },
 
 {
@@ -4214,30 +4450,72 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 7,
   title: "The Pakistan National Climate Change Policy (NCCP) 2012",
-  definition: "The NCCP 2012 is Pakistan's policy framework for climate adaptation and resilience, focused on water, food, and energy security, despite Pakistan contributing under 1% of global emissions.",
+  definition: "Pakistan’s National Climate Change Policy (2012) provides a national framework for climate change adaptation and mitigation in a country highly exposed to floods, droughts, heat, glacial change, and agricultural stress. It links science and vulnerability to sectoral policy directions rather than serving as a physical-science textbook.",
   keyFacts: [
-    "Pakistan contributes <1% of global greenhouse gas emissions but is highly climate-vulnerable",
-    "Water Security: addresses glacier retreat in the Karakoram-Himalayas and changes in Indus basin flows",
-    "Food Security: addresses heat stress in arid and semi-arid plains",
-    "Energy Security: focuses on optimizing the fuel mix and reducing transmission losses",
-    "Adaptation Gap: highlights the funding/technology deficit for implementing climate resilience",
-    "Also promotes mitigation via forest restoration, sustainable transport, and energy conservation"
+    "Approved framework for addressing climate risks and response in Pakistan",
+    "Emphasis on adaptation given high vulnerability, alongside mitigation where feasible",
+    "Sectors: water, agriculture, forestry, biodiversity, energy, transport, urban, disaster risk, etc.",
+    "Recognises Pakistan’s low historical emissions relative to impacts faced",
+    "Connects to later implementation strategies and provincial actions in the policy landscape",
+    "Students should link NCCP themes to monsoon/WD climate variability and arid-zone water stress"
   ],
   explanationSections: [
-    { heading: "Why the policy centers on adaptation, not just mitigation", body: "Because Pakistan's emissions contribution is minimal but its vulnerability (glacier-fed water systems, heat-exposed agriculture) is high, the NCCP is structured primarily around adapting to unavoidable climate impacts, while still including mitigation measures as a secondary component." }
+    { heading: "Policy meets physical exposure", body: "NCCP matters in FPSC content because Pakistan’s climate risks are not abstract: water security, extreme heat, floods, and glacial-fed river variability. The policy document organises response priorities around those exposures." }
   ],
-  examPoints: ["The '<1% global emissions, highly vulnerable' framing is the key policy-justification fact tested repeatedly across this and Section I"],
+  subtopics: [
+    {
+      id: "meteo-pakistan-nccp-adaptation-mitigation",
+      title: "Adaptation emphasis and mitigation role",
+      summary: "Live with changing risks; reduce emissions where practical.",
+      explanation: "Adaptation covers water management, resilient agriculture, disaster preparedness, and coastal/urban planning. Mitigation addresses energy efficiency, renewables, and forestry — important globally and nationally even when per-capita historic emissions are low.",
+      examples: [
+        { problem: "Why might adaptation feature prominently in Pakistan’s climate policy?", solution: "High exposure to climate hazards (floods, droughts, heat, water stress) makes risk management urgent regardless of global emission shares.", answer: "High vulnerability / exposure" }
+      ],
+      shortcuts: ["Adaptation = manage impacts", "Mitigation = reduce forcing"],
+      traps: ["Treating NCCP as only an emissions document"]
+    },
+    {
+      id: "meteo-pakistan-nccp-sectors",
+      title: "Sectoral and water links",
+      summary: "Water and agriculture sit at the centre of risk.",
+      explanation: "Monsoon variability, western disturbances, and glacial/snowmelt contributions to Indus-basin water make climate policy inseparable from hydrology and food security. Forestry and energy appear as both adaptation and mitigation levers.",
+      examples: [
+        { problem: "Name two climate-sensitive sectors central to Pakistan’s policy concern.", solution: "Water resources and agriculture (among others listed in the policy framework).", answer: "Water and agriculture" }
+      ],
+      shortcuts: ["Water + agriculture core", "DRR linked to extremes"],
+      traps: ["Ignoring water when discussing Pakistan climate policy"]
+    }
+  ],
+  comparisonTable: {
+    title: "Policy pillars (sketch)",
+    headers: ["Pillar", "Focus"],
+    rows: [
+      ["Adaptation", "Risk reduction, resilience"],
+      ["Mitigation", "Emissions and sinks"],
+      ["Sectors", "Water, ag, energy, urban, DRR…"]
+    ]
+  },
+  pakistanExamFocus: [
+    "NCCP 2012 as national policy framework",
+    "Adaptation prominence under high vulnerability",
+    "Link to water, agriculture, and extremes — not only global CO₂ graphs"
+  ],
+  examPoints: [
+    "NCCP 2012 = national climate policy framework",
+    "Adaptation + mitigation",
+    "Sectoral coverage with water/agriculture central"
+  ],
   commonMistakes: [
-    "Treating the NCCP as a substitute for physical climate science basics.",
-    "Ignoring implementation vs policy text.",
-    "Assuming one policy freezes all future adaptation needs.",
-    "Mixing provincial actions with the federal policy framework carelessly.",
+    "Confusing NCCP with IPCC RCP scenarios.",
+    "Ignoring adaptation.",
+    "Treating Pakistan as low-risk.",
+    "Detaching policy from monsoon/WD/water facts."
   ],
   relatedTopics: ["meteo-radiative-forcing", "meteo-nccp-objectives"],
   content: true,
   buildsOn: ["meteo-ipcc-rcps", "meteo-pakistan-macroclimate"],
   leadsTo: ["meteo-nccp-objectives"],
-  usedIn: ["meteo-nccp-objectives", "env-climate-change-response", "env-pakistan-environmental-context", "english-word-formation-and-context", "english-sentence-building-blocks"]
+  usedIn: ["meteo-nccp-objectives", "env-climate-change-response"]
 },
 // ============================= SECTION I =============================
 
