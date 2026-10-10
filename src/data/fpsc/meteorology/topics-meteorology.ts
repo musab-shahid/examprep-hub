@@ -5768,112 +5768,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 1,
   title: "ENSO: El Niño, La Niña and the Walker Circulation",
-  definition: "The El Niño-Southern Oscillation (ENSO) is a coupled ocean-atmosphere phenomenon in the tropical Pacific, characterized by sea-surface temperature anomalies (El Niño/La Niña) and corresponding atmospheric pressure oscillations (Southern Oscillation), linked through the Walker Circulation.",
+  definition: "The El Niño–Southern Oscillation (ENSO) is a coupled ocean–atmosphere mode of the tropical Pacific. El Niño features anomalously warm eastern/central Pacific waters and a weakened Walker circulation; La Niña features cooler eastern Pacific waters and a strengthened Walker cell. Neutral conditions sit between these phases.",
   keyFacts: [
-    "Walker Circulation: the normal equatorial Pacific circulation — air rises over the warm western Pacific (Indonesia), flows eastward aloft, sinks over the cool eastern Pacific (Peru), and returns westward as trade winds along the surface",
-    "El Niño: abnormal warming of the central and eastern equatorial Pacific SST (≥+0.5°C above average for 3+ consecutive months in the Niño-3.4 region); trade winds weaken, convection shifts eastward toward the central Pacific",
-    "La Niña: abnormal cooling of the central and eastern equatorial Pacific SST (≤−0.5°C for 3+ months); trade winds strengthen, convection intensifies over the western Pacific",
-    "Southern Oscillation: the atmospheric pressure seesaw between the western and eastern Pacific, measured by the Southern Oscillation Index (SOI) — the standardized pressure difference between Tahiti and Darwin",
-    "ENSO is a coupled phenomenon: SST anomalies drive atmospheric circulation changes, which in turn reinforce the SST anomalies — a positive feedback known as the Bjerknes feedback",
-    "ENSO-neutral conditions: when the Niño-3.4 anomaly is between −0.5°C and +0.5°C, neither El Niño nor La Niña criteria are met"
+    "Walker circulation: west Pacific rising branch, east Pacific sinking branch in neutral/La Niña-leaning mean pictures",
+    "El Niño: warmer SST in central/eastern equatorial Pacific; trade winds weaken; convection shifts east",
+    "La Niña: cooler eastern Pacific SST; trades strengthen; convection concentrated in the west",
+    "Southern Oscillation: seesaw in surface pressure between Darwin and Tahiti regions",
+    "ENSO is interannual — phases last seasons, not days",
+    "Not the same as the Indian monsoon, but can influence it via teleconnections"
   ],
   explanationSections: [
-    { heading: "The Bjerknes feedback loop", body: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28–30°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22–24°C). The warm western pool fuels deep convection and rising air, while the cool east has sinking air — this east-west overturning is the Walker Circulation. During El Niño, a slight initial weakening of trade winds reduces upwelling in the east, allowing the thermocline to deepen and warm water to slosh eastward along the equator. The warmer eastern SSTs shift convection eastward, which further weakens the west-to-east pressure gradient and thus the trade winds — a positive feedback that amplifies the initial perturbation into a full El Niño event. The mirror process operates for La Niña: strengthened trades → enhanced upwelling → colder east → stronger Walker Circulation." },
-    { heading: "Why ENSO is the strongest interannual climate signal on Earth", body: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the Walker Circulation shifts eastward during El Niño, the entire tropical convection belt follows, altering the position of the ITCZ, weakening the Indian summer monsoon, and shifting precipitation away from the western Pacific (Indonesia, Australia) toward the central and eastern Pacific (Peru, Ecuador). Because the atmosphere transmits these tropical perturbations poleward via Rossby waves and jet-stream changes, ENSO's influence extends to mid-latitudes through teleconnections — affecting North American winter storms, European summer heat, African rainfall, and the South Asian monsoon." },
-    { heading: "The Niño-3.4 region and ENSO thresholds", body: "ENSO events are defined operationally using SST anomalies in the Niño-3.4 region (5°N–5°S, 120°–170°W). A 3-month running mean anomaly of ≥+0.5°C for at least 5 consecutive overlapping seasons defines El Niño; ≤−0.5°C defines La Niña. The Niño-3.4 region is preferred over Niño-1+2, Niño-3, or Niño-4 because it sits at the heart of the coupled ocean-atmosphere interaction zone where SST anomalies, wind anomalies, and convective anomalies co-vary most strongly. Strength categories: weak (±0.5 to ±0.9°C), moderate (±1.0 to ±1.4°C), strong (±1.5 to ±1.9°C), very strong (≥±2.0°C)." }
+    { heading: "Ocean and atmosphere move together", body: "Warm water and soft trades reinforce each other in El Niño; cool water and strong trades reinforce each other in La Niña. That coupling is why ENSO is a climate mode, not a one-way ocean or atmosphere story." }
   ],
-  formula: {
-    name: "Southern Oscillation Index (SOI)",
-    expression: "SOI = 10 \\cdot \\frac{P_{Tahiti} - P_{Darwin} - \\mu}{\\sigma}",
-    variables: [
-      { symbol: "P_{Tahiti}", meaning: "mean sea-level pressure at Tahiti (eastern Pacific, ~18°S, 149°W)" },
-      { symbol: "P_{Darwin}", meaning: "mean sea-level pressure at Darwin, Australia (western Pacific, ~12°S, 131°E)" },
-      { symbol: "\\mu", meaning: "long-term mean of the Tahiti–Darwin pressure difference" },
-      { symbol: "\\sigma", meaning: "long-term standard deviation of the pressure difference" },
-      { symbol: "10", meaning: "scaling factor to make SOI values typically range from −30 to +30" }
+  subtopics: [
+    {
+      id: "meteo-enso-basics-phases",
+      title: "El Niño, La Niña, and neutral",
+      summary: "SST and wind patterns define the phase.",
+      explanation: "El Niño spreads warm water and rainfall anomalies eastward along the equator. La Niña tightens the cold tongue and western convection. Neutral lacks a strong, sustained anomaly either way.",
+      examples: [
+        { problem: "During which phase do equatorial Pacific trade winds typically weaken?", solution: "El Niño.", answer: "El Niño" }
+      ],
+      shortcuts: ["El Niño = warm east/central Pacific", "La Niña = cool east Pacific"],
+      traps: ["Calling every warm year globally an El Niño"]
+    },
+    {
+      id: "meteo-enso-basics-walker",
+      title: "Walker circulation link",
+      summary: "Zonal tropical cell strengthens or weakens with phase.",
+      explanation: "In La Niña-like states the Walker cell is vigorous: strong west Pacific ascent and east Pacific descent. In El Niño the cell weakens or shifts as convection moves toward the central Pacific.",
+      examples: [
+        { problem: "Does a stronger Walker circulation fit classic La Niña or El Niño better?", solution: "La Niña — stronger trades and western ascent.", answer: "La Niña" }
+      ],
+      shortcuts: ["La Niña ↔ strong Walker", "El Niño ↔ weak/shifted Walker"],
+      traps: ["Confusing Walker with Hadley"]
+    }
+  ],
+  comparisonTable: {
+    title: "ENSO phases (sketch)",
+    headers: ["Phase", "East Pacific SST", "Trades"],
+    rows: [
+      ["El Niño", "Warmer than normal", "Weaker"],
+      ["La Niña", "Cooler than normal", "Stronger"],
+      ["Neutral", "Near normal", "Near normal"]
     ]
   },
   examPoints: [
-    "El Niño = warm eastern Pacific; La Niña = cool eastern Pacific — the names refer to SST anomalies, not atmospheric pressure",
-    "The Bjerknes feedback is a positive (reinforcing) coupling between ocean and atmosphere — SST anomalies drive wind changes that amplify the SST anomalies",
-    "SOI is negative during El Niño (low pressure over Darwin/warm west, high pressure over Tahiti/cool east in the anomaly sense) and positive during La Niña — the sign of the SOI is frequently tested",
-    "Sustained SOI values below −7 (or above +7) for several months are typical of El Niño (or La Niña) conditions"
+    "ENSO = coupled Pacific mode",
+    "El Niño vs La Niña SST/wind",
+    "Walker circulation connection"
   ],
-  workedExample: {
-    problem: "During an El Niño event, the Niño-3.4 SST anomaly is +1.2°C and the SOI is −15. Explain the physical link between these two observations.",
-    solution: "The +1.2°C warm anomaly in the central/eastern Pacific reduces the west-to-east SST gradient. This weakens the Walker Circulation's surface trade winds and shifts deep convection eastward. With convection no longer concentrated over the western Pacific, mean sea-level pressure rises at Darwin (less rising air = surface pressure increases) and falls at Tahiti (more rising air = surface pressure decreases). The pressure difference $P_{Tahiti} - P_{Darwin}$ therefore becomes negative; after subtracting the long-term mean and dividing by the standard deviation, the standardized SOI is strongly negative. The negative SOI and positive SST anomaly are physically linked through the Bjerknes feedback — neither causes the other in isolation; both are manifestations of the same coupled state.",
-    answer: "Warm SST → weaker Walker Circulation → pressure rises at Darwin, falls at Tahiti → negative SOI; both are coupled via the Bjerknes feedback"
-  },
   commonMistakes: [
-    "Confusing El Niño (warm event) with La Niña (cold event) — the names do not intuitively indicate the sign of the anomaly; the 'El Niño' name historically referred to a warm coastal current off Peru appearing around Christmas",
-    "Thinking ENSO is purely an ocean phenomenon — it is a coupled ocean-atmosphere system; the atmospheric component (Southern Oscillation) is equally important and inseparable from the oceanic component (El Niño/La Niña SST anomalies)",
-    "Assuming the SOI is positive during El Niño — it is negative; the sign reversal is a common exam trap because the underlying pressure difference sign and the SOI sign convention are easy to lose track of",
-    "Believing ENSO events alternate regularly — they are irregular, with 2–7 year spacing; back-to-back El Niño events (as in 1991–92 and 1993) or back-to-back La Niña events (as in 2020–23) are common"
+    "Treating ENSO as weather of a single week.",
+    "Confusing El Niño with global warming itself.",
+    "Mixing Walker and Hadley cells.",
+    "Ignoring the Southern Oscillation pressure seesaw."
   ],
   relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-iod", "meteo-global-circulation", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
-    subtopics: [
-      {
-        id: "meteo-enso-basics-the-bjerknes-feedback-loop",
-        title: "The Bjerknes feedback loop",
-        summary: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28–30°C) and…",
-        explanation: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28–30°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22–24°C). The warm western pool fuels deep convection and rising air, while the cool east has sinking air — this east-west overturning is the Walker Circulation. During El Niño, a slight initial weakening of trade winds reduces upwelling in the east, allowing the thermocline to deepen and warm water to slosh eastward along the equator. The warmer eastern SSTs shift convection eastward, which further weakens the west-to-east pressure gradient and thus the trade winds — a positive feedback that amplifies the initial perturbation into a full El Niño event. The mirror process operates for La Niña: strengthened trades → enhanced upwelling → colder east → stronger Walker Circulation.",
-                examples: [
-          {
-            problem: "Which statement best matches “The Bjerknes feedback loop”?",
-            solution: "The accurate idea is: In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22â24Â°C). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The Bjerknes feedback loop.",
-            solution: "Stay close to the text: In the neutral state, strong trade winds push warm surface water westward, deepening the thermocline in the west (warm pool, ~28â30Â°C) and shallowing it in the east, where cold upwelling keeps SSTs cool (~22â24Â°C).… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-enso-basics-why-enso-is-the-strongest-interannual-cl",
-        title: "Why ENSO is the strongest interannual climate signal on Earth",
-        summary: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the…",
-        explanation: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the Walker Circulation shifts eastward during El Niño, the entire tropical convection belt follows, altering the position of the ITCZ, weakening the Indian summer monsoon, and shifting precipitation away from the western Pacific (Indonesia, Australia) toward the central and eastern Pacific (Peru, Ecuador). Because the atmosphere transmits these tropical perturbations poleward via Rossby waves and jet-stream changes, ENSO's influence extends to mid-latitudes through teleconnections — affecting North American winter storms, European summer heat, African rainfall, and the South Asian monsoon.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why ENSO is the strongest interannual climate signal on Earth”?",
-            solution: "The accurate idea is: The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why ENSO is the strongest interannual climate signal on Earth.",
-            solution: "Stay close to the text: The tropical Pacific is the largest ocean basin, and its SST anomalies directly reorganize global atmospheric convection patterns. When the Walker Circulation shifts eastward during El NiÃ±o, the entire tropical convecti… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-enso-basics-the-ni-o-3-4-region-and-enso-thresholds",
-        title: "The Niño-3.4 region and ENSO thresholds",
-        summary: "ENSO events are defined operationally using SST anomalies in the Niño-3.4 region (5°N–5°S, 120°–170°W). A 3-month running mean anomaly of…",
-        explanation: "ENSO events are defined operationally using SST anomalies in the Niño-3.4 region (5°N–5°S, 120°–170°W). A 3-month running mean anomaly of ≥+0.5°C for at least 5 consecutive overlapping seasons defines El Niño; ≤−0.5°C defines La Niña. The Niño-3.4 region is preferred over Niño-1+2, Niño-3, or Niño-4 because it sits at the heart of the coupled ocean-atmosphere interaction zone where SST anomalies, wind anomalies, and convective anomalies co-vary most strongly. Strength categories: weak (±0.5 to ±0.9°C), moderate (±1.0 to ±1.4°C), strong (±1.5 to ±1.9°C), very strong (≥±2.0°C).",
-                examples: [
-          {
-            problem: "Which statement best matches “The Niño-3.4 region and ENSO thresholds”?",
-            solution: "The accurate idea is: ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The Niño-3.4 region and ENSO thresholds.",
-            solution: "Stay close to the text: ENSO events are defined operationally using SST anomalies in the NiÃ±o-3.4 region (5Â°Nâ5Â°S, 120Â°â170Â°W). A 3-month running mean anomaly of â¥+0.5Â°C for at least 5 consecutive overlapping seasons defines El NiÃ±… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-global-circulation", "meteo-heat-transfer"],
   leadsTo: ["meteo-enso-global-impacts", "meteo-iod"],
@@ -5885,149 +5836,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 2,
   title: "Ocean Surface Currents & Thermohaline Circulation",
-  definition: "Ocean circulation operates on two interconnected scales: wind-driven surface currents (subtropical gyres, western/eastern boundary currents, equatorial currents) operating on months to decades, and the density-driven thermohaline circulation (global conveyor belt) operating on centuries to ~1000 years, redistributing heat, salt, and dissolved gases throughout the world ocean.",
+  definition: "Surface currents are largely wind-driven gyres steered by continents and the Coriolis force. The thermohaline circulation is the density-driven deeper branch of the global ocean conveyor, sensitive to temperature and salinity. Together they redistribute heat and couple the ocean to climate modes like ENSO and AMOC.",
   keyFacts: [
-    "Subtropical gyres: five large, wind-driven circulation cells in the subtropical oceans (North Pacific, South Pacific, North Atlantic, South Atlantic, Indian), rotating clockwise in the NH and counter-clockwise in the SH due to the Coriolis effect",
-    "Western boundary currents (e.g., Gulf Stream, Kuroshio, Brazil, Agulhas, East Australian): narrow, deep, fast, warm currents on the western side of ocean basins, transporting enormous heat poleward — speeds often exceed 1–2 m/s and transports reach 30–70 Sverdrups (1 Sv = 10⁶ m³/s)",
-    "Eastern boundary currents (e.g., Canary, California, Benguela, Peru/Humboldt, West Australian): broad, shallow, slow, cold currents on the eastern side of ocean basins, often associated with coastal upwelling and high biological productivity",
-    "Equatorial currents: the westward-flowing North and South Equatorial Currents driven by the trade winds, with the eastward-flowing Equatorial Countercurrent sandwiched between them near the ITCZ; in the Pacific, El Niño represents a disruption of this normal westward flow",
-    "Thermohaline circulation (THC) is driven by density differences caused by temperature ('thermo') and salinity ('haline') — cold, salty, dense water sinks in the North Atlantic (Labrador and Nordic Seas) and around Antarctica, initiating the global 'conveyor belt'",
-    "The global conveyor belt transports warm surface water poleward, where it cools, sinks, and returns as cold deep water — a complete circuit takes ~1000 years; the Atlantic limb alone takes ~200–400 years",
-    "Cold, dense deep water (North Atlantic Deep Water, Antarctic Bottom Water) spreads from the polar sinking regions into all major ocean basins, eventually upwelling in the Southern Ocean and Indian/Pacific Oceans to close the loop",
-    "Surface and deep circulation are linked: cooling and increased salinity (from sea-ice formation, which rejects brine) at high latitudes increase density, driving the deep sinking that powers the conveyor belt"
+    "Subtropical gyres: western boundary currents (e.g. Gulf Stream, Kuroshio) are narrow and strong",
+    "Ekman transport and wind stress build the large-scale surface circulation",
+    "Upwelling brings cold, nutrient-rich water — important on eastern ocean boundaries",
+    "Thermohaline circulation: sinking of dense water and slow return flow",
+    "Ocean heat transport moderates regional climates",
+    "Surface currents and deep circulation operate on different timescales"
   ],
   explanationSections: [
-    { heading: "Why western boundary currents are fast and warm", body: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. To conserve mass, the return flow on the western side is compressed into a narrow, deep, fast-moving current — the western boundary current. Because these currents originate in the warm tropics and flow poleward along the western edges of continents (e.g., Gulf Stream along the US East Coast, Kuroshio along Japan), they carry enormous quantities of tropical heat to mid-latitudes, moderating the climate of adjacent coastlines. The Kuroshio and Gulf Stream together transport roughly 1.5 petawatts (10¹⁵ W) of heat poleward — comparable to the atmosphere's entire meridional heat transport at those latitudes — and are the dominant mechanism by which tropical ocean heat reaches mid-latitudes." },
-    { heading: "Eastern boundary currents and coastal upwelling", body: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Ekman transport deflects surface water to the left of the wind in the Southern Hemisphere and to the right in the Northern Hemisphere — in both cases, away from the coast. This offshore divergence pulls deeper, colder, nutrient-rich water upward (upwelling), fueling the world's most productive fisheries (Peru/Humboldt, Benguela, California, Canary). Eastern boundary currents are therefore cold not because they originate in polar regions, but because coastal upwelling brings deep cold water to the surface. Upwelling zones cover only ~1% of the ocean surface but support roughly 50% of global fish catches." },
-    { heading: "How salinity controls density and drives deep sinking", body: "Seawater density depends primarily on temperature and salinity — colder and saltier water is denser. At high latitudes, two processes increase density dramatically: (1) cooling of surface water by frigid polar air masses, and (2) sea-ice formation, which rejects salt into the surrounding water (brine rejection), increasing salinity. The resulting cold, salty, dense water becomes unstable and sinks, initiating deep-water formation. The Labrador Sea and Nordic Seas (North Atlantic) and the Weddell and Ross Seas (Antarctica) are the primary sites of deep-water formation — their sinking water masses (NADW and AABW) spread southward and eastward into the rest of the global ocean. Without this sinking, the conveyor belt stalls — and without the conveyor belt, the poleward heat transport that warms Western Europe and maintains the tropical-to-polar temperature gradient is fundamentally reduced." },
-    { heading: "The conveyor-belt timescale and why it matters for climate", body: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years — a transit time set by the slow, turbulent mixing and advection of the deep ocean. This long residence time means the ocean stores heat, carbon, and freshwater on millennial timescales, buffering the climate system against rapid changes. However, it also means that a disruption to deep-water formation (e.g., from massive freshwater input from Greenland ice-sheet melt) would not be quickly reversible — the climate impacts would unfold over centuries, even if the trigger occurred in a single decade. This is why paleoclimate records of abrupt shutdowns and restarts of the conveyor belt (Heinrich events, Dansgaard–Oeschger events, the Younger Dryas) are central to understanding climate sensitivity and tipping-point behavior." },
-    { heading: "Linking surface currents, ENSO, and thermohaline circulation", body: "Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same waters that, when advected through the Indonesian Throughflow into the Indian Ocean, around Africa in the Agulhas Current, and ultimately into the North Atlantic, may eventually sink to form NADW. Changes in surface salinity, temperature, or wind patterns can therefore affect both the strength of the conveyor belt and the frequency of ENSO events. For example, a slowdown of the Atlantic conveyor (as suggested by some climate models under global warming) would reduce the poleward heat transport that currently keeps Western Europe anomalously warm relative to its latitude, while also altering tropical Pacific conditions that modulate ENSO — a coupling between two of Earth's most important climate systems." }
+    { heading: "Wind on top, density below", body: "Map the gyres for surface heat and biology; remember the slower density-driven loop when discussing long-term Atlantic changes and AMOC." }
   ],
-  examPoints: [
-    "Western boundary currents are narrow, deep, fast, and warm; eastern boundary currents are broad, shallow, slow, and cold — a direct consequence of the wind-stress curl geometry in subtropical gyres",
-    "Thermohaline circulation is driven by density (temperature + salinity) differences, not by wind — sinking occurs in the North Atlantic and around Antarctica, where surface water becomes cold and salty enough to become unstable",
-    "The global conveyor belt's complete circuit takes ~1000 years; this long timescale is why thermohaline changes have multi-century climate consequences",
-    "Coastal upwelling along eastern boundary currents (Peru, Benguela, California, Canary) brings cold, nutrient-rich water to the surface, supporting ~50% of global fish catches from ~1% of the ocean area",
-    "The Gulf Stream and Kuroshio transport roughly 1.5 PW of heat poleward each — the dominant mechanism by which tropical ocean heat reaches mid-latitudes",
-    "Sverdrup (Sv) = 10⁶ m³/s; Gulf Stream transport ≈ 30–70 Sv; Kuroshio ≈ 30–50 Sv; Antarctic Circumpolar Current ≈ 100–150 Sv (largest ocean current on Earth)"
+  subtopics: [
+    {
+      id: "meteo-ocean-currents-surface",
+      title: "Wind-driven surface currents",
+      summary: "Gyres, western boundary currents, upwelling.",
+      explanation: "Trade and westerly wind belts drive subtropical and subpolar gyres. Western boundary currents intensify along basin edges. Coastal upwelling cools the surface and supports fisheries where winds favour offshore Ekman transport.",
+      examples: [
+        { problem: "Are western boundary currents typically stronger or weaker than the broad eastern return flows in subtropical gyres?", solution: "Stronger and narrower — classic western intensification.", answer: "Stronger / narrower" }
+      ],
+      shortcuts: ["Gyres from winds + Coriolis + coasts", "West side intensified"],
+      traps: ["Ignoring continents when sketching current paths"]
+    },
+    {
+      id: "meteo-ocean-currents-thermohaline",
+      title: "Thermohaline circulation",
+      summary: "Density-driven deep branch of the conveyor.",
+      explanation: "Cold, salty water can become dense enough to sink in high-latitude formation regions. That sinking helps drive a global-scale overturning that returns water elsewhere — much slower than surface storm-driven currents.",
+      examples: [
+        { problem: "What two properties primarily control seawater density in thermohaline thinking?", solution: "Temperature and salinity.", answer: "T and S" }
+      ],
+      shortcuts: ["Thermo = temperature", "Haline = salt", "Slow deep loop"],
+      traps: ["Equating surface gyres with the entire thermohaline conveyor"]
+    }
   ],
-  workedExample: {
-    problem: "A city lies on the western coast of a subtropical continent in the Northern Hemisphere. Describe the ocean current offshore, its thermal characteristics, and any associated biological effects.",
-    solution: "A western coast in the NH subtropical zone lies on the eastern side of a subtropical gyre (e.g., the US West Coast, Portugal, or northwestern Mexico). The offshore current is therefore an eastern boundary current — the California Current off California, the Canary Current off Iberia, or equivalent. These currents are broad, shallow, slow, and cold. The cold temperatures result from coastal upwelling: equatorward alongshore winds drive Ekman offshore transport, pulling cold, nutrient-rich deep water to the surface. The high nutrient supply fuels intense phytoplankton blooms and supports some of the world's most productive fisheries (e.g., the Peruvian anchovy fishery in the analogous Humboldt system, or the California sardine fishery).",
-    answer: "Eastern boundary current — broad, shallow, slow, cold; associated with coastal upwelling and high biological productivity"
+  comparisonTable: {
+    title: "Circulation types",
+    headers: ["Type", "Main driver"],
+    rows: [
+      ["Surface gyres", "Wind stress"],
+      ["Thermohaline overturning", "Density (T, S)"]
+    ]
   },
+  examPoints: [
+    "Wind-driven gyres vs density-driven deep flow",
+    "Western boundary current intensification",
+    "Upwelling significance"
+  ],
   commonMistakes: [
-    "Confusing western and eastern boundary currents — western boundary currents are warm and fast (Gulf Stream, Kuroshio); eastern boundary currents are cold and slow (Canary, California, Peru) — the direction of the coastline relative to the gyre determines which type is present",
-    "Assuming thermohaline circulation is driven primarily by temperature — salinity is equally important; in fact, in some regions (e.g., the Nordic Seas), brine rejection from sea-ice formation is the dominant driver of sinking",
-    "Believing the conveyor belt is a single fast current — it is a slow, diffuse, turbulent flow system that takes ~1000 years to complete a circuit, not a rapid 'river in the ocean'",
-    "Treating surface and thermohaline circulation as separate systems — they are coupled through heat, freshwater, and momentum exchange at the ocean surface and through deep-water formation at high latitudes",
-    "Assuming the conveyor belt is immune to climate change — paleoclimate records (Heinrich events, Younger Dryas, Dansgaard–Oeschger events) show it has shut down or slowed abruptly in the past when large freshwater pulses disrupted North Atlantic sinking",
-    "Forgetting the Antarctic Circumpolar Current — the largest ocean current on Earth (~100–150 Sv), driven by the strongest sustained winds on the planet (Southern Ocean westerlies), and the primary site of global deep-water upwelling"
+    "One current system for all depths.",
+    "Forgetting Coriolis/continents.",
+    "Treating thermohaline as daily weather.",
+    "Ignoring upwelling’s climate/biology role."
   ],
   relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-amoc-slowdown", "meteo-coriolis-effect", "meteo-global-circulation", "meteo-remote-sensing"],
-    subtopics: [
-      {
-        id: "meteo-ocean-currents-why-western-boundary-currents-are-fast-a",
-        title: "Why western boundary currents are fast and warm",
-        summary: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a…",
-        explanation: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. To conserve mass, the return flow on the western side is compressed into a narrow, deep, fast-moving current — the western boundary current. Because these currents originate in the warm tropics and flow poleward along the western edges of continents (e.g., Gulf Stream along the US East Coast, Kuroshio along Japan), they carry enormous quantities of tropical heat to mid-latitudes, moderating the climate of adjacent coastlines. The Kuroshio and Gulf Stream together transport roughly 1.5 petawatts (10¹⁵ W) of heat poleward — comparable to the atmosphere's entire meridional heat transport at those latitudes — and are the dominant mechanism by which tropical ocean heat reaches mid-latitudes.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why western boundary currents are fast and warm”?",
-            solution: "The accurate idea is: In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the easter…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why western boundary currents are fast and warm.",
-            solution: "Stay close to the text: In a subtropical gyre, the wind stress curl (change in wind stress across the ocean) is negative in the center, driving downwelling and a slow, broad equatorward flow on the eastern side. To conserve mass, the return flo… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-ocean-currents-eastern-boundary-currents-and-coastal-up",
-        title: "Eastern boundary currents and coastal upwelling",
-        summary: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the…",
-        explanation: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Ekman transport deflects surface water to the left of the wind in the Southern Hemisphere and to the right in the Northern Hemisphere — in both cases, away from the coast. This offshore divergence pulls deeper, colder, nutrient-rich water upward (upwelling), fueling the world's most productive fisheries (Peru/Humboldt, Benguela, California, Canary). Eastern boundary currents are therefore cold not because they originate in polar regions, but because coastal upwelling brings deep cold water to the surface. Upwelling zones cover only ~1% of the ocean surface but support roughly 50% of global fish catches.",
-                examples: [
-          {
-            problem: "Which statement best matches “Eastern boundary currents and coastal upwelling”?",
-            solution: "The accurate idea is: On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Eastern boundary currents and coastal upwelling.",
-            solution: "Stay close to the text: On the eastern side of subtropical gyres, the winds blow equatorward along the coast (e.g., northerly winds along the US West Coast for the California Current). Ekman transport deflects surface water to the left of the w… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-ocean-currents-how-salinity-controls-density-and-drives",
-        title: "How salinity controls density and drives deep sinking",
-        summary: "Seawater density depends primarily on temperature and salinity — colder and saltier water is denser. At high latitudes, two processes…",
-        explanation: "Seawater density depends primarily on temperature and salinity — colder and saltier water is denser. At high latitudes, two processes increase density dramatically: (1) cooling of surface water by frigid polar air masses, and (2) sea-ice formation, which rejects salt into the surrounding water (brine rejection), increasing salinity. The resulting cold, salty, dense water becomes unstable and sinks, initiating deep-water formation. The Labrador Sea and Nordic Seas (North Atlantic) and the Weddell and Ross Seas (Antarctica) are the primary sites of deep-water formation — their sinking water masses (NADW and AABW) spread southward and eastward into the rest of the global ocean. Without this sinking, the conveyor belt stalls — and without the conveyor belt, the poleward heat transport that warms Western Europe and maintains the tropical-to-polar temperature gradient is fundamentally reduced.",
-                examples: [
-          {
-            problem: "Which statement best matches “How salinity controls density and drives deep sinking”?",
-            solution: "The accurate idea is: Seawater density depends primarily on temperature and salinity â colder and saltier water is denser. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Seawater density depends primarily on temperature and salinity â colder and saltier water is denser.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How salinity controls density and drives deep sinking.",
-            solution: "Stay close to the text: Seawater density depends primarily on temperature and salinity â colder and saltier water is denser. At high latitudes, two processes increase density dramatically: (1) cooling of surface water by frigid polar air mass… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-ocean-currents-the-conveyor-belt-timescale-and-why-it-m",
-        title: "The conveyor-belt timescale and why it matters for climate",
-        summary: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years — a transit time set by…",
-        explanation: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years — a transit time set by the slow, turbulent mixing and advection of the deep ocean. This long residence time means the ocean stores heat, carbon, and freshwater on millennial timescales, buffering the climate system against rapid changes. However, it also means that a disruption to deep-water formation (e.g., from massive freshwater input from Greenland ice-sheet melt) would not be quickly reversible — the climate impacts would unfold over centuries, even if the trigger occurred in a single decade. This is why paleoclimate records of abrupt shutdowns and restarts of the conveyor belt (Heinrich events, Dansgaard–Oeschger events, the Younger Dryas) are central to understanding climate sensitivity and tipping-point behavior.",
-                examples: [
-          {
-            problem: "Which statement best matches “The conveyor-belt timescale and why it matters for climate”?",
-            solution: "The accurate idea is: A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advection of the deep ocean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advecti…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The conveyor-belt timescale and why it matters for climate.",
-            solution: "Stay close to the text: A parcel of water sinking in the North Atlantic today may not resurface in the North Pacific for roughly 1000 years â a transit time set by the slow, turbulent mixing and advection of the deep ocean. This long residenc… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-ocean-currents-linking-surface-currents-enso-and-thermo",
-        title: "Linking surface currents, ENSO, and thermohaline circulation",
-        summary: "Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same…",
-        explanation: "Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same waters that, when advected through the Indonesian Throughflow into the Indian Ocean, around Africa in the Agulhas Current, and ultimately into the North Atlantic, may eventually sink to form NADW. Changes in surface salinity, temperature, or wind patterns can therefore affect both the strength of the conveyor belt and the frequency of ENSO events. For example, a slowdown of the Atlantic conveyor (as suggested by some climate models under global warming) would reduce the poleward heat transport that currently keeps Western Europe anomalously warm relative to its latitude, while also altering tropical Pacific conditions that modulate ENSO — a coupling between two of Earth's most important climate systems.",
-                examples: [
-          {
-            problem: "Which statement best matches “Linking surface currents, ENSO, and thermohaline circulation”?",
-            solution: "The accurate idea is: Surface and deep circulation are not independent. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Surface and deep circulation are not independent.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Linking surface currents, ENSO, and thermohaline circulation.",
-            solution: "Stay close to the text: Surface and deep circulation are not independent. The warm western Pacific surface waters that participate in ENSO cycles are the same waters that, when advected through the Indonesian Throughflow into the Indian Ocean, … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-global-circulation", "phy-fluid-dynamics"],
   leadsTo: ["meteo-enso-basics", "meteo-amoc-slowdown"],
@@ -6039,101 +5903,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 3,
   title: "Global Impacts of ENSO: Teleconnections and Regional Effects",
-  definition: "ENSO teleconnections are distant atmospheric responses to tropical Pacific SST anomalies, altering temperature and precipitation patterns across the Americas, Asia, Africa, and Australia through Rossby wave propagation and jet-stream modulation.",
+  definition: "ENSO teleconnections are remote climate responses to Pacific SST anomalies — shifts in the jet stream, monsoon rainfall, drought and flood risk, and tropical cyclone patterns. Impacts differ by region and by El Niño versus La Niña phase; they are statistical and dynamical tendencies, not guarantees for every event.",
   keyFacts: [
-    "During El Niño: the southern tier of the US tends to be wetter and cooler; the northern tier warmer and drier; Peru and Ecuador experience heavy rain and flooding",
-    "During El Niño: the Indian summer monsoon tends to be weaker (drought risk increases); Australia and Indonesia experience drought and bushfire conditions",
-    "During La Niña: the southern US tends to be drier; the Pacific Northwest wetter; Australia and Indonesia experience above-normal rainfall",
-    "During La Niña: the Indian summer monsoon tends to be stronger (flood risk increases); Pakistan often receives above-normal monsoon rainfall",
-    "Atlantic hurricane activity is typically suppressed during El Niño (increased vertical wind shear) and enhanced during La Niña (reduced wind shear)",
-    "Teleconnections are statistically robust but not deterministic — ENSO modifies the probability of certain outcomes, it does not guarantee them for every event"
+    "Teleconnection: local climate anomaly linked to a distant forcing region",
+    "El Niño often associated with drier conditions in some monsoon regions and wetter conditions in parts of the eastern tropical Pacific rim",
+    "La Niña often enhances rainfall in some western Pacific / monsoon-sensitive areas and can favour different cyclone patterns",
+    "Impacts are seasonal and region-specific — always specify place and phase",
+    "Pakistan/South Asia monsoon can be modulated but is not a pure ENSO slave",
+    "Other modes (IOD, MJO) can reinforce or oppose ENSO effects"
   ],
   explanationSections: [
-    { heading: "How tropical Pacific SST anomalies reach mid-latitudes", body: "When El Niño shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves — large-scale planetary waves that propagate energy poleward and eastward. These waves alter the position and strength of the subtropical and polar-front jet streams, which in turn redirect storm tracks. The result is a chain of remote impacts: more storms hitting California, fewer hitting the Pacific Northwest, a shifted Atlantic hurricane track, and a weakened Indian monsoon — all traceable back to the original tropical Pacific SST anomaly. The Pacific-North American (PNA) teleconnection pattern is the most prominent mid-latitude response: a chain of alternating high and low pressure centers linking the tropical Pacific to North America." },
-    { heading: "ENSO's impact on the South Asian monsoon and Pakistan", body: "During El Niño, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer monsoon. Pakistan, which receives over 70% of its annual rainfall from the summer monsoon, tends to experience below-normal rainfall and drought risk during El Niño years. La Niña years tend to bring above-normal monsoon rainfall and increased flood risk — the 2010 and 2022 super floods both occurred during La Niña or transition-to-La-Niña phases. However, this is a probabilistic, not deterministic, relationship: the 2015 strong El Niño did not produce a severe drought in Pakistan because a strong positive IOD compensated, illustrating the importance of the ENSO–IOD interaction." },
-    { heading: "Why teleconnections are probabilistic, not deterministic", body: "ENSO is one of several factors influencing regional climate in any given year — other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. An El Niño year does not guarantee a weak monsoon; it increases the probability of a weak monsoon. Some El Niño years produce normal monsoons because other factors compensated. This probabilistic nature is why seasonal forecasts are expressed as probability shifts (e.g., '60% chance of below-normal rainfall') rather than deterministic predictions, and why climate model ensembles — which capture the range of possible outcomes — are essential tools for seasonal forecasting." }
+    { heading: "Remote but not magic", body: "Tropical convection anomalies rearrange the global circulation. That is teleconnection physics. Local geography and competing modes still matter, so ENSO is a risk shift, not a deterministic local forecast." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-enso-global-impacts-teleconnections",
+      title: "What teleconnections are",
+      summary: "Remote responses to tropical Pacific heating anomalies.",
+      explanation: "When deep convection shifts, wave trains and jet anomalies can appear far downstream. Seasonal outlooks use these historical patterns with ensemble forecasts.",
+      examples: [
+        { problem: "Is a teleconnection a guaranteed local outcome every El Niño?", solution: "No — it is a tendency that can be overridden by other modes and internal variability.", answer: "No — a tendency" }
+      ],
+      shortcuts: ["Teleconnection = remote link", "Tendency ≠ certainty"],
+      traps: ["One global impact list for all continents without seasons"]
+    },
+    {
+      id: "meteo-enso-global-impacts-south-asia",
+      title: "South Asia relevance",
+      summary: "Monsoon modulation with competing influences.",
+      explanation: "ENSO is one factor in South Asian summer rainfall variability. The Indian Ocean Dipole and intraseasonal MJO can dominate particular seasons. Exam answers should avoid oversimplified ‘El Niño always means drought in Pakistan’ claims.",
+      examples: [
+        { problem: "Name one reason ENSO alone cannot fully predict Pakistan monsoon rainfall.", solution: "Other modes (e.g. IOD, MJO) and regional dynamics also control moisture and ascent.", answer: "Competing modes / regional dynamics" }
+      ],
+      shortcuts: ["ENSO modulates; does not solely dictate", "Check IOD too"],
+      traps: ["Hard deterministic monsoon rules from ENSO only"]
+    }
+  ],
+  comparisonTable: {
+    title: "Impact thinking",
+    headers: ["Idea", "Meaning"],
+    rows: [
+      ["Teleconnection", "Remote climate link"],
+      ["Phase dependence", "El Niño ≠ La Niña impacts"],
+      ["Probabilistic", "Risk shift, not destiny"]
+    ]
+  },
+  pakistanExamFocus: [
+    "ENSO can influence South Asian monsoon variability but is not the only control",
+    "Always pair phase with region and season",
+    "IOD and local dynamics may reinforce or cancel"
   ],
   examPoints: [
-    "El Niño → weaker Indian monsoon → drought risk for Pakistan; La Niña → stronger monsoon → flood risk for Pakistan — this ENSO-monsoon link is the most directly testable teleconnection for Pakistani candidates",
-    "The 2010 and 2022 Pakistan super floods both occurred during La Niña or La Niña-transition phases — a specific, testable association",
-    "Teleconnections modify probabilities, not certainties — an El Niño year can still produce a normal monsoon if other factors (especially IOD) compensate",
-    "Atlantic hurricane activity is suppressed during El Niño (increased vertical wind shear over the tropical Atlantic) and enhanced during La Niña"
+    "Define teleconnection",
+    "Phase- and region-specific impacts",
+    "Not a local guarantee"
   ],
-  workedExample: {
-    problem: "A strong El Niño develops in the tropical Pacific. What is the expected impact on Pakistan's summer monsoon, and what is the physical mechanism?",
-    solution: "The El Niño shifts convection eastward in the Pacific, weakening the Walker Circulation and reducing the land-ocean thermal contrast that drives the Indian summer monsoon. Pakistan, which depends on the monsoon for over 70% of its annual rainfall, would expect below-normal monsoon rainfall and increased drought risk. However, this is a probabilistic shift — the actual outcome depends on the El Niño's strength, timing, and interaction with other modes like the IOD. A 2015-style scenario (El Niño + strong positive IOD) can still produce near-normal monsoon rainfall, while a 1998-style scenario (El Niño alone) typically produces severe drought.",
-    answer: "Below-normal monsoon rainfall expected; mechanism: weakened Walker Circulation → reduced land-ocean thermal contrast → weaker monsoon circulation"
-  },
   commonMistakes: [
-    "Assuming El Niño always causes drought in South Asia — it increases the probability, but the IOD and other factors can offset the ENSO influence",
-    "Confusing the regional impacts of El Niño and La Niña — El Niño brings drought to Australia/Indonesia and rain to Peru; La Niña reverses both",
-    "Treating teleconnections as deterministic guarantees rather than probability shifts — this is the most common conceptual error in ENSO impact assessment",
-    "Ignoring ENSO's impact on Atlantic hurricanes — El Niño's increased vertical wind shear over the tropical Atlantic suppresses hurricane development; La Niña enhances it"
+    "Universal global impacts.",
+    "Ignoring La Niña differences.",
+    "Deterministic monsoon claims.",
+    "Forgetting other climate modes."
   ],
   relatedTopics: ["meteo-enso-basics", "meteo-ocean-currents", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon", "meteo-extreme-events"],
-    subtopics: [
-      {
-        id: "meteo-enso-global-impacts-how-tropical-pacific-sst-anomalies-reach",
-        title: "How tropical Pacific SST anomalies reach mid-latitudes",
-        summary: "When El Niño shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves — large-scale planetary…",
-        explanation: "When El Niño shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves — large-scale planetary waves that propagate energy poleward and eastward. These waves alter the position and strength of the subtropical and polar-front jet streams, which in turn redirect storm tracks. The result is a chain of remote impacts: more storms hitting California, fewer hitting the Pacific Northwest, a shifted Atlantic hurricane track, and a weakened Indian monsoon — all traceable back to the original tropical Pacific SST anomaly. The Pacific-North American (PNA) teleconnection pattern is the most prominent mid-latitude response: a chain of alternating high and low pressure centers linking the tropical Pacific to North America.",
-                examples: [
-          {
-            problem: "Which statement best matches “How tropical Pacific SST anomalies reach mid-latitudes”?",
-            solution: "The accurate idea is: When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and eastward. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How tropical Pacific SST anomalies reach mid-latitudes.",
-            solution: "Stay close to the text: When El NiÃ±o shifts deep convection from the western to the central Pacific, it excites atmospheric Rossby waves â large-scale planetary waves that propagate energy poleward and eastward. These waves alter the positio… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-enso-global-impacts-enso-s-impact-on-the-south-asian-monsoon",
-        title: "ENSO's impact on the South Asian monsoon and Pakistan",
-        summary: "During El Niño, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which…",
-        explanation: "During El Niño, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer monsoon. Pakistan, which receives over 70% of its annual rainfall from the summer monsoon, tends to experience below-normal rainfall and drought risk during El Niño years. La Niña years tend to bring above-normal monsoon rainfall and increased flood risk — the 2010 and 2022 super floods both occurred during La Niña or transition-to-La-Niña phases. However, this is a probabilistic, not deterministic, relationship: the 2015 strong El Niño did not produce a severe drought in Pakistan because a strong positive IOD compensated, illustrating the importance of the ENSO–IOD interaction.",
-                examples: [
-          {
-            problem: "Which statement best matches “ENSO's impact on the South Asian monsoon and Pakistan”?",
-            solution: "The accurate idea is: During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer monsoon. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal c…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying ENSO's impact on the South Asian monsoon and Pakistan.",
-            solution: "Stay close to the text: During El NiÃ±o, the eastward shift of Pacific convection weakens the Walker Circulation's rising branch over the maritime continent, which in turn weakens the land-ocean thermal contrast that drives the Indian summer mo… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-enso-global-impacts-why-teleconnections-are-probabilistic-no",
-        title: "Why teleconnections are probabilistic, not deterministic",
-        summary: "ENSO is one of several factors influencing regional climate in any given year — other modes (IOD, NAO, MJO), local sea-surface…",
-        explanation: "ENSO is one of several factors influencing regional climate in any given year — other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. An El Niño year does not guarantee a weak monsoon; it increases the probability of a weak monsoon. Some El Niño years produce normal monsoons because other factors compensated. This probabilistic nature is why seasonal forecasts are expressed as probability shifts (e.g., '60% chance of below-normal rainfall') rather than deterministic predictions, and why climate model ensembles — which capture the range of possible outcomes — are essential tools for seasonal forecasting.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why teleconnections are probabilistic, not deterministic”?",
-            solution: "The accurate idea is: ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why teleconnections are probabilistic, not deterministic.",
-            solution: "Stay close to the text: ENSO is one of several factors influencing regional climate in any given year â other modes (IOD, NAO, MJO), local sea-surface temperatures, soil moisture, and random atmospheric variability all play roles. An El NiÃ±o… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-enso-basics"],
   leadsTo: [],
@@ -6145,109 +5976,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 4,
   title: "Indian Ocean Dipole (IOD): Mechanism and Impacts on South Asia",
-  definition: "The Indian Ocean Dipole (IOD) is a coupled ocean-atmosphere mode in the equatorial Indian Ocean, characterized by contrasting SST anomalies between the western basin (eastern Africa) and the southeastern basin (Indonesia/Australia), measured by the Dipole Mode Index (DMI).",
+  definition: "The Indian Ocean Dipole is a mode of variability in tropical Indian Ocean sea-surface temperatures: a positive IOD features cooler than normal waters off Sumatra and warmer waters in the western Indian Ocean, with corresponding wind and rainfall shifts. It is a major influence on Indian Ocean rim climate and can interact with ENSO.",
   keyFacts: [
-    "Positive IOD (+IOD): abnormally warm SSTs in the western Indian Ocean (off East Africa) and cool SSTs in the southeastern Indian Ocean (off Indonesia/Australia); convection shifts westward toward Africa",
-    "Negative IOD (−IOD): cool SSTs in the west and warm SSTs in the southeast; convection shifts eastward toward Indonesia/Australia",
-    "DMI (Dipole Mode Index): the SST anomaly difference between the western (10°S–10°N, 50°–70°E) and southeastern (10°S–0°, 90°–110°E) Indian Ocean; a sustained DMI ≥ +0.4°C defines a positive IOD event",
-    "Positive IOD tends to strengthen the Indian summer monsoon, bringing above-normal rainfall to South Asia including Pakistan; negative IOD tends to weaken it",
-    "The IOD and ENSO can reinforce or oppose each other's monsoon influence — when both are in the same phase (e.g., El Niño + negative IOD), the monsoon weakening is amplified; when they oppose (e.g., El Niño + positive IOD), the effects can partially cancel",
-    "IOD events typically develop in boreal spring–summer, peak in boreal autumn (September–November), and decay in winter — a distinct seasonal cycle from ENSO"
+    "Positive IOD: west warm, east cool (eastern equatorial Indian Ocean); easterly wind anomalies along the equator",
+    "Negative IOD: roughly the opposite SST pattern",
+    "Affects East African rainfall and maritime continent convection patterns",
+    "Can modulate South Asian monsoon moisture pathways",
+    "Sometimes co-occurs with ENSO phases but can also act independently",
+    "Seasonal — strongest signals in certain calendar windows"
   ],
   explanationSections: [
-    { heading: "The IOD mechanism: a mini-Walker Circulation in the Indian Ocean", body: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD, anomalous easterly winds along the equator push warm surface water westward toward East Africa and induce upwelling in the southeast, cooling the SSTs off Indonesia. The warm west fuels convection and rainfall over East Africa, while the cool east suppresses convection over Indonesia and Australia. The resulting pressure gradient reinforces the easterly anomalies — a Bjerknes-like feedback that sustains the dipole for several months, typically peaking in boreal autumn (September–November). The IOD's seasonality is set by the seasonal reversal of the Asian monsoon winds: the equatorial easterly anomalies that drive +IOD are most easily established after the summer monsoon has weakened." },
-    { heading: "Why the IOD matters for Pakistan's monsoon", body: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture supply to the monsoon circulation and tends to strengthen rainfall over South Asia, including Pakistan. A negative IOD shifts convection eastward toward Indonesia, reducing moisture availability for the monsoon and weakening rainfall. The IOD's influence is particularly important because it can either amplify or counteract ENSO's monsoon impact: a positive IOD during an El Niño year can partially offset the monsoon-weakening effect of El Niño, as observed in 2015 when El Niño did not produce the expected drought because a strong positive IOD compensated." },
-    { heading: "The interaction between IOD and ENSO", body: "IOD and ENSO are partially correlated — El Niño events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El Niño in the Pacific can trigger easterly wind anomalies in the Indian Ocean), but the correlation is imperfect. When both modes are in phases that weaken the monsoon (El Niño + negative IOD), the drought risk is substantially elevated. When they oppose (El Niño + positive IOD), the monsoon outcome is less predictable and depends on the relative strength of each mode. This interaction is why seasonal monsoon forecasting remains challenging despite understanding both modes individually." }
+    { heading: "An Indian Ocean seesaw", body: "Like ENSO, the IOD couples SST gradients to winds and convection. For South Asia, the dipole can alter how moisture is drawn toward the subcontinent even when Pacific ENSO is weak." }
   ],
-  formula: {
-    name: "Dipole Mode Index (DMI)",
-    expression: "DMI = \\overline{SST_{anom}}(WIO) - \\overline{SST_{anom}}(SEIO)",
-    variables: [
-      { symbol: "\\overline{SST_{anom}}(WIO)", meaning: "area-averaged sea-surface temperature anomaly in the western Indian Ocean (10°S–10°N, 50°–70°E)" },
-      { symbol: "\\overline{SST_{anom}}(SEIO)", meaning: "area-averaged sea-surface temperature anomaly in the southeastern Indian Ocean (10°S–0°, 90°–110°E)" }
+  subtopics: [
+    {
+      id: "meteo-iod-mechanism",
+      title: "SST dipole and winds",
+      summary: "East–west Indian Ocean contrast and equatorial wind anomalies.",
+      explanation: "A positive IOD cools the eastern equatorial Indian Ocean and warms the west, shifting convection and reinforcing anomalous winds. The reverse pattern defines a negative event.",
+      examples: [
+        { problem: "In a positive IOD, is the eastern equatorial Indian Ocean typically warmer or cooler than normal?", solution: "Cooler than normal.", answer: "Cooler" }
+      ],
+      shortcuts: ["+IOD: west warm, east cool", "Winds couple to SST gradient"],
+      traps: ["Mixing IOD geography with Pacific Niño regions"]
+    },
+    {
+      id: "meteo-iod-south-asia",
+      title: "South Asia and ENSO interaction",
+      summary: "Monsoon moisture and combined modes.",
+      explanation: "Positive and negative IODs shift rainfall risk across the Indian Ocean basin. When IOD and ENSO align unfavourably or favourably, composite impacts on monsoon rains can be stronger than either mode alone.",
+      examples: [
+        { problem: "Can a strong IOD matter for South Asian rainfall even if ENSO is near neutral?", solution: "Yes — IOD can operate with partial independence and still alter regional moisture and convection.", answer: "Yes" }
+      ],
+      shortcuts: ["IOD ≠ ENSO", "Can reinforce or oppose"],
+      traps: ["Ignoring IOD whenever ENSO is mentioned"]
+    }
+  ],
+  comparisonTable: {
+    title: "IOD phases",
+    headers: ["Phase", "Eastern Eq. IO SST"],
+    rows: [
+      ["Positive", "Cooler than normal"],
+      ["Negative", "Warmer than normal"]
     ]
   },
-  examPoints: [
-    "Positive IOD → stronger monsoon → above-normal rainfall for Pakistan; negative IOD → weaker monsoon — the sign and monsoon impact are directly testable",
-    "DMI ≥ +0.4°C defines a positive IOD event — the threshold and the index name are specific, testable numbers",
-    "IOD and ENSO can reinforce or oppose each other — when they oppose, monsoon prediction is less certain; this interaction is a key conceptual point",
-    "IOD peaks in boreal autumn (Sep–Nov); ENSO peaks in boreal winter (Dec–Feb) — the differing seasonal cycles affect their joint influence on Pakistan's summer monsoon"
+  pakistanExamFocus: [
+    "IOD is an Indian Ocean mode relevant to South Asian climate",
+    "Do not confuse IOD SST poles with Niño 3.4 in the Pacific",
+    "Interaction with ENSO can amplify monsoon impacts"
   ],
-  workedExample: {
-    problem: "An El Niño year also features a strong positive IOD. What is the expected monsoon outcome for Pakistan, and why is it less certain than an El Niño year with a negative IOD?",
-    solution: "El Niño alone tends to weaken the monsoon, but a positive IOD tends to strengthen it by shifting convection westward toward South Asia. When both occur together, the effects partially cancel — the monsoon outcome depends on which mode is stronger. This makes the forecast less certain than if both modes were in the same phase (e.g., El Niño + negative IOD, which would both weaken the monsoon and produce a more confident drought forecast). The 2015 monsoon is a textbook example: a strong El Niño was largely offset by a strong positive IOD, resulting in near-normal rainfall over much of Pakistan despite the El Niño signal.",
-    answer: "Uncertain monsoon — El Niño weakens it, positive IOD strengthens it; the outcome depends on the relative strength of each mode"
-  },
+  examPoints: [
+    "Positive vs negative IOD SST pattern",
+    "Coupled wind–convection response",
+    "South Asia relevance; ENSO interaction"
+  ],
   commonMistakes: [
-    "Assuming the IOD always follows ENSO — they are partially correlated but can operate independently; the IOD has its own dynamics and can occur without a Pacific ENSO event",
-    "Confusing positive and negative IOD impacts — positive IOD strengthens the monsoon (more rain for Pakistan), negative IOD weakens it; the sign convention is easy to reverse",
-    "Treating the DMI as a single-region SST anomaly — it is a difference between two regions, not the anomaly of one",
-    "Assuming the IOD and ENSO have the same seasonal cycle — IOD peaks in autumn, ENSO peaks in winter; this timing difference matters for forecasting"
+    "Placing IOD in the Pacific.",
+    "Treating IOD as identical to ENSO.",
+    "Ignoring seasonal dependence.",
+    "One-directional impact claims only."
   ],
   relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-ocean-currents", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
-    subtopics: [
-      {
-        id: "meteo-iod-the-iod-mechanism-a-mini-walker-circulat",
-        title: "The IOD mechanism: a mini-Walker Circulation in the Indian Ocean",
-        summary: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD,…",
-        explanation: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD, anomalous easterly winds along the equator push warm surface water westward toward East Africa and induce upwelling in the southeast, cooling the SSTs off Indonesia. The warm west fuels convection and rainfall over East Africa, while the cool east suppresses convection over Indonesia and Australia. The resulting pressure gradient reinforces the easterly anomalies — a Bjerknes-like feedback that sustains the dipole for several months, typically peaking in boreal autumn (September–November). The IOD's seasonality is set by the seasonal reversal of the Asian monsoon winds: the equatorial easterly anomalies that drive +IOD are most easily established after the summer monsoon has weakened.",
-                examples: [
-          {
-            problem: "Which statement best matches “The IOD mechanism: a mini-Walker Circulation in the Indian Ocean”?",
-            solution: "The accurate idea is: The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The IOD mechanism: a mini-Walker Circulation in the Indian Ocean.",
-            solution: "Stay close to the text: The IOD operates through the same coupled ocean-atmosphere feedback as ENSO, but confined to the Indian Ocean basin. During a positive IOD, anomalous easterly winds along the equator push warm surface water westward towa… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-iod-why-the-iod-matters-for-pakistan-s-monso",
-        title: "Why the IOD matters for Pakistan's monsoon",
-        summary: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture…",
-        explanation: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture supply to the monsoon circulation and tends to strengthen rainfall over South Asia, including Pakistan. A negative IOD shifts convection eastward toward Indonesia, reducing moisture availability for the monsoon and weakening rainfall. The IOD's influence is particularly important because it can either amplify or counteract ENSO's monsoon impact: a positive IOD during an El Niño year can partially offset the monsoon-weakening effect of El Niño, as observed in 2015 when El Niño did not produce the expected drought because a strong positive IOD compensated.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the IOD matters for Pakistan's monsoon”?",
-            solution: "The accurate idea is: A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the IOD matters for Pakistan's monsoon.",
-            solution: "Stay close to the text: A positive IOD shifts the Indian Ocean's main convection zone westward, closer to the Indian subcontinent. This enhances the moisture supply to the monsoon circulation and tends to strengthen rainfall over South Asia, in… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-iod-the-interaction-between-iod-and-enso",
-        title: "The interaction between IOD and ENSO",
-        summary: "IOD and ENSO are partially correlated — El Niño events tend to favor positive IOD development through atmospheric bridge mechanisms (the…",
-        explanation: "IOD and ENSO are partially correlated — El Niño events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El Niño in the Pacific can trigger easterly wind anomalies in the Indian Ocean), but the correlation is imperfect. When both modes are in phases that weaken the monsoon (El Niño + negative IOD), the drought risk is substantially elevated. When they oppose (El Niño + positive IOD), the monsoon outcome is less predictable and depends on the relative strength of each mode. This interaction is why seasonal monsoon forecasting remains challenging despite understanding both modes individually.",
-                examples: [
-          {
-            problem: "Which statement best matches “The interaction between IOD and ENSO”?",
-            solution: "The accurate idea is: IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El NiÃ±o in the Pacific can trigger easterly wind anomalies in the Indian Ocean), but the correlation is imperfect. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that pro…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The interaction between IOD and ENSO.",
-            solution: "Stay close to the text: IOD and ENSO are partially correlated â El NiÃ±o events tend to favor positive IOD development through atmospheric bridge mechanisms (the same Walker Circulation changes that produce El NiÃ±o in the Pacific can trigger… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-enso-basics", "meteo-monsoon-system"],
   leadsTo: [],
@@ -6259,100 +6048,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 5,
   title: "North Atlantic Oscillation (NAO) and Arctic Oscillation (AO)",
-  definition: "The North Atlantic Oscillation (NAO) and Arctic Oscillation (AO) are dominant modes of winter climate variability in the Northern Hemisphere, describing pressure-seesaw patterns that control the strength and track of westerly winds and storm systems across the Atlantic and Eurasia.",
+  definition: "The North Atlantic Oscillation describes a seesaw in atmospheric mass between the subtropical Azores high and the Icelandic low, steering North Atlantic storm tracks. The Arctic Oscillation (Northern Annular Mode) is a related hemispheric pattern of pressure anomalies between the polar cap and mid-latitudes. Both shape European and North Atlantic winter climate and can influence downstream wave patterns.",
   keyFacts: [
-    "NAO is defined by the pressure difference between the Icelandic Low (near Iceland) and the Azores High (near the Azores); measured by the NAO Index",
-    "Positive NAO phase: strong pressure gradient → stronger westerlies → mild, wet winters in northern Europe; drier conditions in the Mediterranean and Middle East",
-    "Negative NAO phase: weak pressure gradient → weaker westerlies → cold, dry winters in northern Europe; wetter conditions in the Mediterranean; blocking highs divert storms southward",
-    "Arctic Oscillation (AO) is the hemispheric-scale version of the NAO, defined by the pressure difference between the Arctic and mid-latitudes (37°–45°N); the NAO is the AO's North Atlantic regional expression",
-    "Both modes operate primarily in boreal winter (December–March) and shift on weekly to decadal timescales"
+    "Positive NAO: stronger Icelandic low / Azores high contrast; stronger westerlies; milder/wetter northern Europe in many classic composites",
+    "Negative NAO: weaker gradient; more blocking; colder outbreaks into parts of Europe/eastern North America in typical patterns",
+    "AO positive: lower-than-normal polar pressure, stronger polar vortex signature in annular sense",
+    "AO negative: higher polar pressure, weaker vortex, more mid-latitude cold-air spills in typical composites",
+    "NAO can be viewed as the Atlantic sector expression related to the AO",
+    "Timescales: days to seasons — important for winter outlooks"
   ],
   explanationSections: [
-    { heading: "The NAO pressure seesaw and its winter impacts", body: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. These strong westerlies carry mild, moist maritime air deep into northern Europe, producing warmer-than-average winters. The same strong flow suppresses meridional (north-south) exchange, keeping cold Arctic air bottled up near the pole. In the negative phase, both pressure centers weaken, the westerlies slow, and blocking anticyclones form over Greenland or Scandinavia, allowing cold Arctic air to spill southward into Europe and the Mediterranean while storms are deflected southward." },
-    { heading: "How the AO relates to the NAO", body: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60°N) and the mid-latitudes (37°–45°N). The NAO is essentially the AO's signature over the North Atlantic sector, where the signal is strongest. When the AO is positive, the polar vortex is strong and cold air stays trapped near the pole; when negative, the polar vortex weakens and cold air outbreaks reach mid-latitudes. Because the NAO and AO are so closely related, they are often used interchangeably in operational forecasting, though the AO captures additional Pacific and Siberian sector variability that the NAO does not." },
-    { heading: "Relevance to South Asian winter weather", body: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances that reach Pakistan and northern India as winter western disturbances (WDs). A negative NAO can favor a more southerly storm track, potentially bringing more winter precipitation to Pakistan's northern regions via these disturbances, though this teleconnection is weaker and less robust than the ENSO-monsoon link. WDs are the primary winter precipitation source for northern Pakistan and are critical for the Indus basin's snowpack." }
+    { heading: "Pressure seesaws steer the storm track", body: "When the Atlantic dipole is strong, the jet and storms fire across the ocean into northern Europe. When it collapses, blocking and cold air reconfigure the winter map." }
   ],
-  examPoints: [
-    "Positive NAO = strong westerlies, mild wet northern Europe, dry Mediterranean; negative NAO = weak westerlies, cold Europe, wet Mediterranean — the phase-impact pairing is the core testable fact",
-    "AO is the hemispheric version of the NAO; the NAO is the AO's regional expression over the North Atlantic — they are not independent modes",
-    "Both modes primarily operate in boreal winter (Dec–Mar) — their seasonality is a specific, testable detail",
-    "Negative NAO/AO can enhance winter western disturbance activity over northern Pakistan via Rossby wave trains"
+  subtopics: [
+    {
+      id: "meteo-nao-ao-nao",
+      title: "NAO dipole and impacts",
+      summary: "Azores–Iceland mass seesaw controls Atlantic storm path.",
+      explanation: "Positive NAO winters often bring a vigorous storm track and milder maritime air to northwest Europe. Negative NAO winters favour disrupted westerlies and a greater chance of cold continental outbreaks in classic teaching composites.",
+      examples: [
+        { problem: "Which NAO phase is associated with a stronger-than-normal pressure difference between Iceland and the Azores?", solution: "Positive NAO.", answer: "Positive NAO" }
+      ],
+      shortcuts: ["+NAO = strong dipole / strong westerlies", "−NAO = weak dipole / more blocking"],
+      traps: ["Applying NAO rules unchanged to South Asian summer monsoon"]
+    },
+    {
+      id: "meteo-nao-ao-ao",
+      title: "AO / annular mode",
+      summary: "Polar vs mid-latitude pressure contrast.",
+      explanation: "The AO index captures a more annular pattern. Positive AO aligns with a tighter polar vortex and less frequent severe cold air in mid-latitudes in typical composites; negative AO does the opposite tendency.",
+      examples: [
+        { problem: "Is the AO primarily a tropical Pacific SST mode like ENSO?", solution: "No — it is a high-latitude / annular atmospheric mode.", answer: "No — annular / high-latitude" }
+      ],
+      shortcuts: ["AO = Northern Annular Mode family", "Related to NAO but wider"],
+      traps: ["Equating AO with El Niño"]
+    }
   ],
-  workedExample: {
-    problem: "A strongly negative NAO persists through January. Describe the expected winter weather pattern for northern Europe and explain the mechanism.",
-    solution: "A negative NAO means the Icelandic Low and Azores High are both weak, reducing the pressure gradient and slowing the westerlies. Without strong westerlies to carry mild Atlantic air eastward, blocking highs form over Greenland or Scandinavia, diverting storms southward toward the Mediterranean. Northern Europe experiences cold, dry conditions as Arctic air spills southward around the block, while the Mediterranean receives above-normal precipitation from the displaced storm track.",
-    answer: "Cold, dry northern Europe; wet Mediterranean; mechanism: weak pressure gradient → weak westerlies → blocking highs → cold air outbreaks and southward-shifted storm track"
+  comparisonTable: {
+    title: "NAO phases (classic winter sketch)",
+    headers: ["Phase", "Atlantic westerlies"],
+    rows: [
+      ["Positive", "Stronger"],
+      ["Negative", "Weaker / more blocked"]
+    ]
   },
+  examPoints: [
+    "NAO = Azores–Iceland pressure seesaw",
+    "Positive vs negative winter impacts (classic)",
+    "AO related annular pattern"
+  ],
   commonMistakes: [
-    "Confusing positive and negative NAO impacts — positive NAO brings mild weather to northern Europe, not cold; the association of 'negative' with 'bad weather' is a common intuitive trap",
-    "Treating the NAO and AO as completely independent modes — they are the same phenomenon at different scales; the NAO is the AO's Atlantic expression",
-    "Assuming the NAO operates year-round with equal strength — it is primarily a winter phenomenon; summer NAO is much weaker and less well-defined",
-    "Overstating the NAO's relevance to Pakistan — the ENSO-monsoon link is far more robust than any NAO-Pakistan teleconnection; WDs are influenced by NAO but the effect is weak and probabilistic"
+    "Confusing NAO with ENSO.",
+    "Ignoring seasonality of impacts.",
+    "Treating composites as every-year certainty.",
+    "Mixing AO with IOD."
   ],
   relatedTopics: ["meteo-enso-global-impacts", "meteo-mjo", "meteo-jet-stream", "meteo-global-circulation", "meteo-rossby-waves", "meteo-western-disturbances"],
-    subtopics: [
-      {
-        id: "meteo-nao-ao-the-nao-pressure-seesaw-and-its-winter-i",
-        title: "The NAO pressure seesaw and its winter impacts",
-        summary: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates…",
-        explanation: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. These strong westerlies carry mild, moist maritime air deep into northern Europe, producing warmer-than-average winters. The same strong flow suppresses meridional (north-south) exchange, keeping cold Arctic air bottled up near the pole. In the negative phase, both pressure centers weaken, the westerlies slow, and blocking anticyclones form over Greenland or Scandinavia, allowing cold Arctic air to spill southward into Europe and the Mediterranean while storms are deflected southward.",
-                examples: [
-          {
-            problem: "Which statement best matches “The NAO pressure seesaw and its winter impacts”?",
-            solution: "The accurate idea is: In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The NAO pressure seesaw and its winter impacts.",
-            solution: "Stay close to the text: In the positive NAO phase, the Icelandic Low deepens and the Azores High strengthens, creating a steep pressure gradient that accelerates westerly winds across the Atlantic. These strong westerlies carry mild, moist mari… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-nao-ao-how-the-ao-relates-to-the-nao",
-        title: "How the AO relates to the NAO",
-        summary: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar…",
-        explanation: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60°N) and the mid-latitudes (37°–45°N). The NAO is essentially the AO's signature over the North Atlantic sector, where the signal is strongest. When the AO is positive, the polar vortex is strong and cold air stays trapped near the pole; when negative, the polar vortex weakens and cold air outbreaks reach mid-latitudes. Because the NAO and AO are so closely related, they are often used interchangeably in operational forecasting, though the AO captures additional Pacific and Siberian sector variability that the NAO does not.",
-                examples: [
-          {
-            problem: "Which statement best matches “How the AO relates to the NAO”?",
-            solution: "The accurate idea is: The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitudes (37Â°â45Â°N). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitud…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How the AO relates to the NAO.",
-            solution: "Stay close to the text: The Arctic Oscillation describes the same pressure-seesaw pattern but at hemispheric scale, using pressure differences between the polar cap (poleward of 60Â°N) and the mid-latitudes (37Â°â45Â°N). The NAO is essentiall… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-nao-ao-relevance-to-south-asian-winter-weather",
-        title: "Relevance to South Asian winter weather",
-        summary: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward…",
-        explanation: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances that reach Pakistan and northern India as winter western disturbances (WDs). A negative NAO can favor a more southerly storm track, potentially bringing more winter precipitation to Pakistan's northern regions via these disturbances, though this teleconnection is weaker and less robust than the ENSO-monsoon link. WDs are the primary winter precipitation source for northern Pakistan and are critical for the Indus basin's snowpack.",
-                examples: [
-          {
-            problem: "Which statement best matches “Relevance to South Asian winter weather”?",
-            solution: "The accurate idea is: During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances that reach Pakistan and northern India as winter western disturbances (WDs). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Relevance to South Asian winter weather.",
-            solution: "Stay close to the text: During a negative NAO/AO phase, the weakened westerlies and blocking patterns over the North Atlantic can extend their influence eastward via Rossby wave trains, altering the path of mid-latitude westerly disturbances th… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-rossby-waves", "meteo-global-circulation"],
   leadsTo: [],
@@ -6364,101 +6115,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 6,
   title: "Madden-Julian Oscillation (MJO): Tropical Convection and Sub-seasonal Weather",
-  definition: "The Madden-Julian Oscillation (MJO) is an eastward-propagating disturbance of tropical convection, circulation, and rainfall that traverses the equatorial Indian and Pacific Oceans every 30–60 days, making it the dominant mode of sub-seasonal tropical variability.",
+  definition: "The Madden–Julian Oscillation is an eastward-moving pattern of enhanced and suppressed tropical convection, primarily over the Indian and Pacific Oceans, with a typical period of about 30–60 days. It is the leading mode of intraseasonal tropical variability and modulates monsoon breaks/active spells, tropical cyclones, and teleconnections on sub-seasonal timescales.",
   keyFacts: [
-    "The MJO consists of an active convective phase (enhanced rainfall) and a suppressed phase (reduced rainfall), moving eastward at roughly 5 m/s along the equator from the Indian Ocean to the western/central Pacific",
-    "Lifecycle: 30–60 days per complete cycle; the convective envelope typically initiates over the western Indian Ocean, propagates eastward through the Maritime Continent, and weakens over the central Pacific",
-    "The MJO is tracked using the Wheeler-Hendon Real-time Multivariate MJO (RMM) index, which decomposes equatorial fields (OLR, U850, U200) into phases 1–8 corresponding to the convective signal's longitude",
-    "MJO influences the Indian monsoon: the active convective phase over the Indian Ocean (RMM phases 2–3) tends to enhance monsoon rainfall; the suppressed phase (RMM phases 5–6) tends to bring monsoon breaks (dry spells)",
-    "Unlike ENSO (interannual), the MJO is sub-seasonal (30–60 days) and does not involve coupled ocean-atmosphere feedback in the same sustained way — it is primarily an atmospheric wave phenomenon",
-    "The MJO is strongest in boreal winter and spring; during the Asian summer monsoon, the MJO signal is weaker but still modulates active/break cycles"
+    "Eastward propagation of convective envelope at low latitudes",
+    "Period roughly 30–60 days — longer than synoptic weather, shorter than ENSO",
+    "Alternating enhanced and suppressed rainfall phases",
+    "Strongest signal over the Indo-Pacific warm pool region",
+    "Influences monsoon intraseasonal variability and can modulate TC activity",
+    "Used in sub-seasonal (weeks ahead) prediction"
   ],
   explanationSections: [
-    { heading: "How the MJO propagates eastward", body: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective cluster matures, it excites Kelvin waves and Rossby waves that shift the convection eastward through the Maritime Continent (Indonesia) and into the western Pacific. Behind the active convective region, a suppressed phase (reduced convection, dry conditions) follows. The entire envelope moves eastward at about 5 m/s, completing a circuit from the Indian Ocean to the central Pacific in roughly 30–60 days before dissipating over the cooler eastern Pacific. The RMM index captures this propagation in 8 phases: phases 1–2 (Indian Ocean), phases 3–4 (Maritime Continent), phases 5–6 (western Pacific), phases 7–8 (western Hemisphere)." },
-    { heading: "MJO and the Indian/Pakistan monsoon connection", body: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2–3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan. When the suppressed phase passes (RMM phases 5–6), it weakens monsoon convection, producing 'monsoon breaks' — multi-day dry spells within the monsoon season. Because the MJO cycle is 30–60 days, a single monsoon season (June–September) typically experiences 2–4 MJO cycles, each producing an active-break sequence. This is why monsoon rainfall is not continuous but comes in pulses, and why sub-seasonal forecasting of monsoon breaks — critical for agriculture and flood management — requires MJO prediction." },
-    { heading: "MJO vs. ENSO: timescale and mechanism", body: "ENSO operates on interannual timescales (2–7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. The MJO operates on sub-seasonal timescales (30–60 days) and is primarily an atmospheric wave phenomenon — it does not require a sustained SST anomaly to exist. However, the MJO is modulated by ENSO: during El Niño, the MJO's convection tends to be shifted eastward, and MJO events initiating over the western Pacific are more common. The two modes interact but operate on fundamentally different timescales, filling different forecasting gaps: ENSO for seasonal (months ahead), MJO for sub-seasonal (weeks ahead)." }
+    { heading: "The weekly-to-monthly tropical pulse", body: "While ENSO sets a seasonal background, the MJO pulses convection eastward every few weeks. Monsoon active and break spells often lock onto that pulse." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-mjo-structure",
+      title: "Structure and timescale",
+      summary: "Eastward convective couplet; 30–60 day period.",
+      explanation: "An active MJO phase brings enhanced cloudiness and rainfall; a suppressed phase brings clearer, drier conditions in the same longitude band as the envelope passes. Propagation speed and amplitude vary by event.",
+      examples: [
+        { problem: "Is the MJO primarily an interannual mode like ENSO?", solution: "No — it is intraseasonal (roughly 30–60 days).", answer: "No — intraseasonal" }
+      ],
+      shortcuts: ["MJO ≈ 30–60 days", "Eastward tropical convection pulse"],
+      traps: ["Confusing MJO period with ENSO years"]
+    },
+    {
+      id: "meteo-mjo-impacts",
+      title: "Monsoon and sub-seasonal impacts",
+      summary: "Active/break spells and wider teleconnections.",
+      explanation: "For South Asia, MJO phases help explain why monsoon rains come in bursts rather than a steady seasonal faucet. Globally, the MJO can also influence mid-latitude patterns and tropical cyclone likelihood in favourable basins.",
+      examples: [
+        { problem: "Why does the MJO matter for monsoon forecasting beyond the seasonal mean?", solution: "It organises active and break periods on weekly-to-monthly scales inside the season.", answer: "Intraseasonal active/break structure" }
+      ],
+      shortcuts: ["MJO ↔ active/break", "Sub-seasonal prediction tool"],
+      traps: ["Using only seasonal ENSO for all monsoon variability"]
+    }
+  ],
+  comparisonTable: {
+    title: "Timescale comparison",
+    headers: ["Mode", "Typical scale"],
+    rows: [
+      ["Synoptic storm", "Days"],
+      ["MJO", "30–60 days"],
+      ["ENSO", "Seasons to ~1 year"]
+    ]
+  },
+  pakistanExamFocus: [
+    "MJO helps explain intraseasonal monsoon variability",
+    "Distinct from ENSO interannual forcing",
+    "Relevant to sub-seasonal outlooks"
   ],
   examPoints: [
-    "MJO period: 30–60 days; direction: eastward; initiation region: western Indian Ocean — these three facts are the most commonly tested MJO details",
-    "MJO active phase over Indian Ocean (RMM phases 2–3) → enhanced monsoon rainfall; suppressed phase (RMM phases 5–6) → monsoon break (dry spell) — the MJO-monsoon link is the key South Asian application",
-    "MJO is sub-seasonal (30–60 days); ENSO is interannual (2–7 years) — the timescale distinction is a conceptual exam point",
-    "The MJO fills the forecast gap between medium-range weather prediction (1–2 weeks) and seasonal climate prediction (months)"
+    "Eastward intraseasonal convective mode",
+    "≈30–60 day period",
+    "Monsoon active/break link"
   ],
-  workedExample: {
-    problem: "During the South Asian summer monsoon, a city experiences 10 days of heavy rain followed by 8 days of dry weather, then another burst of rain. Explain how the MJO could account for this pattern.",
-    solution: "The MJO's active convective phase (RMM phases 2–3) passed over the Indian Ocean, enhancing monsoon convection and producing the 10-day burst of heavy rain. As the MJO propagated eastward toward the Maritime Continent, its suppressed phase (RMM phases 5–6) followed, producing the 8-day dry spell (a monsoon break). As the next MJO cycle's active phase entered the Indian Ocean, rainfall resumed. This active-break-active sequence on a ~30-day timescale is characteristic of MJO modulation of the monsoon.",
-    answer: "MJO active phase → heavy rain; MJO suppressed phase → dry break; next MJO cycle → renewed rain; total ~30-day cycle"
-  },
   commonMistakes: [
-    "Confusing MJO (30–60 days, sub-seasonal) with ENSO (2–7 years, interannual) — they operate on entirely different timescales and are distinct phenomena",
-    "Assuming the MJO propagates westward — it propagates eastward, from the Indian Ocean toward the Pacific",
-    "Treating the MJO as a coupled ocean-atmosphere mode like ENSO — it is primarily an atmospheric wave phenomenon, though it is modulated by underlying SSTs",
-    "Assuming the MJO operates year-round with equal strength — it is strongest in boreal winter and spring; during the Asian summer monsoon, the signal is weaker and the monsoon circulation itself is the dominant mode of variability"
+    "Equating MJO with ENSO.",
+    "Wrong timescale.",
+    "Ignoring suppressed phases.",
+    "Treating MJO as a permanent climate classification."
   ],
   relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
-    subtopics: [
-      {
-        id: "meteo-mjo-how-the-mjo-propagates-eastward",
-        title: "How the MJO propagates eastward",
-        summary: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective…",
-        explanation: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective cluster matures, it excites Kelvin waves and Rossby waves that shift the convection eastward through the Maritime Continent (Indonesia) and into the western Pacific. Behind the active convective region, a suppressed phase (reduced convection, dry conditions) follows. The entire envelope moves eastward at about 5 m/s, completing a circuit from the Indian Ocean to the central Pacific in roughly 30–60 days before dissipating over the cooler eastern Pacific. The RMM index captures this propagation in 8 phases: phases 1–2 (Indian Ocean), phases 3–4 (Maritime Continent), phases 5–6 (western Pacific), phases 7–8 (western Hemisphere).",
-                examples: [
-          {
-            problem: "Which statement best matches “How the MJO propagates eastward”?",
-            solution: "The accurate idea is: The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How the MJO propagates eastward.",
-            solution: "Stay close to the text: The MJO begins as enhanced convection over the western Indian Ocean, driven by warm SSTs and atmospheric wave dynamics. As the convective cluster matures, it excites Kelvin waves and Rossby waves that shift the convectio… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-mjo-mjo-and-the-indian-pakistan-monsoon-conn",
-        title: "MJO and the Indian/Pakistan monsoon connection",
-        summary: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2–3), it enhances the large-scale rising motion that feeds…",
-        explanation: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2–3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan. When the suppressed phase passes (RMM phases 5–6), it weakens monsoon convection, producing 'monsoon breaks' — multi-day dry spells within the monsoon season. Because the MJO cycle is 30–60 days, a single monsoon season (June–September) typically experiences 2–4 MJO cycles, each producing an active-break sequence. This is why monsoon rainfall is not continuous but comes in pulses, and why sub-seasonal forecasting of monsoon breaks — critical for agriculture and flood management — requires MJO prediction.",
-                examples: [
-          {
-            problem: "Which statement best matches “MJO and the Indian/Pakistan monsoon connection”?",
-            solution: "The accurate idea is: When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy r…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying MJO and the Indian/Pakistan monsoon connection.",
-            solution: "Stay close to the text: When the MJO's active convective phase passes over the Indian Ocean (RMM phases 2â3), it enhances the large-scale rising motion that feeds the monsoon, bringing bursts of heavy rainfall to South Asia including Pakistan… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-mjo-mjo-vs-enso-timescale-and-mechanism",
-        title: "MJO vs. ENSO: timescale and mechanism",
-        summary: "ENSO operates on interannual timescales (2–7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that…",
-        explanation: "ENSO operates on interannual timescales (2–7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. The MJO operates on sub-seasonal timescales (30–60 days) and is primarily an atmospheric wave phenomenon — it does not require a sustained SST anomaly to exist. However, the MJO is modulated by ENSO: during El Niño, the MJO's convection tends to be shifted eastward, and MJO events initiating over the western Pacific are more common. The two modes interact but operate on fundamentally different timescales, filling different forecasting gaps: ENSO for seasonal (months ahead), MJO for sub-seasonal (weeks ahead).",
-                examples: [
-          {
-            problem: "Which statement best matches “MJO vs. ENSO: timescale and mechanism”?",
-            solution: "The accurate idea is: ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying MJO vs. ENSO: timescale and mechanism.",
-            solution: "Stay close to the text: ENSO operates on interannual timescales (2â7 years) and involves a sustained coupled ocean-atmosphere feedback (Bjerknes feedback) that persists for months. The MJO operates on sub-seasonal timescales (30â60 days) an… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-global-circulation", "meteo-precipitation-processes"],
   leadsTo: [],
@@ -6470,77 +6188,63 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 7,
   title: "AMOC Slowdown & Climate Impacts",
-  definition: "The Atlantic Meridional Overturning Circulation (AMOC) is the Atlantic limb of the global thermohaline conveyor; observational and proxy evidence indicates it has weakened in recent decades, with potential major impacts on European climate, North American sea level and tropical rainfall patterns if the slowdown continues or crosses a tipping point.",
+  definition: "The Atlantic Meridional Overturning Circulation (AMOC) is the Atlantic branch of the global overturning circulation that transports warm water northward in the upper layers and returns colder water at depth. A slowdown would alter regional heat transport, with potential impacts on North Atlantic climates, sea level patterns, and wider climate linkages — a topic of active research and IPCC assessment.",
   keyFacts: [
-    "AMOC transports ~15–20 Sv of volume and ~1–1.3 PW of heat northward in the Atlantic",
-    "Deep-water formation in the Nordic and Labrador Seas is the engine; freshening (ice melt, increased precipitation) reduces density and can slow the overturning",
-    "Multiple lines of evidence (RAPID array, SST 'cold blob' south of Greenland, paleo proxies) indicate a weakening of order 10–20 % since the mid-20th century; the modern state appears the weakest in at least 1 000 years",
-    "Consequences of substantial weakening: cooler northern Europe / North Atlantic, reduced Arctic sea-ice loss rate, higher sea level along the U.S. East Coast, possible southward shift of the tropical rain belt and impacts on West African and South Asian monsoons",
-    "Complete collapse is considered low-probability this century by most CMIP models, but a significant further slowdown remains a serious risk; Southern Ocean upwelling provides a stabilising mechanism that makes total collapse difficult"
+    "AMOC carries significant heat into the North Atlantic",
+    "Deep water formation in the North Atlantic is a key component",
+    "Freshwater input and warming can reduce density and inhibit sinking — a slowdown mechanism hypothesis",
+    "Slowdown ≠ immediate global ice age; impacts are regional and complex",
+    "Observational records and models assess trends and projections with uncertainty",
+    "Linked to thermohaline circulation concepts studied under ocean currents"
   ],
   explanationSections: [
+    { heading: "Heat transport, not a light switch", body: "AMOC slowdown discussions are about weakening overturning and redistributing heat and sea level, not a sudden Hollywood freeze. Stick to mechanisms: density, freshwater, and heat transport." }
+  ],
+  subtopics: [
     {
-      heading: "Why freshening weakens the AMOC",
-      body: "Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude precipitation lowers surface salinity and density, reducing the sinking rate and thereby weakening the entire overturning loop."
+      id: "meteo-amoc-slowdown-mechanism",
+      title: "What AMOC is and why it might slow",
+      summary: "Northward heat transport; density-sensitive sinking.",
+      explanation: "If high-latitude surface waters become warmer or fresher, they may sink less readily, weakening the overturning. Melting ice and enhanced precipitation are candidate freshwater sources in change scenarios.",
+      examples: [
+        { problem: "Why does added freshwater at high latitudes potentially weaken AMOC?", solution: "Fresher water is less dense, which can reduce deep-water formation and overturning strength.", answer: "Lower density → less sinking" }
+      ],
+      shortcuts: ["AMOC = Atlantic overturning heat transport", "Density controls sinking"],
+      traps: ["Claiming AMOC stop equals instant global glaciation"]
     },
     {
-      heading: "Observational fingerprints",
-      body: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Direct measurements by the RAPID-MOCHA array at 26.5°N since 2004 also show a declining trend."
+      id: "meteo-amoc-slowdown-impacts",
+      title: "Impacts and uncertainty",
+      summary: "Regional climate and sea-level fingerprints; active research.",
+      explanation: "A weaker AMOC could cool or alter climate in parts of the North Atlantic sector relative to a world without slowdown, while global greenhouse warming continues. Sea-level and tropical rain-belt shifts are also discussed in the literature. Uncertainty remains in timing and magnitude.",
+      examples: [
+        { problem: "Does AMOC slowdown research replace greenhouse warming as the main global temperature story?", solution: "No — it is a regional circulation risk within a greenhouse-warmed climate system.", answer: "No — regional circulation issue" }
+      ],
+      shortcuts: ["Regional, not simple global freeze", "Uncertainty in rate"],
+      traps: ["Media extreme scenarios as settled exam fact"]
     }
   ],
+  comparisonTable: {
+    title: "AMOC concepts",
+    headers: ["Concept", "Point"],
+    rows: [
+      ["Role", "Atlantic heat / volume overturning"],
+      ["Risk mechanism", "Reduced high-latitude sinking"],
+      ["Impact style", "Regional redistribution + uncertainty"]
+    ]
+  },
   examPoints: [
-    "AMOC weakening is linked to the North Atlantic warming hole / cold blob",
-    "Major impacts: cooler Europe, higher U.S. East Coast sea level, possible monsoon shifts",
-    "Freshwater input from ice melt is the primary proposed mechanism for anthropogenic slowdown"
+    "AMOC = Atlantic meridional overturning",
+    "Density/freshwater sensitivity",
+    "Slowdown ≠ instant ice age narrative"
   ],
   commonMistakes: [
-    "Equating any AMOC slowdown with immediate collapse — models and theory indicate a range of weakened but still active states",
-    "Ignoring the stabilising role of Southern Ocean winds and upwelling"
+    "Hollywood ice-age claims.",
+    "Ignoring uncertainty.",
+    "Detaching from thermohaline basics.",
+    "Confusing AMOC with ENSO."
   ],
   relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-climate-feedbacks", "meteo-radiative-forcing", "meteo-global-climate-regions"],
-    subtopics: [
-      {
-        id: "meteo-amoc-slowdown-why-freshening-weakens-the-amoc",
-        title: "Why freshening weakens the AMOC",
-        summary: "Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude…",
-        explanation: "Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude precipitation lowers surface salinity and density, reducing the sinking rate and thereby weakening the entire overturning loop.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why freshening weakens the AMOC”?",
-            solution: "The accurate idea is: Sinking in the North Atlantic requires cold, salty, dense water. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Sinking in the North Atlantic requires cold, salty, dense water.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why freshening weakens the AMOC.",
-            solution: "Stay close to the text: Sinking in the North Atlantic requires cold, salty, dense water. Added freshwater from Greenland melt and increased high-latitude precipitation lowers surface salinity and density, reducing the sinking rate and thereby w… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-amoc-slowdown-observational-fingerprints",
-        title: "Observational fingerprints",
-        summary: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat…",
-        explanation: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Direct measurements by the RAPID-MOCHA array at 26.5°N since 2004 also show a declining trend.",
-                examples: [
-          {
-            problem: "Which statement best matches “Observational fingerprints”?",
-            solution: "The accurate idea is: A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Observational fingerprints.",
-            solution: "Stay close to the text: A cooler 'cold blob' in the subpolar North Atlantic despite global warming is widely interpreted as a fingerprint of reduced northward heat transport by a weaker AMOC. Direct measurements by the RAPID-MOCHA array at 26.5… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-ocean-currents", "meteo-climate-feedbacks"],
   leadsTo: [],
