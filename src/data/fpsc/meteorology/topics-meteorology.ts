@@ -4524,79 +4524,71 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 1,
   title: "The Indian Ocean Monsoon System",
-  definition: "The Indian Ocean monsoon, driven by continental-scale differential heating, is the primary driver of Pakistan's seasonal weather and water resources — supplying over 70% of the country's annual rainfall during the boreal summer (June–September).",
+  definition: "The South Asian monsoon is a seasonal reversal of winds and rainfall driven by differential heating of land and ocean, the seasonal migration of the ITCZ, and Himalayan topography. For Pakistan it delivers highly uneven summer rainfall — critical where it arrives, unreliable where it does not.",
   keyFacts: [
-    "Summer monsoon (Jun–Sep): Monsoon Low over Balochistan/NW India draws moist southwesterly winds from the Arabian Sea and Bay of Bengal; forced upward by the Himalayas and Hindu Kush, producing torrential rain",
-    "Summer monsoon provides over 70% of Pakistan's annual rainfall, fills Tarbela and Mangla reservoirs, and drives rain-fed and irrigated agriculture",
-    "Winter monsoon (Dec–Mar): Siberian High produces dry, cool, stable northeasterly winds — Pakistan's dry season, though northern mountains receive winter precipitation from mid-latitude westerly disturbances (a separate mechanism, not strictly the winter monsoon)",
-    "Monsoon onset typically occurs in early July over Pakistan (later than over central/eastern India), and withdrawal occurs in mid-September — a shorter and more intense monsoon window than India experiences",
-    "Monsoon trough: an elongated area of low pressure extending from the monsoon low over Balochistan southeastward into the Bay of Bengal, along which the most active convection occurs",
-    "Indian Ocean Dipole (IOD) modulates monsoon strength: positive IOD tends to enhance the monsoon; negative IOD tends to weaken it (covered in detail in METEO-M)"
+    "Summer: moist southwesterlies from the Arabian Sea / Bay of Bengal region toward heated land",
+    "Winter: relatively dry northeasterly flow over much of the subcontinent",
+    "ITCZ / monsoon trough migration organises the rain belt",
+    "Himalayas block and lift moisture — orography shapes rainfall maps",
+    "Pakistan lies on the northwestern fringe — monsoon is partial and variable, not uniformly wet",
+    "Onset, breaks, and withdrawal create intra-seasonal swings in rainfall"
   ],
   explanationSections: [
-    { heading: "Why the mountains matter", body: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Without this orographic lift, far less rain would fall despite the moist air arriving. The same mountains also block the cold dry winter winds from Central Asia from reaching the plains, keeping winter temperatures moderate south of the mountain front." },
-    { heading: "Why the monsoon has an annual reversal", body: "The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan Plateau) heats much faster than the surrounding Indian Ocean, creating a thermal low over the continent and drawing moist ocean air inland — the summer monsoon. In winter, the landmass cools faster than the ocean, creating the Siberian High and reversing the flow to dry northeasterly winds — the winter monsoon. This is essentially a giant seasonal sea breeze operating at continental scale, amplified by the elevated heat source of the Tibetan Plateau." }
+    { heading: "Reversal with geography", body: "Monsoon is not merely ‘summer rain’. It is a coupled circulation–rainfall system. Pakistan’s position at the edge of the core Indian monsoon domain means many districts receive modest totals while others, especially toward the east and along windward slopes, can see intense events." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-indian-ocean-monsoon-mechanism",
+      title: "Land–sea heating and seasonal winds",
+      summary: "Summer inflow of moisture; winter relative dryness.",
+      explanation: "Intense summer heating over the subcontinent and Tibetan region deepens the monsoon trough and draws maritime air inland. In winter the land cools and the large-scale flow is less favourable for widespread moist ascent over Pakistan.",
+      examples: [
+        { problem: "In which season does Pakistan typically receive the bulk of monsoon rainfall?", solution: "Summer (roughly June–September core), when moist maritime flow and the monsoon trough are active.", answer: "Summer" }
+      ],
+      shortcuts: ["Summer = moist inflow", "Winter ≠ main monsoon rain"],
+      traps: ["Treating monsoon as year-round rain"]
+    },
+    {
+      id: "meteo-indian-ocean-monsoon-pakistan-fringe",
+      title: "Pakistan on the monsoon fringe",
+      summary: "Uneven totals; orography and breaks matter.",
+      explanation: "Unlike the Western Ghats core, much of Pakistan is arid to semi-arid. Monsoon rain can still flood rivers when organised systems stall, yet seasonal means remain low in many western and interior areas. Breaks in the monsoon produce dry spells even in the season.",
+      examples: [
+        { problem: "Why can Pakistan experience both water scarcity and monsoon floods?", solution: "Rainfall is seasonal, spatially uneven, and sometimes extreme in short bursts on a landscape with limited storage and high PE.", answer: "Uneven extremes on an arid baseline" }
+      ],
+      shortcuts: ["Fringe = variable", "Flood ≠ humid climate"],
+      traps: ["Assuming all Pakistan is humid monsoon country"]
+    }
+  ],
+  comparisonTable: {
+    title: "Seasonal monsoon sketch",
+    headers: ["Season", "Typical large-scale moisture"],
+    rows: [
+      ["Summer", "Maritime inflow; monsoon rains (uneven)"],
+      ["Winter", "Drier large-scale flow; WD rain in north"]
+    ]
+  },
+  pakistanExamFocus: [
+    "Pakistan is on the northwestern edge of the South Asian monsoon",
+    "Summer monsoon ≠ winter western disturbances",
+    "Spatial unevenness is as important as the seasonal name"
   ],
   examPoints: [
-    "Summer monsoon provides over 70% of Pakistan's annual rainfall — this single statistic is the most frequently tested monsoon fact",
-    "Monsoon onset in Pakistan is typically early July; withdrawal is mid-September — a shorter window than central India (June–September)",
-    "The Himalayas and Hindu Kush provide the orographic lift that converts moist monsoon flow into heavy rainfall",
-    "The winter monsoon (NE winds) is the dry season for most of Pakistan; winter precipitation in the north comes from westerly disturbances, not the monsoon itself"
+    "Seasonal wind/rainfall reversal",
+    "Land–sea heating + topography",
+    "Pakistan fringe variability"
   ],
   commonMistakes: [
-    "Thinking the monsoon is only an Indian phenomenon.",
-    "Ignoring ENSO and IOD influences on variability.",
-    "Assuming onset and withdrawal dates never vary.",
-    "Mixing Arabian Sea and Bay of Bengal moisture contributions.",
+    "One monsoon total for the whole country.",
+    "Mixing WD winter rain into monsoon.",
+    "Ignoring breaks and orography.",
+    "Equating flood years with a humid climate classification."
   ],
-  relatedTopics: ["meteo-monsoon-system", "meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-arabian-sea-cyclones-local", "meteo-enso-basics", "meteo-iod"],
-    subtopics: [
-      {
-        id: "meteo-indian-ocean-monsoon-why-the-mountains-matter",
-        title: "Why the mountains matter",
-        summary: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense…",
-        explanation: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Without this orographic lift, far less rain would fall despite the moist air arriving. The same mountains also block the cold dry winter winds from Central Asia from reaching the plains, keeping winter temperatures moderate south of the mountain front.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the mountains matter”?",
-            solution: "The accurate idea is: As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the countr…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the mountains matter.",
-            solution: "Stay close to the text: As moisture-laden summer monsoon winds converge over Pakistan, the Himalayas and Hindu Kush force them upward, triggering the intense precipitation that supplies most of the country's annual water. Without this orographi… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-indian-ocean-monsoon-why-the-monsoon-has-an-annual-reversal",
-        title: "Why the monsoon has an annual reversal",
-        summary: "The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan…",
-        explanation: "The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan Plateau) heats much faster than the surrounding Indian Ocean, creating a thermal low over the continent and drawing moist ocean air inland — the summer monsoon. In winter, the landmass cools faster than the ocean, creating the Siberian High and reversing the flow to dry northeasterly winds — the winter monsoon. This is essentially a giant seasonal sea breeze operating at continental scale, amplified by the elevated heat source of the Tibetan Plateau.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the monsoon has an annual reversal”?",
-            solution: "The accurate idea is: The monsoon exists because land and ocean heat up and cool down at different rates. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The monsoon exists because land and ocean heat up and cool down at different rates.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the monsoon has an annual reversal.",
-            solution: "Stay close to the text: The monsoon exists because land and ocean heat up and cool down at different rates. In summer, the Asian landmass (especially the Tibetan Plateau) heats much faster than the surrounding Indian Ocean, creating a thermal l… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-monsoon-system", "meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-arabian-sea-cyclones-local"],
   content: true,
   buildsOn: ["meteo-monsoon-system", "meteo-global-circulation", "meteo-iod"],
   leadsTo: ["meteo-temp-rainfall-distribution"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events", "env-water-pollution-and-quality"]
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-pmd-operational"]
 },
 
 {
@@ -4604,104 +4596,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 2,
   title: "Western Disturbances & Winter Rainfall",
-  definition: "Western Disturbances (WDs) are mid-latitude cyclonic storms that travel eastward along the subtropical jet stream from the Mediterranean/Caspian/Black Sea region into Pakistan and northern India during boreal winter (November–April), providing the dominant precipitation source for the northern mountains and Balochistan and a critical snowfall source for the Indus basin.",
+  definition: "Western disturbances (WDs) are eastward-moving extratropical/subtropical low-pressure systems that enter Pakistan from the west, mainly in winter and the cooler months. They bring cloud, rain, and snow to northern and western highlands and are a primary winter precipitation mechanism — distinct from the summer monsoon.",
   keyFacts: [
-    "Western Disturbances are upper-level troughs (typically at 500 hPa) embedded in the subtropical westerly jet, often with a surface low pressure system over Iran/Afghanistan/Pakistan",
-    "Active season: November–April, peaking in winter (December–March); frequency ~4–6 WDs per month during peak season",
-    "Source region: the Mediterranean, Black, and Caspian Seas, plus the Iranian Plateau — areas where mid-latitude cyclogenesis is active in winter",
-    "Track: WDs typically enter Pakistan from the northwest (Afghanistan/Iran border) and move eastward across the northern mountains, with the cloud and precipitation shield extending south and east of the upper-level trough",
-    "Precipitation contribution: WDs provide 40–60% of winter precipitation (Dec–Mar) over the northern mountains (Karakoram, Hindu Kush, western Himalaya) and the bulk of winter rainfall over Balochistan",
-    "Snowfall: WDs are the primary source of winter snowfall for the Karakoram/Hindu Kush — the snowpack that sustains Indus River baseflow through spring and summer and that ultimately forms the glacial mass",
-    "Cloud burst and hailstorm events: intense WDs can produce cloudbursts (extreme localized rainfall, >100 mm/hour briefly) and damaging hailstorms, especially over the foothills and plains",
-    "Negative NAO/AO and southward-shifted subtropical jet tend to enhance WD activity over Pakistan — the WDs follow the jet stream like beads on a string"
+    "Origin related to mid-latitude/Mediterranean storm activity; move east with the westerlies",
+    "Peak importance in winter for northern Pakistan precipitation and snowfall",
+    "Can produce severe weather: heavy snow, rain, wind, and cold-wave associations",
+    "Interact with topography — orographic enhancement on windward slopes",
+    "Not the same physical system as the summer monsoon trough",
+    "Critical for rabi crops and water storage in snow/ice reservoirs"
   ],
   explanationSections: [
-    { heading: "How western disturbances are structured", body: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may or may not be vertically aligned with the upper trough; (3) a southwesterly to westerly low-level flow ahead of the trough that transports Mediterranean/Caspian moisture eastward; (4) a precipitation shield that extends from the surface low eastward and southward, with the most intense precipitation typically on the windward (western and northern) slopes of the mountains. The vertical structure is often 'cold core' aloft with a 'warm seclusion' at the surface — a configuration that promotes instability and convection embedded in the larger-scale ascent." },
-    { heading: "Why WDs matter for Pakistan's water resources", body: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. The snowpack holds water from December through April, releasing it gradually as meltwater during spring and summer — feeding the Indus River and its tributaries when downstream regions need it most. Without WDs, the mountains would receive little winter precipitation (the summer monsoon rarely reaches the high Karakoram), the snowpack would be thin, and the Indus would have severely reduced summer baseflow. The vulnerability: if WDs become less frequent or weaker under climate change, the entire Indus-dependent agricultural and hydropower system is at risk." },
-    { heading: "Differentiating WDs from the monsoon", body: "Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones — they form in the westerlies, travel eastward along the jet stream, and draw moisture from the Mediterranean/Caspian region. The summer monsoon is a tropical circulation driven by continental heating — moisture comes from the Indian Ocean, and the flow is southwesterly. A common exam error is to attribute winter precipitation over the northern mountains to the winter monsoon; in fact, the winter monsoon brings DRY northeasterly winds, and the winter precipitation comes from WDs — a separate, mid-latitude mechanism." }
+    { heading: "Winter’s own storm track", body: "When exams ask for winter rainfall in northern Pakistan, the first answer is western disturbances, not monsoon. Jet-stream and baroclinic dynamics organise these systems; mountains wring out the moisture." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-western-disturbances-identity",
+      title: "What a WD is",
+      summary: "Eastward extratropical/subtropical systems in the cool season.",
+      explanation: "WDs appear on charts as eastward-moving troughs/lows with frontal or baroclinic character. They import moisture and dynamic lift into northern Pakistan, often under a favourable subtropical jet.",
+      examples: [
+        { problem: "Is winter rain in Islamabad / Murree belt primarily monsoon or WD-related in standard teaching?", solution: "Western disturbances in the cool season.", answer: "Western disturbances" }
+      ],
+      shortcuts: ["WD = winter/cool season north", "Eastward-moving systems"],
+      traps: ["Labelling all Pakistan rain as monsoon"]
+    },
+    {
+      id: "meteo-western-disturbances-impacts",
+      title: "Impacts and orography",
+      summary: "Snow, rain, agriculture, and hazards.",
+      explanation: "Snowpack from WDs feeds later meltwater. Intense WDs can cause landslides, avalanche risk, and transport disruption in mountains. Plains may see lighter rain or only cloud depending on track and moisture.",
+      examples: [
+        { problem: "Why do WDs matter for water resources beyond the day of rainfall?", solution: "Snow accumulation in highlands stores water for delayed release into rivers and irrigation systems.", answer: "Snow storage / delayed melt" }
+      ],
+      shortcuts: ["WD ↔ winter snow/rain north", "Orography enhances"],
+      traps: ["Ignoring agricultural rabi importance"]
+    }
+  ],
+  comparisonTable: {
+    title: "Monsoon vs western disturbances",
+    headers: ["Feature", "Monsoon", "Western disturbance"],
+    rows: [
+      ["Main season", "Summer", "Winter / cool months"],
+      ["Core region emphasis", "Broader South Asia", "North/west Pakistan track"],
+      ["System type", "Seasonal monsoon circulation", "Moving extratropical/subtropical lows"]
+    ]
+  },
+  pakistanExamFocus: [
+    "WD = primary winter precipitation mechanism for northern Pakistan",
+    "Do not confuse with summer monsoon",
+    "Snow and rabi-water implications"
   ],
   examPoints: [
-    "Western Disturbances = mid-latitude cyclonic storms traveling along the subtropical jet, peaking December–March",
-    "WDs provide 40–60% of winter precipitation over the northern mountains and the bulk of winter rainfall over Balochistan",
-    "WDs are the primary source of winter snowfall for the Karakoram/Hindu Kush — critical for Indus River baseflow",
-    "Source region: Mediterranean, Black, and Caspian Seas + Iranian Plateau; typical track enters Pakistan from the NW",
-    "WDS are NOT the winter monsoon — winter monsoon brings dry NE winds; WDs are a separate mid-latitude system"
+    "Eastward cool-season systems",
+    "Northern rain/snow importance",
+    "Distinct from monsoon"
   ],
-  workedExample: {
-    problem: "Explain why Skardu (in the Karakoram at ~2500 m) receives substantial winter snowfall, while Lahore (in the Punjab plains at ~210 m) receives only modest winter rainfall and rarely any snow.",
-    solution: "Skardu lies in the path of Western Disturbances, which are most active in winter. As WDs pass, moist southwesterly low-level flow ahead of the trough is forced upward by the Karakoram topography, producing intense orographic snowfall. The high elevation ensures precipitation falls as snow rather than rain, and the cold winter temperatures maintain the snowpack through the season. Lahore, in contrast, lies in the Punjab plains at low elevation, south of the main WD precipitation shield. WDs do reach Lahore, but the warm low-level air and modest elevation mean precipitation typically falls as rain, not snow. Furthermore, Lahore is closer to the dry descending air behind the upper trough, which suppresses precipitation. The result: Skardu accumulates 100–500+ cm of winter snow; Lahore receives 50–100 mm of winter rain and snow only in exceptional cold spells.",
-    answer: "Skardu receives heavy winter snowfall because WDs interact with Karakoram topography, forcing moist flow upward over cold mountains; Lahore is at low elevation and warmer, so WDs produce only modest rain and rarely snow"
-  },
   commonMistakes: [
-    "Confusing Western Disturbances with the winter monsoon — WDs are mid-latitude cyclones that bring precipitation; the winter monsoon brings dry NE winds. The dry season in most of Pakistan is from the winter monsoon, not from the absence of WDs (which only affect the north and Balochistan)",
-    "Attributing all northern Pakistan winter precipitation to WDs — high-elevation Karakoram also receives some winter precipitation from orographic lifting of moist westerly flow without a distinct WD, though WDs organize the most intense events",
-    "Assuming WDs are weakening with climate change — current evidence suggests WDs are becoming more variable but not systematically weaker; some studies show increased intensity of extreme WD events (cloudbursts, heavy snowfall)",
-    "Forgetting the WDs' role for Balochistan — most Balochistan rainfall is from winter WDs, not from the summer monsoon, making WDs the primary water source for that region"
+    "Calling WD rain monsoon.",
+    "Placing WD peak in July only.",
+    "Ignoring topography.",
+    "Treating WD as tropical cyclones."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-jet-stream", "meteo-nao-ao", "meteo-cyclones-structure"],
-    subtopics: [
-      {
-        id: "meteo-western-disturbances-how-western-disturbances-are-structured",
-        title: "How western disturbances are structured",
-        summary: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough…",
-        explanation: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may or may not be vertically aligned with the upper trough; (3) a southwesterly to westerly low-level flow ahead of the trough that transports Mediterranean/Caspian moisture eastward; (4) a precipitation shield that extends from the surface low eastward and southward, with the most intense precipitation typically on the windward (western and northern) slopes of the mountains. The vertical structure is often 'cold core' aloft with a 'warm seclusion' at the surface — a configuration that promotes instability and convection embedded in the larger-scale ascent.",
-                examples: [
-          {
-            problem: "Which statement best matches “How western disturbances are structured”?",
-            solution: "The accurate idea is: A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may or may not be vertically aligned with the upper trough; (3) a southwesterly to westerly low-level flow ahead of the trough that transports Mediterranean/Caspian moisture eastward; (4) a precipitation shield that extends from the surface low eastward and southward, with the most intense precipitation typically on the windward (western and northern) slopes of the mountains. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, of…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How western disturbances are structured.",
-            solution: "Stay close to the text: A typical WD consists of: (1) an upper-level trough (500 hPa and above) with associated positive vorticity advection ahead of the trough axis; (2) a surface low-pressure system, often over Iran or Afghanistan, that may o… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-western-disturbances-why-wds-matter-for-pakistan-s-water-reso",
-        title: "Why WDs matter for Pakistan's water resources",
-        summary: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water…",
-        explanation: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. The snowpack holds water from December through April, releasing it gradually as meltwater during spring and summer — feeding the Indus River and its tributaries when downstream regions need it most. Without WDs, the mountains would receive little winter precipitation (the summer monsoon rarely reaches the high Karakoram), the snowpack would be thin, and the Indus would have severely reduced summer baseflow. The vulnerability: if WDs become less frequent or weaker under climate change, the entire Indus-dependent agricultural and hydropower system is at risk.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why WDs matter for Pakistan's water resources”?",
-            solution: "The accurate idea is: The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why WDs matter for Pakistan's water resources.",
-            solution: "Stay close to the text: The winter snowpack in the Karakoram and Hindu Kush, accumulated primarily through WD precipitation, is the single most important water storage for Pakistan. The snowpack holds water from December through April, releasin… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-western-disturbances-differentiating-wds-from-the-monsoon",
-        title: "Differentiating WDs from the monsoon",
-        summary: "Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones — they form…",
-        explanation: "Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones — they form in the westerlies, travel eastward along the jet stream, and draw moisture from the Mediterranean/Caspian region. The summer monsoon is a tropical circulation driven by continental heating — moisture comes from the Indian Ocean, and the flow is southwesterly. A common exam error is to attribute winter precipitation over the northern mountains to the winter monsoon; in fact, the winter monsoon brings DRY northeasterly winds, and the winter precipitation comes from WDs — a separate, mid-latitude mechanism.",
-                examples: [
-          {
-            problem: "Which statement best matches “Differentiating WDs from the monsoon”?",
-            solution: "The accurate idea is: Western Disturbances and the summer monsoon are fundamentally different systems. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Western Disturbances and the summer monsoon are fundamentally different systems.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Differentiating WDs from the monsoon.",
-            solution: "Stay close to the text: Western Disturbances and the summer monsoon are fundamentally different systems. WDs are mid-latitude (extratropical) cyclones â they form in the westerlies, travel eastward along the jet stream, and draw moisture from… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-jet-stream"],
   content: true,
   buildsOn: ["meteo-jet-stream", "meteo-rossby-waves", "meteo-cyclones-development"],
   leadsTo: ["meteo-temp-rainfall-distribution"],
@@ -4713,109 +4669,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 3,
   title: "Arabian Sea Cyclones, Summer Heat Low, Dust Storms & Fog",
-  definition: "Beyond the dominant monsoon and western-disturbance systems, Pakistan's weather is shaped by several secondary but high-impact phenomena: pre- and post-monsoon tropical cyclones in the Arabian Sea, the persistent summer monsoon heat low over Balochistan, convective dust storms, and winter radiation fog over the Indus plains.",
+  definition: "Pakistan’s weather also includes Arabian Sea tropical cyclones (less frequent than Bay of Bengal but high impact when they approach), the summer heat low over land, dust storms in dry seasons, and radiation/advection fog in winter — local and regional phenomena layered on monsoon and WD patterns.",
   keyFacts: [
-    "Arabian Sea cyclones: tropical cyclones forming in the Arabian Sea, primarily during pre-monsoon (Apr–May) and post-monsoon (Oct–Nov) seasons; historically less frequent than Bay of Bengal cyclones but increasing in frequency and intensity since the 1990s (linked to warming SSTs and reduced aerosol loading)",
-    "Cyclone tracks affecting Pakistan: cyclones making landfall typically do so along the Makran coast (Balochistan) or Sindh coast; major recent events include Cyclone Gonu (2007, category 5 in Arabian Sea, weakened before landfall), Cyclone Phet (2010), Cyclone Nilofar (2014), Cyclone Vayu (2019, recurved before landfall), and Cyclone Biparjoy (2023, category 3 landfall in Sindh)",
-    "Summer Heat Low (Monsoon Low): a semi-permanent thermal low over Balochistan/southern Afghanistan that intensifies from May through July, with central MSLP often dropping to 990–996 hPa; it anchors the monsoon circulation and draws moist southwesterly flow inland",
-    "Dust storms (Andhi/'aandhi'): intense convective dust storms common in the pre-monsoon (Apr–Jun) over the plains of Sindh and southern Punjab, caused by strong downdrafts from thunderstorms that lift surface dust into dense walls; visibility can drop to <50 m",
-    "Heat waves: persistent extreme heat events in May–June, with temperatures 40–50°C sustained for 5–15+ days, particularly over central and southern Sindh, southern Punjab, and parts of Balochistan; 2015 and 2022 Karachi heatwaves caused thousands of deaths",
-    "Winter fog: persistent dense radiation fog over the Punjab plains and upper Sindh from December through February, sometimes lasting 3–7 days continuously, severely disrupting road, rail, and air transport; the persistent fog forms under clear skies, light winds, and high pressure",
-    "Smog (winter): a mixture of fog and pollutants (vehicle emissions, industrial output, agricultural burning residue) over Lahore and other Punjab cities, particularly in November–December; visibility often <1 km, with significant public health impacts"
+    "North Indian Ocean: Bay of Bengal more active; Arabian Sea can still produce intense cyclones",
+    "Cyclone risk for coastal Sindh and adjoining areas when tracks favour landfall or moisture surge",
+    "Summer heat low: intense daytime heating, low pressure over land — part of monsoon dynamics",
+    "Dust storms: strong winds mobilise dry soil — visibility and air-quality hazards",
+    "Winter fog: especially radiation fog in plains under clear, calm, moist near-surface conditions",
+    "These hazards are seasonal and region-specific"
   ],
   explanationSections: [
-    { heading: "Why Arabian Sea cyclones are intensifying", body: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures — the Arabian Sea has warmed ~1°C over the past 40 years, partly due to a weakening of the southwest monsoon and reduced upwelling, (2) reduced aerosol loading over the northern Indian Ocean (less 'loading' of dust and pollution that previously inhibited cyclone formation), and (3) increased mid-level moisture. The 2007 Cyclone Gonu was the first super cyclonic storm in the Arabian Sea since 1945; the post-1990 trend shows roughly a doubling of major cyclones per decade." },
-    { heading: "The summer heat low and monsoon anchoring", body: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the Asian landmass heats in late spring, a heat low forms over the hottest region (typically the Balochistan Plateau and adjacent Iranian plateau), with central MSLP dropping to 990–996 hPa by July. This low is not just a passive feature — it actively anchors the monsoon trough, draws the southwesterly monsoon flow inland, and intensifies the moisture convergence over South Asia. The heat low is so persistent that it is sometimes called the 'Monsoon Low' rather than a typical heat low." },
-    { heading: "Winter fog formation over the Punjab plains", body: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surface temperature inversion to develop; (3) abundant moisture from the previous monsoon and irrigation; (4) aerosol particles (pollution, dust) that act as cloud condensation nuclei. Once fog forms, the droplets reflect solar radiation, preventing daytime heating and fog dissipation — a self-sustaining 'fog feedback' that can maintain fog for days. When this fog mixes with vehicle and industrial emissions, it becomes smog, with serious health implications. The 2016 Lahore smog crisis, the 2023 Indo-Gangetic Plain smog, and recurrent disruptions to motorway traffic are all manifestations of this fog-smog complex." }
+    { heading: "Not only monsoon rain totals", body: "A complete Pakistan weather picture includes coastal cyclone threat, oppressive heat lows, dust, and dense winter fog that disrupts transport — each with different ingredients and seasons." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-arabian-sea-cyclones-local-cyclone-heat",
+      title: "Arabian Sea cyclones and the heat low",
+      summary: "Tropical cyclone risk vs thermal low of summer.",
+      explanation: "Tropical cyclones are organised warm-core storms over warm seas. The summer heat low is a broad thermal low from land heating — important for monsoon inflow but not a cyclone with an eye. Coastal warning focuses on track, surge, and extreme rain when cyclones approach.",
+      examples: [
+        { problem: "Is the summer heat low the same as a tropical cyclone?", solution: "No — it is a broad thermal low from intense land heating, not a warm-core tropical cyclone with eyewall structure.", answer: "No — thermal low ≠ TC" }
+      ],
+      shortcuts: ["TC = ocean-powered vortex", "Heat low = land heating"],
+      traps: ["Calling every summer low a cyclone"]
+    },
+    {
+      id: "meteo-arabian-sea-cyclones-local-dust-fog",
+      title: "Dust storms and fog",
+      summary: "Dry-season dust vs winter fog visibility hazards.",
+      explanation: "Dust storms need dry surfaces and strong winds, often pre-monsoon or in arid flow. Dense fog needs moisture, cooling, and light winds — classic in winter plains, disrupting aviation and roads.",
+      examples: [
+        { problem: "Which season is dense radiation fog most associated with in the Indus plains?", solution: "Winter — clear nights, moist near-surface air, light winds.", answer: "Winter" }
+      ],
+      shortcuts: ["Dust = dry + wind", "Radiation fog = winter calm clear"],
+      traps: ["Expecting fog and dust in the same synoptic setup always"]
+    }
+  ],
+  comparisonTable: {
+    title: "Local/regional phenomena",
+    headers: ["Phenomenon", "Seasonal note"],
+    rows: [
+      ["Arabian Sea cyclone", "Ocean storm seasons (region-specific)"],
+      ["Heat low", "Summer land heating"],
+      ["Dust storm", "Dry surfaces + strong wind"],
+      ["Radiation fog", "Winter plains"]
+    ]
+  },
+  pakistanExamFocus: [
+    "Arabian Sea cyclone risk is real though less frequent than Bay of Bengal",
+    "Heat low ≠ tropical cyclone",
+    "Winter fog and dust storms are major operational hazards"
   ],
   examPoints: [
-    "Arabian Sea cyclone season: pre-monsoon (Apr–May) and post-monsoon (Oct–Nov); frequency has increased since the 1990s",
-    "Major recent Arabian Sea cyclones: Gonu (2007), Phet (2010), Nilofar (2014), Vayu (2019), Biparjoy (2023)",
-    "Summer monsoon low: semi-permanent thermal low over Balochistan, central MSLP ~990–996 hPa by July; anchors the monsoon circulation",
-    "Dust storms: pre-monsoon convective events over Sindh/southern Punjab, often with thunderstorm downdrafts; can reduce visibility to <50 m",
-    "Winter fog: persistent Dec–Feb, Punjab plains and upper Sindh; caused by radiative cooling + high moisture + light winds + aerosols",
-    "Smog = fog + pollutants; Lahore is among the most polluted cities globally in winter"
+    "Distinguish TC, heat low, dust, fog",
+    "Coastal cyclone awareness",
+    "Seasonal hazard matching"
   ],
-  workedExample: {
-    problem: "Compare and contrast the precipitation mechanisms in (a) Karachi in July and (b) Quetta in January. Identify the responsible weather system in each case.",
-    solution: "(a) Karachi in July: situated on the Arabian Sea coast, Karachi experiences the summer monsoon (Jun–Sep). Moist southwesterly flow from the Arabian Sea is drawn inland by the monsoon low over Balochistan, and Karachi receives moderate monsoon rainfall (often convective, with intense thunderstorms). Responsible system: Indian Ocean summer monsoon. (b) Quetta in January: situated on the high-altitude Balochistan Plateau, far from the summer monsoon influence, Quetta receives its scant winter precipitation from Western Disturbances that travel eastward along the subtropical jet. The WD precipitation falls as rain or snow, depending on temperature. Responsible system: Western Disturbance (mid-latitude cyclone). The two cases illustrate the fundamental meteorological distinction: Karachi is monsoon-driven (tropical, summer, Indian Ocean moisture); Quetta is WD-driven (mid-latitude, winter, Mediterranean/Caspian moisture).",
-    answer: "Karachi July = summer monsoon (SW flow from Arabian Sea); Quetta January = Western Disturbance (westerly trough from Mediterranean); fundamentally different mechanisms despite both bringing winter/summer precipitation"
-  },
   commonMistakes: [
-    "Assuming all cyclones in the Arabian Sea are similar to those in the Bay of Bengal — Bay of Bengal cyclones are more frequent (about 4:1 ratio) and more likely to make landfall in the eastern Indian subcontinent; Arabian Sea cyclones are less frequent but their frequency and intensity is increasing",
-    "Confusing the summer heat low with the monsoon trough — the heat low is a thermally-driven surface feature over Balochistan; the monsoon trough is a synoptic-scale feature extending from the heat low into the Bay of Bengal, along which the most active monsoon convection occurs",
-    "Attributing all Pakistani fog to pollution — fog is a natural phenomenon (radiation fog) that becomes worse with pollution; natural fog occurs in rural areas as well, though smog (fog + pollutants) is specific to urban/industrial zones",
-    "Assuming dust storms only occur in the pre-monsoon — they can occur any time thunderstorms develop over the arid plains, though they are most common Apr–Jun when surface dust is most available and pre-monsoon heating is strongest",
-    "Forgetting that cyclone tracks are not deterministic — Cyclone Vayu (2019) and Cyclone Biparjoy (2023) both threatened the Sindh coast but had very different landfall outcomes; forecasting cyclone tracks remains a high-priority operational challenge"
+    "Equating heat low with hurricane.",
+    "Ignoring fog as a weather hazard.",
+    "Assuming Arabian Sea never produces cyclones.",
+    "Mixing dust-storm season with winter fog ingredients."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-cyclones-structure", "meteo-western-disturbances", "meteo-remote-sensing", "meteo-nwp-models"],
-    subtopics: [
-      {
-        id: "meteo-arabian-sea-cyclones-local-why-arabian-sea-cyclones-are-intensifyin",
-        title: "Why Arabian Sea cyclones are intensifying",
-        summary: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface…",
-        explanation: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures — the Arabian Sea has warmed ~1°C over the past 40 years, partly due to a weakening of the southwest monsoon and reduced upwelling, (2) reduced aerosol loading over the northern Indian Ocean (less 'loading' of dust and pollution that previously inhibited cyclone formation), and (3) increased mid-level moisture. The 2007 Cyclone Gonu was the first super cyclonic storm in the Arabian Sea since 1945; the post-1990 trend shows roughly a doubling of major cyclones per decade.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why Arabian Sea cyclones are intensifying”?",
-            solution: "The accurate idea is: The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warmed ~1Â°C over the past 40 years, partly due to a weakening of the southwest monsoon and reduced upwelling, (2) reduced aerosol loading over the northern Indian Ocean (less 'loading' of dust and pollution that previously inhibited cyclone formation), and (3) increased mid-level moisture. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warme…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why Arabian Sea cyclones are intensifying.",
-            solution: "Stay close to the text: The frequency and intensity of Arabian Sea tropical cyclones has increased markedly since the 1990s, attributed to (1) rising sea-surface temperatures â the Arabian Sea has warmed ~1Â°C over the past 40 years, partly d… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-arabian-sea-cyclones-local-the-summer-heat-low-and-monsoon-anchorin",
-        title: "The summer heat low and monsoon anchoring",
-        summary: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the…",
-        explanation: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the Asian landmass heats in late spring, a heat low forms over the hottest region (typically the Balochistan Plateau and adjacent Iranian plateau), with central MSLP dropping to 990–996 hPa by July. This low is not just a passive feature — it actively anchors the monsoon trough, draws the southwesterly monsoon flow inland, and intensifies the moisture convergence over South Asia. The heat low is so persistent that it is sometimes called the 'Monsoon Low' rather than a typical heat low.",
-                examples: [
-          {
-            problem: "Which statement best matches “The summer heat low and monsoon anchoring”?",
-            solution: "The accurate idea is: The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The summer heat low and monsoon anchoring.",
-            solution: "Stay close to the text: The persistent thermal low over Balochistan is the deep convective end of the land-sea thermal contrast that drives the monsoon. As the Asian landmass heats in late spring, a heat low forms over the hottest region (typic… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-arabian-sea-cyclones-local-winter-fog-formation-over-the-punjab-pla",
-        title: "Winter fog formation over the Punjab plains",
-        summary: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow…",
-        explanation: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surface temperature inversion to develop; (3) abundant moisture from the previous monsoon and irrigation; (4) aerosol particles (pollution, dust) that act as cloud condensation nuclei. Once fog forms, the droplets reflect solar radiation, preventing daytime heating and fog dissipation — a self-sustaining 'fog feedback' that can maintain fog for days. When this fog mixes with vehicle and industrial emissions, it becomes smog, with serious health implications. The 2016 Lahore smog crisis, the 2023 Indo-Gangetic Plain smog, and recurrent disruptions to motorway traffic are all manifestations of this fog-smog complex.",
-                examples: [
-          {
-            problem: "Which statement best matches “Winter fog formation over the Punjab plains”?",
-            solution: "The accurate idea is: Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surface temperature inversion to develop; (3) abundant moisture from the previous monsoon and irrigation; (4) aerosol particles (pollution, dust) that act as cloud condensation nuclei. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) l…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Winter fog formation over the Punjab plains.",
-            solution: "Stay close to the text: Persistent winter fog over the Punjab and upper Sindh forms under a specific set of conditions: (1) clear skies (high pressure aloft) allow strong radiative cooling at night; (2) light winds (no mixing) allow a near-surf… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-tropical-cyclones"],
   content: true,
   buildsOn: ["meteo-tropical-cyclones", "meteo-local-seasonal-winds", "meteo-fog-types"],
   leadsTo: ["meteo-extreme-events"],
-  usedIn: ["meteo-extreme-events"]
+  usedIn: ["meteo-extreme-events", "meteo-pmd-operational"]
 },
 
 {
@@ -4823,81 +4743,74 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 4,
   title: "Temperature and Rainfall Distribution Across Pakistan",
-  definition: "Pakistan's temperature and rainfall vary widely by region due to differences in elevation, latitude, and aridity, with PMD records showing an area-weighted mean annual warming of +0.6°C over 1901–2000 and rainfall ranging from <150 mm/year in Balochistan to >1500 mm/year in the northern mountains.",
+  definition: "Pakistan’s temperature and rainfall fields are shaped by latitude, continentality, altitude, the summer monsoon fringe, western disturbances, and orography. Broad patterns: hot summers in the plains, milder highlands, arid to semi-arid rainfall over large areas, and wetter pockets on windward northern/western slopes in the right seasons.",
   keyFacts: [
-    "Summer extremes: Balochistan and the southern Indus plains (Jacobabad, Sibi, Dadu) frequently exceed 50°C — among the highest reliably recorded temperatures on Earth",
-    "Winter extremes: northern mountains (Skardu, Astore, Chitral) can fall below −20°C; Murree and the Margalla Hills often see sub-zero temperatures and snow",
-    "Greatest warming: increases occur in winter, particularly over the hyper-arid Balochistan Plateau and southern deserts — the warming is season- and region-specific, not uniform",
-    "Southern/Central Plains (BWh/BSh Köppen zones): most rainfall from Jul–Sep summer monsoon; highly variable year-to-year (droughts e.g. 1999–2002; floods e.g. 2010, 2022)",
-    "Balochistan Plateau (BWh): hyper-arid, <150 mm/year in most areas, largely decoupled from the summer monsoon — most rain comes from winter westerly depressions",
-    "Northern Highlands (Köppen H zones): receive precipitation in both winter (westerly disturbances) and summer (monsoon incursions), sustaining the Karakoram/Hindu Kush/Himalaya glaciers that feed the Indus River system",
-    "Coastal areas (Karachi, Makran coast): mild winters, hot humid summers; rainfall low to moderate (~200 mm/year), some from pre-monsoon and post-monsoon convective systems"
+    "Plains: very hot summers; winters cooler but generally milder than high mountains",
+    "Altitude decreases temperature — highland climates differ sharply over short distances",
+    "Rainfall generally higher toward the north and along certain windward ranges; much of the west/interior is dry",
+    "Summer monsoon and winter WDs create two different precipitation seasons by region",
+    "Interannual variability is large — means hide flood and drought years",
+    "Maps matter more than a single national average"
   ],
   explanationSections: [
-    { heading: "Why Balochistan's rain doesn't come from the monsoon", body: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into it. The scant annual rainfall it does receive (mostly <150 mm) instead arrives via winter westerly depressions that travel along the subtropical jet stream — the opposite seasonal source from most of the rest of the country. This makes Balochistan meteorologically distinct: a winter-rainfall pattern in a predominantly summer-monsoon country." },
-    { heading: "The four climate zones of Pakistan", body: "Pakistan can be divided into four broad climate zones based on Köppen classification: (1) BWh (hot desert) — covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2) BSh (hot semi-arid/steppe) — covers the upper Indus plains and parts of NWFP; somewhat cooler and wetter than BWh; (3) Cwa/Csa (humid subtropical) — small areas of upper Punjab and the foothills; (4) H (highland) — the northern mountains (Karakoram, Hindu Kush, western Himalaya); cold winters, cool summers, precipitation in both seasons. The H zone contains most of Pakistan's glacier mass and is the source of nearly all Indus River flow." }
+    { heading: "Read the map, not a single number", body: "A national mean rainfall is almost meaningless for farmers in Thar versus valleys in the north. Always ask: which season, which province, which slope?" }
+  ],
+  subtopics: [
+    {
+      id: "meteo-temp-rainfall-distribution-temperature",
+      title: "Temperature patterns",
+      summary: "Hot plains; altitude and coast moderate extremes differently.",
+      explanation: "Continental plains heat strongly in summer. Mountains are cooler at elevation. Coastal areas can be humid and warm with a smaller daily range than dry interiors at times, but heat stress remains serious.",
+      examples: [
+        { problem: "Why is a hill station cooler than a plains city in the same month?", solution: "Temperature decreases with altitude in the troposphere under normal lapse conditions.", answer: "Altitude / lapse rate" }
+      ],
+      shortcuts: ["Plains hot in summer", "Higher = cooler"],
+      traps: ["One temperature for all Pakistan"]
+    },
+    {
+      id: "meteo-temp-rainfall-distribution-rainfall",
+      title: "Rainfall patterns",
+      summary: "Monsoon fringe + WD north + orography + aridity.",
+      explanation: "Eastern and northern districts often receive more monsoon rain than hyper-arid western basins. Winter WD snow/rain concentrates in the north. Rain shadows and distance from moisture sources keep large areas dry.",
+      examples: [
+        { problem: "Name two distinct seasonal rainfall mechanisms for Pakistan.", solution: "Summer monsoon and winter western disturbances.", answer: "Monsoon and WDs" }
+      ],
+      shortcuts: ["Two engines: monsoon + WD", "Orography redistributes"],
+      traps: ["Using only annual totals without season"]
+    }
+  ],
+  comparisonTable: {
+    title: "Distribution sketch",
+    headers: ["Factor", "Effect"],
+    rows: [
+      ["Altitude", "Cooler highlands"],
+      ["Continentality", "Hotter summer plains"],
+      ["Monsoon fringe", "Uneven summer rain"],
+      ["WDs", "Winter north precip"],
+      ["Orography", "Windward wet / lee dry"]
+    ]
+  },
+  pakistanExamFocus: [
+    "Spatial and seasonal structure beats national averages",
+    "Monsoon and WD are complementary, not synonyms",
+    "Arid baseline with extreme event spikes"
   ],
   examPoints: [
-    "+0.6°C area-weighted mean annual warming over 1901–2000 (PMD) — a specific, testable statistic",
-    "Greatest warming occurs in winter over Balochistan and the southern deserts",
-    "Balochistan rainfall: <150 mm/year, predominantly from winter westerly depressions, not from the summer monsoon",
-    "Highest summer temperatures: 50°C+ in Jacobabad, Sibi, Dadu (southern Indus plains)",
-    "Northern mountains receive both winter (westerly) and summer (monsoon) precipitation — the only region with a dual precipitation regime"
+    "Controls: lat, altitude, monsoon, WD, orography",
+    "Hot plains vs cool highlands",
+    "Uneven rainfall geography"
   ],
   commonMistakes: [
-    "Treating Pakistan as climatically uniform.",
-    "Ignoring altitude and continentality in temperature patterns.",
-    "Assuming monsoon rain falls equally in all provinces.",
-    "Mixing annual averages with seasonal extremes.",
+    "National single climate number.",
+    "Ignoring season when comparing stations.",
+    "Forgetting orography.",
+    "Mixing temperature lapse with rainfall automatically."
   ],
   relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-extreme-events"],
-    subtopics: [
-      {
-        id: "meteo-temp-rainfall-distribution-why-balochistan-s-rain-doesn-t-come-from",
-        title: "Why Balochistan's rain doesn't come from the monsoon",
-        summary: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer…",
-        explanation: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into it. The scant annual rainfall it does receive (mostly <150 mm) instead arrives via winter westerly depressions that travel along the subtropical jet stream — the opposite seasonal source from most of the rest of the country. This makes Balochistan meteorologically distinct: a winter-rainfall pattern in a predominantly summer-monsoon country.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why Balochistan's rain doesn't come from the monsoon”?",
-            solution: "The accurate idea is: Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into it. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or ov…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why Balochistan's rain doesn't come from the monsoon.",
-            solution: "Stay close to the text: Because the Balochistan Plateau lies to the west of the monsoon trough and is shielded by the Sulaiman and Kirthar ranges, the summer monsoon flow is largely deflected around or over the plateau rather than directly into… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-temp-rainfall-distribution-the-four-climate-zones-of-pakistan",
-        title: "The four climate zones of Pakistan",
-        summary: "Pakistan can be divided into four broad climate zones based on Köppen classification: (1) BWh (hot desert) — covers most of southern Sindh,…",
-        explanation: "Pakistan can be divided into four broad climate zones based on Köppen classification: (1) BWh (hot desert) — covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2) BSh (hot semi-arid/steppe) — covers the upper Indus plains and parts of NWFP; somewhat cooler and wetter than BWh; (3) Cwa/Csa (humid subtropical) — small areas of upper Punjab and the foothills; (4) H (highland) — the northern mountains (Karakoram, Hindu Kush, western Himalaya); cold winters, cool summers, precipitation in both seasons. The H zone contains most of Pakistan's glacier mass and is the source of nearly all Indus River flow.",
-                examples: [
-          {
-            problem: "Which statement best matches “The four climate zones of Pakistan”?",
-            solution: "The accurate idea is: Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2) BSh (hot semi-arid/steppe) â covers the upper Indus plains and parts of NWFP; somewhat cooler and wetter than BWh; (3) Cwa/Csa (humid subtropical) â small areas of upper Punjab and the foothills; (4) H (highland) â the northern mountains (Karakoram, Hindu Kush, western Himalaya); cold winters, cool summers, precipitation in both seasons. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; ext…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The four climate zones of Pakistan.",
-            solution: "Stay close to the text: Pakistan can be divided into four broad climate zones based on KÃ¶ppen classification: (1) BWh (hot desert) â covers most of southern Sindh, southern Punjab, and Balochistan; extreme summer heat, very low rainfall; (2)… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-orographic-rainshadow"],
   leadsTo: ["meteo-extreme-events"],
-  usedIn: ["meteo-extreme-events", "env-pakistan-environmental-context", "ra-descriptive-statistics", "ra-correlation-regression"]
+  usedIn: ["meteo-extreme-events", "meteo-pmd-operational", "meteo-nccp-objectives"]
 },
 
 {
@@ -4905,102 +4818,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 5,
   title: "Extreme Events: GLOFs, Riverine Floods, Droughts & Heat Waves",
-  definition: "Pakistan faces recurring climate hazards including Glacial Lake Outburst Floods (GLOFs), riverine floods from monsoon extremes, prolonged droughts, and severe heat waves — all intensified by climate change and posing major risks to Pakistan's water security, food production, infrastructure, and public health.",
+  definition: "Pakistan faces compound climate hazards: glacial lake outburst floods (GLOFs) in high mountains, riverine and flash floods on the Indus system, meteorological and agricultural droughts, and intense heat waves. Extremes sit on top of an arid-to-variable baseline and drive much of the national climate-risk agenda.",
   keyFacts: [
-    "GLOFs (Glacial Lake Outburst Floods) occur in the Karakoram-Hindu Kush ranges: rising temperatures → rapid glacier melt → unstable glacial lakes form behind moraine/ice dams → sudden dam breach → catastrophic outburst flood with little warning",
-    "Major riverine floods: 2010 super flood (inundated ~1/5 of Pakistan, ~20 million people affected, ~2000 deaths, $10+ billion damage) and 2022 super flood (inundated ~1/3 of Pakistan, 33 million affected, 1700+ deaths, $30+ billion damage) — both occurred during La Niña or La Niña-transition phases",
-    "Droughts: severe multi-year droughts in 1999–2002 (mainly Sindh and Balochistan), 2014–2015, and 2018–2019; these reduce reservoir storage, deplete groundwater, and cause widespread crop failure and water stress",
-    "Heat waves: persistent extreme heat events in May–June; 2015 Karachi heat wave (45–49°C sustained for 5+ days, ~2000 deaths in Sindh alone) and 2022 March–May heat wave (50°C+ in several stations, hundreds of deaths across South Asia, accelerated glacier melt)",
-    "Compound hazards: 2022 combined extreme heat (March–May, Pakistan and India) with super flood (June–September), a rare compound event in which pre-monsoon heat reduced snow/ice mass and primed the atmosphere for extreme rainfall, and the subsequent flood was worsened by the 2022 La Niña",
-    "Economic and human cost: these extreme events regularly affect 20–30+ million people, cause $5–30 billion in damages, and represent major risks to Pakistan's water, food, infrastructure, and national security"
+    "GLOF: sudden release from a glacial lake — localised but devastating downstream in mountain valleys",
+    "Riverine floods: prolonged or intense rain, snowmelt, and upstream flows in major rivers",
+    "Flash floods: rapid response in steep catchments to intense rainfall",
+    "Drought: prolonged rainfall deficit relative to norms — meteorological, agricultural, hydrological types",
+    "Heat waves: prolonged extreme heat; urban and dry-plain exposure is high",
+    "Climate change can alter frequency/intensity of some extremes even when means change modestly"
   ],
   explanationSections: [
-    { heading: "The GLOF causal chain", body: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. The chain is: (1) climate warming raises temperatures above freezing at high elevations, (2) glaciers melt faster than they accumulate snow, (3) meltwater pools in depressions behind moraine dams or within/under the glacier itself, (4) the lake grows and the dam becomes unstable (often with a 'floating ice tongue' that suddenly fails), (5) the lake drains catastrophically in hours, releasing a flood wave that can travel 100+ km downstream and arrive with little warning. Pakistan has an estimated 3000+ glacial lakes in the Karakoram and Hindu Kush, of which ~30+ are classified as 'potentially dangerous' and monitored for GLOF risk." },
-    { heading: "Why the 2010 and 2022 floods were so extreme", body: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La Niña conditions, but their mechanisms differed. 2010: a stationary monsoon low over Balochistan combined with a strong La Niña to produce 4–5 days of continuous torrential rain in the Indus headwaters (Khyber Pakhtunkhwa), generating the worst riverine flooding in Pakistan's history. 2022: a multi-stage event with a pre-monsoon heat wave that accelerated snow and ice melt, followed by extreme August rainfall from a southward-displaced monsoon trough combined with La Niña, producing cumulative flooding across the Indus basin that affected 33 million people. Both events highlight how climate change is amplifying the natural variability of the monsoon, and how La Niña (or La Niña-transition) phases create conditions favorable for extreme Pakistan rainfall." },
-    { heading: "Drought as a slow-onset disaster", body: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. The 1999–2002 drought affected primarily Sindh and Balochistan, reducing reservoir levels to historic lows, depleting groundwater, and causing widespread crop failure and rural-to-urban migration. The 2018 drought in Balochistan (combined with poor snowpack) was similarly severe. Droughts are linked to monsoon failure (often associated with El Niño, though not deterministic) and to the positive IOD phase, which can disrupt moisture transport to South Asia. Pakistan's reliance on the Indus River system and on rain-fed agriculture makes drought a particularly severe hazard, with cascading effects on food security, energy (hydropower), and public health." }
+    { heading: "Hazard chain, not isolated headlines", body: "Monsoon cloudbursts, WD snow, glacial lakes, and river morphology interact. Understanding extremes means linking atmosphere, cryosphere, and hydrology — then connecting to early warning and land use." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-extreme-events-flood-glof",
+      title: "Floods and GLOFs",
+      summary: "Riverine/flash floods vs glacial lake outbursts.",
+      explanation: "Riverine floods affect broad floodplains after sustained rain or upstream surge. GLOFs are triggered when natural dams of ice or debris fail, sending a pulse down narrow valleys. Both kill and destroy infrastructure but differ in source and scale.",
+      examples: [
+        { problem: "What distinguishes a GLOF from a typical monsoon river flood?", solution: "GLOF originates from sudden glacial lake drainage, often in high mountain valleys, not solely from widespread monsoon rain on the plain.", answer: "Glacial lake outburst source" }
+      ],
+      shortcuts: ["GLOF = glacial lake failure", "Riverine = main-stem flooding"],
+      traps: ["Calling every flood a GLOF"]
+    },
+    {
+      id: "meteo-extreme-events-drought-heat",
+      title: "Droughts and heat waves",
+      summary: "Rainfall deficits and extreme heat exposure.",
+      explanation: "Drought develops over weeks to years as deficits accumulate. Heat waves are shorter but can be lethal, especially with high humidity or in outdoor labour settings. Both stress water, health, and energy systems.",
+      examples: [
+        { problem: "Why can a region with a ‘normal’ annual mean still experience severe agricultural drought?", solution: "Seasonal timing and multi-month deficits during crop stages matter more than the annual average alone.", answer: "Seasonal/crop-stage deficit" }
+      ],
+      shortcuts: ["Drought = prolonged deficit", "Heat wave = extreme heat period"],
+      traps: ["Using one rainy day to end a drought declaration conceptually"]
+    }
+  ],
+  comparisonTable: {
+    title: "Extreme event types",
+    headers: ["Hazard", "Core idea"],
+    rows: [
+      ["GLOF", "Glacial lake outburst"],
+      ["Riverine flood", "Main river overflow"],
+      ["Drought", "Long moisture deficit"],
+      ["Heat wave", "Prolonged extreme heat"]
+    ]
+  },
+  pakistanExamFocus: [
+    "GLOFs in northern mountains are a distinct hazard class",
+    "Floods and droughts both occur in the same national territory across years",
+    "Heat waves are a major public-health and labour hazard"
   ],
   examPoints: [
-    "GLOF causal chain (in order): warming → glacier melt → unstable lake formation → outburst → flood",
-    "2010 and 2022 super floods both occurred during La Niña or La Niña-transition phases",
-    "2010 flood: ~20 million affected, ~2000 deaths, $10+ billion; 2022 flood: ~33 million affected, 1700+ deaths, $30+ billion",
-    "Severe historical droughts: 1999–2002 (Sindh, Balochistan), 2014–2015, 2018–2019",
-    "2022 was a compound event: pre-monsoon heat wave + super flood in the same year, illustrating compound climate hazards",
-    "Pakistan has ~3000+ glacial lakes, of which ~30+ are classified as potentially dangerous for GLOFs"
+    "Know GLOF definition",
+    "Flood vs drought vs heat wave",
+    "Link extremes to monsoon/WD/cryosphere"
   ],
   commonMistakes: [
-    "Attributing every extreme solely to climate change without careful attribution.",
-    "Mixing GLOF, riverine flood, flash flood, and coastal inundation mechanisms.",
-    "Ignoring vulnerability and exposure in disaster impact.",
-    "Assuming drought and heat waves are independent of monsoon variability.",
+    "Collapsing all floods into one type.",
+    "Ignoring heat as a climate extreme.",
+    "Treating drought as only ‘no clouds today’.",
+    "Detaching GLOFs from mountain geography."
   ],
-  relatedTopics: ["meteo-temp-rainfall-distribution", "meteo-arabian-sea-cyclones-local", "meteo-pakistan-nccp", "meteo-nccp-objectives", "meteo-indian-ocean-monsoon", "meteo-enso-basics", "meteo-iod"],
-    subtopics: [
-      {
-        id: "meteo-extreme-events-the-glof-causal-chain",
-        title: "The GLOF causal chain",
-        summary: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater…",
-        explanation: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. The chain is: (1) climate warming raises temperatures above freezing at high elevations, (2) glaciers melt faster than they accumulate snow, (3) meltwater pools in depressions behind moraine dams or within/under the glacier itself, (4) the lake grows and the dam becomes unstable (often with a 'floating ice tongue' that suddenly fails), (5) the lake drains catastrophically in hours, releasing a flood wave that can travel 100+ km downstream and arrive with little warning. Pakistan has an estimated 3000+ glacial lakes in the Karakoram and Hindu Kush, of which ~30+ are classified as 'potentially dangerous' and monitored for GLOF risk.",
-                examples: [
-          {
-            problem: "Which statement best matches “The GLOF causal chain”?",
-            solution: "The accurate idea is: Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The GLOF causal chain.",
-            solution: "Stay close to the text: Rising temperatures accelerate glacier melt, which feeds unstable glacial lakes that can breach suddenly, sending torrents of floodwater downstream with little warning. The chain is: (1) climate warming raises temperatur… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-extreme-events-why-the-2010-and-2022-floods-were-so-ext",
-        title: "Why the 2010 and 2022 floods were so extreme",
-        summary: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La Niña conditions, but their mechanisms…",
-        explanation: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La Niña conditions, but their mechanisms differed. 2010: a stationary monsoon low over Balochistan combined with a strong La Niña to produce 4–5 days of continuous torrential rain in the Indus headwaters (Khyber Pakhtunkhwa), generating the worst riverine flooding in Pakistan's history. 2022: a multi-stage event with a pre-monsoon heat wave that accelerated snow and ice melt, followed by extreme August rainfall from a southward-displaced monsoon trough combined with La Niña, producing cumulative flooding across the Indus basin that affected 33 million people. Both events highlight how climate change is amplifying the natural variability of the monsoon, and how La Niña (or La Niña-transition) phases create conditions favorable for extreme Pakistan rainfall.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why the 2010 and 2022 floods were so extreme”?",
-            solution: "The accurate idea is: The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why the 2010 and 2022 floods were so extreme.",
-            solution: "Stay close to the text: The 2010 and 2022 super floods both resulted from extreme monsoon rainfall interacting with La NiÃ±a conditions, but their mechanisms differed. 2010: a stationary monsoon low over Balochistan combined with a strong La Ni… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-extreme-events-drought-as-a-slow-onset-disaster",
-        title: "Drought as a slow-onset disaster",
-        summary: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and…",
-        explanation: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. The 1999–2002 drought affected primarily Sindh and Balochistan, reducing reservoir levels to historic lows, depleting groundwater, and causing widespread crop failure and rural-to-urban migration. The 2018 drought in Balochistan (combined with poor snowpack) was similarly severe. Droughts are linked to monsoon failure (often associated with El Niño, though not deterministic) and to the positive IOD phase, which can disrupt moisture transport to South Asia. Pakistan's reliance on the Indus River system and on rain-fed agriculture makes drought a particularly severe hazard, with cascading effects on food security, energy (hydropower), and public health.",
-                examples: [
-          {
-            problem: "Which statement best matches “Drought as a slow-onset disaster”?",
-            solution: "The accurate idea is: Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Drought as a slow-onset disaster.",
-            solution: "Stay close to the text: Unlike floods and heat waves, which arrive suddenly, droughts develop gradually over months to years, making them harder to recognize and respond to. The 1999â2002 drought affected primarily Sindh and Balochistan, redu… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-temp-rainfall-distribution", "meteo-arabian-sea-cyclones-local", "meteo-pakistan-nccp", "meteo-nccp-objectives"],
   content: true,
   buildsOn: ["meteo-temp-rainfall-distribution", "meteo-tropical-cyclones", "earth-e4"],
   leadsTo: ["meteo-pmd-operational"],
-  usedIn: ["env-climate-change-response", "env-pakistan-environmental-context", "ra-data-interpretation", "ra-probability", "ra-scientific-reporting"]
+  usedIn: ["meteo-pmd-operational", "meteo-nccp-objectives", "env-climate-change-response"]
 },
 
 {
@@ -5008,105 +4892,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 6,
   title: "PMD Operational Areas, Regional Responsibilities & Warning Systems",
-  definition: "The Pakistan Meteorological Department (PMD) is the national authority for weather and climate services, organized into regional offices responsible for forecasting, warnings, and climate monitoring across Pakistan's diverse climate zones — with specific responsibilities for aviation, agriculture, flood, drought, and GLOF early warning.",
+  definition: "The Pakistan Meteorological Department (PMD) is the national meteorological service responsible for weather observing, forecasting, and warnings. Operational work covers synoptic observation, numerical guidance, flood and special warnings, aviation meteorology, and climate services across regional centres.",
   keyFacts: [
-    "PMD headquarters is in Islamabad; the department operates under the Ministry of Aviation (or equivalent) and is responsible for all national meteorological services",
-    "Regional offices: Karachi (Sindh, Arabian Sea cyclone forecasting), Lahore (Punjab, Indus plains, fog and heat wave warnings), Peshawar (Khyber Pakhtunkhwa, monsoon, WDs), Quetta (Balochistan, dust storms, drought monitoring), Gilgit (northern areas, GLOF, glacier monitoring), Multan (southern Punjab, dust storms, heat)",
-    "PMD operates the national weather forecasting infrastructure: surface observatories, upper-air sounding stations (radiosonde launches at 00Z and 12Z), weather radar network (Islamabad, Karachi, Lahore, and others), and satellite data reception (FY, INSAT, NOAA)",
-    "Aviation meteorology: PMD provides aviation forecasts for all major airports (Karachi, Lahore, Islamabad, Peshawar, Quetta, Multan, etc.) — critical for flight safety, especially during winter fog and summer thunderstorms",
-    "Flood forecasting: PMD issues flood warnings in coordination with the Federal Flood Commission (FFC) and provincial irrigation departments; PMD provides meteorological input, FFC/irrigation handles hydrological routing",
-    "GLOF early warning: PMD, in partnership with the Pakistan Army, ICIMOD, and UNDP, has established GLOF early warning systems in vulnerable valleys of the Karakoram and Hindu Kush (e.g., Hasanabad, Bagrot, and others)",
-    "Numerical Weather Prediction: PMD runs and/or receives output from regional NWP models (e.g., WRF for short-range, ECMWF and GFS for medium range) to support operational forecasting",
-    "Climate monitoring: PMD maintains the national climate archive, publishes annual climate reports, contributes to IPCC assessments, and partners with international agencies (WMO, GCOS, FAO) for climate monitoring"
+    "National authority for meteorological observation and forecasting",
+    "Issues public weather forecasts and hazard warnings (flood, cyclone, heat, dense fog, etc.)",
+    "Supports aviation, agriculture, and water/flood-management users",
+    "Regional offices/centres serve different geographic responsibilities",
+    "Combines surface network, upper air, radar/satellite interpretation, and models",
+    "Early warning effectiveness depends on dissemination and user action, not only forecast skill"
   ],
   explanationSections: [
-    { heading: "How PMD's regional structure maps to climate zones", body: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab and the Indus plains (responsible for the persistent winter fog, summer monsoon, heat waves, and smog monitoring); Peshawar covers KPK (responsible for both the summer monsoon and winter WDs in the western mountains); Quetta covers Balochistan (responsible for the winter WD precipitation, summer dust storms, and ongoing drought monitoring); Gilgit covers the northern mountains (responsible for GLOF monitoring, glacier mass balance, and winter snowfall). This regional structure ensures that forecast offices are staffed with meteorologists familiar with the local climate and weather patterns of their area." },
-    { heading: "PMD's role in flood and GLOF warning", body: "PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall, river levels in cooperation with WAPDA, soil moisture) and runs the NWP models that produce quantitative precipitation forecasts (QPFs); these are passed to the Federal Flood Commission and provincial irrigation departments for hydrological modeling and flood routing. The final flood warning is issued jointly. For GLOFs, PMD operates a network of automated weather stations (AWS) in vulnerable valleys, lake-level sensors on monitored glacial lakes, and downstream river-level gauges; the GLOF early warning system issues SMS-based warnings to local communities when lake levels rise above critical thresholds, often 1–4 hours before the flood wave arrives. PMD's GLOF program is supported by international partners including ICIMOD, UNDP, and the World Bank." },
-    { heading: "Limitations and challenges of PMD operations", body: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps — Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; (2) limited radar coverage — Doppler radar is available at major airports but not for the whole country; (3) capacity constraints — PMD's supercomputing and NWP model run capability is limited compared to global centers, so it relies on imported model output (ECMWF, GFS, UKMO) for medium-range guidance; (4) GLOF monitoring — only ~30 of ~3000+ glacial lakes are actively monitored due to cost and remoteness; (5) communication — getting warnings to vulnerable rural communities in time remains a challenge, especially in remote mountain valleys. The National Disaster Management Authority (NDMA) and provincial disaster management authorities (PDMAs) work with PMD to disseminate warnings and coordinate response." }
+    { heading: "From observation to warning", body: "PMD sits at the end of the observing–analysis–forecast chain discussed in instrumentation and dynamics topics. For FPSC, know the institutional role: who warns, what kinds of warnings, and why regional structure matters in a climatically diverse country." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-pmd-operational-role",
+      title: "Core operational role",
+      summary: "Observe, forecast, warn, support sectors.",
+      explanation: "Routine forecasts guide daily decisions; specialised products serve aviation and flood managers. During extremes, warning lead time and clarity become the public face of the service.",
+      examples: [
+        { problem: "Which national agency is the primary source of official meteorological warnings in Pakistan?", solution: "Pakistan Meteorological Department (PMD).", answer: "PMD" }
+      ],
+      shortcuts: ["PMD = national met service", "Warnings + forecasts"],
+      traps: ["Confusing PMD with purely research institutes only"]
+    },
+    {
+      id: "meteo-pmd-operational-warnings",
+      title: "Warning systems and users",
+      summary: "Hazard-specific alerts; multi-sector users.",
+      explanation: "Flood warnings link meteorology to hydrology. Cyclone advisories protect the coast. Fog and heat alerts protect transport and health. Agriculture and water managers use seasonal and short-range products differently from urban publics.",
+      examples: [
+        { problem: "Why must flood warning involve more than rainfall maps alone?", solution: "River response depends on basin wetness, upstream flows, and embankments — hydrology plus meteorology.", answer: "Hydrologic response matters" }
+      ],
+      shortcuts: ["Warning ≠ observation only", "Sector-specific products"],
+      traps: ["Thinking a single national forecast text covers all hazards equally"]
+    }
+  ],
+  comparisonTable: {
+    title: "PMD function sketch",
+    headers: ["Function", "Example"],
+    rows: [
+      ["Observation", "Stations, radar, satellite use"],
+      ["Forecasting", "Public and specialised guidance"],
+      ["Warning", "Flood, cyclone, heat, fog…"],
+      ["Services", "Aviation, ag, climate info"]
+    ]
+  },
+  pakistanExamFocus: [
+    "PMD is the national meteorological service",
+    "Warning portfolio matches Pakistan’s hazard list",
+    "Regional diversity requires distributed operations"
   ],
   examPoints: [
-    "PMD headquarters: Islamabad; under the Ministry of Aviation",
-    "Regional offices: Karachi, Lahore, Peshawar, Quetta, Gilgit, Multan — each aligned with a climate zone",
-    "PMD operates: surface observatories, radiosonde launches (00Z, 12Z), weather radar, satellite reception, and NWP models (WRF, plus imported ECMWF/GFS)",
-    "Flood forecasting: PMD issues meteorological input; FFC handles hydrological routing; final warnings are joint",
-    "GLOF early warning: PMD, Pakistan Army, ICIMOD, UNDP partnership; ~30 of 3000+ glacial lakes actively monitored",
-    "Pakistan's observation network has gaps in the northern mountains and Balochistan — a key operational challenge"
+    "PMD role in forecasts and warnings",
+    "Multi-hazard, multi-user service",
+    "Link to observing systems studied earlier"
   ],
   commonMistakes: [
-    "Conflating PMD with WAPDA — PMD is the meteorological service (weather, climate); WAPDA is the water and power development authority (hydropower, irrigation, water resource management). They cooperate on flood forecasting but are distinct organizations",
-    "Assuming PMD runs the GLOF warning system alone — it is a multi-agency effort including PMD, NDMA, PDMAs, the Pakistan Army (engineering corps), and international partners (ICIMOD, UNDP, World Bank)",
-    "Thinking PMD issues flood warnings directly — PMD provides the meteorological input (rainfall forecasts, storm warnings), but the formal flood warning is a joint product with the Federal Flood Commission and irrigation departments who handle river-flow routing",
-    "Believing PMD is a global NWP center — PMD relies on imported model output from ECMWF, GFS, UKMO for medium-range forecasts; its in-house NWP capability (WRF) is limited to short-range regional applications",
-    "Underestimating the role of international partnerships in PMD operations — almost all major PMD projects (GLOF monitoring, climate downscaling, radar upgrades) are funded or supported by international agencies"
+    "Ignoring institutional role in syllabus.",
+    "Treating warnings as optional media noise.",
+    "Forgetting aviation/ag users.",
+    "Separating PMD from observing technology topics."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-remote-sensing", "meteo-nwp-models", "meteo-pakistan-nccp"],
-    subtopics: [
-      {
-        id: "meteo-pmd-operational-how-pmd-s-regional-structure-maps-to-cli",
-        title: "How PMD's regional structure maps to climate zones",
-        summary: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical…",
-        explanation: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab and the Indus plains (responsible for the persistent winter fog, summer monsoon, heat waves, and smog monitoring); Peshawar covers KPK (responsible for both the summer monsoon and winter WDs in the western mountains); Quetta covers Balochistan (responsible for the winter WD precipitation, summer dust storms, and ongoing drought monitoring); Gilgit covers the northern mountains (responsible for GLOF monitoring, glacier mass balance, and winter snowfall). This regional structure ensures that forecast offices are staffed with meteorologists familiar with the local climate and weather patterns of their area.",
-                examples: [
-          {
-            problem: "Which statement best matches “How PMD's regional structure maps to climate zones”?",
-            solution: "The accurate idea is: PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab and the Indus plains (responsible for the persistent winter fog, summer monsoon, heat waves, and smog monitoring); Peshawar covers KPK (responsible for both the summer monsoon and winter WDs in the western mountains); Quetta covers Balochistan (responsible for the winter WD precipitation, summer dust storms, and ongoing drought monitoring); Gilgit covers the northern mountains (responsible for GLOF monitoring, glacier mass balance, and winter snowfall). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Ka…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How PMD's regional structure maps to climate zones.",
-            solution: "Stay close to the text: PMD's regional offices are aligned with Pakistan's climate zones: Karachi covers Sindh and the Arabian Sea coast (responsible for tropical cyclone warnings, sea-state forecasts, Karachi heat waves); Lahore covers Punjab … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-pmd-operational-pmd-s-role-in-flood-and-glof-warning",
-        title: "PMD's role in flood and GLOF warning",
-        summary: "PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall,…",
-        explanation: "PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall, river levels in cooperation with WAPDA, soil moisture) and runs the NWP models that produce quantitative precipitation forecasts (QPFs); these are passed to the Federal Flood Commission and provincial irrigation departments for hydrological modeling and flood routing. The final flood warning is issued jointly. For GLOFs, PMD operates a network of automated weather stations (AWS) in vulnerable valleys, lake-level sensors on monitored glacial lakes, and downstream river-level gauges; the GLOF early warning system issues SMS-based warnings to local communities when lake levels rise above critical thresholds, often 1–4 hours before the flood wave arrives. PMD's GLOF program is supported by international partners including ICIMOD, UNDP, and the World Bank.",
-                examples: [
-          {
-            problem: "Which statement best matches “PMD's role in flood and GLOF warning”?",
-            solution: "The accurate idea is: PMD plays a central role in Pakistan's disaster warning chain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PMD plays a central role in Pakistan's disaster warning chain.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying PMD's role in flood and GLOF warning.",
-            solution: "Stay close to the text: PMD plays a central role in Pakistan's disaster warning chain. For floods, PMD operates the meteorological observation network (rainfall, river levels in cooperation with WAPDA, soil moisture) and runs the NWP models tha… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-pmd-operational-limitations-and-challenges-of-pmd-operat",
-        title: "Limitations and challenges of PMD operations",
-        summary: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps — Pakistan's upper-air sounding network is…",
-        explanation: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps — Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; (2) limited radar coverage — Doppler radar is available at major airports but not for the whole country; (3) capacity constraints — PMD's supercomputing and NWP model run capability is limited compared to global centers, so it relies on imported model output (ECMWF, GFS, UKMO) for medium-range guidance; (4) GLOF monitoring — only ~30 of ~3000+ glacial lakes are actively monitored due to cost and remoteness; (5) communication — getting warnings to vulnerable rural communities in time remains a challenge, especially in remote mountain valleys. The National Disaster Management Authority (NDMA) and provincial disaster management authorities (PDMAs) work with PMD to disseminate warnings and coordinate response.",
-                examples: [
-          {
-            problem: "Which statement best matches “Limitations and challenges of PMD operations”?",
-            solution: "The accurate idea is: Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; (2) limited radar coverage â Doppler radar is available at major airports but not for the whole country; (3) capacity constraints â PMD's supercomputing and NWP model run capability is limited compared to global centers, so it relies on imported model output (ECMWF, GFS, UKMO) for medium-range guidance; (4) GLOF monitoring â only ~30 of ~3000+ glacial lakes are actively monitored due to cost and remoteness; (5) communication â getting warnings to vulnerable rural communities in time remains a challenge, especially in remote mountain valleys. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Limitations and challenges of PMD operations.",
-            solution: "Stay close to the text: Despite its critical role, PMD faces several operational limitations: (1) observation gaps â Pakistan's upper-air sounding network is sparse, with limited radiosonde launches in the northern mountains and Balochistan; … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["meteo-extreme-events", "meteo-aviation-products", "meteo-remote-sensing"],
   leadsTo: [],
-  usedIn: ["env-pakistan-environmental-context", "english-sentence-building-blocks", "ra-scientific-reporting"]
+  usedIn: ["meteo-nccp-objectives", "meteo-aviation-products"]
 },
 
 {
@@ -5114,83 +4966,72 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 7,
   title: "National Climate Change Policy (NCCP) Objectives",
-  definition: "The National Climate Change Policy (NCCP) of 2012, updated periodically, sets specific objectives to address Pakistan's climate vulnerabilities across glacier protection, early warning systems, agriculture, afforestation, energy, and capacity building — providing the framework for climate adaptation and mitigation in Pakistan.",
+  definition: "The objectives of Pakistan’s National Climate Change Policy centre on enhancing adaptive capacity, reducing vulnerability, promoting sustainable economic growth under climate constraints, and pursuing mitigation compatible with national development priorities. They translate the 2012 policy framework into directional goals for sectors and institutions.",
   keyFacts: [
-    "Policy framework: the NCCP 2012 was Pakistan's first comprehensive national climate policy; it is supplemented by the Framework for Implementation of the Climate Change Policy (2014) and provincial climate change action plans",
-    "Glacier and water resources: protecting glaciers and managing seasonal Indus River System flow through monitoring, GLOF risk reduction, and integrated water resource management",
-    "GLOF early warning: establishing GLOF early warning systems in vulnerable valleys — a major objective that PMD, NDMA, and international partners have been implementing since 2010",
-    "Agricultural adaptation: introducing heat-resistant and drought-tolerant crop varieties, especially for arid and semi-arid regions; promoting climate-smart agriculture (water-efficient irrigation, mulching, crop diversification)",
-    "Afforestation: implementing large-scale afforestation projects, including the flagship 'Billion Tree Tsunami' (2014–2018) and its successor '10 Billion Tree Tsunami' (2018–2028)",
-    "Energy transition: improving energy efficiency and shifting the energy mix toward renewables (hydropower, wind, solar) to reduce carbon emissions and meet Pakistan's Paris Agreement commitments",
-    "Disaster risk reduction: strengthening early warning systems, building climate-resilient infrastructure, and improving emergency response capacity at federal, provincial, and district levels",
-    "Capacity building: enhancing climate research, education, and training; establishing the Global Change Impact Studies Centre (GCISC) in Islamabad as a think tank on climate change"
+    "Strengthen adaptation to climate risks (water, agriculture, extremes, health, ecosystems)",
+    "Integrate climate change into development planning",
+    "Promote mitigation through energy, forestry, and efficiency where feasible",
+    "Build institutional and scientific capacity for climate response",
+    "Raise awareness and support vulnerable communities",
+    "Align with international climate processes while prioritising national vulnerabilities"
   ],
   explanationSections: [
-    { heading: "How the objectives map to the hazards", body: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake hazards (see i-extreme-events). Heat-resistant crops and climate-smart agriculture address the rising temperatures in arid plains (see i-temp-rainfall-distribution) and protect food security against heat stress and drought. Afforestation serves dual roles: carbon sequestration (mitigation) and ecosystem restoration (adaptation, including reduced flooding, improved soil, biodiversity). Energy transition addresses the fact that Pakistan's energy mix is dominated by fossil fuels (coal, gas, oil), making the power sector the largest single source of greenhouse gas emissions. Disaster risk reduction strengthens the warning-response chain that links PMD forecasts to community action." },
-    { heading: "Implementation challenges and progress", body: "Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning systems) have seen significant progress, while others (energy transition, large-scale agricultural reform) lag behind due to financing constraints, political priorities, and capacity gaps. The 2022 super flood served as a stress test for Pakistan's climate adaptation framework, highlighting both the progress made (GLOF early warning systems in place in several valleys) and the work remaining (flood forecasting and response in remote areas, climate-resilient infrastructure). The 2022 floods also led to 'loss and damage' discussions at COP27, with Pakistan advocating for compensation from high-emission countries for climate-induced disasters." }
+    { heading: "Objectives as a checklist for action", body: "Where the NCCP topic introduces the policy, this topic stresses what it aims to achieve. Exam answers should connect objectives to Pakistan’s actual risks: water security, floods, droughts, heat, and glacial systems — not generic global slogans only." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-nccp-objectives-adaptation",
+      title: "Adaptation-centred objectives",
+      summary: "Reduce vulnerability; protect water and livelihoods.",
+      explanation: "Objectives emphasise resilient water resources, climate-smart agriculture, disaster risk reduction, and protection of vulnerable populations. These map directly onto monsoon variability, WDs, GLOFs, and heat extremes.",
+      examples: [
+        { problem: "Why do NCCP objectives stress water resources so strongly?", solution: "Pakistan’s agriculture, cities, and energy systems depend on climate-sensitive water from monsoon, melt, and rivers under high variability.", answer: "Water security under climate stress" }
+      ],
+      shortcuts: ["Adaptation objectives ↔ vulnerability sectors", "Water + ag central"],
+      traps: ["Listing only CO₂ targets as NCCP objectives"]
+    },
+    {
+      id: "meteo-nccp-objectives-mitigation-capacity",
+      title: "Mitigation, capacity, and integration",
+      summary: "Development-compatible mitigation; institutions and awareness.",
+      explanation: "Mitigation objectives include cleaner energy pathways and sinks such as forestry. Capacity-building and mainstreaming climate into planning aim to make adaptation and mitigation durable across ministries and provinces.",
+      examples: [
+        { problem: "Name two non-meteorological supports required for NCCP objectives to work.", solution: "Institutional capacity and integration into development planning (also finance, awareness, and local implementation).", answer: "Institutions + planning integration" }
+      ],
+      shortcuts: ["Mitigation + adaptation together", "Capacity enables policy"],
+      traps: ["Treating policy objectives as self-executing without institutions"]
+    }
+  ],
+  comparisonTable: {
+    title: "Objective clusters",
+    headers: ["Cluster", "Emphasis"],
+    rows: [
+      ["Adaptation", "Vulnerability, water, extremes"],
+      ["Mitigation", "Energy, forestry, efficiency"],
+      ["Enablers", "Institutions, awareness, planning"]
+    ]
+  },
+  pakistanExamFocus: [
+    "NCCP objectives prioritise adaptation under high vulnerability",
+    "Connect objectives to floods, droughts, heat, water, glaciers",
+    "Mitigation appears alongside — not instead of — adaptation"
   ],
   examPoints: [
-    "NCCP was issued in 2012 as Pakistan's first comprehensive national climate policy",
-    "Billion Tree Tsunami (2014–2018) is the specific named afforestation project most likely to appear as a direct-recall question",
-    "10 Billion Tree Tsunami (2018–2028) is the successor program with extended scope and scale",
-    "Heat-resistant and drought-tolerant crop varieties are the primary agricultural adaptation strategy",
-    "Energy transition objective: shift toward renewables (hydropower, wind, solar) to meet Paris Agreement commitments",
-    "GCISC (Global Change Impact Studies Centre) in Islamabad is Pakistan's main climate research think tank"
+    "Core objectives: adaptation, mitigation, integration, capacity",
+    "Water and agriculture are central",
+    "Policy goals link to physical climate risks"
   ],
   commonMistakes: [
-    "Listing objectives without linking mitigation vs adaptation.",
-    "Assuming policy objectives equal measured outcomes automatically.",
-    "Ignoring cross-sector water–agriculture–energy links.",
-    "Treating NCCP objectives as purely meteorological rather than socio-environmental.",
+    "Confusing objectives with RCP scenarios.",
+    "Adaptation-only or mitigation-only caricatures.",
+    "Generic answers with no Pakistan hazard link.",
+    "Ignoring institutional capacity."
   ],
   relatedTopics: ["meteo-pakistan-nccp", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-pmd-operational"],
-    subtopics: [
-      {
-        id: "meteo-nccp-objectives-how-the-objectives-map-to-the-hazards",
-        title: "How the objectives map to the hazards",
-        summary: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake…",
-        explanation: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake hazards (see i-extreme-events). Heat-resistant crops and climate-smart agriculture address the rising temperatures in arid plains (see i-temp-rainfall-distribution) and protect food security against heat stress and drought. Afforestation serves dual roles: carbon sequestration (mitigation) and ecosystem restoration (adaptation, including reduced flooding, improved soil, biodiversity). Energy transition addresses the fact that Pakistan's energy mix is dominated by fossil fuels (coal, gas, oil), making the power sector the largest single source of greenhouse gas emissions. Disaster risk reduction strengthens the warning-response chain that links PMD forecasts to community action.",
-                examples: [
-          {
-            problem: "Which statement best matches “How the objectives map to the hazards”?",
-            solution: "The accurate idea is: Each NCCP objective targets a specific vulnerability covered elsewhere in this section. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Each NCCP objective targets a specific vulnerability covered elsewhere in this section.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How the objectives map to the hazards.",
-            solution: "Stay close to the text: Each NCCP objective targets a specific vulnerability covered elsewhere in this section. GLOF early warning systems address glacial lake hazards (see i-extreme-events). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-nccp-objectives-implementation-challenges-and-progress",
-        title: "Implementation challenges and progress",
-        summary: "Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning…",
-        explanation: "Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning systems) have seen significant progress, while others (energy transition, large-scale agricultural reform) lag behind due to financing constraints, political priorities, and capacity gaps. The 2022 super flood served as a stress test for Pakistan's climate adaptation framework, highlighting both the progress made (GLOF early warning systems in place in several valleys) and the work remaining (flood forecasting and response in remote areas, climate-resilient infrastructure). The 2022 floods also led to 'loss and damage' discussions at COP27, with Pakistan advocating for compensation from high-emission countries for climate-induced disasters.",
-                examples: [
-          {
-            problem: "Which statement best matches “Implementation challenges and progress”?",
-            solution: "The accurate idea is: Despite the comprehensive scope of the NCCP, implementation has been uneven. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Despite the comprehensive scope of the NCCP, implementation has been uneven.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Implementation challenges and progress.",
-            solution: "Stay close to the text: Despite the comprehensive scope of the NCCP, implementation has been uneven. Some objectives (Billion Tree Tsunami, GLOF early warning systems) have seen significant progress, while others (energy transition, large-scale… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-pakistan-nccp"],
   leadsTo: [],
-  usedIn: ["env-international-climate-policy", "env-pakistan-environmental-context"]
+  usedIn: ["env-climate-change-response", "meteo-extreme-events"]
 },
 
 // ============================= SECTION METEO-J: Weather Forecasting Basics =============================
