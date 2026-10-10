@@ -2017,87 +2017,76 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 1,
   title: "Atmospheric Moisture Metrics",
-  definition: "Atmospheric moisture is measured using several complementary metrics: absolute humidity, mixing ratio, vapour pressure, relative humidity, and dew point.",
+  definition: "Atmospheric moisture is measured with several related but distinct quantities: vapour pressure, saturation vapour pressure, relative humidity, dew-point temperature, specific humidity, and mixing ratio. Each answers a different question — how much water is present, how close the air is to saturation, or at what temperature condensation begins.",
   keyFacts: [
-    "Absolute humidity: mass of water vapour per volume of air (g/m³); changes as a parcel expands/contracts even with no moisture added/removed",
-    "Mixing ratio: mass of vapour per mass of dry air; conservative, changes only when moisture is actually added/removed",
-    "Vapour pressure: partial pressure exerted by water vapour molecules; saturation vapour pressure rises exponentially with temperature",
-    "Relative Humidity (RH) = (vapour pressure / saturation vapour pressure) × 100",
-    "Dew point (Td): temperature to which air must cool, at constant pressure/moisture, to reach saturation (RH = 100%)"
+    "Saturation vapour pressure rises steeply with temperature (Clausius–Clapeyron behaviour)",
+    "Relative humidity RH = (actual vapour pressure / saturation vapour pressure) × 100%",
+    "Dew point: temperature to which air must be cooled at constant pressure to reach saturation",
+    "High RH does not always mean high absolute moisture — cold air can be saturated with little water",
+    "Mixing ratio and specific humidity measure actual water mass relative to dry air or total air",
+    "Dew point is often the better ‘how moist is it?’ indicator for weather than RH alone"
   ],
   explanationSections: [
-    { heading: "Why mixing ratio is preferred for tracking moisture", body: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks." },
-    { heading: "Temperature–dew point spread", body: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation." }
+    { heading: "Amount versus closeness to saturation", body: "Relative humidity confuses students because it mixes two ideas: how much vapour is present and how much the air could hold at that temperature. Dew point and mixing ratio track actual moisture more cleanly; RH tracks proximity to cloud or fog formation at the current temperature." }
+  ],
+  subtopics: [
+    {
+      id: "meteo-moisture-metrics-rh-dewpoint",
+      title: "Relative humidity and dew point",
+      summary: "RH is a ratio; dew point is a temperature of saturation.",
+      explanation: "Warm the air without adding vapour and RH falls because saturation vapour pressure rises. Cool the air and RH rises until the dew point is reached and condensation begins on surfaces or nuclei. Two air samples can share the same RH yet hold very different water amounts if their temperatures differ.",
+      examples: [
+        { problem: "Air at 30 °C with dew point 10 °C versus air at 12 °C with dew point 10 °C — which holds more moisture, and which is closer to saturation?", solution: "Both share dew point 10 °C so absolute moisture is similar; the 12 °C sample has much higher RH and is closer to saturation.", answer: "Similar moisture; cooler sample closer to saturation" }
+      ],
+      shortcuts: ["RH = e/e_s × 100%", "Dew point ↑ → more actual moisture (roughly)"],
+      traps: ["Reading high RH in cold air as ‘lots of water vapour’"]
+    },
+    {
+      id: "meteo-moisture-metrics-absolute",
+      title: "Absolute moisture measures",
+      summary: "Mixing ratio and specific humidity track water mass.",
+      explanation: "Mixing ratio is mass of vapour per mass of dry air; specific humidity is mass of vapour per mass of moist air. They change mainly when water is added or removed, not when temperature changes alone — unlike RH.",
+      examples: [
+        { problem: "Why can RH drop through a sunny morning even if moisture content is nearly constant?", solution: "Temperature rises, e_s rises, so RH = e/e_s falls even if e is steady.", answer: "Warming raises e_s, lowering RH" }
+      ],
+      shortcuts: ["Absolute metrics stable under pure warming", "RH temperature-sensitive"],
+      traps: ["Treating RH as a pure moisture amount"]
+    }
   ],
   formula: {
     name: "Relative Humidity",
-    expression: "RH = (Vapour Pressure / Saturation Vapour Pressure) × 100",
+    expression: "RH = (Vapour Pressure / Saturation Vapour Pressure) × 100%",
     variables: [
-      { symbol: "RH", meaning: "relative humidity (%)" }
+      { symbol: "RH", meaning: "relative humidity (%)" },
+      { symbol: "e", meaning: "actual vapour pressure" },
+      { symbol: "e_s", meaning: "saturation vapour pressure at air temperature" }
     ]
   },
-  examPoints: ["Warming air (with constant moisture) decreases RH; cooling increases RH — even though actual water vapour content doesn't change"],
+  comparisonTable: {
+    title: "Moisture metrics",
+    headers: ["Metric", "What it answers"],
+    rows: [
+      ["Vapour pressure / mixing ratio", "How much vapour is present"],
+      ["RH", "How close to saturation at current T"],
+      ["Dew point", "Cooling needed to saturate (also moisture proxy)"]
+    ]
+  },
+  examPoints: [
+    "RH ≠ absolute moisture",
+    "Dew point is a saturation temperature",
+    "e_s rises strongly with temperature"
+  ],
   commonMistakes: [
-    "Confusing relative humidity with absolute/specific humidity.",
-    "Thinking 100% RH always means heavy rain — it means saturation, not precipitation amount.",
-    "Mixing dew point with wet-bulb without knowing which is which.",
-    "Assuming RH alone measures moisture content independent of temperature.",
+    "Equating high RH with high water content always.",
+    "Confusing dew point with air temperature.",
+    "Ignoring temperature when interpreting RH.",
+    "Mixing units of mixing ratio and RH."
   ],
-  workedExample: [
-    {
-      problem: "Air at 30 °C has vapor pressure e = 21 hPa while saturation vapor pressure e_s ≈ 42 hPa. What is relative humidity?",
-      solution: "RH = (e/e_s) × 100% = (21/42) × 100% = 50%.",
-      answer: "50%",
-    },
-  ],
-  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types"],
-    subtopics: [
-      {
-        id: "meteo-moisture-metrics-why-mixing-ratio-is-preferred-for-tracki",
-        title: "Why mixing ratio is preferred for tracking moisture",
-        summary: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative…",
-        explanation: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why mixing ratio is preferred for tracking moisture”?",
-            solution: "The accurate idea is: Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually pre…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why mixing ratio is preferred for tracking moisture.",
-            solution: "Stay close to the text: Because mixing ratio is unaffected by a parcel's expansion or compression, unlike absolute humidity, it remains a reliable, conservative tracer of how much moisture is actually present as a parcel rises or sinks. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-moisture-metrics-temperature-dew-point-spread",
-        title: "Temperature–dew point spread",
-        summary: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
-        explanation: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
-                examples: [
-          {
-            problem: "Which statement best matches “Temperature–dew point spread”?",
-            solution: "The accurate idea is: A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Temperature–dew point spread.",
-            solution: "Stay close to the text: A small spread between actual temperature and dew point indicates high relative humidity and a greater likelihood of fog or cloud formation. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-humidity-calc", "meteo-fog-types"],
   content: true,
   buildsOn: ["meteo-gas-law", "phy-thermodynamics-laws", "math-1-7"],
   leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-humidity-calc"],
-  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-fog-types", "meteo-humidity-calc", "meteo-humidity-instruments"]
+  usedIn: ["meteo-adiabatic-cloud-formation", "meteo-humidity-calc", "meteo-fog-types"]
 },
 
 {
@@ -2105,28 +2094,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 2,
   title: "Adiabatic Processes & Cloud Formation",
-  definition: "Clouds form as rising air parcels expand and cool adiabatically until reaching saturation at the Lifting Condensation Level (LCL), marking the cloud base.",
+  definition: "Clouds form when moist air is cooled to saturation, most often by ascent. Rising unsaturated air cools at the dry adiabatic lapse rate until the lifting condensation level (LCL); further ascent follows a saturated rate as condensation releases latent heat. The same physics links stability, cloud bases, and precipitation potential.",
   keyFacts: [
-    "Lifting mechanisms: solar heating, topographic barriers, frontal wedging",
-    "Unsaturated parcel cools at the DALR (~10°C/km) as it rises",
-    "LCL: altitude where the parcel's temperature reaches its dew point, RH = 100%, condensation begins — marks the cloud base",
-    "After saturation, continued ascent cools the parcel at the slower SALR (~5–6°C/km) because condensation releases latent heat"
+    "Adiabatic: no heat exchange with surroundings — expansion cooling on ascent, compression warming on descent",
+    "DALR ≈ 9.8 °C/km until saturation",
+    "LCL: level where rising air first reaches saturation — approximate cloud base for convective clouds",
+    "Above LCL, SALR applies while condensation continues",
+    "Descent evaporates droplets and warms the air — clear slots in lee of mountains are one example",
+    "Need moisture + cooling (usually lift) + condensation nuclei for ordinary clouds"
   ],
   explanationSections: [
-    { heading: "From lifting to cloud base", body: "As an unsaturated parcel rises, decreasing pressure causes it to expand and cool at the DALR. Once its temperature falls to the dew point, saturation occurs — this altitude is the LCL, which is physically the flat base seen on cumulus clouds." }
+    { heading: "Lift, cool, saturate, condense", body: "The recipe for most clouds is mechanical or buoyant lift. As pressure falls, parcels expand and cool. When temperature meets dew point, condensation begins on nuclei. Stability decides whether lift continues into deep cloud." }
   ],
-  examPoints: ["The LCL is the physical explanation for why cumulus clouds often show a flat base at a consistent altitude"],
+  subtopics: [
+    {
+      id: "meteo-adiabatic-cloud-formation-ascent",
+      title: "Ascent, LCL, and cloud base",
+      summary: "Dry ascent to the LCL; saturated ascent above.",
+      explanation: "An unsaturated parcel cools at about 10 °C/km until it hits the LCL. The higher the dew-point depression at the surface, the higher the LCL and the higher the cloud base, all else equal.",
+      examples: [
+        { problem: "Why do convective clouds often have higher bases in dry desert air than in humid tropical air?", solution: "Larger dew-point depression means a higher LCL — the parcel must rise farther to cool to its dew point.", answer: "Higher LCL in drier air" }
+      ],
+      shortcuts: ["LCL ≈ cloud base (convective)", "Drier → higher base"],
+      traps: ["Assuming all cloud bases sit at a fixed height"]
+    },
+    {
+      id: "meteo-adiabatic-cloud-formation-descent",
+      title: "Descent and clearing",
+      summary: "Sinking air warms and dries relative to saturation.",
+      explanation: "Descending air compresses and warms at the dry adiabatic rate once unsaturated, RH falls, and clouds tend to evaporate. That is one reason for clear lee-side conditions and for holes in cloud decks under subsidence.",
+      examples: [
+        { problem: "Air sinks 1 km unsaturated. What happens to its RH, roughly?", solution: "Temperature rises ~10 °C, e_s rises sharply, so RH falls and clouds are less likely.", answer: "RH decreases" }
+      ],
+      shortcuts: ["Descent → warm → lower RH", "Subsidence clears skies"],
+      traps: ["Thinking sinking always creates clouds"]
+    }
+  ],
+  comparisonTable: {
+    title: "Parcel path and moisture",
+    headers: ["Stage", "Lapse rate", "Cloud"],
+    rows: [
+      ["Unsaturated ascent", "DALR", "No cloud yet"],
+      ["At LCL", "Saturation reached", "Cloud base begins"],
+      ["Saturated ascent", "SALR", "Cloud grows with continued lift"]
+    ]
+  },
+  examPoints: [
+    "Clouds usually need lift to cool air to saturation",
+    "LCL marks approximate convective cloud base",
+    "Descent warms and reduces RH"
+  ],
   commonMistakes: [
-    "Thinking clouds form only by nocturnal radiation cooling.",
-    "Ignoring lifting mechanisms (orographic, frontal, convergent, convective).",
-    "Confusing dry and moist adiabatic behaviour once condensation starts.",
-    "Assuming every saturated parcel immediately rains.",
+    "Believing clouds form only by adding moisture, never by cooling.",
+    "Ignoring LCL when discussing cloud base.",
+    "Using SALR before saturation.",
+    "Forgetting nuclei are needed for ordinary droplet formation."
   ],
-  relatedTopics: ["meteo-moisture-metrics", "meteo-lapse-rates", "meteo-thermodynamic-diagrams"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-cloud-classification", "meteo-static-stability"],
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "phy-thermodynamics-laws"],
   leadsTo: ["meteo-cloud-classification", "meteo-fog-types", "meteo-droplet-microphysics"],
-  usedIn: ["meteo-cloud-classification", "meteo-precipitation-processes", "meteo-lapse-calc", "meteo-thermodynamic-diagrams"]
+  usedIn: ["meteo-cloud-classification", "meteo-precipitation-processes", "meteo-thermodynamic-diagrams"]
 },
 
 {
@@ -2134,24 +2162,65 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 3,
   title: "Types of Fog",
-  definition: "Fog is a cloud at ground level; the four major types are radiation fog, advection fog, upslope fog, and evaporation (mixing) fog.",
+  definition: "Fog is a cloud with its base at or near the ground, reducing visibility. Types are named by the cooling or moisture process that brings air to saturation: radiation, advection, upslope, evaporation (steam), and frontal fog.",
   keyFacts: [
-    "Radiation/ground fog: clear, calm nights; ground radiates heat away, cooling surface air to its dew point",
-    "Advection fog: warm, moist air moves horizontally over a cold surface (cold currents, snow-covered land)",
-    "Upslope fog: moist air forced upward along terrain, cooling adiabatically to saturation",
-    "Evaporation/mixing fog: water evaporates into cool, unsaturated air, adding moisture to reach saturation — includes steam fog and frontal fog"
+    "Radiation fog: clear, calm nights; ground cools; common in valleys",
+    "Advection fog: moist air moves over a colder surface (e.g. warm air over cold sea)",
+    "Upslope fog: air forced up terrain cools adiabatically to saturation",
+    "Steam fog: cold air over warmer water — evaporation into cold air saturates it",
+    "Frontal fog: associated with precipitation and frontal zones saturating cool air",
+    "Fog requires saturation plus limited mixing; wind that is too strong often prevents radiation fog"
   ],
   explanationSections: [
-    { heading: "Distinguishing the mechanisms", body: "Radiation and upslope fog form via cooling to the dew point (from the surface or via adiabatic ascent respectively), while advection fog forms by moving warm air over a cold surface. Evaporation fog is the odd one out — it forms by adding moisture rather than cooling." }
+    { heading: "Same physics as cloud, different altitude", body: "Fog is not a different substance from cloud — it is saturation at ground level. Diagnosing type means asking: was the air cooled in place, cooled by motion over a cold surface, lifted, or moistened from below?" }
   ],
-  examPoints: ["Steam fog and frontal fog are both subtypes of evaporation/mixing fog — a detail often missed"],
+  subtopics: [
+    {
+      id: "meteo-fog-types-radiation-advection",
+      title: "Radiation and advection fog",
+      summary: "In-situ night cooling versus horizontal movement over a cold surface.",
+      explanation: "Radiation fog needs clear skies, light winds, and moist near-surface air so overnight IR cooling can reach the dew point. Advection fog needs a horizontal temperature contrast — classic over cold ocean currents when moist air drifts in.",
+      examples: [
+        { problem: "Dense morning fog in a calm valley after a clear night — most likely type?", solution: "Radiation fog from nocturnal ground cooling and cold-air pooling.", answer: "Radiation fog" }
+      ],
+      shortcuts: ["Radiation = night, clear, calm", "Advection = moist air over cold surface"],
+      traps: ["Calling all fog radiation fog"]
+    },
+    {
+      id: "meteo-fog-types-upslope-steam",
+      title: "Upslope and steam fog",
+      summary: "Terrain lift versus evaporation into cold air.",
+      explanation: "Upslope fog is essentially a ground-level cloud formed by adiabatic cooling on a slope. Steam fog occurs when cold air overlies much warmer water; intense evaporation saturates the cold layer in streamers — common over lakes on frigid mornings.",
+      examples: [
+        { problem: "Cold arctic air streams over an unfrozen lake and produces wisps of fog at the surface. Type?", solution: "Steam (evaporation) fog — moisture added to cold air from warm water.", answer: "Steam fog" }
+      ],
+      shortcuts: ["Upslope = terrain lift", "Steam = cold air, warm water"],
+      traps: ["Mixing steam fog with radiation fog"]
+    }
+  ],
+  comparisonTable: {
+    title: "Fog types",
+    headers: ["Type", "Key process"],
+    rows: [
+      ["Radiation", "Nocturnal ground cooling"],
+      ["Advection", "Moist air over colder surface"],
+      ["Upslope", "Adiabatic cooling on terrain"],
+      ["Steam", "Evaporation into cold air"],
+      ["Frontal", "Frontal moisture / cooling"]
+    ]
+  },
+  examPoints: [
+    "Fog = cloud at ground level",
+    "Match type to process",
+    "Radiation fog favours clear calm nights"
+  ],
   commonMistakes: [
-    "Calling all fog radiation fog.",
-    "Mixing advection fog with steam fog or frontal fog.",
-    "Thinking fog is unrelated to surface-based saturation.",
-    "Ignoring wind and moisture-source differences among types.",
+    "One cause for all fog.",
+    "Requiring strong wind for radiation fog (usually light wind).",
+    "Confusing steam fog with smoke.",
+    "Ignoring valley cold pools."
   ],
-  relatedTopics: ["meteo-moisture-metrics"],
+  relatedTopics: ["meteo-inversion-types", "meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
   content: true,
   buildsOn: ["meteo-adiabatic-cloud-formation", "meteo-inversion-types"],
   leadsTo: [],
@@ -2163,94 +2232,68 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 4,
   title: "Cloud Classification — 10 Genera",
-  definition: "Clouds are classified into ten basic genera by altitude (high, middle, low, vertical) and appearance (cirriform, stratiform, cumuliform).",
+  definition: "Clouds are classified by height and form into ten main genera. High clouds (cirrus family) are icy; middle clouds (alto-) sit near mid-troposphere; low clouds include stratus and cumulus types; cumulonimbus towers across levels. Names encode structure — cirro-, alto-, stratus, cumulus, nimbus.",
   keyFacts: [
-    "High clouds (Cirrus, Cirrocumulus, Cirrostratus) are composed entirely of ice crystals",
-    "Middle clouds (Altocumulus, Altostratus) contain a mix of water droplets and ice crystals",
-    "Low clouds (Stratus, Stratocumulus, Nimbostratus) are composed primarily of water droplets",
-    "Vertical clouds (Cumulus, Cumulonimbus) can span from near-surface to over 12,000 m",
-    "Cirrostratus frequently produces halos around the sun or moon due to ice-crystal refraction"
+    "High: cirrus, cirrocumulus, cirrostratus — primarily ice crystals",
+    "Middle: altocumulus, altostratus",
+    "Low: stratus, stratocumulus, nimbostratus",
+    "Vertically developed: cumulus, cumulonimbus",
+    "Nimbus / nimbo- implies rain-producing",
+    "Appearance + height + precipitation are the exam clues"
   ],
   explanationSections: [
-    { heading: "High Clouds", body: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil." },
-    { heading: "Middle & Low Clouds", body: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation." },
-    { heading: "Vertical Development", body: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain." }
+    { heading: "Height and shape, then rain", body: "Learn the ten genera as a grid: high/middle/low versus layered versus heaped. Then add which ones typically precipitate. Cumulonimbus is the thunderstorm cloud; nimbostratus is steady rain from layered deep cloud." }
   ],
-  examPoints: ["Nimbostratus and Cumulonimbus are the two genera that reliably produce continuous/heavy precipitation; the anvil shape is diagnostic of Cumulonimbus specifically"],
+  subtopics: [
+    {
+      id: "meteo-cloud-classification-levels",
+      title: "High, middle, and low genera",
+      summary: "Cirrus family aloft; alto- in mid-levels; stratus/cumulus below.",
+      explanation: "High clouds are thin and icy, often heralding warm fronts when thickening (cirrostratus can produce halos). Middle clouds suggest mid-level moisture. Low stratus can give drizzle; stratocumulus is lumpy low layer cloud common in marine air.",
+      examples: [
+        { problem: "A halo around the sun in thin milky cloud — most likely genus family?", solution: "Cirrostratus — ice crystal high cloud capable of optical halos.", answer: "Cirrostratus" }
+      ],
+      shortcuts: ["Cirro- = high ice", "Alto- = middle", "Stratus = layered low"],
+      traps: ["Calling all grey skies nimbostratus"]
+    },
+    {
+      id: "meteo-cloud-classification-convective",
+      title: "Cumulus and cumulonimbus",
+      summary: "Heaped clouds; Cb is the thunderstorm generator.",
+      explanation: "Cumulus shows active convection with limited depth. Cumulonimbus extends to great height, may produce heavy rain, lightning, hail, and severe winds. Nimbostratus differs: deep layered rain without the towering convective profile.",
+      examples: [
+        { problem: "Which genus is associated with thunderstorms and hail?", solution: "Cumulonimbus.", answer: "Cumulonimbus" }
+      ],
+      shortcuts: ["Cu = fair/deepening convection", "Cb = thunderstorm", "Ns = steady rain layer"],
+      traps: ["Equating every rain cloud with cumulonimbus"]
+    }
+  ],
+  comparisonTable: {
+    title: "Cloud groups",
+    headers: ["Group", "Genera examples", "Notes"],
+    rows: [
+      ["High", "Ci, Cc, Cs", "Ice; thin"],
+      ["Middle", "Ac, As", "Mid-level moisture"],
+      ["Low", "St, Sc, Ns", "Ns rains steadily"],
+      ["Vertical", "Cu, Cb", "Cb severe weather"]
+    ]
+  },
+  examPoints: [
+    "Ten genera by height and form",
+    "Nimbus = rain-bearing",
+    "Cb vs Ns distinction"
+  ],
   commonMistakes: [
-    "Using only colour to classify clouds — height and form matter.",
-    "Confusing nimbostratus with cumulonimbus.",
-    "Thinking all cumulus produce severe weather.",
-    "Mixing high cirrus (ice) with low stratus (usually liquid).",
+    "Memorising names without height meaning.",
+    "Confusing altostratus with cirrostratus.",
+    "Calling all convective clouds cumulonimbus.",
+    "Ignoring optical clues (halo → Cs)."
   ],
-  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-fog-types", "meteo-precipitation-processes", "meteo-thunderstorms"],
-    subtopics: [
-      {
-        id: "meteo-cloud-classification-high-clouds",
-        title: "High Clouds",
-        summary: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
-        explanation: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
-                examples: [
-          {
-            problem: "Which statement best matches “High Clouds”?",
-            solution: "The accurate idea is: Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying High Clouds.",
-            solution: "Stay close to the text: Thin, fibrous, ice-crystal clouds; Cirrus appears as delicate wisps, Cirrocumulus as small shadowless ripples, Cirrostratus as a thin veil. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-cloud-classification-middle-low-clouds",
-        title: "Middle & Low Clouds",
-        summary: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
-        explanation: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
-                examples: [
-          {
-            problem: "Which statement best matches “Middle & Low Clouds”?",
-            solution: "The accurate idea is: Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Middle & Low Clouds.",
-            solution: "Stay close to the text: Altostratus gives the sun a dim, watery look; Nimbostratus is a dark, wet-looking layer producing continuous precipitation. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-cloud-classification-vertical-development",
-        title: "Vertical Development",
-        summary: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning,…",
-        explanation: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain.",
-                examples: [
-          {
-            problem: "Which statement best matches “Vertical Development”?",
-            solution: "The accurate idea is: Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Vertical Development.",
-            solution: "Stay close to the text: Cumulus ranges from fair-weather humilis to towering congestus; Cumulonimbus develops the characteristic anvil top and produces lightning, thunder, and torrential rain. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
+  relatedTopics: ["meteo-adiabatic-cloud-formation", "meteo-precipitation-types", "meteo-thunderstorms"],
   content: true,
   buildsOn: ["meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-droplet-microphysics", "meteo-precipitation-processes"],
-  usedIn: ["meteo-precipitation-types", "meteo-station-model", "meteo-remote-sensing"]
+  usedIn: ["meteo-precipitation-types", "meteo-aviation-products"]
 },
 
 {
@@ -2258,24 +2301,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 5,
   title: "Microphysics of Cloud Droplet Growth",
-  definition: "Cloud droplets (~20 μm) cannot grow to raindrop size (~2,000 μm) through condensation alone because of two competing effects: the curvature effect (barrier) and the solute effect (catalyst).",
+  definition: "Cloud droplets begin on condensation nuclei and grow first by vapour condensation, then — for precipitation-sized drops — by collision–coalescence in warm clouds or by ice-phase processes in cold clouds. Not every cloud rains: droplets must grow large enough to fall against updrafts and evaporate slowly.",
   keyFacts: [
-    "Curvature effect: tiny droplets have highly curved surfaces, making water molecules escape easily — they need extreme supersaturation to survive, let alone grow",
-    "Solute effect: dissolved particles (CCN like sea salt, ammonium sulfate) lower the equilibrium vapour pressure around the droplet, counteracting the curvature effect",
-    "Together, the solute effect allows droplets to grow even at RH below 100%",
-    "Growing from cloud droplet to raindrop size requires roughly a one-million-fold increase in volume"
+    "Condensation nuclei (CCN) allow droplets to form at modest supersaturations",
+    "Condensation growth alone is slow for reaching raindrop size",
+    "Collision–coalescence: larger drops sweep up smaller ones in warm clouds",
+    "Ice-crystal (Bergeron) process: ice grows at the expense of supercooled liquid in mixed-phase clouds",
+    "Supercooled water can exist below 0 °C until ice appears",
+    "Updraft strength and droplet spectrum control whether rain reaches the ground"
   ],
   explanationSections: [
-    { heading: "Why CCN matter", body: "Without soluble condensation nuclei, the curvature effect would prevent tiny droplets from surviving except at unrealistically high supersaturation. CCN allow stable droplet growth at realistic, sub-100% relative humidity, making precipitation possible at all." }
+    { heading: "From haze droplet to raindrop", body: "Forming a visible cloud is not the same as making rain. Cloud droplets are tiny. Precipitation requires a growth pathway — warm-rain collisions or ice-phase transfer — efficient enough to build fall speeds that overcome the updraft and survive the fall." }
   ],
-  examPoints: ["Curvature effect = barrier to growth; Solute effect = catalyst for growth — these two effects are opposites and often confused"],
+  subtopics: [
+    {
+      id: "meteo-droplet-microphysics-warm",
+      title: "Warm-cloud growth",
+      summary: "Condensation then collision–coalescence.",
+      explanation: "After nucleation, droplets grow by diffusion of vapour, but slowly. Once a broad size spectrum exists, larger drops fall relative to smaller ones, collide, and coalesce. Thick warm clouds with strong updrafts and enough liquid water favour this path — common in tropical rains.",
+      examples: [
+        { problem: "Why don’t all warm clouds produce rain?", solution: "Droplets may remain too small if the cloud is shallow or the size spectrum is too narrow for efficient collisions.", answer: "Insufficient growth to fall speeds" }
+      ],
+      shortcuts: ["Warm rain → collision–coalescence", "Need broad droplet spectrum"],
+      traps: ["Assuming condensation alone makes raindrops quickly"]
+    },
+    {
+      id: "meteo-droplet-microphysics-cold",
+      title: "Cold-cloud / ice processes",
+      summary: "Ice grows from vapour while supercooled droplets evaporate.",
+      explanation: "In mixed-phase regions, saturation vapour pressure over ice is lower than over liquid water. Ice crystals grow, droplets shrink, and precipitation can form via the Bergeron process, then aggregate or rimed into snow/graupel/hail pathways.",
+      examples: [
+        { problem: "Why can snow grow efficiently in clouds that still contain liquid droplets?", solution: "Vapour prefers deposition on ice; supercooled droplets evaporate and feed crystal growth (Bergeron process).", answer: "Ice–liquid vapour pressure difference" }
+      ],
+      shortcuts: ["Bergeron: ice grows, liquid shrinks", "Supercooled water is common"],
+      traps: ["Thinking all water freezes solid at 0 °C in clouds"]
+    }
+  ],
+  comparisonTable: {
+    title: "Precipitation growth paths",
+    headers: ["Cloud type", "Main growth path"],
+    rows: [
+      ["Warm (T > 0 °C throughout)", "Collision–coalescence"],
+      ["Cold / mixed-phase", "Ice crystal (Bergeron) + collisions"]
+    ]
+  },
+  examPoints: [
+    "CCN required for ordinary droplets",
+    "Warm rain vs Bergeron process",
+    "Not all clouds precipitate"
+  ],
   commonMistakes: [
-    "Thinking cloud droplets automatically fall as rain — most are too small.",
-    "Ignoring collision–coalescence vs ice-phase (Bergeron) pathways.",
-    "Assuming pure cloud water always freezes at 0 °C (supercooling is common).",
-    "Mixing condensation nuclei with ice nuclei roles.",
+    "Skipping nuclei and imagining pure vapour droplets always.",
+    "Using only condensation for raindrop sizes.",
+    "Forcing all rain to be warm-rain physics.",
+    "Ignoring supercooled liquid."
   ],
-  relatedTopics: ["meteo-precipitation-processes"],
+  relatedTopics: ["meteo-cloud-classification", "meteo-precipitation-processes"],
   content: true,
   buildsOn: ["meteo-cloud-classification", "phy-states-of-matter"],
   leadsTo: ["meteo-precipitation-processes"],
@@ -2287,27 +2368,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 6,
   title: "Precipitation Processes",
-  definition: "Cloud droplets grow large enough to fall as precipitation through two processes: collision-coalescence (warm clouds) and the ice-crystal / Bergeron process (cold, mixed-phase clouds).",
+  definition: "Precipitation reaches the ground when hydrometeors grow and fall through the cloud and unsaturated air below without fully evaporating. The governing processes are the warm-rain coalescence path, ice-phase growth, and melting or freezing during fall. Vertical motion, moisture, and temperature profile decide intensity and type.",
   keyFacts: [
-    "Collision-coalescence: occurs in warm clouds above freezing; larger droplets fall faster, collide with and capture smaller droplets, merging into raindrops",
-    "Bergeron process: occurs in cold, mixed-phase clouds; saturation vapour pressure over water is greater than over ice, so vapour moves from liquid droplets to ice crystals, which grow via deposition",
-    "Bergeron-grown ice crystals may aggregate into snowflakes, or melt into rain if they fall through a warm layer near the surface"
+    "Requires growth beyond cloud-droplet size and a path to the surface",
+    "Virga: precipitation that evaporates before reaching the ground",
+    "Strong updrafts can suspend growing particles (hail growth)",
+    "Evaporation below cloud base cools and can intensify downdrafts",
+    "Efficiency depends on cloud thickness, liquid/ice content, and drop size spectrum",
+    "Orographic lift and convergent lift organise where processes operate most vigorously"
   ],
   explanationSections: [
-    { heading: "Why the Bergeron process works", body: "Because saturation vapour pressure is lower over ice than over liquid water at the same sub-freezing temperature, water vapour continuously moves from supercooled droplets to ice crystals, causing ice crystals to grow rapidly at the expense of the evaporating droplets." }
+    { heading: "Grow, fall, survive", body: "Microphysics grows the particle; dynamics keep it in the cloud or drop it out; the sub-cloud layer decides whether it arrives as rain, snow, or nothing (virga). Linking those three is the process view of precipitation." }
   ],
-  examPoints: ["Collision-coalescence = warm clouds; Bergeron process = cold, mixed-phase clouds — matching mechanism to cloud temperature is a common exam question"],
+  subtopics: [
+    {
+      id: "meteo-precipitation-processes-growth-fallout",
+      title: "Growth and fallout",
+      summary: "Particles must grow and overcome updrafts.",
+      explanation: "In stratiform clouds, steady gentle ascent grows particles that drift down. In convective clouds, strong updrafts recycle particles through growth regions until they are heavy enough to fall — or until the updraft collapses.",
+      examples: [
+        { problem: "What is virga?", solution: "Precipitation falling from a cloud that evaporates before reaching the ground.", answer: "Precipitation not reaching the surface" }
+      ],
+      shortcuts: ["Virga = evaporates aloft", "Updraft vs fall speed"],
+      traps: ["Assuming all cloud particles reach the ground"]
+    },
+    {
+      id: "meteo-precipitation-processes-subcloud",
+      title: "Sub-cloud modification",
+      summary: "Melting, freezing, and evaporation reshape what hits the surface.",
+      explanation: "A deep warm layer melts snow to rain. A cold layer near the ground can refreeze drops into ice pellets. Dry sub-cloud air evaporates rain and chills the air, strengthening downdrafts and outflow boundaries.",
+      examples: [
+        { problem: "Snow falls but a deep layer above freezing exists near the surface. Likely surface precipitation?", solution: "Rain — snow melts on the way down.", answer: "Rain (melted snow)" }
+      ],
+      shortcuts: ["Warm layer melts snow", "Dry air → evaporation / virga"],
+      traps: ["Ignoring temperature profile between cloud and ground"]
+    }
+  ],
+  comparisonTable: {
+    title: "Process checklist",
+    headers: ["Step", "Question"],
+    rows: [
+      ["Growth", "Coalescence or ice process?"],
+      ["Fallout", "Fall speed > updraft?"],
+      ["Below cloud", "Melt, freeze, or evaporate?"]
+    ]
+  },
+  examPoints: [
+    "Precipitation needs growth + fall + survival",
+    "Virga evaporates before ground",
+    "Temperature profile controls rain vs snow vs ice pellets"
+  ],
   commonMistakes: [
-    "Assuming one process explains all rain worldwide.",
-    "Confusing warm-cloud and cold-cloud mechanisms.",
-    "Thinking intensity equals process type.",
-    "Ignoring orography and convection as enhancers.",
+    "Stopping the story at cloud formation.",
+    "Ignoring sub-cloud temperature.",
+    "Assuming heavy cloud always means heavy surface rain.",
+    "Confusing process with precipitation type names."
   ],
-  relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-cloud-classification"],
+  relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-orographic-rainshadow"],
   content: true,
   buildsOn: ["meteo-droplet-microphysics"],
   leadsTo: ["meteo-precipitation-types", "meteo-orographic-rainshadow"],
-  usedIn: ["meteo-precipitation-types", "meteo-global-precip-patterns"]
+  usedIn: ["meteo-precipitation-types", "meteo-orographic-rainshadow", "meteo-thunderstorms"]
 },
 
 {
@@ -2315,29 +2436,69 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 7,
   title: "Types of Precipitation",
-  definition: "Precipitation reaches the surface in five main forms depending on the vertical temperature profile it falls through: rain, snow, sleet, freezing rain, and hail.",
+  definition: "Precipitation types — rain, drizzle, snow, sleet (ice pellets), freezing rain, hail, and graupel — are classified by the hydrometeor that reaches the surface and by the temperature profile it fell through. The same upper cloud may yield different surface types as profiles change.",
   keyFacts: [
-    "Rain: liquid drops > ~0.5 mm diameter",
-    "Snow: hexagonal ice crystals that aggregate into snowflakes",
-    "Sleet/ice pellets: raindrops freeze during descent through a deep sub-freezing layer near the surface",
-    "Freezing rain: supercooled drops stay liquid while falling but freeze instantly on contact with sub-freezing surfaces",
-    "Hail: concentric ice layers built up inside cumulonimbus clouds via repeated updraft/downdraft cycles through supercooled water"
+    "Rain: liquid drops; drizzle: very small drops from shallow low cloud",
+    "Snow: ice crystals/aggregates that never fully melt",
+    "Freezing rain: liquid drops that freeze on contact with sub-freezing surfaces",
+    "Ice pellets (sleet): frozen before reaching the ground after partial melt aloft",
+    "Hail: layered ice grown in strong thunderstorm updrafts",
+    "Sounding shape distinguishes snow vs freezing rain vs ice pellets"
   ],
   explanationSections: [
-    { heading: "Sleet vs. freezing rain", body: "Both involve supercooled or refreezing water, but sleet freezes into solid ice pellets before reaching the ground (implying a deep cold layer near the surface), while freezing rain remains liquid until the instant of surface contact (implying a thin or absent cold layer near the surface)." }
+    { heading: "Read the vertical temperature path", body: "Start with ice or liquid in the cloud, then ask what happens in each layer below. A warm nose aloft with a refreezing layer near the ground produces ice pellets; a shallow cold surface layer under all-liquid paths produces freezing rain." }
   ],
-  examPoints: ["Hail requires strong updrafts and multiple freeze cycles inside cumulonimbus clouds specifically — not any convective cloud"],
+  subtopics: [
+    {
+      id: "meteo-precipitation-types-liquid-solid",
+      title: "Liquid and frozen types",
+      summary: "Rain/drizzle versus snow and hail.",
+      explanation: "Drizzle implies small drops and usually shallow stratus. Rain spans light stratiform to heavy convective. Snow requires a sufficiently cold column. Hail requires strong cumulonimbus updrafts and ice growth by riming in intense convection — not ordinary winter stratiform snow.",
+      examples: [
+        { problem: "Why is hail associated with thunderstorms rather than gentle winter stratus?", solution: "Hail needs strong updrafts to suspend growing ice long enough for large layered stones to form.", answer: "Strong Cb updrafts required" }
+      ],
+      shortcuts: ["Drizzle = small/shallow", "Hail = intense convection"],
+      traps: ["Calling all ice pellets hail"]
+    },
+    {
+      id: "meteo-precipitation-types-profiles",
+      title: "Freezing rain versus ice pellets",
+      summary: "Diagnose from the melting and refreezing layers.",
+      explanation: "Freezing rain: snow melts to rain in a warm layer, then falls into a shallow sub-freezing surface layer and freezes on contact. Ice pellets: melted particles refreeze into ice before reaching the ground in a deeper cold layer.",
+      examples: [
+        { problem: "Deep warm layer aloft, only a very shallow sub-zero layer at the surface — rain or freezing rain risk?", solution: "Freezing rain risk if surface objects are below freezing — drops remain liquid in air then freeze on contact.", answer: "Freezing rain risk" }
+      ],
+      shortcuts: ["Freezing rain = freezes on contact", "Ice pellets = frozen before ground"],
+      traps: ["Interchanging sleet and freezing rain definitions"]
+    }
+  ],
+  comparisonTable: {
+    title: "Selected precipitation types",
+    headers: ["Type", "What reaches ground"],
+    rows: [
+      ["Rain", "Liquid drops"],
+      ["Snow", "Ice crystals/aggregates"],
+      ["Freezing rain", "Liquid that freezes on surfaces"],
+      ["Ice pellets", "Ice already frozen in air"],
+      ["Hail", "Large thunderstorm ice"]
+    ]
+  },
+  examPoints: [
+    "Type depends on temperature profile",
+    "Freezing rain ≠ ice pellets",
+    "Hail needs strong convection"
+  ],
   commonMistakes: [
-    "Mixing sleet, freezing rain, and snow formation temperature profiles.",
-    "Thinking hail forms in ordinary stratiform rain.",
-    "Assuming rain always starts as liquid at the cloud.",
-    "Ignoring temperature structure between cloud and ground.",
+    "Using snow vs rain based only on surface T without the column.",
+    "Confusing freezing rain and sleet.",
+    "Treating hail as ordinary winter precipitation.",
+    "Ignoring drizzle versus rain size/cloud depth."
   ],
-  relatedTopics: ["meteo-precipitation-processes", "meteo-cloud-classification"],
+  relatedTopics: ["meteo-precipitation-processes", "meteo-orographic-rainshadow"],
   content: true,
   buildsOn: ["meteo-precipitation-processes"],
   leadsTo: ["meteo-orographic-rainshadow"],
-  usedIn: ["meteo-orographic-rainshadow", "meteo-temp-rainfall-distribution", "meteo-ground-aviation-instruments"]
+  usedIn: ["meteo-orographic-rainshadow", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -2345,27 +2506,70 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 8,
   title: "Orographic Precipitation & Rain Shadow",
-  definition: "When air is forced to rise over a mountain barrier (orographic uplift), it cools and precipitates on the windward slope, then descends dry and warm on the leeward slope, creating a rain shadow.",
+  definition: "When moist air is forced over mountains it cools adiabatically, often forming cloud and precipitation on the windward side. Downstream, air descends, warms, and dries, creating a rain shadow on the leeward side. Orography is a primary control on Pakistan’s rainfall gradients from monsoon and western-disturbance flows.",
   keyFacts: [
-    "Windward slope: air cools at DALR (~10°C/km) until reaching the LCL, then at SALR (~6°C/km) with heavy precipitation",
-    "Leeward slope: descending air is dry (moisture lost as precipitation) and warms at the DALR (~10°C/km)",
-    "Because the leeward air descends the full DALR without moisture, it produces a hot, dry rain shadow region"
+    "Windward: ascent → cooling → condensation → heavier precipitation",
+    "Leeward: descent → warming → lower RH → rain shadow",
+    "Height, steepness, and moisture flux control intensity",
+    "Same mountain can be wet or dry depending on wind direction",
+    "Classic rain shadows appear leeward of major ranges worldwide",
+    "Orographic lift can extract moisture even without large-scale storms"
   ],
   explanationSections: [
-    { heading: "Why the leeward side is drier than the windward side started", body: "The windward air loses moisture as precipitation before crossing the peak. On the way down, it warms via compression, which lowers RH further — combining moisture loss with warming to produce a markedly dry, hot leeward zone." }
+    { heading: "Up one side, down the other", body: "Terrain converts horizontal wind into vertical motion. The windward slope is a forced lifting condensation machine; the lee slope is a drying machine. Always ask which way the moist flow is approaching the barrier." }
   ],
-  examPoints: ["The asymmetry (SALR on the way up past the LCL, DALR the entire way down) is why leeward air ends up both drier and often warmer than equivalent windward air at the same elevation"],
+  subtopics: [
+    {
+      id: "meteo-orographic-rainshadow-windward",
+      title: "Windward enhancement",
+      summary: "Forced ascent intensifies cloud and rain.",
+      explanation: "Moist flow hitting a barrier rises, may reach the LCL quickly, and can produce persistent rain or snow on windward slopes. Stable air may produce layered cloud; unstable air can trigger embedded convection.",
+      examples: [
+        { problem: "Moist monsoon flow approaches a mountain range. Where is rainfall maximised, all else equal?", solution: "On the windward slopes where forced ascent is strongest.", answer: "Windward side" }
+      ],
+      shortcuts: ["Windward = wetter", "Forced lift = orographic rain"],
+      traps: ["Assuming mountains always increase rain on both sides"]
+    },
+    {
+      id: "meteo-orographic-rainshadow-lee",
+      title: "Leeward rain shadow",
+      summary: "Descent warms and dries the air.",
+      explanation: "After moisture is stripped windward, lee descent raises temperature and lowers relative humidity. The result is a drier climate in the shadow — a geographic pattern exams love to test with sketch maps.",
+      examples: [
+        { problem: "Why can leeward regions remain dry even when windward slopes are soaked?", solution: "Air loses moisture on ascent and then warms on descent, so RH falls and condensation is suppressed.", answer: "Dried then warmed by descent" }
+      ],
+      shortcuts: ["Leeward = rain shadow", "Descent → warm → dry"],
+      traps: ["Ignoring wind direction relative to the range"]
+    }
+  ],
+  comparisonTable: {
+    title: "Windward vs leeward",
+    headers: ["Side", "Vertical motion", "Moisture outcome"],
+    rows: [
+      ["Windward", "Ascent", "Cloud / precipitation"],
+      ["Leeward", "Descent", "Drying / rain shadow"]
+    ]
+  },
+  pakistanExamFocus: [
+    "Orography shapes monsoon and WD rainfall across northern/western highlands",
+    "Wind direction relative to ranges matters as much as season name"
+  ],
+  examPoints: [
+    "Windward wet, leeward dry",
+    "Mechanism is adiabatic ascent/descent",
+    "Barrier orientation relative to flow is critical"
+  ],
   commonMistakes: [
-    "Putting the rain shadow on the windward slope.",
-    "Thinking orographic lift cannot produce heavy rain.",
-    "Ignoring rain-shadow aridity downstream of major ranges.",
-    "Assuming all mountains produce the same pattern regardless of wind direction.",
+    "Putting rain shadows on the windward side.",
+    "Ignoring flow direction.",
+    "Treating orographic rain as independent of moisture supply.",
+    "Forgetting descent warming on the lee."
   ],
-  relatedTopics: ["meteo-global-precip-patterns", "meteo-lapse-rates", "meteo-global-circulation"],
+  relatedTopics: ["meteo-precipitation-processes", "meteo-global-precip-patterns", "meteo-monsoon-system"],
   content: true,
   buildsOn: ["meteo-precipitation-processes", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-global-precip-patterns"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-macroclimate"]
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-climate"]
 },
 
 {
@@ -2373,24 +2577,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 9,
   title: "Global Precipitation Patterns",
-  definition: "Global precipitation distribution is controlled largely by the rising and sinking branches of the three-cell circulation model.",
+  definition: "Global rainfall is organised by the general circulation: heavy precipitation in the rising branches of the tropics (ITCZ), dry subtropical subsidence belts, storm-track rains in mid-latitudes, and polar dryness from cold air’s low moisture capacity. Continents, monsoons, and orography reshape the idealised zonal picture.",
   keyFacts: [
-    "Equatorial wet belt (ITCZ, 0°): rising air, convective showers, >200 cm/year",
-    "Subtropical dry belts (~30° N/S): sinking air from Hadley/Ferrel cells, major deserts (Sahara, Mojave, Balochistan)",
-    "Mid-latitude wet belts (~50–60° N/S): polar front convergence, frontal rain/snow from migrating cyclones",
-    "Polar dry deserts (~90° N/S): persistent sinking, cold air holds little moisture, <25 cm/year"
+    "ITC Z / equatorial rain belt: frequent deep convection",
+    "Subtropical highs: dry deserts on land under subsidence",
+    "Mid-latitude storm tracks: precipitation tied to cyclones and fronts",
+    "Polar regions: low absolute moisture — often limited precipitation",
+    "Monsoons create strong seasonal swings not seen in pure zonal averages",
+    "Ocean–land contrasts and mountains create regional anomalies"
   ],
   explanationSections: [
-    { heading: "Rising air = wet, sinking air = dry", body: "Wherever the three-cell model produces rising air (equator, polar front), moisture-laden air cools and precipitates. Wherever it produces sinking air (30°, poles), compressional warming suppresses cloud formation, producing deserts regardless of latitude." }
+    { heading: "Circulation first, geography second", body: "Start with where air rises and sinks on average. Then overlay seasonal ITCZ migration, monsoon reversals, and mountain barriers. That two-step reading explains both the Sahara and the Amazon, both subtropical deserts and mid-latitude rainy coasts." }
   ],
-  examPoints: ["Both the subtropics (hot) and the poles (cold) are dry belts, for the same underlying reason: sinking air — a useful pattern-based exam insight"],
+  subtopics: [
+    {
+      id: "meteo-global-precip-patterns-belts",
+      title: "Zonal precipitation belts",
+      summary: "Wet tropics, dry subtropics, stormy mid-latitudes.",
+      explanation: "Rising motion near the equator supports heavy rain. Sinking near 30° supports deserts. Mid-latitude westerlies and their cyclones deliver frontal precipitation. Poles are moisture-limited even when RH is high.",
+      examples: [
+        { problem: "Why can polar air have high relative humidity yet low annual precipitation?", solution: "Cold air holds little water vapour; absolute moisture and precipitation amounts remain small.", answer: "Low moisture capacity" }
+      ],
+      shortcuts: ["Rise → wet", "Sink → dry", "Cold → low precip capacity"],
+      traps: ["Equating high RH with high rainfall everywhere"]
+    },
+    {
+      id: "meteo-global-precip-patterns-modifiers",
+      title: "Monsoons and orography as modifiers",
+      summary: "Seasonal reversals and mountains break zonal symmetry.",
+      explanation: "South Asian monsoon rains and rain shadows of major ranges create regional patterns that pure latitude cannot predict. Always combine circulation belt with land–sea geometry.",
+      examples: [
+        { problem: "Why is the three-cell model alone insufficient for Pakistan’s rainfall map?", solution: "Monsoon dynamics, western disturbances, and orography create strong regional and seasonal structure beyond zonal averages.", answer: "Monsoon + WD + orography" }
+      ],
+      shortcuts: ["Add monsoon & mountains to zonal belts", "Season matters"],
+      traps: ["Reading only latitude for local climate"]
+    }
+  ],
+  comparisonTable: {
+    title: "Idealised precip vs latitude",
+    headers: ["Zone", "Typical precip character"],
+    rows: [
+      ["Equatorial", "Heavy, convective"],
+      ["Subtropical", "Dry under highs"],
+      ["Mid-latitude", "Frontal / storm-track"],
+      ["Polar", "Low amounts"]
+    ]
+  },
+  examPoints: [
+    "Link precip belts to rising/sinking branches",
+    "Subtropical deserts under subsidence",
+    "Monsoon and orography modify the zonal picture"
+  ],
   commonMistakes: [
-    "Assuming rainfall decreases uniformly from equator to poles.",
-    "Ignoring subtropical dry belts under descending Hadley branches.",
-    "Treating ocean vs land precipitation contrasts as negligible.",
-    "Mixing annual totals with seasonality of rain.",
+    "Ignoring circulation when explaining deserts.",
+    "Assuming all tropical areas are equally wet.",
+    "Forgetting polar moisture limitation.",
+    "Using only the three-cell model for regional climates."
   ],
-  relatedTopics: ["meteo-global-circulation", "meteo-orographic-rainshadow", "meteo-monsoon-system"],
+  relatedTopics: ["meteo-global-circulation", "meteo-orographic-rainshadow", "meteo-koppen-system"],
   content: true,
   buildsOn: ["meteo-orographic-rainshadow", "meteo-global-circulation"],
   leadsTo: ["meteo-global-climate-regions"],
@@ -2402,36 +2646,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 10,
   title: "Thermodynamic Diagrams (Skew-T / Log-P, Tephigram)",
-  definition: "Thermodynamic diagrams are graphical tools that display temperature, dew-point and wind profiles with height (or pressure) so that stability, cloud levels, CAPE/CIN and precipitation type can be diagnosed at a glance; the skew-T/log-p diagram is the most widely used in operational meteorology.",
+  definition: "Thermodynamic diagrams plot atmospheric soundings so temperature, dew point, and wind can be read against pressure. Skew-T/log-P charts and tephigrams display dry and saturated adiabats and mixing-ratio lines so users can assess stability, cloud layers, CAPE-related areas, and lifting condensation levels.",
   keyFacts: [
-    "Skew-T/log-P: temperature lines are skewed 45°; pressure is logarithmic in the vertical; dry adiabats, moist adiabats and mixing-ratio lines are pre-printed",
-    "Parcel path: follow the dry adiabat from the surface to the LCL, then the moist adiabat upward",
-    "LCL = intersection of surface dry adiabat and surface mixing-ratio line; LFC = first intersection of parcel path with environmental temperature above the LCL; EL = second intersection (usually near the tropopause)",
-    "CAPE = area between parcel path and environment from LFC to EL; CIN = area from surface (or mixed layer) to LFC where parcel is colder",
-    "Tephigram (used in some Commonwealth countries) has similar information but different axis orientation"
+    "Axes combine temperature and pressure (logarithmic in pressure on skew-T)",
+    "Temperature and dew-point curves: wide gap means dry layer",
+    "Dry adiabats and moist adiabats show parcel paths",
+    "LCL, CAPE, and inversion layers can be visualised",
+    "Essential for severe-weather and cloud-base reasoning",
+    "Different chart types (skew-T, tephigram) encode the same physics with different geometry"
   ],
   explanationSections: [
+    { heading: "A map of the vertical column", body: "A table of numbers hides structure. On a diagram, inversions, dry slots, and steep lapse rates jump out. Parcel theory becomes geometric: follow a dry adiabat to the LCL, then a moist adiabat, and compare to the environment." }
+  ],
+  subtopics: [
     {
-      heading: "Reading a sounding step by step",
-      body: "1. Plot T and Td. 2. Lift a surface (or mixed-layer) parcel dry-adiabatically to the LCL. 3. Continue moist-adiabatically. 4. Identify LFC and EL. 5. Shade CAPE (positive area) and CIN (negative area). 6. Note inversions, frontal layers, freezing level and wind shear."
+      id: "meteo-thermodynamic-diagrams-reading",
+      title: "Reading T, Td, and moisture gaps",
+      summary: "Temperature and dew-point traces show saturated layers and dry air.",
+      explanation: "Where T and Td coincide, the layer is saturated — cloud is likely. A large spread marks dry air. Inversions appear as layers where temperature rises upward along the environmental curve.",
+      examples: [
+        { problem: "On a skew-T, T and Td are equal from 900 to 800 hPa. Interpretation?", solution: "That layer is saturated — expect cloud through that pressure range.", answer: "Saturated / cloudy layer" }
+      ],
+      shortcuts: ["T ≈ Td → saturated", "Large T–Td → dry"],
+      traps: ["Ignoring dew point and reading only temperature"]
+    },
+    {
+      id: "meteo-thermodynamic-diagrams-parcel",
+      title: "Parcel paths and stability",
+      summary: "Adiabats turn sounding data into stability analysis.",
+      explanation: "Lift a surface parcel dry-adiabatically to the LCL, then moist-adiabatically. Where the parcel is warmer than the environment, positive buoyancy (CAPE-related area) exists. Inversions show as lids on that path.",
+      examples: [
+        { problem: "Why plot both dry and moist adiabats on the chart?", solution: "Unsaturated and saturated parcels cool at different rates; stability diagnosis needs both process curves.", answer: "DALR vs SALR process paths" }
+      ],
+      shortcuts: ["Dry adiabat to LCL, then moist", "Parcel warmer than env → buoyant"],
+      traps: ["Using only the environmental curve without parcel theory"]
     }
   ],
+  comparisonTable: {
+    title: "Diagram elements",
+    headers: ["Element", "Use"],
+    rows: [
+      ["T and Td curves", "Moisture and cloud layers"],
+      ["Dry/moist adiabats", "Parcel paths"],
+      ["Inversions on T curve", "Lids / stability"]
+    ]
+  },
   examPoints: [
-    "LCL marks cloud base for lifted parcels; LFC marks the start of free convection",
-    "Large CAPE + small CIN = high thunderstorm potential once a trigger exists",
-    "An inversion appears as a layer where temperature increases with height (or decreases very slowly)"
+    "Diagrams visualise soundings",
+    "T–Td proximity indicates saturation",
+    "Parcel theory uses dry then moist adiabats"
   ],
   commonMistakes: [
-    "Reading Skew-T like a simple T–z graph without understanding skewed coordinates.",
-    "Confusing parcel path with environmental temperature profile.",
-    "Ignoring CAPE/CIN qualitative meaning on the diagram.",
-    "Assuming one diagram type is used worldwide exclusively.",
+    "Reading pressure axis as linear height without care.",
+    "Ignoring dew-point trace.",
+    "Confusing environmental and parcel curves.",
+    "Treating all chart types as having identical axis geometry."
   ],
-  relatedTopics: ["meteo-radiosondes", "meteo-lapse-calc", "meteo-humidity-calc", "meteo-static-stability", "meteo-adiabatic-cloud-formation"],
+  relatedTopics: ["meteo-static-stability", "meteo-lapse-rates", "meteo-moisture-metrics"],
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-lapse-calc"],
-  usedIn: ["meteo-lapse-calc", "meteo-radiosondes", "meteo-thunderstorms", "ra-data-visualization", "ra-data-interpretation"]
+  usedIn: ["meteo-lapse-calc", "meteo-radiosondes", "meteo-thunderstorms"]
 },
 
 // ============================= SECTION E =============================
