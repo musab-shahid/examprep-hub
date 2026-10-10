@@ -102,7 +102,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Why This Matters in Practice” to a short numerical or identification check.",
-            solution: "Key idea: In science you will see irrationals constantly: Ï (geometry, circular motion), e (exponential growth, radioactive decay), and â2, â3 (in physics formulas involving energy and motion). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in physics formulas involving energy and motion). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -186,7 +186,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “1. Why a Standard Order Exists” to a short numerical or identification check.",
-            solution: "Key idea: Without a fixed order, the expression 2 + 3 Ã 4 could mean (2 + 3) Ã 4 = 20 or 2 + (3 Ã 4) = 14. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -216,7 +216,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. The Unary Minus vs Subtraction Minus” to a short numerical or identification check.",
-            solution: "Key idea: In an expression like -3Â², the â is unary (negation), not subtraction. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: In an expression like -3², the − is unary (negation), not subtraction. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -600,7 +600,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “1. Decimal Place Value” to a short numerical or identification check.",
-            solution: "Key idea: Each position to the right of the decimal point represents a power of 10: first place = 10â»Â¹ = 0.1, second place = 10â»Â² = 0.01, third place = 10â»Â³ = 0.001. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place = 10⁻³ = 0.001. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1066,7 +1066,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Speed and Pressure Conversions (Meteorology)” to a short numerical or identification check.",
-            solution: "Key idea: Speed: 1 km/h = 1000 m / 3600 s = 1/3.6 m/s â 0.2778 m/s. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Speed: 1 km/h = 1000 m / 3600 s = 1/3.6 m/s ≈ 0.2778 m/s. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1304,7 +1304,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “1. The Square Identities (Most Tested)” to a short numerical or identification check.",
-            solution: "Key idea: (a+b)Â² is NOT aÂ² + bÂ² â the middle term 2ab is missing in that common error. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: (a+b)² is NOT a² + b² — the middle term 2ab is missing in that common error. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1319,7 +1319,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. Difference of Squares” to a short numerical or identification check.",
-            solution: "Key idea: aÂ² - bÂ² factors as (a + b)(a - b). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: a² - b² factors as (a + b)(a - b). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1334,7 +1334,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Cube Identities” to a short numerical or identification check.",
-            solution: "Key idea: Memorize in paired form: (a + b)Â³ and aÂ³ + bÂ³ both involve (a + b) as a factor; (a - b)Â³ and aÂ³ - bÂ³ both involve (a - b) as a factor. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Memorize in paired form: (a + b)³ and a³ + b³ both involve (a + b) as a factor; (a - b)³ and a³ - b³ both involve (a - b) as a factor. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1607,7 +1607,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. Negative and Zero Exponents” to a short numerical or identification check.",
-            solution: "Key idea: aâ° = 1 for any non-zero a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: a⁰ = 1 for any non-zero a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1622,7 +1622,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Fractional Exponents” to a short numerical or identification check.",
-            solution: "Key idea: A fractional exponent represents a root: a^(1/2) = âa; a^(1/3) = âa. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: A fractional exponent represents a root: a^(1/2) = √a; a^(1/3) = ∛a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1704,7 +1704,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. The Absolute Value Trap” to a short numerical or identification check.",
-            solution: "Key idea: â(aÂ²) = |a|, not simply a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: √(a²) = |a|, not simply a. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1793,7 +1793,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “1. Reading Logarithmic Notation” to a short numerical or identification check.",
-            solution: "Key idea: logâ(8) = 3 because 2Â³ = 8. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: log₂(8) = 3 because 2³ = 8. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -1823,7 +1823,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Real-World Applications” to a short numerical or identification check.",
-            solution: "Key idea: Logarithms appear in many scientific scales: Richter scale for earthquakes (each unit = 10Ã amplitude, ~32Ã energy), pH for acidity (each unit = 10Ã H+ concentration), decibels for sound intensity, and exponential decay/growth models in physics and biology. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Logarithms appear in many scientific scales: Richter scale for earthquakes (each unit = 10× amplitude, ~32× energy), pH for acidity (each unit = 10× H+ concentration), decibels for sound intensity, and exponential decay/growth models in physics and biology. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2206,7 +2206,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Properties Summary” to a short numerical or identification check.",
-            solution: "Key idea: Square: 4 equal sides, 4 right angles, diagonals bisect at 90Â°. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Square: 4 equal sides, 4 right angles, diagonals bisect at 90°. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2280,7 +2280,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “1. The Fundamental Circle Relationships” to a short numerical or identification check.",
-            solution: "Key idea: The number Ï is the ratio of a circle's circumference to its diameter, approximately 3.14159. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: The number π is the ratio of a circle's circumference to its diameter, approximately 3.14159. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2496,7 +2496,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. Sphere Formulas” to a short numerical or identification check.",
-            solution: "Key idea: The sphere has the smallest surface area for a given volume of any 3D shape â which is why soap bubbles and water droplets are spherical. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: The sphere has the smallest surface area for a given volume of any 3D shape — which is why soap bubbles and water droplets are spherical. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2511,7 +2511,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Unit Awareness” to a short numerical or identification check.",
-            solution: "Key idea: Volume units are CUBIC (cmÂ³, mÂ³, liters). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Volume units are CUBIC (cm³, m³, liters). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2701,7 +2701,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. The Section Formula” to a short numerical or identification check.",
-            solution: "Key idea: For a point P that divides the line segment from A(xâ, yâ) to B(xâ, yâ) in the ratio m:n internally, P = ((mxâ + nxâ)/(m+n), (myâ + nyâ)/(m+n)). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: For a point P that divides the line segment from A(x₁, y₁) to B(x₂, y₂) in the ratio m:n internally, P = ((mx₂ + nx₁)/(m+n), (my₂ + ny₁)/(m+n)). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -2786,7 +2786,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. Choosing the Right Form” to a short numerical or identification check.",
-            solution: "Key idea: Use slope-intercept (y = mx + c) for graphing â easiest to visualize. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Use slope-intercept (y = mx + c) for graphing — easiest to visualize. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -3005,7 +3005,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. The Sum Formula” to a short numerical or identification check.",
-            solution: "Key idea: Sum of first n terms: Sâ = n/2 Ã (2a + (n-1)d) = n/2 Ã (a + aâ). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Sum of first n terms: Sₙ = n/2 × (2a + (n-1)d) = n/2 × (a + aₙ). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -3108,7 +3108,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Sum and Infinite Sum” to a short numerical or identification check.",
-            solution: "Key idea: For finite sum: Sâ = a(1 - râ¿)/(1 - r) when r â  1. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: For finite sum: Sₙ = a(1 - rⁿ)/(1 - r) when r ≠ 1. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -3192,7 +3192,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. Common Named Patterns” to a short numerical or identification check.",
-            solution: "Key idea: Square numbers: 1Â², 2Â², 3Â², 4Â², ... Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: Square numbers: 1², 2², 3², 4², ... Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -3719,7 +3719,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “2. The Work-Rate Formula” to a short numerical or identification check.",
-            solution: "Key idea: If Mâ workers each doing the job in Tâ hours and Mâ workers each doing it in Tâ hours, combined rate = Mâ/Tâ + Mâ/Tâ. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: If M₁ workers each doing the job in T₁ hours and M₂ workers each doing it in T₂ hours, combined rate = M₁/T₁ + M₂/T₂. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],
@@ -3734,7 +3734,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Apply the rule in “3. Mixture Problems (Alligation)” to a short numerical or identification check.",
-            solution: "Key idea: The total amount of solute (concentration Ã volume) is conserved. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
+            solution: "Key idea: The total amount of solute (concentration × volume) is conserved. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
             answer: "Follow the stated rule; check units and order of operations",
           },
         ],

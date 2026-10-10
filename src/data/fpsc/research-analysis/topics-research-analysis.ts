@@ -62,12 +62,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Why falsifiability matters”?",
-            solution: "The accurate idea is: The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence.",
+            solution: "The accurate idea is: The hallmark of science is FALSIFIABILITY — a hypothesis must be capable of being proven wrong by evidence. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The hallmark of science is FALSIFIABILITY — a hypothesis must be capable of being proven wrong by evidence.",
           },
           {
             problem: "Give one exam trap students hit when studying Why falsifiability matters.",
-            solution: "Stay close to the text: The hallmark of science is FALSIFIABILITY â a hypothesis must be capable of being proven wrong by evidence. 'It is what it is' or 'supernatural forces did it' are not scientific because they cannot be tested. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The hallmark of science is FALSIFIABILITY — a hypothesis must be capable of being proven wrong by evidence. 'It is what it is' or 'supernatural forces did it' are not scientific because they cannot be tested. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -82,12 +82,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Variables — the three types”?",
-            solution: "The accurate idea is: INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer).",
+            solution: "The accurate idea is: INDEPENDENT variable: what the researcher MANIPULATES (the cause — e.g., amount of fertilizer). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "INDEPENDENT variable: what the researcher MANIPULATES (the cause — e.g., amount of fertilizer).",
           },
           {
             problem: "Give one exam trap students hit when studying Variables — the three types.",
-            solution: "Stay close to the text: INDEPENDENT variable: what the researcher MANIPULATES (the cause â e.g., amount of fertilizer). DEPENDENT variable: what is MEASURED (the effect â e.g., plant growth). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: INDEPENDENT variable: what the researcher MANIPULATES (the cause — e.g., amount of fertilizer). DEPENDENT variable: what is MEASURED (the effect — e.g., plant growth). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -102,12 +102,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Deductive vs Inductive vs Abductive reasoning”?",
-            solution: "The accurate idea is: DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific).",
+            solution: "The accurate idea is: DEDUCTIVE: starts with a general principle and derives specific predictions (theory → specific). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "DEDUCTIVE: starts with a general principle and derives specific predictions (theory → specific).",
           },
           {
             problem: "Give one exam trap students hit when studying Deductive vs Inductive vs Abductive reasoning.",
-            solution: "Stay close to the text: DEDUCTIVE: starts with a general principle and derives specific predictions (theory â specific). INDUCTIVE: starts with specific observations and forms a general conclusion (observations â theory). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: DEDUCTIVE: starts with a general principle and derives specific predictions (theory → specific). INDUCTIVE: starts with specific observations and forms a general conclusion (observations → theory). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -176,12 +176,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Quantitative vs Qualitative vs Mixed”?",
-            solution: "The accurate idea is: QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts.",
+            solution: "The accurate idea is: QUANTITATIVE research deals with numbers and statistics — temperature readings, rainfall measurements, survey counts. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "QUANTITATIVE research deals with numbers and statistics — temperature readings, rainfall measurements, survey counts.",
           },
           {
             problem: "Give one exam trap students hit when studying Quantitative vs Qualitative vs Mixed.",
-            solution: "Stay close to the text: QUANTITATIVE research deals with numbers and statistics â temperature readings, rainfall measurements, survey counts. QUALITATIVE deals with words, themes, and meanings â interview transcripts, behavioral observation… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: QUANTITATIVE research deals with numbers and statistics — temperature readings, rainfall measurements, survey counts. QUALITATIVE deals with words, themes, and meanings — interview transcripts, behavioral observation… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -290,7 +290,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying The 4 measurement scales — most-testable in stats.",
-            solution: "Stay close to the text: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and â  operations valid â you can't say blue > brown. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue > brown. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -421,12 +421,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Why standard deviation matters”?",
-            solution: "The accurate idea is: Standard deviation (Ï) measures the average distance of data points from the mean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Standard deviation (Ï) measures the average distance of data points from the mean.",
+            solution: "The accurate idea is: Standard deviation (σ) measures the average distance of data points from the mean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Standard deviation (σ) measures the average distance of data points from the mean.",
           },
           {
             problem: "Give one exam trap students hit when studying Why standard deviation matters.",
-            solution: "Stay close to the text: Standard deviation (Ï) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1Ï of mean, ~95% within 2Ï, ~99.7% within 3Ï. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1σ of mean, ~95% within 2σ, ~99.7% within 3σ. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -441,12 +441,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Skewness and what mean vs median tells you”?",
-            solution: "The accurate idea is: In a SYMMETRIC distribution: mean â median â mode. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In a SYMMETRIC distribution: mean â median â mode.",
+            solution: "The accurate idea is: In a SYMMETRIC distribution: mean ≈ median ≈ mode. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "In a SYMMETRIC distribution: mean ≈ median ≈ mode.",
           },
           {
             problem: "Give one exam trap students hit when studying Skewness and what mean vs median tells you.",
-            solution: "Stay close to the text: In a SYMMETRIC distribution: mean â median â mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -513,12 +513,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Classical vs Empirical vs Subjective probability”?",
-            solution: "The accurate idea is: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment.",
+            solution: "The accurate idea is: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment.",
           },
           {
             problem: "Give one exam trap students hit when studying Classical vs Empirical vs Subjective probability.",
-            solution: "Stay close to the text: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) â calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -533,12 +533,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “The two fundamental rules — addition and multiplication”?",
-            solution: "The accurate idea is: ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B).",
+            solution: "The accurate idea is: ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B).",
           },
           {
             problem: "Give one exam trap students hit when studying The two fundamental rules — addition and multiplication.",
-            solution: "Stay close to the text: ADDITION RULE (OR): P(A or B) = P(A) + P(B) â P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -604,12 +604,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Choosing the right chart type”?",
-            solution: "The accurate idea is: CATEGORICAL comparison â bar/column. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "CATEGORICAL comparison â bar/column.",
+            solution: "The accurate idea is: CATEGORICAL comparison → bar/column. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "CATEGORICAL comparison → bar/column.",
           },
           {
             problem: "Give one exam trap students hit when studying Choosing the right chart type.",
-            solution: "Stay close to the text: CATEGORICAL comparison â bar/column. TIME SERIES or TREND â line. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -624,12 +624,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Good practices vs misleading graphs”?",
-            solution: "The accurate idea is: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clea…",
+            solution: "The accurate idea is: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clea…",
           },
           {
             problem: "Give one exam trap students hit when studying Good practices vs misleading graphs.",
-            solution: "Stay close to the text: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (Â°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series,… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series,… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -703,12 +703,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Reading the correlation coefficient r”?",
-            solution: "The accurate idea is: r ranges from â1 to +1. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "r ranges from â1 to +1.",
+            solution: "The accurate idea is: r ranges from −1 to +1. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "r ranges from −1 to +1.",
           },
           {
             problem: "Give one exam trap students hit when studying Reading the correlation coefficient r.",
-            solution: "Stay close to the text: r ranges from â1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -728,7 +728,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Correlation ≠ causation — the most important concept.",
-            solution: "Stay close to the text: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH â more ice cream sales and more swimming/drowning in summer. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH — more ice cream sales and more swimming/drowning in summer. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -839,12 +839,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Hypothesis testing — the logic”?",
-            solution: "The accurate idea is: We start by assuming Hâ (null hypothesis: no effect/difference). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "We start by assuming Hâ (null hypothesis: no effect/difference).",
+            solution: "The accurate idea is: We start by assuming H₀ (null hypothesis: no effect/difference). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "We start by assuming H₀ (null hypothesis: no effect/difference).",
           },
           {
             problem: "Give one exam trap students hit when studying Hypothesis testing — the logic.",
-            solution: "Stay close to the text: We start by assuming Hâ (null hypothesis: no effect/difference). We then ask: 'If Hâ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -972,12 +972,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Error types — random vs systematic”?",
-            solution: "The accurate idea is: RANDOM ERROR is noise â measurements scatter around the true value. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "RANDOM ERROR is noise â measurements scatter around the true value.",
+            solution: "The accurate idea is: RANDOM ERROR is noise — measurements scatter around the true value. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "RANDOM ERROR is noise — measurements scatter around the true value.",
           },
           {
             problem: "Give one exam trap students hit when studying Error types — random vs systematic.",
-            solution: "Stay close to the text: RANDOM ERROR is noise â measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/ân decreases with n). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases with n). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1041,12 +1041,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “How to read tables and graphs critically”?",
-            solution: "The accurate idea is: Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C?",
+            solution: "The accurate idea is: Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C?",
           },
           {
             problem: "Give one exam trap students hit when studying How to read tables and graphs critically.",
-            solution: "Stay close to the text: Before interpreting any data: (1) Note the UNITS on axes (Temperature in Â°C? mm? Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1153,12 +1153,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “The IMRaD structure — why it works”?",
-            solution: "The accurate idea is: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Methods) â WHAT (Results) â SO WHAT (Discussion). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Meth…",
+            solution: "The accurate idea is: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Discussion). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Meth…",
           },
           {
             problem: "Give one exam trap students hit when studying The IMRaD structure — why it works.",
-            solution: "Stay close to the text: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) â HOW (Methods) â WHAT (Results) â SO WHAT (Dis… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Dis… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],

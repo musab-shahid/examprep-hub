@@ -105,12 +105,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Sidereal vs. solar day”?",
-            solution: "The accurate idea is: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars.",
+            solution: "The accurate idea is: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360° relative to the distant stars. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360° relative to the distant stars.",
           },
           {
             problem: "Give one exam trap students hit when studying Sidereal vs. solar day.",
-            solution: "Stay close to the text: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360Â° relative to the distant stars. A solar day (24 h) is the time for the Sun to return to the same position in the sky. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A sidereal day (23 h 56 min 4 s) is the time Earth takes to rotate exactly 360° relative to the distant stars. A solar day (24 h) is the time for the Sun to return to the same position in the sky. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -415,7 +415,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Lithosphere vs. crust — they are not the same.",
-            solution: "Stay close to the text: A common error is to use 'lithosphere' and 'crust' interchangeably. The crust is only the topmost compositional layer (0â70 km on continents, 0â10 km under oceans). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A common error is to use 'lithosphere' and 'crust' interchangeably. The crust is only the topmost compositional layer (0–70 km on continents, 0–10 km under oceans). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -455,7 +455,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Convection: the engine of plate tectonics.",
-            solution: "Stay close to the text: Heat from the core and from radioactive decay warms the lower mantle. Hot material rises, cooler material near the surface sinks, and this circulation â mantle convection â drags plates along and provides much of the… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Heat from the core and from radioactive decay warms the lower mantle. Hot material rises, cooler material near the surface sinks, and this circulation — mantle convection — drags plates along and provides much of the… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -657,12 +657,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Why each property matters”?",
-            solution: "The accurate idea is: A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, p…",
+            solution: "The accurate idea is: A single property is rarely enough to identify a mineral — color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A single property is rarely enough to identify a mineral — color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, p…",
           },
           {
             problem: "Give one exam trap students hit when studying Why each property matters.",
-            solution: "Stay close to the text: A single property is rarely enough to identify a mineral â color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Hardness, streak, cleavag… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A single property is rarely enough to identify a mineral — color is especially misleading because many minerals come in multiple colors (e.g., quartz can be clear, white, pink, purple, smoky). Hardness, streak, cleavag… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -783,7 +783,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Why silicates dominate.",
-            solution: "Stay close to the text: Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). They combine to form the siliconâoxygen tetrahedron (SiOââ´â»), the fundamental building block of all silicate m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Silicon and oxygen are the two most abundant elements in Earth's crust (about 28% Si, 46% O by mass). They combine to form the silicon–oxygen tetrahedron (SiO₄⁴⁻), the fundamental building block of all silicate m… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -803,7 +803,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Quartz — the unweatherable mineral.",
-            solution: "Stay close to the text: Quartz is exceptional because it is highly resistant to both chemical and physical weathering. It has no cleavage, only conchoidal fracture, and is made of pure SiâO bonds that are extremely strong. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Quartz is exceptional because it is highly resistant to both chemical and physical weathering. It has no cleavage, only conchoidal fracture, and is made of pure Si–O bonds that are extremely strong. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -823,7 +823,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying The feldspar family — most of the crust.",
-            solution: "Stay close to the text: Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. They are framework silicates with two cleavage planes at approximately 90Â°. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Feldspars are the single most abundant group of minerals, making up about 60% of Earth's crust. They are framework silicates with two cleavage planes at approximately 90°. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -898,7 +898,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Texture: the cooling-rate fingerprint.",
-            solution: "Stay close to the text: The grain size of an igneous rock is a direct record of its cooling rate. Magma that cools slowly deep underground has time to grow large, visible crystals â producing coarse-grained (phaneritic) rocks like granite. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The grain size of an igneous rock is a direct record of its cooling rate. Magma that cools slowly deep underground has time to grow large, visible crystals — producing coarse-grained (phaneritic) rocks like granite. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -913,12 +913,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Composition: silica content and rock behaviour”?",
-            solution: "The accurate idea is: Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma.",
+            solution: "The accurate idea is: Silica (SiO₂) content controls both the mineralogy and the behaviour of a magma. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Silica (SiO₂) content controls both the mineralogy and the behaviour of a magma.",
           },
           {
             problem: "Give one exam trap students hit when studying Composition: silica content and rock behaviour.",
-            solution: "Stay close to the text: Silica (SiOâ) content controls both the mineralogy and the behaviour of a magma. Felsic magmas (>65% SiOâ) are rich in quartz and feldspar, low in iron and magnesium, light in colour, and very viscous â they erupt … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Silica (SiO₂) content controls both the mineralogy and the behaviour of a magma. Felsic magmas (>65% SiO₂) are rich in quartz and feldspar, low in iron and magnesium, light in colour, and very viscous — they erupt … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1136,7 +1136,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Why metamorphism happens without melting.",
-            solution: "Stay close to the text: Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes). Temperatures of ~200â800 Â°C and pressures of a few hundred MPa to >1 GPa are typical. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Metamorphism takes place in the 'Goldilocks zone' between diagenesis (low-T changes in sediments) and melting (igneous processes). Temperatures of ~200–800 °C and pressures of a few hundred MPa to >1 GPa are typical. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1176,7 +1176,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Protolith control: parent rock matters.",
-            solution: "Stay close to the text: The protolith determines the chemical starting point and limits the possible metamorphic products. Shale (rich in clay) â slate, phyllite, schist, gneiss. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The protolith determines the chemical starting point and limits the possible metamorphic products. Shale (rich in clay) → slate, phyllite, schist, gneiss. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1367,7 +1367,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Why the principles are so robust.",
-            solution: "Stay close to the text: Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Sediment settles in water under gravity â naturally horizontal. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Each relative-dating principle is essentially an application of common sense to undisturbed rock sequences. Sediment settles in water under gravity — naturally horizontal. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1387,7 +1387,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Unconformities — windows of missing time.",
-            solution: "Stay close to the text: An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Three main types are recognized: (1) disconformity â an erosional surface between parallel sediment… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: An unconformity is a surface that represents a gap in the geological record, often millions or billions of years long. Three main types are recognized: (1) disconformity — an erosional surface between parallel sediment… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1481,7 +1481,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying How radiometric dating works.",
-            solution: "Stay close to the text: When a mineral crystallizes from magma, it incorporates certain elements but excludes others. For example, zircon (ZrSiOâ) readily accepts uranium (U) but strongly rejects lead (Pb). Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: When a mineral crystallizes from magma, it incorporates certain elements but excludes others. For example, zircon (ZrSiO₄) readily accepts uranium (U) but strongly rejects lead (Pb). Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1496,12 +1496,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Half-life mathematics”?",
-            solution: "The accurate idea is: If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on.",
+            solution: "The accurate idea is: If a sample starts with N₀ parent atoms, after one half-life it has N₀/2; after two, N₀/4; after three, N₀/8, and so on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "If a sample starts with N₀ parent atoms, after one half-life it has N₀/2; after two, N₀/4; after three, N₀/8, and so on.",
           },
           {
             problem: "Give one exam trap students hit when studying Half-life mathematics.",
-            solution: "Stay close to the text: If a sample starts with Nâ parent atoms, after one half-life it has Nâ/2; after two, Nâ/4; after three, Nâ/8, and so on. The fraction remaining is (1/2)â¿ where n is the number of half-lives elapsed. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: If a sample starts with N₀ parent atoms, after one half-life it has N₀/2; after two, N₀/4; after three, N₀/8, and so on. The fraction remaining is (1/2)ⁿ where n is the number of half-lives elapsed. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1736,12 +1736,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Why continental drift was rejected in Wegener's lifetime”?",
-            solution: "The accurate idea is: Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces â was physically impossible. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forc…",
+            solution: "The accurate idea is: Although Wegener's evidence was compelling, his proposed mechanism — that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces — was physically impossible. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Although Wegener's evidence was compelling, his proposed mechanism — that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forc…",
           },
           {
             problem: "Give one exam trap students hit when studying Why continental drift was rejected in Wegener's lifetime.",
-            solution: "Stay close to the text: Although Wegener's evidence was compelling, his proposed mechanism â that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces â was physically impossible. The oc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Although Wegener's evidence was compelling, his proposed mechanism — that continents plowed through oceanic crust like ships through sea ice, driven by centrifugal and tidal forces — was physically impossible. The oc… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1871,12 +1871,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Hotspots and absolute plate motion”?",
-            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary.",
+            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from the core-mantle boundary. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from the core-mantle boundary.",
           },
           {
             problem: "Give one exam trap students hit when studying Hotspots and absolute plate motion.",
-            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from the core-mantle boundary. Because the plumes are anchored deep in the mantle, they stay roughly fixed while the p… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from the core-mantle boundary. Because the plumes are anchored deep in the mantle, they stay roughly fixed while the p… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2073,12 +2073,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Hotspots as deep-Earth probes”?",
-            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower boundary in the upper mantle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower bound…",
+            solution: "The accurate idea is: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from a boundary layer at the core–mantle boundary, or from a shallower boundary in the upper mantle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from a boundary layer at the core–mantle boundary, or from a shallower bound…",
           },
           {
             problem: "Give one exam trap students hit when studying Hotspots as deep-Earth probes.",
-            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth â possibly from a boundary layer at the coreâmantle boundary, or from a shallower boundary in the upper mantle. They are anchor… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Hotspots are thought to be narrow plumes of hot mantle rising from deep within the Earth — possibly from a boundary layer at the core–mantle boundary, or from a shallower boundary in the upper mantle. They are anchor… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2210,12 +2210,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Carbonation and karst landscapes”?",
-            solution: "The accurate idea is: When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid.",
+            solution: "The accurate idea is: When rainwater absorbs CO₂ from the atmosphere and soil, it becomes a weak carbonic acid. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "When rainwater absorbs CO₂ from the atmosphere and soil, it becomes a weak carbonic acid.",
           },
           {
             problem: "Give one exam trap students hit when studying Carbonation and karst landscapes.",
-            solution: "Stay close to the text: When rainwater absorbs COâ from the atmosphere and soil, it becomes a weak carbonic acid. This acid reacts with calcium carbonate (limestone) to form soluble calcium bicarbonate, which is carried away in solution: CaCO… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: When rainwater absorbs CO₂ from the atmosphere and soil, it becomes a weak carbonic acid. This acid reacts with calcium carbonate (limestone) to form soluble calcium bicarbonate, which is carried away in solution: CaCO… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2430,7 +2430,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying From V-shape to oxbow — the river's life.",
-            solution: "Stay close to the text: A river's character changes from source to mouth. In its upper course the gradient is steep and erosion dominates â the river cuts downward, producing V-shaped valleys, gorges, and waterfalls. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A river's character changes from source to mouth. In its upper course the gradient is steep and erosion dominates — the river cuts downward, producing V-shaped valleys, gorges, and waterfalls. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2450,7 +2450,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Drainage patterns — fingerprints of geology.",
-            solution: "Stay close to the text: The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Dendritic ('tree-like') patterns develop on uniform, flat-lying rock where there is no structural control â they are the mos… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The pattern a river system makes on a map is a sensitive indicator of the underlying geology. Dendritic ('tree-like') patterns develop on uniform, flat-lying rock where there is no structural control — they are the mos… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2554,12 +2554,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Glacial erosion — from V to U and beyond”?",
-            solution: "The accurate idea is: A glacier does not simply flow down a pre-existing river valley â it transforms the landscape. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A glacier does not simply flow down a pre-existing river valley â it transforms the landscape.",
+            solution: "The accurate idea is: A glacier does not simply flow down a pre-existing river valley — it transforms the landscape. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A glacier does not simply flow down a pre-existing river valley — it transforms the landscape.",
           },
           {
             problem: "Give one exam trap students hit when studying Glacial erosion — from V to U and beyond.",
-            solution: "Stay close to the text: A glacier does not simply flow down a pre-existing river valley â it transforms the landscape. The ice is much more rigid and powerful than water: it widens and deepens the valley, producing the characteristic U-shape … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A glacier does not simply flow down a pre-existing river valley — it transforms the landscape. The ice is much more rigid and powerful than water: it widens and deepens the valley, producing the characteristic U-shape … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2594,12 +2594,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Moraines — till and the trail of the ice”?",
-            solution: "The accurate idea is: Glaciers transport enormous amounts of rock debris â collectively called till. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Glaciers transport enormous amounts of rock debris â collectively called till.",
+            solution: "The accurate idea is: Glaciers transport enormous amounts of rock debris — collectively called till. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Glaciers transport enormous amounts of rock debris — collectively called till.",
           },
           {
             problem: "Give one exam trap students hit when studying Moraines — till and the trail of the ice.",
-            solution: "Stay close to the text: Glaciers transport enormous amounts of rock debris â collectively called till. Where this debris is deposited marks the past extent and movement of the ice. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Glaciers transport enormous amounts of rock debris — collectively called till. Where this debris is deposited marks the past extent and movement of the ice. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2706,12 +2706,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Reefs, atolls, and the coral requirement”?",
-            solution: "The accurate idea is: Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters.",
+            solution: "The accurate idea is: Coral reefs are restricted to warm (>20 °C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Coral reefs are restricted to warm (>20 °C), shallow (<50 m), clear, sunlit, sediment-free tropical waters.",
           },
           {
             problem: "Give one exam trap students hit when studying Reefs, atolls, and the coral requirement.",
-            solution: "Stay close to the text: Coral reefs are restricted to warm (>20 Â°C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Reef-building corals have a symbiotic relationship with photosynthetic algae (zooxanthellae) that need sunlight… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Coral reefs are restricted to warm (>20 °C), shallow (<50 m), clear, sunlit, sediment-free tropical waters. Reef-building corals have a symbiotic relationship with photosynthetic algae (zooxanthellae) that need sunlight… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2731,7 +2731,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Karst — the underground landscape.",
-            solution: "Stay close to the text: Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution. Rainwater absorbs COâ from the air and soil, becoming a weak carbonic acid that dis… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Karst landscapes form where limestone (or other soluble rock) lies near the surface and there is enough rainfall to drive dissolution. Rainwater absorbs CO₂ from the air and soil, becoming a weak carbonic acid that dis… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2841,7 +2841,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying The brittle–ductile transition and earthquakes.",
-            solution: "Stay close to the text: Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Above the brittleâductile transition (typically 10â15 km in continental crust, shallower in oceanic crust), roc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Earthquakes can only occur where rock is brittle enough to fracture suddenly and release elastic energy. Above the brittle–ductile transition (typically 10–15 km in continental crust, shallower in oceanic crust), roc… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2861,7 +2861,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Putting it all together — T, P, rate, and rock type.",
-            solution: "Stay close to the text: The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. In a continentâcontinent collision, the upper crust (cool, low P) deforms by brittle faulting (thrust faults, earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The 'deformation diagram' for any rock is a function of T, confining P, strain rate, and composition. In a continent–continent collision, the upper crust (cool, low P) deforms by brittle faulting (thrust faults, earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3065,12 +3065,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Hanging wall vs. footwall — the rule of the V”?",
-            solution: "The accurate idea is: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on the footwall (below). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on…",
+            solution: "The accurate idea is: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault — your head touches the hanging wall (above), your feet rest on the footwall (below). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault — your head touches the hanging wall (above), your feet rest on…",
           },
           {
             problem: "Give one exam trap students hit when studying Hanging wall vs. footwall — the rule of the V.",
-            solution: "Stay close to the text: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault â your head touches the hanging wall (above), your feet rest on the footwall (below). Another mnemonic:… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A simple way to remember which is the hanging wall and which is the footwall: stand in a mine tunnel along a fault — your head touches the hanging wall (above), your feet rest on the footwall (below). Another mnemonic:… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3090,7 +3090,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying The stress-fault correspondence.",
-            solution: "Stay close to the text: The type of fault directly indicates the type of stress that produced it. Normal faults (hanging wall DOWN) result from tensional stress â the rock is being pulled apart. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The type of fault directly indicates the type of stress that produced it. Normal faults (hanging wall DOWN) result from tensional stress — the rock is being pulled apart. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3105,12 +3105,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Thrust faults — long-distance transport”?",
-            solution: "The accurate idea is: Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres.",
+            solution: "The accurate idea is: Thrust faults are low-angle reverse faults (dip <30°) that can transport large sheets of rock for tens or even hundreds of kilometres. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Thrust faults are low-angle reverse faults (dip <30°) that can transport large sheets of rock for tens or even hundreds of kilometres.",
           },
           {
             problem: "Give one exam trap students hit when studying Thrust faults — long-distance transport.",
-            solution: "Stay close to the text: Thrust faults are low-angle reverse faults (dip <30Â°) that can transport large sheets of rock for tens or even hundreds of kilometres. The Lewis Overthrust in Montana/Canada moved a slab of Precambrian rock ~80 km eastw… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Thrust faults are low-angle reverse faults (dip <30°) that can transport large sheets of rock for tens or even hundreds of kilometres. The Lewis Overthrust in Montana/Canada moved a slab of Precambrian rock ~80 km eastw… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3458,7 +3458,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Shape follows magma.",
-            solution: "Stay close to the text: The shape of a volcano is a direct consequence of its magma. Fluid basaltic lava flows long distances before solidifying, building a low, broad shield â Mauna Loa is the classic example. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The shape of a volcano is a direct consequence of its magma. Fluid basaltic lava flows long distances before solidifying, building a low, broad shield — Mauna Loa is the classic example. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3587,12 +3587,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Pyroclastic flows — the deadliest volcanic phenomenon”?",
-            solution: "The accurate idea is: Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano.",
+            solution: "The accurate idea is: Pyroclastic flows are hot (300–700 °C), fast-moving (100–700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pyroclastic flows are hot (300–700 °C), fast-moving (100–700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano.",
           },
           {
             problem: "Give one exam trap students hit when studying Pyroclastic flows — the deadliest volcanic phenomenon.",
-            solution: "Stay close to the text: Pyroclastic flows are hot (300â700 Â°C), fast-moving (100â700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. They are produced when an explosive eruption ejects mater… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pyroclastic flows are hot (300–700 °C), fast-moving (100–700 km/h) mixtures of volcanic gas, ash, and rock fragments that sweep down the flanks of a volcano. They are produced when an explosive eruption ejects mater… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3612,7 +3612,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Volcanoes and climate.",
-            solution: "Stay close to the text: Volcanic eruptions can cause both short-term cooling and long-term warming. SOâ injected into the stratosphere converts to sulphate aerosols, which reflect sunlight and cause global cooling. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Volcanic eruptions can cause both short-term cooling and long-term warming. SO₂ injected into the stratosphere converts to sulphate aerosols, which reflect sunlight and cause global cooling. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -3759,7 +3759,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Foreshocks, swarms, and predicting earthquakes.",
-            solution: "Stay close to the text: Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens. Earthquake swarms â sequences of many s… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Foreshocks are small quakes that precede a larger one in the same area, but they cannot be reliably distinguished from ordinary background seismicity until the mainshock happens. Earthquake swarms — sequences of many s… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4094,12 +4094,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Intensity: what people actually feel”?",
-            solution: "The accurate idea is: Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total destruction'. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total dest…",
+            solution: "The accurate idea is: Intensity is a measure of the shaking and damage at a specific location — a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I — Not felt' to 'XII — Total destruction'. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Intensity is a measure of the shaking and damage at a specific location — a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I — Not felt' to 'XII — Total dest…",
           },
           {
             problem: "Give one exam trap students hit when studying Intensity: what people actually feel.",
-            solution: "Stay close to the text: Intensity is a measure of the shaking and damage at a specific location â a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I â Not felt' to 'XII â Total destruction'. A single earthquake has many i… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Intensity is a measure of the shaking and damage at a specific location — a 12-point scale (Modified Mercalli Intensity, MMI) running from 'I — Not felt' to 'XII — Total destruction'. A single earthquake has many i… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4119,7 +4119,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Seismic hazard and risk reduction.",
-            solution: "Stay close to the text: Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard. Reducing risk requires: (1) hazard assessment â identifying a… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Seismic hazard is the probability of a certain level of shaking in a region over a given time; seismic risk is the expected damage or loss from that hazard. Reducing risk requires: (1) hazard assessment — identifying a… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4227,7 +4227,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying How tsunamis work.",
-            solution: "Stay close to the text: A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). In the open ocean, the wave is only a fraction of a metre high but moves at 500â800 km/h â about as fast … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: A tsunami is not a single wave but a series of waves with very long wavelengths (often >100 km in deep water). In the open ocean, the wave is only a fraction of a metre high but moves at 500–800 km/h — about as fast … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4352,7 +4352,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Why building codes matter most.",
-            solution: "Stay close to the text: Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. The 2010 Haiti earthquake (M7.0) killed an estimated 200,000â300,000 people â primarily becaus… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Most earthquake casualties in modern urban areas are caused by the collapse of buildings that did not meet current codes. The 2010 Haiti earthquake (M7.0) killed an estimated 200,000–300,000 people — primarily becaus… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4466,12 +4466,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “The Indian–Eurasian collision and Pakistan's mountains”?",
-            solution: "The accurate idea is: About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate.",
+            solution: "The accurate idea is: About 50 million years ago, the Indian Plate — moving northward at ~20 cm/year — collided with the Eurasian Plate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "About 50 million years ago, the Indian Plate — moving northward at ~20 cm/year — collided with the Eurasian Plate.",
           },
           {
             problem: "Give one exam trap students hit when studying The Indian–Eurasian collision and Pakistan's mountains.",
-            solution: "Stay close to the text: About 50 million years ago, the Indian Plate â moving northward at ~20 cm/year â collided with the Eurasian Plate. The Tethys Ocean between them closed, and the sediments and crustal fragments of its floor were thrus… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: About 50 million years ago, the Indian Plate — moving northward at ~20 cm/year — collided with the Eurasian Plate. The Tethys Ocean between them closed, and the sediments and crustal fragments of its floor were thrus… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4486,12 +4486,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “The Indus Basin and Salt Range”?",
-            solution: "The accurate idea is: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â the Indus Basin. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â…",
+            solution: "The accurate idea is: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin — the Indus Basin. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin —",
           },
           {
             problem: "Give one exam trap students hit when studying The Indus Basin and Salt Range.",
-            solution: "Stay close to the text: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin â the Indus Basin. Drill holes have enc… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The Indus River and its tributaries (Jhelum, Chenab, Ravi, Beas, Sutlej) drain most of the mountain belt and have deposited enormous thicknesses of sediment in the foreland basin — the Indus Basin. Drill holes have enc… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4588,12 +4588,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Why Pakistan is so seismically active”?",
-            solution: "The accurate idea is: Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision.",
+            solution: "The accurate idea is: Pakistan's high seismicity is a direct consequence of its position at the active Indian–Eurasian collision. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan's high seismicity is a direct consequence of its position at the active Indian–Eurasian collision.",
           },
           {
             problem: "Give one exam trap students hit when studying Why Pakistan is so seismically active.",
-            solution: "Stay close to the text: Pakistan's high seismicity is a direct consequence of its position at the active IndianâEurasian collision. The Indian Plate continues to push northward at ~3â5 cm/year, and the resulting strain is released in earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan's high seismicity is a direct consequence of its position at the active Indian–Eurasian collision. The Indian Plate continues to push northward at ~3–5 cm/year, and the resulting strain is released in earthq… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4628,12 +4628,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “Karachi's quiet but real risk”?",
-            solution: "The accurate idea is: Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading.",
+            solution: "The accurate idea is: Karachi — Pakistan's largest city (~20 million people) and economic hub — is often perceived as having low seismic risk, but this perception is misleading. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Karachi — Pakistan's largest city (~20 million people) and economic hub — is often perceived as having low seismic risk, but this perception is misleading.",
           },
           {
             problem: "Give one exam trap students hit when studying Karachi's quiet but real risk.",
-            solution: "Stay close to the text: Karachi â Pakistan's largest city (~20 million people) and economic hub â is often perceived as having low seismic risk, but this perception is misleading. The city lies within ~150 km of the Makran Subduction Zone, … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Karachi — Pakistan's largest city (~20 million people) and economic hub — is often perceived as having low seismic risk, but this perception is misleading. The city lies within ~150 km of the Makran Subduction Zone, … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4699,12 +4699,12 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Which statement best matches “The Chaman Fault — a giant strike-slip”?",
-            solution: "The accurate idea is: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km.",
+            solution: "The accurate idea is: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly north–south through Balochistan for over 800 km. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly north–south through Balochistan for over 800 km.",
           },
           {
             problem: "Give one exam trap students hit when studying The Chaman Fault — a giant strike-slip.",
-            solution: "Stay close to the text: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly northâsouth through Balochistan for over 800 km. It is a left-lateral fault, accommodating part of the relative m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The Chaman Fault is one of the longest and most active strike-slip faults in South Asia, running roughly north–south through Balochistan for over 800 km. It is a left-lateral fault, accommodating part of the relative m… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4826,7 +4826,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Why Pakistan has so many resources.",
-            solution: "Stay close to the text: Pakistan's diverse mineral endowment is a direct consequence of its geological history. The Tethys Ocean, which closed during the IndiaâEurasian collision, deposited thick sequences of sedimentary rocks (limestones, sa… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan's diverse mineral endowment is a direct consequence of its geological history. The Tethys Ocean, which closed during the India–Eurasian collision, deposited thick sequences of sedimentary rocks (limestones, sa… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -4846,7 +4846,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying The Thar Coalfield — Pakistan's energy future.",
-            solution: "Stay close to the text: The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite. It is shallow (overburden of 100â250 m), amenable to open-pit m… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The Thar Coalfield in the Thar Desert of Sindh is one of the largest coal deposits in the world, with estimated reserves of 175 billion tonnes of lignite. It is shallow (overburden of 100–250 m), amenable to open-pit m… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -5349,7 +5349,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Limitations and ambiguities.",
-            solution: "Stay close to the text: Seismic is the highest-resolution deep-imaging method, but it has limits. The main one is that the seismic image is not a direct picture of the rock â it is a picture of acoustic impedance (velocity Ã density) contras… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Seismic is the highest-resolution deep-imaging method, but it has limits. The main one is that the seismic image is not a direct picture of the rock — it is a picture of acoustic impedance (velocity × density) contras… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -5474,7 +5474,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Electrical methods — groundwater and ore.",
-            solution: "Stay close to the text: Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Salt water is the most conductive (resistivity ~0.2 Î©Â·m); clean sand and gravel (good aquifers) are highly resistive (… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Electrical methods exploit the huge range of electrical resistivity between common Earth materials. Salt water is the most conductive (resistivity ~0.2 Ω·m); clean sand and gravel (good aquifers) are highly resistive (… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -5604,7 +5604,7 @@ export const topics: Topic[] = [
           },
           {
             problem: "Give one exam trap students hit when studying Earth's gravity field and sea level.",
-            solution: "Stay close to the text: Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. The GRACE satellites (2002â2017) and their successor GRACE-FO (launched 2018) measure month-to-month changes in Earth's gravit… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Modern geodesy measures not only the solid Earth but also its gravity field and the oceans. The GRACE satellites (2002–2017) and their successor GRACE-FO (launched 2018) measure month-to-month changes in Earth's gravit… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],

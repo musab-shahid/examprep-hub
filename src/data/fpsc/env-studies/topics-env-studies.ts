@@ -561,12 +561,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Nitrogen fixation and human amplification”?",
-            solution: "The accurate idea is: Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms.",
+            solution: "The accurate idea is: Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Most atmospheric nitrogen is N₂, which is not directly usable by most organisms.",
           },
           {
             problem: "Give one exam trap students hit when studying Nitrogen fixation and human amplification.",
-            solution: "Stay close to the text: Most atmospheric nitrogen is Nâ, which is not directly usable by most organisms. Nitrogen fixationâby certain microbes, by lightning, and by industrial processes such as the HaberâBosch pathwayâconverts nitrogen … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Nitrogen fixation—by certain microbes, by lightning, and by industrial processes such as the Haber–Bosch pathway—converts nitrogen … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -885,12 +885,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Mass extinctions and the present day”?",
-            solution: "The accurate idea is: Earthâs history records several episodes of elevated extinction spread over geological time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Earthâs history records several episodes of elevated extinction spread over geological time.",
+            solution: "The accurate idea is: Earth’s history records several episodes of elevated extinction spread over geological time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Earth’s history records several episodes of elevated extinction spread over geological time.",
           },
           {
             problem: "Give one exam trap students hit when studying Mass extinctions and the present day.",
-            solution: "Stay close to the text: Earthâs history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and relate… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Earth’s history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and relate… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -905,12 +905,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Conservation in the Pakistani setting”?",
-            solution: "The accurate idea is: Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction.",
+            solution: "The accurate idea is: Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction.",
           },
           {
             problem: "Give one exam trap students hit when studying Conservation in the Pakistani setting.",
-            solution: "Stay close to the text: Pakistanâs conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting p… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting p… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -976,12 +976,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Renewable and non-renewable resources”?",
-            solution: "The accurate idea is: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examples. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examp…",
+            solution: "The accurate idea is: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examp…",
           },
           {
             problem: "Give one exam trap students hit when studying Renewable and non-renewable resources.",
-            solution: "Stay close to the text: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates â sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slo… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slo… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1095,12 +1095,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “The Indus Waters Treaty”?",
-            solution: "The accurate idea is: The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage.",
+            solution: "The accurate idea is: The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage.",
           },
           {
             problem: "Give one exam trap students hit when studying The Indus Waters Treaty.",
-            solution: "Stay close to the text: The Indus Waters Treaty of 1960 allocated the use of the Indus systemâs rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the … Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the … Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1647,12 +1647,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Pakistan's energy–environment links”?",
-            solution: "The accurate idea is: Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal.",
+            solution: "The accurate idea is: Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal.",
           },
           {
             problem: "Give one exam trap students hit when studying Pakistan's energy–environment links.",
-            solution: "Stay close to the text: Pakistanâs power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -1871,7 +1871,7 @@ explanationSections: [
           },
           {
             problem: "Give one exam trap students hit when studying The Paris Agreement.",
-            solution: "Stay close to the text: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2Â°C above pre-industria… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2°C above pre-industria… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2040,12 +2040,12 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
                 examples: [
           {
             problem: "Which statement best matches “PEPA and institutional roles”?",
-            solution: "The accurate idea is: PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period.",
+            solution: "The accurate idea is: PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period.",
           },
           {
             problem: "Give one exam trap students hit when studying PEPA and institutional roles.",
-            solution: "Stay close to the text: PEPA 1997 is taught as the backbone of Pakistanâs environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and proce… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and proce… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2182,12 +2182,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Interconnected environmental challenges”?",
-            solution: "The accurate idea is: Pakistanâs environmental pressures do not arrive one at a time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistanâs environmental pressures do not arrive one at a time.",
+            solution: "The accurate idea is: Pakistan’s environmental pressures do not arrive one at a time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan’s environmental pressures do not arrive one at a time.",
           },
           {
             problem: "Give one exam trap students hit when studying Interconnected environmental challenges.",
-            solution: "Stay close to the text: Pakistanâs environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan’s environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],
@@ -2231,12 +2231,12 @@ explanationSections: [
                 examples: [
           {
             problem: "Which statement best matches “Protected areas and living resources”?",
-            solution: "The accurate idea is: Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions.",
+            solution: "The accurate idea is: Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
+            answer: "Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions.",
           },
           {
             problem: "Give one exam trap students hit when studying Protected areas and living resources.",
-            solution: "Stay close to the text: Pakistanâs protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protec… Mis-reading a definition or swapping two technical terms is the usual error.",
+            solution: "Stay close to the text: Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protec… Mis-reading a definition or swapping two technical terms is the usual error.",
             answer: "Do not swap the paired technical terms; quote the definition precisely",
           },
         ],

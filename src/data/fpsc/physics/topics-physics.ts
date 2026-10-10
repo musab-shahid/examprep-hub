@@ -1873,7 +1873,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Anomalous expansion of water” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Water contracts as it cools from room temperature to 4 Â°C, reaching maximum density at 4 Â°C. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Water contracts as it cools from room temperature to 4 °C, reaching maximum density at 4 °C. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Anomalous expansion of water",
           },
         ],
@@ -2137,7 +2137,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Latent heat” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Boiling water at 100 Â°C stays at 100 Â°C while energy goes into separating molecules against intermolecular forces. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Boiling water at 100 °C stays at 100 °C while energy goes into separating molecules against intermolecular forces. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Latent heat",
           },
         ],
@@ -3395,7 +3395,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Image characteristics by position” requires you to distinguish or calculate.",
-            solution: "Use the core idea: For a converging lens: object at infinity â image at focus; beyond 2F â real, inverted, diminished; at 2F â real, inverted, same size; between F and 2F â real, inverted, magnified; inside F â virtual, upright, magnified. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: For a converging lens: object at infinity → image at focus; beyond 2F → real, inverted, diminished; at 2F → real, inverted, same size; between F and 2F → real, inverted, magnified; inside F → virtual, upright, magnified. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Image characteristics by position",
           },
         ],
@@ -4458,7 +4458,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Power transmission” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Power loss in cables is IÂ²R. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Power loss in cables is I²R. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Power transmission",
           },
         ],
@@ -4517,7 +4517,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Nuclear notation” requires you to distinguish or calculate.",
-            solution: "Use the core idea: A nucleus is written as á´¬_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton number). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: A nucleus is written as ᴬ_Z X, where X is the chemical symbol, A is the mass number (nucleon number) and Z is the atomic number (proton number). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Nuclear notation",
           },
         ],
@@ -4800,7 +4800,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Decay constant” requires you to distinguish or calculate.",
-            solution: "Use the core idea: The decay constant Î» tells us the fraction of nuclei expected to decay per unit time. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: The decay constant λ tells us the fraction of nuclei expected to decay per unit time. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Decay constant",
           },
         ],
@@ -4830,7 +4830,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Exponential decay” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Radioactive decay follows N = Nâ e^âÎ»t. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Radioactive decay follows N = N₀ e^−λt. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Exponential decay",
           },
         ],
@@ -4948,7 +4948,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Pros and cons” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Nuclear power produces large amounts of energy without COâ emissions during operation, but it produces radioactive waste, carries accident risk and has high construction costs. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Nuclear power produces large amounts of energy without CO₂ emissions during operation, but it produces radioactive waste, carries accident risk and has high construction costs. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Pros and cons",
           },
         ],
@@ -5177,7 +5177,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Using prefixes” requires you to distinguish or calculate.",
-            solution: "Use the core idea: A milligram is 10â»Â³ g and a kilometre is 10Â³ m. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: A milligram is 10⁻³ g and a kilometre is 10³ m. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Using prefixes",
           },
         ],
@@ -5192,7 +5192,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Dimensional analysis” requires you to distinguish or calculate.",
-            solution: "Use the core idea: If a formula claims F = m v, check units: left side is kgÂ·m/sÂ², right side is kgÂ·m/s. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: If a formula claims F = m v, check units: left side is kg·m/s², right side is kg·m/s. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Dimensional analysis",
           },
         ],
@@ -5449,7 +5449,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Analytical addition” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = â(R_xÂ² + R_yÂ²) and Î¸ = tanâ»Â¹(R_y/R_x). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: Resolve every vector into x and y components, sum the x components to get R_x, sum the y components to get R_y, then combine: R = √(R_x² + R_y²) and θ = tan⁻¹(R_y/R_x). Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Analytical addition",
           },
         ],
@@ -5518,7 +5518,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "In one exam-style sentence, state what “Inclined planes” requires you to distinguish or calculate.",
-            solution: "Use the core idea: A block on a slope is pulled downward by a component of its weight along the slope: mg sin Î¸. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
+            solution: "Use the core idea: A block on a slope is pulled downward by a component of its weight along the slope: mg sin θ. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
             answer: "Inclined planes",
           },
         ],
