@@ -212,6 +212,18 @@ export const topics: Topic[] = [
         "Ignoring particles because they are not listed in the N₂/O₂ percentage table"
       ]
     }
+  ,
+    {
+      id: "meteo-composition-today-ozone-vs-ghg",
+      title: "Ozone shield vs greenhouse warming (exam trap)",
+      summary: "Stratospheric ozone absorbs UV; greenhouse gases trap longwave — different problems.",
+      explanation: "Stratospheric ozone protects life by absorbing harmful ultraviolet radiation. Surface (tropospheric) ozone is a pollutant. Ozone depletion (e.g. polar ozone thinning linked to chlorine chemistry) is not the same process as CO₂-driven greenhouse warming, though both are human-influenced atmospheric issues. Exams often test whether students conflate the ozone hole with global warming.",
+      examples: [
+        { problem: "Does the Antarctic ozone hole cause global greenhouse warming in the same way as rising CO₂?", solution: "No — ozone depletion is primarily a UV-protection / stratospheric chemistry issue; greenhouse warming is driven mainly by long-lived greenhouse gases trapping infrared radiation.", answer: "No — different mechanisms" }
+      ],
+      shortcuts: ["Stratospheric O₃ → UV shield", "CO₂ → longwave greenhouse", "Do not equate ozone hole with global warming"],
+      traps: ["Saying the ozone hole is the main cause of global warming"]
+    }
   ],
   comparisonTable: {
     title: "Permanent vs variable constituents",
@@ -523,6 +535,18 @@ export const topics: Topic[] = [
       traps: [
         "Treating any short recent stretch as the full climate definition"
       ]
+    }
+  ,
+    {
+      id: "meteo-weather-vs-climate-uhi",
+      title: "Urban heat island (UHI)",
+      summary: "Cities run warmer than surrounding rural areas, especially at night.",
+      explanation: "Built surfaces absorb and store heat, sky-view is reduced, waste heat is released, and moisture/vegetation are often lower. The urban heat island is strongest under calm, clear nights. It is a local climate effect — it does not replace greenhouse forcing as the explanation of global mean warming, but it matters for station siting, health, and city planning.",
+      examples: [
+        { problem: "When is the urban–rural temperature difference often largest?", solution: "Clear, calm nights — rural areas cool faster by radiation while the city retains heat.", answer: "Clear calm nights" }
+      ],
+      shortcuts: ["UHI = city warmer than rural", "Strongest often at night", "Local — not the whole global trend"],
+      traps: ["Blaming all global warming only on cities"]
     }
   ],
   comparisonTable: {
@@ -940,7 +964,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["meteo-vertical-structure", "meteo-heat-transfer"],
   leadsTo: ["meteo-static-stability", "meteo-inversion-mechanics"],
-  usedIn: ["meteo-static-stability", "meteo-thermodynamic-diagrams", "meteo-lapse-stability-calc"]
+  usedIn: ["meteo-static-stability", "meteo-thermodynamic-diagrams", "meteo-lapse-calc"]
 },
 
 {
@@ -1206,7 +1230,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-inversion-mechanics"],
   leadsTo: ["meteo-adiabatic-cloud-formation", "meteo-thermodynamic-diagrams"],
-  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-stability-calc", "meteo-thunderstorms"]
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc", "meteo-thunderstorms"]
 },
 
 {
@@ -1705,6 +1729,18 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Day upslope", "Night downslope / cold pools"],
       traps: ["Ignoring topography when forecasting night minima"]
+    }
+  ,
+    {
+      id: "meteo-local-seasonal-winds-foehn-katabatic",
+      title: "Foehn/chinook and katabatic winds",
+      summary: "Warm dry lee descent versus cold downslope drainage.",
+      explanation: "Foehn (chinook) winds warm and dry by descent on the lee of mountains after moisture is stripped windward — sudden temperature rises are classic. Katabatic winds are cold, dense air draining downslope, especially at night or off ice sheets. Both are terrain-locked and distinct from the large-scale monsoon.",
+      examples: [
+        { problem: "A sudden warm, dry wind on the lee side of a range after rain on the windward side — most likely type?", solution: "Foehn / chinook-type descending wind.", answer: "Foehn (chinook)" }
+      ],
+      shortcuts: ["Foehn = warm dry lee", "Katabatic = cold downslope"],
+      traps: ["Calling every downslope wind a monsoon"]
     }
   ],
   comparisonTable: {
@@ -2569,7 +2605,7 @@ export const topics: Topic[] = [
   content: true,
   buildsOn: ["meteo-precipitation-processes", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-global-precip-patterns"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-climate"]
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-macroclimate"]
 },
 
 {
@@ -2680,6 +2716,18 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Dry adiabat to LCL, then moist", "Parcel warmer than env → buoyant"],
       traps: ["Using only the environmental curve without parcel theory"]
+    }
+  ,
+    {
+      id: "meteo-thermodynamic-diagrams-cape-lid",
+      title: "CAPE area and inversion lids on the chart",
+      summary: "Positive area between parcel and environment is CAPE-related; inversions act as lids.",
+      explanation: "After the parcel follows a dry adiabat to the LCL and a moist adiabat above, any layer where the parcel temperature exceeds the environmental temperature contributes to positive buoyancy (the CAPE area on a thermodynamic diagram). An inversion or warm layer aloft where the environment is warmer than the parcel path acts as a lid (CIN-related) until surface heating or dynamic lift allows breakthrough.",
+      examples: [
+        { problem: "On a skew-T, the parcel path is warmer than the environment from 800 to 400 hPa but cooler just above the surface. Interpretation?", solution: "Elevated CAPE-type positive area with near-surface inhibition — storms possible if the lid is removed.", answer: "CAPE aloft with a surface lid" }
+      ],
+      shortcuts: ["Parcel warmer than env → positive area", "Env warmer near surface → lid/CIN"],
+      traps: ["Ignoring the lid when only staring at tall CAPE area"]
     }
   ],
   comparisonTable: {
@@ -2962,6 +3010,18 @@ export const topics: Topic[] = [
       shortcuts: ["More shear → more organisation", "Supercell = rotating updraft"],
       traps: ["Assuming every thunderstorm is a supercell"]
     }
+  ,
+    {
+      id: "meteo-thunderstorms-lightning-cape",
+      title: "Lightning and CAPE / CIN",
+      summary: "Charge separation defines the storm; CAPE measures buoyant fuel; CIN is the lid.",
+      explanation: "Lightning requires a thunderstorm by definition — charge separates in the mixed-phase cloud and discharges as lightning, with thunder as the acoustic result. CAPE (Convective Available Potential Energy) measures the integrated buoyant energy a parcel can gain once it freely rises; large CAPE favours stronger updrafts if storms form. CIN (Convective Inhibition) is the energy barrier that must be overcome before that free ascent — a strong lid can suppress storms even when CAPE is large.",
+      examples: [
+        { problem: "A sounding shows large CAPE but also strong CIN. Are storms guaranteed that afternoon?", solution: "No — the inhibition may prevent parcels from reaching the level of free convection unless heating or lift removes the lid.", answer: "No — CIN may suppress initiation" }
+      ],
+      shortcuts: ["Lightning ⇒ thunderstorm", "CAPE = fuel", "CIN = lid / barrier"],
+      traps: ["Treating large CAPE as automatic storms", "Confusing CIN with CAPE"]
+    }
   ],
   comparisonTable: {
     title: "Storm modes (simplified)",
@@ -3242,6 +3302,18 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["~10 m standard open exposure", "Gust ≠ sustained"],
       traps: ["Ignoring sensor height"]
+    }
+  ,
+    {
+      id: "meteo-wind-instruments-beaufort",
+      title: "Beaufort scale",
+      summary: "Force numbers from observed effects when instruments are unavailable.",
+      explanation: "The Beaufort scale ranks wind force from 0 (calm) upward using sea state or land effects (smoke, leaves, trees, structural damage). It remains useful for estimates and historical reports even though modern networks report speed in knots or metres per second from anemometers.",
+      examples: [
+        { problem: "Why might a coastal observer still use Beaufort ideas when the anemometer fails?", solution: "Visual sea and land effects allow a standardised force estimate without a working instrument.", answer: "Visual force estimate" }
+      ],
+      shortcuts: ["Beaufort = force from effects", "0 = calm; higher = stronger"],
+      traps: ["Treating Beaufort numbers as m/s without a conversion table"]
     }
   ],
   comparisonTable: {
@@ -3789,6 +3861,18 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["f = no dry season (common use)", "s = dry summer", "w = dry winter", "BW desert, BS steppe"],
       traps: ["Memorising codes without seasonal meaning"]
+    }
+  ,
+    {
+      id: "meteo-koppen-system-climograph",
+      title: "Reading a climograph",
+      summary: "Monthly temperature and precipitation bars/lines → climate type clues.",
+      explanation: "A climograph plots average monthly temperature and precipitation for a station. Look for: year-round heat (tropical), winter temperature (C vs D), which season is dry (s vs w), and whether totals are low relative to heat (B climates). Matching the shape of the climograph to Köppen letters is a standard exam skill.",
+      examples: [
+        { problem: "A climograph shows high temperature every month and a sharp dry winter with wet summer. Which seasonal letter is favoured?", solution: "Dry winter → 'w' (as in Aw savanna-type patterns).", answer: "w (dry winter)" }
+      ],
+      shortcuts: ["Read T curve + P bars together", "Dry season letter from which months are dry"],
+      traps: ["Using annual rainfall alone without seasonal shape"]
     }
   ],
   comparisonTable: {
