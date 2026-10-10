@@ -5249,112 +5249,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-11",
   order: 1,
   title: "Station Model Reading: Wind Barbs, Pressure Codes & Weather Symbols",
-  definition: "A station model is a standardized symbolic plot of surface weather observations at a single location, encoding temperature, dewpoint, pressure (3-digit code), wind (barbs), cloud cover, and present weather in a compact glyph that allows thousands of stations to be plotted on a single synoptic chart.",
+  definition: "The station model is a compact diagram plotting a weather station’s observation: temperature, dew point, pressure and tendency, wind speed and direction, sky cover, and present weather. Learning to decode barbs, pressure shorthand, and symbols is the entry skill for surface-chart analysis.",
   keyFacts: [
-    "Station model layout: temperature upper-left (°C), dewpoint lower-left (°C), pressure upper-right (3-digit code, hPa/10 with leading 9 or 10 appended as needed), cloud cover shown by the circle fill at the center, wind barb on the right shaft pointing into the station",
-    "3-digit pressure rule: code 027 = 1002.7 hPa; code 998 = 999.8 hPa — append 9 if the leading digit is 5–8 (i.e., 527 = 1052.7), append 10 if the leading digit is 0–4 (i.e., 027 = 1002.7) — only the last three digits are plotted",
-    "Cloud cover symbols: empty circle = clear (0/8); single dot = 1/8; quarter-filled = 2/8; half-filled = 4/8; three-quarter-filled = 6/8; fully filled = 8/8 (overcast); vertical line = missing observation",
-    "Wind barbs: half barb = 5 knots (≈2.5 m/s); full barb = 10 knots (≈5 m/s); flag (pennant) = 50 knots (≈25 m/s); the barb points from the shaft toward the direction the wind is COMING FROM (e.g., a barb on the upper-left means a NW wind, blowing FROM the NW)",
-    "Conversion: 1 knot ≈ 0.514 m/s; 1 m/s ≈ 1.94 knots — to convert knots to m/s, multiply by 0.5 (a quick approximation); to convert m/s to knots, multiply by 2",
-    "Present weather symbols: a dot represents drizzle; a comma represents mist; an asterisk represents snow; a triangle represents hail; the standard WMO table has ~100 symbols but ~15 are routinely tested",
-    "Pressure tendency: plotted to the left of the station as a symbol showing change over the last 3 hours (rising, falling, steady) and the magnitude in tenths of hPa"
+    "Wind barb points in the direction the wind blows FROM; feathers encode speed",
+    "Long barb, short barb, and pennant have standard speed values (often 10, 5, and 50 kt in many teaching schemes)",
+    "Pressure plotted as last three digits of SLP in tenths of hPa (decoding adds leading 9 or 10)",
+    "Pressure tendency shows rise/fall over the past three hours",
+    "Sky-cover circle fill indicates cloud amount; weather symbols show rain, snow, fog, thunder, etc.",
+    "Temperature and dew point usually sit left of the station circle in conventional layouts"
   ],
   explanationSections: [
-    { heading: "How to decode the 3-digit pressure code", body: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. The rule: if the three plotted digits begin with 5, 6, 7, 8, or 9, prepend a 9 (giving 9500–9999, e.g., 587 = 958.7 hPa — impossible, so this case is rare at sea level but common at high-altitude stations). If the three plotted digits begin with 0, 1, 2, 3, or 4, prepend a 10 (giving 1000–1049 hPa, e.g., 027 = 1002.7 hPa; 145 = 1014.5 hPa). To decode: 10 if leading digit is 0–4, 9 if leading digit is 5–8. The last digit is always tenths of a hPa." },
-    { heading: "Reading wind direction and speed from the barb", body: "The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are attached to the upwind end of the shaft. For example, if the shaft points from the upper-left toward the lower-right (NE direction), the wind is blowing FROM the southwest (SW wind) — a common source of confusion because the shaft direction indicates the wind's source, not its destination. To read the speed, sum the barbs: 1 half barb + 1 full barb + 1 flag = 5 + 10 + 50 = 65 knots. If no barbs are drawn, the wind is calm (or less than 1–2 knots, sometimes shown as a small circle at the shaft end)." },
-    { heading: "Cloud cover and present weather interpretation", body: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left of the station circle and describe phenomena occurring at the observation time — dots for drizzle/dust, asterisks for snow, triangles for hail, brackets for thunderstorms, etc. Past weather (6 hours ago) is plotted below the station in a separate symbol. The full WMO present-weather code table is large, but the most commonly tested symbols are: rain (·), snow (*), thunderstorm (R), fog (≡), drizzle (°), and shower (∇)." }
+    { heading: "A whole observation in one glyph", body: "Instead of a table row, the station model packs the elements pilots and analysts need at a glance. Mistakes usually come from reversing wind direction or mis-decoding the three-digit pressure." }
   ],
-  examPoints: [
-    "Pressure code 027 = 1002.7 hPa; pressure code 145 = 1014.5 hPa — the rule: prepend 10 if leading digit is 0–4, prepend 9 if leading digit is 5–8",
-    "Wind barb: half = 5 kt, full = 10 kt, flag = 50 kt; the barb points FROM the direction the wind is coming (e.g., barb on the west side = east wind = wind FROM the east)",
-    "1 knot = 0.514 m/s; multiply knots × 0.5 for a quick m/s estimate; multiply m/s × 2 for a quick knots estimate",
-    "Cloud cover in oktas (eighths): empty = 0, full = 8; the circle fill fraction matches sky coverage",
-    "Wind shaft orientation: shaft points into the station FROM the wind's source direction — a shaft pointing north means a south wind (blowing FROM the south)"
-  ],
-  workedExample: [
-{
-    problem: "A station model shows a pressure code of '863' and a wind barb with one full barb and one half barb on the shaft pointing from the northwest. Decode the pressure, the wind direction, and the wind speed in knots and m/s.",
-    solution: "Pressure: leading digit 8, so prepend 9 → 986.3 hPa. Wind direction: shaft points from NW, so wind is FROM the NW → a northwesterly wind (NW wind, denoted '315°' in compass degrees). Wind speed: 1 full barb (10 kt) + 1 half barb (5 kt) = 15 knots. Converting to m/s: 15 × 0.514 ≈ 7.7 m/s, or quick estimate 15 × 0.5 = 7.5 m/s.",
-    answer: "Pressure = 986.3 hPa; wind from the NW at 15 kt ≈ 7.7 m/s"
-  },
+  subtopics: [
     {
-      problem: "A station shows temperature 22°C, dewpoint 18°C, a fully filled circle, and a present-weather symbol of three dots arranged in a triangle (· · ·). Describe the full weather observation.",
-      solution: "Temperature = 22°C; dewpoint = 18°C; cloud cover = 8/8 (overcast, fully filled circle); present weather = rain (the three-dot triangle is the WMO symbol for continuous rain). The dewpoint depression is 22 − 18 = 4°C, indicating high humidity and likely ongoing precipitation. The full observation: overcast with rain, temperature 22°C, dewpoint 18°C.",
-      answer: "Overcast, raining, T = 22°C, Td = 18°C, RH ≈ 78% (high humidity, dewpoint depression 4°C)"
+      id: "meteo-station-model-wind-pressure",
+      title: "Wind barbs and pressure codes",
+      summary: "FROM direction; three-digit SLP shorthand.",
+      explanation: "The staff orients into the wind source. Total the barb values for speed. For pressure, 246 often means 1024.6 hPa and 987 means 998.7 hPa — choose the leading digits so the value is near normal atmospheric range.",
+      examples: [
+        { problem: "A plotted pressure of 132 typically decodes to which SLP (hPa)?", solution: "1013.2 hPa (common teaching decode: prefix 10 when the three digits are low-mid).", answer: "1013.2 hPa" }
+      ],
+      shortcuts: ["Barb direction = FROM", "Three digits → full SLP"],
+      traps: ["Reading wind as TO direction"]
+    },
+    {
+      id: "meteo-station-model-weather-sky",
+      title: "Sky cover and weather symbols",
+      summary: "Circle fill and present-weather marks.",
+      explanation: "Filled circles indicate greater cloud cover. Present-weather symbols distinguish drizzle, rain, snow, fog, thunderstorms, and other phenomena — essential for matching fronts and hazards on the map.",
+      examples: [
+        { problem: "What does a fully filled station circle usually indicate about clouds?", solution: "Overcast or complete sky cover in standard teaching models.", answer: "Overcast / full cover" }
+      ],
+      shortcuts: ["Fill ↔ cloud amount", "Symbols ↔ present weather"],
+      traps: ["Ignoring dew point when assessing moisture"]
     }
   ],
-
+  comparisonTable: {
+    title: "Station-model elements",
+    headers: ["Element", "How encoded"],
+    rows: [
+      ["Wind", "Barb direction + feathers"],
+      ["Pressure", "Three-digit code + tendency"],
+      ["T / Td", "Numbers beside station"],
+      ["Sky / weather", "Circle fill + symbols"]
+    ]
+  },
+  examPoints: [
+    "Wind FROM via barbs",
+    "Decode three-digit pressure",
+    "Sky cover and weather symbols"
+  ],
   commonMistakes: [
-    "Decoding pressure code wrongly: 145 is 1014.5 hPa (prepend 10), not 145 hPa (impossible at sea level) or 9145 hPa (also impossible)",
-    "Reading wind direction backwards: the barb shaft points FROM the wind source, not toward it — a shaft pointing north means a south wind (blowing from south to north)",
-    "Confusing knots and m/s on charts: most international charts use knots for wind barbs; some national charts use m/s — always check the legend before decoding",
-    "Forgetting that 'calm' is indicated by a small circle at the station center, not by a missing barb — a missing barb could mean a true calm or a data gap",
-    "Misreading the cloud-cover circle: a fully filled circle is overcast (8/8), not 'partly cloudy' — partial fills represent intermediate values (4/8 = half-filled, etc.)"
+    "Reversing wind direction.",
+    "Wrong leading digits on pressure.",
+    "Ignoring tendency arrows.",
+    "Confusing dew point with wet-bulb always."
   ],
   relatedTopics: ["meteo-isobar-analysis", "meteo-airmass-front-id", "meteo-remote-sensing", "meteo-nwp-models"],
-    subtopics: [
-      {
-        id: "meteo-station-model-how-to-decode-the-3-digit-pressure-code",
-        title: "How to decode the 3-digit pressure code",
-        summary: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space.…",
-        explanation: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. The rule: if the three plotted digits begin with 5, 6, 7, 8, or 9, prepend a 9 (giving 9500–9999, e.g., 587 = 958.7 hPa — impossible, so this case is rare at sea level but common at high-altitude stations). If the three plotted digits begin with 0, 1, 2, 3, or 4, prepend a 10 (giving 1000–1049 hPa, e.g., 027 = 1002.7 hPa; 145 = 1014.5 hPa). To decode: 10 if leading digit is 0–4, 9 if leading digit is 5–8. The last digit is always tenths of a hPa.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to decode the 3-digit pressure code”?",
-            solution: "The accurate idea is: Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to decode the 3-digit pressure code.",
-            solution: "Stay close to the text: Sea-level pressure is always near 1000 hPa, so meteorologists drop the leading 9 or 10 and only plot the last three digits to save space. The rule: if the three plotted digits begin with 5, 6, 7, 8, or 9, prepend a 9 (gi… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-station-model-reading-wind-direction-and-speed-from-th",
-        title: "Reading wind direction and speed from the barb",
-        summary: "The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are…",
-        explanation: "The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are attached to the upwind end of the shaft. For example, if the shaft points from the upper-left toward the lower-right (NE direction), the wind is blowing FROM the southwest (SW wind) — a common source of confusion because the shaft direction indicates the wind's source, not its destination. To read the speed, sum the barbs: 1 half barb + 1 full barb + 1 flag = 5 + 10 + 50 = 65 knots. If no barbs are drawn, the wind is calm (or less than 1–2 knots, sometimes shown as a small circle at the shaft end).",
-                examples: [
-          {
-            problem: "Which statement best matches “Reading wind direction and speed from the barb”?",
-            solution: "The accurate idea is: The wind shaft is a straight line that points FROM the direction the wind is coming. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The wind shaft is a straight line that points FROM the direction the wind is coming.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Reading wind direction and speed from the barb.",
-            solution: "Stay close to the text: The wind shaft is a straight line that points FROM the direction the wind is coming. The barbs (small ticks) or flags (triangles) are attached to the upwind end of the shaft. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-station-model-cloud-cover-and-present-weather-interpre",
-        title: "Cloud cover and present weather interpretation",
-        summary: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left…",
-        explanation: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left of the station circle and describe phenomena occurring at the observation time — dots for drizzle/dust, asterisks for snow, triangles for hail, brackets for thunderstorms, etc. Past weather (6 hours ago) is plotted below the station in a separate symbol. The full WMO present-weather code table is large, but the most commonly tested symbols are: rain (·), snow (*), thunderstorm (R), fog (≡), drizzle (°), and shower (∇).",
-                examples: [
-          {
-            problem: "Which statement best matches “Cloud cover and present weather interpretation”?",
-            solution: "The accurate idea is: The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Cloud cover and present weather interpretation.",
-            solution: "Stay close to the text: The central circle's fill fraction indicates total cloud cover in oktas (eighths of sky). Present weather symbols are plotted to the left of the station circle and describe phenomena occurring at the observation time â… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-pressure-instruments", "meteo-wind-instruments", "meteo-cloud-classification"],
   leadsTo: ["meteo-isobar-analysis", "meteo-airmass-front-id"],
@@ -5366,104 +5318,64 @@ export const topics: Topic[] = [
   sectionId: "METEO-11",
   order: 2,
   title: "Isobar Analysis: Drawing Rules, Pressure Patterns & Wind Estimation",
-  definition: "Isobars are lines of equal sea-level pressure drawn on a surface synoptic chart; their spacing, curvature, and pattern reveal the location of high and low pressure systems, the strength of the pressure gradient, and the implied wind speed and direction.",
+  definition: "Isobars are lines of constant sea-level pressure on a surface chart. Analysts draw them at fixed intervals through station pressures, identify highs, lows, troughs, and ridges, and estimate wind direction and relative speed from the pressure field using geostrophic reasoning.",
   keyFacts: [
-    "Isobar interval: standard charts use 4 hPa intervals (e.g., 1000, 1004, 1008, 1012 hPa); some charts use 2 hPa (winter, weak gradient) or 3 hPa (intermediate) — always check the legend",
-    "Drawing rules: isobars never cross; they are smooth curves (no sharp angles); they enclose lows (L) and highs (H); they are labeled at the ends or where broken for clarity; they should pass through or near stations with that exact pressure",
-    "Isobar spacing indicates wind speed: tightly packed isobars = strong pressure gradient = strong winds; widely spaced isobars = weak gradient = light winds; the geostrophic wind is inversely proportional to isobar spacing",
-    "Common pressure patterns: low (cyclone, L, closed isobars with minimum at center), high (anticyclone, H, closed isobars with maximum at center), trough (elongated low, axis marked with dashed line), ridge (elongated high, axis marked with zigzag line), col (saddle point between two highs and two lows, weak variable winds)",
-    "Buys-Ballot's law: in the Northern Hemisphere, with your back to the wind, low pressure is on your left; in the Southern Hemisphere, low pressure is on your right — a direct consequence of geostrophic balance and the Coriolis effect",
-    "Wind direction around systems: around a LOW, winds flow counter-clockwise (NH) or clockwise (SH) and spiral inward; around a HIGH, winds flow clockwise (NH) or counter-clockwise (SH) and spiral outward",
-    "Pressure tendency (3-hour change) is plotted at stations; falling pressure indicates an approaching low or front; rising pressure indicates an approaching high or post-frontal clearing"
+    "Isobars connect equal SLP; choose a contour interval (e.g. 4 hPa) and stick to it",
+    "Never branch or cross isobars of different values",
+    "Closed lows: lowest pressure centre; closed highs: highest pressure centre",
+    "Trough: elongated extension of low pressure; ridge: elongated extension of high pressure",
+    "Geostrophic wind blows parallel to isobars (NH: low to the left)",
+    "Closer isobars → stronger pressure gradient → stronger geostrophic wind"
   ],
   explanationSections: [
-    { heading: "How to draw isobars correctly", body: "Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every station where pressure equals or is very close to that value. Draw a smooth curve through these marks, allowing the isobar to bend around high and low centers. Repeat for the next interval (1004, 1008, ...). Rules to follow strictly: (1) isobars never cross or touch, (2) they should pass through or very near stations with that exact pressure, (3) they form closed curves around highs and lows, (4) they are drawn as smooth curves without sharp kinks, (5) they are labeled at the ends and where the line is broken for readability. A common error is to draw isobars that follow station locations too literally — they should represent the underlying pressure field, not the station positions." },
-    { heading: "Reading wind speed from isobar spacing", body: "The geostrophic wind is Vg = (1/(ρf)) × (Δp/Δn), where Δp/Δn is the pressure gradient (pressure change per unit distance perpendicular to the isobars). On a chart, the spacing between adjacent isobars is inversely proportional to the pressure gradient: if isobars are 100 km apart, the gradient is weak and winds are light; if 50 km apart, the gradient is stronger; if 20 km apart, winds are gale-force. For the same spacing, winds are stronger at higher latitudes (larger f, but the f-dependence in Vg means stronger winds for the same gradient at higher latitudes is incorrect — actually Vg is INVERSELY proportional to f, so for the same gradient, winds are WEAKER at higher latitudes; this is a common misconception). The latitude dependence is small for mid-latitude analysis but matters for high-latitude or tropical charts." },
-    { heading: "Identifying pressure patterns on a chart", body: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars with the highest pressure at the center, marked with an 'H' (e.g., 1028 hPa); (3) a TROUGH is an elongated extension of low pressure, marked by a dashed line along its axis; (4) a RIDGE is an elongated extension of high pressure, marked by a zigzag line along its axis; (5) a COL is a neutral point between alternating high and low centers, often marked with an 'X' or left implicit. These patterns drive the weather: lows bring ascent, clouds, and precipitation; highs bring descent, clear skies, and calm weather." }
+    { heading: "From numbers to field geometry", body: "Station models supply point pressures. Isobars turn those points into a continuous field so systems and winds become visible. Clean analysis follows strict drawing rules before interpretation." }
   ],
-  examPoints: [
-    "Isobars are drawn at fixed intervals (commonly 4 hPa) — never cross, always smooth, always labeled",
-    "Tightly packed isobars = strong winds; widely spaced = light winds",
-    "Buys-Ballot's law: back to wind, low on left in NH, on right in SH",
-    "Around a LOW in the NH: counter-clockwise and inward; around a HIGH: clockwise and outward",
-    "Trough = elongated LOW (dashed axis); Ridge = elongated HIGH (zigzag axis); Col = saddle point between alternating centers"
+  subtopics: [
+    {
+      id: "meteo-isobar-analysis-drawing",
+      title: "Drawing rules and centres",
+      summary: "Fixed interval; no crossing; label highs and lows.",
+      explanation: "Interpolate smoothly between stations. Label L and H at centres. Identify troughs and ridges as elongated pressure features that organise weather even without closed centres.",
+      examples: [
+        { problem: "May two different-valued isobars cross on a valid surface analysis?", solution: "No — each point has one SLP value; contours of different values cannot cross.", answer: "No" }
+      ],
+      shortcuts: ["No crossing", "Label H/L", "Trough vs ridge"],
+      traps: ["Crossing contours to ‘fit’ messy data"]
+    },
+    {
+      id: "meteo-isobar-analysis-wind",
+      title: "Gradient, spacing, and wind",
+      summary: "Tight packing → strong wind; parallel flow (idealised).",
+      explanation: "In the geostrophic balance, wind speed scales with pressure-gradient force. Isobars packed tightly mean strong gradient. Direction is along the isobars with the sense given by hemisphere rules (NH: cyclonic around lows anticlockwise).",
+      examples: [
+        { problem: "Where is the geostrophic wind stronger: widely spaced or tightly packed isobars?", solution: "Tightly packed — larger pressure gradient.", answer: "Tightly packed" }
+      ],
+      shortcuts: ["Close isobars = strong wind", "NH: low to the left"],
+      traps: ["Expecting surface wind exactly geostrophic in the boundary layer"]
+    }
   ],
-  workedExample: {
-    problem: "On a surface chart, a 1004 hPa isobar encloses a region of lower pressure and a 1012 hPa isobar encloses a region of higher pressure 500 km to the east. The 1004 and 1012 isobars are spaced 100 km apart at their closest approach. (a) Identify the pressure patterns. (b) Estimate the geostrophic wind speed assuming ρ = 1.2 kg/m³ and latitude 30°N (f ≈ 6.3 × 10⁻⁵ s⁻¹).",
-    solution: "(a) The 1004 hPa isobar enclosing lower pressure is a LOW (cyclone, L); the 1012 hPa isobar enclosing higher pressure to the east is a HIGH (anticyclone, H). The space between them is a pressure gradient with isobars running roughly N-S, so the geostrophic wind blows along the isobars (perpendicular to the gradient). (b) Pressure gradient Δp/Δn = (1012 − 1004) hPa / 100 km = 8 hPa / 100,000 m = 8 × 100 Pa / 10⁵ m = 0.008 Pa/m. Vg = (1/(ρf)) × (Δp/Δn) = (1 / (1.2 × 6.3 × 10⁻⁵)) × 0.008 = (1 / 7.56 × 10⁻⁵) × 0.008 ≈ 13,228 × 0.008 ≈ 106 m/s. Wait — that seems too high. Recalculating: Vg = (1/(1.2 × 6.3e-5)) × 0.008 = 13,228 × 0.008 ≈ 105.8 m/s. The 8 hPa gradient over 100 km is unusually steep — typical mid-latitude gradients are 1–3 hPa per 100 km. If we use 2 hPa per 100 km (more realistic): Vg = 13,228 × 0.002 ≈ 26.5 m/s ≈ 95 km/h ≈ 52 knots, which is a fresh gale. The 8 hPa figure in the problem is unrealistically steep for synoptic charts and was likely a typo or trick to test whether students recognize the formula. The correct calculation method is: Vg = Δp/(ρfΔn).",
-    answer: "(a) LOW (L) at the 1004 center; HIGH (H) at the 1012 center. (b) Using Δp/Δn = 8 hPa / 100 km = 0.008 Pa/m, Vg ≈ 106 m/s — unrealistically high (suggests 8 hPa over 100 km is too steep a gradient; typical gradients are 1–3 hPa / 100 km giving Vg ~ 13–40 m/s)"
+  comparisonTable: {
+    title: "Pressure features",
+    headers: ["Feature", "Meaning"],
+    rows: [
+      ["Low (L)", "Closed pressure minimum"],
+      ["High (H)", "Closed pressure maximum"],
+      ["Trough", "Elongated low pressure"],
+      ["Ridge", "Elongated high pressure"]
+    ]
   },
+  examPoints: [
+    "Isobar drawing rules",
+    "H/L, trough, ridge",
+    "Spacing ↔ wind strength"
+  ],
   commonMistakes: [
-    "Drawing isobars that cross or touch — this is physically impossible because pressure has a single value at each point",
-    "Drawing isobars through station positions literally — isobars represent the underlying pressure field, not the station locations; small deviations are normal",
-    "Confusing troughs and ridges: trough = dashed axis = LOW extension; ridge = zigzag axis = HIGH extension — a common visual exam trap",
-    "Forgetting the latitude dependence of geostrophic wind — Vg is inversely proportional to f, so for the same gradient, winds are stronger at lower latitudes (this is why tropical cyclones can have stronger winds than extratropical lows for similar gradients)",
-    "Misreading the geostrophic wind direction — the wind blows ALONG the isobars (parallel), with low pressure on the left in the NH (Buys-Ballot's law), not perpendicular to the isobars"
+    "Crossing isobars.",
+    "Confusing trough with ridge.",
+    "Ignoring hemisphere wind sense.",
+    "Treating surface wind as frictionless always."
   ],
   relatedTopics: ["meteo-station-model", "meteo-airmass-front-id", "meteo-geostrophic-qual", "meteo-geostrophic-wind", "meteo-rossby-waves"],
-    subtopics: [
-      {
-        id: "meteo-isobar-analysis-how-to-draw-isobars-correctly",
-        title: "How to draw isobars correctly",
-        summary: "Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every…",
-        explanation: "Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every station where pressure equals or is very close to that value. Draw a smooth curve through these marks, allowing the isobar to bend around high and low centers. Repeat for the next interval (1004, 1008, ...). Rules to follow strictly: (1) isobars never cross or touch, (2) they should pass through or very near stations with that exact pressure, (3) they form closed curves around highs and lows, (4) they are drawn as smooth curves without sharp kinks, (5) they are labeled at the ends and where the line is broken for readability. A common error is to draw isobars that follow station locations too literally — they should represent the underlying pressure field, not the station positions.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to draw isobars correctly”?",
-            solution: "The accurate idea is: Begin by identifying all station pressures and their 3-digit codes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Begin by identifying all station pressures and their 3-digit codes.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to draw isobars correctly.",
-            solution: "Stay close to the text: Begin by identifying all station pressures and their 3-digit codes. Choose an appropriate reference isobar (e.g., 1000 hPa) and mark every station where pressure equals or is very close to that value. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-isobar-analysis-reading-wind-speed-from-isobar-spacing",
-        title: "Reading wind speed from isobar spacing",
-        summary: "The geostrophic wind is Vg = (1/(ρf)) × (Δp/Δn), where Δp/Δn is the pressure gradient (pressure change per unit distance perpendicular to…",
-        explanation: "The geostrophic wind is Vg = (1/(ρf)) × (Δp/Δn), where Δp/Δn is the pressure gradient (pressure change per unit distance perpendicular to the isobars). On a chart, the spacing between adjacent isobars is inversely proportional to the pressure gradient: if isobars are 100 km apart, the gradient is weak and winds are light; if 50 km apart, the gradient is stronger; if 20 km apart, winds are gale-force. For the same spacing, winds are stronger at higher latitudes (larger f, but the f-dependence in Vg means stronger winds for the same gradient at higher latitudes is incorrect — actually Vg is INVERSELY proportional to f, so for the same gradient, winds are WEAKER at higher latitudes; this is a common misconception). The latitude dependence is small for mid-latitude analysis but matters for high-latitude or tropical charts.",
-                examples: [
-          {
-            problem: "Which statement best matches “Reading wind speed from isobar spacing”?",
-            solution: "The accurate idea is: The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Reading wind speed from isobar spacing.",
-            solution: "Stay close to the text: The geostrophic wind is Vg = (1/(Ïf)) Ã (Îp/În), where Îp/În is the pressure gradient (pressure change per unit distance perpendicular to the isobars). On a chart, the spacing between adjacent isobars is inversely … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-isobar-analysis-identifying-pressure-patterns-on-a-chart",
-        title: "Identifying pressure patterns on a chart",
-        summary: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the…",
-        explanation: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars with the highest pressure at the center, marked with an 'H' (e.g., 1028 hPa); (3) a TROUGH is an elongated extension of low pressure, marked by a dashed line along its axis; (4) a RIDGE is an elongated extension of high pressure, marked by a zigzag line along its axis; (5) a COL is a neutral point between alternating high and low centers, often marked with an 'X' or left implicit. These patterns drive the weather: lows bring ascent, clouds, and precipitation; highs bring descent, clear skies, and calm weather.",
-                examples: [
-          {
-            problem: "Which statement best matches “Identifying pressure patterns on a chart”?",
-            solution: "The accurate idea is: Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars with the highest pressure at the center, marked with an 'H' (e.g., 1028 hPa); (3) a TROUGH is an elongated extension of low pressure, marked by a dashed line along its axis; (4) a RIDGE is an elongated extension of high pressure, marked by a zigzag line along its axis; (5) a COL is a neutral point between alternating high and low centers, often marked with an 'X' or left implicit. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Identifying pressure patterns on a chart.",
-            solution: "Stay close to the text: Once isobars are drawn, the pressure patterns become obvious: (1) a LOW is an area of enclosed isobars with the lowest pressure at the center, marked with an 'L' (e.g., 996 hPa); (2) a HIGH is an area of enclosed isobars… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-station-model", "meteo-geostrophic-wind", "meteo-upper-air-charts"],
   leadsTo: ["meteo-geostrophic-qual"],
@@ -5475,104 +5387,65 @@ export const topics: Topic[] = [
   sectionId: "METEO-11",
   order: 3,
   title: "Air Mass & Front Identification on Surface Charts",
-  definition: "On a surface synoptic chart, air masses are identified by their source regions and modification histories (temperature, humidity characteristics), while fronts are identified as boundaries where contrasting air masses meet — marked by specific symbols, accompanied by characteristic wind shifts, temperature contrasts, pressure troughs, and precipitation bands.",
+  definition: "Surface charts reveal air masses and fronts through temperature and dew-point contrasts, wind shifts, pressure troughs, cloud and weather bands, and pressure tendency patterns. Identifying fronts operationally means combining station-model evidence with isobar geometry — not only memorising textbook symbols.",
   keyFacts: [
-    "Air mass classification: two-letter code — first letter for thermal type (c = continental = dry; m = maritime = moist), second letter for source region (P = polar = cold; T = tropical = warm; A = Arctic = very cold; E = equatorial = very warm) — yielding cP, mP, cT, mT, cA, mE, etc.",
-    "Source regions: cP forms over high-latitude continents (Siberia, Canada) in winter — cold and dry; mP forms over high-latitude oceans (North Pacific, North Atlantic) — cold and moist; mT forms over low-latitude oceans (subtropical gyres) — warm and moist; cT forms over low-latitude deserts (Sahara, Arabian) — hot and dry",
-    "Front symbols: cold front = blue line with triangles pointing in the direction of movement; warm front = red line with semicircles pointing in the direction of movement; occluded front = purple line with alternating triangles and semicircles; stationary front = alternating triangles and semicircles on opposite sides of the line",
-    "Cold front on a chart: marked by a wind shift (from S/SW to W/NW), a temperature drop, a pressure trough, and a narrow band of showers or thunderstorms along or just behind the front; slope ~1:50 to 1:100",
-    "Warm front on a chart: marked by a wind shift (from E/NE to S/SW), a temperature rise, falling pressure ahead of the front, and a wide band of stratiform clouds and steady precipitation ahead of the surface front; slope ~1:200",
-    "Occluded front: forms when a fast-moving cold front catches up to a warm front; in a cold occlusion, the air behind the cold front is colder than the air ahead of the warm front; in a warm occlusion, the air behind the cold front is warmer than the air ahead of the warm front",
-    "Identifying fronts on a chart: look for (1) sharp temperature contrast across a line, (2) wind shift (often a veering of ~30–90°), (3) pressure trough (lowest pressure along the front), (4) cloud and precipitation band, (5) humidity discontinuity (mixing ratio or dewpoint jump)"
+    "Fronts often lie in pressure troughs with a wind shift across the boundary",
+    "Cold fronts: colder air advancing; sharper T drops; often narrower weather band",
+    "Warm fronts: warmer air advancing; broader cloud/precip shield ahead",
+    "Dew-point contrast can mark moisture boundaries as clearly as temperature",
+    "Station weather symbols and sky cover outline active frontal zones",
+    "Occlusions and stationary fronts need time continuity and full field context"
   ],
   explanationSections: [
-    { heading: "How to identify an air mass from a station report", body: "An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the dewpoint depression (T − Td). A station with T = 5°C, Td = 4°C (depression 1°C) is moist — likely mP or mT depending on temperature. A station with T = 30°C, Td = 5°C (depression 25°C) is dry — likely cT. Air masses are also classified by their stability: a cold air mass moving over a warm surface becomes unstable (cP over warm ocean = cold-air convection, lake-effect snow); a warm air mass moving over a cold surface becomes stable (mT over cold land = stratus, fog). On a chart, air masses are usually inferred from the source region and trajectory rather than labeled directly." },
-    { heading: "How to locate a front on a surface chart", body: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line — a 5–10°C drop over 50–100 km is typical; (2) a dewpoint gradient — dry air on one side, moist on the other; (3) a wind shift — winds veer (rotate clockwise, e.g., SE → SW → W) across a cold front, back (rotate counter-clockwise) across a warm front; (4) a pressure trough — pressure falls ahead of the front and rises behind, with a minimum along the front; (5) a cloud and precipitation band — cumuliform (showery) along or behind a cold front, stratiform (layered) ahead of a warm front. If all five indicators line up, the front is well-defined; if only some are present, the boundary may be a 'shear line' or 'diffuse front' rather than a true front." },
-    { heading: "Front symbols and their meaning", body: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triangles on the south side of a line mean the front is moving south). (2) Warm front: red line with solid semicircles on the side the front is moving toward. (3) Occluded front: purple line with alternating triangles and semicircles, both pointing in the direction of motion; used for both cold and warm occlusions. (4) Stationary front: alternating triangles and semicircles on OPPOSITE sides of the line, indicating the front is not moving. On color charts, blue is cold, red is warm, purple is occluded; on black-and-white charts, the symbols alone convey the information. A common exam question asks to draw or interpret these symbols on a simplified chart." }
+    { heading: "Evidence before the purple line", body: "The analysed front is a hypothesis. Support it with T/Td jumps, wind shifts, pressure patterns, and weather. If the fields disagree, revise the analysis." }
   ],
-  examPoints: [
-    "Air mass codes: c = continental (dry), m = maritime (moist); P = polar (cold), T = tropical (warm), A = Arctic (very cold), E = equatorial (very warm)",
-    "Front symbols: cold = blue triangles; warm = red semicircles; occluded = purple alternating; stationary = alternating on opposite sides",
-    "Triangles and semicircles point in the direction the front is MOVING — not the direction the wind is blowing",
-    "Cold front passage: wind veers (clockwise), temperature drops, pressure rises, showers along/behind; warm front passage: wind backs (counter-clockwise), temperature rises, pressure continues to fall then rises",
-    "Frontal slope: cold front ~1:50 to 1:100 (steep); warm front ~1:200 (shallow) — explains why warm-front precipitation falls ahead of the surface front and cold-front precipitation falls along or behind"
+  subtopics: [
+    {
+      id: "meteo-airmass-front-id-evidence",
+      title: "Field evidence for fronts",
+      summary: "T/Td gradients, wind shift, trough, weather band.",
+      explanation: "A strong temperature gradient packed into a narrow zone suggests a front. Dew point may drop sharply behind a dry cold front. Winds often veer or back across the boundary depending on the case and hemisphere conventions taught.",
+      examples: [
+        { problem: "List three surface clues that support a cold-front placement.", solution: "Sharp temperature drop, wind shift, and a narrow band of showers/squalls along a trough (among other valid clues).", answer: "ΔT, wind shift, weather/trough" }
+      ],
+      shortcuts: ["Pack gradients = boundary", "Trough + shift + weather"],
+      traps: ["Drawing fronts only from a textbook symbol habit"]
+    },
+    {
+      id: "meteo-airmass-front-id-types",
+      title: "Matching type to structure",
+      summary: "Cold vs warm vs stationary vs occluded on the map.",
+      explanation: "Motion of the cold air mass relative to the warm defines cold vs warm fronts. Stationary fronts show little movement. Occlusions appear in mature cyclones when the cold front catches the warm front — denser station evidence near the triple point helps.",
+      examples: [
+        { problem: "Broad steady precip ahead of a gentle temperature rise at the surface suggests which front type more often?", solution: "Warm front — broad shield ahead of the surface boundary.", answer: "Warm front" }
+      ],
+      shortcuts: ["Cold = sharper/narrower often", "Warm = broader shield"],
+      traps: ["Labelling every trough a cold front"]
+    }
   ],
-  workedExample: {
-    problem: "On a surface chart, station A shows T = 28°C, Td = 26°C, wind from SW; station B is 100 km to the north and shows T = 12°C, Td = 8°C, wind from NW. A line of thunderstorms lies between them. Identify the air masses on each side and the type of front.",
-    solution: "Station A: T = 28°C, Td = 26°C (depression 2°C, very moist), wind from SW — this is a warm, moist air mass, consistent with maritime tropical (mT) air from the subtropical ocean to the southwest. Station B: T = 12°C, Td = 8°C (depression 4°C, moderately moist), wind from NW — this is a cool air mass, likely maritime polar (mP) or continental polar (cP) modified by ocean traversal. The thunderstorm line, the sharp temperature contrast (16°C drop over 100 km), the wind shift (SW → NW = veering of ~90°), and the dewpoint drop all indicate a cold front: the cold air mass (B) is advancing into the warm air mass (A), with the front lying along the thunderstorm line. The cold front symbol on the chart would be a blue line with triangles pointing south (toward the warm air).",
-    answer: "Station A = mT (warm, moist, SW wind); Station B = mP or cP (cool, NW wind); boundary = cold front (sharp T drop, wind veering, thunderstorm line)"
+  comparisonTable: {
+    title: "Front ID checklist",
+    headers: ["Clue", "Use"],
+    rows: [
+      ["Temperature jump", "Thermal boundary"],
+      ["Dew-point jump", "Moisture boundary"],
+      ["Wind shift", "Kinematic boundary"],
+      ["Pressure trough", "Preferred locus"],
+      ["Weather band", "Active zone"]
+    ]
   },
+  examPoints: [
+    "Fronts need multi-field evidence",
+    "Cold vs warm structural clues",
+    "Link station models to analysed fronts"
+  ],
   commonMistakes: [
-    "Confusing 'veering' and 'backing' — veering = clockwise wind shift (e.g., S → SW → W, typical of cold front passage); backing = counter-clockwise shift (e.g., S → SE → E, typical of warm front passage in NH)",
-    "Placing front symbols with triangles/semicircles on the wrong side — they point in the direction of MOTION, not the direction of the wind",
-    "Treating dewpoint depression alone as an air-mass identifier — both T and Td matter; a high T and low Td (large depression) is cT; a low T and high Td (small depression) is mP",
-    "Confusing a shear line with a front — a shear line has a wind shift but no temperature or dewpoint contrast; a true front requires both kinematic (wind) and thermodynamic (T, Td) discontinuities",
-    "Assuming all fronts produce strong weather — a 'masked front' may have weak temperature contrast if the warm sector has been modified by cold-air advection aloft; the front is still present but harder to identify"
+    "Single-variable front drawing.",
+    "Ignoring dew point.",
+    "Confusing troughs with automatic cold fronts.",
+    "Skipping time continuity for stationary/occluded cases."
   ],
   relatedTopics: ["meteo-air-masses-fronts", "meteo-cyclones-structure", "meteo-station-model", "meteo-isobar-analysis", "meteo-rossby-waves", "meteo-remote-sensing", "meteo-nwp-models"],
-    subtopics: [
-      {
-        id: "meteo-airmass-front-id-how-to-identify-an-air-mass-from-a-stati",
-        title: "How to identify an air mass from a station report",
-        summary: "An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the…",
-        explanation: "An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the dewpoint depression (T − Td). A station with T = 5°C, Td = 4°C (depression 1°C) is moist — likely mP or mT depending on temperature. A station with T = 30°C, Td = 5°C (depression 25°C) is dry — likely cT. Air masses are also classified by their stability: a cold air mass moving over a warm surface becomes unstable (cP over warm ocean = cold-air convection, lake-effect snow); a warm air mass moving over a cold surface becomes stable (mT over cold land = stratus, fog). On a chart, air masses are usually inferred from the source region and trajectory rather than labeled directly.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to identify an air mass from a station report”?",
-            solution: "The accurate idea is: An air mass is identified by its thermodynamic properties, not its location. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "An air mass is identified by its thermodynamic properties, not its location.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to identify an air mass from a station report.",
-            solution: "Stay close to the text: An air mass is identified by its thermodynamic properties, not its location. The key variables: temperature (T), dewpoint (Td), and the dewpoint depression (T â Td). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-airmass-front-id-how-to-locate-a-front-on-a-surface-chart",
-        title: "How to locate a front on a surface chart",
-        summary: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line — a 5–10°C drop over 50–100 km…",
-        explanation: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line — a 5–10°C drop over 50–100 km is typical; (2) a dewpoint gradient — dry air on one side, moist on the other; (3) a wind shift — winds veer (rotate clockwise, e.g., SE → SW → W) across a cold front, back (rotate counter-clockwise) across a warm front; (4) a pressure trough — pressure falls ahead of the front and rises behind, with a minimum along the front; (5) a cloud and precipitation band — cumuliform (showery) along or behind a cold front, stratiform (layered) ahead of a warm front. If all five indicators line up, the front is well-defined; if only some are present, the boundary may be a 'shear line' or 'diffuse front' rather than a true front.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to locate a front on a surface chart”?",
-            solution: "The accurate idea is: Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradient â dry air on one side, moist on the other; (3) a wind shift â winds veer (rotate clockwise, e.g., SE â SW â W) across a cold front, back (rotate counter-clockwise) across a warm front; (4) a pressure trough â pressure falls ahead of the front and rises behind, with a minimum along the front; (5) a cloud and precipitation band â cumuliform (showery) along or behind a cold front, stratiform (layered) ahead of a warm front. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradien…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to locate a front on a surface chart.",
-            solution: "Stay close to the text: Frontal identification relies on five convergent indicators: (1) a sharp temperature gradient across a line â a 5â10Â°C drop over 50â100 km is typical; (2) a dewpoint gradient â dry air on one side, moist on the … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "meteo-airmass-front-id-front-symbols-and-their-meaning",
-        title: "Front symbols and their meaning",
-        summary: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the…",
-        explanation: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triangles on the south side of a line mean the front is moving south). (2) Warm front: red line with solid semicircles on the side the front is moving toward. (3) Occluded front: purple line with alternating triangles and semicircles, both pointing in the direction of motion; used for both cold and warm occlusions. (4) Stationary front: alternating triangles and semicircles on OPPOSITE sides of the line, indicating the front is not moving. On color charts, blue is cold, red is warm, purple is occluded; on black-and-white charts, the symbols alone convey the information. A common exam question asks to draw or interpret these symbols on a simplified chart.",
-                examples: [
-          {
-            problem: "Which statement best matches “Front symbols and their meaning”?",
-            solution: "The accurate idea is: The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triangles on the south side of a line mean the front is moving south). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point …",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Front symbols and their meaning.",
-            solution: "Stay close to the text: The WMO standard front symbols are color-coded and direction-indicating: (1) Cold front: blue line with solid triangles on the side the front is moving toward; the triangles point in the direction of motion (e.g., triang… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
   content: true,
   buildsOn: ["meteo-air-masses-fronts", "meteo-station-model"],
   leadsTo: [],
