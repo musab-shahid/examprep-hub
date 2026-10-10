@@ -768,75 +768,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 2,
   title: "Radiation Laws",
-  definition: "Three classical laws organise emission: Wien's displacement law (peak wavelength), the Stefan–Boltzmann law (total power ∝ T⁴), and Kirchhoff's law (good absorbers are good emitters at the same wavelength). They explain why the Sun is a shortwave source and Earth a longwave source.",
+  definition: "Three laws organise planetary radiation: Wien’s law links temperature to peak wavelength, Stefan–Boltzmann links temperature to total emitted power, and Kirchhoff’s law links absorption and emission at a given wavelength.",
   keyFacts: [
-    "Wien: λ_max ≈ 2897 µm·K / T — hotter → shorter peak wavelength",
-    "Sun (~5800 K) peaks near 0.5 µm (visible shortwave); Earth (~288 K) near 10 µm (thermal IR)",
+    "Wien: hotter → shorter λ_max (λ_max ∝ 1/T)",
     "Stefan–Boltzmann: emitted flux ∝ T⁴",
-    "Kirchhoff: at a given wavelength, strong absorbers are strong emitters",
-    "Meteo usage: shortwave ≈ solar; longwave ≈ terrestrial infrared",
-    "Greenhouse gases are selective absorbers, not perfect blackbodies at all wavelengths"
+    "Kirchhoff: good absorber at λ is a good emitter at λ",
+    "Sun peaks in visible; Earth in infrared",
+    "Underpins greenhouse and remote-sensing reasoning"
   ],
   explanationSections: [
-    { heading: "Temperature sets spectrum and power", body: "Raise temperature and the emission peak shifts to shorter wavelengths (Wien) while total radiated energy rises steeply (T⁴). Kirchhoff links absorption and emission line by line — the basis of atmospheric windows." }
+    { heading: "Numbers with intuition", body: "Double absolute temperature and blackbody emission rises by a factor of sixteen — the T⁴ sensitivity is why skin temperature and greenhouse changes matter." }
   ],
   subtopics: [
     {
-      id: "meteo-radiation-laws-wien",
-      title: "Wien's displacement law",
-      summary: "Peak wavelength is inversely proportional to absolute temperature.",
-      explanation: "λ_max = C/T with C ≈ 2897 µm·K. Always use kelvin. This single relation places the Sun in the visible and Earth in the infrared.",
+      id: "meteo-radiation-laws-wien-stefan",
+      title: "Wien and Stefan–Boltzmann in exams",
+      summary: "Peak wavelength vs total power — different questions.",
+      explanation: "If the stem asks why the Sun looks visible while Earth radiates heat in IR, use Wien. If it asks how emission changes when temperature rises, use T⁴. Do not swap the laws.",
       examples: [
-        { problem: "Estimate λ_max for a 300 K blackbody (C = 2897 µm·K).", solution: "2897/300 ≈ 9.7 µm — thermal infrared.", answer: "≈ 9.7 µm" }
+        { problem: "Object warms from 300 K to 330 K — does total emission rise linearly?", solution: "No — roughly with T⁴ (about +46% for a 10% T rise in absolute temperature).", answer: "No — T⁴" }
       ],
-      shortcuts: ["Hotter → shorter λ_max", "Use kelvin"],
-      traps: ["Using °C in Wien's formula"]
+      shortcuts: ["Wien → colour/peak λ", "Stefan → total power T⁴"],
+      traps: ["Using Wien to answer total-energy questions"]
     },
     {
-      id: "meteo-radiation-laws-stefan-kirchhoff",
-      title: "Stefan–Boltzmann and Kirchhoff",
-      summary: "Flux scales as T⁴; absorption matches emission by wavelength.",
-      explanation: "Because flux depends on T⁴, small temperature changes cause large energy changes. Kirchhoff explains why wavelengths that gases absorb poorly are also wavelengths at which they emit poorly — the atmospheric window idea.",
+      id: "meteo-radiation-laws-kirchhoff",
+      title: "Kirchhoff for greenhouse gases",
+      summary: "Absorbers are emitters at the same wavelengths.",
+      explanation: "Greenhouse gases absorb terrestrial IR at selective bands and therefore also emit at those bands. A blackbody is the ideal limit: perfect absorber and perfect emitter. Real gases are selective, which creates atmospheric windows between bands.",
       examples: [
-        { problem: "Temperature rises from 280 K to 290 K. Approximate factor increase in blackbody flux?", solution: "(290/280)⁴ ≈ 1.15 — about 15% more emission.", answer: "≈ 1.15×" }
+        { problem: "Why can a gas that absorbs IR also radiate IR downward to the surface?", solution: "Kirchhoff: absorptivity and emissivity linked at a wavelength.", answer: "Kirchhoff link" }
       ],
-      shortcuts: ["Flux ∝ T⁴", "Good absorber ⇔ good emitter (same λ)"],
-      traps: ["Thinking emission rises only linearly with T"]
+      shortcuts: ["Absorb ↔ emit at λ", "Selective bands → windows"],
+      traps: ["Thinking absorbers cannot emit"]
     }
   ],
-  formula: {
-    name: "Wien's Displacement Law",
-    expression: "λmax = C / T",
-    variables: [
-      { symbol: "λmax", meaning: "wavelength of peak emission" },
-      { symbol: "C", meaning: "Wien's constant, ≈ 2,897 µm·K" },
-      { symbol: "T", meaning: "absolute temperature (Kelvin)" }
-    ]
-  },
-  comparisonTable: {
-    title: "Sun versus Earth as radiators",
-    headers: ["Body", "Approx. T", "Peak λ", "Label"],
-    rows: [
-      ["Sun", "~5800 K", "~0.5 µm", "Shortwave / solar"],
-      ["Earth", "~288 K", "~10 µm", "Longwave / terrestrial IR"]
-    ]
-  },
   examPoints: [
-    "Always use kelvin",
-    "Solar shortwave vs terrestrial longwave",
-    "T⁴ sensitivity of emission"
+    "Wien peak shift",
+    "T⁴ power law",
+    "Kirchhoff link"
   ],
   commonMistakes: [
-    "Inserting °C into radiation formulas.",
-    "Saying Earth emits mainly visible light.",
-    "Ignoring Kirchhoff when discussing windows.",
-    "Treating greenhouse gases as perfect absorbers at every IR wavelength."
+    "Swapping Wien and Stefan roles.",
+    "Linear flux–temperature thinking.",
+    "Ignoring selective absorption."
   ],
-  relatedTopics: ["meteo-greenhouse-effect", "meteo-heat-transfer", "meteo-radiative-forcing"],
+  relatedTopics: ["meteo-greenhouse-effect", "meteo-heat-transfer", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["meteo-heat-transfer", "phy-lenses-mirrors-em-spectrum", "math-3-1"],
-  leadsTo: ["meteo-greenhouse-effect"],
-  usedIn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-remote-sensing"]
+  buildsOn: ["meteo-heat-transfer"],
+  leadsTo: ["meteo-greenhouse-effect", "meteo-remote-sensing"],
+  usedIn: ["meteo-greenhouse-effect", "meteo-radiative-forcing"]
 },
 
 {
@@ -1511,76 +1492,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 3,
   title: "Gradient Wind",
-  definition: "The gradient wind is the horizontal wind in curved, frictionless flow where pressure-gradient, Coriolis, and centripetal effects balance. Around lows (cyclonic flow) the wind is subgeostrophic; around highs (anticyclonic) it is supergeostrophic for the same gradient magnitude in the standard comparison.",
+  definition: "Gradient wind balances pressure-gradient force, Coriolis force, and centripetal requirement on curved paths. Compared with pure geostrophy at the same gradient, cyclonic flow is subgeostrophic and anticyclonic flow is supergeostrophic.",
   keyFacts: [
-    "Needed when isobars/contours are curved",
-    "Cyclonic (around low, NH counterclockwise): PGF inward exceeds Coriolis; wind slower than pure geostrophic for same |∇p|",
-    "Anticyclonic (around high): balance yields wind faster than geostrophic for same |∇p| in the usual textbook contrast",
-    "Reduces to geostrophic wind as radius of curvature → infinity (straight flow)",
-    "Still neglects friction",
-    "Important around synoptic lows/highs and in jet-stream curvature discussions"
+    "Adds curvature to geostrophic balance",
+    "Around lows (cyclonic): wind slower than geostrophic (subgeostrophic)",
+    "Around highs (anticyclonic): wind faster than geostrophic (supergeostrophic)",
+    "Still frictionless idealisation — upper-level teaching model",
+    "Tight curvature makes the correction more important"
   ],
   explanationSections: [
-    { heading: "Curvature adds a third player", body: "Straight geostrophy is a two-force balance. Curved flow needs a net force toward the centre of the curve (centripetal requirement). That changes how large the wind can be for a given pressure gradient." }
+    { heading: "Geostrophy first, curvature second", body: "If isobars are nearly straight, geostrophic is enough. If they loop tightly, use gradient-wind thinking." }
   ],
   subtopics: [
     {
-      id: "meteo-gradient-wind-cyclonic-anticyclonic",
-      title: "Cyclonic versus anticyclonic balance",
-      summary: "Around lows wind is subgeostrophic; around highs supergeostrophic (standard comparison).",
-      explanation: "For cyclonic curvature, part of the PGF maintains the inward acceleration, so the Coriolis (and thus speed) is smaller than in the straight case. For anticyclonic curvature the inequality reverses in the standard teaching comparison. Exact formulas depend on sign conventions, but the qualitative exam point is stable across textbooks.",
+      id: "meteo-gradient-wind-sub-super",
+      title: "Sub- vs supergeostrophic memory rule",
+      summary: "Low → slower; high → faster than geostrophic.",
+      explanation: "Around a low, part of the inward PGF supplies centripetal acceleration, so less is left to balance Coriolis — wind is weaker than geostrophic. Around a high, geometry reverses and balanced wind is stronger than geostrophic for the same spacing. This is a favourite MCQ distinction.",
       examples: [
-        { problem: "Same |pressure gradient|, curved cyclonic isobars vs straight. Is gradient wind faster or slower than geostrophic?", solution: "Slower — subgeostrophic around the low.", answer: "Slower (subgeostrophic)" }
+        { problem: "Same |∇p|, curved cyclonic flow vs straight geostrophic — which wind is weaker?", solution: "Cyclonic gradient wind is weaker (subgeostrophic).", answer: "Cyclonic / subgeostrophic" }
       ],
-      shortcuts: ["Curved low → subgeostrophic", "Curved high → supergeostrophic"],
-      traps: ["Using pure geostrophy in tight curved systems"]
+      shortcuts: ["Cyclonic = sub", "Anticyclonic = super"],
+      traps: ["Reversing the rule"]
     },
     {
-      id: "meteo-gradient-wind-limits",
-      title: "Limits and recovery of geostrophy",
-      summary: "Large radius → geostrophic; friction still omitted.",
-      explanation: "As curvature weakens, gradient wind approaches geostrophic wind. Neither includes surface friction. Near the ground, observed wind is neither purely geostrophic nor purely gradient.",
+      id: "meteo-gradient-wind-when",
+      title: "When to prefer gradient over geostrophic",
+      summary: "Tight ridges/troughs and curved jet segments.",
+      explanation: "Near sharp upper troughs and ridges, curvature is large and ageostrophic adjustments matter for divergence and ascent. For broad, nearly straight jets, geostrophic estimates from contour spacing remain useful.",
       examples: [
-        { problem: "When can you safely approximate gradient wind by geostrophic wind?", solution: "When isobars are nearly straight (very large radius of curvature) and friction is negligible.", answer: "Nearly straight isobars, free atmosphere" }
+        { problem: "Nearly straight 500 hPa contours with steady spacing — geostrophic enough?", solution: "Yes for a first estimate.", answer: "Yes" }
       ],
-      shortcuts: ["R → ∞ → geostrophic", "Still frictionless idealisation"],
-      traps: ["Applying gradient wind formulas inside the PBL without friction"]
+      shortcuts: ["Tight curves → gradient", "Straight → geostrophic OK"],
+      traps: ["Using gradient-wind rules inside the friction layer without care"]
     }
   ],
-  formula: {
-    name: "Gradient wind balance",
-    expression: "PGF − CF = V²/R (cyclonic)   |   CF − PGF = V²/R (anticyclonic)",
-    variables: [
-      { symbol: "V", meaning: "wind speed" },
-      { symbol: "R", meaning: "radius of curvature" },
-      { symbol: "PGF", meaning: "pressure-gradient force per unit mass" },
-      { symbol: "CF", meaning: "Coriolis force per unit mass" }
-    ]
-  },
-  comparisonTable: {
-    title: "Geostrophic vs gradient",
-    headers: ["Idealisation", "Isobar shape", "Forces"],
-    rows: [
-      ["Geostrophic", "Straight", "PGF, Coriolis"],
-      ["Gradient", "Curved", "PGF, Coriolis, centripetal requirement"]
-    ]
-  },
   examPoints: [
-    "Gradient wind includes curvature",
-    "Cyclonic → subgeostrophic; anticyclonic → supergeostrophic (standard)",
-    "Straight limit recovers geostrophy"
+    "Cyclonic subgeostrophic",
+    "Anticyclonic supergeostrophic",
+    "Relation to geostrophy"
   ],
   commonMistakes: [
-    "Ignoring curvature around synoptic lows.",
-    "Reversing sub- vs supergeostrophic rules.",
-    "Including friction inside pure gradient balance.",
-    "Using gradient wind at the equator casually."
+    "Swapping sub and super.",
+    "Applying at the surface with strong friction.",
+    "Ignoring curvature entirely."
   ],
-  relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-geostrophic-qual"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-upper-air-charts"],
   content: true,
-  buildsOn: ["meteo-geostrophic-wind"],
-  leadsTo: ["meteo-jet-stream"],
-  usedIn: ["meteo-cyclones-structure", "meteo-tropical-cyclones"]
+  buildsOn: ["meteo-geostrophic-wind", "meteo-forces-governing-wind"],
+  leadsTo: ["meteo-jet-stream", "meteo-upper-air-charts"],
+  usedIn: ["meteo-upper-air-charts", "meteo-geostrophic-qual"]
 },
 
 {
@@ -1800,68 +1761,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 7,
   title: "Global Atmospheric Circulation (Three-Cell Model)",
-  definition: "The three-cell model divides each hemisphere into Hadley, Ferrel, and polar cells that summarise average meridional overturning and surface wind belts: trades, westerlies, and polar easterlies. It is a teaching idealisation — real flow includes monsoons, waves, and strong seasonal shifts — but it organises global wind and pressure belts for exams.",
+  definition: "The three-cell model divides each hemisphere into Hadley, Ferrel, and polar cells. It is a teaching idealisation that links equatorial heating, subtropical deserts, mid-latitude westerlies, and polar easterlies — real flow also includes waves, monsoons, and seasonal shifts.",
   keyFacts: [
-    "Hadley cell: tropics — rising near equator (ITC Z), poleward aloft, sinking in subtropics (~30°)",
-    "Subtropical highs and trade winds are Hadley-related surface features",
-    "Ferrel cell: mid-latitudes — indirect cell with surface westerlies",
-    "Polar cell: polar highs, polar easterlies, polar front near ~60°",
-    "ITC Z migrates seasonally toward the summer hemisphere",
-    "Model assumes zonal symmetry; continents and monsoons break that symmetry"
+    "Hadley: rise near equator, sink near 30° — trade winds at surface",
+    "Ferrel: mid-latitudes — thermally indirect; surface westerlies",
+    "Polar: sink near pole, surface polar easterlies; polar front near ~60°",
+    "Subtropical highs sit under the Hadley sinking branch",
+    "ITCZ marks the rising equatorial branch (seasonally mobile)"
   ],
   explanationSections: [
-    { heading: "Cells as a map of average motion", body: "Unequal solar heating drives rising motion in the tropics and sinking in the subtropics. Coriolis turns the returning flows into trades and shapes the mid-latitude westerlies. Use the model to place deserts under subtropical subsidence and storm tracks under the polar front — then remember the real atmosphere is wave-filled." }
+    { heading: "Idealisation with a purpose", body: "Use the cells to organise deserts, ITCZ rain, and storm tracks. Do not expect perfect closed loops every day on a weather map." }
   ],
   subtopics: [
     {
-      id: "meteo-global-circulation-hadley",
-      title: "Hadley cell and tropics–subtropics",
-      summary: "Equatorial rise, subtropical sink, trades, subtropical highs.",
-      explanation: "Warm air rises in the equatorial rain belt, moves poleward aloft, cools, and sinks near 30°, feeding the subtropical high-pressure belt and the equatorward trade winds at the surface. Many of the world’s deserts sit under that subsidence.",
+      id: "meteo-global-circulation-exam-map",
+      title: "What each cell explains on a world map",
+      summary: "Deserts, trades, westerlies — attach features to cells.",
+      explanation: "Hadley sinking → subtropical desert belts and trade-wind oceans. Equatorial rising → ITCZ convection. Ferrel belt → mid-latitude westerlies and migrating cyclones. Polar cell → cold polar easterlies and the polar front zone near 60°. Exam maps test these attachments.",
       examples: [
-        { problem: "Why are many great deserts near 30° latitude?", solution: "Hadley-related subtropical subsidence suppresses precipitation under the subtropical highs.", answer: "Subtropical subsidence / highs" }
+        { problem: "Why are many deserts near 30° latitude in the three-cell picture?", solution: "Hadley sinking branch dries the column under subtropical highs.", answer: "Hadley subsidence / subtropical high" }
       ],
-      shortcuts: ["Rise at ITCZ", "Sink ~30° → deserts/trades"],
-      traps: ["Placing subtropical deserts at the equator"]
+      shortcuts: ["30° sink → dry", "Equator rise → wet", "Mid-lat west winds → Ferrel"],
+      traps: ["Treating cells as rigid walls that storms cannot cross"]
     },
     {
-      id: "meteo-global-circulation-ferrel-polar",
-      title: "Ferrel and polar cells",
-      summary: "Mid-latitude westerlies and polar easterlies meet at the polar front.",
-      explanation: "The Ferrel cell is thermally indirect in the classical picture and hosts the surface westerlies. Near 60°, mid-latitude air meets polar air along the polar front — the baroclinic zone of extratropical cyclones. Polar easterlies outflow from polar highs.",
+      id: "meteo-global-circulation-ferrel-indirect",
+      title: "Why the Ferrel cell is 'indirect'",
+      summary: "Not a simple tropical-style heat engine.",
+      explanation: "The Hadley cell is thermally direct: heat drives ascent at low latitudes. The Ferrel cell’s mean overturning is maintained largely by eddies (waves and storms) rather than by heating at 60° and cooling at 30°. Calling Ferrel a second Hadley is a common error.",
       examples: [
-        { problem: "Surface mid-latitude winds in the three-cell model are predominantly from which direction?", solution: "Westerlies — west to east in both hemispheres’ mid-latitudes.", answer: "Westerlies" }
+        { problem: "Is the Ferrel cell thermally direct like Hadley?", solution: "No — it is described as thermally indirect in the classical model.", answer: "No — indirect" }
       ],
-      shortcuts: ["Mid-latitudes: westerlies", "Polar front ~60°"],
-      traps: ["Claiming surface easterlies dominate mid-latitudes"]
+      shortcuts: ["Hadley direct", "Ferrel indirect / eddy-driven"],
+      traps: ["Drawing Ferrel with tropical-style heating at 60° as the sole driver"]
     }
   ],
-  comparisonTable: {
-    title: "Three cells (each hemisphere)",
-    headers: ["Cell", "Approx. latitudes", "Surface wind belt"],
-    rows: [
-      ["Hadley", "0°–30°", "Trades"],
-      ["Ferrel", "30°–60°", "Westerlies"],
-      ["Polar", "60°–90°", "Polar easterlies"]
-    ]
-  },
   examPoints: [
-    "Hadley, Ferrel, polar cells",
-    "Subtropical subsidence and deserts near 30°",
-    "Mid-latitude surface westerlies",
-    "Idealised model — monsoons and waves modify reality"
+    "Three cells and surface winds",
+    "Subtropical dry / ITCZ wet",
+    "Ferrel is indirect"
   ],
   commonMistakes: [
-    "Treating cells as rigid walls with no seasonal motion.",
-    "Putting the ITCZ permanently on the equator only.",
-    "Confusing upper and surface branches.",
-    "Ignoring that the Ferrel cell is a statistical/indirect construct."
+    "Ferrel = second Hadley.",
+    "Ignoring seasonal ITCZ shift.",
+    "Expecting perfect cells on daily charts."
   ],
-  relatedTopics: ["meteo-jet-stream", "meteo-global-precip-patterns", "meteo-rossby-waves"],
+  relatedTopics: ["meteo-monsoon-system", "meteo-jet-stream", "meteo-global-precip-patterns"],
   content: true,
-  buildsOn: ["meteo-forces-governing-wind", "meteo-coriolis-effect", "meteo-scales-of-motion"],
-  leadsTo: ["meteo-rossby-waves", "meteo-monsoon-system", "meteo-global-precip-patterns"],
-  usedIn: ["meteo-rossby-waves", "meteo-global-precip-patterns", "meteo-enso-basics", "meteo-global-climate-regions"]
+  buildsOn: ["meteo-coriolis-effect", "meteo-heat-transfer"],
+  leadsTo: ["meteo-jet-stream", "meteo-rossby-waves", "meteo-monsoon-system"],
+  usedIn: ["meteo-global-precip-patterns", "meteo-koppen-system"]
 },
 
 {
@@ -1936,68 +1885,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 9,
   title: "Upper-Air Charts & Constant-Pressure Analysis",
-  definition: "Upper-air charts display the height of a constant-pressure surface (such as 500 hPa) or other upper-level fields. Because of hydrostatic and geostrophic relationships, height contours encode thermal structure and approximate wind. They are essential for diagnosing troughs, ridges, jets, and storm support.",
+  definition: "Upper-air charts display the height of a constant-pressure surface (e.g. 500 hPa) or variables on that surface. Height contours play a role analogous to isobars: packing and curvature relate to wind through near-geostrophic or gradient balance.",
   keyFacts: [
-    "Common surfaces: 850, 700, 500, 300/250 hPa for different diagnostic jobs",
-    "500 hPa is a classic mid-tropospheric steering-level chart",
-    "Height contours: higher heights ↔ warmer columns (thickness thinking)",
-    "Geostrophic wind flows parallel to height contours (frictionless ideal)",
-    "Troughs and ridges are identified on height fields",
-    "Radiosondes and satellite/aircraft data feed the analyses"
+    "Constant-pressure surface: plot height (metres/dam) of that pressure",
+    "Low heights ↔ cooler columns (hypsometric intuition)",
+    "Tight height gradients ↔ stronger winds",
+    "500 hPa is a standard mid-tropospheric steering chart",
+    "Troughs and ridges organise surface storm tracks"
   ],
   explanationSections: [
-    { heading: "Pressure as the vertical coordinate", body: "Instead of mapping pressure on a flat height surface only, meteorologists often map the height of a pressure surface. Warm columns push that surface up; cold columns pull it down. Wind roughly follows the contours, giving a rapid picture of flow and temperature pattern together." }
+    { heading: "Heights, not surface pressure", body: "A 500 hPa 'low' is a height minimum of the 500 hPa surface — related to, but not identical to, a surface low's label." }
   ],
   subtopics: [
     {
-      id: "meteo-upper-air-charts-heights",
-      title: "Height contours and thermal meaning",
-      summary: "High heights over warm columns; low heights over cold columns.",
-      explanation: "From the hypsometric relation, the thickness between pressure surfaces grows with mean virtual temperature. On a single pressure surface, that appears as higher geopotential height in warm ridges and lower height in cold troughs.",
+      id: "meteo-upper-air-charts-read",
+      title: "Reading height contours",
+      summary: "Packing → speed; trough/ridge → wave pattern.",
+      explanation: "Closely packed contours mean strong winds (jet segments). A trough is a height minimum axis; a ridge is a maximum axis. Downstream of troughs, divergence aloft often supports surface cyclogenesis — linking upper charts to surface development.",
       examples: [
-        { problem: "A 500 hPa chart shows a deep low-height centre. What thermal character is typical of that column?", solution: "A relatively cold tropospheric column — reduced thickness and lower heights.", answer: "Cold column / trough" }
+        { problem: "500 hPa chart shows very tight contours — expect weak or strong winds?", solution: "Strong winds.", answer: "Strong" }
       ],
-      shortcuts: ["Warm → high heights", "Cold → low heights"],
-      traps: ["Reading height like surface pressure without thermal context"]
+      shortcuts: ["Tight contours → fast", "Trough = low heights axis"],
+      traps: ["Reading height contours as surface isobars without care"]
     },
     {
-      id: "meteo-upper-air-charts-use",
-      title: "Practical use: wind, waves, steering",
-      summary: "Contour-parallel flow; locate jets, troughs, and storm support.",
-      explanation: "Analysts use upper charts to place the jet, identify Rossby-wave phase, and anticipate where surface cyclones may deepen. 300/250 hPa charts highlight jets; 500 hPa charts are workhorses for trough/ridge structure; 850 hPa helps with lower-level thermal advection and moisture.",
+      id: "meteo-upper-air-charts-levels",
+      title: "Why 850 / 500 / 300 differ",
+      summary: "Different jobs by level.",
+      explanation: "850 hPa is often used for lower-tropospheric temperature advection and moisture. 500 hPa shows mid-level steering and waves. 300–200 hPa highlights the jet stream. Pick the level that matches the question’s physical focus.",
       examples: [
-        { problem: "Which constant-pressure chart is most often used as a mid-level steering chart in teaching?", solution: "500 hPa — standard mid-tropospheric analysis level.", answer: "500 hPa" }
+        { problem: "Which standard chart is most associated with the polar jet core?", solution: "Upper levels such as 300 hPa (near tropopause jet).", answer: "300 hPa / upper jet level" }
       ],
-      shortcuts: ["500 hPa = classic mid-level", "Contours ≈ geostrophic streamlines aloft"],
-      traps: ["Using only surface maps for storm evolution"]
+      shortcuts: ["850 thermal/moisture", "500 waves/steering", "300 jet"],
+      traps: ["Using only surface charts for jet-stream questions"]
     }
   ],
-  comparisonTable: {
-    title: "Selected pressure surfaces",
-    headers: ["Surface", "Approx. role in analysis"],
-    rows: [
-      ["850 hPa", "Lower-level T/moisture advection"],
-      ["500 hPa", "Mid-level troughs/ridges, steering"],
-      ["300/250 hPa", "Jet stream level"]
-    ]
-  },
   examPoints: [
-    "Constant-pressure charts show height of a pressure surface",
-    "Warm columns → higher heights",
-    "500 hPa central for trough/ridge teaching",
-    "Upper wind ≈ parallel to height contours (ideal)"
+    "Constant-pressure height charts",
+    "Contour packing and wind",
+    "Level selection"
   ],
   commonMistakes: [
-    "Confusing height contours with surface isobars without adjustment.",
-    "Ignoring thermal meaning of height anomalies.",
-    "Looking only at the surface for cyclone development.",
-    "Mis-identifying trough versus ridge on a height chart."
+    "Confusing height lows with surface pressure mechanically.",
+    "Ignoring packing for wind speed.",
+    "Wrong level for jet questions."
   ],
-  relatedTopics: ["meteo-rossby-waves", "meteo-jet-stream", "meteo-pressure-conversion", "meteo-cyclones-structure", "meteo-radiosondes"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-hydrostatic-equation"],
   content: true,
-  buildsOn: ["meteo-hydrostatic-equation", "meteo-geostrophic-wind"],
-  leadsTo: ["meteo-isobar-analysis", "meteo-station-model"],
-  usedIn: ["meteo-isobar-analysis", "meteo-radiosondes", "meteo-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
+  buildsOn: ["meteo-geostrophic-wind", "meteo-hydrostatic-equation"],
+  leadsTo: ["meteo-cyclones-development", "meteo-forecasting-methods"],
+  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"]
 },
 
 // ============================= SECTION D =============================
@@ -2120,69 +2057,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 3,
   title: "Types of Fog",
-  definition: "Fog is a cloud with its base at or near the ground, reducing visibility. Types are named by the cooling or moisture process that brings air to saturation: radiation, advection, upslope, evaporation (steam), and frontal fog.",
+  definition: "Fog is a cloud with base at the ground. Type is diagnosed by the cooling or moistening process: radiation, advection, upslope, evaporation (steam), or frontal. Visibility impacts aviation and road transport — a major Pakistan plains winter issue.",
   keyFacts: [
-    "Radiation fog: clear, calm nights; ground cools; common in valleys",
-    "Advection fog: moist air moves over a colder surface (e.g. warm air over cold sea)",
-    "Upslope fog: air forced up terrain cools adiabatically to saturation",
-    "Steam fog: cold air over warmer water — evaporation into cold air saturates it",
-    "Frontal fog: associated with precipitation and frontal zones saturating cool air",
-    "Fog requires saturation plus limited mixing; wind that is too strong often prevents radiation fog"
+    "Radiation fog: clear calm nights, surface cooling",
+    "Advection fog: moist air over a colder surface",
+    "Upslope fog: adiabatic cooling by ascent",
+    "Steam fog: cold air over warmer water",
+    "Requires saturation and condensation nuclei near the surface"
   ],
   explanationSections: [
-    { heading: "Same physics as cloud, different altitude", body: "Fog is not a different substance from cloud — it is saturation at ground level. Diagnosing type means asking: was the air cooled in place, cooled by motion over a cold surface, lifted, or moistened from below?" }
+    { heading: "Name the process, not only the visibility", body: "Exam stems describe the setup; you name the fog type from the process." }
   ],
   subtopics: [
     {
-      id: "meteo-fog-types-radiation-advection",
-      title: "Radiation and advection fog",
-      summary: "In-situ night cooling versus horizontal movement over a cold surface.",
-      explanation: "Radiation fog needs clear skies, light winds, and moist near-surface air so overnight IR cooling can reach the dew point. Advection fog needs a horizontal temperature contrast — classic over cold ocean currents when moist air drifts in.",
+      id: "meteo-fog-types-match",
+      title: "Process → type matching",
+      summary: "Each stem maps to one formation path.",
+      explanation: "Clear night, light wind, moist ground air → radiation fog. Warm moist air over cold ocean or snow → advection fog. Air forced up a slope to saturation → upslope fog. Cold air over a warm lake in autumn → steam fog. Frontal fog can form from evaporation of rain into cool air or other frontal moistening.",
       examples: [
-        { problem: "Dense morning fog in a calm valley after a clear night — most likely type?", solution: "Radiation fog from nocturnal ground cooling and cold-air pooling.", answer: "Radiation fog" }
+        { problem: "Warm moist air moves over a cold current and visibility collapses — type?", solution: "Advection fog.", answer: "Advection fog" }
       ],
-      shortcuts: ["Radiation = night, clear, calm", "Advection = moist air over cold surface"],
+      shortcuts: ["Night cooling → radiation", "Moist over cold → advection", "Hill lift → upslope"],
       traps: ["Calling all fog radiation fog"]
     },
     {
-      id: "meteo-fog-types-upslope-steam",
-      title: "Upslope and steam fog",
-      summary: "Terrain lift versus evaporation into cold air.",
-      explanation: "Upslope fog is essentially a ground-level cloud formed by adiabatic cooling on a slope. Steam fog occurs when cold air overlies much warmer water; intense evaporation saturates the cold layer in streamers — common over lakes on frigid mornings.",
+      id: "meteo-fog-types-pakistan",
+      title: "Pakistan plains winter fog",
+      summary: "Radiation fog under calm high-pressure nights.",
+      explanation: "Dense winter fog on the Indus plain often follows clear nights with light winds and ample near-surface moisture (sometimes after rains or under moist residual layers). It disrupts flights and motorways. Dust storms are a different, dry, windy hazard — do not swap them.",
       examples: [
-        { problem: "Cold arctic air streams over an unfrozen lake and produces wisps of fog at the surface. Type?", solution: "Steam (evaporation) fog — moisture added to cold air from warm water.", answer: "Steam fog" }
+        { problem: "Calm clear January night after moist conditions on the plain — primary visibility hazard?", solution: "Radiation fog.", answer: "Radiation fog" }
       ],
-      shortcuts: ["Upslope = terrain lift", "Steam = cold air, warm water"],
-      traps: ["Mixing steam fog with radiation fog"]
+      shortcuts: ["Winter plain fog ↔ radiation setup", "Dust ≠ fog"],
+      traps: ["Blaming fog on summer heat lows"]
     }
   ],
-  comparisonTable: {
-    title: "Fog types",
-    headers: ["Type", "Key process"],
-    rows: [
-      ["Radiation", "Nocturnal ground cooling"],
-      ["Advection", "Moist air over colder surface"],
-      ["Upslope", "Adiabatic cooling on terrain"],
-      ["Steam", "Evaporation into cold air"],
-      ["Frontal", "Frontal moisture / cooling"]
-    ]
-  },
   examPoints: [
-    "Fog = cloud at ground level",
-    "Match type to process",
-    "Radiation fog favours clear calm nights"
+    "Match process to fog type",
+    "Radiation fog ingredients",
+    "Pakistan winter relevance"
   ],
   commonMistakes: [
-    "One cause for all fog.",
-    "Requiring strong wind for radiation fog (usually light wind).",
-    "Confusing steam fog with smoke.",
-    "Ignoring valley cold pools."
+    "One fog type for all stems.",
+    "Dust and fog swapped.",
+    "Ignoring wind (calm vs strong) in diagnosis."
   ],
-  relatedTopics: ["meteo-inversion-types", "meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-radiation-laws", "meteo-arabian-sea-cyclones-local"],
   content: true,
-  buildsOn: ["meteo-adiabatic-cloud-formation", "meteo-inversion-types"],
-  leadsTo: [],
-  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"]
+  buildsOn: ["meteo-moisture-metrics", "meteo-heat-transfer"],
+  leadsTo: ["meteo-aviation-products"],
+  usedIn: ["meteo-aviation-products", "meteo-arabian-sea-cyclones-local"]
 },
 
 {
@@ -2765,69 +2689,57 @@ export const topics: Topic[] = [
   id: "meteo-cyclones-structure",
   sectionId: "METEO-05",
   order: 3,
-  title: "Mid-Latitude Cyclones — Vertical Structure & Conveyor Belt",
-  definition: "A mature mid-latitude cyclone is a three-dimensional system: a surface low tilted relative to the upper trough, frontal slopes with height, and conveyor-belt airstreams that import warm moist air, dry air, and cold air. Vertical structure explains cloud shields, precipitation bands, and why the storm is not a simple circular disc.",
+  title: "Mid-Latitude Cyclones — Vertical Structure & Conveyor Belts",
+  definition: "A mature mid-latitude cyclone has a sloping frontal structure and organised airstreams: the warm conveyor belt, cold conveyor belt, and dry intrusion. Cloud and precipitation patterns follow these airstreams more than a simple circle around the low.",
   keyFacts: [
-    "Surface low is typically downstream of the upper trough (westward tilt with height in growing systems)",
-    "Warm conveyor belt: climbs over the warm front — broad cloud/precip shield",
-    "Cold conveyor belt: wraps near the low — can feed deformation and precipitation structure",
-    "Dry intrusion: upper dry air can create clear slots and intensify contrasts",
-    "Precipitation is organised along fronts, not uniformly around the centre",
-    "Upper charts and surface charts must be read together"
+    "Warm conveyor belt: climbs over the warm front — broad precip shield",
+    "Cold conveyor belt: approaches from the cold side — contributes to comma cloud",
+    "Dry intrusion: dry upper air wraps toward the centre — clear slot / sharpening gradients",
+    "Fronts slope: cold fronts steeper than warm fronts typically",
+    "Satellite comma cloud is a structural fingerprint"
   ],
   explanationSections: [
-    { heading: "Not a cylinder", body: "The storm leans. Warm air streams up and over; dry air can punch in aloft; cold air undercuts. Conveyor-belt language captures those airstreams so cloud and rain patterns make sense on satellite and radar." }
+    { heading: "From pressure circle to 3D flow", body: "Surface isobars show the low; conveyor belts explain where the wide rain shield and clear dry slot sit." }
   ],
   subtopics: [
     {
-      id: "meteo-cyclones-structure-tilt",
-      title: "Vertical tilt and coupling",
-      summary: "Surface low ahead of upper trough during growth.",
-      explanation: "In intensifying baroclinic systems the surface cyclone often sits east/downstream of the upper trough so that upper divergence overlays the surface low. As the system occludes and becomes vertically stacked, intensification usually ends.",
+      id: "meteo-cyclones-structure-conveyors",
+      title: "Conveyor-belt weather map",
+      summary: "Where rain is broad vs where dry air punches in.",
+      explanation: "Ahead of the warm front, the warm conveyor belt produces the extensive layered cloud and precip region. The dry intrusion can create a dry slot on satellite imagery and sharpen the cold front’s convective band. Matching satellite shape to these airstreams is an advanced but teachable skill.",
       examples: [
-        { problem: "A surface low lies directly under a closed upper low and is filling. What does stacking suggest?", solution: "A more barotropic, mature/decaying structure rather than a strongly intensifying tilted system.", answer: "Mature/decaying, less intensification" }
+        { problem: "Broad precipitation shield well ahead of a surface warm front — which airstream?", solution: "Warm conveyor belt.", answer: "Warm conveyor belt" }
       ],
-      shortcuts: ["Growing: tilted", "Stacked: often mature"],
-      traps: ["Assuming surface and upper lows always coincide"]
+      shortcuts: ["Warm CB → wide shield", "Dry intrusion → dry slot"],
+      traps: ["Assuming rain only at the exact front line"]
     },
     {
-      id: "meteo-cyclones-structure-conveyors",
-      title: "Conveyor belts",
-      summary: "Warm ascent, cold wrap, dry intrusion.",
-      explanation: "The warm conveyor belt produces the classic wide precipitation shield ahead of the surface warm front. Dry intrusions can create a dry slot on satellite imagery and sharpen dynamic contrasts near the comma head.",
+      id: "meteo-cyclones-structure-slopes",
+      title: "Why frontal slopes differ",
+      summary: "Cold fronts steeper; warm fronts gentler — weather width follows.",
+      explanation: "A steeper cold front forces a narrower, often sharper band of weather. A gentler warm-front slope spreads ascent over a wider zone, so rain and cloud often begin earlier and farther ahead. That geometric fact links structure to the familiar cold-vs-warm front sequences.",
       examples: [
-        { problem: "Broad steady precip ahead of a warm front is most directly tied to which airstream concept?", solution: "Warm conveyor belt ascending over the warm-frontal surface.", answer: "Warm conveyor belt" }
+        { problem: "Which front typically has the wider pre-frontal cloud shield?", solution: "Warm front.", answer: "Warm front" }
       ],
-      shortcuts: ["WCB → warm-front shield", "Dry intrusion → dry slot"],
-      traps: ["Expecting uniform rain all around the low"]
+      shortcuts: ["Cold = steep/narrow", "Warm = gentle/wide"],
+      traps: ["Drawing both fronts with identical slopes"]
     }
   ],
-  comparisonTable: {
-    title: "Structural pieces",
-    headers: ["Element", "Role"],
-    rows: [
-      ["Surface fronts", "Air-mass boundaries; precip bands"],
-      ["Upper trough", "Support / steering"],
-      ["Warm conveyor", "Main ascent cloud shield"],
-      ["Dry intrusion", "Dry slot; dynamics"]
-    ]
-  },
   examPoints: [
-    "Cyclones are 3D tilted systems while growing",
-    "Precipitation follows fronts and conveyors",
-    "Read surface + upper charts together"
+    "Warm conveyor belt role",
+    "Dry intrusion / dry slot",
+    "Frontal slope vs weather width"
   ],
   commonMistakes: [
-    "Treating the cyclone as vertically upright always.",
-    "Ignoring conveyor-belt structure.",
-    "Expecting circular symmetric rainfall.",
-    "Using only the surface map."
+    "2D circle-only mental model.",
+    "Ignoring dry intrusion.",
+    "Swapping warm/cold front widths."
   ],
-  relatedTopics: ["meteo-cyclones-development", "meteo-jet-stream", "meteo-upper-air-charts"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-air-masses-fronts", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["meteo-cyclones-development"],
-  leadsTo: [],
-  usedIn: ["meteo-isobar-analysis", "meteo-western-disturbances", "meteo-upper-air-charts"]
+  buildsOn: ["meteo-cyclones-development", "meteo-air-masses-fronts"],
+  leadsTo: ["meteo-western-disturbances"],
+  usedIn: ["meteo-western-disturbances", "meteo-remote-sensing"]
 },
 
 {
@@ -2835,80 +2747,57 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 4,
   title: "Thunderstorms",
-  definition: "Thunderstorms are deep moist convective storms producing lightning and thunder, often with heavy rain, gusty winds, and sometimes hail. They require moisture, instability, and lift. Ordinary cells follow a cumulus–mature–dissipating life cycle; organised systems (multicell, squall lines, supercells) last longer and can be severe.",
+  definition: "Thunderstorms are deep moist convective storms that produce lightning (by definition), thunder, and often heavy rain, gusts, or hail. Ordinary cells are short-lived; organised systems and supercells last longer and cause more severe weather when shear organises the updraft.",
   keyFacts: [
-    "Ingredients: moisture + instability (CAPE) + lifting mechanism",
-    "Lightning defines the thunderstorm — charge separation in the cloud",
-    "Ordinary cell stages: cumulus, mature (updraft + downdraft), dissipating",
-    "Downdrafts and outflows can trigger new cells",
-    "Severe threats: large hail, damaging wind, tornadoes, flash flood rain",
-    "Shear organises storms; strong shear favours supercells"
+    "Lightning defines a thunderstorm",
+    "Ingredients: moisture, instability (CAPE), and a lifting mechanism; shear organises severity",
+    "Ordinary cell stages: cumulus → mature → dissipating",
+    "Multicell and supercell organisation under stronger shear",
+    "CAPE = fuel; CIN = lid"
   ],
   explanationSections: [
-    { heading: "Fuel, match, and chimney", body: "Moisture is fuel, instability allows buoyant updrafts, and lift is the match that starts parcels upward. Vertical wind shear shapes whether the storm is a pulse or a long-lived organised system." }
+    { heading: "Fuel, lid, and shear", body: "Instability without lift or with a strong lid may produce nothing. Shear decides whether storms stay single-cell or become organised." }
   ],
   subtopics: [
     {
-      id: "meteo-thunderstorms-ingredients-lifecycle",
-      title: "Ingredients and ordinary cell cycle",
-      summary: "Moisture, instability, lift; cumulus → mature → dissipating.",
-      explanation: "In the mature stage, updraft and downdraft coexist and precipitation is heaviest. Precipitation-driven downdrafts eventually cut off the updraft in ordinary cells, leading to dissipation unless new cells form on the outflow.",
+      id: "meteo-thunderstorms-organise",
+      title: "Shear organises storm type",
+      summary: "Weak shear → pulse storms; strong shear → supercells.",
+      explanation: "Weak shear yields short-lived single cells whose rain-cooled outflow cuts off the updraft. Moderate shear supports multicell lines and clusters. Strong speed and directional shear favour supercells with rotating updrafts — parent storms of most violent tornadoes.",
       examples: [
-        { problem: "Which stage of a single-cell storm has both a strong updraft and a downdraft with heavy rain?", solution: "The mature stage.", answer: "Mature" }
-      ],
-      shortcuts: ["3 ingredients: moisture, CAPE, lift", "Mature = up + down + heavy rain"],
-      traps: ["Skipping the need for lift when CAPE is present"]
-    },
-    {
-      id: "meteo-thunderstorms-organisation",
-      title: "Organisation and severity",
-      summary: "Shear and mode: multicell, line, supercell.",
-      explanation: "Weak shear yields short-lived cells. Moderate shear supports multicell lines and clusters. Strong shear and directional change with height support supercells with rotating updrafts — the parent storms of most strong tornadoes.",
-      examples: [
-        { problem: "Why can a squall line produce damaging winds far from any single cell’s core?", solution: "Organised cold pools and line-end vortices focus strong straight-line winds along the system.", answer: "Organised outflow / line winds" }
+        { problem: "Why can a squall line produce damaging winds far from any single cell core?", solution: "Organised cold pools and line-end structures focus strong straight-line winds.", answer: "Organised line / cold pool" }
       ],
       shortcuts: ["More shear → more organisation", "Supercell = rotating updraft"],
-      traps: ["Assuming every thunderstorm is a supercell"]
-    }
-  ,
+      traps: ["Every thunderstorm is a supercell"]
+    },
     {
       id: "meteo-thunderstorms-lightning-cape",
       title: "Lightning and CAPE / CIN",
-      summary: "Charge separation defines the storm; CAPE measures buoyant fuel; CIN is the lid.",
-      explanation: "Lightning requires a thunderstorm by definition — charge separates in the mixed-phase cloud and discharges as lightning, with thunder as the acoustic result. CAPE (Convective Available Potential Energy) measures the integrated buoyant energy a parcel can gain once it freely rises; large CAPE favours stronger updrafts if storms form. CIN (Convective Inhibition) is the energy barrier that must be overcome before that free ascent — a strong lid can suppress storms even when CAPE is large.",
+      summary: "Charge separation defines the storm; CAPE is fuel; CIN is the lid.",
+      explanation: "Lightning requires a thunderstorm by definition — charge separates in the mixed-phase cloud. CAPE measures buoyant energy available once a parcel freely rises; CIN is the barrier that may prevent initiation. Large CAPE with large CIN means stored energy without guaranteed storms.",
       examples: [
-        { problem: "A sounding shows large CAPE but also strong CIN. Are storms guaranteed that afternoon?", solution: "No — the inhibition may prevent parcels from reaching the level of free convection unless heating or lift removes the lid.", answer: "No — CIN may suppress initiation" }
+        { problem: "Large CAPE and large CIN — are storms guaranteed this afternoon?", solution: "No — the lid may hold until heating or lift removes CIN.", answer: "No" }
       ],
-      shortcuts: ["Lightning ⇒ thunderstorm", "CAPE = fuel", "CIN = lid / barrier"],
-      traps: ["Treating large CAPE as automatic storms", "Confusing CIN with CAPE"]
+      shortcuts: ["Lightning ⇒ thunderstorm", "CAPE = fuel", "CIN = lid"],
+      traps: ["CAPE alone guarantees storms"]
     }
   ],
-  comparisonTable: {
-    title: "Storm modes (simplified)",
-    headers: ["Mode", "Shear", "Notes"],
-    rows: [
-      ["Single cell", "Weak", "Short life cycle"],
-      ["Multicell / line", "Moderate", "Training, wind"],
-      ["Supercell", "Strong", "Hail, tornado risk"]
-    ]
-  },
   examPoints: [
-    "Thunderstorm = lightning",
-    "Moisture + instability + lift",
-    "Ordinary cell three stages",
-    "Shear organises severe modes"
+    "Lightning definition",
+    "Cell life cycle",
+    "Shear vs organisation",
+    "CAPE vs CIN"
   ],
   commonMistakes: [
-    "Requiring mountains for all thunderstorms.",
-    "Equating all storms with tornadoes.",
-    "Ignoring shear for organisation.",
-    "Forgetting downdrafts in the mature stage."
+    "No lightning needed for thunderstorm label.",
+    "CAPE = automatic storms.",
+    "Ignoring shear for severity."
   ],
-  relatedTopics: ["meteo-tornadoes", "meteo-inversion-types", "meteo-static-stability", "meteo-station-model"],
+  relatedTopics: ["meteo-static-stability", "meteo-tornadoes", "meteo-thermodynamic-diagrams"],
   content: true,
-  buildsOn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation", "meteo-droplet-microphysics"],
+  buildsOn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-tornadoes"],
-  usedIn: ["meteo-tornadoes", "meteo-station-model", "meteo-aviation-products"]
+  usedIn: ["meteo-tornadoes", "meteo-aviation-products"]
 },
 
 {
@@ -2973,73 +2862,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 6,
   title: "Tropical Cyclones (Hurricanes/Typhoons)",
-  definition: "Tropical cyclones are warm-core, synoptic-scale cyclones that form over warm tropical oceans, powered primarily by latent heat release in deep convection. They have a warm eye, eyewall, and spiral bands. Regional names include hurricane and typhoon; the physics is the same family.",
+  definition: "Tropical cyclones are warm-core, non-frontal storms that form over warm oceans, driven by latent-heat release in deep convection. They require rotation (non-zero Coriolis), so they do not form on the equator, and they weaken over cold water or land.",
   keyFacts: [
-    "Fuel: warm SST (often cited near ≥26–27 °C in a deep layer) + deep moisture + low shear for development",
-    "Coriolis required — formation not at the equator",
-    "Warm core: strongest winds near the surface, unlike cold-core mid-latitude storms",
-    "Structure: eye, eyewall (most intense winds/rain), rainbands",
-    "Weak vertical shear favours organisation; strong shear disrupts",
-    "Arabian Sea and Bay of Bengal storms can affect South Asia; seasons are region-specific"
+    "Warm-core structure; no mid-latitude-type fronts",
+    "Fuel: latent heat from warm, moist oceanic inflow",
+    "Need sufficient Coriolis — not on the equator",
+    "Eye, eyewall, spiral bands in mature intense systems",
+    "Arabian Sea and Bay of Bengal are North Indian Ocean basins of concern for Pakistan/South Asia"
   ],
   explanationSections: [
-    { heading: "Heat engine over warm water", body: "Evaporation from warm seas feeds convection; condensation aloft warms the core; surface pressure falls; inflow concentrates and the vortex intensifies — until land, cool water, or shear cuts the engine." }
+    { heading: "Not a baroclinic mid-latitude cyclone", body: "Different energy source, structure, and preferred latitudes. Compare explicitly with mid-latitude cyclone development when both appear in options." }
   ],
   subtopics: [
     {
-      id: "meteo-tropical-cyclones-requirements",
-      title: "Formation requirements",
-      summary: "Warm ocean, moisture, low shear, enough latitude for Coriolis.",
-      explanation: "Without a warm moist boundary layer the latent-heat engine stalls. Without Coriolis the flow cannot organise a persistent rotating cyclone on the equator. Vertical shear tears apart the vertical alignment of the vortex.",
+      id: "meteo-tropical-cyclones-ingredients",
+      title: "Formation ingredient checklist",
+      summary: "Warm SST, moisture, low shear, vorticity, off-equator.",
+      explanation: "Classic checklist: warm sea surface (often cited near ≥26–27 °C through a depth), deep moisture, weak vertical shear, pre-existing disturbance, and enough distance from the equator for Coriolis to organise spin. High shear tears convection away from the centre.",
       examples: [
-        { problem: "Why do tropical cyclones not form on the equator?", solution: "Coriolis parameter is ~0; organised large-scale rotation cannot develop in the same way.", answer: "Insufficient Coriolis" }
+        { problem: "Why do tropical cyclones not form on the equator?", solution: "Coriolis parameter ≈ 0 — cannot organise sustained rotation.", answer: "No Coriolis / no spin-up" }
       ],
-      shortcuts: ["Warm SST + moisture + low shear", "Not on the equator"],
-      traps: ["Treating them as baroclinic frontal cyclones"]
+      shortcuts: ["Warm ocean + low shear + off-equator", "Shear is a killer"],
+      traps: ["Listing fronts as a required tropical ingredient"]
     },
     {
-      id: "meteo-tropical-cyclones-structure-contrast",
-      title: "Structure and contrast with mid-latitude cyclones",
-      summary: "Warm-core eye/eyewall vs cold-core frontal systems.",
-      explanation: "Mid-latitude cyclones feed on horizontal temperature gradients and fronts. Tropical cyclones are warm-core and essentially barotropic in thermal structure, with energy from condensation. Maps show spiral bands rather than classical cold/warm fronts.",
+      id: "meteo-tropical-cyclones-decay",
+      title: "What weakens them",
+      summary: "Land, cold water, shear, dry air.",
+      explanation: "Landfall cuts off oceanic moisture and increases friction. Moving over cooler water reduces enthalpy fluxes. Strong shear and entrainment of dry air disrupt the warm core. Intensification forecasts hinge on these environmental controls as much as on current intensity.",
       examples: [
-        { problem: "Name one structural feature tropical cyclones have that mid-latitude open waves lack.", solution: "A clear warm eye surrounded by an eyewall of intense convection (in mature intense systems).", answer: "Eye / eyewall" }
+        { problem: "Storm moves over a cold ocean current — expect intensification or weakening?", solution: "Weakening tendency from reduced heat/moisture fluxes.", answer: "Weakening" }
       ],
-      shortcuts: ["Warm core; eye/eyewall", "No classical fronts"],
-      traps: ["Drawing cold fronts on a hurricane like a Norwegian cyclone"]
+      shortcuts: ["Land / cold SST / shear → weaken"],
+      traps: ["Assuming intensity always increases until landfall"]
     }
   ],
-  comparisonTable: {
-    title: "Tropical vs mid-latitude cyclone",
-    headers: ["Feature", "Tropical", "Mid-latitude"],
-    rows: [
-      ["Core", "Warm", "Cold (baroclinic)"],
-      ["Energy", "Latent heat / ocean", "Temperature gradients / fronts"],
-      ["Fronts", "Not classical", "Central"],
-      ["Eye", "Often in intense TCs", "No true eye"]
-    ]
-  },
-  pakistanExamFocus: [
-    "North Indian Ocean: Bay of Bengal more active; Arabian Sea storms can affect Pakistan’s coast",
-    "Seasons differ from Atlantic hurricane season — know regional timing in curriculum context"
-  ],
   examPoints: [
-    "Warm-core ocean-powered systems",
-    "Need Coriolis — not on equator",
-    "Eye, eyewall, rainbands",
-    "Distinct from mid-latitude frontal cyclones"
+    "Warm-core oceanic storm",
+    "No formation on equator",
+    "Decay mechanisms"
   ],
   commonMistakes: [
-    "Forming them on the equator.",
-    "Confusing with mid-latitude cyclones.",
-    "Ignoring shear and SST requirements.",
-    "Using hurricane structure terms for ordinary thunderstorms."
+    "Equatorial formation.",
+    "Calling them baroclinic frontal cyclones.",
+    "Ignoring shear."
   ],
-  relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-nwp-models", "meteo-remote-sensing"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-latent-heat"],
   content: true,
-  buildsOn: ["meteo-coriolis-effect", "meteo-gradient-wind", "meteo-moisture-metrics", "meteo-heat-transfer"],
+  buildsOn: ["meteo-coriolis-effect", "meteo-precipitation-processes"],
   leadsTo: ["meteo-arabian-sea-cyclones-local"],
-  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-remote-sensing"]
+  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"]
 },
 // ============================= SECTION F: Meteorological Instruments & Remote Sensing =============================
 
@@ -3675,81 +3547,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 1,
   title: "The Köppen Climate Classification System",
-  definition: "The Köppen system classifies climates using monthly temperature and precipitation thresholds that approximate natural vegetation boundaries. A letter code (A–E, with second and third letters for precipitation and temperature patterns) summarises each climate type for maps and exams.",
+  definition: "Köppen classifies climates with letter codes from monthly temperature and precipitation thresholds chosen to approximate vegetation boundaries. Learn the five main groups first, then dry-climate logic, then common second letters.",
   keyFacts: [
-    "Main groups: A tropical, B dry, C temperate (mesothermal), D continental (microthermal), E polar",
-    "B climates are defined by dryness relative to temperature (not by temperature alone)",
-    "Second letter often codes seasonal precipitation (f, w, s) or desert/steppe (W, S)",
-    "Third letter often codes heat level (a, b, c, d, h, k depending on group)",
-    "Empirical thresholds — designed to match vegetation, not perfect physics boxes",
-    "Widely used in geography and FPSC-style climate questions"
+    "A tropical, B dry, C temperate, D continental, E polar",
+    "B defined by dryness relative to temperature/PE demand — not temperature alone",
+    "Second letters: f/w/s (seasonal rain) or W/S (desert/steppe) in common use",
+    "Empirical system — useful shorthand, not process physics",
+    "Climographs are the practical decoding tool"
   ],
   explanationSections: [
-    { heading: "Letters as a climate shorthand", body: "Köppen does not replace process understanding — it packages long-term temperature and rainfall into a code. Learn the five main groups first, then the dry-climate logic, then common subtypes (Af, Am, Aw, BWh, BSk, Cfa, Csa, Dfb, ET, EF)." }
+    { heading: "Code, then process", body: "Assign the letter from the data; explain the geography with circulation in the Global Climate Regions topic." }
   ],
   subtopics: [
     {
-      id: "meteo-koppen-system-main-groups",
-      title: "Five main groups (A–E)",
-      summary: "Tropical, dry, temperate, continental, polar.",
-      explanation: "A climates are warm year-round with adequate moisture for tropical vegetation patterns. B climates fail precipitation thresholds relative to evaporative demand. C and D split mid-latitude climates by coldest-month severity. E climates are polar with very low summer warmth.",
+      id: "meteo-koppen-system-group-rules",
+      title: "Group decision order",
+      summary: "E and B checks matter before C/D fine print.",
+      explanation: "First exclude polar (E) if summers are too cold. Check whether precipitation is low enough for B (dry) using the temperature-linked dryness thresholds. Remaining climates fall into A/C/D by thermal criteria. Skipping the B check misclassifies deserts as temperate.",
       examples: [
-        { problem: "Which main Köppen group is defined primarily by dryness rather than temperature?", solution: "B — dry climates, based on precipitation relative to temperature.", answer: "B" }
+        { problem: "Hot station with almost no rain — why not C?", solution: "Dryness puts it in B before temperate letters apply.", answer: "B dry group first" }
       ],
-      shortcuts: ["A tropical", "B dry", "C temperate", "D continental", "E polar"],
-      traps: ["Treating B as ‘hot only’ — cold dry climates exist"]
+      shortcuts: ["Check E and B early", "B = dry relative to heat"],
+      traps: ["Using temperature only and skipping dryness"]
     },
     {
-      id: "meteo-koppen-system-second-letters",
-      title: "Precipitation and subtype letters",
-      summary: "f/w/s for seasonal rain; W/S for desert/steppe.",
-      explanation: "In moist climates, f often means no dry season, w dry winter, s dry summer (as in Mediterranean Csa). In B climates, W denotes desert and S steppe. Temperature third letters distinguish hot deserts (h) from cold deserts (k) in common schemes.",
-      examples: [
-        { problem: "What does the ‘s’ typically indicate in a Csa climate?", solution: "Dry summer — Mediterranean-type precipitation seasonality.", answer: "Dry summer" }
-      ],
-      shortcuts: ["f = no dry season (common use)", "s = dry summer", "w = dry winter", "BW desert, BS steppe"],
-      traps: ["Memorising codes without seasonal meaning"]
-    }
-  ,
-    {
       id: "meteo-koppen-system-climograph",
-      title: "Reading a climograph",
-      summary: "Monthly temperature and precipitation bars/lines → climate type clues.",
-      explanation: "A climograph plots average monthly temperature and precipitation for a station. Look for: year-round heat (tropical), winter temperature (C vs D), which season is dry (s vs w), and whether totals are low relative to heat (B climates). Matching the shape of the climograph to Köppen letters is a standard exam skill.",
+      title: "Climograph → letters",
+      summary: "Read seasonal shape, not only annual total.",
+      explanation: "Year-round high T with no dry month suggests Af. Strong summer rain / winter dry suggests Aw-type patterns. Dry summer / wet winter on a mild west coast suggests Cs. Low totals against high T suggest B. Always use the monthly bars, not a single annual rainfall number.",
       examples: [
-        { problem: "A climograph shows high temperature every month and a sharp dry winter with wet summer. Which seasonal letter is favoured?", solution: "Dry winter → 'w' (as in Aw savanna-type patterns).", answer: "w (dry winter)" }
+        { problem: "All months hot; winter dry, summer wet — seasonal letter?", solution: "w (dry winter).", answer: "w" }
       ],
-      shortcuts: ["Read T curve + P bars together", "Dry season letter from which months are dry"],
-      traps: ["Using annual rainfall alone without seasonal shape"]
+      shortcuts: ["Shape of monthly P and T", "s = dry summer, w = dry winter"],
+      traps: ["Annual rainfall only"]
     }
   ],
-  comparisonTable: {
-    title: "Köppen main groups",
-    headers: ["Code", "Name", "Core idea"],
-    rows: [
-      ["A", "Tropical", "Hot year-round; moist enough"],
-      ["B", "Dry", "P limited relative to demand"],
-      ["C", "Temperate", "Mild winters"],
-      ["D", "Continental", "Cold winters"],
-      ["E", "Polar", "Very low summer T"]
-    ]
-  },
   examPoints: [
-    "Five main groups A–E",
-    "B defined by dryness formula/thresholds",
-    "Second letters encode seasonality or desert/steppe"
+    "Five main groups",
+    "B dryness logic",
+    "Climograph seasonal letters"
   ],
   commonMistakes: [
-    "Ignoring that B depends on precipitation vs temperature.",
-    "Confusing C and D winter criteria.",
-    "Mixing vegetation outcome with single-year weather.",
-    "Treating codes as process explanations rather than empirical labels."
+    "Skipping B check.",
+    "Confusing s and w.",
+    "Treating Köppen as a process model."
   ],
-  relatedTopics: ["meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"],
+  relatedTopics: ["meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-global-precip-patterns"],
   content: true,
-  buildsOn: ["meteo-weather-vs-climate", "meteo-global-precip-patterns"],
+  buildsOn: ["meteo-global-precip-patterns", "meteo-weather-vs-climate"],
   leadsTo: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate"],
-  usedIn: ["meteo-global-climate-regions", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
+  usedIn: ["meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -3814,67 +3661,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 3,
   title: "The Thornthwaite Moisture-Based Classification System",
-  definition: "Thornthwaite classification emphasises the water balance: precipitation compared with potential evapotranspiration (PE). Climates are typed by moisture index and thermal efficiency rather than by Köppen’s vegetation-linked temperature–precipitation thresholds alone.",
+  definition: "Thornthwaite types climates using water balance: precipitation compared with potential evapotranspiration (PE). It is more hydrologic than Köppen’s vegetation-linked temperature–precipitation letter rules.",
   keyFacts: [
-    "Core idea: water balance — P versus PE",
-    "Potential evapotranspiration rises with temperature and energy availability",
-    "Moisture index distinguishes arid, semi-arid, subhumid, humid, etc.",
-    "Thermal efficiency index relates to energy/temperature regime",
-    "More hydrologic in spirit than classical Köppen",
-    "Useful where irrigation, drought, and soil moisture matter"
+    "Core comparison: P versus PE",
+    "PE rises with available energy/temperature",
+    "Moisture index: arid to humid provinces",
+    "Thermal efficiency index for energy regime",
+    "Exam contrast: Thornthwaite = water balance; Köppen = empirical T/P letters"
   ],
   explanationSections: [
-    { heading: "Moisture demand, not only rainfall", body: "Two places with identical annual rainfall can differ climatically if one is much hotter: PE is higher, so the same rain goes less far. Thornthwaite builds that demand into the classification." }
+    { heading: "When the question says water balance", body: "Reach for Thornthwaite. When it shows a climograph and letter codes, reach for Köppen." }
   ],
   subtopics: [
     {
-      id: "meteo-thornthwaite-system-water-balance",
-      title: "Precipitation versus PE",
-      summary: "Surplus, deficit, and the moisture index.",
-      explanation: "When P exceeds PE, moisture surplus can support runoff and humid conditions. When PE exceeds P, deficit develops and aridity increases. The moisture index summarises that balance over the year.",
+      id: "meteo-thornthwaite-system-pe",
+      title: "PE and moisture surplus/deficit",
+      summary: "Demand vs supply.",
+      explanation: "PE is the evaporative demand of the atmosphere from a well-watered surface. Where annual P exceeds PE, surplus and humid conditions are favoured; where PE exceeds P, deficit and aridity increase. Irrigation discussions sit naturally in this framework.",
       examples: [
-        { problem: "Why can a hot region with moderate rainfall still classify as dry in a water-balance system?", solution: "High PE means evaporative demand outstrips supply — deficit despite ‘moderate’ P.", answer: "PE > P → deficit" }
+        { problem: "Region with PE much larger than P — humid or arid tendency?", solution: "Arid tendency / moisture deficit.", answer: "Arid / deficit" }
       ],
-      shortcuts: ["Compare P to PE", "High PE → needs more rain to be ‘humid’"],
-      traps: ["Classifying humidity from rainfall totals alone"]
+      shortcuts: ["PE = demand", "P > PE surplus", "P < PE deficit"],
+      traps: ["Treating PE as actual evaporation always realised"]
     },
     {
       id: "meteo-thornthwaite-system-vs-koppen",
-      title: "Contrast with Köppen",
-      summary: "Hydrologic indices vs empirical T/P–vegetation thresholds.",
-      explanation: "Köppen is tuned to vegetation boundaries with simple monthly rules. Thornthwaite is built around PE and moisture indices. Exams may ask which system stresses water balance — answer Thornthwaite.",
+      title: "Exam contrast with Köppen",
+      summary: "One line distinction that scores marks.",
+      explanation: "Köppen uses monthly temperature and precipitation thresholds tied historically to vegetation. Thornthwaite builds indices around PE and moisture balance. If options ask which system stresses water balance, choose Thornthwaite.",
       examples: [
-        { problem: "Which system is more explicitly based on potential evapotranspiration?", solution: "Thornthwaite.", answer: "Thornthwaite" }
+        { problem: "Which system is built around potential evapotranspiration?", solution: "Thornthwaite.", answer: "Thornthwaite" }
       ],
-      shortcuts: ["Thornthwaite ↔ PE / moisture index", "Köppen ↔ T/P letter codes"],
-      traps: ["Treating the two systems as identical"]
+      shortcuts: ["Thornthwaite ↔ PE", "Köppen ↔ letter thresholds"],
+      traps: ["Saying the systems are identical"]
     }
   ],
-  comparisonTable: {
-    title: "Köppen vs Thornthwaite",
-    headers: ["Aspect", "Köppen", "Thornthwaite"],
-    rows: [
-      ["Basis", "T & P thresholds", "P vs PE water balance"],
-      ["Output", "Letter codes", "Moisture/thermal indices"],
-      ["Emphasis", "Vegetation correlation", "Hydrologic moisture status"]
-    ]
-  },
   examPoints: [
-    "Thornthwaite centres on P versus PE",
-    "Moisture index from water balance",
-    "Distinct from Köppen letter logic"
+    "P vs PE",
+    "Moisture index idea",
+    "Contrast with Köppen"
   ],
   commonMistakes: [
-    "Ignoring PE and using only rainfall.",
-    "Saying Thornthwaite is only a temperature system.",
-    "Equating moisture index with RH.",
-    "Mixing PE with actual evapotranspiration always."
+    "PE = always actual ET.",
+    "No difference from Köppen.",
+    "Ignoring thermal efficiency index when mentioned."
   ],
-  relatedTopics: ["meteo-koppen-system", "meteo-pakistan-macroclimate", "meteo-moisture-metrics", "meteo-temp-rainfall-distribution"],
+  relatedTopics: ["meteo-koppen-system", "meteo-pakistan-macroclimate"],
   content: true,
   buildsOn: ["meteo-koppen-system", "meteo-moisture-metrics"],
-  leadsTo: [],
-  usedIn: ["meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution"]
+  leadsTo: ["meteo-pakistan-macroclimate"],
+  usedIn: ["meteo-pakistan-macroclimate"]
 },
 
 {
@@ -3882,73 +3718,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-07",
   order: 4,
   title: "Macro-Climatic Classification of Pakistan",
-  definition: "Pakistan’s climates range from arid and hyper-arid lowlands to humid highland and coastal variants, shaped by subtropical latitude, monsoon moisture, western disturbances, continentality, and the Himalaya–Hindu Kush–Sulaiman orography. Macro-classification groups the country into broad climatic regions for geography and FPSC use.",
+  definition: "Pakistan spans arid and semi-arid lowlands, highland climates, and coastal variants. Macro-regions are set by subtropical latitude, monsoon moisture, western disturbances, and the mountain barrier — not by a single national climate type.",
   keyFacts: [
-    "Large areas are arid or semi-arid (low annual rainfall, high PE)",
-    "Southern/coastal belts influenced by Arabian Sea moisture and occasional tropical systems",
-    "Indus plain: hot summers, modest and uneven monsoon rains in many districts",
-    "Northern mountains: altitude-controlled temperatures; winter precipitation from western disturbances",
-    "Balochistan: extensive aridity; highland pockets differ from deserts",
-    "Monsoon and WD seasons must not be collapsed into one ‘rainy season’ narrative"
+    "Much of the country is arid/semi-arid relative to high PE",
+    "Indus plain: hot summers; uneven monsoon",
+    "Northern mountains: altitude control; winter WD precipitation",
+    "Balochistan: extensive aridity with highland exceptions",
+    "Two moisture engines: summer monsoon and winter WDs"
   ],
   explanationSections: [
-    { heading: "Latitude, mountains, and two moisture engines", body: "Pakistan sits in a subtropical dry belt but borrows moisture from the summer monsoon and from winter extratropical disturbances. Mountains cool and wring moisture on windward slopes while rain shadows and interior basins stay dry. Classification is regional, not a single national climate." }
+    { heading: "Regional, not national one-label", body: "FPSC-style answers should name regional contrasts rather than 'Pakistan is tropical wet'." }
   ],
   subtopics: [
     {
       id: "meteo-pakistan-macroclimate-arid-core",
-      title: "Arid and semi-arid lowlands",
-      summary: "High evaporative demand; uneven monsoon contribution.",
-      explanation: "Much of the Indus plain and interior Balochistan experiences high summer temperatures and rainfall that is modest relative to PE. Irrigation agriculture depends on river systems precisely because climate moisture is insufficient and unreliable in many zones.",
+      title: "Arid core and irrigation dependence",
+      summary: "High PE, modest P — rivers matter.",
+      explanation: "Large parts of the Indus plain and interior Balochistan combine intense summer heat with rainfall that is small relative to evaporative demand. Agriculture depends on irrigation from river systems because local climatic moisture is insufficient and unreliable in many districts.",
       examples: [
-        { problem: "Why is ‘moderate monsoon rain’ still compatible with an arid classification in parts of Pakistan?", solution: "Annual PE is high; total P remains low relative to demand, and rain is seasonal and variable.", answer: "P << PE / high demand" }
+        { problem: "Why is irrigation central on much of the Indus plain climatically?", solution: "Rainfall is often inadequate relative to PE; moisture is unreliable.", answer: "P << PE / unreliable rain" }
       ],
-      shortcuts: ["Many lowlands = arid/semi-arid", "PE is high in hot seasons"],
-      traps: ["Calling all of Pakistan a humid monsoon climate"]
+      shortcuts: ["Arid/semi-arid core", "Irrigation offsets climatic deficit"],
+      traps: ["Calling the whole country humid monsoon"]
     },
     {
-      id: "meteo-pakistan-macroclimate-highland-coast",
-      title: "Highlands, coasts, and seasonal engines",
-      summary: "Altitude, WDs, monsoon, and maritime influence.",
-      explanation: "Northern highlands show strong vertical climate zonation. Winter western disturbances bring much of the northern precipitation. Coastal areas moderate temperature extremes somewhat and can receive different storm influences than deep continental interiors.",
+      id: "meteo-pakistan-macroclimate-two-engines",
+      title: "Two seasons of moisture",
+      summary: "Monsoon ≠ western disturbances.",
+      explanation: "Summer monsoon moisture affects parts of the country unevenly. Winter western disturbances deliver much of the northern rainfall and snowfall. Collapsing both into one 'rainy season' loses exam marks and misreads flood vs snowmelt risks.",
       examples: [
-        { problem: "Northern Pakistan’s January rainfall is primarily associated with which system type?", solution: "Western disturbances (extratropical/subtropical), not the summer monsoon.", answer: "Western disturbances" }
+        { problem: "January rain in Islamabad is usually monsoon or WD-related?", solution: "Western disturbance related.", answer: "Western disturbance" }
       ],
-      shortcuts: ["Winter north → WDs", "Summer rains → monsoon (uneven)", "Altitude → cooler/wetter windward"],
-      traps: ["Attributing all rainfall to summer monsoon"]
+      shortcuts: ["Summer fringe monsoon", "Winter WDs in north"],
+      traps: ["One rainy season narrative for all months and regions"]
     }
   ],
-  comparisonTable: {
-    title: "Pakistan macro patterns (sketch)",
-    headers: ["Zone emphasis", "Climatic note"],
-    rows: [
-      ["Interior plains / basins", "Hot, often arid/semi-arid"],
-      ["Northern mountains", "Altitude zonation; WD winters"],
-      ["Coastal south", "Maritime influence; tropical systems possible"],
-      ["Western highlands", "Arid to semi-arid; complex relief"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Pakistan is not uniformly humid monsoon — large arid/semi-arid extent",
-    "Summer monsoon vs winter western disturbances are distinct moisture engines",
-    "Orography and continentality create strong regional contrasts"
-  ],
   examPoints: [
-    "Macro regions reflect aridity, monsoon, WDs, and mountains",
-    "Do not nationalise a single climate type",
-    "Link classification to controls, not only city names"
+    "Arid/semi-arid dominance",
+    "Regional contrasts",
+    "Monsoon vs WD"
   ],
   commonMistakes: [
-    "One climate for the whole country.",
-    "Mixing WD winter rain with monsoon.",
-    "Ignoring PE when discussing ‘enough rain’.",
-    "Forgetting orographic contrasts."
+    "Single climate label nationwide.",
+    "Ignoring altitude in the north.",
+    "Merging WD with monsoon."
   ],
-  relatedTopics: ["meteo-koppen-system", "meteo-global-climate-regions", "meteo-thornthwaite-system", "meteo-temp-rainfall-distribution"],
+  relatedTopics: ["meteo-koppen-system", "meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-temp-rainfall-distribution"],
   content: true,
-  buildsOn: ["meteo-koppen-system", "meteo-temp-rainfall-distribution", "meteo-monsoon-system"],
+  buildsOn: ["meteo-koppen-system", "meteo-global-climate-regions"],
   leadsTo: ["meteo-temp-rainfall-distribution"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-monsoon-system"]
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events"]
 },
 
 // ============================= SECTION H =============================
@@ -4027,67 +3846,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 2,
   title: "Orbital Milankovitch Cycles",
-  definition: "Milankovitch cycles are slow changes in Earth’s orbital geometry — eccentricity, obliquity (tilt), and precession — that redistribute insolation by season and latitude. They pace glacial–interglacial cycles when amplified by climate feedbacks, but they are not a complete explanation of modern industrial warming.",
+  definition: "Milankovitch cycles are slow changes in Earth’s orbit and tilt that redistribute insolation by season and latitude over tens of thousands of years. They help pace ice-age rhythms; they do not explain industrial-era warming as a primary cause.",
   keyFacts: [
-    "Eccentricity: shape of orbit (≈ 100,000-year scale dominance in many records)",
-    "Obliquity: axial tilt (≈ 41,000 years) — affects seasonality, especially high latitudes",
-    "Precession: timing of seasons relative to perihelion (≈ 19–23,000 years)",
-    "Changes distribution of sunlight more than total solar energy in a simple sense",
-    "Ice-sheet and CO₂ feedbacks amplify orbital pacing",
-    "Orbital cycles operate on millennial+ scales — not year-to-year weather"
+    "Eccentricity: ~100,000-year cycle — shape of the orbit",
+    "Obliquity: ~41,000-year cycle — tilt ~22.1°–24.5° (now ~23.5°)",
+    "Precession: ~19–23,000-year cycle — seasonal timing of perihelion",
+    "They change distribution of sunlight more than total solar output alone",
+    "Not a substitute for greenhouse-gas forcing in the modern trend"
   ],
   explanationSections: [
-    { heading: "Geometry first, feedbacks second", body: "Orbit tweaks when and where sunlight hits. Ice sheets, albedo, and greenhouse gases then amplify or damp the response. Exams test the three cycle names and the idea of seasonal/latitudinal redistribution." }
+    { heading: "Paleoclimate tool, not a daily forecast", body: "Use these cycles for ice-age and long-term exam questions. Do not invoke eccentricity to explain this decade’s temperature anomaly." }
   ],
   subtopics: [
     {
-      id: "meteo-milankovitch-cycles-three",
-      title: "Three orbital parameters",
-      summary: "Eccentricity, tilt, precession.",
-      explanation: "Eccentricity modulates how elliptical the orbit is. Obliquity changes the contrast between seasons. Precession shifts whether northern summer occurs near perihelion or aphelion — critical for northern ice sheets.",
+      id: "meteo-milankovitch-cycles-what-each-changes",
+      title: "What each cycle changes",
+      summary: "Tilt ↔ season strength; precession ↔ which season is closer to Sun; eccentricity ↔ contrast amplitude.",
+      explanation: "Higher obliquity strengthens seasonality at high latitudes. Precession decides whether northern summer occurs near perihelion or aphelion. Eccentricity modulates how different perihelion and aphelion are. Together they reshape polar summer insolation critical for ice sheets.",
       examples: [
-        { problem: "Which cycle relates to the tilt of Earth’s axis?", solution: "Obliquity.", answer: "Obliquity" }
+        { problem: "Which cycle varies Earth’s axial tilt between about 22° and 24.5°?", solution: "Obliquity.", answer: "Obliquity" }
       ],
-      shortcuts: ["Eccentricity = orbit shape", "Obliquity = tilt", "Precession = season timing"],
-      traps: ["Calling Milankovitch a single 1-year cycle"]
+      shortcuts: ["Obliquity = tilt", "Precession = seasonal timing", "Eccentricity = orbital shape"],
+      traps: ["Claiming eccentricity changes total solar constant by factors of two"]
     },
     {
-      id: "meteo-milankovitch-cycles-limits",
-      title: "What orbital forcing does not explain alone",
-      summary: "Modern rapid CO₂-driven warming is a different mechanism and timescale.",
-      explanation: "Orbital changes are slow. The rapid rise of industrial greenhouse gases forces climate on a human timescale not matched by eccentricity or tilt shifts. Orbital theory addresses ice-age pacing, not traffic-emission weather.",
+      id: "meteo-milankovitch-cycles-not-modern",
+      title: "Why orbits do not replace GHG forcing today",
+      summary: "Timescale and direction mismatch with industrial warming.",
+      explanation: "Orbital changes operate on millennial timescales. The rapid warming since the 19th–20th centuries aligns with rising greenhouse gases, not with a sudden orbital jump. Paleoclimate still uses Milankovitch pacing for ice ages — both statements can be true without contradiction.",
       examples: [
-        { problem: "Why are Milankovitch cycles a poor sole explanation for warming since ~1850?", solution: "Orbital insolation changes are too slow and do not match the observed greenhouse-gas forcing pattern of the industrial era.", answer: "Wrong timescale / mechanism" }
+        { problem: "Is the main driver of warming since 1950 a sudden shift to maximum eccentricity?", solution: "No — greenhouse-gas forcing dominates the modern trend discussion.", answer: "No" }
       ],
-      shortcuts: ["Orbital = slow ice-age pace", "Modern = GHG forcing dominant"],
-      traps: ["Using Milankovitch to dismiss greenhouse forcing"]
+      shortcuts: ["Orbits = slow", "Modern trend = GHG"],
+      traps: ["Using ice-age orbital theory to deny greenhouse physics"]
     }
   ],
-  comparisonTable: {
-    title: "Orbital elements",
-    headers: ["Element", "Rough period", "Effect emphasis"],
-    rows: [
-      ["Eccentricity", "~100 kyr", "Orbit shape / contrast"],
-      ["Obliquity", "~41 kyr", "Seasonal tilt"],
-      ["Precession", "~20 kyr", "Season vs perihelion"]
-    ]
-  },
   examPoints: [
-    "Three cycles: eccentricity, obliquity, precession",
-    "Redistribute insolation by season/latitude",
-    "Amplified by feedbacks; not modern warming’s main driver"
+    "Three cycles and approximate periods",
+    "Insolation redistribution",
+    "Not the industrial warming mechanism"
   ],
   commonMistakes: [
-    "One cycle only.",
-    "Confusing orbital change with solar-output cycles year to year.",
-    "Using Milankovitch for interannual monsoon failure alone.",
-    "Ignoring feedback amplification of ice ages."
+    "Wrong cycle periods.",
+    "Orbits explain 21st-century decade-to-decade rise primarily.",
+    "Confusing precession with obliquity."
   ],
-  relatedTopics: ["meteo-past-climate-reconstruction", "meteo-climate-feedbacks"],
+  relatedTopics: ["meteo-past-climate-reconstruction", "meteo-radiative-forcing", "meteo-climate-feedbacks"],
   content: true,
-  buildsOn: ["meteo-past-climate-reconstruction", "earth-a1"],
-  leadsTo: ["meteo-climate-feedbacks"],
-  usedIn: ["meteo-climate-feedbacks", "meteo-radiative-forcing"]
+  buildsOn: ["meteo-radiation-laws"],
+  leadsTo: ["meteo-past-climate-reconstruction", "meteo-climate-feedbacks"],
+  usedIn: ["meteo-past-climate-reconstruction"]
 },
 
 {
@@ -4443,71 +4251,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 1,
   title: "The Indian Ocean Monsoon System",
-  definition: "The South Asian monsoon is a seasonal reversal of winds and rainfall driven by differential heating of land and ocean, the seasonal migration of the ITCZ, and Himalayan topography. For Pakistan it delivers highly uneven summer rainfall — critical where it arrives, unreliable where it does not.",
+  definition: "The Indian Ocean / South Asian monsoon is the regional expression of seasonal wind reversal and rainfall over the subcontinent, tied to land–sea heating contrast, the monsoon trough, and moisture supply from the warm ocean. Pakistan sits on the northwestern fringe with uneven summer rains.",
   keyFacts: [
-    "Summer: moist southwesterlies from the Arabian Sea / Bay of Bengal region toward heated land",
-    "Winter: relatively dry northeasterly flow over much of the subcontinent",
-    "ITCZ / monsoon trough migration organises the rain belt",
-    "Himalayas block and lift moisture — orography shapes rainfall maps",
-    "Pakistan lies on the northwestern fringe — monsoon is partial and variable, not uniformly wet",
-    "Onset, breaks, and withdrawal create intra-seasonal swings in rainfall"
+    "Summer: moist inflow, monsoon trough, uneven rains over Pakistan",
+    "Winter: relatively dry monsoon phase over much of the region",
+    "Topography modulates rainfall strongly",
+    "Interacts with ENSO and IOD probabilistically",
+    "Active and break spells — not continuous rain"
   ],
   explanationSections: [
-    { heading: "Reversal with geography", body: "Monsoon is not merely ‘summer rain’. It is a coupled circulation–rainfall system. Pakistan’s position at the edge of the core Indian monsoon domain means many districts receive modest totals while others, especially toward the east and along windward slopes, can see intense events." }
+    { heading: "Fringe geography", body: "Core monsoon rainfall belts lie southeast of much of Pakistan; treat national totals carefully and regionally." }
   ],
   subtopics: [
     {
-      id: "meteo-indian-ocean-monsoon-mechanism",
-      title: "Land–sea heating and seasonal winds",
-      summary: "Summer inflow of moisture; winter relative dryness.",
-      explanation: "Intense summer heating over the subcontinent and Tibetan region deepens the monsoon trough and draws maritime air inland. In winter the land cools and the large-scale flow is less favourable for widespread moist ascent over Pakistan.",
+      id: "meteo-indian-ocean-monsoon-fringe",
+      title: "Pakistan fringe impacts",
+      summary: "Who gets rain, who stays dry.",
+      explanation: "Monsoon moisture advances unevenly; some northern and eastern districts receive meaningful summer totals while large arid zones do not. Orography can enhance local rain. Planning and exam answers should be district-aware, not slogan-based.",
       examples: [
-        { problem: "In which season does Pakistan typically receive the bulk of monsoon rainfall?", solution: "Summer (roughly June–September core), when moist maritime flow and the monsoon trough are active.", answer: "Summer" }
+        { problem: "Is monsoon rainfall spatially uniform across Pakistan?", solution: "No — fringe location and aridity gradients produce large contrasts.", answer: "No — uneven" }
       ],
-      shortcuts: ["Summer = moist inflow", "Winter ≠ main monsoon rain"],
-      traps: ["Treating monsoon as year-round rain"]
+      shortcuts: ["Fringe = uneven", "Orography modulates"],
+      traps: ["Uniform national monsoon flooding every year"]
     },
     {
-      id: "meteo-indian-ocean-monsoon-pakistan-fringe",
-      title: "Pakistan on the monsoon fringe",
-      summary: "Uneven totals; orography and breaks matter.",
-      explanation: "Unlike the Western Ghats core, much of Pakistan is arid to semi-arid. Monsoon rain can still flood rivers when organised systems stall, yet seasonal means remain low in many western and interior areas. Breaks in the monsoon produce dry spells even in the season.",
+      id: "meteo-indian-ocean-monsoon-modes",
+      title: "ENSO/IOD modulation",
+      summary: "Odds shifters, not switches.",
+      explanation: "El Niño can raise drought odds; IOD phases can reinforce or offset. Neither is a guaranteed seasonal outcome. Intraseasonal MJO pulses further organise active and break spells inside the season.",
       examples: [
-        { problem: "Why can Pakistan experience both water scarcity and monsoon floods?", solution: "Rainfall is seasonal, spatially uneven, and sometimes extreme in short bursts on a landscape with limited storage and high PE.", answer: "Uneven extremes on an arid baseline" }
+        { problem: "Does El Niño guarantee a failed Pakistan monsoon?", solution: "No — probabilistic teleconnection only.", answer: "No" }
       ],
-      shortcuts: ["Fringe = variable", "Flood ≠ humid climate"],
-      traps: ["Assuming all Pakistan is humid monsoon country"]
+      shortcuts: ["ENSO/IOD change odds", "MJO → active/break"],
+      traps: ["Hard determinism from one index"]
     }
   ],
-  comparisonTable: {
-    title: "Seasonal monsoon sketch",
-    headers: ["Season", "Typical large-scale moisture"],
-    rows: [
-      ["Summer", "Maritime inflow; monsoon rains (uneven)"],
-      ["Winter", "Drier large-scale flow; WD rain in north"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Pakistan is on the northwestern edge of the South Asian monsoon",
-    "Summer monsoon ≠ winter western disturbances",
-    "Spatial unevenness is as important as the seasonal name"
-  ],
   examPoints: [
-    "Seasonal wind/rainfall reversal",
-    "Land–sea heating + topography",
-    "Pakistan fringe variability"
+    "Seasonal reversal context",
+    "Pakistan fringe",
+    "Probabilistic ENSO/IOD link"
   ],
   commonMistakes: [
-    "One monsoon total for the whole country.",
-    "Mixing WD winter rain into monsoon.",
-    "Ignoring breaks and orography.",
-    "Equating flood years with a humid climate classification."
+    "Uniform rain map.",
+    "Deterministic ENSO rules.",
+    "Ignoring breaks and orography."
   ],
-  relatedTopics: ["meteo-monsoon-system", "meteo-temp-rainfall-distribution", "meteo-western-disturbances", "meteo-arabian-sea-cyclones-local"],
+  relatedTopics: ["meteo-monsoon-system", "meteo-enso-global-impacts", "meteo-iod", "meteo-temp-rainfall-distribution"],
   content: true,
-  buildsOn: ["meteo-monsoon-system", "meteo-global-circulation", "meteo-iod"],
-  leadsTo: ["meteo-temp-rainfall-distribution"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-pmd-operational"]
+  buildsOn: ["meteo-monsoon-system", "meteo-global-circulation"],
+  leadsTo: ["meteo-temp-rainfall-distribution", "meteo-extreme-events"],
+  usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events"]
 },
 
 {
@@ -5151,68 +4944,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-11",
   order: 1,
   title: "Station Model Reading: Wind Barbs, Pressure Codes & Weather Symbols",
-  definition: "The station model is a compact diagram plotting a weather station’s observation: temperature, dew point, pressure and tendency, wind speed and direction, sky cover, and present weather. Learning to decode barbs, pressure shorthand, and symbols is the entry skill for surface-chart analysis.",
+  definition: "The station model packs current observations into a compact symbol: wind staff and barbs, temperature and dew point, pressure (often coded), sky cover, and weather symbols. Skill is decoding under time pressure — not restating that symbols exist.",
   keyFacts: [
-    "Wind barb points in the direction the wind blows FROM; feathers encode speed",
-    "Long barb, short barb, and pennant have standard speed values (often 10, 5, and 50 kt in many teaching schemes)",
-    "Pressure plotted as last three digits of SLP in tenths of hPa (decoding adds leading 9 or 10)",
-    "Pressure tendency shows rise/fall over the past three hours",
-    "Sky-cover circle fill indicates cloud amount; weather symbols show rain, snow, fog, thunder, etc.",
-    "Temperature and dew point usually sit left of the station circle in conventional layouts"
+    "Wind staff points into the wind (direction FROM which wind blows)",
+    "Barbs/pennants encode speed (sum the feathers)",
+    "Pressure often plotted as last three digits in tenths of hPa",
+    "Sky-cover circle filling shows cloud amount",
+    "Weather symbols mark rain, fog, thunderstorm, etc."
   ],
   explanationSections: [
-    { heading: "A whole observation in one glyph", body: "Instead of a table row, the station model packs the elements pilots and analysts need at a glance. Mistakes usually come from reversing wind direction or mis-decoding the three-digit pressure." }
+    { heading: "Read in a fixed order", body: "Wind → temperatures → pressure → weather/sky. A routine order prevents missing fields on exam diagrams." }
   ],
   subtopics: [
     {
-      id: "meteo-station-model-wind-pressure",
-      title: "Wind barbs and pressure codes",
-      summary: "FROM direction; three-digit SLP shorthand.",
-      explanation: "The staff orients into the wind source. Total the barb values for speed. For pressure, 246 often means 1024.6 hPa and 987 means 998.7 hPa — choose the leading digits so the value is near normal atmospheric range.",
+      id: "meteo-station-model-wind-decode",
+      title: "Wind decode drill",
+      summary: "Direction FROM + barb arithmetic.",
+      explanation: "The staff points to the direction the wind comes from. A long barb is typically 10 kt (or 5 m/s in some metric conventions — follow the chart key); a short barb half; a pennant 50. Sum all feathers on the staff. Never read the staff as the direction toward which air is going.",
       examples: [
-        { problem: "A plotted pressure of 132 typically decodes to which SLP (hPa)?", solution: "1013.2 hPa (common teaching decode: prefix 10 when the three digits are low-mid).", answer: "1013.2 hPa" }
+        { problem: "Staff points north with two long barbs. Wind?", solution: "From the north at about 20 kt (if long barb = 10 kt).", answer: "N ~20 kt (key-dependent)" }
       ],
-      shortcuts: ["Barb direction = FROM", "Three digits → full SLP"],
-      traps: ["Reading wind as TO direction"]
+      shortcuts: ["Staff = FROM", "Add barbs for speed"],
+      traps: ["Reading wind as the direction of travel of the arrow tip only without the FROM convention"]
     },
     {
-      id: "meteo-station-model-weather-sky",
-      title: "Sky cover and weather symbols",
-      summary: "Circle fill and present-weather marks.",
-      explanation: "Filled circles indicate greater cloud cover. Present-weather symbols distinguish drizzle, rain, snow, fog, thunderstorms, and other phenomena — essential for matching fronts and hazards on the map.",
+      id: "meteo-station-model-pressure-code",
+      title: "Pressure code recovery",
+      summary: "Three digits → full hPa.",
+      explanation: "If the plot shows 146, try 1014.6 hPa; if it shows 987, try 998.7 hPa — choose the leading 9 or 10 so the value is a realistic sea-level pressure (roughly 960–1050 hPa). Tenths are included in the three-digit group.",
       examples: [
-        { problem: "What does a fully filled station circle usually indicate about clouds?", solution: "Overcast or complete sky cover in standard teaching models.", answer: "Overcast / full cover" }
+        { problem: "Coded group 235 on a surface plot — most likely SLP?", solution: "1023.5 hPa.", answer: "1023.5 hPa" }
       ],
-      shortcuts: ["Fill ↔ cloud amount", "Symbols ↔ present weather"],
-      traps: ["Ignoring dew point when assessing moisture"]
+      shortcuts: ["Add 10 or 9 leading digit", "Last digit is tenth"],
+      traps: ["Treating 235 as 235 hPa"]
     }
   ],
-  comparisonTable: {
-    title: "Station-model elements",
-    headers: ["Element", "How encoded"],
-    rows: [
-      ["Wind", "Barb direction + feathers"],
-      ["Pressure", "Three-digit code + tendency"],
-      ["T / Td", "Numbers beside station"],
-      ["Sky / weather", "Circle fill + symbols"]
-    ]
-  },
   examPoints: [
-    "Wind FROM via barbs",
-    "Decode three-digit pressure",
-    "Sky cover and weather symbols"
+    "Wind FROM convention",
+    "Barb speed sum",
+    "Decode 3-digit pressure"
   ],
   commonMistakes: [
-    "Reversing wind direction.",
-    "Wrong leading digits on pressure.",
-    "Ignoring tendency arrows.",
-    "Confusing dew point with wet-bulb always."
+    "Wind direction inverted.",
+    "Forgetting pennant = 50.",
+    "Pressure code left as three digits only."
   ],
-  relatedTopics: ["meteo-isobar-analysis", "meteo-airmass-front-id", "meteo-remote-sensing", "meteo-nwp-models"],
+  relatedTopics: ["meteo-isobar-analysis", "meteo-airmass-front-id", "meteo-wind-instruments"],
   content: true,
-  buildsOn: ["meteo-pressure-instruments", "meteo-wind-instruments", "meteo-cloud-classification"],
+  buildsOn: ["meteo-wind-instruments", "meteo-pressure-instruments"],
   leadsTo: ["meteo-isobar-analysis", "meteo-airmass-front-id"],
-  usedIn: ["meteo-isobar-analysis", "meteo-aviation-products", "ra-data-types", "ra-data-visualization"]
+  usedIn: ["meteo-isobar-analysis", "meteo-airmass-front-id"]
 },
 
 {
