@@ -4,6 +4,7 @@
  * Phase 2: per-topic Elo ability + near-miss difficulty targeting
  * Phase 3: per-question EWMA strength (stable vs last-outcome only)
  * Phase A: same-id cooldown to reduce stem-cramming under adaptive re-ask
+ * Phase B: variantGroupId — rank skill groups, prefer a fresh stem inside the group
  */
 import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
 import {
@@ -215,6 +216,65 @@ export function isSameIdSoftCooldown(
   return age < SAME_ID_SOFT_MS;
 }
 
+
+/** Group key: shared skill family, or the question id if ungrouped. */
+export function variantGroupKey(q: Question): string {
+  return (q.variantGroupId && q.variantGroupId.trim()) || q.id;
+}
+
+/**
+ * Choose which stem to show from a variant family.
+ * Prefers: not hard-cooled → lower strength / unseen → higher adaptive score.
+ */
+export function pickVariantFromGroup(
+  members: Question[],
+  opts: AdaptiveSelectOptions,
+): Question {
+  if (members.length === 1) return members[0];
+  const now = opts.now ?? Date.now();
+  const results = opts.questionResults ?? {};
+
+  const scored = members.map((q) => {
+    const r = results[q.id];
+    const strength = resolveStrength(r);
+    const hard = isSameIdHardCooldown(r, now);
+    // Lexicographic preference via sort keys
+    return {
+      q,
+      hard: hard ? 1 : 0,
+      // unseen / weak first
+      strengthKey: strength == null ? -1 : strength,
+      score: scoreQuestion(q, opts),
+    };
+  });
+
+  scored.sort((a, b) => {
+    if (a.hard !== b.hard) return a.hard - b.hard;
+    if (a.strengthKey !== b.strengthKey) return a.strengthKey - b.strengthKey;
+    return b.score - a.score;
+  });
+
+  // If every member is hard-cooled, still return the best of them (caller may fall back)
+  return scored[0].q;
+}
+
+/**
+ * Need score for a whole skill group (drives whether the group appears in the session).
+ * Uses the max member score so a single weak/unseen variant can surface the skill.
+ */
+export function scoreVariantGroup(
+  members: Question[],
+  opts: AdaptiveSelectOptions,
+): number {
+  if (members.length === 0) return -Infinity;
+  let best = -Infinity;
+  for (const q of members) {
+    const s = scoreQuestion(q, opts);
+    if (s > best) best = s;
+  }
+  return best;
+}
+
 function daysBetweenLocal(a: Date, b: Date): number {
   const a0 = new Date(a.getFullYear(), a.getMonth(), a.getDate()).getTime();
   const b0 = new Date(b.getFullYear(), b.getMonth(), b.getDate()).getTime();
@@ -308,19 +368,35 @@ export function pickAdaptiveQuestions(
   const now = opts.now ?? Date.now();
   const results = opts.questionResults ?? {};
 
-  // Phase A: drop hard-cooldown ids when enough alternatives exist
-  const fresh = pool.filter((q) => !isSameIdHardCooldown(results[q.id], now));
-  const working = fresh.length >= Math.min(count, pool.length) ? fresh : pool;
-
-  if (count >= working.length) {
-    return [...working].sort((a, b) => scoreQuestion(b, opts) - scoreQuestion(a, opts));
+  // Phase B: partition into variant groups (ungrouped id → singleton group)
+  const groups = new Map<string, Question[]>();
+  for (const q of pool) {
+    const key = variantGroupKey(q);
+    const list = groups.get(key);
+    if (list) list.push(q);
+    else groups.set(key, [q]);
   }
 
-  const ranked = working
-    .map((q) => ({ q, score: scoreQuestion(q, opts) }))
-    .sort((a, b) => b.score - a.score);
+  type GroupOffer = { key: string; members: Question[]; chosen: Question; need: number; hard: boolean };
+  const offers: GroupOffer[] = [];
+  for (const [key, members] of groups) {
+    const chosen = pickVariantFromGroup(members, opts);
+    const need = scoreVariantGroup(members, opts);
+    const hard = isSameIdHardCooldown(results[chosen.id], now);
+    offers.push({ key, members, chosen, need, hard });
+  }
 
-  return ranked.slice(0, count).map((x) => x.q);
+  // Phase A at group level: prefer groups whose chosen stem is not hard-cooled
+  const freshOffers = offers.filter((o) => !o.hard);
+  const workingOffers =
+    freshOffers.length >= Math.min(count, offers.length) ? freshOffers : offers;
+
+  workingOffers.sort((a, b) => b.need - a.need);
+
+  if (count >= workingOffers.length) {
+    return workingOffers.map((o) => o.chosen);
+  }
+  return workingOffers.slice(0, count).map((o) => o.chosen);
 }
 
 export const ADAPTIVE_WEIGHTS = W;
