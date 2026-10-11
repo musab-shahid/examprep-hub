@@ -361,6 +361,13 @@ export interface QuestionResult {
   subjectId?: string;
   /** Times this question was answered (latest outcome still in `correct`). */
   attempts?: number;
+  /** Times answered correctly (lifetime on this device). */
+  correctCount?: number;
+  /**
+   * EWMA success strength in [0, 1] (Phase 3 adaptive).
+   * Low = keep drilling; high = deprioritize unless SR/near-miss says otherwise.
+   */
+  strength?: number;
 }
 
 export type PracticeMode = 'topic' | 'quick' | 'mock' | 'review' | 'challenge';
