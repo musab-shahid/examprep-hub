@@ -1,8 +1,7 @@
 /**
- * Phase 1 adaptive question selection.
- * Ranks a filtered pool by learning priority: wrong answers, unseen items,
- * spaced-review urgency, weak topics, and recency penalty.
- * No Elo / near-miss yet (Phase 2).
+ * Adaptive question selection
+ * Phase 1: wrong / unseen / SR urgency / weak topics / recency
+ * Phase 2: per-topic Elo ability + near-miss difficulty targeting
  */
 import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
 import {
@@ -32,22 +31,98 @@ export interface AdaptiveSelectOptions {
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-/** Weights — sum of positive terms ≈ 0.75; penalty up to −0.20 */
+/** Item difficulty on the same scale as topic ability θ */
+export const DIFFICULTY_DELTA: Record<Difficulty, number> = {
+  easy: -0.7,
+  medium: 0,
+  hard: 0.7,
+};
+
+/** Elo step size (logit scale). Higher = faster adaptation with sparse data. */
+export const ABILITY_K = 0.35;
+
+/** Target success probability for maximal learning (slightly hard). */
+export const NEAR_MISS_TARGET_P = 0.68;
+
 const W = {
-  wrong: 0.3,
-  unseen: 0.2,
-  srOverdue: 0.15,
-  srSoon: 0.1,
-  srWeek: 0.05,
-  weakTopic: 0.1,
-  reviewBoost: 0.15,
-  challengeHard: 0.05,
-  challengeMedium: 0.03,
-  staleCorrect: 0.05,
+  wrong: 0.25,
+  unseen: 0.15,
+  srOverdue: 0.12,
+  srSoon: 0.08,
+  srWeek: 0.04,
+  weakTopic: 0.08,
+  nearMiss: 0.25,
+  reviewBoost: 0.12,
+  challengeHard: 0.04,
+  challengeMedium: 0.02,
+  staleCorrect: 0.04,
   recentDay: -0.2,
   recent3Days: -0.08,
-  jitter: 0.05,
+  jitter: 0.04,
 } as const;
+
+export function sigmoid(x: number): number {
+  if (x >= 15) return 1;
+  if (x <= -15) return 0;
+  return 1 / (1 + Math.exp(-x));
+}
+
+export function logit(p: number): number {
+  const clamped = Math.min(0.95, Math.max(0.05, p));
+  return Math.log(clamped / (1 - clamped));
+}
+
+export function difficultyDelta(d: Difficulty | undefined): number {
+  if (!d) return DIFFICULTY_DELTA.medium;
+  return DIFFICULTY_DELTA[d] ?? 0;
+}
+
+/**
+ * Topic ability θ. Uses stored abilityElo when present; otherwise cold-starts
+ * from recent accuracy (logit) or 0.
+ */
+export function getTopicAbility(progress: TopicProgress | undefined): number {
+  if (progress?.abilityElo != null && Number.isFinite(progress.abilityElo)) {
+    return progress.abilityElo as number;
+  }
+  if (progress) {
+    const eff = getEffectiveQuizStats(progress);
+    if (eff.total >= 3) {
+      return logit(eff.accuracy / 100);
+    }
+  }
+  return 0;
+}
+
+/** Predicted P(correct | θ, difficulty). */
+export function predictedSuccess(ability: number, difficulty: Difficulty | undefined): number {
+  return sigmoid(ability - difficultyDelta(difficulty));
+}
+
+/**
+ * Update θ after one answer (1PL-style Elo on logit scale).
+ */
+export function updateTopicAbility(
+  currentAbility: number | undefined,
+  difficulty: Difficulty | undefined,
+  correct: boolean,
+  k: number = ABILITY_K,
+): number {
+  const θ = currentAbility ?? 0;
+  const p = predictedSuccess(θ, difficulty);
+  const y = correct ? 1 : 0;
+  return θ + k * (y - p);
+}
+
+/**
+ * Near-miss score in [0, 1]: highest when predicted success ≈ NEAR_MISS_TARGET_P.
+ */
+export function nearMissScore(ability: number, difficulty: Difficulty | undefined): number {
+  const p = predictedSuccess(ability, difficulty);
+  // Triangle peak at target: distance 0 → 1, distance ≥ 0.5 → 0
+  const dist = Math.abs(p - NEAR_MISS_TARGET_P);
+  return Math.max(0, 1 - dist / 0.5);
+}
 
 function daysBetweenLocal(a: Date, b: Date): number {
   const a0 = new Date(a.getFullYear(), a.getMonth(), a.getDate()).getTime();
@@ -74,7 +149,6 @@ function weakTopicBoost(progress: TopicProgress | undefined): number {
   const eff = getEffectiveQuizStats(progress);
   if (eff.total < 3) return 0;
   if (eff.accuracy >= MASTERY_ACCURACY_THRESHOLD) return 0;
-  // Stronger boost the weaker the topic (0 at threshold → W.weakTopic at 0%)
   const gap = (MASTERY_ACCURACY_THRESHOLD - eff.accuracy) / MASTERY_ACCURACY_THRESHOLD;
   return W.weakTopic * Math.min(1, Math.max(0, gap));
 }
@@ -82,10 +156,7 @@ function weakTopicBoost(progress: TopicProgress | undefined): number {
 /**
  * Learning-priority score for one question. Higher = ask sooner.
  */
-export function scoreQuestion(
-  q: Question,
-  opts: AdaptiveSelectOptions,
-): number {
+export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number {
   const now = opts.now ?? Date.now();
   const today = parseLocalDate(localDateString(new Date(now)));
   const results = opts.questionResults ?? {};
@@ -93,10 +164,11 @@ export function scoreQuestion(
   const recent = new Set(opts.recentQuestionIds ?? []);
   const r = results[q.id];
   const prog = progressMap[q.topicId];
+  const ability = getTopicAbility(prog);
 
   let s = 0;
 
-  // Error / novelty
+  // Phase 1: error / novelty
   if (!r) {
     s += W.unseen;
   } else if (!r.correct) {
@@ -115,13 +187,12 @@ export function scoreQuestion(
     else if (age < 3 * DAY_MS) s += W.recent3Days;
   }
 
-  // Spaced-review urgency (topic-level)
   s += srUrgency(prog, today);
-
-  // Weak topic
   s += weakTopicBoost(prog);
 
-  // Mode tweaks
+  // Phase 2: near-miss difficulty (skip pure random hard/easy)
+  s += W.nearMiss * nearMissScore(ability, q.difficulty);
+
   if (opts.mode === 'review') {
     if (!r || !r.correct) s += W.reviewBoost;
   }
@@ -138,8 +209,7 @@ export function scoreQuestion(
 }
 
 /**
- * Rank pool by Phase-1 adaptive score and take the top `count` items.
- * Falls back to order-stable behavior when count >= pool length.
+ * Rank pool by adaptive score and take the top `count` items.
  */
 export function pickAdaptiveQuestions(
   pool: Question[],
@@ -148,10 +218,7 @@ export function pickAdaptiveQuestions(
 ): Question[] {
   if (pool.length === 0 || count <= 0) return [];
   if (count >= pool.length) {
-    // Still rank so order prefers high-priority items first
-    return [...pool].sort(
-      (a, b) => scoreQuestion(b, opts) - scoreQuestion(a, opts),
-    );
+    return [...pool].sort((a, b) => scoreQuestion(b, opts) - scoreQuestion(a, opts));
   }
 
   const ranked = pool
@@ -161,5 +228,6 @@ export function pickAdaptiveQuestions(
   return ranked.slice(0, count).map((x) => x.q);
 }
 
-/** Test helper: expose weight table */
+export const ADAPTIVE_WEIGHTS = W;
+/** @deprecated use ADAPTIVE_WEIGHTS */
 export const ADAPTIVE_WEIGHTS_PHASE1 = W;
