@@ -61,9 +61,9 @@ export const sections: Section[] = [
   { id: 'ENV-01', subjectId: 'env-studies', title: 'Environmental Fundamentals', topicCount: 2, questionCount: 42 },
   { id: 'ENV-02', subjectId: 'env-studies', title: 'Ecosystems & Biogeochemical Cycles', topicCount: 3, questionCount: 50 },
   { id: 'ENV-03', subjectId: 'env-studies', title: 'Biodiversity', topicCount: 3, questionCount: 52 },
-  { id: 'ENV-04', subjectId: 'env-studies', title: 'Natural Resources', topicCount: 2, questionCount: 32 },
-  { id: 'ENV-05', subjectId: 'env-studies', title: 'Pollution', topicCount: 3, questionCount: 52 },
-  { id: 'ENV-06', subjectId: 'env-studies', title: 'Energy, Climate & Environmental Governance', topicCount: 6, questionCount: 104 },
+  { id: 'ENV-04', subjectId: 'env-studies', title: 'Natural Resources', topicCount: 2, questionCount: 33 },
+  { id: 'ENV-05', subjectId: 'env-studies', title: 'Pollution', topicCount: 3, questionCount: 54 },
+  { id: 'ENV-06', subjectId: 'env-studies', title: 'Energy, Climate & Environmental Governance', topicCount: 6, questionCount: 106 },
 
   // ── Research & Analysis ──
   { id: 'RA-01', subjectId: 'research-analysis', title: 'Scientific Method', topicCount: 1, questionCount: 12 },

@@ -142,7 +142,11 @@ explanationSections: [
         ],
       },
     ],
-    relatedTopics: ["env-carry-capacity-and-footprint", "env-biodiversity", "env-natural-resources"],
+        pakistanExamFocus: [
+      "Sustainability exam items often pair Brundtland wording with Pakistan development vs environment trade-offs",
+      "Sphere thinking helps classify local problems (urban air = atmosphere; river pollution = hydrosphere first)",
+    ],
+  relatedTopics: ["env-carry-capacity-and-footprint", "env-biodiversity", "env-natural-resources"],
     content: true,
   buildsOn: [],
   leadsTo: ["env-carry-capacity-and-footprint", "env-ecosystem-structure-and-energy-flow"],
@@ -418,7 +422,10 @@ explanationSections: [
         ],
       },
     ],
-    relatedTopics: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles", "env-biodiversity"],
+        pakistanExamFocus: [
+      "Food-web and 10% rule items are concept-universal; link to Pakistan agriculture when stems mention crops or livestock",
+    ],
+  relatedTopics: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles", "env-biodiversity"],
     content: true,
   buildsOn: ["env-fundamentals-and-sustainability", "phy-work-energy", "meteo-heat-transfer"],
   leadsTo: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles"],
@@ -542,7 +549,10 @@ explanationSections: [
         ],
       },
     ],
-    relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-productivity-and-biogeochemical-cycles"],
+        pakistanExamFocus: [
+      "Pyramid-of-numbers inversions (tree + insects) are standard; energy pyramid stays upright in all syllabus ecosystems",
+    ],
+  relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-productivity-and-biogeochemical-cycles"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow"],
   leadsTo: ["env-productivity-and-biogeochemical-cycles"],
@@ -684,7 +694,11 @@ explanationSections: [
         ],
       },
     ],
-relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
+    pakistanExamFocus: [
+      "Fertiliser-driven nitrogen amplification links to Indus-basin agriculture and water-quality teaching",
+      "Carbon cycle + fossil fuels bridges to Pakistan energy-mix questions",
+    ],
+  relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-climate-change-response", "env-biodiversity"],
     content: true,
   buildsOn: ["env-ecosystem-structure-and-energy-flow", "env-ecological-pyramids", "meteo-composition-today", "earth-j1", "earth-b6"],
   leadsTo: ["env-biodiversity", "env-air-pollution", "env-water-pollution-and-quality"],
@@ -958,7 +972,11 @@ explanationSections: [
         ],
       },
     ],
-    relatedTopics: ["env-biodiversity", "env-conservation-and-extinction", "env-climate-change-response"],
+        pakistanExamFocus: [
+      "Habitat loss and overexploitation are the usual lead threats in national biodiversity narratives",
+      "IUCN categories appear as status language — not automatic legal protection in Pakistan",
+    ],
+  relatedTopics: ["env-biodiversity", "env-conservation-and-extinction", "env-climate-change-response"],
     content: true,
   buildsOn: ["env-biodiversity"],
   leadsTo: ["env-conservation-and-extinction"],
@@ -1169,7 +1187,7 @@ explanationSections: [
         id: "env-natural-resources-the-waste-hierarchy-as-a-resource-idea",
         title: "The waste hierarchy as a resource idea",
         summary: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load…",
-        explanation: "From a resources angle, the waste hierarchy is a reminder that extraction pressure falls when societies prevent waste, reuse products, and recycle materials before disposal. Full order, hazardous streams, and disposal risks are drilled under Soil Pollution, Solid & Hazardous Waste — this topic only needs the resource logic: less waste means less demand on forests, mines, and sinks.\n\nDo not treat recycling as a licence for unlimited consumption; prevention still sits at the top.",
+        explanation: "From a resources angle, the waste hierarchy is a reminder that extraction pressure falls when societies prevent waste, reuse products, and recycle materials before disposal. The canonical order used in this subject is the 5Rs: Refuse → Reduce → Reuse → Recycle → Recover → Dispose. Full order drills, hazardous streams, and disposal risks live under Soil Pollution, Solid & Hazardous Waste — here only the resource logic matters: less waste means less demand on forests, mines, and sinks.\n\nDo not treat recycling as a licence for unlimited consumption; prevention still sits at the top.",
                 examples: [
           {
             problem: "Why does preventing waste protect natural resources better than disposal alone?",
@@ -1187,7 +1205,7 @@ explanationSections: [
           "Landfill last"
         ],
         traps: [
-          "Recycling as the first and only solution"
+          "Putting Recycle first — Refuse/Reduce come before Recycle in the 5Rs hierarchy"
         ],
       },
       {
@@ -1216,7 +1234,11 @@ explanationSections: [
         ],
       },
     ],
-    relatedTopics: ["env-resource-conflicts", "env-climate-change-response", "env-biodiversity"],
+        pakistanExamFocus: [
+      "Forest cover ≈ 5% is the standard numerical anchor for renewable resource scarcity",
+      "Water as a multi-use resource links forward to Indus basin and pollution topics",
+    ],
+  relatedTopics: ["env-resource-conflicts", "env-climate-change-response", "env-biodiversity"],
     content: true,
   buildsOn: ["env-carry-capacity-and-footprint", "earth-i4", "earth-b1"],
   leadsTo: ["env-resource-conflicts", "env-energy-sources"],
@@ -2045,6 +2067,7 @@ explanationSections: [
         ],
       },
     ],
+,
 examPoints: [
       "Mitigation = reducing emissions (cause); Adaptation = adjusting to effects",
       "Vulnerability = Exposure + Sensitivity − Adaptive Capacity",
@@ -2129,7 +2152,7 @@ examPoints: [
     content: true,
   buildsOn: ["meteo-greenhouse-effect", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-ipcc-rcps", "env-energy-sources", "meteo-extreme-events", "phy-thermodynamics-laws", "phy-heat-transfer-mechanisms"],
   leadsTo: ["env-international-climate-policy", "env-pakistan-environmental-context"],
-  usedIn: ["env-international-climate-policy", "meteo-pakistan-nccp", "meteo-nccp-objectives", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "ra-scientific-reporting"]
+  usedIn: ["env-international-climate-policy", "meteo-pakistan-nccp", "meteo-nccp-objectives", "ra-scientific-reporting"]
   },
   {
     id: "env-international-climate-policy",
@@ -2264,7 +2287,7 @@ explanationSections: [
     content: true,
   buildsOn: ["env-climate-change-response", "meteo-ipcc-rcps", "meteo-pakistan-nccp"],
   leadsTo: ["env-ozone-depletion", "env-pakistan-environmental-context"],
-  usedIn: ["env-pakistan-environmental-context", "meteo-nccp-objectives", "english-word-formation-and-context", "english-sentence-building-blocks", "ra-scientific-reporting"]
+  usedIn: ["env-pakistan-environmental-context", "meteo-nccp-objectives", "ra-scientific-reporting"]
   },
   {
     id: "env-ozone-depletion",
@@ -2389,11 +2412,15 @@ explanationSections: [
         ],
       },
 ],
-relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
+    pakistanExamFocus: [
+      "Montreal Protocol as a successful ODS treaty — do not credit it with solving CO₂/climate",
+      "Stratospheric ozone layer ≠ tropospheric ozone pollution in cities",
+    ],
+  relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
   leadsTo: ["env-air-pollution"],
-  usedIn: ["env-international-climate-policy", "english-word-formation-and-context"]
+  usedIn: ["env-international-climate-policy"]
   },
 
   {
@@ -2679,6 +2706,6 @@ relatedTopics: ["env-climate-change-response", "env-air-pollution", "env-water-p
     content: true,
   buildsOn: ["env-environmental-governance", "env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response", "meteo-pakistan-macroclimate", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "earth-i1"],
   leadsTo: [],
-  usedIn: ["meteo-pakistan-nccp", "meteo-pmd-operational", "english-sentence-completion-rearrangement", "ra-scientific-reporting"]
+  usedIn: ["meteo-pakistan-nccp", "meteo-pmd-operational", "ra-scientific-reporting"]
   }
 ];

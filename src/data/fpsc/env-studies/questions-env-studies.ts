@@ -772,7 +772,7 @@ export const questions: Question[] = [
     question: "How many levels of biodiversity are typically recognized in basic teaching?",
     options: ["Two", "Three", "Four", "Five"],
     correctAnswer: 1,
-    explanation: "Genetic, species, and ecosystem diversity.",
+    explanation: "Basic teaching recognises three levels: genetic diversity within species, species diversity, and ecosystem (habitat/community) diversity.",
         variantGroupId: "env-biodiversity-levels-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-03-Q002", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
@@ -996,7 +996,7 @@ export const questions: Question[] = [
       "Non-target pesticide kills — pollution"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "Each maps to a major pressure category.",
+    explanation: "Clearing habitat, overhunting, climate-driven range shifts, and non-target pesticide kills map respectively to habitat loss, overexploitation, climate pressure, and pollution — the major threat categories tested in biodiversity items.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-03-Q028", sectionId: "ENV-03", topicId: "env-biodiversity-threats-and-iucn", difficulty: "medium", type: "true_false",
     question: "The five major current threats to biodiversity are driven primarily by natural processes such as volcanoes rather than human activity.",
@@ -1415,7 +1415,7 @@ export const questions: Question[] = [
       "Six rivers of the system are part of the allocation story"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "These are the usual syllabus anchors.",
+    explanation: "Standard teaching anchors for the Indus Waters Treaty include the 1960 signing, World Bank brokerage, western rivers primarily for Pakistan in the usual summary, and the multi-river Indus system in the allocation story.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-04-Q027", sectionId: "ENV-04", topicId: "env-resource-conflicts", difficulty: "medium", type: "true_false",
     question: "Large tree-planting programmes in Pakistan aim partly to respond to very low national forest cover.",
@@ -1502,7 +1502,7 @@ export const questions: Question[] = [
     question: "Tropospheric ozone is a harmful pollutant, while stratospheric ozone absorbs harmful ultraviolet radiation.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation: "True. Same molecule, opposite roles by altitude.",
+    explanation: "True. Stratospheric ozone forms the protective ozone layer; tropospheric ozone is a harmful secondary pollutant. Same molecule, different altitude and role.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-05-Q004", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
     question: "The 1952 London smog episode is classically associated with:",
@@ -3057,15 +3057,15 @@ export const questions: Question[] = [
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-01-Q103", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
-    question: "Ecological overshoot occurs when:",
+    question: "Humanity is in ecological overshoot when global accounting shows:",
     options: [
-      "Biocapacity exceeds footprint",
-      "Footprint exceeds biocapacity",
-      "Only one species goes extinct",
-      "Rainfall equals evaporation everywhere"
+      "Biocapacity exceeds the ecological footprint",
+      "The ecological footprint exceeds biocapacity",
+      "Only one species has gone extinct",
+      "Rainfall equals evaporation in every basin"
     ],
     correctAnswer: 1,
-    explanation: "Overshoot means demand (footprint) exceeds regenerative supply (biocapacity).",
+    explanation: "Overshoot means aggregate demand (footprint) exceeds regenerative supply (biocapacity). A single extinction or local weather balance is not the definition.",
     variantGroupId: "env-biocapacity-footprint-skill",
     sourceCitation: "Standard environmental science curriculum" },
 
@@ -3316,15 +3316,15 @@ export const questions: Question[] = [
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q103", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
-    question: "Which pairing is correct?",
+    question: "In Pakistani environmental governance teaching, which roles are matched correctly?",
     options: [
-      "PEPA — assessment process only; EIA — the main statute name",
-      "PEPA — statutory framework; EIA — project impact assessment process",
-      "Both PEPA and EIA mean the identical document",
-      "EIA replaces NEQS numeric standards"
+      "PEPA names only the assessment form; EIA is the main environmental statute",
+      "PEPA provides the statutory framework; EIA is the project-level impact assessment process",
+      "PEPA and EIA are two names for the same document",
+      "Completing an EIA removes any need for NEQS limits"
     ],
     correctAnswer: 1,
-    explanation: "PEPA is the legal framework statute; EIA is the assessment process for projects. They are related but not the same thing.",
+    explanation: "PEPA is the legal framework; EIA is the project assessment process. They work together with standards (NEQS) — one does not replace the other.",
     variantGroupId: "env-pepa-eia-skill",
     sourceCitation: "Standard environmental science curriculum" },
 
@@ -3339,5 +3339,62 @@ export const questions: Question[] = [
     correctAnswer: 1,
     explanation: "IEE is initial/screening-level; full EIA is deeper when impacts may be significant.",
     variantGroupId: "env-pepa-eia-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  // Scenario-style hard items (audit P3)
+  { id: "ENV-05-Q053", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "hard", type: "single",
+    question: "A large city records dangerous PM₂.₅ levels for several winter weeks. Traffic and industry continue, nights are clear and calm, and a temperature inversion sits over the basin. Which statement best explains the prolonged episode?",
+    options: [
+      "Inversion layers always remove particles by raining them out immediately",
+      "Calm conditions and a surface inversion trap emissions near the ground so concentrations build",
+      "PM₂.₅ cannot form when temperatures are low",
+      "Only stratospheric ozone chemistry can raise winter PM₂.₅"
+    ],
+    correctAnswer: 1,
+    explanation: "Winter inversions suppress vertical mixing. Continued emissions under a lid of warmer air aloft allow fine particles to accumulate. Rain-out is not automatic in dry, calm spells.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-05-Q054", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "hard", type: "single",
+    question: "A river stretch downstream of untreated sewage outfalls shows a sharp drop in dissolved oxygen and fish kills. Which chain best explains the oxygen crash?",
+    options: [
+      "Sewage adds pure oxygen that supersaturates and kills fish",
+      "Organic load raises BOD; microbes consume DO while decomposing waste, producing hypoxia",
+      "High BOD means oxygen is being produced faster than it is used",
+      "Fish kills prove the water has zero nitrogen and phosphorus"
+    ],
+    correctAnswer: 1,
+    explanation: "Biodegradable organic waste elevates BOD. Microbial decomposition draws down dissolved oxygen; severe hypoxia stresses or kills fish. High BOD is a demand signal, not oxygen production.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-06-Q105", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "hard", type: "single",
+    question: "District A and District B experience the same multi-day heatwave. A has cooling centres, reliable electricity, and an early-warning SMS system; B has none of these. Excess hospital admissions are far higher in B. The contrast mainly illustrates:",
+    options: [
+      "Identical adaptive capacity in both districts",
+      "Difference in adaptive capacity (and thus vulnerability) under the same hazard exposure",
+      "That mitigation has already removed heatwave risk globally",
+      "That heatwaves are not climate-related hazards"
+    ],
+    correctAnswer: 1,
+    explanation: "Same hazard can produce different impacts when exposure/sensitivity meet different adaptive capacity. B’s missing services raise vulnerability.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-06-Q106", sectionId: "ENV-06", topicId: "env-ozone-depletion", difficulty: "hard", type: "single",
+    question: "A candidate claims the Montreal Protocol is the main global treaty that limits carbon dioxide emissions from power plants. Which correction is accurate?",
+    options: [
+      "Correct — Montreal sets binding CO₂ caps for all parties",
+      "Incorrect — Montreal targets ozone-depleting substances; CO₂ climate mitigation is under the UNFCCC/Paris architecture",
+      "Correct — Montreal and Paris are two names for one CO₂ treaty",
+      "Incorrect — Montreal only regulates river pollution"
+    ],
+    correctAnswer: 1,
+    explanation: "Montreal addresses ODS (e.g. CFCs) and stratospheric ozone. Climate CO₂ mitigation is handled under UNFCCC/Paris, not as Montreal’s primary object.",
+    sourceCitation: "Standard environmental science curriculum" },
+  { id: "ENV-04-Q033", sectionId: "ENV-04", topicId: "env-natural-resources", difficulty: "hard", type: "single",
+    question: "A province expands landfill capacity but does not change product design, consumption, or reuse systems. Against the 5Rs hierarchy, why is this a weak long-term resource strategy?",
+    options: [
+      "Landfill is the most preferred step in the 5Rs order",
+      "Disposal sits at the bottom of the hierarchy; it does not prevent upstream extraction and waste generation",
+      "Refuse and reduce only apply to hazardous waste",
+      "Recycling is forbidden once landfills exist"
+    ],
+    correctAnswer: 1,
+    explanation: "The 5Rs put Refuse/Reduce/Reuse well above disposal. Expanding landfills without prevention still demands material extraction and leaves pollution risks.",
     sourceCitation: "Standard environmental science curriculum" },
 ];
