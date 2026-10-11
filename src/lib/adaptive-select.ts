@@ -5,6 +5,7 @@
  * Phase 3: per-question EWMA strength (stable vs last-outcome only)
  * Phase A: same-id cooldown to reduce stem-cramming under adaptive re-ask
  * Phase B: variantGroupId — rank skill groups, prefer a fresh stem inside the group
+ * Phase C: group-level strength rollup (skill not closed by one memorized stem)
  */
 import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
 import {
@@ -259,20 +260,67 @@ export function pickVariantFromGroup(
 }
 
 /**
- * Need score for a whole skill group (drives whether the group appears in the session).
- * Uses the max member score so a single weak/unseen variant can surface the skill.
+ * Unseen variants count as this strength in group rollup so one memorized
+ * stem cannot mark the whole skill as mastered.
+ */
+export const GROUP_UNSEEN_STRENGTH = 0.35;
+
+/**
+ * Phase C: group strength = min effective strength across members.
+ * Unseen members use GROUP_UNSEEN_STRENGTH (conservative).
+ */
+export function resolveGroupStrength(
+  members: Question[],
+  results: Record<string, QuestionResultLike> = {},
+): number {
+  if (members.length === 0) return 0;
+  let min = 1;
+  for (const q of members) {
+    const s = resolveStrength(results[q.id]);
+    const eff = s == null ? GROUP_UNSEEN_STRENGTH : s;
+    if (eff < min) min = eff;
+  }
+  return min;
+}
+
+/**
+ * Need score for a skill group (drives session inclusion).
+ * - max member score (Phase 1–3 signals, near-miss, SR)
+ * - extra boost when group strength is low (Phase C rollup)
+ * - small boost when siblings remain unseen (encourage variant coverage)
  */
 export function scoreVariantGroup(
   members: Question[],
   opts: AdaptiveSelectOptions,
 ): number {
   if (members.length === 0) return -Infinity;
-  let best = -Infinity;
+  const results = opts.questionResults ?? {};
+
+  let bestMember = -Infinity;
+  let unseen = 0;
   for (const q of members) {
     const s = scoreQuestion(q, opts);
-    if (s > best) best = s;
+    if (s > bestMember) bestMember = s;
+    if (!results[q.id]) unseen += 1;
   }
-  return best;
+
+  const groupStrength = resolveGroupStrength(members, results);
+  // Half weight of per-item lowStrength — reinforces skill-level weakness
+  const groupWeakBoost = W.lowStrength * (1 - groupStrength) * 0.5;
+  const coverageBoost =
+    members.length > 1 && unseen > 0 ? 0.06 * (unseen / members.length) : 0;
+
+  return bestMember + groupWeakBoost + coverageBoost;
+}
+
+/** True only if every stem in the group is on hard same-id cooldown. */
+export function isGroupHardCooldown(
+  members: Question[],
+  results: Record<string, QuestionResultLike>,
+  now: number,
+): boolean {
+  if (members.length === 0) return true;
+  return members.every((q) => isSameIdHardCooldown(results[q.id], now));
 }
 
 function daysBetweenLocal(a: Date, b: Date): number {
@@ -382,11 +430,12 @@ export function pickAdaptiveQuestions(
   for (const [key, members] of groups) {
     const chosen = pickVariantFromGroup(members, opts);
     const need = scoreVariantGroup(members, opts);
-    const hard = isSameIdHardCooldown(results[chosen.id], now);
+    // Phase C: group is hard-cooled only if ALL stems are (sibling still showable)
+    const hard = isGroupHardCooldown(members, results, now);
     offers.push({ key, members, chosen, need, hard });
   }
 
-  // Phase A at group level: prefer groups whose chosen stem is not hard-cooled
+  // Prefer groups that still have a showable stem
   const freshOffers = offers.filter((o) => !o.hard);
   const workingOffers =
     freshOffers.length >= Math.min(count, offers.length) ? freshOffers : offers;
