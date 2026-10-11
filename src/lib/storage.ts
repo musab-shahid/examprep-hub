@@ -1,5 +1,6 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
 import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
+import { updateTopicAbility, getTopicAbility } from '@/lib/adaptive-select';
 import { resolveReviewStage, nextStageAfterReview, reviewDateForStage } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 import { resolveTopicId } from '@/lib/topic-id-aliases';
@@ -73,6 +74,9 @@ function sanitizeTopicProgress(p: TopicProgress): TopicProgress {
   }
   if (p.recentSessions && p.recentSessions.length > 0) {
     clean.recentSessions = p.recentSessions.slice(-RECENT_QUIZ_SESSION_WINDOW);
+  }
+  if (typeof p.abilityElo === 'number' && Number.isFinite(p.abilityElo)) {
+    clean.abilityElo = p.abilityElo;
   }
   return clean;
 }
@@ -449,6 +453,8 @@ export function recordQuizResult(
     if (a.correct) topicAnswers[tid].correct++;
   }
 
+  const questionById = new Map(questions.map((q) => [q.id, q]));
+
   let topicProgress = data.topicProgress;
   for (const [tid, { correct, total }] of Object.entries(topicAnswers)) {
     const prog = { ...getOrCreateProgress({ ...data, topicProgress }, tid) };
@@ -462,6 +468,16 @@ export function recordQuizResult(
     const nextStage = nextStageAfterReview(quizStage, accuracy);
     prog.reviewStage = nextStage;
     prog.nextReview = reviewDateForStage(nextStage);
+
+    // Phase 2: update topic ability θ from each answer on this topic
+    let θ = getTopicAbility(prog);
+    for (const a of answers) {
+      if (questionTopicMap.get(a.questionId) !== tid) continue;
+      const qq = questionById.get(a.questionId);
+      θ = updateTopicAbility(θ, qq?.difficulty, a.correct);
+    }
+    prog.abilityElo = θ;
+
     topicProgress = { ...topicProgress, [tid]: prog };
   }
 
