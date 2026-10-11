@@ -11,6 +11,149 @@ export const topics: Topic[] = [
   // SECTION MATH-A: Number Systems & Arithmetic
   // ════════════════════════════════════════════════════════════════════
   {
+  id: "math-1-5",
+  sectionId: "MATH-01",
+  order: 5,
+  title: "Fractions: Operations, Comparison & Conversion",
+  priority: "High",
+  definition: "A fraction represents a numerical value expressed as the ratio of two integers. The numerator (top) indicates the number of parts we have, while the denominator (bottom) indicates the total number of equal parts that make up a whole.",
+  keyFacts: [
+    "Proper Fraction: Numerator < Denominator (Value < 1).",
+    "Improper Fraction: Numerator $\\geq$ Denominator (Value $\\geq$ 1).",
+    "Mixed Number: A whole number combined with a proper fraction.",
+    "Reciprocal: The result of swapping the numerator and denominator (e.g., $3/4 \\rightarrow 4/3$).",
+    "Equivalent Fractions: Different fractions that represent the same value (found by multiplying/dividing both parts by the same non-zero number).",
+    "A denominator can NEVER be zero (undefined)."
+  ],
+  explanationSections: [
+    {
+      heading: "1. Addition and Subtraction (The Common Base)",
+      body: "Unlike multiplication, you cannot add fractions with different denominators directly. You must find a Common Denominator (ideally the LCM of both). Once the bases are the same, you only add or subtract the numerators while keeping the denominator unchanged."
+    },
+    {
+      heading: "2. Multiplication and Division",
+      body: "Multiplication is the simplest operation: multiply top by top and bottom by bottom. Division, however, requires the 'Keep-Change-Flip' rule: Keep the first fraction, Change the sign to multiplication, and Flip the second fraction to its reciprocal."
+    },
+    {
+      heading: "3. The Art of Comparison",
+      body: "To determine which fraction is larger, you can either convert them to decimals or use the 'Cross-Multiplication' shortcut. To compare $a/b$ and $c/d$, calculate $ad$ and $bc$. If $ad > bc$, then $a/b > c/d$."
+    }
+  ],
+  formula: {
+    name: "Fraction Operations",
+    expression: "\\frac{a}{b} \\pm \\frac{c}{d} = \\frac{ad \\pm bc}{bd} \\quad | \\quad \\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\times \\frac{d}{c}",
+    variables: [
+      { symbol: "a, c", meaning: "Numerators" },
+      { symbol: "b, d", meaning: "Denominators ($b, d \\neq 0$)" }
+    ]
+  },
+  examPoints: [
+    "Always simplify your final answer to its 'lowest terms' by dividing by the HCF.",
+    "When dealing with Mixed Numbers in multiplication or division, ALWAYS convert them to Improper Fractions first.",
+    "Cross-multiplication is the fastest way to compare two fractions without a calculator."
+  ],
+  commonMistakes: [
+    "Adding denominators: $1/2 + 1/2 \\neq 2/4$. Correct answer is $2/2 = 1$.",
+    "Forgetting to flip the *second* fraction during division.",
+    "Simplifying across a plus sign: you can only 'cancel out' factors in multiplication, not terms in addition."
+  ],
+  comparisonTable: {
+    headers: ["Operation", "Rule", "Example Result of $1/2$ and $1/3$"],
+    rows: [
+      ["Addition", "Find Common Denom", "$3/6 + 2/6 = 5/6$"],
+      ["Subtraction", "Find Common Denom", "$3/6 - 2/6 = 1/6$"],
+      ["Multiplication", "Straight across", "$1 \\times 1 / 2 \\times 3 = 1/6$"],
+      ["Division", "Flip second and $\\times$", "$1/2 \\times 3/1 = 3/2$"]
+    ]
+  },
+  workedExample: {
+    problem: "Evaluate and simplify: $2\\frac{1}{3} \\div (\\frac{1}{2} + \\frac{1}{4})$",
+    solution: "1. Solve brackets: $\\frac{1}{2} + \\frac{1}{4} = \\frac{2}{4} + \\frac{1}{4} = \\frac{3}{4}$.\n2. Convert Mixed to Improper: $2\\frac{1}{3} = \\frac{7}{3}$.\n3. Perform Division: $\\frac{7}{3} \\div \\frac{3}{4} = \\frac{7}{3} \\times \\frac{4}{3} = \\frac{28}{9}$.\n4. Convert to Mixed (optional): $3\\frac{1}{9}$.",
+    answer: "28/9 or 3 1/9"
+  },
+  methodChooser: {
+    title: "How to Compare Two Fractions",
+    question: "Which method is best for comparing $a/b$ and $c/d$?",
+    options: [
+      {
+        condition: "The denominators are the same.",
+        answer: "Simply compare the numerators; the larger numerator is the larger fraction."
+      },
+      {
+        condition: "The fractions have different denominators and you need speed.",
+        answer: "Cross-multiply: $a \\times d$ vs $b \\times c$."
+      },
+      {
+        condition: "You have a calculator or the denominators are easy factors of 10/100.",
+        answer: "Convert both to decimals."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "Numerator is 0",
+      example: "$0/5$",
+      note: "The value is always 0."
+    },
+    {
+      case: "Denominator is 0",
+      example: "$5/0$",
+      note: "Mathematically undefined; impossible to divide a whole into zero parts."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "A larger denominator makes a larger fraction.",
+      whyStudentsThinkSo: "They associate 'larger numbers' with 'larger value'.",
+      correctModel: "The denominator is the 'divisor'. The larger the denominator, the *smaller* each individual piece becomes.",
+      remedy: "Visualize a pizza: 1/8 is a much smaller slice than 1/2."
+    }
+  ],
+  qualitativeScenarios: [
+    {
+      question: "If you keep the numerator the same but increase the denominator, what happens to the value of the fraction?",
+      answer: "The value decreases.",
+      reasoning: "You are dividing the same 'amount' into more 'pieces', so each piece is smaller."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-5-1",
+      title: "Adding with LCM",
+      summary: "Using the Least Common Multiple to equalize denominators.",
+      explanation: "To add fractions with different denominators, find the LCM of the denominators and scale both fractions to match it.",
+      examples: [
+        {
+          problem: "Add $5/6$ and $3/4$.",
+          solution: "LCM(6, 4) = 12. $5/6 = 10/12$. $3/4 = 9/12$. $10/12 + 9/12 = 19/12$.",
+          answer: "19/12"
+        }
+      ],
+      shortcuts: ["The Butterfly Method: $(ad + bc) / bd$."],
+      traps: ["Don't forget to scale the numerators when you change the denominators."]
+    },
+    {
+      id: "math-1-5-2",
+      title: "Mixed Numbers to Improper",
+      summary: "Converting between forms for calculation.",
+      explanation: "Calculation is nearly impossible with mixed numbers. Multiply the whole number by the denominator and add the numerator to get the new numerator.",
+      examples: [
+        {
+          problem: "Convert $4\\frac{2}{5}$ to an improper fraction.",
+          solution: "$(4 \\times 5) + 2 = 22$. Result: $22/5$.",
+          answer: "22/5"
+        }
+      ],
+      shortcuts: ["Think of it as a 'Clockwise' circle: Bottom $\\times$ Side $+$ Top."],
+      traps: ["Don't change the denominator; it stays the same as the original."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-1", "math-1-4"],
+  leadsTo: ["math-1-6", "math-1-7"],
+  usedIn: ["math-2-2", "phy-density", "phy-pressure-fluids"]
+},
+  {
   id: "math-1-6",
   sectionId: "MATH-01",
   order: 6,
