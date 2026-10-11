@@ -2067,8 +2067,7 @@ explanationSections: [
         ],
       },
     ],
-,
-examPoints: [
+    examPoints: [
       "Mitigation = reducing emissions (cause); Adaptation = adjusting to effects",
       "Vulnerability = Exposure + Sensitivity − Adaptive Capacity",
       "Pakistan in top 10 most climate-vulnerable countries",
