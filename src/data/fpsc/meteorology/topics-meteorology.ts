@@ -260,112 +260,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 3,
   title: "Vertical Thermal Structure of the Atmosphere",
-  definition: "Temperature does not fall steadily from the ground to space. The atmosphere is divided into layers — troposphere, stratosphere, mesosphere, and thermosphere — according to whether temperature decreases or increases with height. The boundaries are the tropopause, stratopause, and mesopause. Most weather and atmospheric mass sit in the lowest layer.",
+  definition: "Temperature does not fall steadily with height. The troposphere, stratosphere, mesosphere, and thermosphere are layered by how temperature changes with altitude, and those layers control weather, ozone, and the tropopause lid on storms.",
   keyFacts: [
-    "Troposphere (~0–11 km on average): contains most mass and almost all weather and water vapour; environmental lapse rate often near 6.5 °C/km",
-    "Tropopause height: higher in the tropics (~16–18 km) and lower toward the poles (~8 km), and higher in summer than in winter at a given latitude",
-    "Stratosphere (~11–50 km): temperature generally increases with height because ozone absorbs ultraviolet radiation",
-    "Mesosphere (~50–85 km): temperature falls again; the mesopause region is among the coldest parts of the atmosphere",
-    "Thermosphere (above ~85 km): very high kinetic temperatures are possible, but the air is extremely thin",
-    "Layer order from the surface upward: troposphere → stratosphere → mesosphere → thermosphere"
+    "Troposphere: weather layer; temperature generally decreases with height",
+    "Tropopause: lid on most deep convection; higher in tropics than polar regions",
+    "Stratosphere: temperature increases with height — ozone heating",
+    "Mesosphere: cools with height; coldest average temperatures",
+    "Thermosphere: heats with height; very thin air"
   ],
   explanationSections: [
-    {
-      heading: "Layers are thermal stories, not arbitrary labels",
-      body: "Each layer is defined by its temperature-height trend. In the troposphere, rising parcels and radiation typically yield cooling with height. In the stratosphere, ozone heating reverses that trend. In the mesosphere, cooling returns; in the thermosphere, absorption of energetic solar radiation raises molecular speeds dramatically. Memorising the order is useful only when tied to these mechanisms."
-    }
+    { heading: "Lapse sign defines the layer", body: "Know whether temperature falls or rises with height in each layer — that is the exam fingerprint." }
   ],
   subtopics: [
     {
-      id: "meteo-vertical-structure-troposphere-tropopause",
-      title: "Troposphere and tropopause",
-      summary: "The weather layer: most mass, most water, and a tropopause whose height changes with latitude and season.",
-      explanation: "The troposphere holds roughly three-quarters of the atmosphere's mass and virtually all of the water vapour that participates in clouds and precipitation. Its depth is not fixed. Strong tropical convection pushes the tropopause upward; polar winter profiles are shallower. That single geographic fact underpins many exam questions about where the highest tropopause is found.",
+      id: "meteo-vertical-structure-layer-table",
+      title: "Layer identification table",
+      summary: "T trend with height → name the layer.",
+      explanation: "Decreasing T with height in the lowest deep layer → troposphere. Increasing T above the tropopause → stratosphere (ozone absorption of UV). Decreasing again → mesosphere. Increasing at the top → thermosphere. Matching a sounding segment to a layer is a standard item.",
       examples: [
-        {
-          problem: "Where is the tropopause typically highest, and why does that matter for 'weather height'?",
-          solution: "Near the equator, especially in the warm season, the tropopause can reach about 16–18 km. Deep convection and a deeper weather-bearing layer are possible there compared with polar regions, where the tropopause may lie near 8 km.",
-          answer: "Highest in the tropics (~16–18 km); deeper tropospheric weather layer."
-        }
+        { problem: "Sounding shows T rising from 15 to 40 km — which layer?", solution: "Stratosphere.", answer: "Stratosphere" }
       ],
-      shortcuts: [
-        "Troposphere = weather + most mass",
-        "Tropopause: high tropics, low poles"
-      ],
-      traps: [
-        "Treating tropopause height as the same everywhere",
-        "Placing most weather in the stratosphere"
-      ]
+      shortcuts: ["Tropo cools upward", "Strato warms upward (ozone)", "Tropopause = lid"],
+      traps: ["Placing weather mainly in the stratosphere"]
     },
     {
-      id: "meteo-vertical-structure-stratosphere-ozone",
-      title: "Stratosphere and ozone heating",
-      summary: "Temperature rises with height because ozone absorbs UV and warms the layer.",
-      explanation: "Unlike the troposphere, the stratosphere is generally stable against deep moist convection. Ozone absorption of ultraviolet radiation provides a heat source that increases temperature toward the stratopause. The dryness and stability of this layer contrast sharply with the turbulent, weather-filled troposphere below.",
+      id: "meteo-vertical-structure-tropopause-exam",
+      title: "Tropopause height traps",
+      summary: "Higher in tropics; limits storm tops.",
+      explanation: "Tropical tropopause is typically much higher than polar tropopause. Deep thunderstorms are capped near the tropopause; overshooting tops are the exception that proves the lid. Do not quote a single global tropopause height.",
       examples: [
-        {
-          problem: "Why does temperature often increase with height in the stratosphere?",
-          solution: "Ozone absorbs incoming ultraviolet radiation and converts that energy into heat, so the thermal profile can warm upward through much of the layer.",
-          answer: "Ozone UV absorption heats the stratosphere."
-        }
+        { problem: "Is the tropopause usually higher over the equator or over the poles?", solution: "Over the equator / tropics.", answer: "Tropics" }
       ],
-      shortcuts: [
-        "Stratosphere: ozone → warm with height",
-        "Stable, dry, little weather"
-      ],
-      traps: [
-        "Applying tropospheric cooling-with-height to the whole atmosphere"
-      ]
-    },
-    {
-      id: "meteo-vertical-structure-mesosphere-thermosphere",
-      title: "Mesosphere and thermosphere",
-      summary: "Cold mesopause region above; thermosphere 'hot' in kinetic temperature but too thin to feel hot.",
-      explanation: "In the mesosphere, temperature declines again and meteors commonly burn up. The thermosphere can show extremely high temperatures based on molecular kinetic energy, yet density is so low that a physical object does not gain heat the way it would in room air. The ionosphere — important for radio — largely overlaps thermospheric altitudes and is an electrical, not purely thermal, description of the same height range.",
-      examples: [
-        {
-          problem: "How can the thermosphere be described as very hot yet not 'feel' hot to a spacecraft surface in the way a warm room does?",
-          solution: "Temperature reflects average molecular kinetic energy. In the thermosphere molecules are sparse, so the total heat energy transferred is small despite high individual speeds.",
-          answer: "High kinetic temperature, extremely low density → little heat content."
-        }
-      ],
-      shortcuts: [
-        "Mesosphere: colder upward to mesopause",
-        "Thermosphere: hot molecules, thin air"
-      ],
-      traps: [
-        "Equating thermospheric temperature with comfortable surface heat",
-        "Swapping mesosphere and thermosphere behaviour"
-      ]
+      shortcuts: ["Tropical tropopause higher", "Most weather below tropopause"],
+      traps: ["Fixed 10 km tropopause everywhere"]
     }
   ],
-  comparisonTable: {
-    title: "Thermal layers (surface upward)",
-    headers: ["Layer", "Approx. height", "Temperature trend with height", "Signature"],
-    rows: [
-      ["Troposphere", "0–~11 km (varies)", "Generally cools", "Weather; most mass"],
-      ["Stratosphere", "~11–50 km", "Generally warms", "Ozone UV heating"],
-      ["Mesosphere", "~50–85 km", "Cools", "Cold mesopause; meteors"],
-      ["Thermosphere", "~85 km upward", "Warms strongly", "Very thin; ionosphere overlap"],
-    ],
-  },
   examPoints: [
-    "Layer order: troposphere → stratosphere → mesosphere → thermosphere",
-    "Tropopause height varies with latitude and season",
-    "Stratospheric warming with height is tied to ozone",
-    "Most weather is tropospheric"
+    "Four layers by T profile",
+    "Ozone and stratosphere",
+    "Tropopause as convection lid"
   ],
   commonMistakes: [
-    "Mixing tropospheric and stratospheric temperature trends.",
-    "Thinking the tropopause is a fixed altitude worldwide.",
-    "Confusing mesosphere and thermosphere temperature behaviour.",
-    "Assuming weather is distributed evenly through all layers."
+    "Weather in stratosphere.",
+    "Ignoring latitudinal tropopause change.",
+    "Mesosphere/thermosphere swapped."
   ],
-  relatedTopics: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
+  relatedTopics: ["meteo-composition-today", "meteo-lapse-rates", "meteo-ionosphere-exosphere"],
   content: true,
-  buildsOn: ["meteo-composition-today", "phy-temperature-heat", "phy-heat-transfer-mechanisms"],
-  leadsTo: ["meteo-ionosphere-exosphere", "meteo-lapse-rates"],
-  usedIn: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-radiosondes", "meteo-thermodynamic-diagrams", "env-ozone-depletion"]
+  buildsOn: ["meteo-origin-evolution", "meteo-composition-today"],
+  leadsTo: ["meteo-lapse-rates", "meteo-ionosphere-exosphere"],
+  usedIn: ["meteo-lapse-rates", "meteo-thermodynamic-diagrams"]
 },
 
 {
@@ -699,68 +643,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 1,
   title: "Heat Transfer Mechanisms",
-  definition: "Energy moves through the Earth–atmosphere system by conduction, convection, advection, and radiation. Each mechanism has a preferred direction, medium, and role in weather. Naming the path correctly is the foundation for radiation, greenhouse, and lapse-rate topics.",
+  definition: "Heat moves by conduction, convection, advection, and radiation. Each path has a preferred medium and role in weather — naming the path correctly is a frequent exam skill.",
   keyFacts: [
-    "Conduction: molecule-to-molecule contact; air is a poor conductor — effective only in a thin surface skin",
-    "Convection: vertical motion of air parcels carrying heat (and often moisture)",
-    "Advection: horizontal transport of heat by the wind",
-    "Radiation: electromagnetic emission/absorption; the only mechanism that works through vacuum",
-    "Daytime sequence: solar radiation warms the ground → conduction into a thin air layer → mixing/convection redistributes heat aloft",
-    "Latent heat from water phase changes is a major energy pathway in storms"
+    "Conduction: molecular contact — weak in air except in a thin surface film",
+    "Convection: vertical buoyant motions",
+    "Advection: horizontal transport by wind",
+    "Radiation: electromagnetic; needs no medium",
+    "Latent heat couples moisture phase changes to the energy budget"
   ],
   explanationSections: [
-    { heading: "Four paths, one energy budget", body: "Sunshine arrives as radiation. The ground warms and shares energy by conduction into the lowest centimetres of air, by turbulent mixing and convection through the boundary layer, and by emitting its own longwave radiation. Wind then moves warm or cold air sideways as advection." }
+    { heading: "Match process to stem", body: "If air rises in thermals, say convection. If a warm air mass moves poleward, say advection. If the ground emits IR at night, say radiation." }
   ],
   subtopics: [
     {
-      id: "meteo-heat-transfer-conduction-convection",
-      title: "Conduction and convection",
-      summary: "Shallow contact heating versus vertical parcel transport.",
-      explanation: "Conduction requires molecular collisions. Because air conducts poorly, only a shallow layer is heated by pure contact with the ground. Once air rises or mixes, convection and turbulence carry heat through a much deeper layer — from fair-weather thermals to deep storms.",
+      id: "meteo-heat-transfer-match-stems",
+      title: "Stem → mechanism matching",
+      summary: "Four mechanisms, four classic setups.",
+      explanation: "Bare rock heats a thin air layer by conduction, then thermals take over by convection. Warm-air advection ahead of a warm front is horizontal. Night-time cooling under clear skies is net longwave radiation loss. Mixing these labels costs easy marks.",
       examples: [
-        { problem: "The soil is hot but air at 2 m is only moderately warm on a calm afternoon. How does heat reach the air aloft?", solution: "Conduction heats a thin contact layer; turbulent mixing and convection then share heat through the boundary layer.", answer: "Conduction then convection/mixing" }
+        { problem: "Horizontal import of warm air before a warm front — mechanism?", solution: "Advection.", answer: "Advection" }
       ],
-      shortcuts: ["Conduction = contact, shallow", "Convection = vertical transport"],
-      traps: ["Treating air as a good conductor", "Calling horizontal wind convection"]
+      shortcuts: ["Vertical buoyant → convection", "Horizontal → advection", "IR/solar → radiation"],
+      traps: ["Calling all warming radiation"]
     },
     {
-      id: "meteo-heat-transfer-advection-radiation",
-      title: "Advection and radiation",
-      summary: "Horizontal heat transport; radiation crosses space.",
-      explanation: "Advection is horizontal import/export of heat by airflow (for example warm-air advection ahead of a front). Radiation needs no medium: solar shortwave reaches Earth through space, and Earth emits longwave infrared back to space.",
+      id: "meteo-heat-transfer-night-inversion-link",
+      title: "Radiation and nocturnal inversions",
+      summary: "Clear-night IR loss cools the surface first.",
+      explanation: "The ground emits longwave efficiently. With few clouds, little IR returns downward, so the surface and the air touching it chill and can form a radiation inversion. That links heat-transfer vocabulary to inversion and fog topics.",
       examples: [
-        { problem: "Clear calm night: temperature falls sharply. Which mechanism dominates the loss?", solution: "Longwave radiative cooling of ground and near-surface air, with little mixing to replace cooled air.", answer: "Radiation (longwave cooling)" }
+        { problem: "Why does a cloudy night often stay warmer than a clear night?", solution: "Clouds return longwave radiation downward.", answer: "Downward IR from clouds" }
       ],
-      shortcuts: ["Advection = horizontal", "Radiation = no medium needed"],
-      traps: ["Using convection for horizontal warm-air advance"]
+      shortcuts: ["Clear night → strong IR loss", "Clouds → greenhouse-like blanket"],
+      traps: ["Blaming conduction through the whole troposphere for night cooling"]
     }
   ],
-  comparisonTable: {
-    title: "Heat transfer mechanisms",
-    headers: ["Mechanism", "Emphasis", "Medium?", "Role"],
-    rows: [
-      ["Conduction", "Contact", "Yes", "Thin surface layer"],
-      ["Convection", "Vertical", "Yes", "Thermals, storms"],
-      ["Advection", "Horizontal", "Yes", "Air-mass temperature change"],
-      ["Radiation", "All directions", "No", "Solar input; IR to space"]
-    ]
-  },
   examPoints: [
-    "Air is a poor conductor — conduction is shallow",
-    "Advection is horizontal; convection is vertical",
-    "Radiation alone energetically links Earth to space"
+    "Define four mechanisms",
+    "Advection vs convection",
+    "Radiation and clear-night cooling"
   ],
   commonMistakes: [
-    "Calling horizontal warm airflow convection.",
-    "Assuming sunshine heats the whole troposphere directly and equally.",
-    "Ignoring latent heat in deep convection.",
-    "Treating conduction as the main way heat rises through kilometres of air."
+    "Convection/advection swapped.",
+    "Ignoring latent heat.",
+    "Radiation requires air as a medium."
   ],
-  relatedTopics: ["meteo-radiation-laws", "meteo-scales-of-motion"],
+  relatedTopics: ["meteo-radiation-laws", "meteo-inversion-mechanics", "meteo-greenhouse-effect"],
   content: true,
-  buildsOn: ["phy-heat-transfer-equilibrium", "phy-heat-transfer-mechanisms"],
+  buildsOn: ["meteo-composition-today"],
   leadsTo: ["meteo-radiation-laws", "meteo-lapse-rates"],
-  usedIn: ["meteo-radiation-laws", "meteo-greenhouse-effect", "meteo-adiabatic-cloud-formation"]
+  usedIn: ["meteo-inversion-mechanics", "meteo-greenhouse-effect"]
 },
 
 {
@@ -948,65 +880,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-inversion-mechanics",
   sectionId: "METEO-02",
-  order: 5,
+  order: 7,
   title: "Temperature Inversions — Mechanics",
-  definition: "A temperature inversion is a layer in which temperature increases with height — opposite the usual tropospheric decline. Inversions suppress vertical mixing, trap pollutants and moisture, and shape fog, frost, and air-quality episodes.",
+  definition: "An inversion is a layer where temperature increases with height. It is strongly stable, suppresses vertical mixing, and can trap pollutants or cap convection until eroded by heating or dynamics.",
   keyFacts: [
-    "Inversion: temperature increases upward in the layer",
-    "Strong stability: rising parcels become cooler than the environment and sink back",
-    "Surface inversions often form by overnight radiative cooling",
-    "Elevated inversions can cap the mixed layer",
-    "Subsidence inversions form when air sinks and warms adiabatically aloft",
-    "Visible on soundings as layers with positive temperature slope"
+    "Temperature increases with height in the layer",
+    "Strong static stability — acts as a lid",
+    "Surface-based: common on clear nights (radiation)",
+    "Elevated: subsidence or frontal",
+    "Impacts air quality and minimum temperatures"
   ],
   explanationSections: [
-    { heading: "Why inversions act as lids", body: "Buoyancy depends on density contrast. In an inversion, a forced-up parcel is soon colder and denser than its surroundings, so restoring forces push it down." }
+    { heading: "Stable by definition", body: "Any inversion is a stable layer. The mechanics topic explains why it forms; the types topic names radiation, subsidence, frontal, and others." }
   ],
   subtopics: [
     {
-      id: "meteo-inversion-mechanics-stability",
-      title: "Definition and stability effect",
-      summary: "Warmer air above cooler air creates a strong lid.",
-      explanation: "Even a shallow inversion can stop weak thermals. Forecasting fog, frost, and smog starts with whether an inversion will form, strengthen, or burn off after sunrise.",
+      id: "meteo-inversion-mechanics-lid",
+      title: "Lid behaviour and air quality",
+      summary: "Why smog and smoke linger.",
+      explanation: "Parcels displaced upward become cooler than their warmer surroundings in an inversion and sink back. Emissions stay near the breathing level. Daytime heating or stronger winds can erode the inversion and ventilate the boundary layer.",
       examples: [
-        { problem: "Evening smoke forms a flat sheet rather than rising. Likely structure?", solution: "A surface or low-level inversion stabilises the air so emissions spread sideways under the lid.", answer: "Low-level inversion" }
+        { problem: "Why do pollutant concentrations often peak under a night-time surface inversion?", solution: "Vertical mixing is suppressed; emissions accumulate.", answer: "Trapped by stable lid" }
       ],
-      shortcuts: ["Inversion = T increases with z", "Inversion = stable lid"],
-      traps: ["Calling any cold night an inversion without a height gradient"]
+      shortcuts: ["Inversion = lid", "Erode by heat/wind"],
+      traps: ["Thinking inversions enhance mixing"]
     },
     {
-      id: "meteo-inversion-mechanics-formation",
-      title: "How inversions form",
-      summary: "Radiation, advection, and subsidence build different lids.",
-      explanation: "Clear calm nights favour radiative surface inversions. Warm air over a cold surface can build an advection inversion. Large-scale sinking warms air aloft and creates subsidence inversions under highs.",
+      id: "meteo-inversion-mechanics-vs-types",
+      title: "Mechanics vs named types",
+      summary: "How it works vs how it is classified.",
+      explanation: "Use this topic for stability and trapping logic. Use Inversion Types for radiation vs subsidence vs frontal formation paths. Do not memorise two conflicting definitions of 'inversion' — both share temperature increasing with height.",
       examples: [
-        { problem: "Why do clear calm nights favour surface inversions?", solution: "Strong ground IR cooling without mixing lets the lowest air become colder than air above.", answer: "Radiative cooling + weak mixing" }
+        { problem: "Clear calm night surface cooling — mechanism that starts a surface inversion?", solution: "Radiative cooling of the ground.", answer: "Radiation / surface IR loss" }
       ],
-      shortcuts: ["Clear+calm → nocturnal surface inversion", "Sinking → subsidence inversion"],
-      traps: ["One cause for all inversions"]
+      shortcuts: ["Mechanics = stability/trapping", "Types = formation path"],
+      traps: ["Listing every type without the stability meaning"]
     }
   ],
-  comparisonTable: {
-    title: "Usual troposphere vs inversion",
-    headers: ["Feature", "Usual", "Inversion"],
-    rows: [
-      ["T with height", "Decreases", "Increases"],
-      ["Mixing", "Often active by day", "Suppressed"],
-      ["Pollutants", "More dispersion", "Often trapped"]
-    ]
-  },
-  examPoints: ["Inversion = T increases with height", "Inversions cap vertical motion", "Radiation and subsidence are common causes"],
-  commonMistakes: [
-    "Defining inversion as merely cold air without height structure.",
-    "Assuming inversions exist only at the tropopause.",
-    "Ignoring calm clear nights as a setup.",
-    "Thinking pollutants always rise through inversions."
+  examPoints: [
+    "Definition: T increases with height",
+    "Suppresses mixing",
+    "Air-quality link"
   ],
-  relatedTopics: ["meteo-inversion-types", "meteo-lapse-rates", "meteo-static-stability"],
+  commonMistakes: [
+    "Inversion = unstable.",
+    "Ignoring pollutant trapping.",
+    "Confusing with isothermal layers only."
+  ],
+  relatedTopics: ["meteo-inversion-types", "meteo-static-stability", "meteo-fog-types"],
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-heat-transfer"],
-  leadsTo: ["meteo-inversion-types", "meteo-static-stability"],
-  usedIn: ["meteo-fog-types", "env-air-pollution", "meteo-thermodynamic-diagrams"]
+  leadsTo: ["meteo-inversion-types", "meteo-fog-types"],
+  usedIn: ["meteo-inversion-types", "meteo-static-stability"]
 },
 
 {
@@ -1207,146 +1132,115 @@ export const topics: Topic[] = [
 {
   id: "meteo-gas-law",
   sectionId: "METEO-02",
-  order: 9,
+  order: 5,
   title: "Ideal Gas Law for the Atmosphere",
-  definition: "Dry air is treated as an ideal gas: p = ρ R_d T, with R_d ≈ 287 J kg⁻¹ K⁻¹. The law links pressure, density, and absolute temperature — the state variables behind hydrostatics, thickness, and many moisture calculations.",
+  definition: "Dry air is treated as an ideal gas: p = ρ R_d T. The law links pressure, density, and temperature and underpins the hypsometric and hydrostatic reasoning used on charts.",
   keyFacts: [
-    "p = ρ R_d T with R_d ≈ 287 J kg⁻¹ K⁻¹ for dry air",
+    "p = ρ R_d T with R_d ≈ 287 J kg⁻¹ K⁻¹",
     "At fixed pressure, colder air is denser",
-    "At fixed temperature, higher pressure means higher density",
-    "Virtual temperature accounts for moisture when higher accuracy is needed",
-    "Temperature must be in kelvin",
-    "Gas law + hydrostatic balance → hypsometric (thickness) relation"
+    "Virtual temperature adjusts for moisture in precise work",
+    "SI coherence: Pa, kg m⁻³, kelvin",
+    "Basis for thickness and density arguments"
   ],
   explanationSections: [
-    { heading: "Three variables, one constraint", body: "Pressure, density, and temperature are not independent for an ideal gas. Specify two and the third follows. That is why cold columns are shallow and pressure falls differently with height in warm versus cold air." }
+    { heading: "Hold one variable, reason about others", body: "Most MCQs fix pressure or temperature and ask how density changes." }
   ],
   subtopics: [
     {
-      id: "meteo-gas-law-form-units",
-      title: "Form, constant, and units",
-      summary: "p = ρ R_d T; R_d ≈ 287 J kg⁻¹ K⁻¹; T in kelvin.",
-      explanation: "Using Celsius is a standard failure mode. Keep SI coherence: Pa, kg m⁻³, kelvin. Moisture makes air slightly less dense than dry air at the same T and p — virtual temperature handles that bookkeeping.",
+      id: "meteo-gas-law-density-reason",
+      title: "Density reasoning drills",
+      summary: "Cold dense, warm light at the same p.",
+      explanation: "From p = ρ R T, if p is fixed, ρ varies inversely with T. Cold air masses are denser and often linked to higher surface pressure in simple arguments. Moisture complicates slightly (virtual temperature), but the cold–dense intuition remains the exam workhorse.",
       examples: [
-        { problem: "Dry air at 1.0×10⁵ Pa and 290 K: density if R_d = 287?", solution: "ρ = p/(R_d T) = 1e5/(287×290) ≈ 1.20 kg m⁻³.", answer: "≈ 1.20 kg m⁻³" }
+        { problem: "Same pressure, air cooled — density increases or decreases?", solution: "Increases.", answer: "Increases" }
       ],
-      shortcuts: ["ρ = p/(R_d T)", "T in kelvin"],
-      traps: ["Using °C inside the gas law"]
+      shortcuts: ["p fixed → ρ ∝ 1/T", "Cold → dense"],
+      traps: ["Using °C in the formula without converting toward kelvin for absolute work"]
     },
     {
-      id: "meteo-gas-law-density-intuition",
-      title: "Density intuition for weather",
-      summary: "Same pressure: colder → denser; foundation for thickness.",
-      explanation: "At a given pressure level, lower temperature means higher density. Cold air masses associate with lower thicknesses between pressure surfaces once hydrostatic balance is imposed.",
+      id: "meteo-gas-law-units",
+      title: "Units that break answers",
+      summary: "Pa not hPa inside the SI form without conversion.",
+      explanation: "If R_d is in J kg⁻¹ K⁻¹, pressure must be in Pa (N m⁻²). Using hPa without converting by 100 produces densities off by a factor of 100. Always check unit coherence before computing.",
       examples: [
-        { problem: "Same pressure; sample A colder than B. Which is denser?", solution: "ρ = p/(RT) — smaller T gives larger ρ. Sample A.", answer: "Colder sample A" }
+        { problem: "p given as 1000 hPa for SI density with R_d = 287 — convert how?", solution: "Use 100000 Pa.", answer: "×100 → Pa" }
       ],
-      shortcuts: ["Same p: colder → denser", "Feeds hypsometric thinking"],
-      traps: ["Comparing density without controlling pressure"]
+      shortcuts: ["hPa × 100 = Pa", "T in kelvin"],
+      traps: ["Plugging hPa directly into SI formula"]
     }
   ],
-  formula: {
-    name: "Ideal gas law (dry air)",
-    expression: "p = \\rho R_d T \\qquad R_d = 287\\,\\mathrm{J\\,kg^{-1}K^{-1}}",
-    variables: [
-      { symbol: "p", meaning: "pressure (Pa)" },
-      { symbol: "ρ", meaning: "density (kg m⁻³)" },
-      { symbol: "T", meaning: "absolute temperature (K)" },
-      { symbol: "R_d", meaning: "dry-air gas constant ≈ 287 J kg⁻¹ K⁻¹" }
-    ]
-  },
-  examPoints: ["p = ρ R_d T with T in kelvin", "R_d ≈ 287 J kg⁻¹ K⁻¹", "Colder air denser at same pressure"],
-  commonMistakes: [
-    "Using Celsius in the gas law.",
-    "Ignoring density when discussing pressure systems.",
-    "Skipping moisture/virtual temperature when precision is required.",
-    "Mixing dry-air and vapour gas constants."
+  examPoints: [
+    "p = ρ R_d T",
+    "Cold air denser at fixed p",
+    "Unit coherence"
   ],
-  relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion", "meteo-moisture-metrics"],
+  commonMistakes: [
+    "hPa in SI formula.",
+    "Celsius as absolute T.",
+    "Ignoring density–temperature link."
+  ],
+  relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion"],
   content: true,
-  buildsOn: ["phy-kinetic-theory", "phy-states-of-matter", "math-2-3"],
-  leadsTo: ["meteo-hydrostatic-equation", "meteo-moisture-metrics"],
-  usedIn: ["meteo-hydrostatic-equation", "meteo-moisture-metrics", "meteo-humidity-calc"]
+  buildsOn: ["phy-gas-laws", "math-1-7"],
+  leadsTo: ["meteo-hydrostatic-equation", "meteo-pressure-conversion"],
+  usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments"]
 },
 
 {
   id: "meteo-hydrostatic-equation",
   sectionId: "METEO-02",
-  order: 10,
+  order: 6,
   title: "Hydrostatic Equation",
-  definition: "In hydrostatic balance the upward pressure-gradient force cancels the weight of air: dp/dz = −ρ g. The approximation is excellent for large-scale motions and underpins the hypsometric equation, thickness patterns, and reduction of station pressure to sea level.",
+  definition: "In hydrostatic balance, the upward pressure-gradient force on a slab of air equals its weight. Locally, ∂p/∂z = −ρg. Integrated forms give the hypsometric relation between layer thickness and mean temperature.",
   keyFacts: [
-    "dp/dz = −ρ g — pressure falls with height at a rate set by density",
-    "Dense (cold) columns: pressure drops faster with height",
-    "Hypsometric thickness: ΔZ = (R_d T̄_v / g) ln(p₁/p₂)",
-    "Warm layers are thicker; cold layers are thinner between the same pressures",
-    "Strong vertical accelerations in deep convection can locally violate pure hydrostatic balance",
-    "Constant-pressure charts rely on this framework"
+    "∂p/∂z = −ρg",
+    "Pressure falls faster with height in cold, dense air",
+    "Thickness ΔZ larger in warm layers between two pressure surfaces",
+    "Excellent approximation for large-scale motion",
+    "Breaks down in strong vertical accelerations (deep convection cores)"
   ],
   explanationSections: [
-    { heading: "Balance, then thickness", body: "Hydrostatic balance is a vertical force statement. Combine it with the gas law and you obtain thickness — how tall a column is between two isobars. That is why 500 hPa heights rise in warm ridges and fall in cold troughs." }
+    { heading: "From force balance to thickness", body: "Hydrostatic balance explains why 1000–500 hPa thickness is a warm-air indicator on upper charts." }
   ],
   subtopics: [
     {
-      id: "meteo-hydrostatic-equation-balance",
-      title: "Hydrostatic balance",
-      summary: "Vertical pressure gradient supports the weight of the air.",
-      explanation: "If pressure did not decrease upward, the weight of the air would be unbalanced. On synoptic scales the observed decrease matches that requirement closely.",
+      id: "meteo-hydrostatic-equation-thickness",
+      title: "Thickness and mean temperature",
+      summary: "Warm column → greater thickness between pressure surfaces.",
+      explanation: "Between two fixed pressures, a warmer column is taller (larger ΔZ). That is why thickness charts diagnose thermal waves and why height of a pressure surface rises in warm air. Cold troughs have lower heights.",
       examples: [
-        { problem: "Why does pressure decrease with altitude in a hydrostatic atmosphere?", solution: "Each layer supports the weight above it. Higher up, less mass remains overhead, so pressure is lower: dp/dz = −ρ g.", answer: "Less mass overhead; dp/dz = −ρ g" }
+        { problem: "1000–500 hPa thickness increases — column mean temperature?", solution: "Warmer.", answer: "Warmer" }
       ],
-      shortcuts: ["dp/dz = −ρ g", "Large-scale vertical balance"],
-      traps: ["Pure hydrostatic thinking inside violent thunderstorm updrafts"]
+      shortcuts: ["Warm → thick", "Cold → shallow column"],
+      traps: ["Thinking surface pressure alone fixes thickness"]
     },
     {
-      id: "meteo-hydrostatic-equation-thickness",
-      title: "Thickness and the hypsometric equation",
-      summary: "Warm columns expand; cold columns shrink between pressure surfaces.",
-      explanation: "Thickness between two pressure levels increases with mean virtual temperature of the layer. Higher mean T → greater thickness → higher heights on upper-air charts in warm air.",
+      id: "meteo-hydrostatic-equation-when-not",
+      title: "When hydrostatic fails",
+      summary: "Strong vertical accelerations.",
+      explanation: "In ordinary large-scale weather the vertical acceleration is tiny compared with gravity, so hydrostatic balance holds. Inside intense updrafts or wave breaking, non-hydrostatic effects matter — but for FPSC-scale chart reasoning, hydrostatic is the default.",
       examples: [
-        { problem: "Between 1000 and 500 hPa, which is thicker: warm tropical or cold polar column?", solution: "Warm tropical — thickness rises with mean virtual temperature.", answer: "Warm tropical column" }
+        { problem: "Is hydrostatic balance the usual assumption on 500 hPa analyses?", solution: "Yes.", answer: "Yes" }
       ],
-      shortcuts: ["Warm → thick; cold → thin", "Thickness ↔ mean T_v"],
-      traps: ["Thinking cold air is thicker between the same pressures"]
+      shortcuts: ["Large-scale → hydrostatic OK", "Violent updrafts → caution"],
+      traps: ["Saying pressure does not change with height"]
     }
   ],
-  formula: {
-    name: "Hydrostatic and hypsometric equations",
-    expression: "\\frac{dp}{dz} = -\\rho g \\qquad \\Delta Z = \\frac{R_d \\overline{T_v}}{g}\\ln\\left(\\frac{p_1}{p_2}\\right)",
-    variables: [
-      { symbol: "ΔZ", meaning: "geopotential thickness of the layer (m)" },
-      { symbol: "T_v", meaning: "mean virtual temperature of the layer (K)" },
-      { symbol: "p1, p2", meaning: "pressures at bottom and top (p1 > p2)" },
-      { symbol: "g", meaning: "gravity" }
-    ]
-  },
-  workedExample: [
-    {
-      problem: "Approximate the pressure drop over Δz = 100 m in air of density 1.2 kg/m³ (g = 9.8 m/s²).",
-      solution: "Δp ≈ −ρ g Δz = −1.2 × 9.8 × 100 ≈ −1176 Pa ≈ −12 hPa.",
-      answer: "≈ −12 hPa over 100 m"
-    }
+  examPoints: [
+    "Write ∂p/∂z = −ρg",
+    "Thickness–temperature link",
+    "Large-scale validity"
   ],
-  comparisonTable: {
-    title: "Thermal structure and thickness",
-    headers: ["Column", "Mean T", "1000–500 hPa thickness"],
-    rows: [
-      ["Warm ridge", "High", "Large (high heights)"],
-      ["Cold trough", "Low", "Small (low heights)"]
-    ]
-  },
-  examPoints: ["dp/dz = −ρ g", "Warm layers thicker", "Hypsometric links thickness to mean T_v", "Hydrostatic ≈ large-scale"],
   commonMistakes: [
-    "Reversing warm-thick / cold-thin.",
-    "Omitting virtual temperature when moisture is emphasised.",
-    "Treating hydrostatic balance as exact in non-hydrostatic cores.",
-    "Confusing station elevation effects with thermal thickness."
+    "No link to thickness charts.",
+    "Sign error in dp/dz.",
+    "Rejecting hydrostatic for all weather."
   ],
-  relatedTopics: ["meteo-gas-law", "meteo-pressure-conversion", "meteo-upper-air-charts", "meteo-vertical-structure"],
+  relatedTopics: ["meteo-gas-law", "meteo-upper-air-charts", "meteo-pressure-conversion"],
   content: true,
-  buildsOn: ["meteo-gas-law", "phy-pressure-fluids", "phy-gravity-weight-friction"],
-  leadsTo: ["meteo-forces-governing-wind", "meteo-upper-air-charts"],
-  usedIn: ["meteo-upper-air-charts", "meteo-pressure-conversion", "meteo-radiosondes"]
+  buildsOn: ["meteo-gas-law"],
+  leadsTo: ["meteo-upper-air-charts", "meteo-pressure-conversion"],
+  usedIn: ["meteo-upper-air-charts", "meteo-geostrophic-qual"]
 },
 
 // ============================= SECTION C =============================
@@ -1356,78 +1250,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 1,
   title: "Forces Governing Wind Formation",
-  definition: "Wind is horizontal air motion driven primarily by horizontal pressure differences and shaped by the Coriolis effect, friction near the surface, and — when flow is curved — centripetal requirements. Reading a weather map means reading the balance among these forces.",
+  definition: "Horizontal wind arises from the balance and imbalance of the pressure-gradient force, Coriolis force, friction, and (on curved paths) centripetal requirements. Start with PGF; then add Coriolis and friction for surface flow.",
   keyFacts: [
-    "Pressure-gradient force (PGF) acts from high toward low pressure, perpendicular to isobars; stronger gradient → stronger force",
-    "Coriolis deflects moving air (right in NH, left in SH) with magnitude growing with wind speed and latitude",
-    "Friction near the surface slows the wind and turns it across isobars toward low pressure",
-    "Above the friction layer, large-scale flow often approaches geostrophic or gradient balance",
-    "Standard sea-level pressure reference is often 1013.25 hPa",
-    "Newton’s second law organises the force list: acceleration responds to the net force per unit mass"
+    "PGF: high → low pressure, perpendicular to isobars",
+    "Coriolis: deflects moving air (right in NH, left in SH); cannot start wind by itself",
+    "Friction: slows wind; allows cross-isobar flow toward low at the surface",
+    "Geostrophic: PGF balances Coriolis (frictionless, straight)",
+    "Gradient: adds curvature"
   ],
   explanationSections: [
-    { heading: "Start with PGF, then add the rest", body: "Without a pressure gradient there is no large-scale wind. Coriolis does not create motion; it deflects motion that already exists. Friction matters in the lowest kilometre or so. Centripetal terms matter when isobars are strongly curved." }
+    { heading: "Build the balances in order", body: "PGF starts acceleration toward low. Coriolis turns the flow. Friction slows and tilts the balance inward at the surface." }
   ],
   subtopics: [
     {
-      id: "meteo-forces-governing-wind-pgf",
-      title: "Pressure-gradient force",
-      summary: "From high to low, perpendicular to isobars; strength set by Δp/distance.",
-      explanation: "Closely packed isobars mean a large horizontal pressure gradient and a strong PGF. Widely spaced isobars mean weaker forcing. On a surface chart the PGF points toward lower pressure at right angles to the isobar field.",
+      id: "meteo-forces-governing-wind-surface-vs-upper",
+      title: "Surface vs upper-air force balance",
+      summary: "Friction makes surface winds cross isobars.",
+      explanation: "Aloft, near-geostrophic or gradient flow runs nearly parallel to isobars/height contours. In the friction layer, slower wind means weaker Coriolis, so PGF wins a cross-isobar component toward low pressure — the reason surface winds spiral into lows.",
       examples: [
-        { problem: "Two maps have the same latitude and elevation. Map A has isobars much closer than Map B. Where is the PGF stronger?", solution: "Map A — smaller distance for a given pressure change means a larger gradient and stronger PGF.", answer: "Map A (tighter isobars)" }
+        { problem: "Why do surface winds blow somewhat across isobars into a low?", solution: "Friction reduces speed → Coriolis weakens → net component toward low.", answer: "Friction / ageostrophic inflow" }
       ],
-      shortcuts: ["PGF: high → low, ⊥ isobars", "Tight isobars → strong wind potential"],
-      traps: ["Drawing PGF parallel to isobars"]
+      shortcuts: ["Upper ≈ parallel", "Surface → cross toward low"],
+      traps: ["Drawing surface winds purely parallel to isobars"]
     },
     {
-      id: "meteo-forces-governing-wind-coriolis-friction",
-      title: "Coriolis and friction",
-      summary: "Deflection aloft; cross-isobar flow near the ground.",
-      explanation: "In the free atmosphere Coriolis becomes comparable to PGF for synoptic flows, enabling geostrophic balance. Near the surface, friction slows the wind, weakens Coriolis (which depends on speed), and leaves a residual component of flow toward low pressure — why surface winds spiral into lows.",
+      id: "meteo-forces-governing-wind-pgf-first",
+      title: "PGF is the starter",
+      summary: "No pressure difference, no large-scale wind engine.",
+      explanation: "Coriolis acts only on air already moving. A map with no pressure gradient has no large-scale PGF-driven wind. Tight isobars mean strong PGF and, in balance, strong winds.",
       examples: [
-        { problem: "Why do surface winds cross isobars toward a low while upper winds are more nearly parallel?", solution: "Friction reduces speed near the ground, so Coriolis weakens and cannot fully balance PGF; air flows partly toward low pressure.", answer: "Friction → cross-isobar component into lows" }
+        { problem: "Can Coriolis create wind in still air over a flat pressure field?", solution: "No — nothing to deflect.", answer: "No" }
       ],
-      shortcuts: ["Aloft: near-balance possible", "Surface: friction → into low / out of high"],
-      traps: ["Saying Coriolis starts the wind without PGF"]
+      shortcuts: ["PGF starts", "Coriolis deflects", "Tight isobars → strong PGF"],
+      traps: ["Coriolis as a force that pushes air from rest toward low"]
     }
   ],
-  formula: {
-    name: "Coriolis Force",
-    expression: "CF = 2 × m × V × Ω × sin(φ)",
-    variables: [
-      { symbol: "m", meaning: "mass" },
-      { symbol: "V", meaning: "speed" },
-      { symbol: "Ω", meaning: "Earth rotation rate" },
-      { symbol: "φ", meaning: "latitude" }
-    ]
-  },
-  comparisonTable: {
-    title: "Force roles",
-    headers: ["Force", "Direction emphasis", "When critical"],
-    rows: [
-      ["PGF", "High → low, ⊥ isobars", "Always for large-scale wind"],
-      ["Coriolis", "⊥ velocity (NH right)", "Synoptic/planetary"],
-      ["Friction", "Opposes velocity", "Planetary boundary layer"],
-      ["Centripetal (curved)", "Toward curve centre", "Gradient wind, vortices"]
-    ]
-  },
   examPoints: [
-    "PGF from high to low, perpendicular to isobars",
-    "Coriolis deflects; does not create wind alone",
-    "Friction turns surface flow across isobars toward low pressure"
+    "Role of each force",
+    "Surface cross-isobar flow",
+    "PGF direction"
   ],
   commonMistakes: [
-    "Reversing PGF direction.",
-    "Ignoring friction in surface wind direction.",
-    "Applying geostrophy inside the friction layer without care.",
-    "Forgetting latitude dependence of Coriolis."
+    "Coriolis starts wind.",
+    "No friction difference surface vs upper.",
+    "PGF along isobars."
   ],
-  relatedTopics: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-coriolis-effect", "meteo-jet-stream"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-coriolis-effect", "meteo-gradient-wind"],
   content: true,
-  buildsOn: ["meteo-coriolis-effect", "meteo-hydrostatic-equation", "phy-newtons-laws", "phy-vector-operations"],
+  buildsOn: ["meteo-coriolis-effect", "meteo-gas-law"],
   leadsTo: ["meteo-geostrophic-wind", "meteo-gradient-wind"],
-  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-jet-stream", "meteo-geostrophic-qual"]
+  usedIn: ["meteo-geostrophic-wind", "meteo-isobar-analysis"]
 },
 
 {
@@ -1625,78 +1497,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 5,
   title: "Local & Seasonal Wind Systems",
-  definition: "Local and seasonal winds arise from differential heating of surfaces — land versus sea, mountain versus valley — and from larger seasonal pressure changes. They are mesoscale or regional rather than planetary, yet they dominate daily weather in many Pakistani and South Asian settings.",
+  definition: "Local winds respond to diurnal heating and terrain; seasonal regional winds respond to larger land–sea or pressure contrasts. Sea/land breezes, mountain/valley winds, foehn/chinook, and named regional winds are the core set.",
   keyFacts: [
-    "Sea breeze: day — land hotter → lower pressure over land → wind from sea to land",
-    "Land breeze: night — land cooler → wind from land to sea",
-    "Valley breeze: day — upslope flow; mountain breeze: night — downslope drainage",
-    "Seasonal winds reverse with the annual heating cycle (monsoon is the regional extreme)",
-    "Local winds modify humidity, temperature, and convection timing along coasts and slopes",
-    "Coriolis is secondary for small, short-lived breezes but matters for larger seasonal systems"
+    "Sea breeze: day, onshore; land breeze: night, offshore",
+    "Valley wind upslope by day; mountain wind downslope by night",
+    "Foehn/chinook: warm dry lee-side descent after moisture loss windward",
+    "Monsoon is seasonal regional — covered in its own topics",
+    "Scale is mesoscale to regional — not synoptic cyclones"
   ],
   explanationSections: [
-    { heading: "Differential heating first", body: "Whenever two adjacent surfaces heat unequally, pressure adjusts and air flows from the cooler, higher-pressure side toward the warmer, lower-pressure side near the surface, with return flow aloft. Scale that idea from a coastline to a continent and you move from sea breezes toward monsoon." }
+    { heading: "Diurnal vs seasonal", body: "If the stem mentions afternoon coastlines, think sea breeze. If it mentions winter lee warming, think foehn." }
   ],
   subtopics: [
     {
-      id: "meteo-local-seasonal-winds-land-sea",
-      title: "Land and sea breezes",
-      summary: "Diurnal reversal along coasts from land–sea temperature contrast.",
-      explanation: "Water has a high heat capacity, so the sea warms and cools slowly compared with land. By day the land is warmer and draws a sea breeze; by night the land cools more and a land breeze develops. Timing of coastal convection often follows this clock.",
+      id: "meteo-local-seasonal-winds-breeze-pair",
+      title: "Sea/land and mountain/valley pairs",
+      summary: "Day up/onshore; night down/offshore.",
+      explanation: "By day, land heats faster than water so pressure falls over land and a sea breeze flows onshore. By night the reverse land breeze can occur. Along slopes, daytime heating drives upslope valley winds; night-time cooling drives downslope mountain winds. Timing is the exam key.",
       examples: [
-        { problem: "On a sunny afternoon at the coast, surface wind is usually from which direction relative to the sea?", solution: "From sea toward land — sea breeze driven by hotter land and lower pressure over land.", answer: "Sea breeze (sea → land)" }
+        { problem: "Afternoon onshore wind at a sunny coast — name?", solution: "Sea breeze.", answer: "Sea breeze" }
       ],
-      shortcuts: ["Day: sea → land", "Night: land → sea"],
-      traps: ["Reversing day/night breeze directions"]
+      shortcuts: ["Day: sea breeze / upslope", "Night: land breeze / downslope"],
+      traps: ["Sea breeze at midnight as the default"]
     },
     {
-      id: "meteo-local-seasonal-winds-mountain-valley",
-      title: "Mountain and valley breezes",
-      summary: "Upslope by day, drainage by night.",
-      explanation: "Sun-facing slopes heat and generate upslope (valley) flow by day. At night, radiative cooling produces denser air that drains downslope (mountain breeze), pooling cold air in basins — important for frost and winter fog in valleys.",
+      id: "meteo-local-seasonal-winds-foehn-skill",
+      title: "Foehn/chinook diagnosis",
+      summary: "Windward rain, lee warm dry.",
+      explanation: "Moist air rises and precipitates on the windward side; descending lee air warms at the dry adiabatic rate and arrives warmer and drier. A sharp temperature jump with drying and gusty downslope flow is the classic signature.",
       examples: [
-        { problem: "Why do mountain valleys often become colder at night than adjacent slopes?", solution: "Cold dense air drains downslope and pools in the valley under light winds.", answer: "Nocturnal cold-air drainage" }
+        { problem: "Leeward station warms and dries rapidly as downslope winds arrive after windward rain — process?", solution: "Foehn/chinook-type warming.", answer: "Foehn / chinook" }
       ],
-      shortcuts: ["Day upslope", "Night downslope / cold pools"],
-      traps: ["Ignoring topography when forecasting night minima"]
-    }
-  ,
-    {
-      id: "meteo-local-seasonal-winds-foehn-katabatic",
-      title: "Foehn/chinook and katabatic winds",
-      summary: "Warm dry lee descent versus cold downslope drainage.",
-      explanation: "Foehn (chinook) winds warm and dry by descent on the lee of mountains after moisture is stripped windward — sudden temperature rises are classic. Katabatic winds are cold, dense air draining downslope, especially at night or off ice sheets. Both are terrain-locked and distinct from the large-scale monsoon.",
-      examples: [
-        { problem: "A sudden warm, dry wind on the lee side of a range after rain on the windward side — most likely type?", solution: "Foehn / chinook-type descending wind.", answer: "Foehn (chinook)" }
-      ],
-      shortcuts: ["Foehn = warm dry lee", "Katabatic = cold downslope"],
-      traps: ["Calling every downslope wind a monsoon"]
+      shortcuts: ["Windward wet", "Lee warm dry"],
+      traps: ["Lee cooling as the expected foehn outcome"]
     }
   ],
-  comparisonTable: {
-    title: "Local wind couples",
-    headers: ["Day", "Night"],
-    rows: [
-      ["Sea breeze (sea → land)", "Land breeze (land → sea)"],
-      ["Valley / upslope breeze", "Mountain / downslope breeze"]
-    ]
-  },
   examPoints: [
-    "Sea breeze by day; land breeze by night",
-    "Driven by differential heating",
-    "Valley cold pools from nocturnal drainage"
+    "Sea/land breeze timing",
+    "Mountain/valley winds",
+    "Foehn mechanism"
   ],
   commonMistakes: [
-    "Reversing land/sea breeze timing.",
-    "Treating local breezes as synoptic jets.",
-    "Ignoring coastal timing of thunderstorms.",
-    "Forgetting cold-air drainage in valleys."
+    "Wrong time of day for breezes.",
+    "Foehn = cold wet lee.",
+    "Calling local breezes synoptic cyclones."
   ],
-  relatedTopics: ["meteo-monsoon-system", "meteo-coriolis-effect"],
+  relatedTopics: ["meteo-orographic-rainshadow", "meteo-monsoon-system", "meteo-heat-transfer"],
   content: true,
-  buildsOn: ["meteo-forces-governing-wind", "meteo-heat-transfer"],
-  leadsTo: ["meteo-monsoon-system"],
-  usedIn: ["meteo-monsoon-system", "meteo-arabian-sea-cyclones-local"]
+  buildsOn: ["meteo-heat-transfer", "meteo-forces-governing-wind"],
+  leadsTo: ["meteo-orographic-rainshadow", "meteo-monsoon-system"],
+  usedIn: ["meteo-orographic-rainshadow"]
 },
 
 {
@@ -1818,66 +1668,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 8,
   title: "Rossby Waves (Planetary Waves)",
-  definition: "Rossby waves are large-scale meanders of the mid-latitude westerly flow, spanning thousands of kilometres. Their troughs and ridges organise surface cyclones and anticyclones and explain much of week-to-week weather pattern change in the extratropics.",
+  definition: "Rossby waves are large-scale meanders of the mid-latitude westerly flow arising from the conservation of potential vorticity and the variation of Coriolis with latitude. They organise troughs and ridges that steer weather systems.",
   keyFacts: [
-    "Planetary-scale waves on the jet stream / westerly belt",
-    "Troughs: southward dips of the height contours — favour cyclonic activity",
-    "Ridges: northward bulges — favour quieter, often warmer patterns in the NH mid-latitudes",
-    "Wavelengths of thousands of kilometres; periods of days to weeks",
-    "Steering influence on surface storm tracks",
-    "Blocking patterns occur when amplified waves become quasi-stationary"
+    "Planetary-scale waves in the westerlies",
+    "Troughs and ridges alternate downstream",
+    "Steering influence on surface cyclones",
+    "Linked to jet-stream meanders",
+    "Longer waves move more slowly"
   ],
   explanationSections: [
-    { heading: "Meanders, not straight belts", body: "The three-cell model’s westerlies are zonally averaged. Instantaneously the flow buckles into Rossby waves. Downstream of upper troughs, divergence aloft often supports surface lows; under strong ridges, settled weather is more likely." }
+    { heading: "Waves, not random wiggles", body: "A 500 hPa chart with a sequence of troughs and ridges is the practical face of Rossby-wave flow." }
   ],
   subtopics: [
     {
-      id: "meteo-rossby-waves-structure",
-      title: "Troughs and ridges",
-      summary: "Wave geometry on upper-level charts.",
-      explanation: "On a 500 hPa chart, a trough is a southward meander of height contours; a ridge is a northward meander. Surface cyclones preferentially develop and track in relation to upper troughs, while ridges support high pressure and suppressed storminess.",
+      id: "meteo-rossby-waves-steering",
+      title: "Steering and surface weather",
+      summary: "Downstream of upper troughs, surface lows often deepen.",
+      explanation: "Upper-level troughs favour divergence and ascent ahead of the trough axis in standard conceptual models, supporting surface cyclogenesis. Ridges favour more settled weather. Matching surface storm tracks to the upper wave pattern is the applied skill.",
       examples: [
-        { problem: "An amplified upper trough digs over the North Atlantic. What surface response is favoured downstream of the trough axis in the standard coupling?", solution: "Enhanced cyclonic development / storminess related to upper-level divergence patterns ahead of the trough.", answer: "Surface cyclogenesis / storm track support" }
+        { problem: "Surface cyclone under a building upper ridge — favoured to deepen or weaken?", solution: "More often weaken / less favourable than under a trough-exit pattern.", answer: "Weaken / less favoured" }
       ],
-      shortcuts: ["Trough → cyclonic support", "Ridge → quieter/warmer (typical NH)"],
-      traps: ["Reading trough/ridge only on surface charts without upper context"]
+      shortcuts: ["Trough aloft ↔ active weather risk", "Ridge aloft ↔ quieter"],
+      traps: ["Ignoring upper pattern when forecasting surface lows"]
     },
     {
-      id: "meteo-rossby-waves-blocking",
-      title: "Slow waves and blocking",
-      summary: "When waves stall, weather regimes persist.",
-      explanation: "If a ridge–trough pattern becomes quasi-stationary, regions can experience prolonged heat, drought, cold, or rain — blocking. Exam questions link persistent extremes to stagnant planetary-wave patterns as well as to local factors.",
+      id: "meteo-rossby-waves-scale",
+      title: "Planetary scale identity",
+      summary: "Not a sea breeze or a tornado.",
+      explanation: "Rossby waves span thousands of kilometres and evolve over days. They are the macroscale backbone on which synoptic cyclones ride. Confusing them with mesoscale waves or local winds misses the point of the topic.",
       examples: [
-        { problem: "A region stays under the same upper ridge for two weeks with heat and little rain. What wave behaviour is implicated?", solution: "A quasi-stationary amplified ridge — a blocking-type pattern.", answer: "Blocking / stationary ridge" }
+        { problem: "Is a Rossby wave a mesoscale thunderstorm feature?", solution: "No — planetary/synoptic–global scale.", answer: "No" }
       ],
-      shortcuts: ["Stationary waves → persistent weather", "Blocking = stuck pattern"],
-      traps: ["Attributing all extremes only to local breezes"]
+      shortcuts: ["Planetary meander", "Jet stream partner"],
+      traps: ["Rossby wave = local mountain wave only"]
     }
   ],
-  comparisonTable: {
-    title: "Upper-wave features",
-    headers: ["Feature", "Contour shape (NH)", "Typical surface link"],
-    rows: [
-      ["Trough", "Southward dip", "Cyclones / unsettled"],
-      ["Ridge", "Northward bulge", "Highs / quieter"]
-    ]
-  },
   examPoints: [
-    "Rossby waves = planetary meanders of westerlies",
-    "Troughs and ridges organise surface weather",
-    "Blocking = quasi-stationary amplified pattern"
+    "Planetary waves in westerlies",
+    "Trough/ridge steering",
+    "Scale distinction"
   ],
   commonMistakes: [
-    "Confusing Rossby waves with ocean waves or sound waves.",
-    "Ignoring upper-level pattern when explaining persistent weather.",
-    "Treating the jet as always zonal with no meanders.",
-    "Mixing tropical cyclone scales with planetary waves."
+    "Wrong scale.",
+    "No link to surface cyclones.",
+    "Confusing with ocean Rossby waves only."
   ],
-  relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development"],
   content: true,
-  buildsOn: ["meteo-global-circulation", "meteo-jet-stream"],
-  leadsTo: ["meteo-cyclones-development"],
-  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances", "meteo-nao-ao"]
+  buildsOn: ["meteo-global-circulation", "meteo-coriolis-effect"],
+  leadsTo: ["meteo-cyclones-development", "meteo-jet-stream"],
+  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"]
 },
 
 {
@@ -2240,67 +2080,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 6,
   title: "Precipitation Processes",
-  definition: "Precipitation reaches the ground when hydrometeors grow and fall through the cloud and unsaturated air below without fully evaporating. The governing processes are the warm-rain coalescence path, ice-phase growth, and melting or freezing during fall. Vertical motion, moisture, and temperature profile decide intensity and type.",
+  definition: "Precipitation reaches the ground after cloud particles grow by warm-cloud coalescence and/or cold-cloud ice processes, then fall without fully evaporating. This topic connects microphysics to rainfall at the surface.",
   keyFacts: [
-    "Requires growth beyond cloud-droplet size and a path to the surface",
-    "Virga: precipitation that evaporates before reaching the ground",
-    "Strong updrafts can suspend growing particles (hail growth)",
-    "Evaporation below cloud base cools and can intensify downdrafts",
-    "Efficiency depends on cloud thickness, liquid/ice content, and drop size spectrum",
-    "Orographic lift and convergent lift organise where processes operate most vigorously"
+    "Growth must overcome evaporation in unsaturated air below cloud",
+    "Warm path: collision–coalescence",
+    "Cold path: ice processes including Bergeron",
+    "Virga: precipitation that evaporates before reaching ground",
+    "Seeder-feeder can enhance orographic rain"
   ],
   explanationSections: [
-    { heading: "Grow, fall, survive", body: "Microphysics grows the particle; dynamics keep it in the cloud or drop it out; the sub-cloud layer decides whether it arrives as rain, snow, or nothing (virga). Linking those three is the process view of precipitation." }
+    { heading: "From cloud to gauge", body: "Microphysics grows the particles; the sub-cloud layer decides whether they survive to the surface." }
   ],
   subtopics: [
     {
-      id: "meteo-precipitation-processes-growth-fallout",
-      title: "Growth and fallout",
-      summary: "Particles must grow and overcome updrafts.",
-      explanation: "In stratiform clouds, steady gentle ascent grows particles that drift down. In convective clouds, strong updrafts recycle particles through growth regions until they are heavy enough to fall — or until the updraft collapses.",
+      id: "meteo-precipitation-processes-paths",
+      title: "Warm vs cold paths in practice",
+      summary: "Which path dominates is climate-dependent.",
+      explanation: "Deep tropical warm clouds can rain via coalescence alone. Mid-latitude systems often involve ice aloft even when surface precipitation is rain after melting. Knowing both paths prevents false 'rain means no ice processes' claims.",
       examples: [
-        { problem: "What is virga?", solution: "Precipitation falling from a cloud that evaporates before reaching the ground.", answer: "Precipitation not reaching the surface" }
+        { problem: "Can surface rain have begun as snow aloft?", solution: "Yes — melting below the 0 °C level.", answer: "Yes" }
       ],
-      shortcuts: ["Virga = evaporates aloft", "Updraft vs fall speed"],
-      traps: ["Assuming all cloud particles reach the ground"]
+      shortcuts: ["Warm = coalescence", "Cold = ice involvement", "Melt → rain"],
+      traps: ["Surface rain proves the whole column was liquid-only"]
     },
     {
-      id: "meteo-precipitation-processes-subcloud",
-      title: "Sub-cloud modification",
-      summary: "Melting, freezing, and evaporation reshape what hits the surface.",
-      explanation: "A deep warm layer melts snow to rain. A cold layer near the ground can refreeze drops into ice pellets. Dry sub-cloud air evaporates rain and chills the air, strengthening downdrafts and outflow boundaries.",
+      id: "meteo-precipitation-processes-virga",
+      title: "Virga and dry air below",
+      summary: "Not all fall streaks reach the gauge.",
+      explanation: "When sub-cloud air is dry, falling particles evaporate — virga. Radar may show precipitation aloft while the surface stays dry. That matters for desert and high-base cloud situations.",
       examples: [
-        { problem: "Snow falls but a deep layer above freezing exists near the surface. Likely surface precipitation?", solution: "Rain — snow melts on the way down.", answer: "Rain (melted snow)" }
+        { problem: "Radar echo aloft, dry surface, visible fall streaks evaporating — term?", solution: "Virga.", answer: "Virga" }
       ],
-      shortcuts: ["Warm layer melts snow", "Dry air → evaporation / virga"],
-      traps: ["Ignoring temperature profile between cloud and ground"]
+      shortcuts: ["Dry sub-cloud → virga risk"],
+      traps: ["Radar echo always equals surface rain"]
     }
   ],
-  comparisonTable: {
-    title: "Process checklist",
-    headers: ["Step", "Question"],
-    rows: [
-      ["Growth", "Coalescence or ice process?"],
-      ["Fallout", "Fall speed > updraft?"],
-      ["Below cloud", "Melt, freeze, or evaporate?"]
-    ]
-  },
   examPoints: [
-    "Precipitation needs growth + fall + survival",
-    "Virga evaporates before ground",
-    "Temperature profile controls rain vs snow vs ice pellets"
+    "Coalescence vs ice paths",
+    "Melting to rain",
+    "Virga"
   ],
   commonMistakes: [
-    "Stopping the story at cloud formation.",
-    "Ignoring sub-cloud temperature.",
-    "Assuming heavy cloud always means heavy surface rain.",
-    "Confusing process with precipitation type names."
+    "One path only worldwide.",
+    "Ignoring evaporation below cloud.",
+    "Radar = surface rain always."
   ],
-  relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-orographic-rainshadow"],
+  relatedTopics: ["meteo-droplet-microphysics", "meteo-precipitation-types", "meteo-remote-sensing"],
   content: true,
-  buildsOn: ["meteo-droplet-microphysics"],
-  leadsTo: ["meteo-precipitation-types", "meteo-orographic-rainshadow"],
-  usedIn: ["meteo-precipitation-types", "meteo-orographic-rainshadow", "meteo-thunderstorms"]
+  buildsOn: ["meteo-droplet-microphysics", "meteo-cloud-classification"],
+  leadsTo: ["meteo-precipitation-types"],
+  usedIn: ["meteo-precipitation-types", "meteo-remote-sensing"]
 },
 
 {
@@ -2365,70 +2194,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 8,
   title: "Orographic Precipitation & Rain Shadow",
-  definition: "When moist air is forced over mountains it cools adiabatically, often forming cloud and precipitation on the windward side. Downstream, air descends, warms, and dries, creating a rain shadow on the leeward side. Orography is a primary control on Pakistan’s rainfall gradients from monsoon and western-disturbance flows.",
+  definition: "When moist air is forced over a mountain barrier it cools adiabatically and can precipitate on the windward side. Descending lee air warms and dries, creating a rain shadow.",
   keyFacts: [
-    "Windward: ascent → cooling → condensation → heavier precipitation",
-    "Leeward: descent → warming → lower RH → rain shadow",
-    "Height, steepness, and moisture flux control intensity",
-    "Same mountain can be wet or dry depending on wind direction",
-    "Classic rain shadows appear leeward of major ranges worldwide",
-    "Orographic lift can extract moisture even without large-scale storms"
+    "Windward: ascent, cooling, higher precipitation likelihood",
+    "Leeward: descent, warming, drying — rain shadow",
+    "Barrier height and moisture flux control the contrast",
+    "Classic on western Ghats, Himalaya, Sierra Nevada, etc.",
+    "Links to foehn warming on the lee"
   ],
   explanationSections: [
-    { heading: "Up one side, down the other", body: "Terrain converts horizontal wind into vertical motion. The windward slope is a forced lifting condensation machine; the lee slope is a drying machine. Always ask which way the moist flow is approaching the barrier." }
+    { heading: "One air stream, two climates", body: "The same flow can support a wet windward station and a dry lee station a short distance away." }
   ],
   subtopics: [
     {
-      id: "meteo-orographic-rainshadow-windward",
-      title: "Windward enhancement",
-      summary: "Forced ascent intensifies cloud and rain.",
-      explanation: "Moist flow hitting a barrier rises, may reach the LCL quickly, and can produce persistent rain or snow on windward slopes. Stable air may produce layered cloud; unstable air can trigger embedded convection.",
+      id: "meteo-orographic-rainshadow-sides",
+      title: "Windward vs leeward checklist",
+      summary: "Ascent vs descent outcomes.",
+      explanation: "Windward slopes intercept moisture through forced ascent. Lee slopes see compressed, warmed air with lower relative humidity. Map questions ask which side is wetter given a prevailing wind.",
       examples: [
-        { problem: "Moist monsoon flow approaches a mountain range. Where is rainfall maximised, all else equal?", solution: "On the windward slopes where forced ascent is strongest.", answer: "Windward side" }
+        { problem: "Prevailing moist westerlies hit a north–south range — which side is usually wetter?", solution: "Western (windward) side.", answer: "Windward / west" }
       ],
-      shortcuts: ["Windward = wetter", "Forced lift = orographic rain"],
-      traps: ["Assuming mountains always increase rain on both sides"]
+      shortcuts: ["Up → wet", "Down → dry shadow"],
+      traps: ["Always wetter on the east side regardless of wind"]
     },
     {
-      id: "meteo-orographic-rainshadow-lee",
-      title: "Leeward rain shadow",
-      summary: "Descent warms and dries the air.",
-      explanation: "After moisture is stripped windward, lee descent raises temperature and lowers relative humidity. The result is a drier climate in the shadow — a geographic pattern exams love to test with sketch maps.",
+      id: "meteo-orographic-rainshadow-foehn-link",
+      title: "Link to foehn",
+      summary: "Rain shadow often accompanies lee warming.",
+      explanation: "After windward condensation removes water, lee descent produces the warm dry foehn/chinook signature. Rain-shadow aridity and foehn warming are partners, not unrelated curiosities.",
       examples: [
-        { problem: "Why can leeward regions remain dry even when windward slopes are soaked?", solution: "Air loses moisture on ascent and then warms on descent, so RH falls and condensation is suppressed.", answer: "Dried then warmed by descent" }
+        { problem: "Does lee foehn air typically arrive more moist or drier than before ascent?", solution: "Drier after windward precipitation.", answer: "Drier" }
       ],
-      shortcuts: ["Leeward = rain shadow", "Descent → warm → dry"],
-      traps: ["Ignoring wind direction relative to the range"]
+      shortcuts: ["Windward precip → lee dry warm"],
+      traps: ["Lee always colder because of altitude only"]
     }
   ],
-  comparisonTable: {
-    title: "Windward vs leeward",
-    headers: ["Side", "Vertical motion", "Moisture outcome"],
-    rows: [
-      ["Windward", "Ascent", "Cloud / precipitation"],
-      ["Leeward", "Descent", "Drying / rain shadow"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Orography shapes monsoon and WD rainfall across northern/western highlands",
-    "Wind direction relative to ranges matters as much as season name"
-  ],
   examPoints: [
-    "Windward wet, leeward dry",
-    "Mechanism is adiabatic ascent/descent",
-    "Barrier orientation relative to flow is critical"
+    "Windward precipitation",
+    "Rain-shadow dryness",
+    "Foehn connection"
   ],
   commonMistakes: [
-    "Putting rain shadows on the windward side.",
-    "Ignoring flow direction.",
-    "Treating orographic rain as independent of moisture supply.",
-    "Forgetting descent warming on the lee."
+    "Wrong wet side.",
+    "Ignoring wind direction.",
+    "No link to foehn."
   ],
-  relatedTopics: ["meteo-precipitation-processes", "meteo-global-precip-patterns", "meteo-monsoon-system"],
+  relatedTopics: ["meteo-local-seasonal-winds", "meteo-adiabatic-cloud-formation", "meteo-global-precip-patterns"],
   content: true,
-  buildsOn: ["meteo-precipitation-processes", "meteo-adiabatic-cloud-formation"],
+  buildsOn: ["meteo-adiabatic-cloud-formation", "meteo-local-seasonal-winds"],
   leadsTo: ["meteo-global-precip-patterns"],
-  usedIn: ["meteo-temp-rainfall-distribution", "meteo-pakistan-macroclimate"]
+  usedIn: ["meteo-global-precip-patterns", "meteo-temp-rainfall-distribution"]
 },
 
 {
@@ -3204,66 +3019,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-06",
   order: 5,
   title: "Upper-Air Soundings — Radiosondes & Rawinsondes",
-  definition: "A radiosonde is a balloon-borne instrument package that measures pressure, temperature, and humidity while transmitting data to the ground. When winds are also derived (e.g. by tracking), the system is often called a rawinsonde. Soundings are the backbone of upper-air analysis and NWP initialisation.",
+  definition: "A radiosonde is a balloon-borne instrument package that measures temperature, humidity, and pressure while ascending; winds are obtained by tracking (rawinsonde). Soundings are the backbone of stability and upper-air analysis.",
   keyFacts: [
-    "Measures PTU: pressure, temperature, humidity with height",
-    "Balloon ascent samples the vertical profile twice daily at many stations (00 and 12 UTC tradition)",
-    "Winds from GPS or radar/radio tracking of the balloon path",
-    "Data plotted on thermodynamic diagrams (skew-T, tephigram)",
-    "Critical for jet, inversion, and stability diagnosis",
-    "Spatial network is sparse compared with surface stations — each launch is high value"
+    "Measures T, RH (or humidity), pressure vs height",
+    "Winds from tracking the balloon",
+    "Standard launch times often 00 and 12 UTC",
+    "Plotted on thermodynamic diagrams",
+    "Critical for aviation and NWP assimilation"
   ],
   explanationSections: [
-    { heading: "A vertical transect through the weather", body: "Surface stations see one level. The radiosonde reveals lids, dry layers, freezing levels, and wind shear that decide thunderstorm mode and aviation hazards." }
+    { heading: "Point measurements along a path", body: "A sounding is a vertical profile at one place and time — not a horizontal map." }
   ],
   subtopics: [
     {
-      id: "meteo-radiosondes-measurements",
-      title: "What is measured",
-      summary: "PTU profile plus winds when tracked.",
-      explanation: "Pressure provides the vertical coordinate; temperature and humidity define stability and cloud layers; wind profiles show shear. Modern GPS sondes streamline wind finding compared with older optical tracking.",
+      id: "meteo-radiosondes-what-it-measures",
+      title: "What the package actually returns",
+      summary: "T, humidity, p; winds from tracking.",
+      explanation: "Temperature and humidity sensors sample the environment as pressure falls with height. Wind is not a thermometer reading — it comes from successive horizontal positions of the balloon. Mixing these facts is a common MCQ trap.",
       examples: [
-        { problem: "Which quantities are essential to plot a basic thermodynamic diagram sounding?", solution: "Temperature and dew point (or humidity) versus pressure; winds optional for the thermo plot itself.", answer: "T and moisture vs pressure" }
+        { problem: "Does the radiosonde thermometer directly measure wind speed?", solution: "No — winds come from tracking.", answer: "No" }
       ],
-      shortcuts: ["PTU core", "Winds from tracking/GPS"],
-      traps: ["Thinking radiosondes only measure surface weather"]
+      shortcuts: ["Sensors → T, RH, p", "Tracking → wind"],
+      traps: ["Wind measured by a cup anemometer on the sonde as standard"]
     },
     {
       id: "meteo-radiosondes-use",
-      title: "Uses in forecasting and models",
-      summary: "Diagrams, aviation, NWP assimilation.",
-      explanation: "Forecasters inspect soundings for CAPE, CIN, freezing level, and jet structure. Numerical models assimilate sonde data to constrain the three-dimensional analysis. Upper-air charts are built from the network of launches.",
+      title: "Why soundings matter",
+      summary: "Stability, icing, NWP, aviation.",
+      explanation: "CAPE/CIN, inversion layers, freezing levels, and jet-level winds are diagnosed from soundings. Models assimilate them; forecasters and pilots use them for convection and icing risk. Satellite data complements but does not fully replace in-situ profiles.",
       examples: [
-        { problem: "Why are radiosonde times often standardised near 00 and 12 UTC?", solution: "So a global network samples the atmosphere in a coordinated snapshot for analysis and model initialisation.", answer: "Coordinated global analysis times" }
+        { problem: "Best routine tool for a vertical temperature inversion profile at a station?", solution: "Radiosonde sounding.", answer: "Radiosonde" }
       ],
-      shortcuts: ["Sounding → skew-T", "Network → NWP"],
-      traps: ["Ignoring upper-air data when forecasting convection"]
+      shortcuts: ["Sounding → profile truth", "Diagrams plot sondes"],
+      traps: ["Surface METAR replaces upper-air soundings"]
     }
   ],
-  comparisonTable: {
-    title: "Surface vs upper-air observing",
-    headers: ["System", "Vertical coverage"],
-    rows: [
-      ["Surface station", "Near-ground only"],
-      ["Radiosonde", "Profile to mid/upper stratosphere typically"]
-    ]
-  },
   examPoints: [
-    "Radiosonde measures PTU with height",
-    "Rawinsonde includes winds",
-    "Feeds diagrams, charts, and models"
+    "Quantities measured",
+    "Wind from tracking",
+    "Role in forecasting"
   ],
   commonMistakes: [
-    "Confusing radiosonde with weather radar.",
-    "Thinking one sonde represents an entire continent in detail.",
-    "Ignoring shear from wind profiles.",
-    "Mixing radiosonde with satellite-only profiles without noting differences."
+    "Wind by thermometer.",
+    "Sounding = horizontal map.",
+    "Ignoring standard times."
   ],
-  relatedTopics: ["meteo-pressure-instruments", "meteo-humidity-instruments", "meteo-vertical-structure", "meteo-nwp-models"],
+  relatedTopics: ["meteo-thermodynamic-diagrams", "meteo-static-stability", "meteo-nwp-models"],
   content: true,
-  buildsOn: ["meteo-pressure-instruments", "meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-vertical-structure"],
-  leadsTo: ["meteo-thermodynamic-diagrams", "meteo-upper-air-charts"],
-  usedIn: ["meteo-thermodynamic-diagrams", "meteo-upper-air-charts", "meteo-nwp-models"]
+  buildsOn: ["meteo-temperature-instruments", "meteo-humidity-instruments"],
+  leadsTo: ["meteo-thermodynamic-diagrams", "meteo-nwp-models"],
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc"]
 },
 
 {
@@ -3339,66 +3144,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-06",
   order: 7,
   title: "Remote Sensing — Weather Radar & Satellite Imaging",
-  definition: "Remote sensing observes the atmosphere at a distance. Weather radars emit microwaves and interpret returned energy from precipitation particles. Meteorological satellites measure visible, infrared, and water-vapour radiances to map clouds, moisture, and derived winds. Together they fill gaps between sparse in-situ stations.",
+  definition: "Radar and satellites observe weather at a distance. Radar is active microwave sensing of precipitation targets; satellites provide visible and infrared (and other) imagery of clouds and surface fields day and night depending on channel.",
   keyFacts: [
-    "Radar reflectivity relates to precipitation intensity (with limitations)",
-    "Doppler radar measures radial velocity — useful for rotation and wind structure",
-    "Visible satellite: sunlight reflected — daytime cloud detail",
-    "Infrared satellite: cloud-top temperature — day and night",
-    "Water-vapour channels: mid/upper tropospheric moisture patterns",
-    "Radar is local and precipitation-focused; satellites are wide-area and cloud/moisture-focused"
+    "Radar: reflectivity related to precipitation intensity; Doppler for velocity",
+    "Visible satellite needs sunlight",
+    "Infrared works day and night via emitted thermal radiation",
+    "Geostationary vs polar-orbiting platforms",
+    "Complements, does not erase, surface and upper-air in-situ data"
   ],
   explanationSections: [
-    { heading: "Active vs passive eyes", body: "Radar is active: it sends a pulse and listens. Satellites are largely passive: they record radiation emitted or reflected by Earth and clouds. Each has blind spots — radar overshoots light drizzle at long range; IR cannot see through thick cloud to the surface." }
+    { heading: "Active vs passive", body: "Radar sends a pulse and listens; many satellite channels listen to emitted or reflected radiation." }
   ],
   subtopics: [
     {
-      id: "meteo-remote-sensing-radar",
-      title: "Weather radar",
-      summary: "Reflectivity and Doppler radial velocity.",
-      explanation: "Returned power depends on particle size and number; bright returns often mean heavier precip, but hail and bright-band melting layers complicate interpretation. Doppler shifts reveal motion toward or away from the radar — a key tornado and outflow diagnostic.",
+      id: "meteo-remote-sensing-vis-ir",
+      title: "Visible vs infrared choice",
+      summary: "Night → IR; texture/shadows → visible by day.",
+      explanation: "Visible imagery is excellent for cloud texture in daylight but goes dark at night. Infrared senses temperature of cloud tops or surface and works 24 hours. Thick high clouds look cold (bright in typical IR display conventions).",
       examples: [
-        { problem: "What does Doppler radar add beyond plain reflectivity?", solution: "Radial velocity — the component of motion toward or away from the radar.", answer: "Radial wind / rotation cues" }
+        { problem: "Which channel remains useful at 02:00 local time for cloud monitoring?", solution: "Infrared.", answer: "Infrared" }
       ],
-      shortcuts: ["Reflectivity ↔ precip intensity (approx)", "Doppler ↔ motion"],
-      traps: ["Treating reflectivity as exact rain gauge rates always"]
+      shortcuts: ["Night → IR", "Day texture → visible"],
+      traps: ["Visible imagery at night"]
     },
     {
-      id: "meteo-remote-sensing-satellite",
-      title: "Satellite imagery",
-      summary: "Visible, IR, and water-vapour channels.",
-      explanation: "Visible imagery needs sunlight and shows texture well. IR works at night by sensing thermal emission — cold tops often mean high clouds. Water-vapour imagery highlights dry and moist plumes useful for jet and trough diagnosis.",
+      id: "meteo-remote-sensing-radar-limits",
+      title: "Radar strengths and limits",
+      summary: "Great for precip location; not a surface rain gauge everywhere.",
+      explanation: "Reflectivity correlates with precipitation but depends on drop size and target type. Bright banding, overshooting, and beam geometry create interpretation issues. Doppler adds velocity and severe-storm clues (including TVS) but still needs human context.",
       examples: [
-        { problem: "Which channel works equally well at night for cloud-top mapping?", solution: "Infrared — it senses emitted thermal radiation, not reflected sunlight.", answer: "Infrared" }
+        { problem: "Does strong reflectivity always equal heavy rain at the gauge under the beam?", solution: "Not always — drop size, hail, and beam height matter.", answer: "Not always" }
       ],
-      shortcuts: ["Visible = daytime detail", "IR = day/night tops", "WV = moisture aloft"],
-      traps: ["Using visible imagery at night"]
+      shortcuts: ["Radar = structure + intensity proxy", "Doppler = motion"],
+      traps: ["Radar replaces all gauges permanently"]
     }
   ],
-  comparisonTable: {
-    title: "Radar vs satellite",
-    headers: ["System", "Strength"],
-    rows: [
-      ["Radar", "Precipitation structure, Doppler motion"],
-      ["Satellite", "Wide coverage, cloud/moisture patterns"]
-    ]
-  },
   examPoints: [
-    "Radar active; satellite largely passive",
-    "Doppler gives radial velocity",
-    "Visible vs IR capabilities"
+    "Visible vs IR",
+    "Radar reflectivity idea",
+    "Day/night capability"
   ],
   commonMistakes: [
-    "Equating all bright radar returns with equal rain at the ground.",
-    "Expecting visible images at night.",
-    "Ignoring radar range limitations.",
-    "Confusing weather radar with radiosondes."
+    "Visible at night.",
+    "IR needs sunlight.",
+    "Radar = exact gauge."
   ],
-  relatedTopics: ["meteo-radiosondes", "meteo-ground-aviation-instruments", "meteo-station-model", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-radiosondes", "meteo-aviation-products", "meteo-tornadoes"],
   content: true,
-  buildsOn: ["phy-electromagnetic-induction", "phy-lenses-mirrors-em-spectrum", "meteo-radiation-laws"],
-  leadsTo: ["meteo-nwp-models"],
-  usedIn: ["meteo-nwp-models", "meteo-thunderstorms", "meteo-tropical-cyclones"]
+  buildsOn: ["meteo-radiation-laws"],
+  leadsTo: ["meteo-aviation-products", "meteo-forecasting-methods"],
+  usedIn: ["meteo-tornadoes", "meteo-aviation-products"]
 },
 
 {
@@ -3475,69 +3270,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-06",
   order: 9,
   title: "Aviation Weather Products (METAR, SPECI, TAF, SIGMET, AIRMET)",
-  definition: "Aviation weather products encode observations and forecasts in standard formats for pilots and controllers. METAR and SPECI report current conditions; TAF forecasts terminal conditions; SIGMET and AIRMET warn of significant en-route hazards at different severity thresholds.",
+  definition: "Aviation uses coded observations and forecasts: METAR/SPECI for current conditions, TAF for aerodrome forecasts, and SIGMET/AIRMET for hazards. Decoding the product type is the first exam skill.",
   keyFacts: [
-    "METAR: routine aviation weather report (typically hourly)",
-    "SPECI: special report when conditions change across defined thresholds",
-    "TAF: terminal aerodrome forecast for a time window",
-    "SIGMET: significant meteorological hazards (e.g. severe turbulence, severe icing, tropical cyclones)",
-    "AIRMET: less severe but still important en-route hazards for smaller aircraft primarily",
-    "Codes are standardised internationally so crews can decode anywhere"
+    "METAR: routine observation",
+    "SPECI: special observation when thresholds crossed",
+    "TAF: terminal aerodrome forecast",
+    "SIGMET: significant en-route hazards",
+    "Visibility, wind, weather, and cloud are core elements"
   ],
   explanationSections: [
-    { heading: "Observe, forecast, warn", body: "METAR/SPECI answer ‘what is it now?’ TAF answers ‘what is expected at the aerodrome?’ SIGMET/AIRMET answer ‘what hazards exist on the route?’ Learning the product hierarchy prevents mixing a forecast with an observation." }
+    { heading: "Product before details", body: "Know whether you are reading an observation or a forecast before decoding groups." }
   ],
   subtopics: [
     {
-      id: "meteo-aviation-products-metar-taf",
-      title: "METAR, SPECI, and TAF",
-      summary: "Observations versus terminal forecasts.",
-      explanation: "A METAR bundles wind, visibility, weather, sky condition, temperature/dew point, and altimeter setting in a fixed order. SPECI interrupts the hourly cycle when criteria are met. TAF projects those elements forward with change groups.",
+      id: "meteo-aviation-products-types",
+      title: "Match product to purpose",
+      summary: "Obs vs forecast vs hazard.",
+      explanation: "METAR/SPECI report what is happening now (or just did). TAF states expected conditions at an aerodrome for a period. SIGMET warns of significant hazards to aircraft (thunderstorms, severe turbulence, volcanic ash, etc.). Confusing TAF with METAR is a classic error.",
       examples: [
-        { problem: "Is a TAF an observation or a forecast?", solution: "A forecast of expected terminal conditions over a stated period.", answer: "Forecast" }
+        { problem: "Coded current weather at an airport — METAR or TAF?", solution: "METAR (or SPECI).", answer: "METAR/SPECI" }
       ],
-      shortcuts: ["METAR/SPECI = now", "TAF = forecast"],
-      traps: ["Treating TAF as a METAR"]
+      shortcuts: ["METAR = now", "TAF = forecast", "SIGMET = hazard"],
+      traps: ["TAF as an observation"]
     },
     {
-      id: "meteo-aviation-products-sigmet-airmet",
-      title: "SIGMET and AIRMET",
-      summary: "En-route hazard warnings at different severity levels.",
-      explanation: "SIGMETs cover severe phenomena that can affect all aircraft — severe turbulence, severe icing, duststorms, volcanic ash, tropical cyclones. AIRMETs cover moderate hazards more relevant to lighter aircraft — moderate turbulence, moderate icing, mountain obscuration, etc., depending on national practice.",
+      id: "meteo-aviation-products-thresholds",
+      title: "Why SPECI exists",
+      summary: "Threshold crossings trigger specials.",
+      explanation: "When visibility, weather, or wind crosses operational thresholds, a SPECI is issued rather than waiting for the next routine METAR hour. That keeps aviation users updated on rapid changes such as fog onset.",
       examples: [
-        { problem: "Which product warns of a tropical cyclone hazard for aviation?", solution: "SIGMET (among other possible notices), not a routine METAR alone.", answer: "SIGMET" }
+        { problem: "Visibility suddenly falls below a threshold between METARs — product?", solution: "SPECI.", answer: "SPECI" }
       ],
-      shortcuts: ["SIGMET = significant/severe", "AIRMET = moderate en-route"],
-      traps: ["Using AIRMET and SIGMET interchangeably"]
+      shortcuts: ["Rapid change → SPECI"],
+      traps: ["Only one METAR per day ever"]
     }
   ],
-  comparisonTable: {
-    title: "Aviation product roles",
-    headers: ["Product", "Role"],
-    rows: [
-      ["METAR", "Routine observation"],
-      ["SPECI", "Special observation"],
-      ["TAF", "Terminal forecast"],
-      ["SIGMET", "Significant en-route hazard"],
-      ["AIRMET", "Moderate en-route hazard"]
-    ]
-  },
   examPoints: [
-    "METAR vs TAF = observation vs forecast",
-    "SPECI for significant changes",
-    "SIGMET more severe than AIRMET"
+    "METAR vs TAF",
+    "SPECI purpose",
+    "SIGMET role"
   ],
   commonMistakes: [
-    "Confusing METAR with TAF.",
-    "Ignoring SPECI triggers.",
-    "Swapping SIGMET and AIRMET severity.",
-    "Reading aviation codes without the time validity window."
+    "TAF = observation.",
+    "SIGMET = routine METAR.",
+    "Ignoring SPECI triggers."
   ],
-  relatedTopics: ["meteo-ground-aviation-instruments", "meteo-remote-sensing", "meteo-stevenson-screen", "meteo-wind-instruments"],
+  relatedTopics: ["meteo-station-model", "meteo-remote-sensing", "meteo-fog-types"],
   content: true,
-  buildsOn: ["meteo-ground-aviation-instruments", "meteo-station-model", "meteo-air-masses-fronts"],
+  buildsOn: ["meteo-station-model", "meteo-wind-instruments"],
   leadsTo: [],
-  usedIn: ["meteo-pmd-operational", "meteo-station-model"]
+  usedIn: ["meteo-fog-types", "meteo-thunderstorms"]
 },
   
 // ============================= SECTION G: Climate Classification & Global/Regional Climate =============================
@@ -3901,70 +3683,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-climate-feedbacks",
   sectionId: "METEO-08",
-  order: 3,
+  order: 4,
   title: "Climate Feedback Mechanisms",
-  definition: "A climate feedback is a process that amplifies (positive) or dampens (negative) an initial temperature change. Ice–albedo, water-vapour, lapse-rate, cloud, and carbon-cycle feedbacks determine how strongly the climate system responds to radiative forcing.",
+  definition: "Feedbacks amplify or damp climate perturbations. Positive feedbacks reinforce the initial change; negative feedbacks oppose it. Water vapour, ice-albedo, and certain cloud responses are central examples in greenhouse warming discussions.",
   keyFacts: [
-    "Positive feedback amplifies; negative feedback stabilises",
-    "Ice–albedo: warming melts ice → darker surface → more absorption → more warming",
-    "Water-vapour: warmer air holds more vapour → stronger greenhouse → more warming (positive)",
-    "Some cloud changes can warm or cool depending on type and altitude — still a major uncertainty",
-    "Planck response (hotter planet radiates more) is a fundamental negative feedback",
-    "Feedbacks act on top of external forcings (GHG, volcanoes, orbit, solar)"
+    "Positive feedback amplifies; negative stabilises",
+    "Water-vapour feedback: warmer → more vapour → more greenhouse trapping",
+    "Ice-albedo: melt → darker surface → more absorption → more warming",
+    "Cloud feedbacks are complex and a major uncertainty",
+    "Feedbacks act on top of external forcings"
   ],
   explanationSections: [
-    { heading: "Forcing starts; feedbacks shape the gain", body: "Doubling CO₂ provides a forcing. The final warming depends on whether the system amplifies that push through vapour and ice changes or offsets it through radiation to space and other effects." }
+    { heading: "Forcing vs feedback", body: "CO₂ increase is a forcing; water-vapour increase in response is a feedback." }
   ],
   subtopics: [
     {
-      id: "meteo-climate-feedbacks-positive",
-      title: "Positive feedbacks",
-      summary: "Ice–albedo and water vapour as classic amplifiers.",
-      explanation: "Melting reflective ice exposes darker land or ocean, increasing absorbed solar energy. Warming also raises atmospheric water vapour, a powerful greenhouse gas, further warming the surface — as long as other processes do not fully offset it.",
+      id: "meteo-climate-feedbacks-sign",
+      title: "Sign of the feedback",
+      summary: "Does the response reinforce or oppose?",
+      explanation: "Ask what the initial change does to a process, then whether that process pushes temperature further in the same direction. Ice melt lowering albedo is positive. A pure longwave cooling increase with temperature (Planck response) is a stabilising negative feedback often treated separately in budgets.",
       examples: [
-        { problem: "Why is ice–albedo called a positive feedback?", solution: "Initial warming causes ice loss that increases absorption and produces additional warming — amplification.", answer: "Amplifies the initial change" }
+        { problem: "Warming melts ice, albedo falls, more solar absorbed — feedback sign?", solution: "Positive.", answer: "Positive" }
       ],
-      shortcuts: ["Positive = amplifies", "Ice melt → lower albedo → more heat in"],
-      traps: ["Thinking positive feedback means ‘good for society’"]
+      shortcuts: ["Same direction → positive", "Opposes → negative"],
+      traps: ["Positive feedback means 'good news'"]
     },
     {
-      id: "meteo-climate-feedbacks-negative-cloud",
-      title: "Negative feedbacks and cloud uncertainty",
-      summary: "Hotter Earth radiates more; clouds cut both ways.",
-      explanation: "The Stefan–Boltzmann response is a key negative feedback: higher temperature increases outgoing longwave radiation. Clouds can cool (reflect sunlight) or warm (trap infrared); their net feedback remains a central research and exam nuance.",
+      id: "meteo-climate-feedbacks-not-forcing",
+      title: "Do not confuse with forcing",
+      summary: "Feedback needs an initial perturbation.",
+      explanation: "Radiative forcing measures the external push (e.g. GHG concentration change). Feedbacks are climate system responses that alter the final temperature change. Mixing the terms muddles IPCC-style questions.",
       examples: [
-        { problem: "Name a fundamental negative feedback involving thermal radiation.", solution: "Planck feedback — warmer surfaces emit more longwave energy to space.", answer: "Planck / T⁴ radiation response" }
+        { problem: "Is ice-albedo a primary external forcing like a volcanic aerosol pulse?", solution: "No — it is a feedback to temperature change.", answer: "No — feedback" }
       ],
-      shortcuts: ["Hotter → more OLR (negative)", "Clouds: sign can vary"],
-      traps: ["Assuming all feedbacks are positive"]
+      shortcuts: ["Forcing = external push", "Feedback = system response"],
+      traps: ["Calling water vapour the main external forcing instead of a feedback"]
     }
   ],
-  comparisonTable: {
-    title: "Feedback sign",
-    headers: ["Feedback", "Typical sign"],
-    rows: [
-      ["Ice–albedo", "Positive"],
-      ["Water vapour", "Positive"],
-      ["Planck (radiation)", "Negative"],
-      ["Clouds", "Uncertain / mixed"]
-    ]
-  },
   examPoints: [
-    "Positive amplifies; negative dampens",
-    "Ice–albedo and water-vapour examples",
-    "Feedbacks modify forcing response"
+    "Positive vs negative",
+    "Water vapour and ice-albedo",
+    "Forcing vs feedback"
   ],
   commonMistakes: [
-    "Moral meaning of ‘positive’.",
-    "Ignoring Planck negative feedback.",
-    "Treating cloud feedback as settled and simple.",
-    "Confusing feedback with the original forcing."
+    "Positive = good.",
+    "Water vapour as external forcing only.",
+    "Ignoring cloud uncertainty."
   ],
-  relatedTopics: ["meteo-radiative-forcing", "meteo-greenhouse-effect"],
+  relatedTopics: ["meteo-radiative-forcing", "meteo-greenhouse-effect", "meteo-ipcc-rcps"],
   content: true,
-  buildsOn: ["meteo-greenhouse-effect", "meteo-milankovitch-cycles"],
-  leadsTo: ["meteo-radiative-forcing"],
-  usedIn: ["meteo-radiative-forcing", "meteo-ipcc-rcps"]
+  buildsOn: ["meteo-greenhouse-effect", "meteo-radiation-laws"],
+  leadsTo: ["meteo-radiative-forcing", "meteo-ipcc-rcps"],
+  usedIn: ["meteo-ipcc-rcps", "meteo-pakistan-nccp"]
 },
 
 {
@@ -4308,71 +4078,55 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 2,
   title: "Western Disturbances & Winter Rainfall",
-  definition: "Western disturbances (WDs) are eastward-moving extratropical/subtropical low-pressure systems that enter Pakistan from the west, mainly in winter and the cooler months. They bring cloud, rain, and snow to northern and western highlands and are a primary winter precipitation mechanism — distinct from the summer monsoon.",
+  definition: "Western disturbances are eastward-moving extratropical/subtropical troughs in the mid-latitude westerlies that bring winter rain and snow to northern Pakistan and adjoining regions. They are not the summer monsoon.",
   keyFacts: [
-    "Origin related to mid-latitude/Mediterranean storm activity; move east with the westerlies",
-    "Peak importance in winter for northern Pakistan precipitation and snowfall",
-    "Can produce severe weather: heavy snow, rain, wind, and cold-wave associations",
-    "Interact with topography — orographic enhancement on windward slopes",
-    "Not the same physical system as the summer monsoon trough",
-    "Critical for rabi crops and water storage in snow/ice reservoirs"
+    "Winter and early spring focus",
+    "Embedded in subtropical westerly jet / mid-latitude flow",
+    "Rain and snow over northern mountains and adjoining plains",
+    "Important for rabi moisture and glaciers",
+    "Separate moisture engine from summer monsoon"
   ],
   explanationSections: [
-    { heading: "Winter’s own storm track", body: "When exams ask for winter rainfall in northern Pakistan, the first answer is western disturbances, not monsoon. Jet-stream and baroclinic dynamics organise these systems; mountains wring out the moisture." }
+    { heading: "Name the season and the jet", body: "If the stem is January Islamabad rain, think WD, not monsoon." }
   ],
   subtopics: [
     {
-      id: "meteo-western-disturbances-identity",
-      title: "What a WD is",
-      summary: "Eastward extratropical/subtropical systems in the cool season.",
-      explanation: "WDs appear on charts as eastward-moving troughs/lows with frontal or baroclinic character. They import moisture and dynamic lift into northern Pakistan, often under a favourable subtropical jet.",
+      id: "meteo-western-disturbances-id",
+      title: "Recognising a WD setup",
+      summary: "Eastward trough in cool season westerlies.",
+      explanation: "A WD appears as a trough or induced low approaching from the west, often with cloud and precip marching eastward across Iran–Afghanistan–Pakistan. Upper-air charts show the wave in the westerlies; surface effects depend on moisture and orography.",
       examples: [
-        { problem: "Is winter rain in Islamabad / Murree belt primarily monsoon or WD-related in standard teaching?", solution: "Western disturbances in the cool season.", answer: "Western disturbances" }
+        { problem: "February snowfall in the northern mountains after an eastward trough — primary system type?", solution: "Western disturbance.", answer: "Western disturbance" }
       ],
-      shortcuts: ["WD = winter/cool season north", "Eastward-moving systems"],
-      traps: ["Labelling all Pakistan rain as monsoon"]
+      shortcuts: ["Cool season + westerly trough → WD", "Eastward progression"],
+      traps: ["Labelling all winter rain as monsoon"]
     },
     {
-      id: "meteo-western-disturbances-impacts",
-      title: "Impacts and orography",
-      summary: "Snow, rain, agriculture, and hazards.",
-      explanation: "Snowpack from WDs feeds later meltwater. Intense WDs can cause landslides, avalanche risk, and transport disruption in mountains. Plains may see lighter rain or only cloud depending on track and moisture.",
+      id: "meteo-western-disturbances-vs-monsoon",
+      title: "WD vs summer monsoon",
+      summary: "Different season, direction, and dynamics.",
+      explanation: "Monsoon summer rains link to the seasonal wind reversal and maritime inflow from the south. WDs are mid-latitude/subtropical systems in the westerlies. Flood versus snowmelt planning treats them as distinct risk channels.",
       examples: [
-        { problem: "Why do WDs matter for water resources beyond the day of rainfall?", solution: "Snow accumulation in highlands stores water for delayed release into rivers and irrigation systems.", answer: "Snow storage / delayed melt" }
+        { problem: "Does a strong July monsoon current count as a western disturbance?", solution: "No.", answer: "No" }
       ],
-      shortcuts: ["WD ↔ winter snow/rain north", "Orography enhances"],
-      traps: ["Ignoring agricultural rabi importance"]
+      shortcuts: ["WD = winter westerly wave", "Monsoon = summer seasonal system"],
+      traps: ["One rainy-season label for all months"]
     }
   ],
-  comparisonTable: {
-    title: "Monsoon vs western disturbances",
-    headers: ["Feature", "Monsoon", "Western disturbance"],
-    rows: [
-      ["Main season", "Summer", "Winter / cool months"],
-      ["Core region emphasis", "Broader South Asia", "North/west Pakistan track"],
-      ["System type", "Seasonal monsoon circulation", "Moving extratropical/subtropical lows"]
-    ]
-  },
-  pakistanExamFocus: [
-    "WD = primary winter precipitation mechanism for northern Pakistan",
-    "Do not confuse with summer monsoon",
-    "Snow and rabi-water implications"
-  ],
   examPoints: [
-    "Eastward cool-season systems",
-    "Northern rain/snow importance",
+    "Winter extratropical/subtropical origin",
+    "Northern Pakistan impacts",
     "Distinct from monsoon"
   ],
   commonMistakes: [
-    "Calling WD rain monsoon.",
-    "Placing WD peak in July only.",
-    "Ignoring topography.",
-    "Treating WD as tropical cyclones."
+    "WD = monsoon.",
+    "Ignoring orographic snow.",
+    "Wrong season."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-temp-rainfall-distribution", "meteo-extreme-events", "meteo-jet-stream"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-jet-stream", "meteo-temp-rainfall-distribution"],
   content: true,
-  buildsOn: ["meteo-jet-stream", "meteo-rossby-waves", "meteo-cyclones-development"],
-  leadsTo: ["meteo-temp-rainfall-distribution"],
+  buildsOn: ["meteo-cyclones-development", "meteo-jet-stream"],
+  leadsTo: ["meteo-extreme-events"],
   usedIn: ["meteo-temp-rainfall-distribution", "meteo-extreme-events"]
 },
 
@@ -4511,75 +4265,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-extreme-events",
   sectionId: "METEO-09",
-  order: 5,
-  title: "Extreme Events: GLOFs, Riverine Floods, Droughts & Heat Waves",
-  definition: "Pakistan faces compound climate hazards: glacial lake outburst floods (GLOFs) in high mountains, riverine and flash floods on the Indus system, meteorological and agricultural droughts, and intense heat waves. Extremes sit on top of an arid-to-variable baseline and drive much of the national climate-risk agenda.",
+  order: 4,
+  title: "Extreme Events: GLOFs, Riverine Floods, Droughts & Heatwaves in Pakistan",
+  definition: "Pakistan faces multiple hydrometeorological extremes: heatwaves, droughts, riverine floods, glacial lake outburst floods (GLOFs), and intense rainfall. Each has distinct drivers and seasonal windows — they are not interchangeable.",
   keyFacts: [
-    "GLOF: sudden release from a glacial lake — localised but devastating downstream in mountain valleys",
-    "Riverine floods: prolonged or intense rain, snowmelt, and upstream flows in major rivers",
-    "Flash floods: rapid response in steep catchments to intense rainfall",
-    "Drought: prolonged rainfall deficit relative to norms — meteorological, agricultural, hydrological types",
-    "Heat waves: prolonged extreme heat; urban and dry-plain exposure is high",
-    "Climate change can alter frequency/intensity of some extremes even when means change modestly"
+    "Heatwaves: prolonged extreme temperatures",
+    "Drought: prolonged moisture deficit",
+    "Riverine floods: river capacity exceeded",
+    "GLOFs: sudden glacial lake release in mountains",
+    "Exposure and vulnerability shape impact severity"
   ],
   explanationSections: [
-    { heading: "Hazard chain, not isolated headlines", body: "Monsoon cloudbursts, WD snow, glacial lakes, and river morphology interact. Understanding extremes means linking atmosphere, cryosphere, and hydrology — then connecting to early warning and land use." }
+    { heading: "Match hazard to mechanism", body: "Do not label every disaster as monsoon only." }
   ],
   subtopics: [
     {
-      id: "meteo-extreme-events-flood-glof",
-      title: "Floods and GLOFs",
-      summary: "Riverine/flash floods vs glacial lake outbursts.",
-      explanation: "Riverine floods affect broad floodplains after sustained rain or upstream surge. GLOFs are triggered when natural dams of ice or debris fail, sending a pulse down narrow valleys. Both kill and destroy infrastructure but differ in source and scale.",
+      id: "meteo-extreme-events-match",
+      title: "Hazard → mechanism matching",
+      summary: "GLOF vs riverine flood vs drought.",
+      explanation: "Riverine floods involve channel overflow from prolonged or intense basin rain/snowmelt. GLOFs are sudden mountain lake failures with localised catastrophic peaks. Drought is a cumulative deficit. Heatwaves are temperature extremes that can coincide with dry soils.",
       examples: [
-        { problem: "What distinguishes a GLOF from a typical monsoon river flood?", solution: "GLOF originates from sudden glacial lake drainage, often in high mountain valleys, not solely from widespread monsoon rain on the plain.", answer: "Glacial lake outburst source" }
+        { problem: "Sudden mountain torrent from a glacial lake breach — classification?", solution: "GLOF.", answer: "GLOF" }
       ],
-      shortcuts: ["GLOF = glacial lake failure", "Riverine = main-stem flooding"],
-      traps: ["Calling every flood a GLOF"]
+      shortcuts: ["GLOF = lake breach", "Riverine = channel overflow", "Drought = cumulative deficit"],
+      traps: ["All floods = GLOF"]
     },
     {
-      id: "meteo-extreme-events-drought-heat",
-      title: "Droughts and heat waves",
-      summary: "Rainfall deficits and extreme heat exposure.",
-      explanation: "Drought develops over weeks to years as deficits accumulate. Heat waves are shorter but can be lethal, especially with high humidity or in outdoor labour settings. Both stress water, health, and energy systems.",
+      id: "meteo-extreme-events-season",
+      title: "Seasonal windows",
+      summary: "When each hazard is most relevant.",
+      explanation: "Heat peaks in pre-monsoon/summer. Monsoon and WD seasons shape flood risk differently. Winter fog is a separate visibility extreme. Policy topics (NCCP) organise adaptation across this hazard set.",
       examples: [
-        { problem: "Why can a region with a ‘normal’ annual mean still experience severe agricultural drought?", solution: "Seasonal timing and multi-month deficits during crop stages matter more than the annual average alone.", answer: "Seasonal/crop-stage deficit" }
+        { problem: "Peak heatwave risk in the plains is most associated with which broad season?", solution: "Pre-monsoon / summer heat period.", answer: "Pre-monsoon/summer" }
       ],
-      shortcuts: ["Drought = prolonged deficit", "Heat wave = extreme heat period"],
-      traps: ["Using one rainy day to end a drought declaration conceptually"]
+      shortcuts: ["Know the season for each hazard"],
+      traps: ["One season owns all extremes"]
     }
   ],
-  comparisonTable: {
-    title: "Extreme event types",
-    headers: ["Hazard", "Core idea"],
-    rows: [
-      ["GLOF", "Glacial lake outburst"],
-      ["Riverine flood", "Main river overflow"],
-      ["Drought", "Long moisture deficit"],
-      ["Heat wave", "Prolonged extreme heat"]
-    ]
-  },
-  pakistanExamFocus: [
-    "GLOFs in northern mountains are a distinct hazard class",
-    "Floods and droughts both occur in the same national territory across years",
-    "Heat waves are a major public-health and labour hazard"
-  ],
   examPoints: [
-    "Know GLOF definition",
-    "Flood vs drought vs heat wave",
-    "Link extremes to monsoon/WD/cryosphere"
+    "Distinguish GLOF and riverine flood",
+    "Drought vs heatwave",
+    "Seasonal context"
   ],
   commonMistakes: [
-    "Collapsing all floods into one type.",
-    "Ignoring heat as a climate extreme.",
-    "Treating drought as only ‘no clouds today’.",
-    "Detaching GLOFs from mountain geography."
+    "GLOF = any flood.",
+    "Ignoring exposure.",
+    "Monsoon-only narrative."
   ],
-  relatedTopics: ["meteo-temp-rainfall-distribution", "meteo-arabian-sea-cyclones-local", "meteo-pakistan-nccp", "meteo-nccp-objectives"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-nccp"],
   content: true,
-  buildsOn: ["meteo-temp-rainfall-distribution", "meteo-tropical-cyclones", "earth-e4"],
-  leadsTo: ["meteo-pmd-operational"],
-  usedIn: ["meteo-pmd-operational", "meteo-nccp-objectives", "env-climate-change-response"]
+  buildsOn: ["meteo-temp-rainfall-distribution", "meteo-western-disturbances"],
+  leadsTo: ["meteo-pakistan-nccp", "meteo-nccp-objectives"],
+  usedIn: ["meteo-pakistan-nccp", "meteo-nccp-objectives"]
 },
 
 {
@@ -4804,138 +4541,114 @@ export const topics: Topic[] = [
   id: "meteo-nwp-models",
   sectionId: "METEO-10",
   order: 2,
-  title: "Numerical Weather Prediction (NWP): Models, Data Assimilation & Ensembles",
-  definition: "Numerical weather prediction solves equations of atmospheric motion and thermodynamics on a grid (or spectral basis) forward in time from an analysed initial state. Data assimilation blends observations into the model state; ensembles run many slightly different forecasts to estimate uncertainty.",
+  title: "Numerical Weather Prediction (NWP): Models, Data Assimilation & Ensemble Guidance",
+  definition: "NWP integrates the equations of atmospheric motion on a grid from an analysed initial state. Data assimilation blends observations into the model state; ensembles estimate uncertainty by running multiple perturbed members.",
   keyFacts: [
-    "Core: discretised fluid + physics parameterisations (convection, radiation, surface)",
-    "Initial conditions dominate short-range forecast quality",
-    "Data assimilation: combine model background with observations (e.g. variational / ensemble methods)",
-    "Grid spacing and time step limit resolvable features",
-    "Ensemble forecasts: multiple members → probabilities and spread",
-    "Boundary conditions matter for limited-area models"
+    "Initial condition quality limits forecast skill",
+    "Data assimilation merges observations + prior forecast",
+    "Resolution and physics choices matter",
+    "Ensembles → probabilities and spread",
+    "Models are tools — still need verification and human interpretation"
   ],
   explanationSections: [
-    { heading: "Physics on a grid, uncertainty in a cloud of runs", body: "NWP is not a crystal ball — it is an initial-value problem with incomplete observations and approximate physics. Ensembles admit that small errors grow and turn them into useful probabilities." }
+    { heading: "Garbage in, garbage out", body: "Even a perfect model fails if the initial state is badly wrong; assimilation exists to reduce that risk." }
   ],
   subtopics: [
     {
       id: "meteo-nwp-models-assimilation",
-      title: "Models and data assimilation",
-      summary: "Equations + observing system → analysis → forecast.",
-      explanation: "The analysis is the best estimate of the current atmosphere. Assimilation gives weight to observations and to the prior model state according to estimated errors. Garbage in the analysis becomes garbage in the forecast.",
+      title: "Why assimilation exists",
+      summary: "Observations correct the drifting model state.",
+      explanation: "A forecast becomes the next background field; new observations pull the analysis toward reality. Without assimilation, small errors grow and the model drifts from the true atmosphere.",
       examples: [
-        { problem: "Why are radiosondes still valuable in an era of satellites?", solution: "They provide high-quality vertical profiles that constrain temperature, humidity, and wind in the assimilation, especially where satellite retrievals are limited.", answer: "Vertical profile constraint" }
+        { problem: "What blends a short-range forecast with new radiosonde and satellite data?", solution: "Data assimilation.", answer: "Data assimilation" }
       ],
-      shortcuts: ["Analysis = assimilated state", "IC quality → forecast quality"],
-      traps: ["Thinking the model needs no observations after startup forever"]
+      shortcuts: ["Background + obs → analysis", "Analysis → next forecast"],
+      traps: ["Model never needs observations after startup"]
     },
     {
-      id: "meteo-nwp-models-ensembles",
-      title: "Ensembles and resolution",
-      summary: "Spread estimates uncertainty; resolution limits features.",
-      explanation: "A single deterministic run can mislead when the atmosphere is sensitive. Ensemble mean and probabilities communicate confidence. Finer grids resolve smaller storms but cost more and still need good parameterisations for sub-grid processes.",
+      id: "meteo-nwp-models-ensemble",
+      title: "Ensemble message",
+      summary: "Spread is uncertainty information.",
+      explanation: "When members diverge widely, confidence should fall even if the control run looks neat. Tight clustering increases confidence. Ensembles turn NWP into probabilistic guidance.",
       examples: [
-        { problem: "What does large ensemble spread typically indicate?", solution: "Higher uncertainty — members diverge, so confidence in a single exact solution is lower.", answer: "Higher uncertainty" }
+        { problem: "Wide ensemble spread in storm track — high or low confidence?", solution: "Low confidence.", answer: "Low" }
       ],
-      shortcuts: ["Ensemble → probability/spread", "Resolution ≠ perfect physics"],
-      traps: ["Reading one model run as certainty"]
+      shortcuts: ["Wide spread → uncertain", "Tight → more confident"],
+      traps: ["Using only one deterministic run always"]
     }
   ],
-  comparisonTable: {
-    title: "NWP building blocks",
-    headers: ["Component", "Role"],
-    rows: [
-      ["Dynamical core", "Solves fluid equations"],
-      ["Physics packages", "Sub-grid processes"],
-      ["Data assimilation", "Initial state"],
-      ["Ensemble", "Uncertainty estimate"]
-    ]
-  },
   examPoints: [
-    "NWP = numerical solution of atmospheric equations",
-    "Assimilation builds the analysis",
-    "Ensembles quantify uncertainty"
+    "Role of initial conditions",
+    "Data assimilation idea",
+    "Ensemble spread"
   ],
   commonMistakes: [
-    "Ignoring initial-condition sensitivity.",
-    "Confusing resolution with accuracy automatically.",
-    "Treating ensemble members as random noise without dynamics.",
-    "Forgetting lateral boundaries in regional models."
+    "Models need no data.",
+    "Ensemble mean always correct.",
+    "Ignoring resolution limits."
   ],
   relatedTopics: ["meteo-forecasting-methods", "meteo-forecast-skill", "meteo-radiosondes"],
   content: true,
-  buildsOn: ["meteo-forecasting-methods", "meteo-radiosondes", "meteo-remote-sensing"],
+  buildsOn: ["meteo-radiosondes", "meteo-forecasting-methods"],
   leadsTo: ["meteo-forecast-skill"],
-  usedIn: ["meteo-forecast-skill", "meteo-pmd-operational"]
+  usedIn: ["meteo-forecast-skill", "meteo-aviation-products"]
 },
 
 {
   id: "meteo-forecast-skill",
   sectionId: "METEO-10",
   order: 3,
-  title: "Forecast Skill, Accuracy & Verification: Anomaly Correlation, RMSE & Threat Score",
-  definition: "Forecast verification scores how well predictions match observations. Root-mean-square error (RMSE) measures magnitude of error; anomaly correlation measures pattern agreement; threat score (critical success index) evaluates categorical event forecasts such as rain occurrence. Skill compares accuracy against a baseline like climatology or persistence.",
+  title: "Forecast Skill, Accuracy & Verification: Anomaly Correlation & RMSE",
+  definition: "Verification scores measure how good forecasts are. Accuracy metrics (e.g. RMSE) quantify error size; skill scores measure improvement over a baseline such as climatology or persistence.",
   keyFacts: [
-    "Accuracy: closeness to truth; skill: improvement over a reference forecast",
-    "RMSE: lower is better; sensitive to large errors",
-    "Anomaly correlation: high values mean good spatial/temporal pattern match of anomalies",
-    "Threat score / CSI: hits / (hits + misses + false alarms) for binary events",
-    "A forecast can be accurate in RMSE yet unskilled if it only repeats climatology",
-    "Different scores suit continuous variables vs rare events"
+    "RMSE: magnitude of errors (lower is better)",
+    "Skill: improvement relative to a reference forecast",
+    "Anomaly correlation: pattern match of anomalies",
+    "A low RMSE can still mean little skill if climatology is equally good",
+    "Always know the baseline"
   ],
   explanationSections: [
-    { heading: "Pick the score that matches the question", body: "RMSE cares about degrees of error in temperature. Threat score cares whether you caught the flood-producing rain event. Always state the baseline when claiming ‘skill’." }
+    { heading: "Error vs skill", body: "Saying a forecast is 'close' is incomplete without saying 'closer than what'." }
   ],
   subtopics: [
     {
-      id: "meteo-forecast-skill-continuous",
-      title: "RMSE and anomaly correlation",
-      summary: "Magnitude errors vs pattern correlation of anomalies.",
-      explanation: "RMSE aggregates squared differences — a few big misses dominate. Anomaly correlation asks whether the forecast anomaly field lines up with the observed anomaly field, central in medium-range assessment.",
+      id: "meteo-forecast-skill-rmse-vs-skill",
+      title: "RMSE vs skill score",
+      summary: "Small error ≠ skillful.",
+      explanation: "If temperatures barely move from climatology, a lazy climatology forecast also has small errors. Skill asks whether the model beat that lazy reference. Anomaly correlation focuses on getting the pattern of departures right.",
       examples: [
-        { problem: "Does a lower RMSE indicate a better forecast in the usual convention?", solution: "Yes — RMSE decreases as typical error magnitude falls.", answer: "Yes — lower is better" }
+        { problem: "Can a forecast have modest RMSE but near-zero skill?", solution: "Yes — if it does not beat climatology/persistence.", answer: "Yes" }
       ],
-      shortcuts: ["RMSE ↓ better", "Anomaly correlation ↑ better"],
-      traps: ["Calling high RMSE ‘high skill’"]
+      shortcuts: ["RMSE = error size", "Skill = vs baseline"],
+      traps: ["Equating any low RMSE with high skill"]
     },
     {
-      id: "meteo-forecast-skill-categorical",
-      title: "Threat score and skill vs baseline",
-      summary: "Event detection scores; skill needs a reference.",
-      explanation: "Threat score balances hits against misses and false alarms — important for severe-weather yes/no forecasts. Skill scores normalise performance relative to persistence or climatology so that easy cases do not look falsely impressive.",
+      id: "meteo-forecast-skill-baseline",
+      title: "Choose the baseline",
+      summary: "Persistence vs climatology.",
+      explanation: "Persistence (today equals tomorrow) is a strong baseline at short range. Climatology is the longer-range reference. Verification reports should state which baseline a skill score used.",
       examples: [
-        { problem: "A system always forecasts ‘no rain’ in a dry climate and scores many correct negatives. Why might threat score for rain still be poor?", solution: "It never scores hits on actual rain events; CSI focuses on event discrimination, not correct non-events alone.", answer: "No hits on rain events" }
+        { problem: "At one-day lead, which baseline is often hard to beat?", solution: "Persistence.", answer: "Persistence" }
       ],
-      shortcuts: ["CSI = hits/(hits+misses+false alarms)", "Skill ≠ raw accuracy"],
-      traps: ["Ignoring false alarms when counting ‘success’"]
+      shortcuts: ["Short range → persistence", "Long range → climatology"],
+      traps: ["Unstated baseline"]
     }
   ],
-  comparisonTable: {
-    title: "Verification tools",
-    headers: ["Score", "Use"],
-    rows: [
-      ["RMSE", "Continuous error magnitude"],
-      ["Anomaly correlation", "Pattern of anomalies"],
-      ["Threat score (CSI)", "Binary event quality"],
-      ["Skill score", "Gain vs baseline"]
-    ]
-  },
   examPoints: [
-    "Accuracy vs skill",
-    "RMSE, anomaly correlation, threat score roles",
-    "Baselines: persistence/climatology"
+    "RMSE meaning",
+    "Skill vs accuracy",
+    "Baseline dependence"
   ],
   commonMistakes: [
-    "Equating accuracy with skill.",
-    "Misreading RMSE direction.",
-    "Using only correct negatives for rare events.",
-    "Skipping the reference forecast."
+    "RMSE = skill.",
+    "No baseline stated.",
+    "Anomaly correlation treated as RMSE."
   ],
-  relatedTopics: ["meteo-forecasting-methods", "meteo-nwp-models"],
+  relatedTopics: ["meteo-nwp-models", "meteo-forecasting-methods"],
   content: true,
-  buildsOn: ["meteo-forecasting-methods", "meteo-nwp-models"],
+  buildsOn: ["meteo-forecasting-methods", "math-1-7"],
   leadsTo: [],
-  usedIn: ["meteo-pmd-operational", "meteo-nwp-models"]
+  usedIn: ["meteo-nwp-models"]
 },
 // ============================= SECTION METEO-K: Synoptic Practice =============================
 
@@ -5000,69 +4713,57 @@ export const topics: Topic[] = [
   id: "meteo-isobar-analysis",
   sectionId: "METEO-11",
   order: 2,
-  title: "Isobar Analysis: Drawing Rules, Pressure Patterns & Wind Estimation",
-  definition: "Isobars are lines of constant sea-level pressure on a surface chart. Analysts draw them at fixed intervals through station pressures, identify highs, lows, troughs, and ridges, and estimate wind direction and relative speed from the pressure field using geostrophic reasoning.",
+  title: "Isobar Analysis: Drawing Rules, Pressure Patterns & Wind",
+  definition: "Isobars are lines of constant pressure. Analysis draws smooth isobars consistent with observations, revealing highs, lows, ridges, and troughs, and implying wind through geostrophic reasoning.",
   keyFacts: [
-    "Isobars connect equal SLP; choose a contour interval (e.g. 4 hPa) and stick to it",
-    "Never branch or cross isobars of different values",
-    "Closed lows: lowest pressure centre; closed highs: highest pressure centre",
-    "Trough: elongated extension of low pressure; ridge: elongated extension of high pressure",
-    "Geostrophic wind blows parallel to isobars (NH: low to the left)",
-    "Closer isobars → stronger pressure gradient → stronger geostrophic wind"
+    "Isobars never cross",
+    "Spacing indicates gradient strength",
+    "Closed L / H mark lows and highs",
+    "Winds blow nearly parallel aloft; surface winds cross slightly toward low",
+    "Analysis must respect station observations"
   ],
   explanationSections: [
-    { heading: "From numbers to field geometry", body: "Station models supply point pressures. Isobars turn those points into a continuous field so systems and winds become visible. Clean analysis follows strict drawing rules before interpretation." }
+    { heading: "Smooth but honest", body: "Isobars should be smooth yet pass correctly relative to reported pressures — do not invent gradients that stations forbid." }
   ],
   subtopics: [
     {
-      id: "meteo-isobar-analysis-drawing",
-      title: "Drawing rules and centres",
-      summary: "Fixed interval; no crossing; label highs and lows.",
-      explanation: "Interpolate smoothly between stations. Label L and H at centres. Identify troughs and ridges as elongated pressure features that organise weather even without closed centres.",
+      id: "meteo-isobar-analysis-rules",
+      title: "Drawing rules that exams test",
+      summary: "No crossing; respect data; label L/H.",
+      explanation: "Isobars of different values cannot cross. Crowding means strong gradient and stronger geostrophic wind. Label centres clearly. When data are sparse, keep the simplest pattern consistent with available reports.",
       examples: [
-        { problem: "May two different-valued isobars cross on a valid surface analysis?", solution: "No — each point has one SLP value; contours of different values cannot cross.", answer: "No" }
+        { problem: "Can the 1008 and 1012 hPa isobars cross on a valid chart?", solution: "No.", answer: "No" }
       ],
-      shortcuts: ["No crossing", "Label H/L", "Trough vs ridge"],
-      traps: ["Crossing contours to ‘fit’ messy data"]
+      shortcuts: ["Never cross", "Tight = strong wind", "Label centres"],
+      traps: ["Crossing isobars to fit a preconceived storm"]
     },
     {
-      id: "meteo-isobar-analysis-wind",
-      title: "Gradient, spacing, and wind",
-      summary: "Tight packing → strong wind; parallel flow (idealised).",
-      explanation: "In the geostrophic balance, wind speed scales with pressure-gradient force. Isobars packed tightly mean strong gradient. Direction is along the isobars with the sense given by hemisphere rules (NH: cyclonic around lows anticlockwise).",
+      id: "meteo-isobar-analysis-wind-link",
+      title: "From isobars to wind",
+      summary: "Gradient strength + balance rules.",
+      explanation: "Use Buys-Ballot / geostrophic sense for direction and spacing for speed aloft. At the surface, expect some cross-isobar inflow to lows. This topic is the practical partner of the geostrophic theory topics.",
       examples: [
-        { problem: "Where is the geostrophic wind stronger: widely spaced or tightly packed isobars?", solution: "Tightly packed — larger pressure gradient.", answer: "Tightly packed" }
+        { problem: "Widely spaced isobars — relatively weak or strong geostrophic wind?", solution: "Weak.", answer: "Weak" }
       ],
-      shortcuts: ["Close isobars = strong wind", "NH: low to the left"],
-      traps: ["Expecting surface wind exactly geostrophic in the boundary layer"]
+      shortcuts: ["Spacing → speed", "Surface cross-isobar"],
+      traps: ["Strong wind with flat spacing"]
     }
   ],
-  comparisonTable: {
-    title: "Pressure features",
-    headers: ["Feature", "Meaning"],
-    rows: [
-      ["Low (L)", "Closed pressure minimum"],
-      ["High (H)", "Closed pressure maximum"],
-      ["Trough", "Elongated low pressure"],
-      ["Ridge", "Elongated high pressure"]
-    ]
-  },
   examPoints: [
-    "Isobar drawing rules",
-    "H/L, trough, ridge",
-    "Spacing ↔ wind strength"
+    "Isobar properties",
+    "Gradient and wind",
+    "Surface vs upper differences"
   ],
   commonMistakes: [
     "Crossing isobars.",
-    "Confusing trough with ridge.",
-    "Ignoring hemisphere wind sense.",
-    "Treating surface wind as frictionless always."
+    "Ignoring station data.",
+    "No friction effect at surface."
   ],
-  relatedTopics: ["meteo-station-model", "meteo-airmass-front-id", "meteo-geostrophic-qual", "meteo-geostrophic-wind", "meteo-rossby-waves"],
+  relatedTopics: ["meteo-station-model", "meteo-geostrophic-wind", "meteo-forces-governing-wind"],
   content: true,
-  buildsOn: ["meteo-station-model", "meteo-geostrophic-wind", "meteo-upper-air-charts"],
-  leadsTo: ["meteo-geostrophic-qual"],
-  usedIn: ["meteo-geostrophic-qual", "meteo-cyclones-structure", "ra-data-visualization", "ra-data-interpretation"]
+  buildsOn: ["meteo-station-model", "meteo-geostrophic-wind"],
+  leadsTo: ["meteo-airmass-front-id"],
+  usedIn: ["meteo-airmass-front-id", "meteo-forecasting-methods"]
 },
 
 {
@@ -5139,78 +4840,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-lapse-calc",
   sectionId: "METEO-12",
-  order: 1,
-  title: "Lapse Rate & Stability Calculations: DALR, SALR, ELR and Parcel Ascent",
-  definition: "Lapse-rate calculations compare the environmental lapse rate (ELR) with the dry and saturated adiabatic rates to classify stability, and track a lifted parcel’s temperature with height until condensation and beyond. These are the quantitative core of parcel theory.",
+  order: 3,
+  title: "Lapse Rate & Stability Calculations: DALR, SALR, ELR and Classification",
+  definition: "This quantitative topic applies the stability decision table using numerical ELR, DALR, and SALR values. Concept definitions live under Lapse Rates and Static Stability; here the skill is classification from numbers.",
   keyFacts: [
-    "DALR ≈ 9.8 °C/km (often 10 °C/km in exam approximations)",
-    "SALR ≈ 4–7 °C/km depending on moisture/temperature (often ~6 °C/km in simple problems)",
-    "ELR = −dT/dz of the observed sounding (positive when T decreases upward)",
-    "Absolutely stable: ELR < SALR; conditionally unstable: SALR < ELR < DALR; absolutely unstable: ELR > DALR",
-    "Lifted parcel follows DALR until LCL, then SALR",
-    "Units and consistent height intervals prevent most arithmetic errors"
+    "DALR ≈ 9.8 °C/km (often 10 in MCQs)",
+    "SALR < DALR",
+    "Compare ELR with both process rates",
+    "Conditional: SALR < ELR < DALR",
+    "Show units and comparison steps"
   ],
   explanationSections: [
-    { heading: "Compare slopes, then lift the parcel", body: "Stability is a comparison of rates. Once the layer type is known, parcel problems ask what temperature the air would have after rising a stated distance — dry first, moist after saturation." }
+    { heading: "Numbers → table → label", body: "Write the three rates, place ELR, read the stability class." }
   ],
   subtopics: [
     {
       id: "meteo-lapse-calc-classify",
-      title: "Classifying stability from ELR",
-      summary: "Stack ELR against DALR and SALR.",
-      explanation: "If the environment cools faster with height than a dry parcel, the layer is absolutely unstable. If it cools slower than a saturated parcel, it is absolutely stable. Between SALR and DALR lies conditional instability for saturated ascent.",
+      title: "Worked classification",
+      summary: "Plug into the decision table.",
+      explanation: "Given ELR, DALR, SALR: if ELR > DALR → absolute instability; if ELR < SALR → absolute stability; if between → conditional instability. Always state the comparison explicitly in working.",
       examples: [
-        { problem: "ELR = 8 °C/km, DALR = 10, SALR = 6. Stability class?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
+        { problem: "ELR=7, DALR=10, SALR=6 (°C/km). Class?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
       ],
-      shortcuts: ["ELR > DALR → absolute instability", "ELR < SALR → absolute stability"],
-      traps: ["Comparing ELR to only one adiabatic rate"]
+      shortcuts: ["Write three numbers", "Between SALR and DALR → conditional"],
+      traps: ["Using only ELR vs DALR when saturation matters"]
     },
     {
-      id: "meteo-lapse-calc-parcel",
-      title: "Parcel temperature after ascent",
-      summary: "Dry segment then moist segment through the LCL.",
-      explanation: "Unsaturated ascent: ΔT ≈ −9.8 × Δz(km). After the LCL, use SALR. Finding the LCL in full problems needs dew-point or mixing-ratio information; many exam items state the LCL height explicitly.",
+      id: "meteo-lapse-calc-parcel-cool",
+      title: "Parcel temperature change on ascent",
+      summary: "Dry vs moist segment.",
+      explanation: "Unsaturated ascent: ΔT ≈ −DALR × Δz. After saturation, use SALR. A 1.5 km dry ascent at 10 °C/km cools about 15 °C — typical numerical item.",
       examples: [
-        { problem: "Parcel at 20 °C rises 1 km unsaturated (DALR 10 °C/km). Temperature?", solution: "20 − 10 = 10 °C.", answer: "10 °C" }
+        { problem: "Unsaturated parcel rises 2 km with DALR=10 °C/km. ΔT?", solution: "About −20 °C.", answer: "−20 °C" }
       ],
-      shortcuts: ["Dry: ~10 °C/km cooling", "Moist: slower cooling"],
+      shortcuts: ["ΔT = −Γ Δz", "Switch to SALR after LCL"],
       traps: ["Using SALR before saturation"]
     }
   ],
-  formula: {
-    name: "Environmental Lapse Rate",
-    expression: "ELR = (T_lower − T_upper) / Δz",
-    variables: [
-      { symbol: "T_lower", meaning: "temperature at lower level" },
-      { symbol: "T_upper", meaning: "temperature at upper level" },
-      { symbol: "Δz", meaning: "height difference (same units throughout)" }
-    ]
-  },
-  comparisonTable: {
-    title: "Stability vs ELR",
-    headers: ["Condition", "Class"],
-    rows: [
-      ["ELR > DALR", "Absolutely unstable"],
-      ["SALR < ELR < DALR", "Conditionally unstable"],
-      ["ELR < SALR", "Absolutely stable"]
-    ]
-  },
   examPoints: [
-    "DALR vs SALR vs ELR",
-    "Three stability classes",
-    "Parcel path switches rate at LCL"
+    "Classify from numbers",
+    "Dry ascent cooling",
+    "Unit consistency"
   ],
   commonMistakes: [
-    "Swapping DALR and SALR magnitudes.",
-    "Inconsistent height units.",
-    "Applying moist rate before LCL.",
-    "Sign errors in ELR definition."
+    "Wrong comparison order.",
+    "SALR before LCL.",
+    "km/m mix-ups."
   ],
-  relatedTopics: ["meteo-lapse-rates", "meteo-static-stability", "meteo-moisture-metrics", "meteo-humidity-calc", "meteo-air-masses-fronts"],
+  relatedTopics: ["meteo-lapse-rates", "meteo-static-stability", "meteo-humidity-calc"],
   content: true,
-  buildsOn: ["meteo-lapse-rates", "meteo-static-stability", "meteo-thermodynamic-diagrams"],
-  leadsTo: [],
-  usedIn: ["meteo-thermodynamic-diagrams", "meteo-thunderstorms"]
+  buildsOn: ["meteo-lapse-rates", "meteo-static-stability"],
+  leadsTo: ["meteo-thermodynamic-diagrams"],
+  usedIn: ["meteo-thermodynamic-diagrams"]
 },
 
 {
@@ -5273,79 +4954,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-pressure-conversion",
   sectionId: "METEO-12",
-  order: 3,
+  order: 1,
   title: "Pressure Unit Conversions & Hydrostatic Applications",
-  definition: "Pressure problems convert among hPa (mb), Pa, mmHg, and inHg, and apply the hydrostatic relation to estimate pressure change with height. Station-to-sea-level thinking and unit consistency are the main exam skills.",
+  definition: "Pressure appears as Pa, hPa/mb, and sometimes mmHg or inHg. This topic trains unit conversion and simple hydrostatic estimates linking Δp, ρ, g, and Δz.",
   keyFacts: [
     "1 hPa = 1 mb = 100 Pa",
-    "Standard atmosphere sea-level pressure ≈ 1013.25 hPa ≈ 760 mmHg ≈ 29.92 inHg",
-    "Hydrostatic: Δp ≈ −ρ g Δz (magnitude increases as you go down)",
-    "Rough tropospheric rule of thumb: ~1 hPa per 8 m near the surface (order-of-magnitude teaching aid)",
-    "Always match units inside ρ g Δz",
-    "Station pressure is not automatically sea-level pressure"
+    "Standard sea-level pressure ≈ 1013.25 hPa",
+    "Hydrostatic: Δp ≈ −ρgΔz for rough estimates",
+    "Keep SI units when using R and ρ formulas",
+    "Station vs sea-level pressure are different products"
   ],
   explanationSections: [
-    { heading: "Convert, then balance the column", body: "Unit mistakes dominate. Once units agree, hydrostatic balance links thickness and pressure difference for a layer of given density." }
+    { heading: "Convert first, then compute", body: "Most numerical errors are unit errors." }
   ],
   subtopics: [
     {
       id: "meteo-pressure-conversion-units",
-      title: "Unit conversions",
-      summary: "hPa, Pa, mmHg, inHg relationships.",
-      explanation: "Meteorology prefers hPa. Engineering and older texts may use mmHg or inHg. Convert before combining with SI density and gravity in hydrostatic estimates.",
+      title: "Unit conversion drills",
+      summary: "hPa ↔ Pa quickly.",
+      explanation: "Multiply hPa by 100 to get Pa. Divide Pa by 100 to get hPa. Recognise that millibar and hectopascal are the same size in modern use.",
       examples: [
-        { problem: "Convert 1013.25 hPa to Pa.", solution: "1013.25 × 100 = 101325 Pa.", answer: "101325 Pa" }
+        { problem: "1013 hPa in Pa?", solution: "101300 Pa.", answer: "101300 Pa" }
       ],
-      shortcuts: ["1 hPa = 100 Pa", "1013.25 hPa ≈ 760 mmHg"],
-      traps: ["Forgetting the factor of 100 between hPa and Pa"]
+      shortcuts: ["hPa × 100 = Pa", "hPa = mb"],
+      traps: ["Forgetting the ×100"]
     },
     {
-      id: "meteo-pressure-conversion-hydrostatic",
-      title: "Hydrostatic Δp estimates",
-      summary: "Pressure falls with height proportional to density and thickness.",
-      explanation: "For a shallow layer, Δp ≈ −ρ g Δz. Denser air or greater thickness produces a larger pressure drop over the same height. This underpins altimetry and sea-level reduction ideas at a conceptual level.",
+      id: "meteo-pressure-conversion-hydro-est",
+      title: "Hydrostatic estimate",
+      summary: "Δp ≈ −ρgΔz.",
+      explanation: "For a shallow layer, pressure drop with height is roughly density × g × thickness. Order-of-magnitude checks catch impossible answers (e.g. 500 hPa drop in 10 m).",
       examples: [
-        { problem: "If density and g are fixed, does a thicker layer produce a larger or smaller pressure difference between its base and top?", solution: "Larger magnitude pressure difference — Δp scales with Δz.", answer: "Larger |Δp|" }
+        { problem: "ρ=1.2 kg/m³, g=10 m/s², Δz=100 m — approximate |Δp|?", solution: "About 1200 Pa = 12 hPa.", answer: "~12 hPa" }
       ],
-      shortcuts: ["Δp ∝ ρ Δz", "Higher → lower pressure"],
-      traps: ["Mixing km and m inside one formula"]
+      shortcuts: ["Δp ~ ρgΔz", "Sanity-check magnitude"],
+      traps: ["Mixing hPa into SI ρgΔz without conversion"]
     }
   ],
-  formula: {
-    name: "Hydrostatic Pressure Change",
-    expression: "Δp ≈ −ρ g Δz",
-    variables: [
-      { symbol: "ρ", meaning: "air density" },
-      { symbol: "g", meaning: "gravitational acceleration" },
-      { symbol: "Δz", meaning: "height increase upward" }
-    ]
-  },
-  comparisonTable: {
-    title: "Common pressure units",
-    headers: ["Unit", "Relation"],
-    rows: [
-      ["hPa / mb", "1 hPa = 1 mb"],
-      ["Pa", "1 hPa = 100 Pa"],
-      ["mmHg", "≈ 760 mmHg at standard SLP"],
-      ["inHg", "≈ 29.92 inHg at standard SLP"]
-    ]
-  },
   examPoints: [
-    "hPa ↔ Pa conversion",
-    "Standard SLP benchmarks",
-    "Hydrostatic Δp ≈ −ρgΔz"
+    "hPa–Pa conversion",
+    "Hydrostatic estimate",
+    "Unit hygiene"
   ],
   commonMistakes: [
-    "Unit factor errors.",
-    "Using station pressure as SLP at altitude.",
-    "Sign confusion with height.",
-    "Inconsistent density units."
+    "×100 forgotten.",
+    "Impossible Δp magnitudes.",
+    "Station = SLP always."
   ],
-  relatedTopics: ["meteo-hydrostatic-equation", "meteo-gas-law", "meteo-upper-air-charts", "meteo-station-model", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-hydrostatic-equation", "meteo-gas-law", "meteo-pressure-instruments"],
   content: true,
-  buildsOn: ["meteo-hydrostatic-equation", "math-2-2", "meteo-pressure-instruments"],
-  leadsTo: [],
-  usedIn: ["meteo-upper-air-charts", "meteo-station-model"]
+  buildsOn: ["meteo-hydrostatic-equation", "meteo-gas-law"],
+  leadsTo: ["meteo-geostrophic-qual"],
+  usedIn: ["meteo-pressure-instruments"]
 },
 
 {
@@ -5353,77 +5013,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 4,
   title: "Geostrophic Wind Estimation from Isobar Spacing",
-  definition: "The geostrophic wind balances Coriolis and pressure-gradient forces and flows parallel to isobars. Qualitatively, closer isobars mean stronger geostrophic wind; quantitatively, speed scales as |∇p| / (ρ f). Chart problems ask students to rank winds from spacing and apply NH/SH direction rules.",
+  definition: "Geostrophic wind speed increases as isobar or height-contour spacing decreases. This topic practises qualitative and semi-quantitative estimates from chart packing, not full vector calculus.",
   keyFacts: [
-    "Geostrophic balance: PGF + Coriolis ≈ 0 (no friction)",
-    "Wind parallel to isobars; NH: low pressure to the left of motion",
-    "V_g ∝ |pressure gradient| / (ρ f)",
-    "Tighter isobar spacing → larger |∇p| → stronger V_g",
-    "f = 2Ω sinφ increases toward the poles — same gradient yields stronger V_g at lower latitude if ρ fixed (weaker Coriolis needs stronger wind to balance)",
-    "Surface winds depart from geostrophy because of friction"
+    "Tighter spacing → stronger Vg",
+    "Direction from balance rules (NH low to the left)",
+    "Valid for straight, frictionless flow approximation",
+    "Curved flow needs gradient-wind thinking",
+    "Compare two map regions rather than absolute precision"
   ],
   explanationSections: [
-    { heading: "Spacing first, then hemisphere sense", body: "Before any formula, read the chart: pack isobars where the wind should be strong. Then orient flow with the correct hemispheric rule. Only then refine with latitude or density if asked." }
+    { heading: "Relative estimates win marks", body: "Which side of the map is windier is more often tested than an exact m/s value." }
   ],
   subtopics: [
     {
       id: "meteo-geostrophic-qual-spacing",
-      title: "Isobar spacing and speed",
-      summary: "Gradient strength controls V_g.",
-      explanation: "On a constant-interval isobar chart, visual packing is a direct proxy for |∇p|. Rank stations or regions by spacing before computing numbers.",
+      title: "Spacing comparison drill",
+      summary: "Half the spacing → about twice the geostrophic speed (same lat).",
+      explanation: "For the same latitude and map scale, Vg is inversely related to contour spacing in the geostrophic relation. Halving the distance between consecutive contours roughly doubles the estimated wind. Always hold latitude roughly constant when comparing.",
       examples: [
-        { problem: "Two regions same latitude and density; isobars twice as close in region A. Compare V_g.", solution: "Region A has roughly twice the geostrophic wind speed.", answer: "A ≈ 2× stronger" }
+        { problem: "Region A has isobars twice as tight as region B at the same latitude — Vg in A vs B?", solution: "About twice as strong in A.", answer: "~2× in A" }
       ],
-      shortcuts: ["Closer isobars → stronger V_g", "Rank by spacing"],
-      traps: ["Ignoring that interval must be the same for visual comparison"]
+      shortcuts: ["Tighter → faster", "Compare like latitudes"],
+      traps: ["Ignoring latitude when comparing polar vs tropical packing"]
     },
     {
-      id: "meteo-geostrophic-qual-direction",
-      title: "Direction and limits of the approximation",
-      summary: "Parallel flow; friction breaks it at the surface.",
-      explanation: "In the Northern Hemisphere, flow around lows is anticlockwise (cyclonic) in the ideal geostrophic/gradient picture. Near the surface, friction turns wind toward low pressure across isobars — so observed surface winds are not pure geostrophy.",
+      id: "meteo-geostrophic-qual-limits",
+      title: "When the estimate fails",
+      summary: "Friction, curvature, equator.",
+      explanation: "Surface friction, tight curvature, and near-equatorial maps break pure geostrophy. State the limitation when the stem is a surface chart over rough terrain.",
       examples: [
-        { problem: "In pure NH geostrophy, is flow across isobars toward low pressure?", solution: "No — geostrophic flow is parallel to isobars; cross-isobar flow needs friction or unsteadiness.", answer: "No — parallel only" }
+        { problem: "Is pure geostrophic spacing estimation best on a surface chart over mountains?", solution: "No — friction and terrain matter.", answer: "No" }
       ],
-      shortcuts: ["NH: low to the left", "Friction → cross-isobar component"],
-      traps: ["Applying upper-level geostrophy unchanged at the ground"]
+      shortcuts: ["Upper smooth flow OK", "Surface/terrain caution"],
+      traps: ["Geostrophy everywhere"]
     }
   ],
-  formula: {
-    name: "Geostrophic Wind Speed",
-    expression: "V_g = |∇p| / (ρ f)",
-    variables: [
-      { symbol: "∇p", meaning: "horizontal pressure gradient" },
-      { symbol: "ρ", meaning: "air density" },
-      { symbol: "f", meaning: "Coriolis parameter (2Ω sinφ)" }
-    ]
-  },
-  comparisonTable: {
-    title: "What changes V_g",
-    headers: ["Increase in…", "Effect on V_g"],
-    rows: [
-      ["|∇p| (tighter isobars)", "Increases"],
-      ["ρ", "Decreases"],
-      ["|f| (higher latitude)", "Decreases for fixed ∇p"]
-    ]
-  },
   examPoints: [
-    "V_g parallel to isobars",
-    "Spacing ↔ strength",
-    "V_g = |∇p|/(ρ f)",
-    "Friction modifies surface wind"
+    "Spacing vs speed",
+    "Relative comparisons",
+    "Limits of method"
   ],
   commonMistakes: [
-    "Cross-isobar pure geostrophy.",
-    "Wrong hemisphere sense.",
-    "Ignoring latitude in f.",
-    "Treating surface wind as geostrophic always."
+    "Loose spacing = strong wind.",
+    "No latitude awareness.",
+    "Surface = upper."
   ],
-  relatedTopics: ["meteo-geostrophic-wind", "meteo-coriolis-effect", "meteo-jet-stream", "meteo-rossby-waves", "meteo-isobar-analysis", "meteo-pressure-conversion"],
+  relatedTopics: ["meteo-geostrophic-wind", "meteo-isobar-analysis", "meteo-gradient-wind"],
   content: true,
   buildsOn: ["meteo-geostrophic-wind", "meteo-isobar-analysis"],
   leadsTo: [],
-  usedIn: ["meteo-jet-stream", "meteo-cyclones-structure"]
+  usedIn: ["meteo-upper-air-charts"]
 },
 // ============================= SECTION METEO-M: Climate Variability =============================
 
@@ -5432,207 +5071,170 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 1,
   title: "ENSO: El Niño, La Niña and the Walker Circulation",
-  definition: "The El Niño–Southern Oscillation (ENSO) is a coupled ocean–atmosphere mode of the tropical Pacific. El Niño features anomalously warm eastern/central Pacific waters and a weakened Walker circulation; La Niña features cooler eastern Pacific waters and a strengthened Walker cell. Neutral conditions sit between these phases.",
+  definition: "ENSO is a coupled ocean–atmosphere mode of the tropical Pacific. El Niño warms the central/eastern equatorial Pacific and weakens the Walker cell; La Niña does the opposite. Neutral is the absence of a strong, sustained phase.",
   keyFacts: [
-    "Walker circulation: west Pacific rising branch, east Pacific sinking branch in neutral/La Niña-leaning mean pictures",
-    "El Niño: warmer SST in central/eastern equatorial Pacific; trade winds weaken; convection shifts east",
-    "La Niña: cooler eastern Pacific SST; trades strengthen; convection concentrated in the west",
-    "Southern Oscillation: seesaw in surface pressure between Darwin and Tahiti regions",
-    "ENSO is interannual — phases last seasons, not days",
-    "Not the same as the Indian monsoon, but can influence it via teleconnections"
+    "El Niño: warm SST anomalies in central/eastern equatorial Pacific",
+    "La Niña: enhanced cold tongue; stronger trades",
+    "Walker circulation: zonal tropical Pacific overturning",
+    "Indices such as Niño-3.4 monitor SST anomalies",
+    "Phase changes odds worldwide via teleconnections"
   ],
   explanationSections: [
-    { heading: "Ocean and atmosphere move together", body: "Warm water and soft trades reinforce each other in El Niño; cool water and strong trades reinforce each other in La Niña. That coupling is why ENSO is a climate mode, not a one-way ocean or atmosphere story." }
+    { heading: "Ocean and atmosphere together", body: "SST pattern and winds must be discussed as a pair — that is the coupling." }
   ],
   subtopics: [
     {
-      id: "meteo-enso-basics-phases",
-      title: "El Niño, La Niña, and neutral",
-      summary: "SST and wind patterns define the phase.",
-      explanation: "El Niño spreads warm water and rainfall anomalies eastward along the equator. La Niña tightens the cold tongue and western convection. Neutral lacks a strong, sustained anomaly either way.",
+      id: "meteo-enso-basics-phase-id",
+      title: "Phase identification checklist",
+      summary: "SST map + trade wind sense.",
+      explanation: "Warm anomalies in the eastern/central equatorial Pacific with weakened trades → El Niño. Cool anomalies with strong trades and western convection → La Niña. Do not diagnose from a single coastal station outside the index regions.",
       examples: [
-        { problem: "During which phase do equatorial Pacific trade winds typically weaken?", solution: "El Niño.", answer: "El Niño" }
+        { problem: "Strong warm SST anomaly in Niño-3.4 and weak trades — phase?", solution: "El Niño.", answer: "El Niño" }
       ],
-      shortcuts: ["El Niño = warm east/central Pacific", "La Niña = cool east Pacific"],
-      traps: ["Calling every warm year globally an El Niño"]
+      shortcuts: ["Warm east/central → El Niño", "Strong cold tongue → La Niña"],
+      traps: ["Using only coastal South America folklore without the basin pattern"]
     },
     {
-      id: "meteo-enso-basics-walker",
-      title: "Walker circulation link",
-      summary: "Zonal tropical cell strengthens or weakens with phase.",
-      explanation: "In La Niña-like states the Walker cell is vigorous: strong west Pacific ascent and east Pacific descent. In El Niño the cell weakens or shifts as convection moves toward the central Pacific.",
+      id: "meteo-enso-basics-walker-shift",
+      title: "Walker cell shifts with phase",
+      summary: "Where the rising branch sits.",
+      explanation: "In La Niña-like states, rising motion is concentrated over the warm western Pacific. In El Niño, convection and the rising branch shift east toward the central Pacific as the west–east SST contrast flattens. That shift anchors many teleconnection arguments.",
       examples: [
-        { problem: "Does a stronger Walker circulation fit classic La Niña or El Niño better?", solution: "La Niña — stronger trades and western ascent.", answer: "La Niña" }
+        { problem: "During strong El Niño, does the main Pacific rising branch usually stay fixed over the far western Pacific?", solution: "No — it tends to shift east.", answer: "Shifts east" }
       ],
-      shortcuts: ["La Niña ↔ strong Walker", "El Niño ↔ weak/shifted Walker"],
-      traps: ["Confusing Walker with Hadley"]
+      shortcuts: ["El Niño → Walker weakens/shifts east", "La Niña → strong western ascent"],
+      traps: ["Walker cell only exists in textbooks, never changes"]
     }
   ],
-  comparisonTable: {
-    title: "ENSO phases (sketch)",
-    headers: ["Phase", "East Pacific SST", "Trades"],
-    rows: [
-      ["El Niño", "Warmer than normal", "Weaker"],
-      ["La Niña", "Cooler than normal", "Stronger"],
-      ["Neutral", "Near normal", "Near normal"]
-    ]
-  },
   examPoints: [
-    "ENSO = coupled Pacific mode",
-    "El Niño vs La Niña SST/wind",
-    "Walker circulation connection"
+    "Define El Niño / La Niña",
+    "Walker coupling",
+    "Index idea"
   ],
   commonMistakes: [
-    "Treating ENSO as weather of a single week.",
-    "Confusing El Niño with global warming itself.",
-    "Mixing Walker and Hadley cells.",
-    "Ignoring the Southern Oscillation pressure seesaw."
+    "El Niño = any local warming.",
+    "Ignoring wind coupling.",
+    "Confusing with IOD poles."
   ],
-  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-iod", "meteo-global-circulation", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-enso-global-impacts", "meteo-iod", "meteo-ocean-currents"],
   content: true,
-  buildsOn: ["meteo-global-circulation", "meteo-heat-transfer"],
+  buildsOn: ["meteo-global-circulation", "meteo-ocean-currents"],
   leadsTo: ["meteo-enso-global-impacts", "meteo-iod"],
-  usedIn: ["meteo-enso-global-impacts", "meteo-indian-ocean-monsoon", "meteo-extreme-events"]
+  usedIn: ["meteo-enso-global-impacts", "meteo-indian-ocean-monsoon"]
 },
 
 {
   id: "meteo-ocean-currents",
   sectionId: "METEO-13",
-  order: 2,
+  order: 3,
   title: "Ocean Surface Currents & Thermohaline Circulation",
-  definition: "Surface currents are largely wind-driven gyres steered by continents and the Coriolis force. The thermohaline circulation is the density-driven deeper branch of the global ocean conveyor, sensitive to temperature and salinity. Together they redistribute heat and couple the ocean to climate modes like ENSO and AMOC.",
+  definition: "Surface currents are largely wind-driven gyres; the thermohaline circulation is denser, slower overturning driven by temperature and salinity differences. Together they redistribute heat and couple with climate modes.",
   keyFacts: [
-    "Subtropical gyres: western boundary currents (e.g. Gulf Stream, Kuroshio) are narrow and strong",
-    "Ekman transport and wind stress build the large-scale surface circulation",
-    "Upwelling brings cold, nutrient-rich water — important on eastern ocean boundaries",
-    "Thermohaline circulation: sinking of dense water and slow return flow",
-    "Ocean heat transport moderates regional climates",
-    "Surface currents and deep circulation operate on different timescales"
+    "Western boundary currents: narrow, strong (Gulf Stream, Kuroshio)",
+    "Eastern boundary currents: broader, weaker",
+    "Gyres driven primarily by winds",
+    "Thermohaline: density-driven deep branch",
+    "AMOC is a major Atlantic overturning component"
   ],
   explanationSections: [
-    { heading: "Wind on top, density below", body: "Map the gyres for surface heat and biology; remember the slower density-driven loop when discussing long-term Atlantic changes and AMOC." }
+    { heading: "Two engines", body: "Do not reduce all ocean motion to a single 'current'." }
   ],
   subtopics: [
     {
-      id: "meteo-ocean-currents-surface",
-      title: "Wind-driven surface currents",
-      summary: "Gyres, western boundary currents, upwelling.",
-      explanation: "Trade and westerly wind belts drive subtropical and subpolar gyres. Western boundary currents intensify along basin edges. Coastal upwelling cools the surface and supports fisheries where winds favour offshore Ekman transport.",
+      id: "meteo-ocean-currents-gyre",
+      title: "Gyres and western intensification",
+      summary: "Why western boundary currents are swift.",
+      explanation: "Subtropical gyres pile flow on the western side of basins, producing narrow, intense currents. Eastern sides are slower and often linked to upwelling systems. Exam maps test this asymmetry.",
       examples: [
-        { problem: "Are western boundary currents typically stronger or weaker than the broad eastern return flows in subtropical gyres?", solution: "Stronger and narrower — classic western intensification.", answer: "Stronger / narrower" }
+        { problem: "Gulf Stream is best classified as which type of current?", solution: "Western boundary current.", answer: "Western boundary" }
       ],
-      shortcuts: ["Gyres from winds + Coriolis + coasts", "West side intensified"],
-      traps: ["Ignoring continents when sketching current paths"]
+      shortcuts: ["West = narrow strong", "East = broad weak"],
+      traps: ["Symmetric gyre speeds"]
     },
     {
       id: "meteo-ocean-currents-thermohaline",
-      title: "Thermohaline circulation",
-      summary: "Density-driven deep branch of the conveyor.",
-      explanation: "Cold, salty water can become dense enough to sink in high-latitude formation regions. That sinking helps drive a global-scale overturning that returns water elsewhere — much slower than surface storm-driven currents.",
+      title: "Thermohaline vs wind gyre",
+      summary: "Density-driven deep circulation.",
+      explanation: "Cooling and salinity increases can densify surface water so it sinks, feeding deep flows. This is slower than surface gyres but critical for long-term heat redistribution — the context for AMOC discussions.",
       examples: [
-        { problem: "What two properties primarily control seawater density in thermohaline thinking?", solution: "Temperature and salinity.", answer: "T and S" }
+        { problem: "Is thermohaline circulation primarily a fast surface wind drift?", solution: "No — density-driven, includes deep branches.", answer: "No" }
       ],
-      shortcuts: ["Thermo = temperature", "Haline = salt", "Slow deep loop"],
-      traps: ["Equating surface gyres with the entire thermohaline conveyor"]
+      shortcuts: ["Wind gyre = surface", "Thermohaline = density/deep"],
+      traps: ["All currents = thermohaline"]
     }
   ],
-  comparisonTable: {
-    title: "Circulation types",
-    headers: ["Type", "Main driver"],
-    rows: [
-      ["Surface gyres", "Wind stress"],
-      ["Thermohaline overturning", "Density (T, S)"]
-    ]
-  },
   examPoints: [
-    "Wind-driven gyres vs density-driven deep flow",
-    "Western boundary current intensification",
-    "Upwelling significance"
+    "Western intensification",
+    "Gyre vs thermohaline",
+    "Link to AMOC topic"
   ],
   commonMistakes: [
-    "One current system for all depths.",
-    "Forgetting Coriolis/continents.",
-    "Treating thermohaline as daily weather.",
-    "Ignoring upwelling’s climate/biology role."
+    "No west–east asymmetry.",
+    "Thermohaline = surface only.",
+    "Ignoring climate coupling."
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-amoc-slowdown", "meteo-coriolis-effect", "meteo-global-circulation", "meteo-remote-sensing"],
+  relatedTopics: ["meteo-amoc-slowdown", "meteo-enso-basics", "meteo-global-circulation"],
   content: true,
-  buildsOn: ["meteo-global-circulation", "phy-fluid-dynamics"],
-  leadsTo: ["meteo-enso-basics", "meteo-amoc-slowdown"],
-  usedIn: ["meteo-enso-basics", "meteo-amoc-slowdown"]
+  buildsOn: ["meteo-global-circulation"],
+  leadsTo: ["meteo-amoc-slowdown", "meteo-enso-basics"],
+  usedIn: ["meteo-amoc-slowdown", "meteo-enso-global-impacts"]
 },
 
 {
   id: "meteo-enso-global-impacts",
   sectionId: "METEO-13",
-  order: 3,
+  order: 2,
   title: "Global Impacts of ENSO: Teleconnections and Regional Effects",
-  definition: "ENSO teleconnections are remote climate responses to Pacific SST anomalies — shifts in the jet stream, monsoon rainfall, drought and flood risk, and tropical cyclone patterns. Impacts differ by region and by El Niño versus La Niña phase; they are statistical and dynamical tendencies, not guarantees for every event.",
+  definition: "ENSO teleconnections are statistically preferred climate anomalies in regions remote from the tropical Pacific during El Niño or La Niña. They change probabilities — they do not guarantee a single outcome every event.",
   keyFacts: [
-    "Teleconnection: local climate anomaly linked to a distant forcing region",
-    "El Niño often associated with drier conditions in some monsoon regions and wetter conditions in parts of the eastern tropical Pacific rim",
-    "La Niña often enhances rainfall in some western Pacific / monsoon-sensitive areas and can favour different cyclone patterns",
-    "Impacts are seasonal and region-specific — always specify place and phase",
-    "Pakistan/South Asia monsoon can be modulated but is not a pure ENSO slave",
-    "Other modes (IOD, MJO) can reinforce or oppose ENSO effects"
+    "Teleconnection = remote correlated response",
+    "Classic composites exist for many regions (drought/flood odds)",
+    "South Asian monsoon impacts are probabilistic",
+    "Other modes (IOD, MJO) can modify outcomes",
+    "Always phrase as raised or lowered odds"
   ],
   explanationSections: [
-    { heading: "Remote but not magic", body: "Tropical convection anomalies rearrange the global circulation. That is teleconnection physics. Local geography and competing modes still matter, so ENSO is a risk shift, not a deterministic local forecast." }
+    { heading: "Composites, not commandments", body: "Exam answers that say 'El Niño always causes X in country Y' overreach." }
   ],
   subtopics: [
     {
-      id: "meteo-enso-global-impacts-teleconnections",
-      title: "What teleconnections are",
-      summary: "Remote responses to tropical Pacific heating anomalies.",
-      explanation: "When deep convection shifts, wave trains and jet anomalies can appear far downstream. Seasonal outlooks use these historical patterns with ensemble forecasts.",
+      id: "meteo-enso-global-impacts-odds",
+      title: "Probabilistic language for exams",
+      summary: "Raised odds vs certainty.",
+      explanation: "A teleconnection composite might show drier odds for a region in El Niño years on average. Any single year can differ because of noise and other modes. Good answers use 'tends to' or 'higher likelihood'.",
       examples: [
-        { problem: "Is a teleconnection a guaranteed local outcome every El Niño?", solution: "No — it is a tendency that can be overridden by other modes and internal variability.", answer: "No — a tendency" }
+        { problem: "Is 'El Niño always causes drought in Pakistan' a safe exam statement?", solution: "No — overstates certainty.", answer: "No" }
       ],
-      shortcuts: ["Teleconnection = remote link", "Tendency ≠ certainty"],
-      traps: ["One global impact list for all continents without seasons"]
+      shortcuts: ["Teleconnection = odds", "Never say always"],
+      traps: ["Deterministic one-line climate laws"]
     },
     {
-      id: "meteo-enso-global-impacts-south-asia",
-      title: "South Asia relevance",
-      summary: "Monsoon modulation with competing influences.",
-      explanation: "ENSO is one factor in South Asian summer rainfall variability. The Indian Ocean Dipole and intraseasonal MJO can dominate particular seasons. Exam answers should avoid oversimplified ‘El Niño always means drought in Pakistan’ claims.",
+      id: "meteo-enso-global-impacts-other-modes",
+      title: "Interference from IOD and MJO",
+      summary: "Pacific phase is not the only control.",
+      explanation: "A positive IOD or an active MJO phase can reshape rainfall outcomes even when ENSO is fixed. Multi-mode awareness is the mature answer for South Asia questions.",
       examples: [
-        { problem: "Name one reason ENSO alone cannot fully predict Pakistan monsoon rainfall.", solution: "Other modes (e.g. IOD, MJO) and regional dynamics also control moisture and ascent.", answer: "Competing modes / regional dynamics" }
+        { problem: "Can IOD modify monsoon rainfall during an El Niño year?", solution: "Yes — it can reinforce or offset.", answer: "Yes" }
       ],
-      shortcuts: ["ENSO modulates; does not solely dictate", "Check IOD too"],
-      traps: ["Hard deterministic monsoon rules from ENSO only"]
+      shortcuts: ["ENSO + IOD + MJO", "Composite ≠ single year"],
+      traps: ["Ignoring Indian Ocean when discussing monsoon teleconnections"]
     }
-  ],
-  comparisonTable: {
-    title: "Impact thinking",
-    headers: ["Idea", "Meaning"],
-    rows: [
-      ["Teleconnection", "Remote climate link"],
-      ["Phase dependence", "El Niño ≠ La Niña impacts"],
-      ["Probabilistic", "Risk shift, not destiny"]
-    ]
-  },
-  pakistanExamFocus: [
-    "ENSO can influence South Asian monsoon variability but is not the only control",
-    "Always pair phase with region and season",
-    "IOD and local dynamics may reinforce or cancel"
   ],
   examPoints: [
     "Define teleconnection",
-    "Phase- and region-specific impacts",
-    "Not a local guarantee"
+    "Probabilistic impacts",
+    "Other modes interfere"
   ],
   commonMistakes: [
-    "Universal global impacts.",
-    "Ignoring La Niña differences.",
-    "Deterministic monsoon claims.",
-    "Forgetting other climate modes."
+    "Always/never claims.",
+    "ENSO-only monsoon theory.",
+    "Local weather = global mode."
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-ocean-currents", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon", "meteo-extreme-events"],
+  relatedTopics: ["meteo-enso-basics", "meteo-iod", "meteo-mjo", "meteo-indian-ocean-monsoon"],
   content: true,
   buildsOn: ["meteo-enso-basics"],
-  leadsTo: [],
-  usedIn: ["meteo-extreme-events", "meteo-indian-ocean-monsoon"]
+  leadsTo: ["meteo-iod", "meteo-extreme-events"],
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-extreme-events"]
 },
 
 {
@@ -5753,73 +5355,57 @@ export const topics: Topic[] = [
   id: "meteo-mjo",
   sectionId: "METEO-13",
   order: 6,
-  title: "Madden-Julian Oscillation (MJO): Tropical Convection and Sub-seasonal Weather",
-  definition: "The Madden–Julian Oscillation is an eastward-moving pattern of enhanced and suppressed tropical convection, primarily over the Indian and Pacific Oceans, with a typical period of about 30–60 days. It is the leading mode of intraseasonal tropical variability and modulates monsoon breaks/active spells, tropical cyclones, and teleconnections on sub-seasonal timescales.",
+  title: "Madden-Julian Oscillation (MJO): Tropical Convection and Teleconnections",
+  definition: "The MJO is an eastward-moving pulse of tropical convection and circulation with a typical period of about 30–60 days. It organises intraseasonal active and break spells and offers sub-seasonal forecast signals.",
   keyFacts: [
-    "Eastward propagation of convective envelope at low latitudes",
-    "Period roughly 30–60 days — longer than synoptic weather, shorter than ENSO",
-    "Alternating enhanced and suppressed rainfall phases",
-    "Strongest signal over the Indo-Pacific warm pool region",
-    "Influences monsoon intraseasonal variability and can modulate TC activity",
-    "Used in sub-seasonal (weeks ahead) prediction"
+    "Intraseasonal: roughly 30–60 day timescale",
+    "Eastward propagation in the tropics",
+    "Active phase: enhanced convection; suppressed phase: reduced",
+    "Modulates monsoon active/break spells",
+    "Bridge between weather and seasonal climate"
   ],
   explanationSections: [
-    { heading: "The weekly-to-monthly tropical pulse", body: "While ENSO sets a seasonal background, the MJO pulses convection eastward every few weeks. Monsoon active and break spells often lock onto that pulse." }
+    { heading: "Not ENSO", body: "ENSO is interannual and Pacific-basin coupled; MJO is intraseasonal and moves around the tropics." }
   ],
   subtopics: [
     {
-      id: "meteo-mjo-structure",
-      title: "Structure and timescale",
-      summary: "Eastward convective couplet; 30–60 day period.",
-      explanation: "An active MJO phase brings enhanced cloudiness and rainfall; a suppressed phase brings clearer, drier conditions in the same longitude band as the envelope passes. Propagation speed and amplitude vary by event.",
+      id: "meteo-mjo-timescale",
+      title: "Timescale placement",
+      summary: "Between daily weather and seasonal ENSO.",
+      explanation: "Weather is day-to-day; ENSO is year-to-year; MJO fills the sub-seasonal window of weeks. That is why it matters for monsoon breaks and extended-range outlooks.",
       examples: [
-        { problem: "Is the MJO primarily an interannual mode like ENSO?", solution: "No — it is intraseasonal (roughly 30–60 days).", answer: "No — intraseasonal" }
+        { problem: "Is the MJO primarily an interannual Pacific SST mode like ENSO?", solution: "No — intraseasonal convective pulse.", answer: "No" }
       ],
-      shortcuts: ["MJO ≈ 30–60 days", "Eastward tropical convection pulse"],
-      traps: ["Confusing MJO period with ENSO years"]
+      shortcuts: ["30–60 days", "Not ENSO"],
+      traps: ["MJO = El Niño"]
     },
     {
-      id: "meteo-mjo-impacts",
-      title: "Monsoon and sub-seasonal impacts",
-      summary: "Active/break spells and wider teleconnections.",
-      explanation: "For South Asia, MJO phases help explain why monsoon rains come in bursts rather than a steady seasonal faucet. Globally, the MJO can also influence mid-latitude patterns and tropical cyclone likelihood in favourable basins.",
+      id: "meteo-mjo-monsoon-use",
+      title: "Monsoon active/break tool",
+      summary: "Phase modulates rainfall spells.",
+      explanation: "When the convective MJO envelope is favourably placed, monsoon regions can see active rainfall spells; suppressed phases favour breaks. It is a modulation, not a full seasonal replacement for monsoon dynamics.",
       examples: [
-        { problem: "Why does the MJO matter for monsoon forecasting beyond the seasonal mean?", solution: "It organises active and break periods on weekly-to-monthly scales inside the season.", answer: "Intraseasonal active/break structure" }
+        { problem: "Why do forecasters track MJO phase during monsoon?", solution: "It helps anticipate active vs break rainfall periods on weekly timescales.", answer: "Active/break timing" }
       ],
-      shortcuts: ["MJO ↔ active/break", "Sub-seasonal prediction tool"],
-      traps: ["Using only seasonal ENSO for all monsoon variability"]
+      shortcuts: ["Active phase → rain risk up", "Suppressed → break risk"],
+      traps: ["MJO sets the entire seasonal total alone"]
     }
   ],
-  comparisonTable: {
-    title: "Timescale comparison",
-    headers: ["Mode", "Typical scale"],
-    rows: [
-      ["Synoptic storm", "Days"],
-      ["MJO", "30–60 days"],
-      ["ENSO", "Seasons to ~1 year"]
-    ]
-  },
-  pakistanExamFocus: [
-    "MJO helps explain intraseasonal monsoon variability",
-    "Distinct from ENSO interannual forcing",
-    "Relevant to sub-seasonal outlooks"
-  ],
   examPoints: [
-    "Eastward intraseasonal convective mode",
-    "≈30–60 day period",
+    "30–60 day period",
+    "Eastward tropical pulse",
     "Monsoon active/break link"
   ],
   commonMistakes: [
-    "Equating MJO with ENSO.",
+    "MJO = ENSO.",
     "Wrong timescale.",
-    "Ignoring suppressed phases.",
-    "Treating MJO as a permanent climate classification."
+    "Ignoring suppressed phase."
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-enso-global-impacts", "meteo-iod", "meteo-monsoon-system", "meteo-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-enso-basics", "meteo-indian-ocean-monsoon", "meteo-forecasting-methods"],
   content: true,
-  buildsOn: ["meteo-global-circulation", "meteo-precipitation-processes"],
-  leadsTo: [],
-  usedIn: ["meteo-indian-ocean-monsoon", "meteo-enso-basics"]
+  buildsOn: ["meteo-global-circulation", "meteo-monsoon-system"],
+  leadsTo: ["meteo-forecasting-methods"],
+  usedIn: ["meteo-indian-ocean-monsoon", "meteo-forecast-skill"]
 },
 
 {
@@ -5827,67 +5413,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 7,
   title: "AMOC Slowdown & Climate Impacts",
-  definition: "The Atlantic Meridional Overturning Circulation (AMOC) is the Atlantic branch of the global overturning circulation that transports warm water northward in the upper layers and returns colder water at depth. A slowdown would alter regional heat transport, with potential impacts on North Atlantic climates, sea level patterns, and wider climate linkages — a topic of active research and IPCC assessment.",
+  definition: "The Atlantic Meridional Overturning Circulation (AMOC) carries warm upper water northward and returns colder deep water southward. A slowdown would reshape regional heat transport, especially around the North Atlantic, without cancelling global greenhouse warming.",
   keyFacts: [
-    "AMOC carries significant heat into the North Atlantic",
-    "Deep water formation in the North Atlantic is a key component",
-    "Freshwater input and warming can reduce density and inhibit sinking — a slowdown mechanism hypothesis",
-    "Slowdown ≠ immediate global ice age; impacts are regional and complex",
-    "Observational records and models assess trends and projections with uncertainty",
-    "Linked to thermohaline circulation concepts studied under ocean currents"
+    "AMOC = Atlantic overturning cell",
+    "Important for North Atlantic heat transport",
+    "Freshwater input can inhibit sinking",
+    "Slowdown ≠ global cooling overall",
+    "Active research and monitoring topic"
   ],
   explanationSections: [
-    { heading: "Heat transport, not a light switch", body: "AMOC slowdown discussions are about weakening overturning and redistributing heat and sea level, not a sudden Hollywood freeze. Stick to mechanisms: density, freshwater, and heat transport." }
+    { heading: "Regional redistribution", body: "AMOC changes move heat around; they do not delete the global energy imbalance from GHGs." }
   ],
   subtopics: [
     {
       id: "meteo-amoc-slowdown-mechanism",
-      title: "What AMOC is and why it might slow",
-      summary: "Northward heat transport; density-sensitive sinking.",
-      explanation: "If high-latitude surface waters become warmer or fresher, they may sink less readily, weakening the overturning. Melting ice and enhanced precipitation are candidate freshwater sources in change scenarios.",
+      title: "Why freshwater matters",
+      summary: "Density of high-latitude surface water.",
+      explanation: "Sinking in the North Atlantic depends on dense surface water. Extra freshwater from ice melt or runoff can freshen and lighten the surface layer, making sinking harder and weakening overturning in conceptual models.",
       examples: [
-        { problem: "Why does added freshwater at high latitudes potentially weaken AMOC?", solution: "Fresher water is less dense, which can reduce deep-water formation and overturning strength.", answer: "Lower density → less sinking" }
+        { problem: "How can ice-sheet meltwater tend to weaken AMOC in standard arguments?", solution: "Freshening reduces surface density and sinking.", answer: "Freshening / less sinking" }
       ],
-      shortcuts: ["AMOC = Atlantic overturning heat transport", "Density controls sinking"],
-      traps: ["Claiming AMOC stop equals instant global glaciation"]
+      shortcuts: ["Dense water sinks", "Fresh → lighter → less sink"],
+      traps: ["Freshwater makes water denser"]
     },
     {
-      id: "meteo-amoc-slowdown-impacts",
-      title: "Impacts and uncertainty",
-      summary: "Regional climate and sea-level fingerprints; active research.",
-      explanation: "A weaker AMOC could cool or alter climate in parts of the North Atlantic sector relative to a world without slowdown, while global greenhouse warming continues. Sea-level and tropical rain-belt shifts are also discussed in the literature. Uncertainty remains in timing and magnitude.",
+      id: "meteo-amoc-slowdown-not-cancel",
+      title: "Does not cancel global warming",
+      summary: "Regional vs global messages.",
+      explanation: "Even if the North Atlantic region cooled relative to a stronger AMOC baseline, the planet can still warm overall under increased GHGs. Treat AMOC as a regional modifier inside a warming world.",
       examples: [
-        { problem: "Does AMOC slowdown research replace greenhouse warming as the main global temperature story?", solution: "No — it is a regional circulation risk within a greenhouse-warmed climate system.", answer: "No — regional circulation issue" }
+        { problem: "True or false: AMOC slowdown means greenhouse warming is irrelevant.", solution: "False.", answer: "False" }
       ],
-      shortcuts: ["Regional, not simple global freeze", "Uncertainty in rate"],
-      traps: ["Media extreme scenarios as settled exam fact"]
+      shortcuts: ["Regional heat shift", "GHG still global"],
+      traps: ["AMOC slowdown = global ice age narrative"]
     }
   ],
-  comparisonTable: {
-    title: "AMOC concepts",
-    headers: ["Concept", "Point"],
-    rows: [
-      ["Role", "Atlantic heat / volume overturning"],
-      ["Risk mechanism", "Reduced high-latitude sinking"],
-      ["Impact style", "Regional redistribution + uncertainty"]
-    ]
-  },
   examPoints: [
-    "AMOC = Atlantic meridional overturning",
-    "Density/freshwater sensitivity",
-    "Slowdown ≠ instant ice age narrative"
+    "What AMOC transports",
+    "Freshwater inhibition idea",
+    "Not a global GHG cancel button"
   ],
   commonMistakes: [
-    "Hollywood ice-age claims.",
-    "Ignoring uncertainty.",
-    "Detaching from thermohaline basics.",
-    "Confusing AMOC with ENSO."
+    "AMOC = Gulf Stream only as slogans.",
+    "Global cooling guaranteed.",
+    "Ignoring density."
   ],
-  relatedTopics: ["meteo-ocean-currents", "meteo-enso-global-impacts", "meteo-climate-feedbacks", "meteo-radiative-forcing", "meteo-global-climate-regions"],
+  relatedTopics: ["meteo-ocean-currents", "meteo-climate-feedbacks", "meteo-radiative-forcing"],
   content: true,
-  buildsOn: ["meteo-ocean-currents", "meteo-climate-feedbacks"],
+  buildsOn: ["meteo-ocean-currents"],
   leadsTo: [],
-  usedIn: ["meteo-climate-feedbacks", "meteo-ipcc-rcps"]
+  usedIn: ["meteo-climate-feedbacks"]
 },
 
 ];
