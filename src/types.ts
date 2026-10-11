@@ -339,6 +339,11 @@ export interface TopicProgress {
    */
   recentSessions?: TopicQuizSession[];
   /**
+   * Elo-style ability on logit scale (Phase 2 adaptive selection).
+   * Updated after each answer; cold-start via accuracy if missing.
+   */
+  abilityElo?: number;
+  /**
    * @deprecated Migration only. loadData maps these into quizCorrect/quizTotal/nextReview.
    * Do not write in new code; prefer quizCorrect/quizTotal/nextReview.
    */
