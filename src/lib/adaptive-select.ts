@@ -2,6 +2,7 @@
  * Adaptive question selection
  * Phase 1: wrong / unseen / SR urgency / weak topics / recency
  * Phase 2: per-topic Elo ability + near-miss difficulty targeting
+ * Phase 3: per-question EWMA strength (stable vs last-outcome only)
  */
 import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
 import {
@@ -15,6 +16,9 @@ export type QuestionResultLike = {
   correct: boolean;
   timestamp: number;
   attempts?: number;
+  correctCount?: number;
+  strength?: number;
+  subjectId?: string;
 };
 
 export interface AdaptiveSelectOptions {
@@ -44,15 +48,23 @@ export const ABILITY_K = 0.35;
 /** Target success probability for maximal learning (slightly hard). */
 export const NEAR_MISS_TARGET_P = 0.68;
 
+/** EWMA blend toward 1 on correct */
+export const STRENGTH_UP = 0.25;
+/** Multiplier on wrong (halve strength) */
+export const STRENGTH_DOWN = 0.5;
+
 const W = {
-  wrong: 0.25,
   unseen: 0.15,
+  /** Weight on (1 - strength) */
+  lowStrength: 0.2,
+  /** Extra bump if the latest outcome was wrong */
+  lastWrong: 0.1,
   srOverdue: 0.12,
   srSoon: 0.08,
   srWeek: 0.04,
   weakTopic: 0.08,
-  nearMiss: 0.25,
-  reviewBoost: 0.12,
+  nearMiss: 0.22,
+  reviewBoost: 0.1,
   challengeHard: 0.04,
   challengeMedium: 0.02,
   staleCorrect: 0.04,
@@ -77,10 +89,6 @@ export function difficultyDelta(d: Difficulty | undefined): number {
   return DIFFICULTY_DELTA[d] ?? 0;
 }
 
-/**
- * Topic ability θ. Uses stored abilityElo when present; otherwise cold-starts
- * from recent accuracy (logit) or 0.
- */
 export function getTopicAbility(progress: TopicProgress | undefined): number {
   if (progress?.abilityElo != null && Number.isFinite(progress.abilityElo)) {
     return progress.abilityElo as number;
@@ -94,14 +102,10 @@ export function getTopicAbility(progress: TopicProgress | undefined): number {
   return 0;
 }
 
-/** Predicted P(correct | θ, difficulty). */
 export function predictedSuccess(ability: number, difficulty: Difficulty | undefined): number {
   return sigmoid(ability - difficultyDelta(difficulty));
 }
 
-/**
- * Update θ after one answer (1PL-style Elo on logit scale).
- */
 export function updateTopicAbility(
   currentAbility: number | undefined,
   difficulty: Difficulty | undefined,
@@ -114,14 +118,57 @@ export function updateTopicAbility(
   return θ + k * (y - p);
 }
 
-/**
- * Near-miss score in [0, 1]: highest when predicted success ≈ NEAR_MISS_TARGET_P.
- */
 export function nearMissScore(ability: number, difficulty: Difficulty | undefined): number {
   const p = predictedSuccess(ability, difficulty);
-  // Triangle peak at target: distance 0 → 1, distance ≥ 0.5 → 0
   const dist = Math.abs(p - NEAR_MISS_TARGET_P);
   return Math.max(0, 1 - dist / 0.5);
+}
+
+/**
+ * Resolve strength in [0, 1] from stored EWMA or last outcome.
+ */
+export function resolveStrength(r: QuestionResultLike | undefined): number | null {
+  if (!r) return null;
+  if (typeof r.strength === 'number' && Number.isFinite(r.strength)) {
+    return Math.min(1, Math.max(0, r.strength));
+  }
+  // Legacy rows: only last boolean
+  return r.correct ? 0.7 : 0.25;
+}
+
+/**
+ * EWMA update after one answer. Pure — does not touch storage.
+ */
+export function updateQuestionStrength(
+  prev: QuestionResultLike | undefined,
+  correct: boolean,
+  now: number = Date.now(),
+  subjectId?: string,
+): QuestionResultLike {
+  const attempts = (prev?.attempts ?? 0) + 1;
+  const priorCorrectCount =
+    prev?.correctCount ??
+    (prev ? (prev.correct ? Math.max(1, (prev.attempts ?? 1) - 1) : 0) : 0);
+  const correctCount = priorCorrectCount + (correct ? 1 : 0);
+
+  let strength = resolveStrength(prev);
+  if (strength == null) {
+    strength = correct ? 0.55 : 0.25;
+  } else if (correct) {
+    strength = strength + STRENGTH_UP * (1 - strength);
+  } else {
+    strength = strength * STRENGTH_DOWN;
+  }
+  strength = Math.min(1, Math.max(0, strength));
+
+  return {
+    correct,
+    timestamp: now,
+    attempts,
+    correctCount,
+    strength,
+    subjectId: subjectId ?? prev?.subjectId,
+  };
 }
 
 function daysBetweenLocal(a: Date, b: Date): number {
@@ -153,9 +200,6 @@ function weakTopicBoost(progress: TopicProgress | undefined): number {
   return W.weakTopic * Math.min(1, Math.max(0, gap));
 }
 
-/**
- * Learning-priority score for one question. Higher = ask sooner.
- */
 export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number {
   const now = opts.now ?? Date.now();
   const today = parseLocalDate(localDateString(new Date(now)));
@@ -168,17 +212,17 @@ export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number 
 
   let s = 0;
 
-  // Phase 1: error / novelty
+  // Phase 1 + 3: novelty / strength / last wrong
   if (!r) {
     s += W.unseen;
-  } else if (!r.correct) {
-    s += W.wrong;
   } else {
+    const strength = resolveStrength(r) ?? 0.5;
+    s += W.lowStrength * (1 - strength);
+    if (!r.correct) s += W.lastWrong;
     const ageDays = (now - r.timestamp) / DAY_MS;
-    if (ageDays > 14) s += W.staleCorrect;
+    if (r.correct && ageDays > 14) s += W.staleCorrect;
   }
 
-  // Recent repeat penalty
   if (recent.has(q.id)) {
     s += W.recentDay;
   } else if (r) {
@@ -189,12 +233,13 @@ export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number 
 
   s += srUrgency(prog, today);
   s += weakTopicBoost(prog);
-
-  // Phase 2: near-miss difficulty (skip pure random hard/easy)
   s += W.nearMiss * nearMissScore(ability, q.difficulty);
 
   if (opts.mode === 'review') {
-    if (!r || !r.correct) s += W.reviewBoost;
+    const strength = resolveStrength(r);
+    if (!r || (strength != null && strength < 0.55) || !r.correct) {
+      s += W.reviewBoost;
+    }
   }
   if (opts.mode === 'challenge') {
     if (q.difficulty === 'hard') s += W.challengeHard;
@@ -208,9 +253,6 @@ export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number 
   return s;
 }
 
-/**
- * Rank pool by adaptive score and take the top `count` items.
- */
 export function pickAdaptiveQuestions(
   pool: Question[],
   count: number,
@@ -229,5 +271,4 @@ export function pickAdaptiveQuestions(
 }
 
 export const ADAPTIVE_WEIGHTS = W;
-/** @deprecated use ADAPTIVE_WEIGHTS */
 export const ADAPTIVE_WEIGHTS_PHASE1 = W;
