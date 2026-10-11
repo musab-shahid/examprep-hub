@@ -14,8 +14,9 @@ import { subjectMap } from '@/data/subjects';
 import { BackButton, Breadcrumbs, HomeButton } from '@/components/layout/Breadcrumbs';
 import { PageContainer, Card, ProgressBar, Button, EmptyState, LoadingSpinner } from '@/components/ui';
 import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@/data/lazy-data';
-import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId } from '@/types';
+import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId, TopicProgress } from '@/types';
 import { quizSignature } from '@/lib/quiz-signature';
+import { pickAdaptiveQuestions } from '@/lib/adaptive-select';
 
 const VALID_MODES: PracticeMode[] = ['topic', 'quick', 'mock', 'review', 'challenge'];
 const VALID_SUBJECT_IDS = Object.keys(subjectMap);
@@ -115,6 +116,7 @@ function pickQuestions(
   wrongPool?: boolean,
   questionResults?: Record<string, { correct: boolean; timestamp: number }>,
   track?: 'fpsc' | 'hat',
+  topicProgress?: Record<string, TopicProgress>,
 ): Question[] {
   // Fail closed: never treat a broken topic quiz as track-wide practice
   if (mode === 'topic' && !topicId) {
@@ -152,6 +154,7 @@ function pickQuestions(
     return 10;
   })();
   if (mode === 'mock') {
+    // Exam-like fixed mix — not adaptive (fairness / realism)
     if (pool.length <= targetCount) return shuffleArray(pool);
     const easyPool = pool.filter((q) => q.difficulty === 'easy');
     const mediumPool = pool.filter((q) => q.difficulty === 'medium');
@@ -173,7 +176,12 @@ function pickQuestions(
     }
     return shuffleArray(picked);
   }
-  return shuffleArray(pool).slice(0, Math.min(targetCount, pool.length));
+  // Phase 1 adaptive: prioritize wrong, unseen, SR-due, weak topics
+  return pickAdaptiveQuestions(pool, Math.min(targetCount, pool.length), {
+    mode,
+    questionResults,
+    topicProgress,
+  });
 }
 
 function isCorrect(question: Question, selectedIndex: number[]): boolean {
@@ -359,7 +367,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
-    const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current);
+    const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current, data.topicProgress);
     const optionOrders: number[][] = [];
     const qs = pool.map((q) => {
       const { question, order } = shuffleQuestionOptions(q);
@@ -463,7 +471,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const handleRetry = useCallback(() => {
     if (wrongPool) {
-      const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, true, data.questionResults, trackRef.current);
+      const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, true, data.questionResults, trackRef.current, data.topicProgress);
       if (pool.length === 0) {
         setRetakeEmpty(true);
         return;
