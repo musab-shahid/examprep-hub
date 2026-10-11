@@ -410,17 +410,17 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.definition && (
           <Card className="p-5 border-l-4 border-l-sky-500">
             <div className="flex items-center gap-2 mb-2"><BookOpen className="w-4 h-4 text-sky-500" /><h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Definition</h3></div>
-            <p className="text-slate-700 text-base leading-relaxed">{topic.definition}</p>
+            <p className="text-slate-700 text-base leading-relaxed"><MathText text={topic.definition} /></p>
           </Card>
         )}
         {topic.keyFacts && topic.keyFacts.length > 0 && (
           <Card className="p-5">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Key Facts</h3>
-            <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" />{fact}</li>)}</ul>
+            <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" /><MathText text={fact} /></li>)}</ul>
           </Card>
         )}
         {topic.explanationSections && topic.explanationSections.map((sec, i) => (
-          <Card key={i} className="p-5"><h3 className="font-semibold text-slate-900 mb-2">{sec.heading}</h3><p className="text-slate-700 text-base leading-relaxed">{sec.body}</p></Card>
+          <Card key={i} className="p-5"><h3 className="font-semibold text-slate-900 mb-2">{sec.heading}</h3><p className="text-slate-700 text-base leading-relaxed"><MathText text={sec.body} /></p></Card>
         ))}
         {(topic as Topic & { subtopics?: unknown[] }).subtopics && (topic as Topic & { subtopics?: unknown[] }).subtopics!.length > 0 && (
           <SubtopicsBlock subtopics={(topic as Topic & { subtopics?: QuantSubtopic[] }).subtopics!} expandedGroups={expandedSubtopics} onToggleGroup={toggleSet(setExpandedSubtopics)} />
@@ -459,7 +459,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.examPoints && topic.examPoints.length > 0 && (
           <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/50">
             <div className="flex items-center gap-2 mb-3"><span className="text-warning-600 font-semibold text-sm uppercase tracking-wide">Exam Points</span></div>
-            <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" />{point}</li>)}</ul>
+            <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" /><MathText text={point} /></li>)}</ul>
           </Card>
         )}
         {topic.comparisonTable && <ComparisonTableBlock table={topic.comparisonTable} />}
