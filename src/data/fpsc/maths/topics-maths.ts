@@ -10,937 +10,144 @@ export const topics: Topic[] = [
   // ════════════════════════════════════════════════════════════════════
   // SECTION MATH-A: Number Systems & Arithmetic
   // ════════════════════════════════════════════════════════════════════
-
   {
-    id: "math-1-1",
-    sectionId: "MATH-01",
-    order: 1,
-    title: "Number Types: Natural, Whole, Integers, Rational, Irrational & Real",
-    definition:
-      "A number system is a structured way of representing quantities using a consistent set of symbols, operations, and rules. The real number system is the most commonly used in science and engineering and includes every number that can be placed on a continuous number line.",
-    keyFacts: [
-      "Natural numbers (N): 1, 2, 3, 4, ... — used for counting",
-      "Whole numbers (W): 0, 1, 2, 3, ... — naturals plus zero",
-      "Integers (Z): ..., -3, -2, -1, 0, 1, 2, 3, ... — wholes plus negatives",
-      "Rational numbers (Q): can be written as p/q with integer p, q and q ≠ 0",
-      "Irrational numbers: cannot be written as p/q — non-terminating, non-repeating decimals",
-      "Real numbers (R): rational ∪ irrational — every number on the number line",
-      "Every integer is rational (e.g., 5 = 5/1), but not every rational is an integer",
-      "√2, π, and e are classic irrationals",
-      "The hierarchy: N ⊂ W ⊂ Z ⊂ Q ⊂ R",
-    ],
-    explanationSections: [
+  id: "math-1-7",
+  sectionId: "MATH-01",
+  order: 7,
+  title: "Percentages & Percentage Change",
+  priority: "High",
+  definition: "A percentage is a way of expressing a number as a fraction of 100. Percentage change measures the relative growth or decay of a value compared to its original (initial) state.",
+  keyFacts: [
+    "Decimal Multiplier: To increase by $x\\%$, multiply by $(1 + x/100)$. To decrease, multiply by $(1 - x/100)$. ",
+    "Percentage change is always calculated relative to the ORIGINAL value.",
+    "Reverse Percentages: Used to find the value *before* a change occurred.",
+    "Successive Changes: Multipliers are multiplied together ($M_{total} = M_1 \\times M_2$), NOT added.",
+    "100% increase means the value doubles (Multiplier = 2); 100% decrease means the value becomes zero (Multiplier = 0)."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Multiplier Method",
+      body: "While 'finding 10% and adding it' works for simple mental math, the multiplier method is superior for science and complex problems. If a price of $80 increases by 15%, the multiplier is $1 + 0.15 = 1.15$. The new price is simply $80 \\times 1.15 = 92$. This method allows for easy calculation of multiple changes in a single step."
+    },
+    {
+      heading: "2. Calculating Percentage Change",
+      body: "Percentage change answers the question 'By what fraction of the start did it move?'. Formula: $\\frac{New - Old}{Old} \\times 100$. A positive result indicates an increase, while a negative result indicates a decrease. The most critical step is ensuring the 'Old' (initial) value is in the denominator."
+    },
+    {
+      heading: "3. Successive Changes Trap",
+      body: "Percentages do not add up linearly. If a value increases by 20% and then decreases by 20%, you are not back at 100%. \nCalculation: $1.20 \\times 0.80 = 0.96$. \nYou are actually at 96% of the original value (a 4% net loss). This happens because the second change is calculated on a 'new, larger' base."
+    },
+    {
+      heading: "4. Reverse Percentages (Working Backwards)",
+      body: "If you are given the value *after* a tax or discount, you cannot simply apply the percentage to that new number. You must divide by the multiplier. If a car costs $12,000 after a 20% discount, the original price was $12,000 / 0.80 = 15,000$."
+    }
+  ],
+  formula: {
+    name: "Percentage Change & Multipliers",
+    expression: "\\% \\text{ Change} = \\frac{\\Delta V}{V_{initial}} \\times 100 \\quad | \\quad V_{final} = V_{initial} \\times (1 \\pm r)",
+    variables: [
+      { symbol: "\\Delta V", meaning: "Change in value (Final - Initial)" },
+      { symbol: "V_{initial}", meaning: "The original/starting value" },
+      { symbol: "r", meaning: "Rate of change expressed as a decimal (e.g., 0.05 for 5%)" }
+    ]
+  },
+  examPoints: [
+    "Percentage change ALWAYS uses the initial value as the denominator.",
+    "In 'Reverse Percentage' problems, never add/subtract the percentage from the final value. Always divide by the multiplier.",
+    "A 200% increase means the final value is 3 TIMES the original ($1 + 2.00 = 3$)."
+  ],
+  commonMistakes: [
+    "Using the new value as the denominator for percentage change.",
+    "Adding percentages for successive changes (e.g., saying 10% + 10% = 20% increase).",
+    "Confusing 'Percentage points' with 'Percentage change' (an increase from 10% to 15% is a 5 percentage point increase, but a 50% change)."
+  ],
+  workedExample: {
+    problem: "A laptop is priced at $800. The price is increased by 25% for a holiday sale, then a 20% discount is applied at the checkout. What is the final price, and what was the net percentage change?",
+    solution: "1. Multiplier for 25% increase: $1.25$.\n2. Multiplier for 20% decrease: $0.80$.\n3. Final Price: $800 \\times 1.25 \\times 0.80 = 1000 \\times 0.80 = 800$.\n4. Net Change: $1.25 \\times 0.80 = 1.00$. Since the total multiplier is 1.00, there is 0% net change.",
+    answer: "Final Price: $800; Net Change: 0%"
+  },
+  methodChooser: {
+    title: "Which Percentage Calculation Do I Need?",
+    question: "What information does the problem provide?",
+    options: [
       {
-        heading: "1. The Hierarchy of Number Sets",
-        body: "Number sets nest inside each other. Every natural number is also a whole number; every whole number is also an integer; every integer is also a rational number; every rational number is also a real number. The only place the nesting ends is the jump from rationals to all reals — beyond rationals, you reach irrationals, which are real but not rational.",
+        condition: "You have the 'Before' and 'After' values and need the shift.",
+        answer: "Use Percentage Change Formula: (New-Old)/Old."
       },
       {
-        heading: "2. Rational vs Irrational: The Test",
-        body: "A number is rational if and only if it can be written as p/q with integer p, q and q ≠ 0. This includes all terminating decimals (e.g., 0.75 = 3/4) and all repeating decimals (e.g., 0.333... = 1/3). Irrationals cannot be written in this form — their decimal expansion never terminates and never repeats. √2 is the classic example: no matter how many digits you compute, the pattern never repeats.",
+        condition: "You have the 'Before' value and a percentage increase/decrease.",
+        answer: "Multiply by the Multiplier: $V \\times (1 \\pm r)$."
       },
       {
-        heading: "3. Why This Matters in Practice",
-        body: "In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in physics formulas involving energy and motion). The fact that they are irrational does not make them less 'real' — they are called real numbers because every irrational still has a precise position on the number line.",
-      },
-      {
-        heading: "4. Common Misconceptions",
-        body: "A frequent mistake is to assume that any decimal with many digits is irrational. The opposite is often true: 0.333... (repeating 3) is rational because 0.333... = 1/3 exactly. The distinguishing feature of an irrational decimal is that it neither terminates (like 0.5) nor repeats in a fixed pattern. Another common error: assuming a number with a square root is automatically irrational. √4 = 2 is rational; √9 = 3 is rational — the square root must be of a non-perfect square to be irrational.",
-      },
-    ],
-    examPoints: [
-      "Test if √n is irrational by checking if n is a perfect square: √2, √3, √5, √6, √7 are irrational; √1, √4, √9, √16 are rational",
-      "Sum of a non-zero rational and an irrational is ALWAYS irrational",
-      "Product of a non-zero rational and an irrational is ALWAYS irrational",
-      "Sum or product of two irrationals CAN BE rational — e.g., √2 × √2 = 2 (rational); √2 + (3 − √2) = 3 (rational)",
-    ],
-    comparisonTable: {
-      headers: ["Set", "Symbol", "Includes", "Example"],
-      rows: [
-        ["Natural", "$\\mathbb{N}$", "1, 2, 3, ...", "5"],
-        ["Whole", "$\\mathbb{W}$", "0, 1, 2, ...", "0"],
-        ["Integer", "$\\mathbb{Z}$", "..., -2, -1, 0, 1, 2, ...", "-7"],
-        ["Rational", "$\\mathbb{Q}$", "All p/q with q ≠ 0", "3/4, 0.5, -2/3"],
-        ["Irrational", "—", "Non-repeating, non-terminating", "√2, π, e"],
-        ["Real", "$\\mathbb{R}$", "All numbers on number line", "All of the above"],
+        condition: "You have the 'After' value and need to find the 'Before' value.",
+        answer: "Reverse Percentage: Divide by the Multiplier ($V_{final} / M$)."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "100% Decrease",
+      example: "A price drops by 100%.",
+      note: "Multiplier is $1 - 1.00 = 0$. The result is always zero."
+    },
+    {
+      case: "Same increase and decrease",
+      example: "Up 50%, then Down 50%.",
+      note: "$1.5 \\times 0.5 = 0.75$. You lose 25% of your original value."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "If I increase something by 10% and then decrease it by 10%, I'm back where I started.",
+      whyStudentsThinkSo: "They assume $+10$ and $-10$ cancel out to zero.",
+      correctModel: "The 10% decrease is calculated on a larger number than the 10% increase was. Therefore, you lose more than you gained.",
+      remedy: "Always use multipliers: $1.1 \\times 0.9 = 0.99$. You are at 99%, not 100%."
+    }
+  ],
+  qualitativeScenarios: [
+    {
+      question: "Company A grows by 50% in year one and 0% in year two. Company B grows by 25% in year one and 25% in year two. Who grew more overall?",
+      answer: "Company B grew more.",
+      reasoning: "Company A: $1.50 \\times 1.00 = 1.50$. Company B: $1.25 \\times 1.25 = 1.5625$. Compounding growth (successive percentages) favors consistent growth over one-time large spikes."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-7-1",
+      title: "Basic Percentage Operations",
+      summary: "Finding parts of a whole and expressing ratios as percentages.",
+      explanation: "Mastering the conversion between fractions, decimals, and percentages is the foundation for all financial and scientific math.",
+      examples: [
+        {
+          problem: "What is 17.5% of $400?",
+          solution: "$0.175 \\times 400 = 70$.",
+          answer: "$70"
+        }
       ],
+      shortcuts: ["10% rule: Move the decimal one place left, then double/half as needed."],
+      traps: ["Don't forget to convert the % to a decimal before multiplying (divide by 100)."]
     },
-    workedExample: {
-      problem:
-        "Classify each of the following as natural, whole, integer, rational, or irrational: (a) -7, (b) 0, (c) 3/4, (d) √5, (e) π, (f) 8",
-      solution:
-        "(a) -7 is an integer (and rational, real). (b) 0 is a whole number (and integer, rational, real). (c) 3/4 is rational and real. (d) √5 is irrational (5 is not a perfect square) and real. (e) π is irrational and real. (f) 8 is natural, whole, integer, rational, and real.",
-      answer: "(a) integer; (b) whole/integer; (c) rational; (d) irrational; (e) irrational; (f) natural",
-    },
-    commonMistakes: [
-      "Assuming 0 is a natural number — in most definitions, N starts from 1, not 0",
-      "Confusing 'non-terminating' with 'irrational' — 0.333... is non-terminating but rational",
-      "Saying '√n is always irrational' — only true when n is not a perfect square",
-    ],
-    relatedTopics: ["math-1-2", "math-1-3", "math-1-4", "math-1-5"],
-    subtopics: [
-      {
-        id: "math-1-1-1-the-hierarchy-of-number-sets",
-        title: "1. The Hierarchy of Number Sets",
-        summary:
-          "Number sets nest inside each other. Every natural number is also a whole number; every whole number is also an integer; every integer is…",
-        explanation:
-          "Number sets nest inside each other. Every natural number is also a whole number; every whole number is also an integer; every integer is also a rational number; every rational number is also a real number. The only place the nesting ends is the jump from rationals to all reals — beyond rationals, you reach irrationals, which are real but not rational.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “1. The Hierarchy of Number Sets” to a short numerical or identification check.",
-            solution:
-              "Key idea: Number sets nest inside each other. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-1-2-rational-vs-irrational-the-test",
-        title: "2. Rational vs Irrational: The Test",
-        summary:
-          "A number is rational if and only if it can be written as p/q with integer p, q and q ≠ 0. This includes all terminating decimals (e.g.,…",
-        explanation:
-          "A number is rational if and only if it can be written as p/q with integer p, q and q ≠ 0. This includes all terminating decimals (e.g., 0.75 = 3/4) and all repeating decimals (e.g., 0.333... = 1/3). Irrationals cannot be written in this form — their decimal expansion never terminates and never repeats. √2 is the classic example: no matter how many digits you compute, the pattern never repeats.",
-        examples: [
-          {
-            problem: "Divide 80 in the ratio 3 : 5.",
-            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
-            answer: "30 and 50",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-1-3-why-this-matters-in-practice",
-        title: "3. Why This Matters in Practice",
-        summary:
-          "In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in…",
-        explanation:
-          "In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in physics formulas involving energy and motion). The fact that they are irrational does not make them less 'real' — they are called real numbers because every irrational still has a precise position on the number line.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “3. Why This Matters in Practice” to a short numerical or identification check.",
-            solution:
-              "Key idea: In science you will see irrationals constantly: π (geometry, circular motion), e (exponential growth, radioactive decay), and √2, √3 (in physics formulas involving energy and motion). Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-1-4-common-misconceptions",
-        title: "4. Common Misconceptions",
-        summary:
-          "A frequent mistake is to assume that any decimal with many digits is irrational. The opposite is often true: 0.333... (repeating 3) is…",
-        explanation:
-          "A frequent mistake is to assume that any decimal with many digits is irrational. The opposite is often true: 0.333... (repeating 3) is rational because 0.333... = 1/3 exactly. The distinguishing feature of an irrational decimal is that it neither terminates (like 0.5) nor repeats in a fixed pattern. Another common error: assuming a number with a square root is automatically irrational. √4 = 2 is rational; √9 = 3 is rational — the square root must be of a non-perfect square to be irrational.",
-        examples: [
-          {
-            problem: "Apply the rule in “4. Common Misconceptions” to a short numerical or identification check.",
-            solution:
-              "Key idea: A frequent mistake is to assume that any decimal with many digits is irrational. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: [],
-    leadsTo: ["math-1-2", "math-1-3", "math-1-5"],
-    usedIn: ["math-1-6", "math-3-1", "math-3-2", "math-3-3", "phy-units-measurement", "ra-data-types"],
-  },
-
-  {
-    id: "math-1-2",
-    sectionId: "MATH-01",
-    order: 2,
-    title: "Order of Operations (BODMAS / PEMDAS)",
-    definition:
-      "The order of operations is a fixed sequence of rules for evaluating mathematical expressions. BODMAS (Brackets, Orders, Division, Multiplication, Addition, Subtraction) and PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction) are the two common names for the same convention.",
-    keyFacts: [
-      "B: Brackets first (parentheses, braces, brackets)",
-      "O / E: Orders or Exponents (powers, roots)",
-      "D and M: Division and Multiplication, left to right (equal priority)",
-      "A and S: Addition and Subtraction, left to right (equal priority)",
-      "Multiplication and division have equal priority; do them left to right",
-      "Addition and subtraction have equal priority; do them left to right",
-      "Negation (−) is not subtraction; it has higher priority than subtraction",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Why a Standard Order Exists",
-        body: "Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Mathematics is unambiguous, so the convention is: multiplication before addition. The order is universal: brackets, then exponents, then multiplication/division, then addition/subtraction.",
-      },
-      {
-        heading: "2. The Equal-Priority Trap",
-        body: "Multiplication and division are NOT 'multiplication first, then division'. They have the SAME priority. So 12 ÷ 3 × 2 = (12 ÷ 3) × 2 = 8, not 12 ÷ (3 × 2) = 2. Work strictly left to right when operations share priority.",
-      },
-      {
-        heading: "3. The Unary Minus vs Subtraction Minus",
-        body: "In an expression like -3², the − is unary (negation), not subtraction. Convention: exponentiation binds tighter than unary minus, so -3² = -(3²) = -9. To square a negative number, use parentheses: (-3)² = 9.",
-      },
-    ],
-    formula: {
-      name: "BODMAS evaluation sequence",
-      expression: "B → O → D/M (left→right) → A/S (left→right)",
-      variables: [
-        { symbol: "B", meaning: "Brackets" },
-        { symbol: "O", meaning: "Orders (exponents, roots)" },
-        { symbol: "D, M", meaning: "Division, Multiplication (left to right)" },
-        { symbol: "A, S", meaning: "Addition, Subtraction (left to right)" },
+    {
+      id: "math-1-7-2",
+      title: "Reverse Percentages",
+      summary: "Calculating the initial value from a changed final value.",
+      explanation: "Essential for 'Sales' and 'Tax' problems where the final price is the only thing known.",
+      examples: [
+        {
+          problem: "A jacket costs $96 after a 20% discount. What was the original price?",
+          solution: "Discount of 20% means the multiplier is 0.80. $96 / 0.80 = 120$.",
+          answer: "$120"
+        }
       ],
-    },
-    examPoints: [
-      "12 ÷ 3 × 2 = 8, not 2 — work left to right for equal-priority operations",
-      "-3² means -(3²) = -9, NOT (-3)² = 9",
-      "Nested brackets: solve innermost first (curly → square → round)",
-    ],
-    workedExample: {
-      problem: "Evaluate: 24 ÷ (2 + 4) × 3 − 2³ + 5",
-      solution:
-        "Step 1 — Brackets: (2 + 4) = 6, so expression becomes 24 ÷ 6 × 3 − 2³ + 5. Step 2 — Exponents: 2³ = 8. Expression: 24 ÷ 6 × 3 − 8 + 5. Step 3 — Division & Multiplication (left to right): 24 ÷ 6 = 4; 4 × 3 = 12. Expression: 12 − 8 + 5. Step 4 — Addition & Subtraction (left to right): 12 − 8 = 4; 4 + 5 = 9.",
-      answer: "9",
-    },
-    commonMistakes: [
-      "Doing division before multiplication regardless of order (use left to right)",
-      "Treating -3² as (-3)² — the negation is unary, not in a bracket",
-      "Forgetting to evaluate brackets first",
-    ],
-    relatedTopics: ["math-1-1", "math-1-5", "math-2-1"],
-    subtopics: [
-      {
-        id: "math-1-2-1-why-a-standard-order-exists",
-        title: "1. Why a Standard Order Exists",
-        summary:
-          "Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Mathematics is unambiguous, so the…",
-        explanation:
-          "Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Mathematics is unambiguous, so the convention is: multiplication before addition. The order is universal: brackets, then exponents, then multiplication/division, then addition/subtraction.",
-        examples: [
-          {
-            problem: "Apply the rule in “1. Why a Standard Order Exists” to a short numerical or identification check.",
-            solution:
-              "Key idea: Without a fixed order, the expression 2 + 3 × 4 could mean (2 + 3) × 4 = 20 or 2 + (3 × 4) = 14. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-2-2-the-equal-priority-trap",
-        title: "2. The Equal-Priority Trap",
-        summary:
-          "Multiplication and division are NOT 'multiplication first, then division'. They have the SAME priority. So 12 ÷ 3 × 2 = (12 ÷ 3) × 2 = 8,…",
-        explanation:
-          "Multiplication and division are NOT 'multiplication first, then division'. They have the SAME priority. So 12 ÷ 3 × 2 = (12 ÷ 3) × 2 = 8, not 12 ÷ (3 × 2) = 2. Work strictly left to right when operations share priority.",
-        examples: [
-          {
-            problem: "Apply the rule in “2. The Equal-Priority Trap” to a short numerical or identification check.",
-            solution:
-              "Key idea: Multiplication and division are NOT 'multiplication first, then division'. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-2-3-the-unary-minus-vs-subtraction-minus",
-        title: "3. The Unary Minus vs Subtraction Minus",
-        summary:
-          "In an expression like -3², the − is unary (negation), not subtraction. Convention: exponentiation binds tighter than unary minus, so -3² =…",
-        explanation:
-          "In an expression like -3², the − is unary (negation), not subtraction. Convention: exponentiation binds tighter than unary minus, so -3² = -(3²) = -9. To square a negative number, use parentheses: (-3)² = 9.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “3. The Unary Minus vs Subtraction Minus” to a short numerical or identification check.",
-            solution:
-              "Key idea: In an expression like -3², the − is unary (negation), not subtraction. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-1"],
-    leadsTo: ["math-2-3", "math-2-6"],
-    usedIn: ["math-2-4", "math-2-5", "math-8-3", "phy-kinematics"],
-  },
-
-  {
-    id: "math-1-3",
-    sectionId: "MATH-01",
-    order: 3,
-    title: "Prime Numbers, Factors & Multiples",
-    definition:
-      "A prime number is a natural number greater than 1 with exactly two factors: 1 and itself. A composite number has more than two factors. The Fundamental Theorem of Arithmetic states that every integer greater than 1 is either prime or can be expressed uniquely as a product of primes.",
-    keyFacts: [
-      "Prime numbers: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, ...",
-      "2 is the only even prime number",
-      "1 is neither prime nor composite",
-      "Composite numbers have more than two factors (e.g., 4 = 1×2×2×4, but as factors: 1, 2, 4)",
-      "Every integer greater than 1 is either prime or composite",
-      "Prime factorization: breaking a number into its prime factors (e.g., 60 = 2² × 3 × 5)",
-      "Divisibility rule for 2: last digit is even",
-      "Divisibility rule for 3: sum of digits divisible by 3",
-      "Divisibility rule for 5: last digit is 0 or 5",
-      "Divisibility rule for 9: sum of digits divisible by 9",
-      "Divisibility rule for 11: alternating sum of digits divisible by 11",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Why 1 is Neither Prime Nor Composite",
-        body: "By definition, a prime has exactly two distinct factors. The number 1 has only one factor (itself), so it cannot be prime. The definition of composite also requires at least two distinct proper factors, which 1 does not have. This is not arbitrary — if 1 were prime, the Fundamental Theorem of Arithmetic would fail because every number could be factored in infinitely many ways.",
-      },
-      {
-        heading: "2. Prime Factorization",
-        body: "Any integer greater than 1 can be written uniquely as a product of prime numbers. For example: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. To find the prime factorization, divide by the smallest possible prime repeatedly until you reach 1. Example: 84 ÷ 2 = 42; 42 ÷ 2 = 21; 21 ÷ 3 = 7; 7 ÷ 7 = 1. So 84 = 2² × 3 × 7.",
-      },
-      {
-        heading: "3. Divisibility Rules in Practice",
-        body: "These rules let you test divisibility without long division. For 11: 627 — compute 6 − 2 + 7 = 11, which is divisible by 11, so 627 is divisible by 11. For 9: 738 — sum = 7 + 3 + 8 = 18, divisible by 9, so 738 is divisible by 9. These shortcuts save significant time in exams.",
-      },
-    ],
-    examPoints: [
-      "1 is neither prime nor composite — do not include it in either list",
-      "2 is the only even prime; all other primes are odd",
-      "For HCF, use the LOWEST power of common primes; for LCM, use the HIGHEST",
-    ],
-    workedExample: {
-      problem: "Find the prime factorization of 180. Is 627 divisible by 11?",
-      solution:
-        "180: 180 ÷ 2 = 90; 90 ÷ 2 = 45; 45 ÷ 3 = 15; 15 ÷ 3 = 5; 5 ÷ 5 = 1. So 180 = 2² × 3² × 5. For 627: alternating sum = 6 − 2 + 7 = 11, which is divisible by 11, so YES, 627 = 11 × 57.",
-      answer: "180 = 2² × 3² × 5; YES, 627 is divisible by 11",
-    },
-    commonMistakes: [
-      "Counting 1 as a prime number (it is not)",
-      "Stopping prime factorization too early — must reach 1",
-      "Reversing HCF and LCM rules (lowest vs highest powers)",
-    ],
-    relatedTopics: ["math-1-4", "math-1-1"],
-    subtopics: [
-      {
-        id: "math-1-3-1-why-1-is-neither-prime-nor-composite",
-        title: "1. Why 1 is Neither Prime Nor Composite",
-        summary:
-          "By definition, a prime has exactly two distinct factors. The number 1 has only one factor (itself), so it cannot be prime. The definition…",
-        explanation:
-          "By definition, a prime has exactly two distinct factors. The number 1 has only one factor (itself), so it cannot be prime. The definition of composite also requires at least two distinct proper factors, which 1 does not have. This is not arbitrary — if 1 were prime, the Fundamental Theorem of Arithmetic would fail because every number could be factored in infinitely many ways.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-3-2-prime-factorization",
-        title: "2. Prime Factorization",
-        summary:
-          "Any integer greater than 1 can be written uniquely as a product of prime numbers. For example: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. To find the…",
-        explanation:
-          "Any integer greater than 1 can be written uniquely as a product of prime numbers. For example: 60 = 2 × 2 × 3 × 5 = 2² × 3 × 5. To find the prime factorization, divide by the smallest possible prime repeatedly until you reach 1. Example: 84 ÷ 2 = 42; 42 ÷ 2 = 21; 21 ÷ 3 = 7; 7 ÷ 7 = 1. So 84 = 2² × 3 × 7.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-3-3-divisibility-rules-in-practice",
-        title: "3. Divisibility Rules in Practice",
-        summary:
-          "These rules let you test divisibility without long division. For 11: 627 — compute 6 − 2 + 7 = 11, which is divisible by 11, so 627 is…",
-        explanation:
-          "These rules let you test divisibility without long division. For 11: 627 — compute 6 − 2 + 7 = 11, which is divisible by 11, so 627 is divisible by 11. For 9: 738 — sum = 7 + 3 + 8 = 18, divisible by 9, so 738 is divisible by 9. These shortcuts save significant time in exams.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “3. Divisibility Rules in Practice” to a short numerical or identification check.",
-            solution:
-              "Key idea: These rules let you test divisibility without long division. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-1"],
-    leadsTo: ["math-1-4"],
-    usedIn: ["math-1-5", "math-2-4"],
-  },
-
-  {
-    id: "math-1-4",
-    sectionId: "MATH-01",
-    order: 4,
-    title: "HCF & LCM",
-    definition:
-      "The Highest Common Factor (HCF, also called GCD) of two or more numbers is the largest integer that divides each of them exactly. The Least Common Multiple (LCM) is the smallest positive integer that is a multiple of each of them.",
-    keyFacts: [
-      "HCF (GCD) = largest integer dividing all given numbers",
-      "LCM = smallest positive integer divisible by all given numbers",
-      "For two positive integers a and b: a × b = HCF(a,b) × LCM(a,b)",
-      "HCF is found by multiplying the LOWEST powers of common prime factors",
-      "LCM is found by multiplying the HIGHEST powers of all prime factors appearing",
-      "Co-prime numbers have HCF = 1",
-      "HCF ≤ smaller number; LCM ≥ larger number",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Prime Factorization Method for HCF",
-        body: "Write each number as a product of prime factors. HCF uses the LOWEST power of each prime that appears in ALL numbers. Example: 24 = 2³ × 3 and 36 = 2² × 3². Common primes: 2 (lowest power 2²) and 3 (lowest power 3¹). HCF = 2² × 3 = 12.",
-      },
-      {
-        heading: "2. Prime Factorization Method for LCM",
-        body: "Using the same factorizations, LCM uses the HIGHEST power of each prime appearing in ANY number. For 24 and 36: highest powers of 2 (2³) and 3 (3²). LCM = 2³ × 3² = 8 × 9 = 72.",
-      },
-      {
-        heading: "3. The HCF-LCM Product Rule",
-        body: "For any two positive integers a and b: a × b = HCF(a, b) × LCM(a, b). This is a fast verification and a quick way to find LCM when HCF is known: LCM = (a × b) ÷ HCF. Example: if a = 30, b = 36, HCF = 6, then LCM = (30 × 36) ÷ 6 = 180.",
-      },
-      {
-        heading: "4. Co-prime Numbers",
-        body: "Two numbers are co-prime (or relatively prime) if their HCF is 1. They share no common factors greater than 1. Example: 8 and 15 are co-prime (HCF = 1) even though neither is prime. Co-prime numbers are important in many algorithms and in fraction simplification.",
-      },
-    ],
-    formula: {
-      name: "HCF-LCM product relationship",
-      expression: "a × b = HCF(a, b) × LCM(a, b)",
-      variables: [
-        { symbol: "a, b", meaning: "two positive integers" },
-        { symbol: "HCF", meaning: "Highest Common Factor" },
-        { symbol: "LCM", meaning: "Least Common Multiple" },
-      ],
-    },
-    examPoints: [
-      "HCF × LCM = a × b — use this to find LCM when HCF is known: LCM = (a × b) / HCF",
-      "HCF of co-prime numbers is always 1",
-      "LCM is always ≥ the larger number; HCF is always ≤ the smaller number",
-    ],
-    workedExample: {
-      problem: "Find the HCF and LCM of 48 and 180.",
-      solution:
-        "48 = 2⁴ × 3. 180 = 2² × 3² × 5. HCF: lowest common powers = 2² × 3 = 12. LCM: highest powers = 2⁴ × 3² × 5 = 720. Verification: 48 × 180 = 8640; 12 × 720 = 8640. ✓",
-      answer: "HCF = 12, LCM = 720",
-    },
-    commonMistakes: [
-      "Confusing HCF and LCM — remember: HCF is what divides; LCM is what is divided by",
-      "Using the wrong power of common primes (lowest for HCF, highest for LCM)",
-      "Forgetting to include primes that appear in only one number when computing LCM",
-    ],
-    relatedTopics: ["math-1-3", "math-1-5"],
-    subtopics: [
-      {
-        id: "math-1-4-1-prime-factorization-method-for-hcf",
-        title: "1. Prime Factorization Method for HCF",
-        summary:
-          "Write each number as a product of prime factors. HCF uses the LOWEST power of each prime that appears in ALL numbers. Example: 24 = 2³ × 3…",
-        explanation:
-          "Write each number as a product of prime factors. HCF uses the LOWEST power of each prime that appears in ALL numbers. Example: 24 = 2³ × 3 and 36 = 2² × 3². Common primes: 2 (lowest power 2²) and 3 (lowest power 3¹). HCF = 2² × 3 = 12.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-4-2-prime-factorization-method-for-lcm",
-        title: "2. Prime Factorization Method for LCM",
-        summary:
-          "Using the same factorizations, LCM uses the HIGHEST power of each prime appearing in ANY number. For 24 and 36: highest powers of 2 (2³)…",
-        explanation:
-          "Using the same factorizations, LCM uses the HIGHEST power of each prime appearing in ANY number. For 24 and 36: highest powers of 2 (2³) and 3 (3²). LCM = 2³ × 3² = 8 × 9 = 72.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-4-3-the-hcf-lcm-product-rule",
-        title: "3. The HCF-LCM Product Rule",
-        summary:
-          "For any two positive integers a and b: a × b = HCF(a, b) × LCM(a, b). This is a fast verification and a quick way to find LCM when HCF is…",
-        explanation:
-          "For any two positive integers a and b: a × b = HCF(a, b) × LCM(a, b). This is a fast verification and a quick way to find LCM when HCF is known: LCM = (a × b) ÷ HCF. Example: if a = 30, b = 36, HCF = 6, then LCM = (30 × 36) ÷ 6 = 180.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-4-4-co-prime-numbers",
-        title: "4. Co-prime Numbers",
-        summary:
-          "Two numbers are co-prime (or relatively prime) if their HCF is 1. They share no common factors greater than 1. Example: 8 and 15 are…",
-        explanation:
-          "Two numbers are co-prime (or relatively prime) if their HCF is 1. They share no common factors greater than 1. Example: 8 and 15 are co-prime (HCF = 1) even though neither is prime. Co-prime numbers are important in many algorithms and in fraction simplification.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-3"],
-    leadsTo: ["math-1-5", "math-1-8"],
-    usedIn: ["math-8-4", "math-8-5"],
-  },
-
-  {
-    id: "math-1-5",
-    sectionId: "MATH-01",
-    order: 5,
-    title: "Fractions: Operations, Comparison & Conversion",
-    definition:
-      "A fraction represents part of a whole as a ratio. The numerator (top) counts the parts; the denominator (bottom) names the total number of equal parts. Operations on fractions follow specific rules for addition, subtraction, multiplication, and division.",
-    keyFacts: [
-      "Fraction a/b: a = numerator, b = denominator (b ≠ 0)",
-      "Proper fraction: numerator < denominator (e.g., 3/7)",
-      "Improper fraction: numerator ≥ denominator (e.g., 9/4)",
-      "Mixed number: whole part + proper fraction (e.g., 2 1/4)",
-      "Addition/subtraction: find common denominator first, then add/subtract numerators",
-      "Multiplication: (a/b) × (c/d) = (a × c)/(b × d)",
-      "Division: (a/b) ÷ (c/d) = (a/b) × (d/c)",
-      "Simplification: divide numerator and denominator by their HCF",
-      "Fraction to decimal: divide numerator by denominator",
-      "Decimal to fraction: write digits over appropriate power of 10, then simplify",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Adding and Subtracting Fractions",
-        body: "To add or subtract fractions, you need a COMMON denominator. The simplest is the LCM of the two denominators. Then: a/b + c/d = (ad + bc)/bd. Example: 1/4 + 1/6. LCM(4, 6) = 12. Rewrite: 3/12 + 2/12 = 5/12. Subtraction follows the same pattern.",
-      },
-      {
-        heading: "2. Multiplying and Dividing Fractions",
-        body: "Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. (3/4) × (2/5) = 6/20 = 3/10. Division: invert the second fraction and multiply. (3/4) ÷ (2/5) = (3/4) × (5/2) = 15/8 = 1 7/8.",
-      },
-      {
-        heading: "3. Comparing Fractions",
-        body: "Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. (2) convert to decimals: 3/7 ≈ 0.4286, 5/12 ≈ 0.4167, so 3/7 > 5/12. Cross-multiplication is faster for exact comparison.",
-      },
-      {
-        heading: "4. Conversion Between Forms",
-        body: "Fraction to decimal: divide. Decimal to fraction: write the digits as the numerator, and the appropriate power of 10 as the denominator, then simplify. 0.625 = 625/1000 = 5/8 (after dividing by HCF 125). Mixed to improper: multiply whole by denominator, add numerator: 2 1/4 = (2×4 + 1)/4 = 9/4.",
-      },
-    ],
-    examPoints: [
-      "When adding fractions, you MUST find a common denominator first",
-      "To compare a/b and c/d, cross-multiply: a/b > c/d iff ad > bc",
-      "Dividing by a fraction is the same as multiplying by its reciprocal",
-    ],
-    workedExample: {
-      problem: "Calculate: (3/4 + 1/6) × (2/5). Express as a simplified fraction.",
-      solution:
-        "Step 1: Common denominator for 4 and 6 is 12. 3/4 = 9/12; 1/6 = 2/12. Sum = 11/12. Step 2: Multiply by 2/5: (11/12) × (2/5) = 22/60. Step 3: Simplify. HCF(22, 60) = 2. Result = 11/30.",
-      answer: "11/30",
-    },
-    commonMistakes: [
-      "Adding numerators and denominators directly: 1/4 + 1/6 ≠ 2/10",
-      "Forgetting to invert the second fraction when dividing",
-      "Not simplifying after multiplying (leaving 22/60 instead of 11/30)",
-    ],
-    relatedTopics: ["math-1-2", "math-1-4", "math-1-6"],
-    subtopics: [
-      {
-        id: "math-1-5-1-adding-and-subtracting-fractions",
-        title: "1. Adding and Subtracting Fractions",
-        summary:
-          "To add or subtract fractions, you need a COMMON denominator. The simplest is the LCM of the two denominators. Then: a/b + c/d = (ad +…",
-        explanation:
-          "To add or subtract fractions, you need a COMMON denominator. The simplest is the LCM of the two denominators. Then: a/b + c/d = (ad + bc)/bd. Example: 1/4 + 1/6. LCM(4, 6) = 12. Rewrite: 3/12 + 2/12 = 5/12. Subtraction follows the same pattern.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-5-2-multiplying-and-dividing-fractions",
-        title: "2. Multiplying and Dividing Fractions",
-        summary:
-          "Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. (3/4) × (2/5) = 6/20 = 3/10.…",
-        explanation:
-          "Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. (3/4) × (2/5) = 6/20 = 3/10. Division: invert the second fraction and multiply. (3/4) ÷ (2/5) = (3/4) × (5/2) = 15/8 = 1 7/8.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “2. Multiplying and Dividing Fractions” to a short numerical or identification check.",
-            solution:
-              "Key idea: Multiplication is straightforward: multiply numerators and denominators straight across, then simplify. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-5-3-comparing-fractions",
-        title: "3. Comparing Fractions",
-        summary:
-          "Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. (2) convert to decimals: 3/7 ≈ 0.4286, 5/12 ≈ 0.4167, so 3/7 > 5/12.…",
-        explanation:
-          "Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. (2) convert to decimals: 3/7 ≈ 0.4286, 5/12 ≈ 0.4167, so 3/7 > 5/12. Cross-multiplication is faster for exact comparison.",
-        examples: [
-          {
-            problem: "Apply the rule in “3. Comparing Fractions” to a short numerical or identification check.",
-            solution:
-              "Key idea: Two methods: (1) cross-multiply: a/b > c/d iff ad > bc. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-5-4-conversion-between-forms",
-        title: "4. Conversion Between Forms",
-        summary:
-          "Fraction to decimal: divide. Decimal to fraction: write the digits as the numerator, and the appropriate power of 10 as the denominator,…",
-        explanation:
-          "Fraction to decimal: divide. Decimal to fraction: write the digits as the numerator, and the appropriate power of 10 as the denominator, then simplify. 0.625 = 625/1000 = 5/8 (after dividing by HCF 125). Mixed to improper: multiply whole by denominator, add numerator: 2 1/4 = (2×4 + 1)/4 = 9/4.",
-        examples: [
-          {
-            problem: "Find the HCF of 24 and 36.",
-            solution: "24 = 2³ × 3; 36 = 2² × 3². HCF uses minimum powers: 2² × 3 = 12.",
-            answer: "12",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-1", "math-1-2"],
-    leadsTo: ["math-1-6", "math-1-7", "math-1-8"],
-    usedIn: ["math-2-2", "math-8-1", "phy-density", "phy-pressure-fluids"],
-  },
-
-  {
-    id: "math-1-6",
-    sectionId: "MATH-01",
-    order: 6,
-    title: "Decimals, Rounding & Scientific Notation",
-    definition:
-      "Decimals are base-10 representations of numbers using a decimal point to separate whole and fractional parts. Rounding reduces precision to a specified number of significant figures or decimal places. Scientific notation expresses numbers as a × 10ⁿ where 1 ≤ a < 10.",
-    keyFacts: [
-      "Decimal place values: tenths (0.1), hundredths (0.01), thousandths (0.001), ...",
-      "Rounding rule: if next digit is 5 or more, round UP; otherwise round DOWN",
-      "Significant figures (sig figs) count all non-zero digits and zeros between them; leading zeros don't count",
-      "Scientific notation: N × 10ⁿ where 1 ≤ |N| < 10 and n is an integer",
-      "To convert to scientific notation, move decimal until single non-zero digit remains before the point",
-      "Multiplying in scientific notation: multiply coefficients, ADD exponents",
-      "Dividing in scientific notation: divide coefficients, SUBTRACT exponents",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Decimal Place Value",
-        body: "Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place = 10⁻³ = 0.001. So 3.142 = 3 + 0.1 + 0.04 + 0.002. Operations follow the same rules as whole numbers, but alignment of decimal points is critical for addition and subtraction.",
-      },
-      {
-        heading: "2. Rounding Rules",
-        body: "To round to N decimal places: look at the (N+1)th digit. If it is 5 or higher, round the Nth digit up. Otherwise, leave the Nth digit unchanged. Example: 3.1459 rounded to 2 decimal places — look at 3rd decimal (5), round up: 3.15. The 'banker's rounding' rule rounds to the nearest even digit when exactly 5, but standard school rounding always rounds 5 up.",
-      },
-      {
-        heading: "3. Significant Figures",
-        body: "Significant figures are the meaningful digits in a measurement. Rules: (1) all non-zero digits are significant, (2) zeros between non-zero digits are significant, (3) leading zeros are NOT significant, (4) trailing zeros AFTER a decimal point ARE significant, (5) trailing zeros in a whole number are ambiguous. Example: 0.00420 has 3 sig figs (4, 2, 0); 4200 has 2 to 4 sig figs depending on context.",
-      },
-      {
-        heading: "4. Scientific Notation Applications",
-        body: "Used in science for very large and very small numbers. 1.36 × 10³ = 1360; 6.022 × 10²³ = Avogadro's number; 1.6 × 10⁻¹⁹ = electron charge in Coulombs. To multiply: (2 × 10³) × (3 × 10⁴) = 6 × 10⁷. To divide: (8 × 10⁵) ÷ (2 × 10²) = 4 × 10³. Scientific notation keeps the coefficient between 1 and 10.",
-      },
-    ],
-    formula: {
-      name: "Scientific notation",
-      expression: "N = a × 10ⁿ,   where 1 ≤ |a| < 10, n ∈ ℤ",
-      variables: [
-        { symbol: "a", meaning: "coefficient (decimal with single non-zero digit before the point)" },
-        { symbol: "n", meaning: "integer exponent (positive for large, negative for small)" },
-        { symbol: "N", meaning: "the number being expressed" },
-      ],
-    },
-    examPoints: [
-      "Multiplying in scientific notation: multiply coefficients, ADD exponents",
-      "Dividing in scientific notation: divide coefficients, SUBTRACT exponents",
-      "Trailing zeros in scientific notation (e.g., 4.20 × 10³) indicate precision",
-    ],
-    workedExample: {
-      problem:
-        "Round 3.14159 to (a) 2 decimal places, (b) 4 significant figures. Also express 0.000450 in scientific notation.",
-      solution:
-        "(a) 2 d.p.: look at 3rd decimal (1) which is < 5, so round down: 3.14. (b) 4 s.f.: digits 3, 1, 4, 1 are significant; the 5th (5) is ≥ 5, so round up: 3.142. Scientific notation: 0.000450 → move decimal right 4 places → 4.50 × 10⁻⁴. Note trailing zero (50) is significant.",
-      answer: "(a) 3.14; (b) 3.142; Scientific notation: 4.50 × 10⁻⁴",
-    },
-    commonMistakes: [
-      "Rounding 0.5 to 0 (it should round UP to 1 by standard convention)",
-      "Counting leading zeros as significant (0.0042 has 2 sig figs, not 4)",
-      "Forgetting to adjust the exponent when the coefficient reaches 10 after rounding",
-    ],
-    relatedTopics: ["math-1-2", "math-1-7"],
-    subtopics: [
-      {
-        id: "math-1-6-1-decimal-place-value",
-        title: "1. Decimal Place Value",
-        summary:
-          "Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place…",
-        explanation:
-          "Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place = 10⁻³ = 0.001. So 3.142 = 3 + 0.1 + 0.04 + 0.002. Operations follow the same rules as whole numbers, but alignment of decimal points is critical for addition and subtraction.",
-        examples: [
-          {
-            problem: "Apply the rule in “1. Decimal Place Value” to a short numerical or identification check.",
-            solution:
-              "Key idea: Each position to the right of the decimal point represents a power of 10: first place = 10⁻¹ = 0.1, second place = 10⁻² = 0.01, third place = 10⁻³ = 0.001. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-6-2-rounding-rules",
-        title: "2. Rounding Rules",
-        summary:
-          "To round to N decimal places: look at the (N+1)th digit. If it is 5 or higher, round the Nth digit up. Otherwise, leave the Nth digit…",
-        explanation:
-          "To round to N decimal places: look at the (N+1)th digit. If it is 5 or higher, round the Nth digit up. Otherwise, leave the Nth digit unchanged. Example: 3.1459 rounded to 2 decimal places — look at 3rd decimal (5), round up: 3.15. The 'banker's rounding' rule rounds to the nearest even digit when exactly 5, but standard school rounding always rounds 5 up.",
-        examples: [
-          {
-            problem: "Apply the rule in “2. Rounding Rules” to a short numerical or identification check.",
-            solution:
-              "Key idea: To round to N decimal places: look at the (N+1)th digit. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-6-3-significant-figures",
-        title: "3. Significant Figures",
-        summary:
-          "Significant figures are the meaningful digits in a measurement. Rules: (1) all non-zero digits are significant, (2) zeros between non-zero…",
-        explanation:
-          "Significant figures are the meaningful digits in a measurement. Rules: (1) all non-zero digits are significant, (2) zeros between non-zero digits are significant, (3) leading zeros are NOT significant, (4) trailing zeros AFTER a decimal point ARE significant, (5) trailing zeros in a whole number are ambiguous. Example: 0.00420 has 3 sig figs (4, 2, 0); 4200 has 2 to 4 sig figs depending on context.",
-        examples: [
-          {
-            problem: "Apply the rule in “3. Significant Figures” to a short numerical or identification check.",
-            solution:
-              "Key idea: Significant figures are the meaningful digits in a measurement. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-6-4-scientific-notation-applications",
-        title: "4. Scientific Notation Applications",
-        summary:
-          "Used in science for very large and very small numbers. 1.36 × 10³ = 1360; 6.022 × 10²³ = Avogadro's number; 1.6 × 10⁻¹⁹ = electron charge…",
-        explanation:
-          "Used in science for very large and very small numbers. 1.36 × 10³ = 1360; 6.022 × 10²³ = Avogadro's number; 1.6 × 10⁻¹⁹ = electron charge in Coulombs. To multiply: (2 × 10³) × (3 × 10⁴) = 6 × 10⁷. To divide: (8 × 10⁵) ÷ (2 × 10²) = 4 × 10³. Scientific notation keeps the coefficient between 1 and 10.",
-        examples: [
-          {
-            problem:
-              "Apply the rule in “4. Scientific Notation Applications” to a short numerical or identification check.",
-            solution:
-              "Key idea: Used in science for very large and very small numbers. Substitute carefully and simplify in BODMAS order if arithmetic appears.",
-            answer: "Follow the stated rule; check units and order of operations",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-5"],
-    leadsTo: ["math-3-4", "math-2-2"],
-    usedIn: ["phy-units-measurement", "phy-temperature-heat", "meteo-radiation-laws", "ra-research-quality"],
-  },
-
-  {
-    id: "math-1-7",
-    sectionId: "MATH-01",
-    order: 7,
-    title: "Percentages & Percentage Change",
-    definition:
-      "A percentage is a fraction with denominator 100, denoted by the % symbol. Percentage change measures the relative increase or decrease of a quantity, expressed as a percentage of the original value.",
-    keyFacts: [
-      "X% = X/100 (as a decimal, divide by 100)",
-      "To find X% of Y: (X/100) × Y",
-      "To express a fraction as a percentage: multiply by 100",
-      "Percentage change = ((New − Old) / Old) × 100%",
-      "Percentage increase uses (New − Old); percentage decrease uses (Old − New) in the numerator",
-      "Successive percentage changes: MULTIPLY the multipliers, do NOT add the percentages",
-      "Reverse percentage: original = final / (1 ± rate)",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Basic Percentage Operations",
-        body: "To find X% of Y, convert X% to a decimal (X/100) and multiply by Y. Example: 25% of 80 = 0.25 × 80 = 20. To express a number as a percentage, multiply by 100: 0.375 = 37.5%. To find what percentage one number is of another: (part / whole) × 100: 15 is what % of 60? (15/60) × 100 = 25%.",
-      },
-      {
-        heading: "2. Percentage Change",
-        body: "Percentage change = ((New − Old) / Old) × 100%. The denominator is ALWAYS the old value. Example: price went from 80 to 100. Change = (100 − 80)/80 × 100% = 25%. If price went from 100 to 80, change = (80 − 100)/100 × 100% = −20% (a 20% decrease).",
-      },
-      {
-        heading: "3. Successive Percentages",
-        body: "A 20% increase followed by a 20% decrease does NOT cancel out. Use multipliers: after 20% up, factor = 1.20; after 20% down, factor = 0.80. Net = 1.20 × 0.80 = 0.96, meaning a 4% net DECREASE, not 0%. The rule: successive changes multiply, they do not add.",
-      },
-      {
-        heading: "4. Reverse Percentages",
-        body: "To find the original value before a percentage change: divide the final value by (1 + rate) for an increase, or (1 − rate) for a decrease. Example: after a 10% increase, value is 110. Original = 110 / 1.10 = 100. This is the most common error in exams — confusing original and final values.",
-      },
-    ],
-    formula: {
-      name: "Percentage change",
-      expression: "% change = (New − Old) / Old × 100%",
-      variables: [
-        { symbol: "New", meaning: "final value" },
-        { symbol: "Old", meaning: "initial (reference) value" },
-      ],
-    },
-    examPoints: [
-      "Successive percentage changes are NOT additive — multiply the multipliers",
-      "Percentage change always uses the ORIGINAL value as the base, not the new value",
-      "To reverse a percentage (find original before increase): divide by (1 + rate)",
-    ],
-    workedExample: {
-      problem:
-        "A price increased by 20%, then decreased by 10%. What is the net percentage change from the original? Also: after a 25% increase the value is 250. What was the original?",
-      solution: "Net change: 1.20 × 0.90 = 1.08 → net 8% increase. Reverse: original = 250 / 1.25 = 200.",
-      answer: "Net 8% increase; original value was 200",
-    },
-    commonMistakes: [
-      "Saying '20% increase then 20% decrease cancels out' — it gives a 4% net loss, not 0",
-      "Using the new value (instead of old) as the base for percentage change",
-      "Confusing 'successive discount 20% + 10%' (which is 28% effective) with a 30% discount",
-    ],
-    relatedTopics: ["math-1-5", "math-1-8"],
-    subtopics: [
-      {
-        id: "math-1-7-1-basic-percentage-operations",
-        title: "1. Basic Percentage Operations",
-        summary:
-          "To find X% of Y, convert X% to a decimal (X/100) and multiply by Y. Example: 25% of 80 = 0.25 × 80 = 20. To express a number as a…",
-        explanation:
-          "To find X% of Y, convert X% to a decimal (X/100) and multiply by Y. Example: 25% of 80 = 0.25 × 80 = 20. To express a number as a percentage, multiply by 100: 0.375 = 37.5%. To find what percentage one number is of another: (part / whole) × 100: 15 is what % of 60? (15/60) × 100 = 25%.",
-        examples: [
-          {
-            problem: "What is 15% of 240?",
-            solution: "15% = 0.15; 0.15 × 240 = 36.",
-            answer: "36",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-7-2-percentage-change",
-        title: "2. Percentage Change",
-        summary:
-          "Percentage change = ((New − Old) / Old) × 100%. The denominator is ALWAYS the old value. Example: price went from 80 to 100. Change = (100…",
-        explanation:
-          "Percentage change = ((New − Old) / Old) × 100%. The denominator is ALWAYS the old value. Example: price went from 80 to 100. Change = (100 − 80)/80 × 100% = 25%. If price went from 100 to 80, change = (80 − 100)/100 × 100% = −20% (a 20% decrease).",
-        examples: [
-          {
-            problem: "What is 15% of 240?",
-            solution: "15% = 0.15; 0.15 × 240 = 36.",
-            answer: "36",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-7-3-successive-percentages",
-        title: "3. Successive Percentages",
-        summary:
-          "A 20% increase followed by a 20% decrease does NOT cancel out. Use multipliers: after 20% up, factor = 1.20; after 20% down, factor = 0.80.…",
-        explanation:
-          "A 20% increase followed by a 20% decrease does NOT cancel out. Use multipliers: after 20% up, factor = 1.20; after 20% down, factor = 0.80. Net = 1.20 × 0.80 = 0.96, meaning a 4% net DECREASE, not 0%. The rule: successive changes multiply, they do not add.",
-        examples: [
-          {
-            problem: "What is 15% of 240?",
-            solution: "15% = 0.15; 0.15 × 240 = 36.",
-            answer: "36",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-7-4-reverse-percentages",
-        title: "4. Reverse Percentages",
-        summary:
-          "To find the original value before a percentage change: divide the final value by (1 + rate) for an increase, or (1 − rate) for a decrease.…",
-        explanation:
-          "To find the original value before a percentage change: divide the final value by (1 + rate) for an increase, or (1 − rate) for a decrease. Example: after a 10% increase, value is 110. Original = 110 / 1.10 = 100. This is the most common error in exams — confusing original and final values.",
-        examples: [
-          {
-            problem: "What is 15% of 240?",
-            solution: "15% = 0.15; 0.15 × 240 = 36.",
-            answer: "36",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-5"],
-    leadsTo: ["math-1-8", "math-8-5"],
-    usedIn: [
-      "math-8-1",
-      "ra-descriptive-statistics",
-      "env-air-pollution",
-      "env-carry-capacity-and-footprint",
-      "env-water-pollution-and-quality",
-    ],
-  },
+      shortcuts: ["Original = Final / Multiplier."],
+      traps: ["Never calculate 20% of the $96 and add it back ($96 + 19.2 = 115.2$); this is incorrect."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-5", "math-1-6"],
+  leadsTo: ["math-1-8", "math-8-5"],
+  usedIn: ["math-8-1", "ra-descriptive-statistics", "env-air-pollution"]
+},
   {
   id: "math-1-8",
   sectionId: "MATH-01",
