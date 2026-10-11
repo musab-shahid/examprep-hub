@@ -490,7 +490,7 @@ explanationSections: [
         id: "env-ecological-pyramids-the-energy-pyramid-and-the-10-idea",
         title: "The energy pyramid and the 10% idea",
         summary: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less.…",
-        explanation: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Plotting those quantities produces a broad base and a narrow top. The diagram is a visual form of the same thermodynamic story told by the ten percent teaching rule.\n\nBecause energy pyramids rest on measured or estimated flows over time, they are the most reliable of the three for comparing how productive different levels are, independent of whether organisms are large or small, numerous or few.",
+        explanation: "This subtopic is about the diagram: energy pyramids are always upright because usable energy decreases at each level. The process detail behind that decrease (respiration, heat, unconsumed material — the ~10% teaching rule) is taught under Ecosystems: Structure, Food Chains & Energy Flow. Here, use the rule only to read the pyramid shape and to reject the claim that an inverted numbers pyramid means energy increases up the chain.\n\nEnergy pyramids remain the most reliable of the three types for comparing trophic productivity over time.",
                 examples: [
           {
             problem: "How does the energy pyramid relate to the 10% teaching rule?",
@@ -1153,12 +1153,12 @@ explanationSections: [
         id: "env-natural-resources-the-waste-hierarchy-as-a-resource-idea",
         title: "The waste hierarchy as a resource idea",
         summary: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load…",
-        explanation: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load altogether. Reuse keeps products in service. Recycling and recovery reclaim materials or energy. Disposal in landfills or poorly controlled dumps is the least preferred outcome.\n\nThe hierarchy is a planning order, not a claim that recycling alone solves resource pressure. It links natural-resource management to the soil and waste topics that follow.",
+        explanation: "From a resources angle, the waste hierarchy is a reminder that extraction pressure falls when societies prevent waste, reuse products, and recycle materials before disposal. Full order, hazardous streams, and disposal risks are drilled under Soil Pollution, Solid & Hazardous Waste — this topic only needs the resource logic: less waste means less demand on forests, mines, and sinks.\n\nDo not treat recycling as a licence for unlimited consumption; prevention still sits at the top.",
                 examples: [
           {
-            problem: "Order the waste hierarchy from most to least preferred.",
-            solution: "Prevent/reduce → reuse → recycle → recover → dispose.",
-            answer: "Reduce → reuse → recycle → recover → dispose",
+            problem: "Why does preventing waste protect natural resources better than disposal alone?",
+            solution: "Prevention avoids extracting and processing materials in the first place; disposal still consumed resources upstream.",
+            answer: "Prevention avoids upstream extraction",
           },
           {
             problem: "Why is disposal at the bottom?",
@@ -2542,7 +2542,7 @@ explanationSections: [
         id: "env-pk-governance",
         title: "Institutions and policy tools",
         summary: "Law, standards, and implementation capacity.",
-        explanation: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functions are shared with or led by provinces, so outcomes vary with provincial capacity as well as federal frameworks.\n\nThe recurring implementation gap is not only the absence of written policy. Monitoring networks, inspection, industrial compliance, municipal waste systems, and urban transport enforcement decide whether standards change the air people breathe or the water they use. International funds and national programmes (including large afforestation drives) can help, but they do not automatically substitute for steady regulation and service delivery.",
+        explanation: "Pakistan’s environmental toolkit includes the PEPA framework, NEQS, IEE/EIA processes, and protected-area designations. Detailed statute and assessment distinctions belong under Environmental Governance; this topic places those tools in the wider map of national challenges (air, water, climate, forests) and post-18th Amendment provincial roles.\n\nGovernance tools improve outcomes only with monitoring and compliance — listing PEPA is not the same as clean ambient air.",
                 examples: [
           {
             problem: "Name two policy tools used in Pakistan's environmental management teaching set.",

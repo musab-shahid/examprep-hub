@@ -8,12 +8,14 @@ export const questions: Question[] = [
     options: ["Water", "Soil minerals", "Trees", "Air"],
     correctAnswer: 2,
     explanation: "Trees are living organisms (biotic). Water, soil minerals, and air are non-living physical or chemical factors (abiotic).",
+        variantGroupId: "env-biotic-abiotic-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q002", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
     question: "A population consists of:",
     options: ["All organisms of every species in an area", "Individuals of the same species in an area", "The functional role of an organism", "Non-living factors only"],
     correctAnswer: 1,
     explanation: "A population is individuals of one species in an area. A community includes many species. An organism’s role is its niche; non-living factors are abiotic.",
+        variantGroupId: "env-population-community-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q003", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
     question: "The Brundtland Report (1987) defined sustainable development as development that:",
@@ -161,6 +163,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "Carrying capacity (K) is the long-term population level supportable given resources and conditions. It can change when food, water, disease, climate, or management change.",
+        variantGroupId: "env-carrying-capacity-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q018", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
     question: "An ecological footprint measures:",
@@ -217,6 +220,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "Biocapacity is the supply side of the footprint comparison: regenerative capacity of productive ecosystems. Overshoot occurs when footprint exceeds biocapacity.",
+        variantGroupId: "env-biocapacity-footprint-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q024", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
     question: "Which change is most likely to increase the carrying capacity of a habitat for a deer population?",
@@ -767,6 +771,7 @@ export const questions: Question[] = [
     options: ["Two", "Three", "Four", "Five"],
     correctAnswer: 1,
     explanation: "Genetic, species, and ecosystem diversity.",
+        variantGroupId: "env-biodiversity-levels-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-03-Q002", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
     question: "Which of the following is not one of the four standard ecosystem-service groups?",
@@ -1051,6 +1056,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 0,
     explanation: "In-situ conservation protects species where they live (parks, sanctuaries, reserves). Ex-situ methods keep organisms or genetic material outside the wild.",
+        variantGroupId: "env-insitu-exsitu-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-03-Q034", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "single",
     question: "Which of the following is not an ex-situ method?",
@@ -1482,6 +1488,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "SO₂ is emitted at the source. Ozone, acid rain, and photochemical smog involve atmospheric formation.",
+        variantGroupId: "env-primary-secondary-pollutant-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-05-Q002", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
     question: "PM₂.₅ refers to particles with diameter:",
@@ -1677,6 +1684,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 2,
     explanation: "BOD and DO are INVERSELY related. When BOD is high (lots of decomposable waste), bacteria consume O₂, which LOWERS DO. When BOD is low (clean water), DO stays high. This is the fundamental water quality principle: polluted water = high BOD + low DO; clean water = low BOD + high DO.",
+        variantGroupId: "env-bod-do-skill",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-05-Q022", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "medium", type: "single",
@@ -2168,6 +2176,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "Vulnerability = Exposure + Sensitivity − Adaptive Capacity. High exposure (to climate hazards) + high sensitivity (to those hazards) − low adaptive capacity (ability to cope) = high vulnerability. Pakistan has high vulnerability because of high exposure (floods, heatwaves) + high sensitivity (agriculture-dependent) − relatively low adaptive capacity (financial resources).",
+        variantGroupId: "env-vulnerability-formula-skill",
     sourceCitation: "Standard environmental science curriculum" },
 
   // Medium
@@ -2832,6 +2841,7 @@ export const questions: Question[] = [
     options: ["National Environmental Quality Standards", "National Energy Quota Scheme", "New Ecological Quarantine Stations", "Northern Environmental Quiz Series"],
     correctAnswer: 0,
     explanation: "NEQS are National Environmental Quality Standards — published limits used as legal-technical benchmarks for pollutants in media such as ambient air and effluents.",
+        variantGroupId: "env-neqs-skill",
     sourceCitation: "Pakistan environmental regulation" },
 
   { id: "ENV-06-Q083", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
@@ -2962,4 +2972,263 @@ export const questions: Question[] = [
     explanation: "False. Laws need capable institutions, monitoring, and compliance; text on paper does not by itself deliver ambient quality.",
     sourceCitation: "Environmental governance principles" },
 
+
+  // Variant stems for adaptive skill families (P2)
+  { id: "ENV-01-Q097", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
+    question: "Which list contains only abiotic factors?",
+    options: [
+      "Fish, algae, bacteria",
+      "Temperature, light, water",
+      "Trees, insects, fungi",
+      "Birds, grasses, worms"
+    ],
+    correctAnswer: 1,
+    explanation: "Temperature, light, and water are non-living physical factors (abiotic). The other lists are organisms (biotic).",
+    variantGroupId: "env-biotic-abiotic-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q098", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
+    question: "In a pond ecosystem, which is biotic?",
+    options: [
+      "Dissolved oxygen",
+      "Sunlight",
+      "Phytoplankton",
+      "Water temperature"
+    ],
+    correctAnswer: 2,
+    explanation: "Phytoplankton are living producers. Dissolved oxygen, sunlight, and temperature are abiotic.",
+    variantGroupId: "env-biotic-abiotic-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q099", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
+    question: "All plant and animal species living in a mangrove forest together form a:",
+    options: [
+      "Population",
+      "Community",
+      "Niche",
+      "Single organism"
+    ],
+    correctAnswer: 1,
+    explanation: "A community includes all species in an area. A population is one species only.",
+    variantGroupId: "env-population-community-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q100", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
+    question: "Hundreds of markhor in one national park are best described as a:",
+    options: [
+      "Community of all park species",
+      "Population of one species",
+      "Abiotic factor",
+      "Biome identical to a niche"
+    ],
+    correctAnswer: 1,
+    explanation: "One species in an area = population. The full set of species would be the community.",
+    variantGroupId: "env-population-community-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q101", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
+    question: "Carrying capacity is primarily limited by:",
+    options: [
+      "Only predator names in textbooks",
+      "Available resources and limiting factors in the environment",
+      "The number of scientific papers published",
+      "Unlimited exponential growth forever"
+    ],
+    correctAnswer: 1,
+    explanation: "K depends on resources and limiting factors (food, water, space, etc.), not on unlimited growth assumptions.",
+    variantGroupId: "env-carrying-capacity-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q102", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
+    question: "A population growing in a logistic (S-shaped) pattern is approaching:",
+    options: [
+      "Infinite size",
+      "Carrying capacity K",
+      "Zero genetic diversity only",
+      "A food web with no producers"
+    ],
+    correctAnswer: 1,
+    explanation: "Logistic growth levels off near carrying capacity as limits bite.",
+    variantGroupId: "env-carrying-capacity-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q103", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "easy", type: "single",
+    question: "Ecological overshoot occurs when:",
+    options: [
+      "Biocapacity exceeds footprint",
+      "Footprint exceeds biocapacity",
+      "Only one species goes extinct",
+      "Rainfall equals evaporation everywhere"
+    ],
+    correctAnswer: 1,
+    explanation: "Overshoot means demand (footprint) exceeds regenerative supply (biocapacity).",
+    variantGroupId: "env-biocapacity-footprint-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q104", sectionId: "ENV-01", topicId: "env-carry-capacity-and-footprint", difficulty: "medium", type: "single",
+    question: "Ecological footprint is best described as a measure of:",
+    options: [
+      "Only the number of species in a park",
+      "Productive area needed to support consumption and absorb waste",
+      "Exact daily temperature",
+      "Ocean salinity alone"
+    ],
+    correctAnswer: 1,
+    explanation: "Footprint estimates the productive land/water area required for a lifestyle or economy, including waste absorption.",
+    variantGroupId: "env-biocapacity-footprint-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-03-Q049", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
+    question: "Variation of genes within a single crop species is mainly which biodiversity level?",
+    options: [
+      "Ecosystem diversity only",
+      "Genetic diversity",
+      "Landscape diversity only",
+      "Not a form of biodiversity"
+    ],
+    correctAnswer: 1,
+    explanation: "Genetic diversity is variation within a species. Ecosystem diversity is variety of habitats/systems.",
+    variantGroupId: "env-biodiversity-levels-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-03-Q050", sectionId: "ENV-03", topicId: "env-biodiversity", difficulty: "easy", type: "single",
+    question: "A region with forests, wetlands, and grasslands side by side is rich especially in:",
+    options: [
+      "Only one genotype",
+      "Ecosystem diversity",
+      "Abiotic ozone only",
+      "A single population"
+    ],
+    correctAnswer: 1,
+    explanation: "Multiple habitat/ecosystem types = ecosystem-level diversity.",
+    variantGroupId: "env-biodiversity-levels-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-03-Q051", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "easy", type: "single",
+    question: "A seed bank storing crop varieties is an example of:",
+    options: [
+      "In-situ conservation only",
+      "Ex-situ conservation",
+      "A primary pollutant",
+      "Carrying capacity K"
+    ],
+    correctAnswer: 1,
+    explanation: "Seed banks keep genetic material outside natural habitats = ex-situ.",
+    variantGroupId: "env-insitu-exsitu-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-03-Q052", sectionId: "ENV-03", topicId: "env-conservation-and-extinction", difficulty: "medium", type: "single",
+    question: "A national park protecting habitat for snow leopard is primarily:",
+    options: [
+      "Ex-situ conservation",
+      "In-situ conservation",
+      "Only a carbon tax",
+      "An IUCN Red List category by itself"
+    ],
+    correctAnswer: 1,
+    explanation: "Protecting species in their natural habitat is in-situ. Red List status is assessment language, not the park itself.",
+    variantGroupId: "env-insitu-exsitu-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-05-Q049", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "easy", type: "single",
+    question: "Tropospheric ozone that forms from NOx and VOCs in sunlight is classified as:",
+    options: [
+      "A primary pollutant emitted ready-made from stacks",
+      "A secondary pollutant formed in the atmosphere",
+      "An abiotic nutrient cycle",
+      "A type of soil salinity"
+    ],
+    correctAnswer: 1,
+    explanation: "Ground-level ozone is formed in the air from precursors — secondary.",
+    variantGroupId: "env-primary-secondary-pollutant-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-05-Q050", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
+    question: "Which pair is correctly matched?",
+    options: [
+      "SO₂ from fuel combustion — secondary only",
+      "Photochemical ozone — primary stack gas only",
+      "NO from vehicle exhaust — primary; ozone from reactions — secondary",
+      "Acid rain — never linked to atmospheric chemistry"
+    ],
+    correctAnswer: 2,
+    explanation: "NO is emitted (primary); ozone forms later (secondary).",
+    variantGroupId: "env-primary-secondary-pollutant-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-05-Q051", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "medium", type: "single",
+    question: "A river receives untreated sewage and DO falls sharply. The most direct explanation is:",
+    options: [
+      "Microbes decomposing organic matter consume dissolved oxygen",
+      "Sewage adds pure oxygen bubbles",
+      "BOD becomes zero automatically",
+      "Salinity alone removes all nitrogen"
+    ],
+    correctAnswer: 0,
+    explanation: "High organic load raises BOD; decomposition uses DO and can cause hypoxia.",
+    variantGroupId: "env-bod-do-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-05-Q052", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "easy", type: "single",
+    question: "High BOD in a water sample generally indicates:",
+    options: [
+      "Low organic pollution",
+      "High oxygen demand from biodegradable organic matter",
+      "No microbial activity possible",
+      "Only heavy metal pollution"
+    ],
+    correctAnswer: 1,
+    explanation: "BOD measures oxygen demand of biodegradable organics — high BOD means high demand.",
+    variantGroupId: "env-bod-do-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q097", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "medium", type: "single",
+    question: "Two cities face the same heatwave; City A has cooling centres and reliable power, City B does not. City B is more vulnerable mainly because of lower:",
+    options: [
+      "Solar constant",
+      "Adaptive capacity",
+      "Stratospheric ozone thickness only",
+      "Earth Overshoot Day"
+    ],
+    correctAnswer: 1,
+    explanation: "Same hazard can yield different impacts when adaptive capacity differs.",
+    variantGroupId: "env-vulnerability-formula-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q098", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "easy", type: "single",
+    question: "Building seawalls and drought-resistant crops are examples of:",
+    options: [
+      "Mitigation only",
+      "Adaptation",
+      "Ozone depletion chemistry",
+      "Primary air pollutants"
+    ],
+    correctAnswer: 1,
+    explanation: "These adjust to impacts already unfolding or expected — adaptation.",
+    variantGroupId: "env-vulnerability-formula-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q099", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "NEQS are best described as:",
+    options: [
+      "National Environmental Quality Standards — numeric pollution limits",
+      "A type of food chain",
+      "A Kyoto-only carbon market",
+      "An IUCN habitat classification"
+    ],
+    correctAnswer: 0,
+    explanation: "NEQS = National Environmental Quality Standards used as legal-technical benchmarks.",
+    variantGroupId: "env-neqs-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q100", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "true_false",
+    question: "True or False: Publishing NEQS guarantees that ambient air and water quality will automatically meet those standards everywhere.",
+    options: [
+      "True",
+      "False"
+    ],
+    correctAnswer: 1,
+    explanation: "False. Standards need monitoring and enforcement to change real ambient quality.",
+    variantGroupId: "env-neqs-skill",
+    sourceCitation: "Standard environmental science curriculum" },
 ];
