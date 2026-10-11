@@ -9,6 +9,7 @@ import {
   getTopicAbility,
   updateQuestionStrength,
   resolveStrength,
+  isSameIdHardCooldown,
 } from '../adaptive-select.ts';
 import type { Question, TopicProgress } from '../../types.ts';
 
@@ -113,5 +114,70 @@ describe('adaptive-select phase 3 (question strength)', () => {
     assert.ok(ids.includes('shaky'));
     assert.ok(ids.includes('new'));
     assert.ok(!ids.includes('solid'));
+  });
+});
+
+describe('adaptive-select phase A (same-id cooldown)', () => {
+  it('hard-cools any attempt within 12h', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    assert.equal(
+      isSameIdHardCooldown({ correct: false, timestamp: now - 60 * 60 * 1000 }, now),
+      true,
+    );
+    assert.equal(
+      isSameIdHardCooldown({ correct: true, timestamp: now - 13 * 60 * 60 * 1000, strength: 0.4 }, now),
+      false,
+    );
+  });
+
+  it('hard-cools high-strength correct for 7 days', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    assert.equal(
+      isSameIdHardCooldown(
+        { correct: true, timestamp: now - 2 * 86400000, strength: 0.9 },
+        now,
+      ),
+      true,
+    );
+    assert.equal(
+      isSameIdHardCooldown(
+        { correct: true, timestamp: now - 2 * 86400000, strength: 0.4 },
+        now,
+      ),
+      false,
+    );
+  });
+
+  it('pickAdaptiveQuestions skips hard-cooldown ids when alternatives exist', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    const pool = [
+      q({ id: 'hot', topicId: 't' }),
+      q({ id: 'cold', topicId: 't' }),
+      q({ id: 'new', topicId: 't' }),
+    ];
+    const picked = pickAdaptiveQuestions(pool, 2, {
+      ...baseOpts,
+      now,
+      questionResults: {
+        hot: { correct: false, timestamp: now - 60 * 60 * 1000, strength: 0.2 },
+      },
+    });
+    const ids = picked.map((x) => x.id);
+    assert.ok(!ids.includes('hot'));
+    assert.equal(picked.length, 2);
+  });
+
+  it('falls back to cooldown items when pool is too small', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    const pool = [q({ id: 'only', topicId: 't' })];
+    const picked = pickAdaptiveQuestions(pool, 1, {
+      ...baseOpts,
+      now,
+      questionResults: {
+        only: { correct: false, timestamp: now - 60 * 1000, strength: 0.2 },
+      },
+    });
+    assert.equal(picked.length, 1);
+    assert.equal(picked[0].id, 'only');
   });
 });
