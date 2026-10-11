@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
+import { BookOpen, ChevronRight, ChevronLeft, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -645,6 +645,35 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           <Button onClick={() => markStudied(topicId)} disabled={isStudied} variant={isStudied ? 'secondary' : 'primary'} className="flex-1">{isStudied ? 'Marked as Studied' : 'Mark as Studied'}</Button>
           {topicQuestions.length > 0 && <Button variant="secondary" onClick={() => navigate({ screen: 'quiz', mode: 'topic', topicId })} className="flex-1">Test Me — {topicQuestions.length} Question{topicQuestions.length !== 1 ? 's' : ''}</Button>}
         </div>
+        {(() => {
+          const sectionTopics = topicsBySection(topic.sectionId);
+          const currentIndex = sectionTopics.findIndex((t) => t.id === topicId);
+          const prevTopic = currentIndex > 0 ? sectionTopics[currentIndex - 1] : null;
+          const nextTopic = currentIndex >= 0 && currentIndex < sectionTopics.length - 1 ? sectionTopics[currentIndex + 1] : null;
+          if (!prevTopic && !nextTopic) return null;
+          return (
+            <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-200">
+              {prevTopic ? (
+                <button onClick={() => navigate({ screen: 'topic', topicId: prevTopic.id })} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-colors text-left min-w-0 flex-1 max-w-[48%]">
+                  <ChevronLeft className="w-5 h-5 text-slate-400 shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xs text-slate-400 font-medium">Previous</p>
+                    <p className="text-sm text-slate-700 font-medium truncate">{prevTopic.title}</p>
+                  </div>
+                </button>
+              ) : <div className="flex-1 max-w-[48%]" />}
+              {nextTopic ? (
+                <button onClick={() => navigate({ screen: 'topic', topicId: nextTopic.id })} className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-colors text-right min-w-0 flex-1 max-w-[48%] justify-end">
+                  <div className="min-w-0">
+                    <p className="text-xs text-slate-400 font-medium">Next</p>
+                    <p className="text-sm text-slate-700 font-medium truncate">{nextTopic.title}</p>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
+                </button>
+              ) : <div className="flex-1 max-w-[48%]" />}
+            </div>
+          );
+        })()}
       </div>
       <AiTutorChat topicId={topic.id} topicTitle={topic.title} topicContext={buildTopicContext(topic)} />
     </PageContainer>
