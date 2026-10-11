@@ -1,6 +1,6 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
 import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
-import { updateTopicAbility, getTopicAbility } from '@/lib/adaptive-select';
+import { updateTopicAbility, getTopicAbility, updateQuestionStrength } from '@/lib/adaptive-select';
 import { resolveReviewStage, nextStageAfterReview, reviewDateForStage } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 import { resolveTopicId } from '@/lib/topic-id-aliases';
@@ -422,12 +422,12 @@ export function recordQuizResult(
     const secId = qSectionMap.get(a.questionId);
     const qSubjectId = secId ? sectionMap[secId]?.subjectId : undefined;
     const prev = questionResults[a.questionId];
-    questionResults[a.questionId] = {
-      correct: a.correct,
-      timestamp: now,
-      subjectId: qSubjectId ?? subjectId,
-      attempts: (prev?.attempts ?? 0) + 1,
-    };
+    questionResults[a.questionId] = updateQuestionStrength(
+      prev,
+      a.correct,
+      now,
+      qSubjectId ?? subjectId,
+    );
   }
 
   const quizHistory = [
