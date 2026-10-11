@@ -285,35 +285,6 @@ export interface Topic {
 export type QuestionType = 'single' | 'true_false' | 'multi' | 'calculation' | 'fill_blank' | 'matching';
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
-/** Phase D — see src/lib/quant-template.ts for helpers (F, instantiate, …) */
-export type TemplateParamSpec = {
-  min: number;
-  max: number;
-  step?: number;
-};
-
-export type TemplateFormula =
-  | { op: 'param'; name: string }
-  | { op: 'const'; value: number }
-  | { op: 'add'; a: TemplateFormula; b: TemplateFormula }
-  | { op: 'sub'; a: TemplateFormula; b: TemplateFormula }
-  | { op: 'mul'; a: TemplateFormula; b: TemplateFormula }
-  | { op: 'div'; a: TemplateFormula; b: TemplateFormula }
-  | { op: 'neg'; a: TemplateFormula }
-  | { op: 'round'; a: TemplateFormula; digits?: number }
-  | { op: 'abs'; a: TemplateFormula };
-
-export interface QuantTemplate {
-  stem: string;
-  params: Record<string, TemplateParamSpec>;
-  answer: TemplateFormula;
-  distractors: TemplateFormula[];
-  optionFormat?: string;
-  explanation?: string;
-  type?: QuestionType;
-}
-
-
 export interface Question {
   id: string;
   sectionId: SectionId;
@@ -331,18 +302,6 @@ export interface Question {
   hatSubtype?: string;
   subtopicId?: string;
   matchOptions?: string[];
-  /**
-   * Links stems that test the same skill/idea (Phase B anti-cram).
-   * Adaptive ranks the group, then prefers a fresh variant inside it.
-   * Omit for singleton items (group key defaults to question id).
-   */
-  variantGroupId?: string;
-  /**
-   * Phase D: parametric quantitative template (see src/lib/quant-template.ts).
-   * Quiz start samples parameters and builds stem/options; adaptive strength
-   * remains keyed on this question's id.
-   */
-  quantTemplate?: QuantTemplate;
 }
 
 export interface CloudEntry {

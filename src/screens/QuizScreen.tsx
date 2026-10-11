@@ -17,7 +17,6 @@ import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@
 import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId, TopicProgress } from '@/types';
 import { quizSignature } from '@/lib/quiz-signature';
 import { pickAdaptiveQuestions } from '@/lib/adaptive-select';
-import { instantiatePool } from '@/lib/quant-template';
 
 const VALID_MODES: PracticeMode[] = ['topic', 'quick', 'mock', 'review', 'challenge'];
 const VALID_SUBJECT_IDS = Object.keys(subjectMap);
@@ -369,11 +368,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
     const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current, data.topicProgress);
-    // Phase D: materialize quant templates (new numbers); strength stays on base id
-    const sessionSeed = `${Date.now()}-${mode}-${topicId ?? subjectId ?? 'all'}`;
-    const materialized = instantiatePool(pool, sessionSeed);
     const optionOrders: number[][] = [];
-    const qs = materialized.map((q) => {
+    const qs = pool.map((q) => {
       const { question, order } = shuffleQuestionOptions(q);
       optionOrders.push(order);
       return question;
