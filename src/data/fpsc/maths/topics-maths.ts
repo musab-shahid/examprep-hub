@@ -11,6 +11,144 @@ export const topics: Topic[] = [
   // SECTION MATH-A: Number Systems & Arithmetic
   // ════════════════════════════════════════════════════════════════════
   {
+  id: "math-1-6",
+  sectionId: "MATH-01",
+  order: 6,
+  title: "Decimals, Rounding & Scientific Notation",
+  priority: "High",
+  definition: "Decimals represent fractional parts of a whole using a base-10 positional system. Rounding and Scientific Notation are tools used to manage precision and represent extremely large or small quantities efficiently.",
+  keyFacts: [
+    "Decimal positions to the right of the point represent $10^{-1}$ (tenths), $10^{-2}$ (hundredths), etc.",
+    "Rounding Rule: If the next digit is $\\geq 5$, round up; if $< 5$, leave the digit as is.",
+    "Significant Figures (Sig Figs): All non-zero digits are significant; leading zeros never count; trailing zeros count ONLY if a decimal point is present.",
+    "Scientific Notation: Expressed as $a \\times 10^n$ where $1 \\leq |a| < 10$ and $n$ is an integer.",
+    "Multiplying in Sci-Not: Multiply coefficients, ADD exponents.",
+    "Dividing in Sci-Not: Divide coefficients, SUBTRACT exponents."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Power of Place Value",
+      body: "In the decimal system, moving one place to the right decreases the value by a factor of 10. For example, in $0.555$, the first $5$ is worth ten times more than the second $5$. Understanding this is crucial for addition and subtraction, where decimal points must be perfectly aligned."
+    },
+    {
+      heading: "2. Rounding vs. Precision",
+      body: "Rounding is not just about making numbers 'shorter'; it is about indicating the reliability of a measurement. Rounding to 2 decimal places (d.p.) fixes the length, while rounding to 2 significant figures (s.f.) fixes the relative precision, regardless of how large or small the number is."
+    },
+    {
+      heading: "3. The Logic of Scientific Notation",
+      body: "Scientific notation removes the 'clutter' of placeholders. For large numbers, the exponent $n$ is positive (representing how many times to multiply by 10). For small decimals, the exponent $n$ is negative (representing how many times to divide by 10)."
+    }
+  ],
+  formula: {
+    name: "Standard Scientific Notation Form",
+    expression: "a \\times 10^n \\quad \\text{where} \\quad 1 \\leq |a| < 10, \\ n \\in \\mathbb{Z}",
+    variables: [
+      { symbol: "a", meaning: "Coefficient (must have exactly one non-zero digit before the decimal)" },
+      { symbol: "n", meaning: "Exponent (indicates the number of places the decimal moved)" }
+    ]
+  },
+  examPoints: [
+    "Leading zeros (e.g., the 0s in 0.004) are NEVER significant.",
+    "Significant figures in scientific notation are determined solely by the coefficient ($a$).",
+    "When adding/subtracting in scientific notation, you must equalize the exponents first."
+  ],
+  commonMistakes: [
+    "Rounding $0.045$ to 1 significant figure as $0.0$. Correct answer is $0.05$.",
+    "Writing $12.5 \\times 10^3$ as scientific notation. It is not, because $12.5$ is $\\geq 10$. Correct: $1.25 \\times 10^4$.",
+    "Miscounting the decimal shift for negative exponents."
+  ],
+  workedExample: {
+    problem: "(a) Round $0.003486$ to 2 significant figures. (b) Calculate $(4 \\times 10^5) \\times (3 \\times 10^{-2})$ in scientific notation.",
+    solution: "1. Sig Figs: The first two significant digits are $3$ and $4$. The next digit is $8$ ($\\geq 5$), so round the $4$ up. Result: $0.0035$.\n2. Sci-Not: Multiply coefficients: $4 \\times 3 = 12$. Add exponents: $5 + (-2) = 3$. Result so far: $12 \\times 10^3$. Adjust to standard form: $1.2 \\times 10^4$.",
+    answer: "(a) 0.0035; (b) 1.2 x 10^4"
+  },
+  methodChooser: {
+    title: "Significant Figure (Sig Fig) Counter",
+    question: "Does the digit '0' count as significant?",
+    options: [
+      {
+        condition: "Is it between two non-zero digits (e.g., 507)?",
+        answer: "YES (Always significant)."
+      },
+      {
+        condition: "Is it at the very beginning (leading, e.g., 0.004)?",
+        answer: "NO (Never significant)."
+      },
+      {
+        condition: "Is it at the end (trailing) AND there is a decimal point (e.g., 42.0)?",
+        answer: "YES (Indicates precision)."
+      },
+      {
+        condition: "Is it at the end (trailing) of a whole number (e.g., 4200)?",
+        answer: "AMBIGUOUS (Usually no, unless specified)."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "Negative Scientific Notation",
+      example: "$-3.2 \\times 10^4$",
+      note: "The sign of the number is independent of the exponent. The number is $-32,000$, not a small decimal."
+    },
+    {
+      case: "Power of Zero",
+      example: "$5.4 \\times 10^0$",
+      note: "Since $10^0 = 1$, this is just the number $5.4$."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "More decimal places always means more precision.",
+      whyStudentsThinkSo: "They equate 'longer numbers' with 'better accuracy'.",
+      correctModel: "Precision is limited by the instrument. A calculator might show $2.333333$, but if your measurement was only accurate to two digits, the extra decimals are meaningless (false precision).",
+      remedy: "Always round your final answer to the lowest number of sig figs present in the original data."
+    }
+  ],
+  qualitativeScenarios: [
+    {
+      question: "If you multiply a number by $10^{-3}$, what happens to the decimal point?",
+      answer: "It moves three places to the left.",
+      reasoning: "$10^{-3}$ is equivalent to dividing by $1000$ ($10^3$). Division by powers of 10 shifts the decimal point leftward."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-6-1",
+      title: "Rounding to Significant Figures",
+      summary: "Focusing on precision relative to the scale of the number.",
+      explanation: "Start counting from the first non-zero digit. Round the last required digit based on the neighbor to its right.",
+      examples: [
+        {
+          problem: "Round 48,502 to 3 sig figs.",
+          solution: "Digits 1-3 are 4, 8, 5. The next digit is 0 ($< 5$). We keep the 5 and replace the remaining places with zeros as placeholders.",
+          answer: "48,500"
+        }
+      ],
+      shortcuts: ["Leading zeros are just 'decoration'; start your count at the first 'real' number."],
+      traps: ["Don't change the magnitude! Rounding 485 to 2 sig figs is 490, not 49."]
+    },
+    {
+      id: "math-1-6-2",
+      title: "Converting to Scientific Notation",
+      summary: "Translating between standard and scientific forms.",
+      explanation: "Move the decimal point until one non-zero digit is left on the left. The number of 'jumps' becomes the exponent.",
+      examples: [
+        {
+          problem: "Convert 0.000072 to scientific notation.",
+          solution: "Move the decimal 5 places to the right to get 7.2. Since we moved right (smaller number), the exponent is -5.",
+          answer: "$7.2 \\times 10^{-5}$"
+        }
+      ],
+      shortcuts: ["Large numbers (greater than 1) = Positive exponent; Small decimals (less than 1) = Negative exponent."],
+      traps: ["Ensure the coefficient is between 1 and 9.99...; $72 \\times 10^{-6}$ is mathematically equal but not in standard form."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-5"],
+  leadsTo: ["math-1-7"],
+  usedIn: ["phy-units-measurement", "phy-temperature-heat", "ra-research-quality"]
+},
+  {
   id: "math-1-7",
   sectionId: "MATH-01",
   order: 7,
