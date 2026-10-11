@@ -58,12 +58,12 @@ export const sections: Section[] = [
   { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 62 },
 
   // ── Environmental Studies ──
-  { id: 'ENV-01', subjectId: 'env-studies', title: 'Environmental Fundamentals', topicCount: 2, questionCount: 40 },
-  { id: 'ENV-02', subjectId: 'env-studies', title: 'Ecosystems & Biogeochemical Cycles', topicCount: 3, questionCount: 48 },
+  { id: 'ENV-01', subjectId: 'env-studies', title: 'Environmental Fundamentals', topicCount: 2, questionCount: 42 },
+  { id: 'ENV-02', subjectId: 'env-studies', title: 'Ecosystems & Biogeochemical Cycles', topicCount: 3, questionCount: 50 },
   { id: 'ENV-03', subjectId: 'env-studies', title: 'Biodiversity', topicCount: 3, questionCount: 52 },
   { id: 'ENV-04', subjectId: 'env-studies', title: 'Natural Resources', topicCount: 2, questionCount: 32 },
   { id: 'ENV-05', subjectId: 'env-studies', title: 'Pollution', topicCount: 3, questionCount: 52 },
-  { id: 'ENV-06', subjectId: 'env-studies', title: 'Energy, Climate & Environmental Governance', topicCount: 6, questionCount: 100 },
+  { id: 'ENV-06', subjectId: 'env-studies', title: 'Energy, Climate & Environmental Governance', topicCount: 6, questionCount: 104 },
 
   // ── Research & Analysis ──
   { id: 'RA-01', subjectId: 'research-analysis', title: 'Scientific Method', topicCount: 1, questionCount: 12 },

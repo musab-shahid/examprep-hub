@@ -44,6 +44,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "Niche is the organism’s role in the system. Habitat is the place where it lives. Temperature tolerance may be part of a niche description but is not the full meaning.",
+        variantGroupId: "env-habitat-niche-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q006", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
     question: "The precautionary principle states that:",
@@ -618,6 +619,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "GPP is total photosynthetic capture. NPP = GPP − plant respiration, which is what remains for consumers.",
+        variantGroupId: "env-gpp-npp-skill",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-02-Q034", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "single",
     question: "Which ecosystem typically has the highest net primary productivity among the options?",
@@ -2190,6 +2192,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 1,
     explanation: "MITIGATION = reducing emissions. Switching from coal to solar is mitigation — it reduces the greenhouse gases causing climate change. The other options (seawall, drought-resistant crops, early warning) are ADAPTATION — they help cope with the impacts but don't reduce the cause.",
+        variantGroupId: "env-mitigation-adaptation-skill",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q022", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "medium", type: "single",
@@ -2953,6 +2956,7 @@ export const questions: Question[] = [
     ],
     correctAnswer: 0,
     explanation: "PEPA is the Pakistan Environmental Protection Act — the commonly cited statutory framework for modern environmental regulation in syllabus materials.",
+        variantGroupId: "env-pepa-eia-skill",
     sourceCitation: "Environmental governance principles" },
   { id: "ENV-06-Q095", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "hard", type: "multi",
     question: "Which practices support effective environmental governance? (Select all that apply.)",
@@ -3230,5 +3234,110 @@ export const questions: Question[] = [
     correctAnswer: 1,
     explanation: "False. Standards need monitoring and enforcement to change real ambient quality.",
     variantGroupId: "env-neqs-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  // Residual audit variant families
+  { id: "ENV-02-Q049", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "easy", type: "single",
+    question: "NPP equals:",
+    options: [
+      "GPP plus plant respiration",
+      "GPP minus plant respiration",
+      "Only secondary productivity",
+      "Solar constant minus albedo"
+    ],
+    correctAnswer: 1,
+    explanation: "Net primary productivity is gross primary productivity minus energy plants use in respiration — the new plant biomass available to consumers.",
+    variantGroupId: "env-gpp-npp-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-02-Q050", sectionId: "ENV-02", topicId: "env-productivity-and-biogeochemical-cycles", difficulty: "medium", type: "single",
+    question: "Which quantity is available to herbivores as new plant biomass?",
+    options: [
+      "GPP only, including plant respiration",
+      "NPP",
+      "Only decomposer heat loss",
+      "Stratospheric ozone concentration"
+    ],
+    correctAnswer: 1,
+    explanation: "Consumers depend on NPP — what remains after plant respiration — not the full GPP.",
+    variantGroupId: "env-gpp-npp-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q105", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "easy", type: "single",
+    question: "“Address” vs “job” is a useful memory aid for which pair?",
+    options: [
+      "BOD vs COD",
+      "Habitat vs niche",
+      "GPP vs NPP",
+      "Primary vs secondary pollutant"
+    ],
+    correctAnswer: 1,
+    explanation: "Habitat is where an organism lives (address); niche is its ecological role (job).",
+    variantGroupId: "env-habitat-niche-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-01-Q106", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "single",
+    question: "Two bird species feed at different heights in the same tree. This mainly illustrates difference in:",
+    options: [
+      "Their abiotic temperature only",
+      "Niche (resource use / role)",
+      "The definition of a biome as a single organism",
+      "Carrying capacity of the Sun"
+    ],
+    correctAnswer: 1,
+    explanation: "Different feeding roles in the same habitat are a classic niche distinction.",
+    variantGroupId: "env-habitat-niche-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q101", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "easy", type: "single",
+    question: "Switching a power plant from coal to solar is primarily:",
+    options: [
+      "Adaptation only",
+      "Mitigation",
+      "An ozone-depletion treaty action",
+      "A food-web inversion"
+    ],
+    correctAnswer: 1,
+    explanation: "Cutting fossil generation reduces GHG emissions — mitigation. Adaptation would adjust to impacts (e.g. cooling centres).",
+    variantGroupId: "env-mitigation-adaptation-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q102", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "medium", type: "single",
+    question: "Heat-health early warning systems are primarily:",
+    options: [
+      "Mitigation of CO₂ only",
+      "Adaptation to climate impacts",
+      "Montreal Protocol compliance",
+      "A type of primary air pollutant"
+    ],
+    correctAnswer: 1,
+    explanation: "Early warnings help people cope with heat already occurring or expected — adaptation, not emissions cuts.",
+    variantGroupId: "env-mitigation-adaptation-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q103", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "Which pairing is correct?",
+    options: [
+      "PEPA — assessment process only; EIA — the main statute name",
+      "PEPA — statutory framework; EIA — project impact assessment process",
+      "Both PEPA and EIA mean the identical document",
+      "EIA replaces NEQS numeric standards"
+    ],
+    correctAnswer: 1,
+    explanation: "PEPA is the legal framework statute; EIA is the assessment process for projects. They are related but not the same thing.",
+    variantGroupId: "env-pepa-eia-skill",
+    sourceCitation: "Standard environmental science curriculum" },
+
+  { id: "ENV-06-Q104", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "An IEE is best understood as:",
+    options: [
+      "Always identical to a full EIA",
+      "A preliminary/screening-level examination before deciding if a full EIA is needed",
+      "A post-construction only audit",
+      "A climate treaty under Paris"
+    ],
+    correctAnswer: 1,
+    explanation: "IEE is initial/screening-level; full EIA is deeper when impacts may be significant.",
+    variantGroupId: "env-pepa-eia-skill",
     sourceCitation: "Standard environmental science curriculum" },
 ];

@@ -2360,7 +2360,35 @@ explanationSections: [
           "Montreal is a CO₂ emissions treaty"
         ],
       },
-    ],
+    
+      {
+        id: "env-ozone-vs-greenhouse",
+        title: "Ozone depletion vs greenhouse warming (exam trap)",
+        summary: "Same atmosphere, different problems — do not swap treaties or molecules.",
+        explanation: "Stratospheric ozone depletion is driven mainly by halogen chemistry (e.g. CFCs) and is addressed by the Montreal Protocol on ozone-depleting substances. Greenhouse warming is driven mainly by long-lived gases such as CO₂, CH₄, and N₂O under the UNFCCC/Paris architecture. Tropospheric ozone is a pollutant and greenhouse gas, but it is not the same policy object as the stratospheric ozone layer.\n\nExam stems that credit Montreal with solving CO₂, or Paris with banning CFCs, are testing this separation.",
+        examples: [
+          {
+            problem: "Does the Montreal Protocol primarily target CO₂ emissions?",
+            solution: "No — it targets ozone-depleting substances such as CFCs.",
+            answer: "No — ODS/CFCs",
+          },
+          {
+            problem: "Stratospheric ozone loss vs enhanced greenhouse effect — same problem?",
+            solution: "No. Different drivers, altitudes of concern, and treaty frameworks.",
+            answer: "Different problems",
+          }
+        ],
+        shortcuts: [
+          "Montreal → ODS/ozone layer",
+          "Paris/UNFCCC → climate GHGs",
+          "Tropospheric O₃ ≠ ozone layer policy"
+        ],
+        traps: [
+          "Crediting Montreal with solving climate change",
+          "Treating all ozone as stratospheric and beneficial"
+        ],
+      },
+],
 relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
     content: true,
   buildsOn: ["meteo-composition-today", "meteo-vertical-structure", "env-air-pollution", "meteo-radiation-laws"],
