@@ -1438,10 +1438,10 @@ export const questions: Question[] = [
   explanation: "False. The Coriolis force acts at right angles (perpendicular) to the direction of motion, so it changes only the direction of motion (deflection), not the speed. The pressure-gradient force is what accelerates or decelerates the wind along its path.",
   sourceCitation: "Standard meteorology references" },
 { id: "METEO-02-Q024", sectionId: "METEO-02", topicId: "meteo-coriolis-effect", difficulty: "hard", type: "single",
-  question: "Surface winds spiral out of a high-pressure system rather than flowing directly from high to low pressure. The primary reason is?",
+  question: "If the Earth did not rotate, air would tend to flow more directly from high toward low pressure. The main reason large-scale flow instead curves around highs and lows is?",
   options: ["Friction prevents direct flow", "The pressure gradient is too weak", "Coriolis deflection curves the flow around the high", "The high is too small in horizontal extent"],
   correctAnswer: 2,
-  explanation: "Without Coriolis, air would accelerate straight down the pressure gradient from high to low. Coriolis deflects moving air and allows balanced flow around highs and lows. At the surface, friction also produces a cross-isobar component so the path is a spiral, but the fundamental reason flow is not a straight high-to-low jet is Coriolis deflection.",
+  explanation: "Without planetary rotation, the pressure-gradient force would drive air more directly from high toward low pressure. Coriolis deflection of moving air is the main reason large-scale flow curves around highs and lows. Surface friction separately causes cross-isobar spirals (out of highs, into lows), but the fundamental curved balance is Coriolis.",
   sourceCitation: "Standard meteorology references" },
 
 { id: "METEO-02-Q025", sectionId: "METEO-02", topicId: "meteo-static-stability", difficulty: "easy", type: "single",

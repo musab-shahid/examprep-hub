@@ -953,11 +953,12 @@ export const topics: Topic[] = [
     "NH deflection to the right of motion",
     "SH deflection to the left",
     "f = 2 Ω sin φ → 0 at equator",
-    "Acts on moving parcels only",
-    "Essential for geostrophic balance"
+    "Acts on moving parcels only — does not create wind from rest",
+    "Without Coriolis, large-scale flow would rush more directly from high to low pressure",
+    "Surface friction adds cross-isobar spiral; Coriolis still shapes the curved balance"
   ],
   explanationSections: [
-    { heading: "Deflection, not a push from high to low", body: "PGF starts motion; Coriolis turns it." }
+    { heading: "Deflection, not a push from high to low", body: "PGF starts motion; Coriolis turns it. Friction adjusts the surface balance so winds spiral into lows and out of highs." }
   ],
   subtopics: [
     {
@@ -972,12 +973,23 @@ export const topics: Topic[] = [
       traps: ["Coriolis strongest at equator"]
     },
     {
+      id: "meteo-coriolis-effect-vs-friction",
+      title: "Coriolis curvature vs friction spiral",
+      summary: "Two related but different surface facts.",
+      explanation: "If Earth did not rotate, air would accelerate more directly from high toward low pressure. Coriolis deflection is the main reason large-scale flow curves around pressure systems instead. At the surface, friction slows the wind, weakens Coriolis relative to PGF, and produces a cross-isobar component — spiraling out of highs and into lows. Exam stems must be read carefully: 'why not straight high-to-low' points to Coriolis; 'why cross isobars at the surface' points to friction.",
+      examples: [
+        { problem: "Why does large-scale flow curve around highs instead of rushing straight high→low?", solution: "Coriolis deflection of moving air.", answer: "Coriolis" }
+      ],
+      shortcuts: ["No rotation → more direct PGF flow", "Surface cross-isobar → friction"],
+      traps: ["Blaming friction for all curvature at upper levels"]
+    },
+    {
       id: "meteo-coriolis-effect-when-skill",
       title: "When it matters",
       summary: "Large-scale, long-lived motions.",
-      explanation: "Toilet-bowl and sink drains are not reliable Coriolis demos. Synoptic and planetary flows over hours and hundreds of kilometres feel Coriolis strongly; short-lived local eddies may not.",
+      explanation: "Toilet-bowl drains are not reliable Coriolis demos. Synoptic and planetary flows over hours and hundreds of kilometres feel Coriolis strongly; short-lived local eddies may not.",
       examples: [
-        { problem: "Is household drain rotation a trustworthy Coriolis teaching demo?", solution: "No — other forces dominate.", answer: "No" }
+        { problem: "Is household drain rotation a trustworthy Coriolis demo?", solution: "No.", answer: "No" }
       ],
       shortcuts: ["Synoptic yes", "Sink drains no"],
       traps: ["Coriolis starts wind from rest"]
@@ -986,7 +998,8 @@ export const topics: Topic[] = [
   examPoints: [
     "NH/SH sense",
     "Latitude dependence",
-    "Does not initiate wind"
+    "Does not initiate wind",
+    "Coriolis vs friction roles"
   ],
   commonMistakes: [
     "Strongest at equator.",
@@ -1932,50 +1945,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-04",
   order: 5,
   title: "Microphysics of Cloud Droplet Growth",
-  definition: "Cloud droplets begin on condensation nuclei and grow by condensation. Rain-sized drops need additional growth: collision–coalescence in warm clouds, and ice processes (including Bergeron) in cold mixed-phase clouds.",
+  definition: "Cloud droplets begin on condensation nuclei and grow by condensation. Rain-sized drops need additional growth: collision–coalescence in warm clouds, and ice processes (including Bergeron) in cold mixed-phase clouds. Curvature and solute effects control the earliest droplet growth barrier.",
   keyFacts: [
     "CCN required for droplets at ordinary supersaturations",
-    "Condensation alone is slow to make raindrops",
+    "Curvature (Kelvin) effect: tiny droplets need higher RH to grow — a growth barrier",
+    "Solute (Raoult) effect: dissolved salt lowers equilibrium vapour pressure and helps offset curvature",
+    "A cloud droplet must grow on the order of a million times in volume to become a raindrop",
     "Warm-cloud path: collision and coalescence",
-    "Cold-cloud path: ice crystals grow at the expense of supercooled droplets (Bergeron)",
-    "Supercooled water can exist below 0 °C until ice forms"
+    "Cold-cloud path: Bergeron ice growth"
   ],
   explanationSections: [
-    { heading: "Two paths to precipitation-sized particles", body: "Tropical warm showers lean on coalescence; mid-latitude cloud systems often rely on ice processes even when surface precipitation is rain after melting." }
+    { heading: "From barrier to rain", body: "Nucleation and early growth face curvature/solute physics; turning droplets into rain needs coalescence or ice processes." }
   ],
   subtopics: [
+    {
+      id: "meteo-droplet-microphysics-curvature-solute",
+      title: "Curvature and solute effects",
+      summary: "Why pure tiny droplets struggle; how solute helps.",
+      explanation: "Highly curved pure-water surfaces raise equilibrium vapour pressure (Kelvin/curvature effect), so the smallest droplets evaporate unless the environment is strongly supersaturated. Dissolved solute lowers equilibrium vapour pressure (Raoult/solute effect) and helps counteract curvature, allowing solution droplets to grow at RH nearer to — even slightly below — 100% in idealised Köhler theory.",
+      examples: [
+        { problem: "Does the curvature effect make growth of the tiniest pure droplets easier or harder?", solution: "Harder — it is a growth barrier.", answer: "Harder / barrier" }
+      ],
+      shortcuts: ["Curvature → barrier", "Solute → helps growth", "Together → Köhler ideas"],
+      traps: ["Ignoring CCN chemistry entirely"]
+    },
+    {
+      id: "meteo-droplet-microphysics-volume-growth",
+      title: "Why condensation alone is slow",
+      summary: "Radius ×100 ⇒ volume × about one million.",
+      explanation: "A typical cloud droplet radius is about 10 µm; a small raindrop is about 1 mm — roughly 100 times larger in radius and about 100³ = one million times larger in volume. Condensation is too slow to bridge that gap in realistic cloud lifetimes, so coalescence or ice processes are required.",
+      examples: [
+        { problem: "Rough volume growth factor cloud droplet → raindrop?", solution: "About one million times.", answer: "~10^6" }
+      ],
+      shortcuts: ["~10 µm → ~1 mm", "Volume factor ~10^6"],
+      traps: ["Thinking condensation alone makes rain in minutes always"]
+    },
     {
       id: "meteo-droplet-microphysics-bergeron",
       title: "Bergeron process — the vapour pressure edge",
       summary: "Why ice grows while droplets evaporate in mixed-phase air.",
-      explanation: "At the same temperature, saturation vapour pressure over ice is lower than over liquid water. Air that is near equilibrium with droplets is supersaturated relative to ice, so vapour deposits on ice crystals. Droplets shrink; crystals grow and may later fall and melt into rain.",
+      explanation: "At the same temperature, saturation vapour pressure over ice is lower than over liquid water. Air near equilibrium with droplets is supersaturated relative to ice, so vapour deposits on ice crystals. Droplets shrink; crystals grow and may later fall and melt into rain.",
       examples: [
-        { problem: "In a cloud with both supercooled droplets and ice, which phase grows preferentially by vapour deposition?", solution: "Ice — lower saturation vapour pressure over ice.", answer: "Ice" }
+        { problem: "In a mixed-phase cloud, which phase grows preferentially by vapour deposition?", solution: "Ice.", answer: "Ice" }
       ],
       shortcuts: ["e_sat ice < e_sat liquid", "Ice grows, droplets can evaporate"],
-      traps: ["Thinking Bergeron requires temperatures above 0 °C"]
+      traps: ["Bergeron requires temperatures above 0 °C"]
     },
     {
       id: "meteo-droplet-microphysics-coalescence",
       title: "Collision–coalescence",
       summary: "Larger drops fall faster and sweep smaller ones.",
-      explanation: "In warm clouds, drops of different sizes have different fall speeds. Bigger drops collect smaller ones and grow. Clean air with scarce large CCN can slow this path; maritime clouds often precipitate more readily than very clean continental ones.",
+      explanation: "In warm clouds, drops of different sizes have different fall speeds. Bigger drops collect smaller ones and grow. Clean air with scarce large CCN can slow this path.",
       examples: [
-        { problem: "Why do some deep continental clouds stay non-precipitating longer than shallow maritime clouds?", solution: "Fewer large CCN / less efficient coalescence can delay warm rain.", answer: "Less efficient coalescence / CCN spectrum" }
+        { problem: "Warm clouds above freezing grow rain mainly by which process family?", solution: "Collision–coalescence.", answer: "Collision–coalescence" }
       ],
       shortcuts: ["Size spectrum → collisions", "Warm rain path"],
-      traps: ["Assuming every cloud rains once it looks grey"]
+      traps: ["Assuming every grey cloud rains"]
     }
   ],
   examPoints: [
-    "Role of CCN",
-    "Coalescence vs Bergeron",
-    "Supercooled water exists"
+    "Curvature vs solute",
+    "Million-fold volume growth",
+    "Coalescence vs Bergeron"
   ],
   commonMistakes: [
     "Condensation alone makes raindrops quickly.",
-    "No ice process in mid-latitudes.",
-    "All clouds below 0 °C are glaciated instantly."
+    "Curvature helps tiny pure droplets.",
+    "No ice process in mid-latitudes."
   ],
   relatedTopics: ["meteo-cloud-classification", "meteo-precipitation-processes"],
   content: true,
@@ -2529,50 +2565,51 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 5,
   title: "Tornadoes",
-  definition: "A tornado is a violently rotating column of air in contact with the ground, usually from a thunderstorm. Most strong tornadoes come from supercells with mesocyclones. Intensity is rated by damage (Enhanced Fujita scale), not by how scary the cloud looks on the horizon.",
+  definition: "A tornado is a violently rotating column of air in contact with the ground, usually from a thunderstorm. Most strong tornadoes come from supercells with mesocyclones. Intensity is rated by damage on the Enhanced Fujita (EF) scale.",
   keyFacts: [
     "Requires a parent thunderstorm — often a supercell",
     "Mesocyclone: rotating updraft in a supercell",
-    "EF scale rates damage-implied wind speeds (EF0–EF5)",
+    "EF scale: EF0 (weakest) through EF5 (strongest)",
+    "EF5 corresponds to estimated winds greater than about 322 km/h (200 mph)",
     "Mesoscale phenomenon — intense but narrow and short-lived",
     "Radar may show a Tornado Vortex Signature (TVS) in Doppler velocity"
   ],
   explanationSections: [
-    { heading: "Organisation before the funnel", body: "Shear and instability build a rotating updraft; the tornado is a smaller vortex that may or may not touch down. Spotting a wall cloud is not the same as confirming a tornado on the ground." }
+    { heading: "Organisation before the funnel", body: "Shear and instability build a rotating updraft; the tornado is a smaller vortex that may or may not touch down." }
   ],
   subtopics: [
     {
       id: "meteo-tornadoes-ef-and-radar",
-      title: "EF scale and radar clues",
-      summary: "Damage rating vs detection — different jobs.",
-      explanation: "EF ratings are assigned from damage surveys after the event; they are not measured by a handheld anemometer in the core. Doppler radar can detect strong gate-to-gate velocity couplets (TVS) that suggest a tornado, but confirmation still needs ground evidence. Weak landspouts and gustnadoes complicate automated claims.",
+      title: "EF scale numbers and radar clues",
+      summary: "Damage rating vs detection.",
+      explanation: "EF ratings are assigned from damage surveys. EF5 is the top class, with estimated winds above about 322 km/h. Lower EF categories occupy slower ranges (for example the 100–200+ km/h bands used in many teaching tables). Doppler radar can show a TVS velocity couplet, but confirmation still needs ground evidence.",
       examples: [
-        { problem: "Is an EF4 rating assigned from a single wind measurement in the funnel?", solution: "No — primarily from damage indicators and degree of damage.", answer: "No — damage-based" }
+        { problem: "EF5 estimated wind threshold commonly taught?", solution: "Greater than about 322 km/h.", answer: ">322 km/h" }
       ],
-      shortcuts: ["EF = damage scale", "TVS = radar clue, not automatic proof"],
-      traps: ["Thinking EF is measured live like a METAR wind"]
+      shortcuts: ["EF5 > ~322 km/h", "EF = damage scale", "TVS = radar clue"],
+      traps: ["EF measured live by aircraft in the core as routine"]
     },
     {
       id: "meteo-tornadoes-not-synoptic",
       title: "Scale and geography traps",
-      summary: "Mesoscale intensity ≠ synoptic cyclone; rare in Pakistan plains vs US tornado alleys.",
-      explanation: "Tornadoes are not classified as synoptic systems like mid-latitude cyclones despite high local intensity. They are also unevenly distributed worldwide: the US Plains are favoured by recurring supercell setups; South Asia can see tornadoes but they are not the primary severe-weather mode compared with heat, flood, and tropical cyclones.",
+      summary: "Mesoscale intensity ≠ synoptic cyclone.",
+      explanation: "Tornadoes are not classified as synoptic systems like mid-latitude cyclones despite high local intensity. South Asia can see tornadoes, but they are not the primary severe mode compared with heat, flood, and tropical cyclones.",
       examples: [
-        { problem: "Why is 'tornado = synoptic scale because it is severe' wrong?", solution: "Scale is size/lifetime, not severity; tornadoes are mesoscale.", answer: "Severity ≠ scale" }
+        { problem: "Why is 'tornado = synoptic because severe' wrong?", solution: "Scale is size/lifetime, not severity.", answer: "Severity ≠ scale" }
       ],
-      shortcuts: ["Tornado = mesoscale", "Supercell parent most often for violent cases"],
-      traps: ["Equating every funnel cloud with a confirmed tornado"]
+      shortcuts: ["Tornado = mesoscale", "Supercell parent for most violent cases"],
+      traps: ["Every funnel cloud is a confirmed tornado"]
     }
   ],
   examPoints: [
     "Tornado vs parent storm",
-    "EF damage rating",
+    "EF0–EF5 and EF5 threshold",
     "Mesoscale classification"
   ],
   commonMistakes: [
     "Severity implies synoptic scale.",
-    "All thunderstorms produce tornadoes.",
-    "EF measured by aircraft in the core as routine."
+    "Wrong EF5 wind band.",
+    "All thunderstorms produce tornadoes."
   ],
   relatedTopics: ["meteo-thunderstorms", "meteo-jet-stream", "meteo-remote-sensing"],
   content: true,
@@ -3057,20 +3094,20 @@ export const topics: Topic[] = [
   definition: "Airfields combine standard meteorological sensors with aviation-specific systems: ceilometers for cloud base, weather radars/LLWAS for wind shear and microbursts, and present-weather/precipitation sensors. The goal is timely hazard detection for take-off and landing.",
   keyFacts: [
     "Ceilometer: cloud-base height",
-    "Tipping-bucket / weighing gauges: precipitation",
+    "Tipping-bucket gauges: good for liquid rain; can under-measure snow/ice without heating",
+    "Weighing gauges: measure mass of catch — effective for frozen precipitation",
     "LLWAS / Doppler: low-level wind shear and microbursts",
-    "Visibility sensors support RVR-related operations",
-    "Integrates with METAR/SPECI issuance"
+    "Visibility sensors support RVR-related operations"
   ],
   explanationSections: [
-    { heading: "Hazard-focused sensing", body: "Aviation instruments prioritise rapid detection of shear, low cloud, and visibility drops." }
+    { heading: "Hazard-focused sensing", body: "Aviation instruments prioritise rapid detection of shear, low cloud, and visibility drops, and honest precipitation measurement across phases." }
   ],
   subtopics: [
     {
       id: "meteo-ground-aviation-instruments-ceiling-vis",
       title: "Ceiling and visibility tools",
       summary: "Ceilometer + visibility sensors drive approach decisions.",
-      explanation: "A ceilometer uses a laser (or similar) to estimate cloud-base height. Visibility sensors and human observations support operational minima. When ceiling or visibility crosses thresholds, SPECI and approach-category decisions follow.",
+      explanation: "A ceilometer estimates cloud-base height. Visibility sensors and human observations support operational minima. When ceiling or visibility crosses thresholds, SPECI and approach-category decisions follow.",
       examples: [
         { problem: "Primary automated tool for cloud-base height at an airport?", solution: "Ceilometer.", answer: "Ceilometer" }
       ],
@@ -3078,10 +3115,21 @@ export const topics: Topic[] = [
       traps: ["Ceilometer measures wind shear"]
     },
     {
+      id: "meteo-ground-aviation-instruments-precip-gauges",
+      title: "Liquid vs frozen precipitation gauges",
+      summary: "Why weighing gauges handle snow better.",
+      explanation: "Tipping-bucket gauges count tips of a small bucket of meltwater and work well for rain, but unheated buckets struggle with snow and ice. Weighing gauges continuously record the mass of accumulated precipitation regardless of phase, so they are preferred when frozen precipitation must be measured accurately.",
+      examples: [
+        { problem: "Which gauge type is most effective for frozen precipitation?", solution: "Weighing rain gauge.", answer: "Weighing gauge" }
+      ],
+      shortcuts: ["Weighing → any phase", "Tipping bucket → liquid-friendly"],
+      traps: ["All gauges equally good for snow"]
+    },
+    {
       id: "meteo-ground-aviation-instruments-shear",
       title: "Microburst and shear detection",
       summary: "LLWAS/Doppler protect against sudden wind changes.",
-      explanation: "Microbursts produce damaging divergent outflow near the surface. Low-Level Wind Shear Alert Systems and terminal Doppler radar aim to detect shear signatures quickly so alerts can be issued. This is distinct from routine mean-wind climatology.",
+      explanation: "Microbursts produce damaging divergent outflow near the surface. Low-Level Wind Shear Alert Systems and terminal Doppler radar aim to detect shear signatures quickly so alerts can be issued.",
       examples: [
         { problem: "System network designed to alert on low-level wind shear at airports?", solution: "LLWAS (or equivalent terminal shear detection).", answer: "LLWAS / terminal Doppler" }
       ],
@@ -3091,12 +3139,12 @@ export const topics: Topic[] = [
   ],
   examPoints: [
     "Ceilometer purpose",
-    "Microburst/shear detection",
-    "Link to METAR/SPECI"
+    "Weighing vs tipping-bucket for snow",
+    "Microburst/shear detection"
   ],
   commonMistakes: [
     "Ceilometer = rain gauge.",
-    "Ignoring shear systems.",
+    "Ignoring frozen-precip gauge choice.",
     "No link to aviation products."
   ],
   relatedTopics: ["meteo-aviation-products", "meteo-remote-sensing", "meteo-wind-instruments"],
@@ -3791,10 +3839,10 @@ export const topics: Topic[] = [
   definition: "Pakistan’s NCCP (2012) is the national policy framework for climate change. It prioritises adaptation to impacts already facing the country while also addressing mitigation, capacity, and mainstreaming across sectors.",
   keyFacts: [
     "Adaptation is a central emphasis for a high-impact country",
-    "Mitigation and energy choices also appear",
+    "Pakistan contributes less than about 1% of global greenhouse gas emissions yet faces high climate vulnerability — a standard equity and policy talking point",
+    "Mitigation and energy choices also appear in the policy",
     "Water, agriculture, forests, biodiversity, disaster risks are key sectors",
-    "Policy framework — implementation needs further plans and institutions",
-    "Links to extreme events and development planning"
+    "Policy framework — implementation needs further plans and institutions"
   ],
   explanationSections: [
     { heading: "Policy, not a physics law", body: "NCCP organises national response; it does not replace the physical science of forcing and feedbacks." }
@@ -3803,13 +3851,13 @@ export const topics: Topic[] = [
     {
       id: "meteo-pakistan-nccp-adapt-first",
       title: "Why adaptation is emphasised",
-      summary: "High exposure to floods, droughts, heat, GLOFs.",
-      explanation: "Pakistan faces serious hydrometeorological risks now. Policy therefore stresses adaptation — water management, disaster risk reduction, resilient agriculture — alongside longer-term mitigation. Exam answers should not claim NCCP ignores adaptation.",
+      summary: "High exposure; small share of global emissions.",
+      explanation: "Pakistan faces serious hydrometeorological risks now, while contributing only a small fraction of global GHG emissions (commonly cited as less than 1%). Policy therefore stresses adaptation — water management, disaster risk reduction, resilient agriculture — alongside longer-term mitigation consistent with development needs.",
       examples: [
-        { problem: "Does NCCP focus only on cutting emissions with no adaptation pillar?", solution: "No — adaptation is central.", answer: "No" }
+        { problem: "About what share of global GHG emissions is Pakistan commonly said to contribute?", solution: "Less than 1%.", answer: "Less than 1%" }
       ],
-      shortcuts: ["Adaptation central", "Mitigation also present"],
-      traps: ["NCCP = mitigation-only document"]
+      shortcuts: ["Adaptation central", "<1% of global GHGs", "High vulnerability"],
+      traps: ["NCCP = mitigation-only document", "Assuming Pakistan is a top global emitter"]
     },
     {
       id: "meteo-pakistan-nccp-sectors-skill",
@@ -3826,12 +3874,13 @@ export const topics: Topic[] = [
   examPoints: [
     "NCCP 2012 identity",
     "Adaptation emphasis",
+    "Small share of global emissions",
     "Key sectors"
   ],
   commonMistakes: [
     "Mitigation-only reading.",
     "Confusing policy with IPCC scenarios.",
-    "No sector detail."
+    "Inflating Pakistan’s global emissions share."
   ],
   relatedTopics: ["meteo-nccp-objectives", "meteo-extreme-events", "meteo-ipcc-rcps"],
   content: true,
@@ -4015,76 +4064,69 @@ export const topics: Topic[] = [
 {
   id: "meteo-temp-rainfall-distribution",
   sectionId: "METEO-09",
-  order: 4,
+  order: 5,
   title: "Temperature and Rainfall Distribution Across Pakistan",
-  definition: "Pakistan’s temperature and rainfall fields are shaped by latitude, continentality, altitude, the summer monsoon fringe, western disturbances, and orography. Broad patterns: hot summers in the plains, milder highlands, arid to semi-arid rainfall over large areas, and wetter pockets on windward northern/western slopes in the right seasons.",
+  definition: "Pakistan’s temperature and rainfall fields are highly uneven: hot lowland interiors, cool highlands, and patchy monsoon and western-disturbance rains. National means hide large regional contrasts.",
   keyFacts: [
-    "Plains: very hot summers; winters cooler but generally milder than high mountains",
-    "Altitude decreases temperature — highland climates differ sharply over short distances",
-    "Rainfall generally higher toward the north and along certain windward ranges; much of the west/interior is dry",
-    "Summer monsoon and winter WDs create two different precipitation seasons by region",
-    "Interannual variability is large — means hide flood and drought years",
-    "Maps matter more than a single national average"
+    "Lowland summers are extremely hot in many districts",
+    "Temperature falls with height in the mountains",
+    "Monsoon rainfall is uneven — fringe geography",
+    "Winter precipitation in the north often ties to western disturbances",
+    "PMD-style century summaries often cite roughly +0.6 °C area-weighted mean annual warming over 1901–2000"
   ],
   explanationSections: [
-    { heading: "Read the map, not a single number", body: "A national mean rainfall is almost meaningless for farmers in Thar versus valleys in the north. Always ask: which season, which province, which slope?" }
+    { heading: "Maps over slogans", body: "Always ask which region and which season before generalising national climate." }
   ],
   subtopics: [
     {
       id: "meteo-temp-rainfall-distribution-temperature",
       title: "Temperature patterns",
-      summary: "Hot plains; altitude and coast moderate extremes differently.",
-      explanation: "Continental plains heat strongly in summer. Mountains are cooler at elevation. Coastal areas can be humid and warm with a smaller daily range than dry interiors at times, but heat stress remains serious.",
+      summary: "Altitude and continentality dominate.",
+      explanation: "Northern mountain stations are cooler primarily because temperature decreases with height in the troposphere. Interiors combine strong summer heating with radiatively cool winters relative to maritime climates at similar latitude.",
       examples: [
-        { problem: "Why is a hill station cooler than a plains city in the same month?", solution: "Temperature decreases with altitude in the troposphere under normal lapse conditions.", answer: "Altitude / lapse rate" }
+        { problem: "Why is Skardu much cooler than Jacobabad in summer on average?", solution: "Much higher elevation / mountain climate.", answer: "Altitude" }
       ],
-      shortcuts: ["Plains hot in summer", "Higher = cooler"],
-      traps: ["One temperature for all Pakistan"]
+      shortcuts: ["Height → cooler", "Interior heat extremes"],
+      traps: ["One national temperature for all cities"]
     },
     {
       id: "meteo-temp-rainfall-distribution-rainfall",
       title: "Rainfall patterns",
-      summary: "Monsoon fringe + WD north + orography + aridity.",
-      explanation: "Eastern and northern districts often receive more monsoon rain than hyper-arid western basins. Winter WD snow/rain concentrates in the north. Rain shadows and distance from moisture sources keep large areas dry.",
+      summary: "Monsoon fringe + WD winter rains.",
+      explanation: "Summer monsoon moisture does not water the whole country equally. Northern and some eastern areas may receive meaningful totals while arid zones stay dry. Winter western disturbances are critical for northern rain and snow.",
       examples: [
-        { problem: "Name two distinct seasonal rainfall mechanisms for Pakistan.", solution: "Summer monsoon and winter western disturbances.", answer: "Monsoon and WDs" }
+        { problem: "Is monsoon rainfall spatially uniform across Pakistan?", solution: "No.", answer: "No — uneven" }
       ],
-      shortcuts: ["Two engines: monsoon + WD", "Orography redistributes"],
-      traps: ["Using only annual totals without season"]
+      shortcuts: ["Uneven monsoon", "WD for northern winter"],
+      traps: ["Nationwide identical rainy season"]
+    },
+    {
+      id: "meteo-temp-rainfall-distribution-warming-record",
+      title: "Observed warming memory figure",
+      summary: "About +0.6 °C (1901–2000) area-weighted mean.",
+      explanation: "For exam recall, a commonly cited PMD-oriented figure is roughly +0.6 °C area-weighted mean annual warming over the twentieth century (1901–2000). Use it as a magnitude anchor, not as a substitute for understanding regional extremes and impacts.",
+      examples: [
+        { problem: "Approximate area-weighted mean annual warming 1901–2000 often cited for Pakistan?", solution: "About +0.6 °C.", answer: "+0.6 °C" }
+      ],
+      shortcuts: ["~+0.6 °C / century-scale memory"],
+      traps: ["Confusing this with a single-year anomaly"]
     }
   ],
-  comparisonTable: {
-    title: "Distribution sketch",
-    headers: ["Factor", "Effect"],
-    rows: [
-      ["Altitude", "Cooler highlands"],
-      ["Continentality", "Hotter summer plains"],
-      ["Monsoon fringe", "Uneven summer rain"],
-      ["WDs", "Winter north precip"],
-      ["Orography", "Windward wet / lee dry"]
-    ]
-  },
-  pakistanExamFocus: [
-    "Spatial and seasonal structure beats national averages",
-    "Monsoon and WD are complementary, not synonyms",
-    "Arid baseline with extreme event spikes"
-  ],
   examPoints: [
-    "Controls: lat, altitude, monsoon, WD, orography",
-    "Hot plains vs cool highlands",
-    "Uneven rainfall geography"
+    "Regional temperature contrasts",
+    "Uneven rainfall",
+    "~+0.6 °C twentieth-century figure"
   ],
   commonMistakes: [
-    "National single climate number.",
-    "Ignoring season when comparing stations.",
-    "Forgetting orography.",
-    "Mixing temperature lapse with rainfall automatically."
+    "Uniform national climate.",
+    "Ignoring altitude.",
+    "Mixing WD and monsoon seasons."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-extreme-events"],
+  relatedTopics: ["meteo-pakistan-macroclimate", "meteo-western-disturbances", "meteo-indian-ocean-monsoon"],
   content: true,
-  buildsOn: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-macroclimate", "meteo-orographic-rainshadow"],
+  buildsOn: ["meteo-pakistan-macroclimate", "meteo-weather-vs-climate"],
   leadsTo: ["meteo-extreme-events"],
-  usedIn: ["meteo-extreme-events", "meteo-pmd-operational", "meteo-nccp-objectives"]
+  usedIn: ["meteo-extreme-events", "meteo-pakistan-nccp"]
 },
 
 {
@@ -4095,25 +4137,36 @@ export const topics: Topic[] = [
   definition: "Pakistan faces multiple hydrometeorological extremes: heatwaves, droughts, riverine floods, glacial lake outburst floods (GLOFs), and intense rainfall. Each has distinct drivers and seasonal windows — they are not interchangeable.",
   keyFacts: [
     "Heatwaves: prolonged extreme temperatures",
-    "Drought: prolonged moisture deficit",
-    "Riverine floods: river capacity exceeded",
+    "Drought: prolonged moisture deficit — the period 1999–2002 is a commonly cited severe drought example",
+    "Riverine floods: river capacity exceeded — 2010 and 2022 are major Indus-basin super-flood benchmarks",
     "GLOFs: sudden glacial lake release in mountains",
     "Exposure and vulnerability shape impact severity"
   ],
   explanationSections: [
-    { heading: "Match hazard to mechanism", body: "Do not label every disaster as monsoon only." }
+    { heading: "Match hazard to mechanism", body: "Do not label every disaster as monsoon only. Named years are memory anchors for exams, not the whole climate history." }
   ],
   subtopics: [
     {
       id: "meteo-extreme-events-match",
       title: "Hazard → mechanism matching",
       summary: "GLOF vs riverine flood vs drought.",
-      explanation: "Riverine floods involve channel overflow from prolonged or intense basin rain/snowmelt. GLOFs are sudden mountain lake failures with localised catastrophic peaks. Drought is a cumulative deficit. Heatwaves are temperature extremes that can coincide with dry soils.",
+      explanation: "Riverine floods involve channel overflow from prolonged or intense basin rain/snowmelt. GLOFs are sudden mountain lake failures with localised catastrophic peaks. Drought is a cumulative deficit over seasons or years.",
       examples: [
         { problem: "Sudden mountain torrent from a glacial lake breach — classification?", solution: "GLOF.", answer: "GLOF" }
       ],
       shortcuts: ["GLOF = lake breach", "Riverine = channel overflow", "Drought = cumulative deficit"],
       traps: ["All floods = GLOF"]
+    },
+    {
+      id: "meteo-extreme-events-benchmark-years",
+      title: "Benchmark years for Pakistan exams",
+      summary: "2010 & 2022 floods; 1999–2002 drought.",
+      explanation: "FPSC-style materials often cite 2010 and 2022 as national-scale Indus-basin super floods driven by extreme rainfall and riverine inundation. The turn-of-century window 1999–2002 is widely used as a severe drought example. Learn them as anchors, and still explain the physical hazard type in the answer.",
+      examples: [
+        { problem: "Which pair is commonly cited for Indus super floods?", solution: "2010 and 2022.", answer: "2010 and 2022" }
+      ],
+      shortcuts: ["Floods: 2010, 2022", "Drought example: 1999–2002"],
+      traps: ["Memorising years without knowing flood vs drought mechanisms"]
     },
     {
       id: "meteo-extreme-events-season",
@@ -4129,6 +4182,7 @@ export const topics: Topic[] = [
   ],
   examPoints: [
     "Distinguish GLOF and riverine flood",
+    "Benchmark flood and drought years",
     "Drought vs heatwave",
     "Seasonal context"
   ],
@@ -4137,7 +4191,7 @@ export const topics: Topic[] = [
     "Ignoring exposure.",
     "Monsoon-only narrative."
   ],
-  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-nccp"],
+  relatedTopics: ["meteo-indian-ocean-monsoon", "meteo-western-disturbances", "meteo-pakistan-nccp", "meteo-enso-global-impacts"],
   content: true,
   buildsOn: ["meteo-temp-rainfall-distribution", "meteo-western-disturbances"],
   leadsTo: ["meteo-pakistan-nccp", "meteo-nccp-objectives"],
@@ -4408,16 +4462,16 @@ export const topics: Topic[] = [
   sectionId: "METEO-10",
   order: 3,
   title: "Forecast Skill, Accuracy & Verification: Anomaly Correlation & RMSE",
-  definition: "Verification scores measure how good forecasts are. Accuracy metrics (e.g. RMSE) quantify error size; skill scores measure improvement over a baseline such as climatology or persistence.",
+  definition: "Verification scores measure how good forecasts are. Accuracy metrics (e.g. RMSE) quantify error size; skill scores measure improvement over a baseline such as climatology or persistence. Categorical scores such as the threat score evaluate yes/no event forecasts.",
   keyFacts: [
     "RMSE: magnitude of errors (lower is better)",
     "Skill: improvement relative to a reference forecast",
     "Anomaly correlation: pattern match of anomalies",
-    "A low RMSE can still mean little skill if climatology is equally good",
-    "Always know the baseline"
+    "Threat score (critical success index) = hits / (hits + misses + false alarms)",
+    "A low RMSE can still mean little skill if climatology is equally good"
   ],
   explanationSections: [
-    { heading: "Error vs skill", body: "Saying a forecast is 'close' is incomplete without saying 'closer than what'." }
+    { heading: "Error vs skill vs categorical scores", body: "RMSE and anomaly correlation suit continuous fields; threat score suits dichotomous events such as rain / no rain." }
   ],
   subtopics: [
     {
@@ -4430,6 +4484,17 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["RMSE = error size", "Skill = vs baseline"],
       traps: ["Equating any low RMSE with high skill"]
+    },
+    {
+      id: "meteo-forecast-skill-threat-score",
+      title: "Threat score (CSI)",
+      summary: "Hits over hits+misses+false alarms.",
+      explanation: "For binary events, arrange a contingency table: hits, misses, false alarms, and correct rejections. The threat score uses only hits, misses, and false alarms in the denominator — correct rejections are excluded. Example: 20 hits, 5 misses, 10 false alarms → TS = 20/(20+5+10) = 20/35 ≈ 0.57.",
+      examples: [
+        { problem: "20 hits, 5 misses, 10 false alarms. Threat score?", solution: "20/35 ≈ 0.57.", answer: "20/35" }
+      ],
+      shortcuts: ["TS = H/(H+M+FA)", "No correct rejections in TS"],
+      traps: ["Putting all four contingency cells in the denominator"]
     },
     {
       id: "meteo-forecast-skill-baseline",
@@ -4446,12 +4511,13 @@ export const topics: Topic[] = [
   examPoints: [
     "RMSE meaning",
     "Skill vs accuracy",
+    "Threat score formula",
     "Baseline dependence"
   ],
   commonMistakes: [
     "RMSE = skill.",
-    "No baseline stated.",
-    "Anomaly correlation treated as RMSE."
+    "Wrong threat-score denominator.",
+    "No baseline stated."
   ],
   relatedTopics: ["meteo-nwp-models", "meteo-forecasting-methods"],
   content: true,
@@ -4651,23 +4717,23 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 3,
   title: "Lapse Rate & Stability Calculations: DALR, SALR, ELR and Classification",
-  definition: "This quantitative topic applies the stability decision table using numerical ELR, DALR, and SALR values. Concept definitions live under Lapse Rates and Static Stability; here the skill is classification from numbers.",
+  definition: "This quantitative topic applies the stability decision table using numerical ELR, DALR, and SALR values, and simple LCL height estimates. Concept definitions live under Lapse Rates and Static Stability.",
   keyFacts: [
     "DALR ≈ 9.8 °C/km (often 10 in MCQs)",
     "SALR < DALR",
     "Compare ELR with both process rates",
     "Conditional: SALR < ELR < DALR",
-    "Show units and comparison steps"
+    "Exam approximation: LCL height (km) ≈ (T − Td)/8 with T, Td in °C"
   ],
   explanationSections: [
-    { heading: "Numbers → table → label", body: "Write the three rates, place ELR, read the stability class." }
+    { heading: "Numbers → table → label", body: "Write the three rates, place ELR, read the stability class. For LCL, apply the stated approximation and then cool the parcel at DALR to that height if asked." }
   ],
   subtopics: [
     {
       id: "meteo-lapse-calc-classify",
       title: "Worked classification",
       summary: "Plug into the decision table.",
-      explanation: "Given ELR, DALR, SALR: if ELR > DALR → absolute instability; if ELR < SALR → absolute stability; if between → conditional instability. Always state the comparison explicitly in working.",
+      explanation: "Given ELR, DALR, SALR: if ELR > DALR → absolute instability; if ELR < SALR → absolute stability; if between → conditional instability. Always state the comparison explicitly.",
       examples: [
         { problem: "ELR=7, DALR=10, SALR=6 (°C/km). Class?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
       ],
@@ -4675,10 +4741,21 @@ export const topics: Topic[] = [
       traps: ["Using only ELR vs DALR when saturation matters"]
     },
     {
+      id: "meteo-lapse-calc-lcl-approx",
+      title: "LCL height approximation",
+      summary: "LCL (km) ≈ (T − Td)/8, then cool at DALR.",
+      explanation: "When a question gives the rule LCL ≈ (T − Td)/8, compute the depression in °C and divide by 8 to get kilometres. Example: T = 28 °C, Td = 16 °C → depression 12 °C → LCL ≈ 1.5 km. Parcel temperature at the LCL ≈ T − (DALR × LCL height) ≈ 28 − 9.8×1.5 ≈ 13.3 °C if still unsaturated to the LCL.",
+      examples: [
+        { problem: "T=28°C, Td=16°C, LCL≈(T−Td)/8. Height?", solution: "1.5 km.", answer: "1.5 km" }
+      ],
+      shortcuts: ["(T−Td)/8 → km", "Then ΔT ≈ −DALR × z"],
+      traps: ["Using SALR before the LCL"]
+    },
+    {
       id: "meteo-lapse-calc-parcel-cool",
       title: "Parcel temperature change on ascent",
       summary: "Dry vs moist segment.",
-      explanation: "Unsaturated ascent: ΔT ≈ −DALR × Δz. After saturation, use SALR. A 1.5 km dry ascent at 10 °C/km cools about 15 °C — typical numerical item.",
+      explanation: "Unsaturated ascent: ΔT ≈ −DALR × Δz. After saturation, use SALR. A 2 km dry ascent at 10 °C/km cools about 20 °C.",
       examples: [
         { problem: "Unsaturated parcel rises 2 km with DALR=10 °C/km. ΔT?", solution: "About −20 °C.", answer: "−20 °C" }
       ],
@@ -4688,8 +4765,8 @@ export const topics: Topic[] = [
   ],
   examPoints: [
     "Classify from numbers",
-    "Dry ascent cooling",
-    "Unit consistency"
+    "LCL approximation when given",
+    "Dry ascent cooling"
   ],
   commonMistakes: [
     "Wrong comparison order.",
@@ -4708,50 +4785,62 @@ export const topics: Topic[] = [
   sectionId: "METEO-12",
   order: 2,
   title: "Mixing Ratio, Relative Humidity & Dew-Point Calculations",
-  definition: "This quantitative topic applies moisture definitions to numbers: compute RH from e and e_s, interpret dew point, and use mixing-ratio ideas in short exam problems. Conceptual definitions live under Atmospheric Moisture Metrics; here the skill is calculation and unit care.",
+  definition: "This quantitative topic applies moisture definitions to numbers: compute RH from e and e_s or from mixing ratios, interpret dew point, and use simple exam approximations carefully. Conceptual definitions live under Atmospheric Moisture Metrics.",
   keyFacts: [
     "RH = (e / e_s) × 100%",
-    "At saturation, e = e_s, RH = 100%, T = Td (for liquid saturation at constant pressure)",
-    "Cooling toward Td raises RH if vapour content is fixed",
-    "Mixing ratio changes when water is added/removed, not by temperature change alone in a closed unsaturated parcel"
+    "Also RH ≈ (w / w_s) × 100% when mixing ratios are used consistently",
+    "Rule of thumb sometimes used in exams: RH ≈ 100 − 5×(T − Td) with T, Td in °C — approximate only",
+    "At saturation, e = e_s, RH = 100%, T = Td (liquid saturation at constant pressure)",
+    "Cooling toward Td raises RH if vapour content is fixed"
   ],
   explanationSections: [
-    { heading: "Concept topic vs calc topic", body: "If a stem asks for meaning, use Moisture Metrics. If it gives numbers for e, e_s, or temperatures, solve here with the RH formula and saturation logic." }
+    { heading: "Prefer definitions; know the shortcuts", body: "Use e/e_s or w/w_s when data allow. The 100 − 5(T−Td) rule is a quick estimate, not a replacement for the definition." }
   ],
   subtopics: [
     {
       id: "meteo-humidity-calc-rh-steps",
-      title: "Worked RH from e and e_s",
-      summary: "Substitute, divide, multiply by 100 — then interpret.",
-      explanation: "Write RH = 100 × e/e_s. Keep e and e_s in the same units (both hPa or both Pa). If the problem cools the air at constant vapour content, e_s falls and RH rises until 100%.",
+      title: "Worked RH from e, e_s, or mixing ratios",
+      summary: "Substitute, divide, multiply by 100.",
+      explanation: "Write RH = 100 × e/e_s (same units for e and e_s). With mixing ratios, RH = 100 × w/w_s. If e = 10 hPa and e_s = 20 hPa, RH = 50%. If w = 10 g/kg and w_s = 20 g/kg, RH = 50%.",
       examples: [
         { problem: "e = 12 hPa, e_s = 30 hPa. RH?", solution: "100 × 12/30 = 40%.", answer: "40%" },
-        { problem: "e fixed, e_s halves. What happens to RH?", solution: "RH doubles (until capped at 100%).", answer: "RH doubles (max 100%)" }
+        { problem: "w = 10 g/kg, w_s = 20 g/kg. RH?", solution: "50%.", answer: "50%" }
       ],
-      shortcuts: ["Same units for e and e_s", "RH = 100e/e_s"],
+      shortcuts: ["RH = 100e/e_s", "RH = 100w/w_s", "Same units"],
       traps: ["Mixing Pa with hPa", "Reporting the ratio without ×100"]
+    },
+    {
+      id: "meteo-humidity-calc-rule-of-thumb",
+      title: "The 100 − 5(T − Td) estimate",
+      summary: "Fast exam approximation — know its limits.",
+      explanation: "A common rough rule is RH ≈ 100 − 5×(T − Td) with temperatures in °C. Example: T = 30 °C, Td = 22 °C → depression 8 °C → RH ≈ 100 − 40 = 60% (moderately moist). Use it when the question explicitly asks for the approximation; otherwise prefer e/e_s.",
+      examples: [
+        { problem: "T=30°C, Td=22°C with RH ≈ 100−5(T−Td). RH?", solution: "≈60%.", answer: "≈60%" }
+      ],
+      shortcuts: ["Depression × 5, subtract from 100", "Only an approximation"],
+      traps: ["Treating the rule as exact physical law"]
     },
     {
       id: "meteo-humidity-calc-td-logic",
       title: "Dew-point numerical reasoning",
-      summary: "Td is not computed from a full formula here — use saturation logic.",
-      explanation: "Exam items often ask qualitative numerical reasoning: which air mass has higher Td, or what cooling brings RH to 100%. Higher Td means more vapour for typical comparisons. When T falls to Td, condensation begins on surfaces or nuclei.",
+      summary: "Td tracks moisture; depression tracks nearness to saturation.",
+      explanation: "Higher Td usually means more vapour for typical comparisons. Small T−Td means air is close to saturation. When T falls to Td, condensation begins on surfaces or nuclei.",
       examples: [
         { problem: "Parcel A: T=20°C, Td=18°C. Parcel B: T=30°C, Td=5°C. Which is closer to saturation?", solution: "A — depression only 2°C vs 25°C.", answer: "Parcel A" }
       ],
       shortcuts: ["Closer T and Td → nearer saturation", "Td compares moisture"],
-      traps: ["Picking the warmer parcel as 'more saturated' automatically"]
+      traps: ["Picking the warmer parcel as more saturated automatically"]
     }
   ],
   examPoints: [
-    "Compute RH from e and e_s",
-    "Interpret Td depression",
-    "Avoid unit mistakes"
+    "Compute RH from e and e_s or w and w_s",
+    "Use 100−5(T−Td) when asked",
+    "Interpret Td depression"
   ],
   commonMistakes: [
     "Redefining RH instead of calculating.",
     "Unit inconsistency.",
-    "Assuming Td always equals wet-bulb."
+    "Over-trusting the rule of thumb."
   ],
   relatedTopics: ["meteo-moisture-metrics", "meteo-adiabatic-cloud-formation"],
   content: true,
@@ -4880,45 +4969,58 @@ export const topics: Topic[] = [
   sectionId: "METEO-13",
   order: 1,
   title: "ENSO: El Niño, La Niña and the Walker Circulation",
-  definition: "ENSO is a coupled ocean–atmosphere mode of the tropical Pacific. El Niño warms the central/eastern equatorial Pacific and weakens the Walker cell; La Niña does the opposite. Neutral is the absence of a strong, sustained phase.",
+  definition: "ENSO is a coupled ocean–atmosphere mode of the tropical Pacific. El Niño warms the central/eastern equatorial Pacific and weakens the Walker cell; La Niña does the opposite. Operational monitoring uses SST anomaly indices such as Niño-3.4.",
   keyFacts: [
     "El Niño: warm SST anomalies in central/eastern equatorial Pacific",
     "La Niña: enhanced cold tongue; stronger trades",
+    "Niño-3.4: common index region; sustained anomalies above about +0.5 °C support El Niño classification, below about −0.5 °C support La Niña (with duration rules in operational definitions)",
     "Walker circulation: zonal tropical Pacific overturning",
-    "Indices such as Niño-3.4 monitor SST anomalies",
+    "Bjerknes feedback: positive ocean–atmosphere coupling that can amplify anomalies",
     "Phase changes odds worldwide via teleconnections"
   ],
   explanationSections: [
-    { heading: "Ocean and atmosphere together", body: "SST pattern and winds must be discussed as a pair — that is the coupling." }
+    { heading: "Ocean and atmosphere together", body: "SST pattern and winds must be discussed as a pair — that coupling is the heart of ENSO and of the Bjerknes feedback." }
   ],
   subtopics: [
     {
       id: "meteo-enso-basics-phase-id",
-      title: "Phase identification checklist",
-      summary: "SST map + trade wind sense.",
-      explanation: "Warm anomalies in the eastern/central equatorial Pacific with weakened trades → El Niño. Cool anomalies with strong trades and western convection → La Niña. Do not diagnose from a single coastal station outside the index regions.",
+      title: "Phase identification and Niño-3.4",
+      summary: "Warm/cool anomaly thresholds and wind sense.",
+      explanation: "Warm anomalies in the eastern/central equatorial Pacific with weakened trades → El Niño. Cool anomalies with strong trades → La Niña. Niño-3.4 is a standard box in the central equatorial Pacific used to track the anomaly. A useful exam memory: anomalies sustained beyond about ±0.5 °C mark the El Niño / La Niña side of neutral, subject to the full operational duration criteria used by forecasting centres.",
       examples: [
-        { problem: "Strong warm SST anomaly in Niño-3.4 and weak trades — phase?", solution: "El Niño.", answer: "El Niño" }
+        { problem: "Niño-3.4 SST anomaly sustained above +0.5 °C — which phase is supported?", solution: "El Niño (warm anomaly side).", answer: "El Niño" }
       ],
-      shortcuts: ["Warm east/central → El Niño", "Strong cold tongue → La Niña"],
-      traps: ["Using only coastal South America folklore without the basin pattern"]
+      shortcuts: ["+0.5 °C side → El Niño", "−0.5 °C side → La Niña", "Need sustained anomaly"],
+      traps: ["A single warm week always equals El Niño", "Using only a coastal anecdote without the basin index"]
+    },
+    {
+      id: "meteo-enso-basics-bjerknes",
+      title: "Bjerknes feedback",
+      summary: "Positive coupling that can amplify ENSO anomalies.",
+      explanation: "In the El Niño direction, warmer eastern/central Pacific SST weakens the trades; weaker trades reduce upwelling and/or allow warm water to spread, further warming SST — a positive feedback. La Niña can amplify in the opposite sense (cool SST, stronger trades, stronger upwelling). The feedback helps events grow; it is not a guarantee of every year’s outcome.",
+      examples: [
+        { problem: "Is Bjerknes feedback a positive or negative feedback on SST anomalies?", solution: "Positive — anomalies tend to reinforce through wind–SST coupling.", answer: "Positive" }
+      ],
+      shortcuts: ["Warm SST → weaker trades → more warming", "Positive feedback"],
+      traps: ["Calling Bjerknes a damping (negative) feedback"]
     },
     {
       id: "meteo-enso-basics-walker-shift",
       title: "Walker cell shifts with phase",
       summary: "Where the rising branch sits.",
-      explanation: "In La Niña-like states, rising motion is concentrated over the warm western Pacific. In El Niño, convection and the rising branch shift east toward the central Pacific as the west–east SST contrast flattens. That shift anchors many teleconnection arguments.",
+      explanation: "In La Niña-like states, rising motion concentrates over the warm western Pacific. In El Niño, convection and the rising branch shift east toward the central Pacific as the west–east SST contrast flattens.",
       examples: [
-        { problem: "During strong El Niño, does the main Pacific rising branch usually stay fixed over the far western Pacific?", solution: "No — it tends to shift east.", answer: "Shifts east" }
+        { problem: "During strong El Niño, does the main Pacific rising branch usually stay fixed over the far west?", solution: "No — it tends to shift east.", answer: "Shifts east" }
       ],
       shortcuts: ["El Niño → Walker weakens/shifts east", "La Niña → strong western ascent"],
-      traps: ["Walker cell only exists in textbooks, never changes"]
+      traps: ["Walker cell never changes"]
     }
   ],
   examPoints: [
     "Define El Niño / La Niña",
-    "Walker coupling",
-    "Index idea"
+    "Niño-3.4 and ~±0.5 °C memory",
+    "Bjerknes as positive feedback",
+    "Walker coupling"
   ],
   commonMistakes: [
     "El Niño = any local warming.",
@@ -4999,23 +5101,35 @@ export const topics: Topic[] = [
     "Teleconnection = remote correlated response",
     "Classic composites exist for many regions (drought/flood odds)",
     "South Asian monsoon impacts are probabilistic",
+    "Pakistan’s 2010 and 2022 super-flood seasons are often discussed in a La Niña or La Niña-transition context — useful case studies, not proof that every La Niña floods",
     "Other modes (IOD, MJO) can modify outcomes",
     "Always phrase as raised or lowered odds"
   ],
   explanationSections: [
-    { heading: "Composites, not commandments", body: "Exam answers that say 'El Niño always causes X in country Y' overreach." }
+    { heading: "Composites, not commandments", body: "Exam answers that say 'El Niño always causes X in country Y' overreach. Case-study years illustrate risk; they do not replace probability language." }
   ],
   subtopics: [
     {
       id: "meteo-enso-global-impacts-odds",
       title: "Probabilistic language for exams",
       summary: "Raised odds vs certainty.",
-      explanation: "A teleconnection composite might show drier odds for a region in El Niño years on average. Any single year can differ because of noise and other modes. Good answers use 'tends to' or 'higher likelihood'.",
+      explanation: "A teleconnection composite might show drier or wetter odds for a region in El Niño or La Niña years on average. Any single year can differ because of noise and other modes. Good answers use 'tends to' or 'higher likelihood'.",
       examples: [
         { problem: "Is 'El Niño always causes drought in Pakistan' a safe exam statement?", solution: "No — overstates certainty.", answer: "No" }
       ],
       shortcuts: ["Teleconnection = odds", "Never say always"],
       traps: ["Deterministic one-line climate laws"]
+    },
+    {
+      id: "meteo-enso-global-impacts-pakistan-cases",
+      title: "Pakistan flood case studies and La Niña",
+      summary: "2010 and 2022 as teaching examples.",
+      explanation: "The 2010 and 2022 Indus-basin super floods are widely cited national disasters. Both seasons are often linked in teaching materials to La Niña or transition-toward-La Niña conditions that can favour a stronger monsoon risk profile. Treat that as a case-study association: La Niña can raise flood odds; it does not mechanistically force every La Niña year to produce a super flood.",
+      examples: [
+        { problem: "Why mention 2010 and 2022 in ENSO–Pakistan teaching?", solution: "Major flood cases often discussed alongside La Niña / transition phases — still probabilistic.", answer: "Case studies / raised odds" }
+      ],
+      shortcuts: ["2010 & 2022 = major flood cases", "La Niña can raise monsoon flood odds"],
+      traps: ["Every La Niña = automatic super flood"]
     },
     {
       id: "meteo-enso-global-impacts-other-modes",
@@ -5032,6 +5146,7 @@ export const topics: Topic[] = [
   examPoints: [
     "Define teleconnection",
     "Probabilistic impacts",
+    "2010/2022 as case studies",
     "Other modes interfere"
   ],
   commonMistakes: [
@@ -5039,7 +5154,7 @@ export const topics: Topic[] = [
     "ENSO-only monsoon theory.",
     "Local weather = global mode."
   ],
-  relatedTopics: ["meteo-enso-basics", "meteo-iod", "meteo-mjo", "meteo-indian-ocean-monsoon"],
+  relatedTopics: ["meteo-enso-basics", "meteo-iod", "meteo-mjo", "meteo-indian-ocean-monsoon", "meteo-extreme-events"],
   content: true,
   buildsOn: ["meteo-enso-basics"],
   leadsTo: ["meteo-iod", "meteo-extreme-events"],
