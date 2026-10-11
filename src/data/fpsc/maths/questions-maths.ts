@@ -211,6 +211,7 @@ export const questions: Question[] = [
     explanation:
       "Apply BODMAS: multiplication before addition. 3 × 4 = 12; 2 + 12 = 14. The common wrong answer (20) comes from computing (2 + 3) × 4, which ignores the order.",
     sourceCitation: "Standard mathematics curriculum",
+    variantGroupId: "math-01-q014-skill",
   },
 
   {
@@ -239,6 +240,7 @@ export const questions: Question[] = [
     explanation:
       "Step 1: 3² = 9. Expression: 5 + 2 × 9 − 4. Step 2: 2 × 9 = 18. Expression: 5 + 18 − 4. Step 3: 5 + 18 = 23; 23 − 4 = 19.",
     sourceCitation: "Standard mathematics curriculum",
+    variantGroupId: "math-01-q016-skill",
   },
 
   {
@@ -281,6 +283,7 @@ export const questions: Question[] = [
     explanation:
       "Step 1: Brackets: (2 + 4) = 6. Expression: 24 ÷ 6 × 3 − 8 + 5. Step 2: 24 ÷ 6 = 4; 4 × 3 = 12. Expression: 12 − 8 + 5. Step 3: 12 − 8 = 4; 4 + 5 = 9.",
     sourceCitation: "Standard mathematics curriculum",
+    variantGroupId: "math-01-q019-skill",
   },
 
   {
@@ -323,6 +326,134 @@ export const questions: Question[] = [
     explanation:
       "BODMAS: Brackets are always first. The expression contains (5 − 2), so that is evaluated first, giving 3. Only after that is the exponent 3² = 9 computed, then the rest follows.",
     sourceCitation: "Standard mathematics curriculum",
+  },
+
+  // ── AI-generated variants for math-1-2 (Order of Operations) ──
+  {
+    id: "MATH-01-Q014-v2",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "easy",
+    type: "single",
+    question: "What is the value of 5 + 6 × 2?",
+    options: ["17", "22", "28", "11"],
+    correctAnswer: 0,
+    explanation:
+      "According to BODMAS, multiplication is performed before addition. 6 × 2 = 12; then 5 + 12 = 17. The answer 22 results from (5+6)×2, which ignores the order.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q014-skill",
+  },
+  {
+    id: "MATH-01-Q014-v3",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "easy",
+    type: "single",
+    question: "Evaluate: 8 + 4 × 3.",
+    options: ["20", "36", "24", "12"],
+    correctAnswer: 0,
+    explanation:
+      "Apply the order of operations: first 4 × 3 = 12, then add 8 to get 20. The option 36 comes from (8+4)×3, a common mistake.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q014-skill",
+  },
+  {
+    id: "MATH-01-Q014-v4",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "easy",
+    type: "single",
+    question: "Find the result of 9 + 2 × 5.",
+    options: ["19", "55", "28", "7"],
+    correctAnswer: 0,
+    explanation:
+      "Multiplication precedes addition, so 2 × 5 = 10; 9 + 10 = 19. The choice 55 is obtained by (9+2)×5, which violates BODMAS.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q014-skill",
+  },
+  {
+    id: "MATH-01-Q016-v2",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "medium",
+    type: "single",
+    question: "What is the value of 7 + 3 × 2³ − 5?",
+    options: ["26", "24", "28", "30"],
+    correctAnswer: 0,
+    explanation:
+      "Step 1: 2³ = 8 → expression becomes 7 + 3 × 8 − 5. Step 2: 3 × 8 = 24 → 7 + 24 − 5. Step 3: 7 + 24 = 31; 31 − 5 = 26.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q016-skill",
+  },
+  {
+    id: "MATH-01-Q016-v3",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "medium",
+    type: "single",
+    question: "Find the result of 6 − 4 × 5² + 9.",
+    options: ["-85", "-79", "-91", "-75"],
+    correctAnswer: 0,
+    explanation:
+      "Step 1: 5² = 25 → 6 − 4 × 25 + 9. Step 2: 4 × 25 = 100 → 6 − 100 + 9. Step 3: 6 − 100 = -94; -94 + 9 = -85.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q016-skill",
+  },
+  {
+    id: "MATH-01-Q016-v4",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "medium",
+    type: "single",
+    question: "Calculate 12 ÷ 3 + 2 × 4² − 6.",
+    options: ["30", "28", "32", "34"],
+    correctAnswer: 0,
+    explanation:
+      "Step 1: 4² = 16 → 12 ÷ 3 + 2 × 16 − 6. Step 2: 2 × 16 = 32 → 12 ÷ 3 + 32 − 6. Step 3: 12 ÷ 3 = 4; 4 + 32 = 36; 36 − 6 = 30.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q016-skill",
+  },
+  {
+    id: "MATH-01-Q019-v2",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "hard",
+    type: "single",
+    question: "What is the value of 36 ÷ (3 + 3) × 2 − 3³ + 4?",
+    options: ["-13", "-11", "-9", "-7"],
+    correctAnswer: 1,
+    explanation:
+      "Step 1: Brackets → (3+3)=6. Expression becomes 36 ÷ 6 × 2 − 27 + 4. Step 2: Division → 36 ÷ 6 = 6. Then multiplication → 6 × 2 = 12. Expression: 12 − 27 + 4. Step 3: Subtraction → 12 − 27 = -15. Finally add 4 → -15 + 4 = -11.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q019-skill",
+  },
+  {
+    id: "MATH-01-Q019-v3",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "hard",
+    type: "single",
+    question: "Find the result of 48 ÷ (4 + 2) × 5 − 2³ + 6.",
+    options: ["34", "36", "38", "40"],
+    correctAnswer: 2,
+    explanation:
+      "Step 1: Brackets → (4+2)=6. Expression becomes 48 ÷ 6 × 5 − 8 + 6. Step 2: Division → 48 ÷ 6 = 8. Multiplication → 8 × 5 = 40. Expression: 40 − 8 + 6. Step 3: Subtraction → 40 − 8 = 32. Add 6 → 32 + 6 = 38.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q019-skill",
+  },
+  {
+    id: "MATH-01-Q019-v4",
+    sectionId: "MATH-01",
+    topicId: "math-1-2",
+    difficulty: "hard",
+    type: "single",
+    question: "Calculate 30 ÷ (5 + 1) × 4 − 3³ + 7.",
+    options: ["-2", "0", "2", "4"],
+    correctAnswer: 1,
+    explanation:
+      "Step 1: Brackets → (5+1)=6. Expression becomes 30 ÷ 6 × 4 − 27 + 7. Step 2: Division → 30 ÷ 6 = 5. Multiplication → 5 × 4 = 20. Expression: 20 − 27 + 7. Step 3: Subtraction → 20 − 27 = -7. Add 7 → -7 + 7 = 0.",
+    sourceCitation: "AI draft (Groq GPT-OSS-120b) — verified",
+    variantGroupId: "math-01-q019-skill",
   },
 
   // ── Topic 3: Prime Numbers, Factors & Multiples (math-1-3) — 12 questions ──
