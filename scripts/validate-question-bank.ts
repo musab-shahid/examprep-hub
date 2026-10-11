@@ -46,7 +46,7 @@ const ALLOWED_DIFFICULTY = new Set(['easy', 'medium', 'hard']);
 /** Critical: dishonest/unfinished answer-key residue. Warning: soft discourse words. */
 const POLICY_CRITICAL: { re: RegExp; code: string }[] = [
   { re: /closest (reasonable |valid )?option/i, code: 'POLICY_CLOSEST_OPTION' },
-  { re: /closest (reasonable )?answer/i, code: 'POLICY_CLOSEST_ANSWER' },
+  { re: /closest (reasonable |valid )?answer/i, code: 'POLICY_CLOSEST_ANSWER' },
   { re: /fits best/i, code: 'POLICY_FITS_BEST' },
   { re: /among (the )?given options/i, code: 'POLICY_AMONG_OPTIONS' },
   { re: /\brecheck\b/i, code: 'POLICY_RECHECK' },
@@ -169,6 +169,13 @@ function validateQuestion(q: Question, subjectId: string) {
   } else if (q.type === 'matching') {
     if (!q.matchOptions || q.matchOptions.length === 0) {
       add('critical', subjectId, id, 'MATCHING_NO_MATCH_OPTIONS', 'matching needs matchOptions');
+    }
+  } else if (q.type === 'calculation' || q.type === 'fill_blank') {
+    // Same answer-key shape as single: one integer index into options
+    if (typeof q.correctAnswer !== 'number' || !Number.isInteger(q.correctAnswer)) {
+      add('critical', subjectId, id, 'CALC_FILL_BAD_ANSWER', `${q.type} needs integer correctAnswer index`);
+    } else if (q.correctAnswer < 0 || q.correctAnswer >= n) {
+      add('critical', subjectId, id, 'CALC_FILL_BAD_INDEX', `Invalid ${q.type} index ${q.correctAnswer}`);
     }
   }
 

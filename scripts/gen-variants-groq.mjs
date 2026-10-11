@@ -93,11 +93,17 @@ let parsed;
 try {
   parsed = JSON.parse(raw);
 } catch {
-  const m = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
-  parsed = JSON.parse(m ? m[1] : raw);
+  try {
+    const m = raw.match(/```(?:json)?\s*([\s\S]*?)```/);
+    parsed = JSON.parse(m ? m[1] : raw);
+  } catch (err) {
+    console.error('Failed to parse model JSON. Raw response follows:');
+    console.error(raw.slice(0, 2000));
+    process.exit(1);
+  }
 }
 
-const group = parsed.variantGroupId || `${source.id.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}-skill`;
+const group = parsed.variantGroupId || `${String(source.id).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}-skill`;
 
 const draft = {
   status: 'draft',
@@ -107,7 +113,7 @@ const draft = {
   sectionId: source.sectionId,
   sourceCitation: source.sourceCitation,
   createdAt: new Date().toISOString(),
-  model: 'groq/gpt-oss-120b',
+  model: 'openai/gpt-oss-120b', // actual API model id
   baseStem: source.question,
   variants: parsed.variants || [],
   authorNotes: 'AI draft — requires human review before bank merge',

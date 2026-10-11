@@ -1,5 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { STORAGE_KEYS, deriveAccuracy, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
+import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { updateTopicAbility, getTopicAbility, updateQuestionStrength } from '@/lib/adaptive-select';
 import { resolveReviewStage, nextStageAfterReview, reviewDateForStage } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
@@ -95,11 +95,18 @@ function flushSave(): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
     pendingData = null;
+    saveTimer = null;
   } catch {
     lastStorageWarning =
       'Could not save progress (browser storage may be full). Free space or export a backup — your latest changes may be lost on reload.';
+    // Keep pendingData and re-arm a delayed retry; next saveData() still merges on top
+    saveTimer = null;
+    if (typeof window !== 'undefined') {
+      saveTimer = window.setTimeout(() => {
+        flushSave();
+      }, 2000);
+    }
   }
-  saveTimer = null;
 }
 
 function isObject(v: unknown): v is Record<string, unknown> {
@@ -132,8 +139,9 @@ function validateAppData(data: unknown): data is AppData {
     }
     for (const [k, v] of Object.entries(data.topicProgress)) {
       if (!validateTopicProgress(v)) {
-        console.warn(`[storage] Invalid topicProgress entry: ${k}`);
-        return false;
+        // Quarantine the bad entry — do not wipe the entire save
+        console.warn(`[storage] Invalid topicProgress entry quarantined: ${k}`);
+        delete data.topicProgress[k];
       }
     }
   }

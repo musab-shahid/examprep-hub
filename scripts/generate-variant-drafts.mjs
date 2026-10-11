@@ -87,21 +87,52 @@ function readJsonArg(argv) {
 
 function validateDraft(draft) {
   const issues = [];
-  if (!draft.baseQuestionId) issues.push('error: baseQuestionId required');
-  if (!draft.variantGroupId) issues.push('error: variantGroupId required');
-  if (!Array.isArray(draft.variants) || !draft.variants.length) {
-    issues.push('error: variants[] required');
+  if (!draft || typeof draft !== 'object') {
+    return [{ level: 'error', message: 'Draft is not an object' }];
+  }
+  if (!draft.baseQuestionId) issues.push({ level: 'error', message: 'Missing baseQuestionId' });
+  if (!draft.variantGroupId) issues.push({ level: 'error', message: 'Missing variantGroupId' });
+  if (!draft.sectionId) issues.push({ level: 'error', message: 'Missing sectionId' });
+  if (!draft.topicId) issues.push({ level: 'error', message: 'Missing topicId' });
+  if (!Array.isArray(draft.variants) || draft.variants.length === 0) {
+    issues.push({ level: 'error', message: 'variants must be a non-empty array' });
     return issues;
   }
-  for (const [i, v] of draft.variants.entries()) {
-    if (!v.id) issues.push(`error: variants[${i}].id required`);
-    if (!v.question || v.question.length < 12) issues.push(`error: variants[${i}].question too short`);
-    if (!Array.isArray(v.options) || v.options.length < 2) {
-      issues.push(`error: variants[${i}].options need length >= 2`);
+  const seen = new Set();
+  for (let i = 0; i < draft.variants.length; i++) {
+    const v = draft.variants[i];
+    const pfx = `variants[${i}]`;
+    if (!v.id) issues.push({ level: 'error', message: `${pfx}: missing id` });
+    else if (seen.has(v.id)) issues.push({ level: 'error', message: `${pfx}: duplicate id ${v.id}` });
+    else seen.add(v.id);
+    if (!v.question || String(v.question).trim().length < 12) {
+      issues.push({ level: 'error', message: `${pfx}: question too short` });
     }
-  }
-  if (draft.status === 'approved' && issues.some((x) => x.startsWith('error'))) {
-    issues.push('error: cannot approve while errors remain');
+    if (!Array.isArray(v.options) || v.options.length < 2) {
+      issues.push({ level: 'error', message: `${pfx}: need at least 2 options` });
+    } else {
+      const norm = v.options.map((o) => String(o).trim().toLowerCase());
+      if (new Set(norm).size !== norm.length) {
+        issues.push({ level: 'warn', message: `${pfx}: duplicate option text` });
+      }
+      if (v.options.some((o) => /^(option\s*[a-d]|placeholder|tbd)$/i.test(String(o).trim()))) {
+        issues.push({ level: 'error', message: `${pfx}: placeholder option text` });
+      }
+    }
+    const vType = v.type || 'single';
+    if (vType === 'multi') {
+      if (!Array.isArray(v.correctAnswer) || v.correctAnswer.length === 0) {
+        issues.push({ level: 'error', message: `${pfx}: multi requires correctAnswer array` });
+      } else if (Array.isArray(v.options) && v.correctAnswer.some((idx) => idx < 0 || idx >= v.options.length)) {
+        issues.push({ level: 'error', message: `${pfx}: correctAnswer index out of range` });
+      }
+    } else {
+      if (typeof v.correctAnswer !== 'number') {
+        issues.push({ level: 'error', message: `${pfx}: ${vType} requires numeric correctAnswer` });
+      } else if (Array.isArray(v.options) && (v.correctAnswer < 0 || v.correctAnswer >= v.options.length)) {
+        issues.push({ level: 'error', message: `${pfx}: correctAnswer index out of range` });
+      }
+    }
   }
   return issues;
 }
@@ -181,7 +212,7 @@ if (cmd === 'generate') {
     const draft = {
       status: 'draft',
       baseQuestionId: source.id,
-      variantGroupId: parsed.variantGroupId || `${source.id}-skill`,
+      variantGroupId: parsed.variantGroupId || `${String(source.id).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}-skill`,
       topicId: source.topicId,
       sectionId: source.sectionId,
       sourceCitation: source.sourceCitation,

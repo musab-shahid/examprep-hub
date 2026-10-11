@@ -1,5 +1,7 @@
 /**
  * Pure quiz resume signature — must match for resume to be offered.
+ * Uses JSON.stringify on a stable shape so field values cannot inject delimiters
+ * (e.g. topicIds ["a,b"] vs ["a","b"] no longer collide).
  */
 import type { DifficultyFilter, PracticeMode } from '../types';
 
@@ -17,18 +19,20 @@ export type QuizSignatureInput = {
 };
 
 export function quizSignature(p: QuizSignatureInput): string {
-  return [
-    p.mode,
-    p.topicId ?? '',
-    (p.topicIds ?? []).join(','),
-    p.scope ?? '',
-    p.subjectId ?? '',
-    p.count ?? '',
-    p.difficulty ?? '',
-    p.wrongPool ? '1' : '0',
-    p.track ?? '',
-    p.timeLimit === undefined || p.timeLimit === null ? '' : String(p.timeLimit),
-  ].join('|');
+  const topicIds = [...(p.topicIds ?? [])].map(String).sort();
+  return JSON.stringify({
+    mode: p.mode,
+    topicId: p.topicId ?? null,
+    topicIds,
+    scope: p.scope ?? null,
+    subjectId: p.subjectId ?? null,
+    count: p.count ?? null,
+    difficulty: p.difficulty ?? null,
+    wrongPool: Boolean(p.wrongPool),
+    track: p.track ?? null,
+    timeLimit:
+      p.timeLimit === undefined || p.timeLimit === null ? null : String(p.timeLimit),
+  });
 }
 
 export function signaturesMatch(a: QuizSignatureInput, b: QuizSignatureInput): boolean {

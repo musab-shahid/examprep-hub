@@ -71,7 +71,11 @@ export interface MethodChooserStep {
 export interface MethodChooserOption {
   name?: string;
   when?: string;
+  /** Alias used in some banks for when/condition text */
+  condition?: string;
   steps?: string[];
+  /** Alias used in some banks for the recommended method name */
+  answer?: string;
 }
 
 export interface MethodChooser {
@@ -91,12 +95,16 @@ export interface LimitCase {
   case?: string;
   example?: string;
   resolution?: string;
+  /** Free-form teaching note used in some maths topics */
+  note?: string;
 }
 
 /** Named misconception with correction. */
 export interface MisconceptionRemediation {
   misconception: string;
   whyStudentsThinkIt?: string;
+  /** Alias used in maths bank (same meaning as whyStudentsThinkIt) */
+  whyStudentsThinkSo?: string;
   correctModel?: string;
   remedy?: string;
   drill?: string;
@@ -104,9 +112,13 @@ export interface MisconceptionRemediation {
 
 /** Qualitative what-if scenario. */
 export interface QualitativeScenario {
-  scenario: string;
-  answer: string;
-  why: string;
+  scenario?: string;
+  /** Alias used in some banks for scenario prompt */
+  question?: string;
+  answer?: string;
+  why?: string;
+  /** Alias used in some banks for why/explanation */
+  reasoning?: string;
 }
 
 export interface WorkedExample {

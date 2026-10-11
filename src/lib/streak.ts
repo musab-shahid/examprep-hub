@@ -47,7 +47,7 @@ export function computeStreak(data: AppData, scopedTopicIds?: Set<string>): Stre
 export function getTodayActivity(data: AppData, scopedSubjectIds?: Set<string>, scopedTopicIds?: Set<string>) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const todayQuizzes = data.quizHistory.filter((q) => {
+  const todayQuizzes = (data.quizHistory ?? []).filter((q) => {
     if (scopedSubjectIds && (!q.subjectId || !scopedSubjectIds.has(q.subjectId))) return false;
     const d = new Date(q.date);
     d.setHours(0, 0, 0, 0);
@@ -68,11 +68,13 @@ export function getTodayActivity(data: AppData, scopedSubjectIds?: Set<string>, 
   };
 }
 export function getWeekActivity(data: AppData, scopedSubjectIds?: Set<string>) {
-  const weekAgo = new Date();
-  weekAgo.setDate(weekAgo.getDate() - 7);
-  const weekQuizzes = data.quizHistory.filter((q) => {
+  // Calendar-week window (aligned with getWeeklyAccuracy): from 7 days ago at local midnight through now
+  const weekStart = new Date();
+  weekStart.setDate(weekStart.getDate() - 6);
+  weekStart.setHours(0, 0, 0, 0);
+  const weekQuizzes = (data.quizHistory ?? []).filter((q) => {
     if (scopedSubjectIds && (!q.subjectId || !scopedSubjectIds.has(q.subjectId))) return false;
-    return new Date(q.date) >= weekAgo;
+    return new Date(q.date) >= weekStart;
   });
   const totalQuestions = weekQuizzes.reduce((s, q) => s + q.total, 0);
   const totalCorrect = weekQuizzes.reduce((s, q) => s + q.score, 0);
@@ -122,7 +124,7 @@ export function getWeeklyAccuracy(data: AppData, weeks = 8, scopedSubjectIds?: S
     weekEnd.setDate(weekEnd.getDate() - w * 7);
     // Inclusive end-of-day so quizzes taken today count in "This week"
     weekEnd.setHours(23, 59, 59, 999);
-    const weekQuizzes = data.quizHistory.filter((q) => {
+    const weekQuizzes = (data.quizHistory ?? []).filter((q) => {
       if (scopedSubjectIds && (!q.subjectId || !scopedSubjectIds.has(q.subjectId))) return false;
       const d = new Date(q.date);
       return d >= weekStart && d <= weekEnd;

@@ -40,6 +40,10 @@ describe('spaced repetition stage machine', () => {
     assert.equal(getCurrentStage('2026-01-05', today), 4);
   });
 
+  it('due-today nextReview does not collapse inferred stage to 0', () => {
+    assert.equal(getCurrentStage('2026-01-15', today), 4);
+  });
+
   it('resolveReviewStage prefers stored stage over date inference', () => {
     assert.equal(resolveReviewStage(3, '2026-01-05', today), 3);
     assert.equal(resolveReviewStage(undefined, null, today), -1);

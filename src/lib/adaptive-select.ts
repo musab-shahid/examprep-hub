@@ -230,7 +230,8 @@ export function variantGroupKey(q: Question): string {
 export function pickVariantFromGroup(
   members: Question[],
   opts: AdaptiveSelectOptions,
-): Question {
+): Question | null {
+  if (members.length === 0) return null;
   if (members.length === 1) return members[0];
   const now = opts.now ?? Date.now();
   const results = opts.questionResults ?? {};
@@ -429,6 +430,7 @@ export function pickAdaptiveQuestions(
   const offers: GroupOffer[] = [];
   for (const [key, members] of groups) {
     const chosen = pickVariantFromGroup(members, opts);
+    if (!chosen) continue;
     const need = scoreVariantGroup(members, opts);
     // Phase C: group is hard-cooled only if ALL stems are (sibling still showable)
     const hard = isGroupHardCooldown(members, results, now);

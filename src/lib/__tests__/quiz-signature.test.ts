@@ -29,6 +29,12 @@ describe('quiz signature', () => {
     const a = quizSignature({ ...base, wrongPool: true, topicIds: ['t1', 't2'] });
     const b = quizSignature({ ...base, wrongPool: false, topicIds: ['t1', 't2'] });
     assert.notEqual(a, b);
-    assert.ok(a.includes('1'));
+    assert.ok(a.includes('"wrongPool":true'));
+  });
+
+  it('does not collide on delimiter injection in topicIds', () => {
+    const a = quizSignature({ ...base, topicIds: ['a,b'] });
+    const b = quizSignature({ ...base, topicIds: ['a', 'b'] });
+    assert.notEqual(a, b);
   });
 });

@@ -12,8 +12,8 @@ const STAGES = [...REVIEW_STAGES_DAYS];
 /**
  * Infer stage from nextReview distance (migration fallback only).
  * -1 = never scheduled; 0..n-1 = stage index in STAGES.
- * Overdue (diffDays < 0): return highest stage so a one-day miss does not
- * collapse a 30-day card to a 3-day cycle — stored reviewStage is preferred.
+ * Overdue or due today (diffDays <= 0): return highest stage so a due/missed
+ * card does not collapse a 30-day cycle to stage 0 — stored reviewStage is preferred.
  */
 export function getCurrentStage(nextReview: string | null, today: Date = new Date()): number {
   if (!nextReview) return -1;
@@ -21,7 +21,7 @@ export function getCurrentStage(nextReview: string | null, today: Date = new Dat
   const reviewDate = parseLocalDate(nextReview);
   reviewDate.setHours(0, 0, 0, 0);
   const diffDays = Math.round((reviewDate.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
-  if (diffDays < 0) {
+  if (diffDays <= 0) {
     return STAGES.length - 1;
   }
   for (let i = 0; i < STAGES.length; i++) {

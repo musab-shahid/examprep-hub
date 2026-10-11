@@ -133,6 +133,9 @@ export function validateVariantDraft(
   if (!draft.topicId?.trim()) {
     issues.push({ level: 'error', path: 'topicId', message: 'Required' });
   }
+  if (!draft.sectionId?.trim()) {
+    issues.push({ level: 'error', path: 'sectionId', message: 'Required' });
+  }
   if (!Array.isArray(draft.variants) || draft.variants.length === 0) {
     issues.push({ level: 'error', path: 'variants', message: 'Need at least one variant' });
     return issues;
@@ -177,11 +180,18 @@ export function validateVariantDraft(
         issues.push({ level: 'warn', path: `${p}.options`, message: 'Duplicate option text' });
       }
     }
+    const vType = v.type ?? 'single';
     if (typeof v.correctAnswer === 'number') {
+      if (vType === 'multi') {
+        issues.push({ level: 'error', path: `${p}.correctAnswer`, message: 'multi requires number[] correctAnswer' });
+      }
       if (!v.options || v.correctAnswer < 0 || v.correctAnswer >= v.options.length) {
         issues.push({ level: 'error', path: `${p}.correctAnswer`, message: 'Index out of range' });
       }
     } else if (Array.isArray(v.correctAnswer)) {
+      if (vType !== 'multi') {
+        issues.push({ level: 'error', path: `${p}.correctAnswer`, message: `${vType} requires a single number correctAnswer, not an array` });
+      }
       if (v.correctAnswer.some((idx) => !v.options || idx < 0 || idx >= v.options.length)) {
         issues.push({ level: 'error', path: `${p}.correctAnswer`, message: 'Multi index out of range' });
       }
@@ -221,11 +231,12 @@ function normalizeStem(s: string): string {
 export function draftItemToQuestion(
   draft: VariantDraftFile,
   item: VariantDraftItem,
+  source?: Partial<Question>,
 ): Question {
   return {
     id: item.id,
-    sectionId: draft.sectionId,
-    topicId: draft.topicId,
+    sectionId: draft.sectionId || source?.sectionId || '',
+    topicId: draft.topicId || source?.topicId || '',
     difficulty: item.difficulty ?? 'medium',
     type: item.type ?? 'single',
     question: item.question,
@@ -234,6 +245,12 @@ export function draftItemToQuestion(
     explanation: item.explanation,
     sourceCitation: draft.sourceCitation ?? 'Author draft (review before use)',
     variantGroupId: draft.variantGroupId,
+    // Carry exam routing metadata from source when present (HAT / scope)
+    ...(source?.examType ? { examType: source.examType } : {}),
+    ...(source?.hatSection ? { hatSection: source.hatSection } : {}),
+    ...(source?.hatSubtype ? { hatSubtype: source.hatSubtype } : {}),
+    ...(source?.examScope ? { examScope: source.examScope } : {}),
+    ...(source?.subtopicId ? { subtopicId: source.subtopicId } : {}),
   };
 }
 

@@ -48,7 +48,7 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
       const formulas = Array.isArray(topic.formula) ? topic.formula : [topic.formula];
       let formulaMatched = false;
       for (const formula of formulas) {
-        if (formula.name.toLowerCase().includes(q) || formula.expression.toLowerCase().includes(q)) {
+        if (formula.name?.toLowerCase().includes(q) || formula.expression?.toLowerCase().includes(q)) {
           results.push({ type: 'formula', ...base, match: formula.expression });
           formulaMatched = true;
           break;
@@ -59,7 +59,7 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
     // Search explanation sections (heading + body)
     if (topic.explanationSections) {
       const section = topic.explanationSections.find(
-        (s) => s.heading.toLowerCase().includes(q) || s.body.toLowerCase().includes(q),
+        (s) => s.heading?.toLowerCase().includes(q) || s.body?.toLowerCase().includes(q),
       );
       if (section) {
         results.push({ type: 'explanation', ...base, match: snippet(section.body, q) });
@@ -87,12 +87,12 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
       (t): t is NonNullable<typeof t> => !!t,
     );
     for (const table of comparisonTables) {
-      const headerMatch = table.headers.find((h) => h.toLowerCase().includes(q));
+      const headerMatch = (table.headers ?? []).find((h) => h?.toLowerCase().includes(q));
       if (headerMatch) {
         results.push({ type: 'comparison', ...base, match: headerMatch });
         break;
       }
-      const cellMatch = table.rows.flat().find((cell) => cell.toLowerCase().includes(q));
+      const cellMatch = (table.rows ?? []).flat().find((cell) => cell?.toLowerCase().includes(q));
       if (cellMatch) {
         results.push({ type: 'comparison', ...base, match: snippet(cellMatch, q) });
         break;
@@ -109,14 +109,32 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
         continue;
       }
     }
-    // Search worked example (problem text only — skip answer LaTeX)
+    // Search worked example — problem preferred; solution text also searchable
     if (topic.workedExample) {
       const examples = Array.isArray(topic.workedExample) ? topic.workedExample : [topic.workedExample];
-      const example = examples.find(
-        (ex) => ex.problem.toLowerCase().includes(q) || ex.solution.toLowerCase().includes(q),
-      );
-      if (example) {
-        results.push({ type: 'example_problem', ...base, match: snippet(example.problem, q) });
+      let matchedExample: (typeof examples)[number] | undefined;
+      let snippetSource = '';
+      for (const ex of examples) {
+        const problemText = typeof ex.problem === 'string' ? ex.problem : '';
+        const solutionText =
+          typeof ex.solution === 'string'
+            ? ex.solution
+            : ex.solution && typeof ex.solution === 'object'
+              ? Object.values(ex.solution).join(' ')
+              : '';
+        if (problemText.toLowerCase().includes(q)) {
+          matchedExample = ex;
+          snippetSource = problemText;
+          break;
+        }
+        if (solutionText.toLowerCase().includes(q)) {
+          matchedExample = ex;
+          snippetSource = solutionText;
+          // keep scanning for a problem match on later examples
+        }
+      }
+      if (matchedExample && snippetSource) {
+        results.push({ type: 'example_problem', ...base, match: snippet(snippetSource, q) });
         continue;
       }
     }

@@ -31,9 +31,19 @@ export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQues
   const quizProgress = Object.entries(data.topicProgress)
     .filter(([id, p]) => topicIds.has(id) && getEffectiveQuizStats(p).total > 0)
     .map(([, p]) => p);
-  const mastery = quizProgress.length > 0
-    ? Math.round(quizProgress.reduce((sum, p) => sum + getEffectiveQuizStats(p).accuracy, 0) / quizProgress.length)
-    : 0;
+  // Weight mastery by attempt volume so a 1-question 100% does not equal a 50-attempt topic
+  let mastery = 0;
+  if (quizProgress.length > 0) {
+    let weightSum = 0;
+    let weightedAcc = 0;
+    for (const p of quizProgress) {
+      const eff = getEffectiveQuizStats(p);
+      const w = Math.max(eff.total, 1);
+      weightedAcc += eff.accuracy * w;
+      weightSum += w;
+    }
+    mastery = weightSum > 0 ? Math.round(weightedAcc / weightSum) : 0;
+  }
   const quizTouchedCount = Object.entries(data.topicProgress)
     .filter(([id, p]) => topicIds.has(id) && getEffectiveQuizStats(p).total > 0).length;
   return {
@@ -46,12 +56,21 @@ export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQues
   };
 }
 export function getSectionAccuracy(data: AppData, sectionId: string, scopedQuestions: Question[]): number | null {
-  const sectionQuestionIds = scopedQuestions
-    .filter((q) => q.sectionId === sectionId)
-    .map((q) => q.id);
-  if (sectionQuestionIds.length === 0) return null;
-  const results = sectionQuestionIds
-    .map((id) => data.questionResults[id])
+  const sectionQuestions = scopedQuestions.filter((q) => q.sectionId === sectionId);
+  if (sectionQuestions.length === 0) return null;
+  const sectionTopicIds = new Set(sectionQuestions.map((q) => q.topicId).filter(Boolean));
+  // Prefer quizHistory volume (same source as getOverallStats) when topic-scoped history exists
+  const history = (data.quizHistory ?? []).filter(
+    (h) => h.topicId && sectionTopicIds.has(h.topicId),
+  );
+  if (history.length > 0) {
+    const total = history.reduce((s, h) => s + h.total, 0);
+    const correct = history.reduce((s, h) => s + h.score, 0);
+    return total > 0 ? Math.round((correct / total) * 100) : null;
+  }
+  // Fallback: latest-only questionResults
+  const results = sectionQuestions
+    .map((q) => data.questionResults[q.id])
     .filter(Boolean);
   if (results.length === 0) return null;
   const correct = results.filter((r) => r.correct).length;
