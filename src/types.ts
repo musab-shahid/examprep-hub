@@ -302,6 +302,12 @@ export interface Question {
   hatSubtype?: string;
   subtopicId?: string;
   matchOptions?: string[];
+  /**
+   * Links stems that test the same skill/idea (Phase B anti-cram).
+   * Adaptive ranks the group, then prefers a fresh variant inside it.
+   * Omit for singleton items (group key defaults to question id).
+   */
+  variantGroupId?: string;
 }
 
 export interface CloudEntry {
