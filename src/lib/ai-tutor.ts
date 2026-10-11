@@ -103,26 +103,18 @@ export interface ModelOption {
 export const MODEL_OPTIONS: ModelOption[] = [
   // ── Groq (needs VITE_GROQ_API_KEY) ──
   {
-    id: 'groq-llama-3.3-70b',
-    label: 'Llama 3.3 70B',
+    id: 'groq-gpt-oss-120b',
+    label: 'GPT-OSS 120B',
     provider: 'groq',
-    model: 'llama-3.3-70b-versatile',
+    model: 'openai/gpt-oss-120b',
     badge: 'Groq',
     free: true,
   },
   {
-    id: 'groq-llama-3.1-8b',
-    label: 'Llama 3.1 8B',
+    id: 'groq-gpt-oss-20b',
+    label: 'GPT-OSS 20B',
     provider: 'groq',
-    model: 'llama-3.1-8b-instant',
-    badge: 'Groq',
-    free: true,
-  },
-  {
-    id: 'groq-gemma2-9b',
-    label: 'Gemma 2 9B',
-    provider: 'groq',
-    model: 'gemma2-9b-it',
+    model: 'openai/gpt-oss-20b',
     badge: 'Groq',
     free: true,
   },
@@ -148,9 +140,8 @@ export const MODEL_OPTIONS: ModelOption[] = [
     id: 'or-llama-3.3-70b-free',
     label: 'Llama 3.3 70B',
     provider: 'openrouter',
-    model: 'meta-llama/llama-3.3-70b-instruct:free',
+    model: 'meta-llama/llama-3.3-70b-instruct',
     badge: 'via OpenRouter',
-    free: true,
   },
   {
     id: 'or-nemotron-ultra-free',
