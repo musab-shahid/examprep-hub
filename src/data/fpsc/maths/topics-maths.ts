@@ -10,7 +10,559 @@ export const topics: Topic[] = [
   // ════════════════════════════════════════════════════════════════════
   // SECTION MATH-A: Number Systems & Arithmetic
   // ════════════════════════════════════════════════════════════════════
-  {
+{
+  id: "math-1-1",
+  sectionId: "MATH-01",
+  order: 1,
+  title: "Number Types: Natural, Whole, Integers, Rational, Irrational & Real",
+  priority: "High",
+  definition: "The Real Number System is a hierarchical classification of all numbers that can be represented on a continuous number line. It categorizes numbers based on their origin, sign, and decimal behavior (terminating, repeating, or non-repeating).",
+  keyFacts: [
+    "Natural numbers $(\\mathbb{N})$: $\{1, 2, 3, ...\}$ — strictly positive counting numbers.",
+    "Whole numbers $(\\mathbb{W})$: $\{0, 1, 2, ...\}$ — natural numbers plus zero.",
+    "Integers $(\\mathbb{Z})$: $\{\\dots, -2, -1, 0, 1, 2, \\dots\}$ — whole numbers plus their negatives.",
+    "Rational numbers $(\\mathbb{Q})$: Any number expressible as $p/q$ where $p, q \\in \\mathbb{Z}$ and $q \\neq 0$.",
+    "Irrational numbers: Numbers that cannot be expressed as fractions; their decimals never end and never repeat.",
+    "Real numbers $(\\mathbb{R})$: The union of all rational and irrational numbers.",
+    "The Hierarchy: $\\mathbb{N} \\subset \\mathbb{W} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}$."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Nesting Principle",
+      body: "Number sets are like nested containers. If a number is a Natural number, it is automatically a Whole number, an Integer, a Rational number, and a Real number. However, the reverse is not true. For example, $-5$ is an Integer, but it is not a Whole or Natural number."
+    },
+    {
+      heading: "2. The Decimal Signature",
+      body: "You can identify a number's type by its decimal expansion. Rational numbers either terminate (like $0.5$) or repeat a pattern (like $0.333...$). Irrational numbers have 'chaotic' decimals that never terminate and never settle into a repeating block (like $\\pi$ or $\\sqrt{2}$)."
+    },
+    {
+      heading: "3. The Irrationality of Roots",
+      body: "The square root of any number that is NOT a perfect square is always irrational. While $\\sqrt{4}=2$ (Rational), $\\sqrt{2}, \\sqrt{3}, \\sqrt{5},$ and $\\sqrt{6}$ are all Irrational."
+    }
+  ],
+  formula: {
+    name: "Subset Relationship of Real Numbers",
+    expression: "\\mathbb{N} \\subset \\mathbb{W} \\subset \\mathbb{Z} \\subset \\mathbb{Q} \\subset \\mathbb{R}",
+    variables: [
+      { symbol: "\\mathbb{N}", meaning: "Natural Numbers (1, 2, 3...)" },
+      { symbol: "\\mathbb{W}", meaning: "Whole Numbers (0, 1, 2...)" },
+      { symbol: "\\mathbb{Z}", meaning: "Integers (...-1, 0, 1...)" },
+      { symbol: "\\mathbb{Q}", meaning: "Rational Numbers (p/q)" },
+      { symbol: "\\mathbb{R}", meaning: "Real Numbers (All)" }
+    ]
+  },
+  examPoints: [
+    "Sum of a Rational and an Irrational is ALWAYS Irrational.",
+    "Product of a non-zero Rational and an Irrational is ALWAYS Irrational.",
+    "Sum/Product of two Irrationals can be EITHER Rational or Irrational (e.g., $\\sqrt{2} \\times \\sqrt{2} = 2$).",
+    "0 is Whole, Integer, Rational, and Real, but NOT Natural."
+  ],
+  commonMistakes: [
+    "Assuming $\\pi = 22/7$. $22/7$ is a rational approximation; $\\pi$ itself is irrational.",
+    "Thinking all square roots are irrational. $\\sqrt{9}, \\sqrt{25}, \\sqrt{0.16}$ are all rational.",
+    "Confusing non-terminating with irrational. $0.666...$ is non-terminating but rational."
+  ],
+  comparisonTable: {
+    headers: ["Property", "Rational Numbers ($\\mathbb{Q}$)", "Irrational Numbers"],
+    rows: [
+      ["Fraction Form", "Can be written as $p/q$", "Cannot be written as $p/q$"],
+      ["Decimal Behavior", "Terminating or Repeating", "Non-terminating and Non-repeating"],
+      ["Examples", "$1/2, 0.75, 0.333..., -5, \\sqrt{4}$", "$\\pi, e, \\sqrt{2}, \\sqrt{10}, 0.101101110...$"],
+      ["Square Roots", "Roots of perfect squares", "Roots of non-perfect squares"]
+    ]
+  },
+  workedExample: {
+    problem: "Classify the following numbers into the most specific set: (a) $\\sqrt{25}$, (b) $-3$, (c) $0.4545...$, (d) $\\sqrt{8}$.",
+    solution: "(a) $\\sqrt{25} = 5$, which is a Natural number. (b) $-3$ is an Integer (it is not whole because it is negative). (c) $0.4545...$ is a repeating decimal, so it is Rational. (d) $8$ is not a perfect square, so $\\sqrt{8}$ is Irrational.",
+    answer: "(a) Natural, (b) Integer, (c) Rational, (d) Irrational"
+  },
+  methodChooser: {
+    title: "Is this number Rational or Irrational?",
+    question: "Examine the number's form or decimal:",
+    options: [
+      {
+        condition: "Is it a terminating decimal (e.g. 0.125) or a repeating decimal (e.g. 0.888...)?",
+        answer: "Rational"
+      },
+      {
+        condition: "Is it a square root of a non-perfect square?",
+        answer: "Irrational"
+      },
+      {
+        condition: "Is it a decimal with no repeating pattern that continues forever?",
+        answer: "Irrational"
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "Zero (0)",
+      example: "0",
+      note: "It is the boundary between positive and negative but is considered an even integer and a whole number."
+    },
+    {
+      case: "Perfect Square Decimals",
+      example: "$\\sqrt{0.25}$",
+      note: "Even though it is a square root, it equals 0.5, which is Rational."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "Irrational numbers aren't 'real' because they can't be measured exactly.",
+      whyStudentsThinkSo: "The word 'irrational' implies something that doesn't make sense or is elusive.",
+      correctModel: "Irrational numbers are 'Real' because they have a specific, exact location on the number line, even if we can't write their full decimal expansion.",
+      remedy: "Think of the diagonal of a $1\\times1$ square. It is exactly $\\sqrt{2}$. It is a real, physical length."
+    }
+  ],
+  qualitativeScenarios: [
+    {
+      question: "If you multiply any integer by a natural number, will the result always be a natural number?",
+      answer: "No.",
+      reasoning: "If the integer is negative (e.g., -2) and the natural number is positive (e.g., 3), the product is -6, which is an integer but not natural."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-1-1",
+      title: "Natural vs. Whole vs. Integers",
+      summary: "Distinguishing between the three most basic sets of numbers.",
+      explanation: "Natural numbers start at 1. Whole numbers add 0. Integers add negative versions of those numbers. None of these contain fractional parts or decimals.",
+      examples: [
+        {
+          problem: "List all integers between -2.5 and 1.2.",
+          solution: "The integers are -2, -1, 0, and 1.",
+          answer: "-2, -1, 0, 1"
+        }
+      ],
+      shortcuts: ["N: Counting (1, 2, 3...)", "W: Adds the 'hole' (0)", "Z: Includes the 'minus' signs."],
+      traps: ["Don't include 0 in Natural numbers unless specifically stated (some advanced sets do, but not for school exams)."]
+    },
+    {
+      id: "math-1-1-2",
+      title: "Rationality and Repeating Decimals",
+      summary: "Converting and identifying pattern-based decimals as rationals.",
+      explanation: "Any decimal that repeats a block of digits can be written as a fraction using algebra, therefore it is rational.",
+      examples: [
+        {
+          problem: "Is $0.121121112...$ rational?",
+          solution: "No. While there is a 'pattern' (increasing number of 1s), it is not a *repeating block*. Therefore it is irrational.",
+          answer: "Irrational"
+        }
+      ],
+      shortcuts: ["If you can put a bar (vinculum) over the digits, it is Rational."],
+      traps: ["Students often see a 'pattern' and assume Rational. It must be a *repeating* pattern."]
+    }
+  ],
+  content: true,
+  buildsOn: [],
+  leadsTo: ["math-1-2", "math-1-3"],
+  usedIn: ["phy-units-measurement", "ra-data-types"]
+},
+
+{
+  id: "math-1-2",
+  sectionId: "MATH-01",
+  order: 2,
+  title: "Order of Operations (BODMAS / PEMDAS)",
+  priority: "High",
+  definition: "The Order of Operations is a globally standardized hierarchy used to evaluate mathematical expressions. It ensures that every expression has one unique, unambiguous result by defining which operations are performed first.",
+  keyFacts: [
+    "B / P: Brackets or Parentheses first (innermost to outermost).",
+    "O / E: Orders or Exponents (powers, roots, and indices).",
+    "D & M: Division and Multiplication (Equal Priority — solve left to right).",
+    "A & S: Addition and Subtraction (Equal Priority — solve left to right).",
+    "Fraction bars act as grouping symbols: evaluate the numerator and denominator separately before dividing.",
+    "A 'unary minus' (like $-3^2$) is handled under Exponents, not Subtraction."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Hierarchy of Operations",
+      body: "Mathematics follows a strict sequence to avoid ambiguity. Without it, $2 + 3 \\times 4$ could be $20$ or $14$. The convention places Multiplication/Division above Addition/Subtraction. Brackets and Exponents take the highest priority, allowing us to 'override' the standard rules when necessary."
+    },
+    {
+      heading: "2. The Left-to-Right Rule (Equal Priority)",
+      body: "A common mistake is assuming Division always comes before Multiplication because 'D' is before 'M' in BODMAS. In reality, they are a single 'priority block'. If an expression contains both, you must solve them in the order they appear from left to right."
+    },
+    {
+      heading: "3. Nested Grouping",
+      body: "When expressions use multiple types of brackets — round $(\\,)$, square $[\\,]$, and curly $\{\\,\}$ — the standard procedure is to evaluate the 'innermost' set first and work your way out."
+    }
+  ],
+  formula: {
+    name: "BODMAS Priority Hierarchy",
+    expression: "B \\rightarrow O \\rightarrow \\{D, M\\}_{L \\to R} \\rightarrow \\{A, S\\}_{L \\to R}",
+    variables: [
+      { symbol: "B", meaning: "Brackets (Parentheses)" },
+      { symbol: "O", meaning: "Orders (Exponents/Roots)" },
+      { symbol: "D, M", meaning: "Division & Multiplication (Left to Right)" },
+      { symbol: "A, S", meaning: "Addition & Subtraction (Left to Right)" }
+    ]
+  },
+  examPoints: [
+    "Never solve D before M simply because of the acronym; use the left-to-right rule.",
+    "$-x^n$ is not the same as $(-x)^n$. The exponent only applies to the $x$ unless brackets are present.",
+    "The vinculum (fraction bar) behaves like a bracket for the top and bottom terms."
+  ],
+  commonMistakes: [
+    "Calculating $12 \\div 2 \\times 3$ as $12 \\div 6 = 2$. Correct way: $6 \\times 3 = 18$.",
+    "Evaluating $-5^2$ as $25$. Correct way: $-(5 \\times 5) = -25$.",
+    "Adding numbers before multiplying them because they appear 'simpler' to add."
+  ],
+  workedExample: {
+    problem: "Evaluate: $50 - [2 \\times (3 + 2^3) \\div 2] + 4$",
+    solution: "1. Innermost Brackets & Exponents: $2^3 = 8$, so $(3 + 8) = 11$.\n2. Square Brackets: $[2 \\times 11 \\div 2]$. Multiply/Divide left-to-right: $22 \\div 2 = 11$.\n3. Remaining: $50 - 11 + 4$.\n4. Add/Subtract left-to-right: $39 + 4 = 43$.",
+    answer: "43"
+  },
+  methodChooser: {
+    title: "Decision Flow for Evaluation",
+    question: "Which operation should I do next?",
+    options: [
+      {
+        condition: "Are there terms inside brackets?",
+        answer: "Solve the innermost brackets first."
+      },
+      {
+        condition: "Are there powers, roots, or a minus sign in front of a number?",
+        answer: "Apply Exponents/Orders next."
+      },
+      {
+        condition: "Are there multiple $\\times$ and $\\div$ symbols remaining?",
+        answer: "Evaluate them strictly from Left to Right."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "Unary Minus with Exponents",
+      example: "$-4^2$ vs $(-4)^2$",
+      note: "$-4^2 = -16$ (Negative stays). $(-4)^2 = 16$ (Negative becomes positive)."
+    },
+    {
+      case: "The Division Trap",
+      example: "$8 \\div 4 \\div 2$",
+      note: "Work left to right: $2 \\div 2 = 1$. Doing the right side first ($4 \\div 2 = 2, 8 \\div 2 = 4$) is incorrect."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "Multiplication always comes after Division.",
+      whyStudentsThinkSo: "The acronym 'BODMAS' places D before M.",
+      correctModel: "D and M have equal rank. The acronym could just as easily be BOMDAS.",
+      remedy: "Think of them as a group: {DM} and {AS}."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-2-1",
+      title: "Equal Priority Operations",
+      summary: "Handling blocks of $\\times / \\div$ or $+ / -$ correctly.",
+      explanation: "When operations of the same level appear, the 'Tie-Breaker' is always the direction of reading (left to right).",
+      examples: [
+        {
+          problem: "Evaluate $10 - 5 + 2$.",
+          solution: "Left to right: $10 - 5 = 5$, then $5 + 2 = 7$.",
+          answer: "7"
+        }
+      ],
+      shortcuts: ["If only Addition and Subtraction remain, you can group all positives and all negatives, then subtract."],
+      traps: ["Subtracting $5+2$ first to get $10-7=3$. This is incorrect."]
+    },
+    {
+      id: "math-1-2-2",
+      title: "Negative Numbers and Powers",
+      summary: "How signs interact with indices in BODMAS.",
+      explanation: "Exponents (Orders) have a higher priority than the sign (negation) in front of a number.",
+      examples: [
+        {
+          problem: "Evaluate $-2^4$.",
+          solution: "Order of operations says powers first: $2^4 = 16$. Then apply the minus: $-16$.",
+          answer: "-16"
+        }
+      ],
+      shortcuts: ["If there are no brackets, the minus sign 'waits' until the power is finished."],
+      traps: ["Treating $-2^4$ as $(-2) \\times (-2) \\times (-2) \\times (-2)$. This requires brackets."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-1"],
+  leadsTo: ["math-2-3", "math-2-6"],
+  usedIn: ["math-2-4", "math-8-3", "phy-kinematics"]
+},
+
+{
+  id: "math-1-3",
+  sectionId: "MATH-01",
+  order: 3,
+  title: "Prime Numbers, Factors & Multiples",
+  priority: "High",
+  definition: "Prime numbers are the 'building blocks' of all integers. A prime number is a natural number greater than 1 that has exactly two distinct factors: 1 and itself. Every integer greater than 1 can be uniquely expressed as a product of these primes.",
+  keyFacts: [
+    "Primes under 30: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29.",
+    "The number 2 is the only even prime number.",
+    "The number 1 is neither prime nor composite (it is a 'unit').",
+    "Composite numbers have more than two factors (e.g., $4, 6, 8, 9$).",
+    "Fundamental Theorem of Arithmetic: Every number has a unique prime factorization.",
+    "A Factor divides a number exactly; a Multiple is the result of multiplying that number by an integer."
+  ],
+  explanationSections: [
+    {
+      heading: "1. Why 1 is Not Prime",
+      body: "The definition of a prime requires 'exactly two distinct factors'. Since 1 only has one factor (1), it fails. If 1 were prime, prime factorization would not be unique (e.g., $6 = 2 \\times 3$ could also be $2 \\times 3 \\times 1 \\times 1...$), breaking the fundamental laws of arithmetic."
+    },
+    {
+      heading: "2. The Factor Tree Method",
+      body: "To find the prime factorization of a number, divide it by the smallest prime possible (usually 2, 3, or 5) and continue the process with the resulting branches until all 'leaves' are prime numbers."
+    },
+    {
+      heading: "3. Divisibility Shortcuts",
+      body: "Testing for factors is faster with rules: \n- **3:** Sum of digits is divisible by 3.\n- **4:** Last two digits are divisible by 4.\n- **6:** Divisible by both 2 and 3.\n- **9:** Sum of digits is divisible by 9.\n- **11:** Alternating sum of digits is 0 or divisible by 11."
+    }
+  ],
+  examPoints: [
+    "2 is the smallest prime and the only even prime.",
+    "To check if $N$ is prime, you only need to test divisibility by primes up to $\\sqrt{N}$.",
+    "Factor vs Multiple: Factors are $\\leq$ the number; Multiples are $\\geq$ the number."
+  ],
+  commonMistakes: [
+    "Listing 1 as a prime number.",
+    "Thinking all odd numbers are prime (e.g., 9, 15, 21 are odd but composite).",
+    "Confusing factors with multiples (e.g., saying 24 is a factor of 6)."
+  ],
+  comparisonTable: {
+    headers: ["Category", "Definition", "Factors", "Examples"],
+    rows: [
+      ["Unit", "The number 1", "Only 1", "1"],
+      ["Prime", "Natural number > 1", "Exactly 2 (1 & itself)", "2, 13, 19"],
+      ["Composite", "Natural number > 1", "More than 2", "4, 9, 15"]
+    ]
+  },
+  workedExample: {
+    problem: "Find the prime factorization of 120 and determine if 1,001 is divisible by 11.",
+    solution: "1. Factor 120: $120 = 2 \\times 60 = 2 \\times 2 \\times 30 = 2 \\times 2 \\times 2 \\times 15 = 2 \\times 2 \\times 2 \\times 3 \\times 5$. Prime form: $2^3 \\times 3 \\times 5$.\n2. Test 1,001 for 11: Alternating sum = $1 - 0 + 0 - 1 = 0$. Since the result is 0, 1,001 is divisible by 11 ($11 \\times 91$).",
+    answer: "$2^3 \\times 3 \\times 5$; Yes, 1001 is divisible by 11."
+  },
+  methodChooser: {
+    title: "Is 'n' a Prime Number?",
+    question: "How to test a number like 167 for primality:",
+    options: [
+      {
+        condition: "Is the number even or ending in 5?",
+        answer: "If it is not 2 or 5, it is Composite."
+      },
+      {
+        condition: "Find the approximate square root ($\\sqrt{167} \\approx 12.9$).",
+        answer: "Test only primes 2, 3, 5, 7, 11."
+      },
+      {
+        condition: "If no prime up to 11 divides 167...",
+        answer: "167 is Prime."
+      }
+    ]
+  },
+  misconceptionRemediation: [
+    {
+      misconception: "All primes are odd.",
+      whyStudentsThinkSo: "Every prime they encounter after 2 (3, 5, 7, 11...) is odd.",
+      correctModel: "2 is a prime number and it is even. It is the only exception.",
+      remedy: "Remember: 2 is the 'Odd One Out' because it's the only even prime."
+    },
+    {
+      misconception: "Every odd number is prime.",
+      whyStudentsThinkSo: "They confuse the properties of 'not divisible by 2' with 'not divisible by anything'.",
+      correctModel: "Many odd numbers have factors, like $9 (3 \\times 3)$ or $15 (3 \\times 5)$.",
+      remedy: "Always check for divisibility by 3 and 7 before assuming an odd number is prime."
+    }
+  ],
+  limitCases: [
+    {
+      case: "The number 2",
+      example: "2",
+      note: "Smallest prime, only even prime, only prime adjacent to another prime (3)."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-3-1",
+      title: "Divisibility Rules",
+      summary: "Shortcuts to determine factors without division.",
+      explanation: "Divisibility rules allow you to quickly identify if a number is composite by checking for small prime factors like 3, 5, or 11.",
+      examples: [
+        {
+          problem: "Is 738 divisible by 9?",
+          solution: "Sum of digits: $7 + 3 + 8 = 18$. Since 18 is divisible by 9, the number is divisible by 9.",
+          answer: "Yes"
+        }
+      ],
+      shortcuts: ["Rule of 3 and 9: Just add the digits."],
+      traps: ["The rule for 4 only cares about the last two digits; don't sum all digits for 4."]
+    },
+    {
+      id: "math-1-3-2",
+      title: "Prime Factorization",
+      summary: "Breaking numbers into their prime building blocks.",
+      explanation: "Every composite number can be broken down into a unique product of primes, often expressed using exponents.",
+      examples: [
+        {
+          problem: "Express 90 as a product of primes.",
+          solution: "$90 = 9 \\times 10 = (3 \\times 3) \\times (2 \\times 5) = 2 \\times 3^2 \\times 5$.",
+          answer: "$2 \\times 3^2 \\times 5$"
+        }
+      ],
+      shortcuts: ["Ending in 0? Immediately pull out a $2 \\times 5$."],
+      traps: ["Don't stop at a composite number like 9 or 4; keep going until everything is prime."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-1"],
+  leadsTo: ["math-1-4"],
+  usedIn: ["math-1-5", "math-2-4"]
+},
+
+{
+  id: "math-1-4",
+  sectionId: "MATH-01",
+  order: 4,
+  title: "HCF & LCM",
+  priority: "High",
+  definition: "The Highest Common Factor (HCF) is the largest integer that divides two or more numbers exactly. The Least Common Multiple (LCM) is the smallest positive integer that is divisible by each of the given numbers.",
+  keyFacts: [
+    "HCF is also known as GCD (Greatest Common Divisor).",
+    "HCF is found by multiplying the LOWEST powers of common prime factors.",
+    "LCM is found by multiplying the HIGHEST powers of all prime factors present.",
+    "Product Rule: For any two positive integers $a$ and $b$, $a \\times b = HCF(a, b) \\times LCM(a, b)$.",
+    "If $HCF(a, b) = 1$, the numbers are 'co-prime'.",
+    "HCF $\\leq$ smallest number; LCM $\\geq$ largest number."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Prime Factorization Method",
+      body: "To find both HCF and LCM efficiently, first list the prime factors of each number in exponential form. \n- **For HCF:** Look only at primes that appear in *all* lists and take the smallest exponent.\n- **For LCM:** Look at every prime that appears in *any* list and take the largest exponent."
+    },
+    {
+      heading: "2. Visualizing the Difference",
+      body: "Think of HCF as a 'cutter'—it is the largest size of a tool that can perfectly measure out both quantities. Think of LCM as a 'meeting point'—it is the first time two different rhythms or cycles coincide."
+    },
+    {
+      heading: "3. The Product Rule Constraint",
+      body: "The formula $a \\times b = HCF \\times LCM$ is an incredibly powerful shortcut for finding one value when the other three are known. However, it **only works for two numbers**. Do not attempt to use it for a set of three or more numbers."
+    }
+  ],
+  formula: {
+    name: "HCF-LCM Product Relationship",
+    expression: "a \\times b = HCF(a, b) \\times LCM(a, b)",
+    variables: [
+      { symbol: "a, b", meaning: "Two positive integers" },
+      { symbol: "HCF", meaning: "Highest Common Factor" },
+      { symbol: "LCM", meaning: "Least Common Multiple" }
+    ]
+  },
+  examPoints: [
+    "HCF of two co-prime numbers (like 8 and 9) is always 1.",
+    "LCM of two co-prime numbers is simply their product ($a \\times b$).",
+    "If one number is a factor of the other (e.g., 5 and 20), then the HCF is the smaller number (5) and the LCM is the larger number (20)."
+  ],
+  commonMistakes: [
+    "Using the highest power for HCF instead of the lowest.",
+    "Forgetting to include primes that only appear in one number when calculating LCM.",
+    "Applying the product rule to three numbers ($a \\times b \\times c \\neq HCF \\times LCM$)."
+  ],
+  workedExample: {
+    problem: "Find the HCF and LCM of 72 and 120. Use the product rule to verify your answer.",
+    solution: "1. Prime Factorization:\n   $72 = 8 \\times 9 = 2^3 \\times 3^2$\n   $120 = 12 \\times 10 = (2^2 \\times 3) \\times (2 \\times 5) = 2^3 \\times 3 \\times 5$\n2. HCF (Lowest powers of common primes): $2^3 \\times 3^1 = 8 \\times 3 = 24$.\n3. LCM (Highest powers of all primes): $2^3 \\times 3^2 \\times 5^1 = 8 \\times 9 \\times 5 = 360$.\n4. Verification: $72 \\times 120 = 8640$. $24 \\times 360 = 8640$. Matches!.",
+    answer: "HCF = 24, LCM = 360"
+  },
+  methodChooser: {
+    title: "HCF vs. LCM Word Problem Decoder",
+    question: "What is the problem asking you to do with the numbers?",
+    options: [
+      {
+        condition: "Split, cut, or divide into the largest possible equal groups/pieces?",
+        answer: "Calculate HCF (e.g., tiling a floor, cutting ribbons)."
+      },
+      {
+        condition: "Find when two or more events will happen at the same time again?",
+        answer: "Calculate LCM (e.g., bells ringing, runners on a track)."
+      },
+      {
+        condition: "Find the smallest quantity that can be divided evenly by different amounts?",
+        answer: "Calculate LCM (e.g., smallest number of boxes to hold different set sizes)."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "One number is a multiple of the other",
+      example: "HCF and LCM of 12 and 36.",
+      note: "Since 36 is a multiple of 12, HCF = 12 and LCM = 36."
+    },
+    {
+      case: "Consecutive Integers",
+      example: "9 and 10.",
+      note: "Consecutive integers are always co-prime. HCF = 1, LCM = 90."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "The 'Least' in LCM means the answer should be a small number.",
+      whyStudentsThinkSo: "The word 'least' is associated with smaller values.",
+      correctModel: "LCM stands for Least Common MULTIPLE. Multiples are usually larger than the original numbers. It is the 'smallest' of a group of 'large' numbers.",
+      remedy: "Remember: HCF $\\leq$ Numbers $\\leq$ LCM."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-4-1",
+      title: "HCF by Prime Factorization",
+      summary: "Finding the greatest common divisor using prime powers.",
+      explanation: "Identify common prime bases and select the minimum exponent for each to ensure the result divides all numbers.",
+      examples: [
+        {
+          problem: "Find the HCF of 54 ($2 \\times 3^3$) and 90 ($2 \\times 3^2 \\times 5$).",
+          solution: "Common primes: 2 and 3. Lowest power of 2 is $2^1$. Lowest power of 3 is $3^2$. $2 \\times 9 = 18$.",
+          answer: "18"
+        }
+      ],
+      shortcuts: ["If numbers are small, check if the difference between the numbers divides both."],
+      traps: ["Don't include the 5 in HCF because it is not common to both numbers."]
+    },
+    {
+      id: "math-1-4-2",
+      title: "LCM by Prime Factorization",
+      summary: "Finding the smallest common multiple using prime powers.",
+      explanation: "Collect every unique prime base present across all numbers and select the maximum exponent for each.",
+      examples: [
+        {
+          problem: "Find the LCM of 18 ($2 \\times 3^2$) and 24 ($2^3 \\times 3$).",
+          solution: "All primes present: 2 and 3. Highest power of 2 is $2^3$. Highest power of 3 is $3^2$. $8 \\times 9 = 72$.",
+          answer: "72"
+        }
+      ],
+      shortcuts: ["LCM is always a multiple of the largest number; test $1 \\times$, $2 \\times$, $3 \\times$ the largest number until the others divide in."],
+      traps: ["Do not skip primes that only appear in one number; LCM needs a 'complete set'."]
+    },
+    {
+      id: "math-1-4-3",
+      title: "The Product Rule Shortcut",
+      summary: "Finding one unknown when three of ($a, b, HCF, LCM$) are given.",
+      explanation: "Use the algebraic rearrangement of $a \\times b = HCF \\times LCM$ to find a missing value without full factorization.",
+      examples: [
+        {
+          problem: "The HCF of two numbers is 6 and their LCM is 72. If one number is 18, find the other.",
+          solution: "$18 \\times x = 6 \\times 72$ $\\rightarrow$ $18x = 432$ $\\rightarrow$ $x = 432 / 18 = 24$.",
+          answer: "24"
+        }
+      ],
+      shortcuts: ["Divide first to keep numbers small: $x = (HCF \\times LCM) / a$."],
+      traps: ["This rule only works for exactly TWO numbers."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-3"],
+  leadsTo: ["math-1-5", "math-1-8"],
+  usedIn: ["math-8-4", "math-8-5"]
+},
+
+{
   id: "math-1-5",
   sectionId: "MATH-01",
   order: 5,
@@ -153,7 +705,8 @@ export const topics: Topic[] = [
   leadsTo: ["math-1-6", "math-1-7"],
   usedIn: ["math-2-2", "phy-density", "phy-pressure-fluids"]
 },
-  {
+
+{
   id: "math-1-6",
   sectionId: "MATH-01",
   order: 6,
@@ -291,7 +844,8 @@ export const topics: Topic[] = [
   leadsTo: ["math-1-7"],
   usedIn: ["phy-units-measurement", "phy-temperature-heat", "ra-research-quality"]
 },
-  {
+
+{
   id: "math-1-7",
   sectionId: "MATH-01",
   order: 7,
@@ -429,7 +983,8 @@ export const topics: Topic[] = [
   leadsTo: ["math-1-8", "math-8-5"],
   usedIn: ["math-8-1", "ra-descriptive-statistics", "env-air-pollution"]
 },
-  {
+
+{
   id: "math-1-8",
   sectionId: "MATH-01",
   order: 8,
@@ -572,8 +1127,8 @@ export const topics: Topic[] = [
   buildsOn: ["math-1-5", "math-1-7"],
   leadsTo: ["math-2-1", "math-2-2"],
   usedIn: ["phy-density", "phy-kinematics", "meteo-moisture-metrics"]
-}, 
-
+},
+  
   // ════════════════════════════════════════════════════════════════════
   // SECTION MATH-B: Algebra
   // ════════════════════════════════════════════════════════════════════
