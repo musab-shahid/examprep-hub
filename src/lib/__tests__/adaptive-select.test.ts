@@ -10,6 +10,8 @@ import {
   updateQuestionStrength,
   resolveStrength,
   isSameIdHardCooldown,
+  pickVariantFromGroup,
+  variantGroupKey,
 } from '../adaptive-select.ts';
 import type { Question, TopicProgress } from '../../types.ts';
 
@@ -179,5 +181,45 @@ describe('adaptive-select phase A (same-id cooldown)', () => {
     });
     assert.equal(picked.length, 1);
     assert.equal(picked[0].id, 'only');
+  });
+});
+
+describe('adaptive-select phase B (variant groups)', () => {
+  it('variantGroupKey falls back to id', () => {
+    assert.equal(variantGroupKey(q({ id: 'x', topicId: 't' })), 'x');
+    assert.equal(
+      variantGroupKey(q({ id: 'x', topicId: 't', variantGroupId: 'skill-1' })),
+      'skill-1',
+    );
+  });
+
+  it('pickVariantFromGroup prefers unseen sibling over recently used stem', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    const a = q({ id: 'a1', topicId: 't', variantGroupId: 'g1' });
+    const b = q({ id: 'a2', topicId: 't', variantGroupId: 'g1' });
+    const chosen = pickVariantFromGroup([a, b], {
+      ...baseOpts,
+      now,
+      questionResults: {
+        a1: { correct: false, timestamp: now - 60 * 60 * 1000, strength: 0.2 },
+      },
+    });
+    assert.equal(chosen.id, 'a2');
+  });
+
+  it('pickAdaptiveQuestions returns at most one stem per variant group', () => {
+    const now = Date.parse('2026-10-11T12:00:00Z');
+    const pool = [
+      q({ id: 'g1a', topicId: 't', variantGroupId: 'g1' }),
+      q({ id: 'g1b', topicId: 't', variantGroupId: 'g1' }),
+      q({ id: 'g2a', topicId: 't', variantGroupId: 'g2' }),
+      q({ id: 'solo', topicId: 't' }),
+    ];
+    const picked = pickAdaptiveQuestions(pool, 3, { ...baseOpts, now });
+    assert.equal(picked.length, 3);
+    const groups = picked.map((x) => x.variantGroupId ?? x.id);
+    assert.equal(new Set(groups).size, 3);
+    // g1 contributes only one
+    assert.equal(picked.filter((x) => x.variantGroupId === 'g1').length, 1);
   });
 });
