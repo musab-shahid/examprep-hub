@@ -3,6 +3,7 @@
  * Phase 1: wrong / unseen / SR urgency / weak topics / recency
  * Phase 2: per-topic Elo ability + near-miss difficulty targeting
  * Phase 3: per-question EWMA strength (stable vs last-outcome only)
+ * Phase A: same-id cooldown to reduce stem-cramming under adaptive re-ask
  */
 import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
 import {
@@ -53,6 +54,17 @@ export const STRENGTH_UP = 0.25;
 /** Multiplier on wrong (halve strength) */
 export const STRENGTH_DOWN = 0.5;
 
+/**
+ * Phase A anti-cram: same question-id cooldowns.
+ * Hard = prefer to exclude from the session pool when enough alternatives exist.
+ * Soft = score penalty only.
+ * Strong = longer hard window after a solid correct (high strength).
+ */
+export const SAME_ID_HARD_MS = 12 * 60 * 60 * 1000; // 12h
+export const SAME_ID_SOFT_MS = 72 * 60 * 60 * 1000; // 72h
+export const SAME_ID_STRONG_MS = 7 * 24 * 60 * 60 * 1000; // 7d
+export const SAME_ID_STRONG_STRENGTH = 0.75;
+
 const W = {
   unseen: 0.15,
   /** Weight on (1 - strength) */
@@ -68,7 +80,10 @@ const W = {
   challengeHard: 0.04,
   challengeMedium: 0.02,
   staleCorrect: 0.04,
-  recentDay: -0.2,
+  /** Soft cooldown score penalty (12h–72h, or residual after hard filter) */
+  recentSoft: -0.35,
+  /** Residual penalty if hard-cooldown item must still be used */
+  recentHard: -1.0,
   recent3Days: -0.08,
   jitter: 0.04,
 } as const;
@@ -171,6 +186,34 @@ export function updateQuestionStrength(
   };
 }
 
+/**
+ * Hard same-id cooldown: exclude when the pool has enough other items.
+ * - Any attempt within 12h
+ * - Last correct with strength ≥ 0.75 within 7d (stop grinding a memorized stem)
+ */
+export function isSameIdHardCooldown(
+  r: QuestionResultLike | undefined,
+  now: number,
+): boolean {
+  if (!r) return false;
+  const age = now - r.timestamp;
+  if (age < SAME_ID_HARD_MS) return true;
+  const strength = resolveStrength(r) ?? 0.5;
+  if (r.correct && strength >= SAME_ID_STRONG_STRENGTH && age < SAME_ID_STRONG_MS) {
+    return true;
+  }
+  return false;
+}
+
+export function isSameIdSoftCooldown(
+  r: QuestionResultLike | undefined,
+  now: number,
+): boolean {
+  if (!r) return false;
+  const age = now - r.timestamp;
+  return age < SAME_ID_SOFT_MS;
+}
+
 function daysBetweenLocal(a: Date, b: Date): number {
   const a0 = new Date(a.getFullYear(), a.getMonth(), a.getDate()).getTime();
   const b0 = new Date(b.getFullYear(), b.getMonth(), b.getDate()).getTime();
@@ -223,12 +266,13 @@ export function scoreQuestion(q: Question, opts: AdaptiveSelectOptions): number 
     if (r.correct && ageDays > 14) s += W.staleCorrect;
   }
 
+  // Phase A: same-id anti-cram penalties (hard filter applied in pickAdaptiveQuestions)
   if (recent.has(q.id)) {
-    s += W.recentDay;
+    s += W.recentHard;
   } else if (r) {
-    const age = now - r.timestamp;
-    if (age < DAY_MS) s += W.recentDay;
-    else if (age < 3 * DAY_MS) s += W.recent3Days;
+    if (isSameIdHardCooldown(r, now)) s += W.recentHard;
+    else if (isSameIdSoftCooldown(r, now)) s += W.recentSoft;
+    else if (now - r.timestamp < 3 * DAY_MS) s += W.recent3Days;
   }
 
   s += srUrgency(prog, today);
@@ -259,11 +303,19 @@ export function pickAdaptiveQuestions(
   opts: AdaptiveSelectOptions,
 ): Question[] {
   if (pool.length === 0 || count <= 0) return [];
-  if (count >= pool.length) {
-    return [...pool].sort((a, b) => scoreQuestion(b, opts) - scoreQuestion(a, opts));
+
+  const now = opts.now ?? Date.now();
+  const results = opts.questionResults ?? {};
+
+  // Phase A: drop hard-cooldown ids when enough alternatives exist
+  const fresh = pool.filter((q) => !isSameIdHardCooldown(results[q.id], now));
+  const working = fresh.length >= Math.min(count, pool.length) ? fresh : pool;
+
+  if (count >= working.length) {
+    return [...working].sort((a, b) => scoreQuestion(b, opts) - scoreQuestion(a, opts));
   }
 
-  const ranked = pool
+  const ranked = working
     .map((q) => ({ q, score: scoreQuestion(q, opts) }))
     .sort((a, b) => b.score - a.score);
 
