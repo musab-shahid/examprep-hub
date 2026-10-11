@@ -18,8 +18,9 @@ Guidelines:
 /** Cap study-material context sent to the model (chars). */
 const MAX_CONTEXT_CHARS = 8000;
 
-function clip(s: string, max: number): string {
-  return s.length > max ? s.slice(0, max) + '…' : s;
+function clip(s: string | undefined | null, max: number): string {
+  const str = s ?? '';
+  return str.length > max ? str.slice(0, max) + '…' : str;
 }
 
 function serializeFormula(f: Formula): string {
@@ -256,9 +257,9 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.subtopics?.length) {
     const items = topic.subtopics.map((s) => {
-      const examples = s.examples.map((e) => `${e.problem} → ${e.solution}`).join('; ');
-      const traps = s.traps.length ? ` Traps: ${s.traps.join('; ')}` : '';
-      const shortcuts = s.shortcuts.length ? ` Shortcuts: ${s.shortcuts.join('; ')}` : '';
+      const examples = (s.examples || []).map((e) => `${e.problem} → ${e.solution}`).join('; ');
+      const traps = s.traps?.length ? ` Traps: ${s.traps.join('; ')}` : '';
+      const shortcuts = s.shortcuts?.length ? ` Shortcuts: ${s.shortcuts.join('; ')}` : '';
       return `- ${s.title}: ${clip(s.summary, 300)} ${clip(s.explanation, 400)}${examples ? ` Examples: ${clip(examples, 400)}` : ''}${shortcuts}${traps}`;
     });
     parts.push('Subtopics:\n' + items.join('\n'));
