@@ -941,142 +941,150 @@ export const topics: Topic[] = [
       "env-water-pollution-and-quality",
     ],
   },
-
   {
-    id: "math-1-8",
-    sectionId: "MATH-01",
-    order: 8,
-    title: "Ratios, Proportions & Variation",
-    definition:
-      "A ratio compares two quantities. A proportion states that two ratios are equal. Direct variation means two quantities change together at a constant ratio; inverse variation means one increases as the other decreases such that their product is constant.",
-    keyFacts: [
-      "Ratio a:b = a/b; equivalent ratios: (a:b) = (ka:kb) for k ≠ 0",
-      "To share Q in ratio a:b:c, parts are Q × a/(a+b+c), Q × b/(a+b+c), Q × c/(a+b+c)",
-      "Direct proportion: y = kx (k is the constant of proportionality)",
-      "Inverse proportion: y = k/x or xy = k (product is constant)",
-      "Direct proportion test: doubling x doubles y",
-      "Inverse proportion test: doubling x halves y",
-      "Proportion problems: use cross-multiplication: a/b = c/d → ad = bc",
-    ],
-    explanationSections: [
-      {
-        heading: "1. Ratios and Sharing",
-        body: "The ratio a:b tells you how a and b compare. To divide a quantity Q in ratio a:b, the parts are Q × a/(a+b) and Q × b/(a+b). For three parts a:b:c, the divisor becomes a+b+c. The parts always sum back to Q. Example: divide 720 in 2:3:4. Total parts = 9. Shares = 160, 240, 320.",
-      },
-      {
-        heading: "2. Direct Proportion",
-        body: "Two quantities are directly proportional if y = kx for some constant k. Doubling x doubles y. Tripling x triples y. The graph is a straight line through the origin. Common examples: distance and time at constant speed; cost and quantity at unit price. To find k: k = y/x.",
-      },
-      {
-        heading: "3. Inverse Proportion",
-        body: "Two quantities are inversely proportional if xy = k (constant), or y = k/x. Doubling x halves y. The graph is a hyperbola. Common examples: time and number of workers (more workers → less time); speed and travel time for fixed distance. To find k: k = xy.",
-      },
-      {
-        heading: "4. Solving Proportion Problems",
-        body: "Use cross-multiplication: a/b = c/d → ad = bc. Example: if 3 books cost Rs. 450, how much do 7 cost? 3/450 = 7/x → 3x = 3150 → x = 1050. For inverse: if 6 workers finish in 10 days, how long for 10 workers? 6 × 10 = 10 × d → d = 6 days.",
-      },
-    ],
-    formula: {
-      name: "Proportion (direct and inverse)",
-      expression: "Direct: y = kx      Inverse: xy = k",
-      variables: [
-        { symbol: "k", meaning: "constant of proportionality" },
-        { symbol: "x, y", meaning: "two varying quantities" },
-      ],
+  id: "math-1-8",
+  sectionId: "MATH-01",
+  order: 8,
+  title: "Ratios, Proportions & Variation",
+  priority: "High",
+  definition: "Ratios compare quantities of the same kind. Proportion is an equation stating that two ratios are equal. Variation describes how one variable changes in relation to another, either directly ($y$ increases with $x$) or inversely ($y$ decreases as $x$ increases).",
+  keyFacts: [
+    "Ratio $a:b$ is equivalent to the fraction $a/b$.",
+    "Direct Variation: $y = kx$. The ratio $y/x$ remains constant ($k$).",
+    "Inverse Variation: $y = k/x$. The product $xy$ remains constant ($k$).",
+    "The 'Constant of Proportionality' ($k$) must be calculated first using a known pair of values.",
+    "Map Scales: A ratio of $1:n$ means 1 unit on the map represents $n$ units in reality (must use same units).",
+    "Cross-multiplication Rule: If $a/b = c/d$, then $ad = bc$."
+  ],
+  explanationSections: [
+    {
+      heading: "1. The Logic of Sharing",
+      body: "To divide a total quantity into a specific ratio, think of the ratio parts as 'shares' or 'units'. First, find the total number of shares by adding the ratio terms. Then, divide the total quantity by this sum to find the value of one share. Finally, multiply each ratio term by the value of one share."
     },
-    examPoints: [
-      "In direct proportion, the RATIO y/x is constant; in inverse, the PRODUCT xy is constant",
-      "Cross-multiplication: a/b = c/d → ad = bc",
-      "Inverse proportion is sometimes called 'inversely proportional' — do not confuse with 'decreasing'",
-    ],
-    workedExample: {
-      problem:
-        "Divide Rs. 720 among Ali, Bilal, and Chand in the ratio 2:3:4. If 6 workers finish a job in 10 days, how many days do 15 workers take (assuming inverse proportion)?",
-      solution:
-        "Ratio share: total parts = 9. Ali: 720 × 2/9 = 160. Bilal: 720 × 3/9 = 240. Chand: 720 × 4/9 = 320. Inverse proportion: 6 × 10 = 15 × d → d = 60/15 = 4 days.",
-      answer: "Ali = 160, Bilal = 240, Chand = 320; 4 days",
+    {
+      heading: "2. Direct Variation: The Linear Growth",
+      body: "In direct variation, the two variables are linked by a constant multiplier. If you double the input, the output doubles. A graph of direct variation is always a straight line passing through the origin $(0,0)$. Example: Total cost vs. Number of items at a fixed price."
     },
-    commonMistakes: [
-      "Adding the ratio numbers and dividing (9 ÷ 720 instead of 720 ÷ 9)",
-      "Using direct-proportion reasoning for inverse-proportion problems",
-      "Confusing 'inverse proportion' with 'decreasing' — inverse means specifically xy = constant",
-    ],
-    relatedTopics: ["math-1-5", "math-1-7"],
-    subtopics: [
-      {
-        id: "math-1-8-1-ratios-and-sharing",
-        title: "1. Ratios and Sharing",
-        summary:
-          "The ratio a:b tells you how a and b compare. To divide a quantity Q in ratio a:b, the parts are Q × a/(a+b) and Q × b/(a+b). For three…",
-        explanation:
-          "The ratio a:b tells you how a and b compare. To divide a quantity Q in ratio a:b, the parts are Q × a/(a+b) and Q × b/(a+b). For three parts a:b:c, the divisor becomes a+b+c. The parts always sum back to Q. Example: divide 720 in 2:3:4. Total parts = 9. Shares = 160, 240, 320.",
-        examples: [
-          {
-            problem: "Divide 80 in the ratio 3 : 5.",
-            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
-            answer: "30 and 50",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-8-2-direct-proportion",
-        title: "2. Direct Proportion",
-        summary:
-          "Two quantities are directly proportional if y = kx for some constant k. Doubling x doubles y. Tripling x triples y. The graph is a straight…",
-        explanation:
-          "Two quantities are directly proportional if y = kx for some constant k. Doubling x doubles y. Tripling x triples y. The graph is a straight line through the origin. Common examples: distance and time at constant speed; cost and quantity at unit price. To find k: k = y/x.",
-        examples: [
-          {
-            problem: "Divide 80 in the ratio 3 : 5.",
-            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
-            answer: "30 and 50",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-8-3-inverse-proportion",
-        title: "3. Inverse Proportion",
-        summary:
-          "Two quantities are inversely proportional if xy = k (constant), or y = k/x. Doubling x halves y. The graph is a hyperbola. Common examples:…",
-        explanation:
-          "Two quantities are inversely proportional if xy = k (constant), or y = k/x. Doubling x halves y. The graph is a hyperbola. Common examples: time and number of workers (more workers → less time); speed and travel time for fixed distance. To find k: k = xy.",
-        examples: [
-          {
-            problem: "Divide 80 in the ratio 3 : 5.",
-            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
-            answer: "30 and 50",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "math-1-8-4-solving-proportion-problems",
-        title: "4. Solving Proportion Problems",
-        summary:
-          "Use cross-multiplication: a/b = c/d → ad = bc. Example: if 3 books cost Rs. 450, how much do 7 cost? 3/450 = 7/x → 3x = 3150 → x = 1050.…",
-        explanation:
-          "Use cross-multiplication: a/b = c/d → ad = bc. Example: if 3 books cost Rs. 450, how much do 7 cost? 3/450 = 7/x → 3x = 3150 → x = 1050. For inverse: if 6 workers finish in 10 days, how long for 10 workers? 6 × 10 = 10 × d → d = 6 days.",
-        examples: [
-          {
-            problem: "Divide 80 in the ratio 3 : 5.",
-            solution: "Parts = 3 + 5 = 8. One part = 80/8 = 10. Shares = 30 and 50.",
-            answer: "30 and 50",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-    content: true,
-    buildsOn: ["math-1-5", "math-1-7"],
-    leadsTo: ["math-2-1", "math-2-2", "math-8-3"],
-    usedIn: ["phy-density", "phy-pressure-fluids", "phy-kinematics", "meteo-moisture-metrics"],
+    {
+      heading: "3. Inverse Variation: The Reciprocal Relationship",
+      body: "In inverse variation, one variable increases while the other decreases proportionally. If you double the input, the output is halved. The graph is a hyperbola that never touches the axes. Example: The time taken to travel a fixed distance vs. the speed of the vehicle."
+    },
+    {
+      heading: "4. Solving Variation Problems",
+      body: "Always follow three steps: (1) Write the general equation ($y=kx$ or $y=k/x$). (2) Substitute the known $x$ and $y$ to solve for $k$. (3) Rewrite the equation with the numerical value of $k$ and solve for the unknown."
+    }
+  ],
+  formula: {
+    name: "Variation Equations",
+    expression: "\\text{Direct: } y = kx \\quad | \\quad \\text{Inverse: } y = \\frac{k}{x}",
+    variables: [
+      { symbol: "k", meaning: "Constant of Proportionality (Non-zero)" },
+      { symbol: "x", meaning: "Independent variable" },
+      { symbol: "y", meaning: "Dependent variable" }
+    ]
   },
+  examPoints: [
+    "In word problems, look for the keyword 'inversely'—if it's not there, usually assume direct proportion.",
+    "When using map scales (e.g., 1:50,000), always convert to common units (cm to km) before finalizing.",
+    "For inverse variation, the product of the variables ($x \\times y$) is always the same at every point."
+  ],
+  commonMistakes: [
+    "Dividing by the individual ratio parts instead of the total sum of parts.",
+    "Applying direct proportion logic to inverse problems (e.g., assuming more workers takes more time).",
+    "Forgetting to include the 'units' when comparing ratios (e.g., comparing 1 meter to 50 centimeters without converting)."
+  ],
+  workedExample: {
+    problem: "(a) Divide 1,200g in the ratio 2:3:7. (b) If $y$ is inversely proportional to $x$, and $y=6$ when $x=4$, find $y$ when $x=8$.",
+    solution: "1. Ratio Sharing: Total parts = $2+3+7 = 12$. One part = $1200 / 12 = 100g$. Shares: $200g, 300g, 700g$.\n2. Inverse Variation: General form $y = k/x$. Find $k$: $6 = k/4 \\rightarrow k = 24$. New equation: $y = 24/x$. Find $y$: $y = 24/8 = 3$.",
+    answer: "(a) 200g, 300g, 700g; (b) y = 3"
+  },
+  methodChooser: {
+    title: "Direct vs. Inverse Variation Decoder",
+    question: "What happens to variable B if you double variable A?",
+    options: [
+      {
+        condition: "Variable B also doubles (e.g., buying more fuel increases cost).",
+        answer: "Direct Variation ($y = kx$)."
+      },
+      {
+        condition: "Variable B is cut in half (e.g., doubling speed halves travel time).",
+        answer: "Inverse Variation ($y = k/x$)."
+      },
+      {
+        condition: "Variable B increases but not by a specific multiplier.",
+        answer: "Non-proportional relationship (Not $kx$ or $k/x$)."
+      }
+    ]
+  },
+  limitCases: [
+    {
+      case: "k = 1",
+      example: "y = x",
+      note: "A 1:1 ratio where the variables are identical."
+    },
+    {
+      case: "Direct Variation at zero",
+      example: "y = k(0)",
+      note: "In direct variation, if $x=0$, $y$ must also be $0$."
+    }
+  ],
+  misconceptionRemediation: [
+    {
+      misconception: "Inverse variation just means 'one goes up and the other goes down'.",
+      whyStudentsThinkSo: "They confuse general 'decreasing' trends with mathematical 'proportionality'.",
+      correctModel: "Inverse variation is specific: they must change by the *same factor*. If $x$ is tripled, $y$ must be exactly one-third.",
+      remedy: "Test the product $x \\times y$. If it isn't the same for every pair of values, it is not inverse variation."
+    }
+  ],
+  qualitativeScenarios: [
+    {
+      question: "If the length of a side of a square is doubled, what happens to its perimeter?",
+      answer: "The perimeter doubles.",
+      reasoning: "Perimeter $P = 4s$. Since $4$ is a constant, $P$ is directly proportional to $s$ ($P \\propto s$)."
+    },
+    {
+      question: "If you are sharing a fixed amount of prize money among winners, how does the prize per person change as the number of winners increases?",
+      answer: "It changes inversely.",
+      reasoning: "$\\text{Prize per person} = \\text{Total} / \\text{Winners}$. The total is constant, so more people means a smaller share for each."
+    }
+  ],
+  subtopics: [
+    {
+      id: "math-1-8-1",
+      title: "Sharing and Proportional Parts",
+      summary: "Dividing totals into specified unequal groups.",
+      explanation: "Add the ratio parts to get the denominator. Use each individual ratio part as the numerator to find that person's fraction of the total.",
+      examples: [
+        {
+          problem: "Divide $450 between A and B in the ratio 4:5.",
+          solution: "Total parts = 9. A's share = $450 \\times (4/9) = 200$. B's share = $450 \\times (5/9) = 250$.",
+          answer: "A: $200, B: $250"
+        }
+      ],
+      shortcuts: ["Total / (Sum of Ratios) = The value of 'One Part'."],
+      traps: ["Carefully check if the question gives you the 'Total' or just 'One Person's share'."]
+    },
+    {
+      id: "math-1-8-2",
+      title: "Solving for the Constant 'k'",
+      summary: "The essential first step in all variation problems.",
+      explanation: "You cannot solve for a new $y$ until you find the hidden constant $k$ using the provided initial conditions.",
+      examples: [
+        {
+          problem: "If $a \\propto b^2$ and $a=12$ when $b=2$, find $k$.",
+          solution: "$a = kb^2 \\rightarrow 12 = k(2^2) \\rightarrow 12 = 4k \\rightarrow k = 3$.",
+          answer: "k = 3"
+        }
+      ],
+      shortcuts: ["For direct, $k = y/x$. For inverse, $k = xy$."],
+      traps: ["Watch out for variations involving squares or roots ($y = kx^2$); don't forget to square the value before dividing."]
+    }
+  ],
+  content: true,
+  buildsOn: ["math-1-5", "math-1-7"],
+  leadsTo: ["math-2-1", "math-2-2"],
+  usedIn: ["phy-density", "phy-kinematics", "meteo-moisture-metrics"]
+}, 
 
   // ════════════════════════════════════════════════════════════════════
   // SECTION MATH-B: Algebra
