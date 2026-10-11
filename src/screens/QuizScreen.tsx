@@ -3,7 +3,8 @@ import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X, Sparkles } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
-import { buildMistakePrompt, setPendingExplain, isTutorAvailable } from '@/lib/ai-tutor';
+import { buildMistakePrompt, isTutorAvailable, buildTopicContext } from '@/lib/ai-tutor';
+import { AiTutorChat } from '@/components/AiTutorChat';
 import { allQuestions, questionsByTopic } from '@/data/questions';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
@@ -1194,6 +1195,12 @@ function QuizResults({
 }) {
   const { navigate } = useRouter();
   const tutorReady = isTutorAvailable();
+  const [explainSession, setExplainSession] = useState<{
+    topicId: string;
+    topicTitle: string;
+    topicContext?: string;
+    message: string;
+  } | null>(null);
   const pct = results.total > 0 ? Math.round((results.score / results.total) * 100) : 0;
   const topicEntries = Object.entries(results.perTopic);
   const sortedByAccuracy = topicEntries
@@ -1490,12 +1497,13 @@ function QuizResults({
                             className="mt-1.5 inline-flex items-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 px-2.5 py-1 text-[11px] font-semibold text-sky-700 hover:bg-sky-100 hover:border-sky-300 transition-colors"
                             onClick={() => {
                               const message = buildMistakePrompt(q, ans.selectedIndices);
-                              setPendingExplain({
+                              const topic = getTopic(q.topicId);
+                              setExplainSession({
                                 topicId: q.topicId,
-                                topicTitle: q.topicId,
+                                topicTitle: topic?.title ?? q.topicId,
+                                topicContext: topic ? buildTopicContext(topic) : undefined,
                                 message,
                               });
-                              navigate({ screen: 'topic', topicId: q.topicId });
                             }}
                           >
                             <Sparkles className="w-3 h-3" />
@@ -1524,6 +1532,21 @@ function QuizResults({
           {doneLabel}
         </Button>
       </div>
+
+      {/* In-place AI tutor: explains wrong answers without leaving quiz results */}
+      {explainSession && (
+        <AiTutorChat
+          topicId={explainSession.topicId}
+          topicTitle={explainSession.topicTitle}
+          topicContext={explainSession.topicContext}
+          initialMessage={explainSession.message}
+          autoOpen
+          onInitialMessageConsumed={() => {
+            /* keep session so panel stays open; clear message only via key remount */
+          }}
+          key={explainSession.topicId + explainSession.message.slice(0, 40)}
+        />
+      )}
     </PageContainer>
   );
 }
