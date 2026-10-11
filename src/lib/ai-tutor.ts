@@ -1,4 +1,5 @@
 import { env } from '@/lib/runtime-env';
+import type { Topic, Formula, WorkedExample, MethodChooser, MethodChooserStep, LimitCase, ComparisonTable } from '@/types';
 
 const SYSTEM_PROMPT = `You are an expert tutor for Pakistani civil service exam preparation (FPSC and HAT exams).
 Your role is to help students understand study topics deeply.
@@ -15,56 +16,259 @@ Guidelines:
 
 
 /** Cap study-material context sent to the model (chars). */
-const MAX_CONTEXT_CHARS = 3500;
+const MAX_CONTEXT_CHARS = 8000;
+
+function clip(s: string, max: number): string {
+  return s.length > max ? s.slice(0, max) + '…' : s;
+}
+
+function serializeFormula(f: Formula): string {
+  const vars = f.variables?.length
+    ? ` (${f.variables.map((v) => `${v.symbol}=${v.meaning}`).join(', ')})`
+    : '';
+  return `${f.name || 'Formula'}: ${f.expression || ''}${vars}`;
+}
+
+function serializeWorkedExample(ex: WorkedExample): string {
+  const lines: string[] = [];
+  lines.push(`Problem: ${ex.problem}`);
+  if (ex.solution) {
+    if (typeof ex.solution === 'string') {
+      lines.push(`Solution: ${clip(ex.solution, 800)}`);
+    } else {
+      const steps = Object.entries(ex.solution).map(([k, v]) => `${k}: ${clip(v, 400)}`).join('; ');
+      lines.push(`Solution: ${clip(steps, 800)}`);
+    }
+  }
+  if (ex.solutionSteps) {
+    const steps = Object.entries(ex.solutionSteps).map(([k, v]) => `${k}: ${clip(v, 400)}`).join('; ');
+    lines.push(`Solution: ${clip(steps, 800)}`);
+  }
+  if (ex.answer) lines.push(`Answer: ${ex.answer}`);
+  if (ex.takeaway) lines.push(`Takeaway: ${ex.takeaway}`);
+  return lines.join('\n');
+}
+
+function serializeMethodChooser(mc: MethodChooser | MethodChooserStep[]): string {
+  const lines: string[] = [];
+  if (Array.isArray(mc)) {
+    for (const s of mc) {
+      const when = s.when ?? s.condition ?? '';
+      const use = s.use ?? s.recommendation ?? '';
+      lines.push(`- If ${when} → ${use}${s.notes ? ` (${s.notes})` : ''}`);
+    }
+    return lines.join('\n');
+  }
+  if (mc.title) lines.push(mc.title);
+  if (mc.intro) lines.push(clip(mc.intro, 400));
+  if (mc.scenario) lines.push(clip(mc.scenario, 400));
+  if (mc.steps?.length) {
+    for (const s of mc.steps) {
+      const when = s.when ?? s.condition ?? '';
+      const use = s.use ?? s.recommendation ?? '';
+      lines.push(`- If ${when} → ${use}${s.notes ? ` (${s.notes})` : ''}`);
+    }
+  }
+  if (mc.options?.length) {
+    for (const opt of mc.options) {
+      lines.push(`- ${opt.name || ''}${opt.when ? ` (when: ${opt.when})` : ''}`);
+      if (opt.steps?.length) lines.push(`  Steps: ${opt.steps.join('; ')}`);
+    }
+  }
+  if (mc.recommendation) lines.push(`Recommendation: ${mc.recommendation}`);
+  return lines.join('\n');
+}
+
+function serializeLimitCases(cases: LimitCase[]): string {
+  return cases.map((lc) => {
+    if (lc.condition) {
+      return `- ${lc.condition} → ${lc.result || ''}${lc.physicalMeaning ? ` (${lc.physicalMeaning})` : ''}`;
+    }
+    return `- ${lc.case || ''}: ${lc.example || ''} → ${lc.resolution || ''}`;
+  }).join('\n');
+}
+
+function serializeComparisonTable(table: ComparisonTable): string {
+  const headers = table.headers || [];
+  const rows = table.rows.map((row) => {
+    if (Array.isArray(row)) return row;
+    return headers.map((h) => row[h] || '');
+  });
+  const headerLine = headers.length ? headers.join(' | ') : '';
+  const rowLines = rows.map((r) => r.join(' | '));
+  return [headerLine, ...rowLines].filter(Boolean).join('\n');
+}
 
 /**
- * Build a compact study-material brief for the tutor from a topic-like object.
- * Prefer this over passing definition alone so answers stay aligned with notes.
+ * Build a comprehensive study-material brief for the tutor from a full Topic.
+ * Serializes every content field so the AI model has the same information the
+ * student sees on the study page.
  */
-export function buildTopicContext(topic: {
-  definition?: string;
-  keyFacts?: string[];
-  examPoints?: string[];
-  commonMistakes?: Array<string | { mistake?: string; correction?: string }>;
-  explanationSections?: Array<{ heading?: string; body?: string }>;
-  formula?: { name?: string; expression?: string } | Array<{ name?: string; expression?: string }>;
-}): string {
+export function buildTopicContext(topic: Topic): string {
   const parts: string[] = [];
+
   if (topic.definition?.trim()) {
-    parts.push(`Definition: ${topic.definition.trim()}`);
+    parts.push(`Definition: ${clip(topic.definition.trim(), 1000)}`);
   }
+
   if (topic.keyFacts?.length) {
-    parts.push('Key facts:\n' + topic.keyFacts.slice(0, 12).map((f) => `- ${f}`).join('\n'));
+    parts.push('Key facts:\n' + topic.keyFacts.map((f) => `- ${f}`).join('\n'));
   }
+
   if (topic.explanationSections?.length) {
-    const sections = topic.explanationSections.slice(0, 2).map((s) => {
+    const sections = topic.explanationSections.map((s) => {
       const body = (s.body || '').trim();
-      const clipped = body.length > 600 ? body.slice(0, 600) + '…' : body;
-      return `${s.heading ? s.heading + ': ' : ''}${clipped}`;
+      return `${s.heading ? s.heading + ': ' : ''}${clip(body, 1000)}`;
     });
     parts.push('Explanations:\n' + sections.join('\n\n'));
   }
+
+  const formulas = Array.isArray(topic.formula) ? topic.formula : topic.formula ? [topic.formula] : [];
+  if (formulas.length) {
+    parts.push('Formulas:\n' + formulas.map((f) => `- ${serializeFormula(f)}`).join('\n'));
+  }
+
+  if (topic.quantFormulas?.length) {
+    parts.push('Quant formulas:\n' + topic.quantFormulas.map((f) => `- ${f.name}: ${f.expression}${f.note ? ` (${f.note})` : ''}`).join('\n'));
+  }
+
+  if (topic.workedExample) {
+    const examples = Array.isArray(topic.workedExample) ? topic.workedExample : [topic.workedExample];
+    const serialized = examples.map((ex, i) => {
+      const label = examples.length > 1 ? `Worked example ${i + 1}:\n` : '';
+      return label + serializeWorkedExample(ex);
+    });
+    parts.push(serialized.join('\n\n'));
+  }
+
+  if (topic.methodChooser) {
+    parts.push('Method chooser:\n' + serializeMethodChooser(topic.methodChooser));
+  }
+
+  if (topic.limitCases?.length) {
+    parts.push('Limit cases:\n' + serializeLimitCases(topic.limitCases));
+  }
+
+  if (topic.misconceptionRemediation?.length) {
+    const items = topic.misconceptionRemediation.map((m) => {
+      const lines = [`- Misconception: ${m.misconception}`];
+      if (m.whyStudentsThinkIt) lines.push(`  Why it seems right: ${clip(m.whyStudentsThinkIt, 300)}`);
+      if (m.correctModel) lines.push(`  Correct model: ${clip(m.correctModel, 400)}`);
+      if (m.remedy) lines.push(`  Remedy: ${clip(m.remedy, 400)}`);
+      if (m.drill) lines.push(`  Drill: ${clip(m.drill, 300)}`);
+      return lines.join('\n');
+    });
+    parts.push('Misconceptions:\n' + items.join('\n'));
+  }
+
+  if (topic.qualitativeScenarios?.length) {
+    const items = topic.qualitativeScenarios.map((q) =>
+      `- Scenario: ${q.scenario}\n  Answer: ${q.answer}\n  Why: ${clip(q.why, 300)}`,
+    );
+    parts.push('Think it through:\n' + items.join('\n'));
+  }
+
   if (topic.commonMistakes?.length) {
-    const mistakes = topic.commonMistakes.slice(0, 6).map((m) => {
+    const mistakes = topic.commonMistakes.map((m) => {
       if (typeof m === 'string') return `- ${m}`;
-      const o = m as { mistake?: string; correction?: string };
-      return `- ${o.mistake || ''}${o.correction ? ' → ' + o.correction : ''}`.trim();
+      const o = m as { mistake: string; correction: string; explanation: string };
+      return `- ${o.mistake} → ${o.correction}${o.explanation ? ` (${clip(o.explanation, 200)})` : ''}`;
     });
     parts.push('Common mistakes:\n' + mistakes.join('\n'));
   }
+
   if (topic.examPoints?.length) {
-    parts.push('Exam points:\n' + topic.examPoints.slice(0, 8).map((p) => `- ${p}`).join('\n'));
+    parts.push('Exam points:\n' + topic.examPoints.map((p) => `- ${p}`).join('\n'));
   }
-  const formulas = Array.isArray(topic.formula) ? topic.formula : topic.formula ? [topic.formula] : [];
-  if (formulas.length) {
-    parts.push(
-      'Formulas:\n' +
-        formulas
-          .slice(0, 6)
-          .map((f) => `- ${f.name || 'Formula'}: ${f.expression || ''}`)
-          .join('\n'),
-    );
+
+  if (topic.pakistanExamFocus?.length) {
+    parts.push('Pakistan exam focus:\n' + topic.pakistanExamFocus.map((p) => `- ${p}`).join('\n'));
   }
+
+  if (topic.comparisonTable) {
+    parts.push('Comparison table:\n' + serializeComparisonTable(topic.comparisonTable));
+  }
+  if (topic.comparisonTableEras) {
+    parts.push('Comparison table (eras):\n' + serializeComparisonTable(topic.comparisonTableEras));
+  }
+  if (topic.comparisonTableEras2) {
+    parts.push('Comparison table (eras 2):\n' + serializeComparisonTable(topic.comparisonTableEras2));
+  }
+  if (topic.comparisonTableHazards) {
+    parts.push('Comparison table (hazards):\n' + serializeComparisonTable(topic.comparisonTableHazards));
+  }
+
+  if (topic.vocabularyGroups?.length) {
+    const groups = topic.vocabularyGroups.map((g) => {
+      const words = g.words.map((w) => `${w.word}: ${w.definition}${w.synonym ? ` (syn: ${w.synonym})` : ''}${w.antonym ? ` (ant: ${w.antonym})` : ''}`).join('; ');
+      return `${g.title}: ${clip(words, 600)}`;
+    });
+    parts.push('Vocabulary:\n' + groups.join('\n'));
+  }
+
+  if (topic.idiomGroups?.length) {
+    const groups = topic.idiomGroups.map((g) => {
+      const idioms = g.idioms.map((i) => `"${i.idiom}": ${i.meaning}`).join('; ');
+      return `${g.title}: ${clip(idioms, 600)}`;
+    });
+    parts.push('Idioms:\n' + groups.join('\n'));
+  }
+
+  if (topic.substitutionGroups?.length) {
+    const groups = topic.substitutionGroups.map((g) => {
+      const entries = g.entries.map((e) => `${e.term}: ${e.definition}`).join('; ');
+      return `${g.groupTitle}: ${clip(entries, 600)}`;
+    });
+    parts.push('One-word substitutions:\n' + groups.join('\n'));
+  }
+
+  if (topic.prefixGroups?.length) {
+    const groups = topic.prefixGroups.map((g) => {
+      const items = g.prefixes.map((p) => `${p.prefix}: ${p.meaning}`).join('; ');
+      return `${g.title}: ${clip(items, 500)}`;
+    });
+    parts.push('Prefixes:\n' + groups.join('\n'));
+  }
+
+  if (topic.suffixGroups?.length) {
+    const groups = topic.suffixGroups.map((g) => {
+      const items = g.suffixes.map((s) => `${s.suffix}: ${s.meaning} (${s.partOfSpeech})`).join('; ');
+      return `${g.title}: ${clip(items, 500)}`;
+    });
+    parts.push('Suffixes:\n' + groups.join('\n'));
+  }
+
+  if (topic.rootGroups?.length) {
+    const groups = topic.rootGroups.map((g) => {
+      const items = g.roots.map((r) => `${r.root}: ${r.meaning}`).join('; ');
+      return `${g.title}: ${clip(items, 500)}`;
+    });
+    parts.push('Roots:\n' + groups.join('\n'));
+  }
+
+  if (topic.grammarRules?.length) {
+    const groups = topic.grammarRules.map((g) => {
+      const rules = g.rules.map((r) => `${r.ruleNumber}. ${r.title}: ${clip(r.description, 300)} (✓: ${r.correctExample}, ✗: ${r.incorrectExample})`).join('; ');
+      return `${g.category}: ${clip(rules, 600)}`;
+    });
+    parts.push('Grammar rules:\n' + groups.join('\n'));
+  }
+
+  if (topic.subtopics?.length) {
+    const items = topic.subtopics.map((s) => {
+      const examples = s.examples.map((e) => `${e.problem} → ${e.solution}`).join('; ');
+      const traps = s.traps.length ? ` Traps: ${s.traps.join('; ')}` : '';
+      const shortcuts = s.shortcuts.length ? ` Shortcuts: ${s.shortcuts.join('; ')}` : '';
+      return `- ${s.title}: ${clip(s.summary, 300)} ${clip(s.explanation, 400)}${examples ? ` Examples: ${clip(examples, 400)}` : ''}${shortcuts}${traps}`;
+    });
+    parts.push('Subtopics:\n' + items.join('\n'));
+  }
+
+  if (Array.isArray(topic.postRestriction) && topic.postRestriction.length) {
+    const rules = topic.postRestriction.map((r) => `- ${r.rule}: ${r.restriction} → ${r.consequence}`);
+    parts.push('Post-restriction rules:\n' + rules.join('\n'));
+  }
+
   const joined = parts.join('\n\n');
   if (joined.length <= MAX_CONTEXT_CHARS) return joined;
   return joined.slice(0, MAX_CONTEXT_CHARS) + '\n…';
