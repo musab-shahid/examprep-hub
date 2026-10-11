@@ -2881,4 +2881,85 @@ export const questions: Question[] = [
     explanation: "Early EIA, monitoring/enforcement, and provincial capacity are all valid. PEPA (statute) and EIA (assessment process) are not the same document.",
     sourceCitation: "Environmental governance principles" },
 
+
+  // Additional governance items (coverage top-up)
+  { id: "ENV-06-Q089", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "Public participation in environmental assessment is best described as:",
+    options: [
+      "Optional window-dressing with no governance value",
+      "A practice that improves transparency and can surface local impacts before decisions harden",
+      "A replacement for technical baseline studies",
+      "Required only after a project is fully built"
+    ],
+    correctAnswer: 1,
+    explanation: "Disclosure and public input help identify local impacts and build legitimacy. They complement, rather than replace, technical studies and must happen early enough to matter.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q090", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "Which statement best captures the relationship between NEQS and ambient environmental quality?",
+    options: [
+      "Publishing NEQS automatically guarantees ambient standards are met nationwide",
+      "NEQS set numeric limits; monitoring and enforcement determine whether ambient quality improves",
+      "NEQS apply only to noise, not air or water",
+      "NEQS replace the need for project-level EIA"
+    ],
+    correctAnswer: 1,
+    explanation: "Standards are necessary but not sufficient. Without monitoring, permits, and enforcement, ambient air and water may still fail to meet quality goals.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q091", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "true_false",
+    question: "True or False: An IEE and a full EIA are always identical in scope and depth.",
+    options: ["True", "False"],
+    correctAnswer: 1,
+    explanation: "False. An Initial Environmental Examination is a preliminary/screening-level tool; a full EIA is deeper and used when impacts may be significant.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q092", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "hard", type: "single",
+    question: "A large dam project with major resettlement and ecosystem disruption would most appropriately require:",
+    options: [
+      "No assessment if the project is state-owned",
+      "Only a voluntary corporate brochure",
+      "A full Environmental Impact Assessment with mitigation and public process appropriate to scale",
+      "Only a post-construction audit with no prior review"
+    ],
+    correctAnswer: 2,
+    explanation: "High-impact projects need thorough prior assessment (EIA-scale), not only after-the-fact review. Ownership does not remove impact risk.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q093", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "single",
+    question: "After the 18th Amendment, which description is most accurate for environmental administration in Pakistan?",
+    options: [
+      "Environment became exclusively an international treaty subject with no domestic role",
+      "Provinces gained greater responsibility while federal coordination remains relevant for standards and transboundary issues",
+      "All environmental functions were abolished",
+      "Only local governments may set NEQS, never provinces or federation"
+    ],
+    correctAnswer: 1,
+    explanation: "Devolution strengthened provincial roles, but national standards, coordination, and international commitments still shape the system.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q094", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "easy", type: "single",
+    question: "PEPA in standard Pakistani syllabus teaching refers to:",
+    options: [
+      "Pakistan Environmental Protection Act",
+      "Paris Environmental Payments Agreement",
+      "Provincial Energy Pricing Authority",
+      "Public Export Processing Arrangement"
+    ],
+    correctAnswer: 0,
+    explanation: "PEPA is the Pakistan Environmental Protection Act — the commonly cited statutory framework for modern environmental regulation in syllabus materials.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q095", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "hard", type: "multi",
+    question: "Which practices support effective environmental governance? (Select all that apply.)",
+    options: [
+      "Clear standards such as NEQS",
+      "Early screening and assessment (IEE/EIA) before major decisions",
+      "Monitoring and enforceable compliance",
+      "Hiding assessment documents from all stakeholders"
+    ],
+    correctAnswer: [0, 1, 2],
+    explanation: "Standards, prior assessment, and enforcement support governance. Secrecy undermines public participation and accountability.",
+    sourceCitation: "Environmental governance principles" },
+  { id: "ENV-06-Q096", sectionId: "ENV-06", topicId: "env-environmental-governance", difficulty: "medium", type: "true_false",
+    question: "True or False: Passing environmental legislation is sufficient by itself to ensure clean air and water without institutions or enforcement.",
+    options: ["True", "False"],
+    correctAnswer: 1,
+    explanation: "False. Laws need capable institutions, monitoring, and compliance; text on paper does not by itself deliver ambient quality.",
+    sourceCitation: "Environmental governance principles" },
+
 ];

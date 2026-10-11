@@ -58,18 +58,24 @@ explanationSections: [
         explanation: "Environmental problems rarely stay inside a single sphere of the Earth system. Smoke released into the atmosphere can form acids that later fall in rain, changing the chemistry of rivers and lakes in the hydrosphere and the soils of the lithosphere, and then affecting plants, animals, and people in the biosphere. The four-sphere picture is therefore a way of tracing connections rather than a set of isolated boxes.\n\nWhen you analyse a case — urban smog, oil pollution, or deforestation — it helps to ask which sphere is the main source of the stress and which spheres receive the consequences. That habit turns vocabulary into a tool for explanation.",
                 examples: [
           {
-            problem: "Which statement best matches “Why the four-sphere framework matters”?",
-            solution: "The accurate idea is: Environmental problems rarely stay inside a single sphere of the Earth system. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Environmental problems rarely stay inside a single sphere of the Earth system.",
+            problem: "Acid rain forms in the atmosphere and later damages lakes and soils. Which spheres are involved as source and receivers?",
+            solution: "Source stress is atmospheric (acid-forming gases); consequences hit hydrosphere (lakes) and lithosphere (soils), then biosphere (fish, forests).",
+            answer: "Atmosphere → hydrosphere/lithosphere/biosphere",
           },
           {
-            problem: "Give one exam trap students hit when studying Why the four-sphere framework matters.",
-            solution: "Stay close to the text: Environmental problems rarely stay inside a single sphere of the Earth system. Smoke released into the atmosphere can form acids that later fall in rain, changing the chemistry of rivers and lakes in the hydrosphere and … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Oil spills at sea primarily stress which sphere first, and how can effects reach the biosphere?",
+            solution: "Hydrosphere is the first medium; toxic effects and habitat damage then affect marine and coastal biosphere.",
+            answer: "Hydrosphere first → biosphere impacts",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Trace source sphere → receiving spheres",
+          "Problems cross sphere boundaries"
+        ],
+        traps: [
+          "Treating spheres as sealed boxes",
+          "Calling every problem 'only atmospheric'"
+        ],
       },
       {
         id: "env-fundamentals-and-sustainability-core-distinctions-in-environmental-vocab",
@@ -78,18 +84,30 @@ explanationSections: [
         explanation: "Several paired terms appear throughout environmental studies. Biotic factors are living; abiotic factors are non-living physical and chemical conditions. A habitat is the place where an organism lives; a niche is the role it plays, including how it obtains energy and interacts with others. A population is a group of one species in an area; a community is the set of populations that live together there.\n\nEcology is the scientific study of those relationships. An ecosystem is the working unit formed when a community interacts with its abiotic environment. Keeping the pairs distinct prevents circular definitions and makes later topics — pollution, conservation, productivity — easier to read with precision.",
                 examples: [
           {
-            problem: "Which statement best matches “Core distinctions in environmental vocabulary”?",
-            solution: "The accurate idea is: Several paired terms appear throughout environmental studies. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Several paired terms appear throughout environmental studies.",
+            problem: "Is a tree biotic or abiotic? Is soil moisture biotic or abiotic?",
+            solution: "Tree = biotic (living). Soil moisture = abiotic (non-living physical factor).",
+            answer: "Tree biotic; moisture abiotic",
           },
           {
-            problem: "Give one exam trap students hit when studying Core distinctions in environmental vocabulary.",
-            solution: "Stay close to the text: Several paired terms appear throughout environmental studies. Biotic factors are living; abiotic factors are non-living physical and chemical conditions. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
+            problem: "Population vs community: which includes only one species?",
+            solution: "Population = individuals of one species in an area. Community = all species in the area.",
+            answer: "Population = one species",
           },
+          {
+            problem: "Habitat vs niche in one line?",
+            solution: "Habitat is where an organism lives; niche is its role (resources, interactions) in the ecosystem.",
+            answer: "Habitat = address; niche = job",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Biotic = living; abiotic = non-living",
+          "Population ⊂ community",
+          "Habitat ≠ niche"
+        ],
+        traps: [
+          "Swapping population and community",
+          "Treating niche as only 'habitat'"
+        ],
       },
       {
         id: "env-fundamentals-and-sustainability-brundtland-and-the-three-pillars",
@@ -98,18 +116,30 @@ explanationSections: [
         explanation: "The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. The definition is deliberately broad: it links human development to limits on what the environment and future societies can bear.\n\nThe three pillars — economic, social, and environmental — underline that a project can fail sustainability even if it is profitable, if it undermines social well-being or ecological systems. Related principles, such as taking precaution under uncertainty and requiring polluters to bear the costs of the damage they cause, give the idea operational content in policy.",
                 examples: [
           {
-            problem: "Which statement best matches “Brundtland and the three pillars”?",
-            solution: "The accurate idea is: The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet the…",
+            problem: "State the Brundtland idea of sustainable development in one sentence.",
+            solution: "Development that meets present needs without compromising future generations' ability to meet theirs.",
+            answer: "Present needs without compromising future needs",
           },
           {
-            problem: "Give one exam trap students hit when studying Brundtland and the three pillars.",
-            solution: "Stay close to the text: The Brundtland Report (1987) described sustainable development as development that meets the needs of the present without compromising the ability of future generations to meet their own needs. The definition is delibera… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
+            problem: "Why are economic, social, and environmental pillars all required?",
+            solution: "Growth that destroys ecology or equity is not sustainable; all three must be balanced.",
+            answer: "All three pillars must balance",
           },
+          {
+            problem: "Precautionary principle vs waiting for full scientific certainty — which fits sustainability governance?",
+            solution: "Precautionary principle: act to prevent harm when evidence is uncertain rather than wait for proof.",
+            answer: "Precautionary principle",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Brundtland 1987",
+          "Three pillars",
+          "Precaution + polluter-pays"
+        ],
+        traps: [
+          "Sustainability = only GDP growth",
+          "Ignoring intergenerational equity"
+        ],
       },
     ],
     relatedTopics: ["env-carry-capacity-and-footprint", "env-biodiversity", "env-natural-resources"],
@@ -172,18 +202,25 @@ explanationSections: [
         explanation: "Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. It is not a fixed number stamped on the landscape. Food supply, disease, climate, and human management can raise or lower it.\n\nPopulation models often contrast exponential growth, which assumes unlimited resources, with logistic growth, in which growth slows as the population approaches carrying capacity. The S-shaped logistic curve is a teaching model; real populations fluctuate around limits rather than sitting perfectly on a single K value.",
                 examples: [
           {
-            problem: "Which statement best matches “Why carrying capacity matters”?",
-            solution: "The accurate idea is: Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base.",
+            problem: "What does carrying capacity (K) mean for a population?",
+            solution: "Approximate maximum population size an environment can support long-term without permanent resource degradation.",
+            answer: "Max sustainable population for that environment",
           },
           {
-            problem: "Give one exam trap students hit when studying Why carrying capacity matters.",
-            solution: "Stay close to the text: Carrying capacity is the approximate number of individuals of a species that an environment can support over the long term without permanent damage to the resource base. It is not a fixed number stamped on the landscape. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Logistic (S-shaped) vs exponential (J-shaped) growth — which approaches K?",
+            solution: "Logistic growth slows as it approaches K; exponential has no limits in the model and is only short-term in nature.",
+            answer: "Logistic approaches K",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "K = long-term supportable size",
+          "Limiting factor sets K",
+          "S-curve vs J-curve"
+        ],
+        traps: [
+          "K is a fixed universal constant for all species",
+          "Assuming unlimited exponential growth in nature"
+        ],
       },
       {
         id: "env-carry-capacity-and-footprint-ecological-footprint-and-biocapacity",
@@ -192,18 +229,30 @@ explanationSections: [
         explanation: "Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Biocapacity estimates the productive capacity available to regenerate resources and absorb wastes.\n\nWhen footprint exceeds biocapacity, the system is in ecological overshoot: present consumption draws on stocks faster than they renew. Footprint answers how much demand we place on nature; biocapacity answers how much supply is available. Mixing the two terms blurs that demand–supply comparison.",
                 examples: [
           {
-            problem: "Which statement best matches “Ecological footprint and biocapacity”?",
-            solution: "The accurate idea is: Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dio…",
+            problem: "Ecological footprint vs biocapacity — which is demand and which is supply?",
+            solution: "Footprint = demand (area needed for consumption and waste). Biocapacity = regenerative supply.",
+            answer: "Footprint demand; biocapacity supply",
           },
           {
-            problem: "Give one exam trap students hit when studying Ecological footprint and biocapacity.",
-            solution: "Stay close to the text: Ecological footprint estimates the area of productive land and water required to support a given lifestyle or economy, including the land needed to absorb wastes such as carbon dioxide. Biocapacity estimates the producti… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
+            problem: "What is ecological overshoot?",
+            solution: "When humanity's footprint exceeds Earth's biocapacity — demand above regenerative supply.",
+            answer: "Footprint > biocapacity",
           },
+          {
+            problem: "Earth Overshoot Day marks what?",
+            solution: "The date each year when humanity has used the resources Earth can regenerate that year.",
+            answer: "Annual resource budget exhausted",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Footprint = demand (gha)",
+          "Biocapacity = supply",
+          "Overshoot = demand > supply"
+        ],
+        traps: [
+          "Footprint and biocapacity are the same metric",
+          "Overshoot means a single local park is crowded"
+        ],
       },
       {
         id: "env-carry-capacity-and-footprint-pakistan-and-global-context",
@@ -212,18 +261,23 @@ explanationSections: [
         explanation: "National averages can hide sharp differences between countries and within them. A country may show a modest average footprint per person and still run an ecological deficit if biocapacity per person is lower still. Global overshoot is the aggregate result of many such imbalances.\n\nFor Pakistan, the useful study point is the relationship between limited biocapacity, population pressure, and resource management — not a single league-table number in isolation. Footprint language connects daily consumption and national production patterns to land and climate constraints discussed later under water, energy, and land use.",
                 examples: [
           {
-            problem: "Which statement best matches “Pakistan and global context”?",
-            solution: "The accurate idea is: National averages can hide sharp differences between countries and within them. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "National averages can hide sharp differences between countries and within them.",
+            problem: "Why can a national average footprint hide inequality?",
+            solution: "High-consuming groups can dominate the average while many people have much smaller footprints.",
+            answer: "Averages hide within-country differences",
           },
           {
-            problem: "Give one exam trap students hit when studying Pakistan and global context.",
-            solution: "Stay close to the text: National averages can hide sharp differences between countries and within them. A country may show a modest average footprint per person and still run an ecological deficit if biocapacity per person is lower still. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "High meat diets and large housing typically push footprint which way?",
+            solution: "Upward — more land, feed, and energy embodied in consumption.",
+            answer: "Increase footprint",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "National mean ≠ everyone equal",
+          "Lifestyle drives footprint"
+        ],
+        traps: [
+          "One global hectare figure explains every local shortage"
+        ],
       },
     ],
     relatedTopics: ["env-fundamentals-and-sustainability", "env-biodiversity", "env-climate-change-response"],
@@ -285,18 +339,25 @@ explanationSections: [
         explanation: "As energy moves from one trophic level to the next, only a fraction is stored in new biomass. A common teaching approximation is that about ten percent of the energy at one level is incorporated into the next, while the rest is lost as heat through respiration, used in activity, or remains unconsumed. The exact percentage varies, but the direction of the loss does not.\n\nThat loss limits food-chain length. There is simply less energy available to support top predators than to support the plants and algae at the base. The rule also explains why human diets based on plants can support more people from the same primary production than diets that rely heavily on meat from animals that have already paid the energy tax of an extra trophic step.",
                 examples: [
           {
-            problem: "Which statement best matches “Why the 10% rule matters”?",
-            solution: "The accurate idea is: As energy moves from one trophic level to the next, only a fraction is stored in new biomass. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "As energy moves from one trophic level to the next, only a fraction is stored in new biomass.",
+            problem: "If producers store 10,000 units of energy, about how much reaches the next trophic level under the 10% teaching rule?",
+            solution: "About 1,000 units (10%). Most energy is lost as heat, respiration, and unconsumed material.",
+            answer: "~1,000 units",
           },
           {
-            problem: "Give one exam trap students hit when studying Why the 10% rule matters.",
-            solution: "Stay close to the text: As energy moves from one trophic level to the next, only a fraction is stored in new biomass. A common teaching approximation is that about ten percent of the energy at one level is incorporated into the next, while the … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why are food chains usually short?",
+            solution: "Energy loss at each transfer limits how many levels can be supported.",
+            answer: "Energy loss limits chain length",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "~10% to next level (teaching rule)",
+          "Rest lost as heat/waste",
+          "Short chains"
+        ],
+        traps: [
+          "100% of energy passes to the next level",
+          "Treating 10% as an exact law in every ecosystem"
+        ],
       },
       {
         id: "env-ecosystem-structure-and-energy-flow-food-chains-and-food-webs",
@@ -305,18 +366,25 @@ explanationSections: [
         explanation: "A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Real ecosystems are better described as food webs, in which many chains interlock because most animals eat more than one kind of food and are eaten by more than one consumer.\n\nWebs are not only more realistic; they also help explain resilience. If one link weakens, alternative pathways may still move energy through the community. Chains remain useful for teaching trophic levels; webs are closer to how ecosystems actually function.",
                 examples: [
           {
-            problem: "Which statement best matches “Food chains and food webs”?",
-            solution: "The accurate idea is: A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on.",
+            problem: "Which is more realistic for most ecosystems: a single food chain or a food web?",
+            solution: "Food web — multiple linked paths; species often eat and are eaten by more than one other species.",
+            answer: "Food web",
           },
           {
-            problem: "Give one exam trap students hit when studying Food chains and food webs.",
-            solution: "Stay close to the text: A food chain is a simplified linear path: grass is eaten by a herbivore, which is eaten by a predator, and so on. Real ecosystems are better described as food webs, in which many chains interlock because most animals eat… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "In a chain grass → rabbit → fox, which is the producer and which is the primary consumer?",
+            solution: "Grass = producer; rabbit = primary consumer (herbivore).",
+            answer: "Grass producer; rabbit primary consumer",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Chain = simplified path",
+          "Web = linked paths",
+          "Arrows show energy flow"
+        ],
+        traps: [
+          "Drawing arrows toward the organism being eaten",
+          "Assuming every species has only one predator and one prey"
+        ],
       },
       {
         id: "env-ecosystem-structure-and-energy-flow-energy-flows-while-matter-cycles",
@@ -325,18 +393,24 @@ explanationSections: [
         explanation: "Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. It does not cycle back to the sun for reuse inside the system. Matter, by contrast — carbon, nitrogen, water, and other nutrients — moves between living organisms and abiotic reservoirs and can be used again and again.\n\nThis contrast is foundational. Pollution and nutrient problems are largely stories about where matter is moved and concentrated. Limits on food-chain length and the shape of energy pyramids are stories about one-way energy loss.",
                 examples: [
           {
-            problem: "Which statement best matches “Energy flows while matter cycles”?",
-            solution: "The accurate idea is: Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat.",
+            problem: "Does energy cycle from heat back to sunlight within the ecosystem?",
+            solution: "No. Energy flows through and is lost as heat; matter (C, N, P, water) cycles.",
+            answer: "Energy flows; matter cycles",
           },
           {
-            problem: "Give one exam trap students hit when studying Energy flows while matter cycles.",
-            solution: "Stay close to the text: Energy enters ecosystems mainly as sunlight captured by producers and leaves as heat. It does not cycle back to the sun for reuse inside the system. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why can nutrients be reused while high-quality energy cannot?",
+            solution: "Nutrients are recycled by decomposers; usable energy is continually degraded to heat and must be re-supplied (mainly by the Sun).",
+            answer: "Nutrients recycled; energy must be replenished",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Energy → heat (one way)",
+          "Matter cycles via decomposers"
+        ],
+        traps: [
+          "Saying energy cycles like carbon",
+          "Ignoring decomposers in nutrient return"
+        ],
       },
     ],
     relatedTopics: ["env-ecological-pyramids", "env-productivity-and-biogeochemical-cycles", "env-biodiversity"],
@@ -393,18 +467,24 @@ explanationSections: [
         explanation: "Pyramids of numbers count individuals at each trophic level. Pyramids of biomass measure the mass of living material. Pyramids of energy show the flow of energy through each level over a period of time.\n\nNumbers and biomass pyramids can invert. A single large tree may support thousands of insects; a brief bloom of phytoplankton may feed a greater biomass of zooplankton at certain times. An energy pyramid does not invert in the same way, because energy transfer is governed by losses at every step.",
                 examples: [
           {
-            problem: "Which statement best matches “Three kinds of ecological pyramid”?",
-            solution: "The accurate idea is: Pyramids of numbers count individuals at each trophic level. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pyramids of numbers count individuals at each trophic level.",
+            problem: "Name the three common ecological pyramids.",
+            solution: "Numbers, biomass, and energy.",
+            answer: "Numbers, biomass, energy",
           },
           {
-            problem: "Give one exam trap students hit when studying Three kinds of ecological pyramid.",
-            solution: "Stay close to the text: Pyramids of numbers count individuals at each trophic level. Pyramids of biomass measure the mass of living material. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Which pyramid type is always upright in a functioning ecosystem, and why?",
+            solution: "Energy pyramid — energy decreases at each level due to transfer losses.",
+            answer: "Energy pyramid always upright",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Three pyramids: N, B, E",
+          "Energy pyramid never inverted"
+        ],
+        traps: [
+          "Assuming numbers pyramids can never invert",
+          "Confusing biomass with energy"
+        ],
       },
       {
         id: "env-ecological-pyramids-the-energy-pyramid-and-the-10-idea",
@@ -413,18 +493,23 @@ explanationSections: [
         explanation: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Plotting those quantities produces a broad base and a narrow top. The diagram is a visual form of the same thermodynamic story told by the ten percent teaching rule.\n\nBecause energy pyramids rest on measured or estimated flows over time, they are the most reliable of the three for comparing how productive different levels are, independent of whether organisms are large or small, numerous or few.",
                 examples: [
           {
-            problem: "Which statement best matches “The energy pyramid and the 10% idea”?",
-            solution: "The accurate idea is: If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less.",
+            problem: "How does the energy pyramid relate to the 10% teaching rule?",
+            solution: "Each bar is smaller because only a fraction of energy is stored at the next level — the same idea as the 10% rule.",
+            answer: "Bars shrink with trophic level",
           },
           {
-            problem: "Give one exam trap students hit when studying The energy pyramid and the 10% idea.",
-            solution: "Stay close to the text: If producers capture a large quantity of energy, primary consumers will store only a fraction of it, and secondary consumers still less. Plotting those quantities produces a broad base and a narrow top. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is an energy pyramid preferred for comparing trophic efficiency?",
+            solution: "It tracks actual energy flow, not just counts of organisms or standing biomass.",
+            answer: "Measures energy flow",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Energy pyramid ↔ transfer efficiency",
+          "Not the same as a numbers count"
+        ],
+        traps: [
+          "Using a numbers pyramid alone to claim energy increases up the chain"
+        ],
       },
       {
         id: "env-ecological-pyramids-reading-inverted-pyramids-carefully",
@@ -433,18 +518,23 @@ explanationSections: [
         explanation: "An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Biomass inversions in aquatic systems often reflect rapid turnover: small producers reproduce quickly even if their standing biomass is modest.\n\nWhen a question asks which pyramid is always upright, the intended answer is the energy pyramid. When it asks why a numbers pyramid can look inverted, the answer lies in organism size and counting method, not in a reversal of energy flow.",
                 examples: [
           {
-            problem: "Which statement best matches “Reading inverted pyramids carefully”?",
-            solution: "The accurate idea is: An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes.",
+            problem: "Can a pyramid of numbers be inverted? Give a classic case.",
+            solution: "Yes — e.g. many insects on one large tree: few producers (trees) support many herbivores.",
+            answer: "Yes — tree with many insects",
           },
           {
-            problem: "Give one exam trap students hit when studying Reading inverted pyramids carefully.",
-            solution: "Stay close to the text: An inverted pyramid of numbers on a tree is not a violation of physics; it is a consequence of counting units of very different sizes. Biomass inversions in aquatic systems often reflect rapid turnover: small producers r… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Does an inverted numbers pyramid mean energy increases up the chain?",
+            solution: "No. Energy still decreases; only counts (or sometimes biomass snapshots) can invert.",
+            answer: "No — energy still decreases",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Numbers/biomass can invert",
+          "Energy does not invert"
+        ],
+        traps: [
+          "Inverted numbers = more energy at top"
+        ],
       },
     ],
     relatedTopics: ["env-ecosystem-structure-and-energy-flow", "env-productivity-and-biogeochemical-cycles"],
@@ -516,17 +606,22 @@ explanationSections: [
         explanation: "Gross primary productivity (GPP) is the total rate at which producers capture energy by photosynthesis. Plants use some of that energy for their own respiration. Net primary productivity (NPP) is what remains: GPP minus autotrophic respiration. NPP is the energy base available to herbivores and, indirectly, to higher trophic levels.\n\nEcosystems can rank differently on GPP and NPP. A highly productive system with high plant respiration may not pass on as much net energy as a simpler comparison of greenness suggests. For study, always keep the subtraction explicit.",
         examples: [
           {
-            problem: "GPP is 12,000 units per year and plant respiration is 5,000. What is NPP?",
-            solution: "NPP = GPP − plant respiration = 12,000 − 5,000 = 7,000 units per year.",
-            answer: "7,000 units/year",
+            problem: "GPP vs NPP?",
+            solution: "GPP = total photosynthetic capture; NPP = GPP minus plant respiration (available to consumers).",
+            answer: "NPP = GPP − plant respiration",
           },
+          {
+            problem: "Which is available to herbivores as new plant biomass?",
+            solution: "NPP.",
+            answer: "NPP",
+          }
         ],
         shortcuts: [
-          "NPP = GPP − plant respiration",
-          "NPP is what consumers can draw on at the first transfer",
+          "NPP = GPP − R",
+          "NPP feeds the food web"
         ],
         traps: [
-          "Using GPP as if it were already net of plant metabolism",
+          "Treating GPP and NPP as identical"
         ],
       },
       {
@@ -536,21 +631,24 @@ explanationSections: [
         explanation: "In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Oceans and sediments store vast amounts of carbon; fossil fuels are concentrated geological stores. Burning those stores and clearing forests raise atmospheric carbon dioxide.\n\nThe phosphorus cycle lacks a major atmospheric gas phase comparable to carbon dioxide or nitrogen gas. Phosphorus moves chiefly through rock, water, soil, and organisms. That difference is a standard contrast in examinations: phosphorus is often limited in freshwaters and is tightly linked to mining and fertiliser runoff rather than to a well-mixed atmospheric pool.",
                 examples: [
           {
-            problem: "Which statement best matches “Carbon and phosphorus cycles”?",
-            solution: "The accurate idea is: In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it.",
+            problem: "Why is phosphorus often a limiting nutrient in freshwater systems?",
+            solution: "P has no significant gaseous reservoir and moves slowly; scarce available phosphate limits primary production.",
+            answer: "Limited available phosphate",
           },
           {
-            problem: "Give one exam trap students hit when studying Carbon and phosphorus cycles.",
-            solution: "Stay close to the text: In the carbon cycle, photosynthesis pulls carbon dioxide into organic matter and respiration returns it. Oceans and sediments store vast amounts of carbon; fossil fuels are concentrated geological stores. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "How does burning fossil fuels link to the carbon cycle?",
+            solution: "It transfers long-stored carbon into atmospheric CO₂ faster than natural burial rates.",
+            answer: "Stored C → atmospheric CO₂",
+          }
         ],
         shortcuts: [
-          "Carbon has a large atmospheric leg; phosphorus does not",
+          "C has atmosphere reservoir",
+          "P is rock/sediment limited",
+          "Fossil C is fast transfer"
         ],
         traps: [
-          "Inventing a dominant phosphorus gas cycle like N₂ or CO₂",
+          "Treating P like a fully gaseous cycle",
+          "Ignoring human amplification of C and N"
         ],
       },
       {
@@ -560,21 +658,24 @@ explanationSections: [
         explanation: "Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Nitrogen fixation—by certain microbes, by lightning, and by industrial processes such as the Haber–Bosch pathway—converts nitrogen into reactive forms that enter soils and waters.\n\nHuman fertiliser production has greatly increased the flow of reactive nitrogen. Benefits to crop yield come with costs when excess nitrate runs off into water bodies, contributing to eutrophication, or when nitrogen oxides from combustion feed air pollution and deposition.",
                 examples: [
           {
-            problem: "Which statement best matches “Nitrogen fixation and human amplification”?",
-            solution: "The accurate idea is: Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Most atmospheric nitrogen is N₂, which is not directly usable by most organisms.",
+            problem: "Can most plants take up N₂ gas directly?",
+            solution: "No — N₂ must be fixed into reactive forms by microbes, lightning, or industry (e.g. Haber–Bosch).",
+            answer: "No — needs fixation",
           },
           {
-            problem: "Give one exam trap students hit when studying Nitrogen fixation and human amplification.",
-            solution: "Stay close to the text: Most atmospheric nitrogen is N₂, which is not directly usable by most organisms. Nitrogen fixation—by certain microbes, by lightning, and by industrial processes such as the Haber–Bosch pathway—converts nitrogen … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "What is a water-quality cost of excess reactive nitrogen?",
+            solution: "Nitrate runoff contributing to eutrophication (and related air issues from N oxides).",
+            answer: "Eutrophication / nitrate pollution",
+          }
         ],
         shortcuts: [
-          "Fixation unlocks N₂; excess reactive nitrogen stresses water and air",
+          "Fixation unlocks N₂",
+          "Haber–Bosch amplifies reactive N",
+          "Excess N stresses water"
         ],
         traps: [
-          "Thinking plants take up N₂ gas directly without fixation pathways",
+          "Plants use N₂ gas directly",
+          "All nitrogen fertiliser is environmentally neutral"
         ],
       },
     ],
@@ -638,18 +739,31 @@ explanationSections: [
         explanation: "Biodiversity matters partly because ecosystems provide services that human societies rely on. Provisioning services supply food, fibre, fuel, and freshwater. Regulating services include climate moderation, flood buffering, and disease regulation. Cultural services cover recreation, identity, and education. Supporting services, such as nutrient cycling and soil formation, underpin the others.\n\nFraming nature only as scenery misses these functions. Framing it only as a warehouse of products misses regulation and long-term support. A balanced account uses all four service types.",
                 examples: [
           {
-            problem: "Which statement best matches “Ecosystem services”?",
-            solution: "The accurate idea is: Biodiversity matters partly because ecosystems provide services that human societies rely on. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Biodiversity matters partly because ecosystems provide services that human societies rely on.",
+            problem: "Match: pollination and flood regulation → which service group?",
+            solution: "Regulating services.",
+            answer: "Regulating",
           },
           {
-            problem: "Give one exam trap students hit when studying Ecosystem services.",
-            solution: "Stay close to the text: Biodiversity matters partly because ecosystems provide services that human societies rely on. Provisioning services supply food, fibre, fuel, and freshwater. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
+            problem: "Food, timber, and freshwater are mainly which service group?",
+            solution: "Provisioning services.",
+            answer: "Provisioning",
           },
+          {
+            problem: "Soil formation and nutrient cycling that underpin other services are?",
+            solution: "Supporting services.",
+            answer: "Supporting",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Provisioning = products",
+          "Regulating = controls",
+          "Supporting = underpins",
+          "Cultural = non-material"
+        ],
+        traps: [
+          "Calling climate regulation a provisioning service",
+          "Ignoring supporting services"
+        ],
       },
       {
         id: "env-biodiversity-genetic-species-and-ecosystem-diversity",
@@ -658,18 +772,24 @@ explanationSections: [
         explanation: "Genetic diversity is variation within a species. It allows populations to adapt to disease and environmental change. Species diversity is the variety of species in a place. Ecosystem diversity is the variety of habitats and ecological communities across a landscape.\n\nAlpha, beta, and gamma diversity are related measurement ideas: diversity within a site, difference between sites, and diversity of a whole region. The vocabulary is less important than the insight that 'how many species here' is not the only question — structure across space matters too.",
                 examples: [
           {
-            problem: "Which statement best matches “Genetic, species, and ecosystem diversity”?",
-            solution: "The accurate idea is: Genetic diversity is variation within a species. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Genetic diversity is variation within a species.",
+            problem: "Three levels of biodiversity?",
+            solution: "Genetic, species, and ecosystem diversity.",
+            answer: "Genetic, species, ecosystem",
           },
           {
-            problem: "Give one exam trap students hit when studying Genetic, species, and ecosystem diversity.",
-            solution: "Stay close to the text: Genetic diversity is variation within a species. It allows populations to adapt to disease and environmental change. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Species richness vs evenness?",
+            solution: "Richness = number of species; evenness = how equally individuals are distributed among species.",
+            answer: "Richness = count; evenness = balance",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Three levels",
+          "Richness ≠ evenness"
+        ],
+        traps: [
+          "Biodiversity = only species count",
+          "Ignoring genetic diversity within crops/livestock"
+        ],
       },
       {
         id: "env-biodiversity-hotspots-and-the-idea-of-priority",
@@ -678,18 +798,23 @@ explanationSections: [
         explanation: "Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. The hotspot idea is a prioritisation tool: it focuses limited conservation resources where unique species and high threat coincide.\n\nThreshold definitions used in the literature (including endemism and habitat-loss criteria) are conventions for ranking urgency. They do not mean that non-hotspot areas lack value; they mean that loss in hotspots destroys species found nowhere else at a particularly high rate.",
                 examples: [
           {
-            problem: "Which statement best matches “Hotspots and the idea of priority”?",
-            solution: "The accurate idea is: Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat.",
+            problem: "What two ideas define a biodiversity hotspot in classic teaching?",
+            solution: "High endemism plus severe habitat loss — priority areas for conservation attention.",
+            answer: "Endemism + habitat loss",
           },
           {
-            problem: "Give one exam trap students hit when studying Hotspots and the idea of priority.",
-            solution: "Stay close to the text: Biodiversity hotspots are regions that hold exceptional concentrations of endemic species and have already lost a large share of their original habitat. The hotspot idea is a prioritisation tool: it focuses limited conse… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why prioritise hotspots rather than only total species lists?",
+            solution: "Limited resources should protect unique species under high threat.",
+            answer: "Unique + threatened → priority",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Hotspot = endemism + threat",
+          "Priority tool, not the only tool"
+        ],
+        traps: [
+          "Hotspot = any species-rich park with no threat criterion"
+        ],
       },
     ],
     relatedTopics: ["env-biodiversity-threats-and-iucn", "env-conservation-and-extinction", "env-ecosystem-structure-and-energy-flow"],
@@ -754,18 +879,23 @@ explanationSections: [
         explanation: "Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Roads and settlements can split remaining habitat into patches that are too small or too isolated to sustain viable populations.\n\nOther pressures — invasive species, pollution, overexploitation, and climate change — often act on top of habitat loss rather than instead of it. Ranking habitat change first is an empirical generalisation about global patterns, not a claim that other threats are unimportant in particular places.",
                 examples: [
           {
-            problem: "Which statement best matches “Habitat loss as the leading threat”?",
-            solution: "The accurate idea is: Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate.",
+            problem: "What is generally ranked as the leading global threat to biodiversity?",
+            solution: "Habitat loss and degradation.",
+            answer: "Habitat loss",
           },
           {
-            problem: "Give one exam trap students hit when studying Habitat loss as the leading threat.",
-            solution: "Stay close to the text: Across the world, the conversion and fragmentation of forests, wetlands, grasslands, and coasts remove the places species need to feed, breed, and migrate. Roads and settlements can split remaining habitat into patches t… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "HIPPO-style memory list — name the major threat groups.",
+            solution: "Habitat loss, Invasive species, Pollution, Population (human), Overharvesting (and climate change often added in modern lists).",
+            answer: "HIPPO (+ climate)",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Habitat loss #1",
+          "HIPPO memory"
+        ],
+        traps: [
+          "Assuming pollution alone explains most extinctions"
+        ],
       },
       {
         id: "env-biodiversity-threats-and-iucn-the-iucn-red-list-as-a-status-language",
@@ -774,18 +904,23 @@ explanationSections: [
         explanation: "The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. The list is a shared language for scientists and policymakers; it is not itself a law.\n\nOrder matters when reading options. A critically endangered species faces a higher assessed risk than a vulnerable one. Categories can change as new data arrive, so the list is a living assessment rather than a permanent label.",
                 examples: [
           {
-            problem: "Which statement best matches “The IUCN Red List as a status language”?",
-            solution: "The accurate idea is: The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and ext…",
+            problem: "What is the IUCN Red List mainly used for?",
+            solution: "A standardised status language for extinction risk (e.g. VU, EN, CR, EX).",
+            answer: "Standard extinction-risk categories",
           },
           {
-            problem: "Give one exam trap students hit when studying The IUCN Red List as a status language.",
-            solution: "Stay close to the text: The IUCN Red List classifies species according to extinction risk, using categories that range from least concern through vulnerable and endangered to critically endangered and extinct. The list is a shared language for … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Does a Red List category itself implement a national park?",
+            solution: "No — it is assessment/status language; protection needs policy and management.",
+            answer: "Status ≠ automatic protection",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Red List = risk categories",
+          "Assessment ≠ management"
+        ],
+        traps: [
+          "Thinking Red List listing alone stops all threats"
+        ],
       },
       {
         id: "env-biodiversity-threats-and-iucn-human-population-and-consumption",
@@ -794,18 +929,23 @@ explanationSections: [
         explanation: "Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Affluent consumption patterns can stress ecosystems far from the consumer through trade.\n\nThreat frameworks sometimes use memory aids that list habitat loss, invasive species, pollution, population, and overharvest. The value of such lists is organisation; the substance is understanding mechanisms in real landscapes.",
                 examples: [
           {
-            problem: "Which statement best matches “Human population and consumption”?",
-            solution: "The accurate idea is: Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organis…",
+            problem: "Why do both population size and consumption level matter for biodiversity pressure?",
+            solution: "Total impact scales with number of people and resource use per person.",
+            answer: "Numbers × consumption",
           },
           {
-            problem: "Give one exam trap students hit when studying Human population and consumption.",
-            solution: "Stay close to the text: Rising human numbers increase aggregate demand for food, water, land, and materials, but impact also depends on how much each person consumes and how production systems are organised. Affluent consumption patterns can st… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "High consumption lifestyles affect biodiversity mainly through what pathway?",
+            solution: "Demand for land, water, energy, and materials that drives habitat conversion and pollution.",
+            answer: "Demand → habitat/pollution pressure",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Impact ≈ population × consumption",
+          "Lifestyle footprint matters"
+        ],
+        traps: [
+          "Blaming only population while ignoring high per-capita use"
+        ],
       },
     ],
     relatedTopics: ["env-biodiversity", "env-conservation-and-extinction", "env-climate-change-response"],
@@ -864,18 +1004,23 @@ explanationSections: [
         explanation: "In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. It preserves not only target species but also the ecological relationships that sustain them. Ex-situ conservation keeps organisms outside their natural habitats — in zoos, aquaria, seed banks, and captive breeding programmes.\n\nEx-situ methods can rescue populations on the brink and store genetic material, but they cannot replace functioning ecosystems at scale. Strong programmes often combine both: protected habitats in the wild, with captive or stored populations as insurance.",
                 examples: [
           {
-            problem: "Which statement best matches “In-situ and ex-situ conservation”?",
-            solution: "The accurate idea is: In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures.",
+            problem: "In-situ vs ex-situ: which keeps species in their natural habitat?",
+            solution: "In-situ (e.g. protected areas). Ex-situ = zoos, seed banks, captive breeding.",
+            answer: "In-situ = natural habitat",
           },
           {
-            problem: "Give one exam trap students hit when studying In-situ and ex-situ conservation.",
-            solution: "Stay close to the text: In-situ conservation protects species in their natural habitats through national parks, wildlife sanctuaries, and similar measures. It preserves not only target species but also the ecological relationships that sustain … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "When is ex-situ especially useful?",
+            solution: "When wild populations are tiny or habitat is gone — as a backup, not a full substitute for ecosystems.",
+            answer: "Backup when wild options fail",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "In-situ preferred when possible",
+          "Ex-situ = complementary"
+        ],
+        traps: [
+          "Ex-situ alone replaces ecosystem conservation"
+        ],
       },
       {
         id: "env-conservation-and-extinction-mass-extinctions-and-the-present-day",
@@ -884,18 +1029,23 @@ explanationSections: [
         explanation: "Earth’s history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and related pressures, and because it unfolds on a human rather than only a deep-time schedule.\n\nCalling the present a sixth mass extinction is a way of stressing rate and global scope. Whether every formal palaeontological criterion is met matters less for policy than the observed acceleration of losses and the irreversible character of species extinction.",
                 examples: [
           {
-            problem: "Which statement best matches “Mass extinctions and the present day”?",
-            solution: "The accurate idea is: Earth’s history records several episodes of elevated extinction spread over geological time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Earth’s history records several episodes of elevated extinction spread over geological time.",
+            problem: "How does the present extinction wave differ from deep-time mass extinctions in teaching terms?",
+            solution: "Current losses are unusually fast and strongly linked to human pressures.",
+            answer: "Faster + human-driven",
           },
           {
-            problem: "Give one exam trap students hit when studying Mass extinctions and the present day.",
-            solution: "Stay close to the text: Earth’s history records several episodes of elevated extinction spread over geological time. The present crisis is distinctive because it is driven primarily by human land use, exploitation, climate forcing, and relate… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Is background extinction the same as a mass extinction?",
+            solution: "No. Background = normal low rate; mass extinction = much higher, broad losses.",
+            answer: "Background ≠ mass extinction",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Present crisis is rapid and anthropogenic",
+          "Background vs mass rates"
+        ],
+        traps: [
+          "Claiming extinction is new to Earth history"
+        ],
       },
       {
         id: "env-conservation-and-extinction-conservation-in-the-pakistani-setting",
@@ -904,18 +1054,23 @@ explanationSections: [
         explanation: "Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting point; explaining how habitat corridors, enforcement, and community livelihoods affect outcomes is the deeper task.\n\nInternational categories and local management meet here: a species may be globally listed while its survival depends on provincial capacity and land-use decisions on the ground.",
                 examples: [
           {
-            problem: "Which statement best matches “Conservation in the Pakistani setting”?",
-            solution: "The accurate idea is: Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction.",
+            problem: "Name two in-situ tools relevant to Pakistan.",
+            solution: "National parks, wildlife sanctuaries, game reserves, or community conservation areas (any two valid).",
+            answer: "Protected areas / community reserves",
           },
           {
-            problem: "Give one exam trap students hit when studying Conservation in the Pakistani setting.",
-            solution: "Stay close to the text: Pakistan’s conservation story includes protected areas, endangered species of national symbolism, and intense pressure from agriculture, infrastructure, and resource extraction. Naming parks and species is a starting p… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why does forest cover near ~5% matter for conservation framing in Pakistan?",
+            solution: "It signals limited forest habitat relative to needs and global benchmarks — a standard FPSC anchor statistic.",
+            answer: "~5% forest cover = scarce forest habitat",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Protected areas = in-situ",
+          "~5% forest cover exam figure"
+        ],
+        traps: [
+          "Assuming Pakistan has average global forest cover (~30%)"
+        ],
       },
     ],
     relatedTopics: ["env-biodiversity", "env-biodiversity-threats-and-iucn"],
@@ -975,18 +1130,24 @@ explanationSections: [
         explanation: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slowly that current stocks are effectively finite for society — fossil fuels and many minerals among them.\n\nRenewable does not mean unlimited. Overfishing and deforestation show how rapidly a renewable resource can be degraded. Non-renewable does not mean useless to conserve: efficiency and recycling stretch finite stocks and reduce extraction damage.",
                 examples: [
           {
-            problem: "Which statement best matches “Renewable and non-renewable resources”?",
-            solution: "The accurate idea is: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examp…",
+            problem: "Solar energy vs coal — classify renewable vs non-renewable.",
+            solution: "Solar = renewable on human timescales; coal = non-renewable fossil stock.",
+            answer: "Solar renewable; coal non-renewable",
           },
           {
-            problem: "Give one exam trap students hit when studying Renewable and non-renewable resources.",
-            solution: "Stay close to the text: Renewable resources can replenish on human timescales if harvest rates stay within recovery rates — sunlight, wind, and carefully managed forests and fisheries are standard examples. Non-renewable resources form so slo… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Can a renewable resource still be depleted?",
+            solution: "Yes — if harvest exceeds regeneration (e.g. overfished stocks, over-cut forests).",
+            answer: "Yes if overused",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Renewable = regenerates",
+          "Non-renewable = finite stock",
+          "Overuse can exhaust renewables"
+        ],
+        traps: [
+          "Renewable = unlimited under any use rate"
+        ],
       },
       {
         id: "env-natural-resources-the-waste-hierarchy-as-a-resource-idea",
@@ -995,18 +1156,23 @@ explanationSections: [
         explanation: "Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load altogether. Reuse keeps products in service. Recycling and recovery reclaim materials or energy. Disposal in landfills or poorly controlled dumps is the least preferred outcome.\n\nThe hierarchy is a planning order, not a claim that recycling alone solves resource pressure. It links natural-resource management to the soil and waste topics that follow.",
                 examples: [
           {
-            problem: "Which statement best matches “The waste hierarchy as a resource idea”?",
-            solution: "The accurate idea is: Treating materials wisely begins before disposal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Treating materials wisely begins before disposal.",
+            problem: "Order the waste hierarchy from most to least preferred.",
+            solution: "Prevent/reduce → reuse → recycle → recover → dispose.",
+            answer: "Reduce → reuse → recycle → recover → dispose",
           },
           {
-            problem: "Give one exam trap students hit when studying The waste hierarchy as a resource idea.",
-            solution: "Stay close to the text: Treating materials wisely begins before disposal. Preventing waste and reducing unnecessary consumption avoid environmental load altogether. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is disposal at the bottom?",
+            solution: "It wastes material value and creates pollution risks; prevention saves resources upstream.",
+            answer: "Least preferred / most wasteful",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Top of hierarchy = prevention",
+          "Landfill last"
+        ],
+        traps: [
+          "Recycling as the first and only solution"
+        ],
       },
       {
         id: "env-natural-resources-forests-as-a-multi-use-resource",
@@ -1015,18 +1181,23 @@ explanationSections: [
         explanation: "Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. When cover falls too low, societies lose those services together. Pakistan’s modest forest cover relative to widely cited international guidelines is frequently used to illustrate the tension between demand for land and the need for standing woodland.\n\nForest policy therefore sits between resource economics and conservation biology: the same stand of trees is timber, habitat, and climate infrastructure at once.",
                 examples: [
           {
-            problem: "Which statement best matches “Forests as a multi-use resource”?",
-            solution: "The accurate idea is: Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods.",
+            problem: "List two ecosystem services forests provide beyond timber.",
+            solution: "Examples: carbon storage, watershed protection, biodiversity habitat, non-timber products.",
+            answer: "Carbon / water / habitat / NTFPs",
           },
           {
-            problem: "Give one exam trap students hit when studying Forests as a multi-use resource.",
-            solution: "Stay close to the text: Forests supply timber and fuel, harbour biodiversity, store carbon, protect watersheds, and support rural livelihoods. When cover falls too low, societies lose those services together. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Clear-felling for short-term timber revenue risks which longer-term services?",
+            solution: "Soil protection, water regulation, habitat, and carbon storage can all decline.",
+            answer: "Multiple services decline",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Forests = multi-service",
+          "Timber is only one use"
+        ],
+        traps: [
+          "Valuing forests only as wood volume"
+        ],
       },
     ],
     relatedTopics: ["env-resource-conflicts", "env-climate-change-response", "env-biodiversity"],
@@ -1094,18 +1265,25 @@ explanationSections: [
         explanation: "The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the western rivers primarily to Pakistan, with specified exceptions for limited non-consumptive or defined uses.\n\nThe treaty is studied as an example of transboundary water arrangements that have persisted through political tension. It does not remove scarcity inside Pakistan; it frames the international rules under which national water management still has to operate.",
                 examples: [
           {
-            problem: "Which statement best matches “The Indus Waters Treaty”?",
-            solution: "The accurate idea is: The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage.",
+            problem: "Under the Indus Waters Treaty teaching summary, which rivers were allocated primarily to India (eastern) vs Pakistan (western)?",
+            solution: "Eastern rivers (Ravi, Beas, Sutlej) primarily to India; western (Indus, Jhelum, Chenab) primarily to Pakistan with limited Indian non-consumptive use.",
+            answer: "East→India; West→Pakistan",
           },
           {
-            problem: "Give one exam trap students hit when studying The Indus Waters Treaty.",
-            solution: "Stay close to the text: The Indus Waters Treaty of 1960 allocated the use of the Indus system’s rivers between India and Pakistan with World Bank brokerage. In broad teaching terms, the eastern rivers were assigned primarily to India and the … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "What role is the World Bank often associated with in the IWT story?",
+            solution: "Broker / facilitator of the 1960 treaty framework.",
+            answer: "Brokered by World Bank",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "IWT 1960",
+          "Eastern vs western rivers",
+          "Transboundary water sharing"
+        ],
+        traps: [
+          "Swapping eastern and western allocations",
+          "Claiming the treaty has no institutional history"
+        ],
       },
       {
         id: "env-resource-conflicts-forests-land-and-competing-claims",
@@ -1114,18 +1292,23 @@ explanationSections: [
         explanation: "Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Conflict is structural when the same hectare cannot maximise all of those aims at once.\n\nResolution tools include regulation, protected areas, community forestry, and economic incentives. Outcomes depend on enforcement and on whether local users gain a stake in keeping woodland intact.",
                 examples: [
           {
-            problem: "Which statement best matches “Forests, land, and competing claims”?",
-            solution: "The accurate idea is: Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products.",
+            problem: "Why do forests generate conflict among users?",
+            solution: "Competing claims: logging, livelihoods, conservation, agriculture, and state control over the same land.",
+            answer: "Multiple competing uses",
           },
           {
-            problem: "Give one exam trap students hit when studying Forests, land, and competing claims.",
-            solution: "Stay close to the text: Forest landscapes attract competing uses: commercial logging, agricultural clearance, infrastructure, conservation, and local livelihood collection of fuel and non-timber products. Conflict is structural when the same he… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Pakistan’s ~5% forest cover frames conflict how?",
+            solution: "Scarce forest resources raise stakes for conservation vs extraction and livelihood uses.",
+            answer: "Scarcity raises stakes",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Scarce forests → higher conflict stakes",
+          "Livelihoods vs conservation"
+        ],
+        traps: [
+          "Assuming forest conflict is only about wildlife, not people"
+        ],
       },
       {
         id: "env-resource-conflicts-approaches-to-managing-resource-conflict",
@@ -1134,18 +1317,23 @@ explanationSections: [
         explanation: "States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Large afforestation drives aim to restore cover and livelihoods at scale, though lasting success still requires protection of newly planted and natural stands.\n\nNo single instrument ends conflict. Effective mixes match the resource — water treaties differ from forest co-management — and the institutions available to implement them.",
                 examples: [
           {
-            problem: "Which statement best matches “Approaches to managing resource conflict”?",
-            solution: "The accurate idea is: States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduce…",
+            problem: "Name one cooperative approach to transboundary water conflict.",
+            solution: "Treaties, joint commissions, data sharing, or benefit-sharing agreements (e.g. IWT-style frameworks).",
+            answer: "Treaties / joint institutions",
           },
           {
-            problem: "Give one exam trap students hit when studying Approaches to managing resource conflict.",
-            solution: "Stay close to the text: States and communities use international agreements, domestic law, environmental assessment of projects, market instruments such as charges on pollution, and technology that reduces pressure on scarce inputs. Large affor… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is 'ignore the other side' a poor long-term strategy for shared rivers?",
+            solution: "Upstream/downstream dependence means unilateral action can escalate risk for both sides.",
+            answer: "Interdependence requires cooperation",
+          }
         ],
-        shortcuts: [],
-        traps: [],
+        shortcuts: [
+          "Institutions manage conflict",
+          "Shared resources need rules"
+        ],
+        traps: [
+          "Resource conflicts are always unsolvable"
+        ],
       },
     ],
     relatedTopics: ["env-natural-resources", "env-climate-change-response", "env-water-pollution-and-quality"],
@@ -1208,23 +1396,23 @@ explanationSections: [
         explanation: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes.\n\nSecondary pollutants form when primary emissions react in the atmosphere. Ground-level ozone is a central example. It is not emitted in large amounts by vehicles themselves; it forms when nitrogen oxides and volatile organic compounds react in sunlight. Some components of photochemical smog and certain secondary particles follow the same logic. For regulation and health messaging, the distinction matters: controlling secondary pollution means controlling the precursors and the conditions that drive the chemistry, not only the secondary species at the monitor.",
                 examples: [
           {
-            problem: "Which statement best matches “Primary and secondary pollutants”?",
-            solution: "The accurate idea is: Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxid…",
+            problem: "Is ground-level ozone primarily emitted or formed in the air?",
+            solution: "Formed in the air from precursors (secondary pollutant).",
+            answer: "Secondary (formed)",
           },
           {
-            problem: "Give one exam trap students hit when studying Primary and secondary pollutants.",
-            solution: "Stay close to the text: Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "SO₂ from a power plant stack is primarily which class?",
+            solution: "Primary pollutant — emitted directly.",
+            answer: "Primary",
+          }
         ],
         shortcuts: [
-          "Primary = emitted; secondary = formed in air",
-          "Tropospheric ozone is largely secondary",
+          "Primary = emitted",
+          "Secondary = formed",
+          "Ozone is secondary"
         ],
         traps: [
-          "Calling all urban ozone a primary factory emission",
-          "Confusing stratospheric ozone (protective) with tropospheric ozone (pollutant)",
+          "Calling ozone a primary stack emission"
         ],
       },
       {
@@ -1234,21 +1422,22 @@ explanationSections: [
         explanation: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution.\n\nPhotochemical (Los Angeles-type) smog develops in sunny, warm conditions when nitrogen oxides and volatile organic compounds form oxidants such as ozone. Many modern megacities show photochemical features, sometimes mixed with particulate pollution from diesel, dust, and regional biomass burning. Seasonal smog in parts of South Asia often combines local emissions, regional agricultural fire plumes, and winter temperature inversions that trap pollutants near the surface.",
                 examples: [
           {
-            problem: "Which statement best matches “Classical and photochemical smog”?",
-            solution: "The accurate idea is: Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather.",
+            problem: "Classical (London-type) smog is associated with which fuels and conditions?",
+            solution: "Coal smoke + fog/cool humid conditions; sulfur chemistry.",
+            answer: "Coal + fog / sulfur",
           },
           {
-            problem: "Give one exam trap students hit when studying Classical and photochemical smog.",
-            solution: "Stay close to the text: Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Photochemical smog needs sunlight and which precursor family?",
+            solution: "NOx and volatile organic compounds (VOCs) forming ozone and oxidants.",
+            answer: "NOx + VOCs + sunlight",
+          }
         ],
         shortcuts: [
-          "Classical ≈ coal + SO₂ + fog; photochemical ≈ sunlight + NOx + VOCs → ozone",
+          "Classical = coal/sulfur",
+          "Photochemical = NOx/VOC + sun"
         ],
         traps: [
-          "Using 'smog' as if only one chemistry existed",
+          "Swapping classical and photochemical causes"
         ],
       },
       {
@@ -1258,21 +1447,22 @@ explanationSections: [
         explanation: "Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. In late autumn and winter, temperature inversions can trap emissions near the ground, while seasonal agricultural residue burning in the wider region adds a transboundary plume on some days.\n\nNational Environmental Quality Standards (NEQS) set legal reference limits, but outcomes depend on monitoring capacity and enforcement. Reading air quality only as 'factories' misses the combined role of transport, seasonal meteorology, and regional fire activity.",
                 examples: [
           {
-            problem: "Which statement best matches “Air quality in the Pakistani context”?",
-            solution: "The accurate idea is: Large Pakistani cities frequently record high particulate pollution. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Large Pakistani cities frequently record high particulate pollution.",
+            problem: "Name two common urban air problems relevant to Pakistani cities.",
+            solution: "Examples: PM₂.₅/PM₁₀, winter smog, vehicle and industrial emissions, agricultural residue burning.",
+            answer: "PM / smog / emissions",
           },
           {
-            problem: "Give one exam trap students hit when studying Air quality in the Pakistani context.",
-            solution: "Stay close to the text: Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is PM₂.₅ especially concerning?",
+            solution: "Fine particles penetrate deeper into lungs and bloodstream.",
+            answer: "Deeper lung penetration",
+          }
         ],
         shortcuts: [
-          "Winter smog = emissions + inversion (+ regional burning on some episodes)",
+          "PM is a core metric",
+          "Winter inversion worsens smog"
         ],
         traps: [
-          "Ignoring meteorology when explaining multi-day smog episodes",
+          "Assuming outdoor air quality is only a rural issue"
         ],
       },
     ],
@@ -1336,18 +1526,22 @@ explanationSections: [
         explanation: "Clean surface water usually holds enough dissolved oxygen (DO) for fish and other aerobic organisms. When organic waste enters the water, microbes consume that waste and, in doing so, consume oxygen as well. Biochemical oxygen demand (BOD) estimates how much oxygen those microbes will use over a standard period, commonly five days (BOD₅). A high BOD means a large load of biodegradable organic matter and a greater risk that DO will fall to harmful levels.\n\nChemical oxygen demand (COD) measures the oxygen equivalent of organic matter that can be oxidised chemically. COD is typically higher than BOD because it includes substances that microbes degrade only slowly, or not at all, under the test conditions. In environmental monitoring, the two are often read together: BOD speaks to biologically available pollution, while COD gives a faster, broader chemical picture.",
         examples: [
           {
-            problem: "A river sample shows falling DO downstream of a sewage outfall while BOD rises. What is the most direct interpretation?",
-            solution: "The outfall is adding biodegradable organic matter. Microbial decomposition is using oxygen faster than re-aeration can replace it, so DO declines as BOD indicates a heavier oxygen demand.",
-            answer: "Organic load is depleting dissolved oxygen.",
+            problem: "High BOD in a river generally does what to dissolved oxygen?",
+            solution: "Lowers DO as microbes consume O₂ while decomposing organic matter.",
+            answer: "DO falls",
           },
+          {
+            problem: "BOD vs COD in one line?",
+            solution: "BOD = oxygen demand of biodegradable organics; COD = chemical oxidation demand including more substances.",
+            answer: "BOD biological; COD chemical",
+          }
         ],
         shortcuts: [
-          "High BOD → more biodegradable organic pollution → oxygen stress risk",
-          "COD ≥ BOD in the same sample is normal; the gap reflects less biodegradable material",
+          "High BOD → low DO",
+          "COD ≥ biodegradable fraction"
         ],
         traps: [
-          "Treating BOD and COD as identical tests",
-          "Assuming low DO always means toxic chemical pollution rather than oxygen demand from organics",
+          "High BOD means cleaner water"
         ],
       },
       {
@@ -1357,23 +1551,22 @@ explanationSections: [
         explanation: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. When the bloom dies, decomposers break down the biomass and consume large amounts of dissolved oxygen. The result can be hypoxic or anoxic water, fish kills, and a shift toward species that tolerate low oxygen.\n\nThe process is a chain, not a single event: nutrients → bloom → death and decay → oxygen decline → ecological damage. Point sources can be regulated at a pipe; diffuse agricultural runoff is harder to control and is a major reason eutrophication remains widespread.",
                 examples: [
           {
-            problem: "Which statement best matches “Eutrophication”?",
-            solution: "The accurate idea is: Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents.",
+            problem: "What nutrients most often drive freshwater eutrophication?",
+            solution: "Phosphorus (and nitrogen in many systems).",
+            answer: "P (and N)",
           },
           {
-            problem: "Give one exam trap students hit when studying Eutrophication.",
-            solution: "Stay close to the text: Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Outline the chain from nutrient excess to fish kills.",
+            solution: "Algal bloom → die-off → microbial decay → oxygen crash → fish stress/death.",
+            answer: "Bloom → decay → hypoxia",
+          }
         ],
         shortcuts: [
-          "Remember the chain: nutrients → bloom → decay → low DO",
-          "Phosphorus is often the limiting nutrient in freshwater systems",
+          "Nutrients → bloom → hypoxia",
+          "Ag runoff is a common source"
         ],
         traps: [
-          "Calling every green water surface 'eutrophication' without the oxygen-demand stage",
-          "Blaming only industrial pipes when fertiliser runoff is a major diffuse source",
+          "Eutrophication = only toxic chemical spills"
         ],
       },
       {
@@ -1383,21 +1576,17 @@ explanationSections: [
         explanation: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a long time.\n\nBiomagnification is the increase in concentration of such substances at successive trophic levels. Predators eat many contaminated prey, so the pollutant load concentrates upward through the food web. The two ideas are related but not the same: accumulation happens within one organism; magnification describes the pattern across the chain.",
                 examples: [
           {
-            problem: "Which statement best matches “Bioaccumulation and biomagnification”?",
-            solution: "The accurate idea is: Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Bioaccumulation and biomagnification.",
-            solution: "Stay close to the text: Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Bioaccumulation vs biomagnification?",
+            solution: "Bioaccumulation = build-up in one organism over time; biomagnification = concentration increase up the food chain.",
+            answer: "One body vs up the chain",
+          }
         ],
         shortcuts: [
-          "Bioaccumulation = within one organism; biomagnification = up the food chain",
+          "Accumulate in body",
+          "Magnify up trophic levels"
         ],
         traps: [
-          "Using the two terms as synonyms in explanations",
+          "Swapping the two terms"
         ],
       },
     ],
@@ -1460,23 +1649,22 @@ explanationSections: [
         explanation: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Evaporation then leaves salts behind in the upper soil, and crop roots encounter a saline environment that reduces yield or kills sensitive plants.\n\nPakistan’s Indus basin irrigation is a classic setting for this problem. Large areas have been described as salt-affected or waterlogged when drainage and water management lag behind canal supply. Remedies involve drainage, more careful water application, salt-tolerant practices, and sometimes soil amendments—not slogans alone.",
                 examples: [
           {
-            problem: "Which statement best matches “Salinity and waterlogging in irrigated land”?",
-            solution: "The accurate idea is: In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove.",
+            problem: "How can over-irrigation raise water tables and harm crops?",
+            solution: "Waterlogging saturates roots; evaporation can leave salts in the root zone (salinisation).",
+            answer: "Waterlog + salt accumulation",
           },
           {
-            problem: "Give one exam trap students hit when studying Salinity and waterlogging in irrigated land.",
-            solution: "Stay close to the text: In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is drainage part of the solution?",
+            solution: "Removes excess water and helps export salts from the root zone.",
+            answer: "Drainage exports water/salts",
+          }
         ],
         shortcuts: [
-          "Rising water table + evaporation → surface salinisation",
-          "A basin-scale irrigation issue, not only a 'chemical spill' story",
+          "Over-irrigation → waterlog/salinity",
+          "Drainage matters"
         ],
         traps: [
-          "Blaming salinity only on industrial dumping",
-          "Assuming more irrigation water always improves soil health",
+          "Assuming more water always improves irrigated yields"
         ],
       },
       {
@@ -1486,21 +1674,22 @@ explanationSections: [
         explanation: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Because food systems depend on soil, contamination becomes a pathway to human exposure as well as an ecological problem.\n\nUnlike a river that may flush downstream, soil often retains pollutants. Prevention and careful waste handling therefore matter more than hoping for rapid natural clean-up.",
                 examples: [
           {
-            problem: "Which statement best matches “Soil contamination”?",
-            solution: "The accurate idea is: Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate.",
+            problem: "Name two sources of soil contamination.",
+            solution: "Examples: industrial waste, agrochemicals, mining, improper hazardous disposal.",
+            answer: "Industry / agrochemicals / waste",
           },
           {
-            problem: "Give one exam trap students hit when studying Soil contamination.",
-            solution: "Stay close to the text: Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is soil contamination hard to reverse?",
+            solution: "Pollutants can bind to particles and persist; cleanup is costly and slow.",
+            answer: "Persistence + costly cleanup",
+          }
         ],
         shortcuts: [
-          "Soil contamination is often long-lived; prevention beats late clean-up",
+          "Multiple sources",
+          "Persistence"
         ],
         traps: [
-          "Assuming soil recovers as quickly as some surface waters",
+          "Soil pollution disappears quickly after emissions stop"
         ],
       },
       {
@@ -1510,23 +1699,22 @@ explanationSections: [
         explanation: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste.\n\nHazardous and biomedical wastes require segregated handling because of toxicity or infection risk. Mixing them into ordinary municipal streams multiplies harm. E-waste adds valuable metals and hazardous components in the same devices, which is why informal dumping and open burning are particularly damaging.",
                 examples: [
           {
-            problem: "Which statement best matches “Waste hierarchy and hazardous streams”?",
-            solution: "The accurate idea is: A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last.",
+            problem: "Where do hazardous wastes sit relative to ordinary municipal waste management?",
+            solution: "They need special handling; hierarchy still prefers prevention, but disposal must be controlled.",
+            answer: "Special handling required",
           },
           {
-            problem: "Give one exam trap students hit when studying Waste hierarchy and hazardous streams.",
-            solution: "Stay close to the text: A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is open dumping of mixed waste a poor hierarchy choice?",
+            solution: "It is disposal without recovery and risks soil, water, and air pollution.",
+            answer: "Bottom of hierarchy + pollution risk",
+          }
         ],
         shortcuts: [
-          "Order matters: prevent → reuse → recycle → dispose",
-          "Hazardous and biomedical waste must stay segregated",
+          "Hazardous = special controls",
+          "Dumping is last resort"
         ],
         traps: [
-          "Treating recycling as the top of the hierarchy",
-          "Dumping clinical waste with household refuse",
+          "All waste is equally safe in open dumps"
         ],
       },
     ],
@@ -1595,23 +1783,22 @@ explanationSections: [
         explanation: "Coal, oil, and natural gas store chemical energy from ancient organic matter. They supply dense, dispatchable power and fuels for transport and industry, which is why they still dominate many national mixes. Combustion releases carbon dioxide and, depending on the fuel and technology, sulphur dioxide, nitrogen oxides, and particulates.\n\nFrom an environmental perspective the issue is not only scarcity. It is the combination of greenhouse forcing, local air quality, and the land and water impacts of extraction. Cleaner combustion and end-of-pipe controls can reduce some pollutants, but carbon dioxide remains inherent to burning carbon-based fuels unless captured and stored.",
                 examples: [
           {
-            problem: "Which statement best matches “Fossil fuels and their footprint”?",
-            solution: "The accurate idea is: Coal, oil, and natural gas store chemical energy from ancient organic matter. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Coal, oil, and natural gas store chemical energy from ancient organic matter.",
+            problem: "Main climate impact of burning coal, oil, and gas?",
+            solution: "CO₂ (and other pollutants) from combustion.",
+            answer: "CO₂ emissions",
           },
           {
-            problem: "Give one exam trap students hit when studying Fossil fuels and their footprint.",
-            solution: "Stay close to the text: Coal, oil, and natural gas store chemical energy from ancient organic matter. They supply dense, dispatchable power and fuels for transport and industry, which is why they still dominate many national mixes. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Besides climate, name one local impact of fossil fuel use.",
+            solution: "Air pollution (PM, NOx, SO₂), oil spills, mining damage, etc.",
+            answer: "Air pollution / extraction damage",
+          }
         ],
         shortcuts: [
-          "Fossil fuels = high density and dispatchability + combustion emissions",
-          "Local air pollutants and CO₂ are related but not identical problems",
+          "Combustion → CO₂",
+          "Local + global impacts"
         ],
         traps: [
-          "Assuming natural gas has no climate impact because it is cleaner than coal",
-          "Treating 'energy security' and 'environmental impact' as the same question",
+          "Fossil fuels have only climate effects, no local pollution"
         ],
       },
       {
@@ -1621,22 +1808,22 @@ explanationSections: [
         explanation: "Hydroelectric power uses elevation and water flow. It can provide large amounts of low-carbon electricity where geography allows, but reservoirs reshape rivers, ecosystems, and communities. Solar and wind convert ongoing natural energy fluxes. They produce no combustion emissions at the point of generation, yet their output varies with weather and time of day, so grids need storage, flexible backup, or interconnections.\n\nNo single renewable option is free of trade-offs. The environmental comparison is usually against fossil generation over the life cycle, not against a perfect zero-impact ideal.",
                 examples: [
           {
-            problem: "Which statement best matches “Renewable electricity options”?",
-            solution: "The accurate idea is: Hydroelectric power uses elevation and water flow. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Hydroelectric power uses elevation and water flow.",
+            problem: "Name three renewable electricity sources.",
+            solution: "Solar, wind, hydro (also geothermal, some biomass).",
+            answer: "Solar / wind / hydro",
           },
           {
-            problem: "Give one exam trap students hit when studying Renewable electricity options.",
-            solution: "Stay close to the text: Hydroelectric power uses elevation and water flow. It can provide large amounts of low-carbon electricity where geography allows, but reservoirs reshape rivers, ecosystems, and communities. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Is renewable electricity automatically impact-free?",
+            solution: "No — land use, materials, wildlife, and hydro social impacts still need management.",
+            answer: "Not impact-free",
+          }
         ],
         shortcuts: [
-          "Renewables cut fuel combustion; they still have siting and variability issues",
+          "Solar wind hydro",
+          "Still need siting safeguards"
         ],
         traps: [
-          "Calling all renewables impact-free",
-          "Ignoring grid integration when praising variable solar and wind",
+          "Renewable = zero environmental issues"
         ],
       },
       {
@@ -1646,21 +1833,22 @@ explanationSections: [
         explanation: "Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Where heavy residual fuel or coal is used without strong controls, urban and industrial air quality suffers alongside carbon emissions.\n\nEnergy policy therefore sits at the junction of affordability, reliability, air pollution, and climate commitments. Expanding cleaner generation helps only if it displaces dirtier kilowatt-hours in practice, not merely on paper.",
                 examples: [
           {
-            problem: "Which statement best matches “Pakistan's energy–environment links”?",
-            solution: "The accurate idea is: Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal.",
+            problem: "Why does the electricity mix matter for Pakistan's air and climate goals?",
+            solution: "Coal/gas share drives emissions and urban air quality; cleaner power reduces both pressures.",
+            answer: "Mix drives emissions and air quality",
           },
           {
-            problem: "Give one exam trap students hit when studying Pakistan's energy–environment links.",
-            solution: "Stay close to the text: Pakistan’s power and fuel system has long combined domestic gas and hydro with oil products and, in places, coal. Import dependence, circular debt, and load management shape what is actually burned day to day. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Name one co-benefit of efficiency and renewables.",
+            solution: "Lower fuel import pressure and less local air pollution (among others).",
+            answer: "Less pollution / import pressure",
+          }
         ],
         shortcuts: [
-          "Read energy choices as air + climate + reliability together",
+          "Power mix → emissions",
+          "Efficiency helps environment and economy"
         ],
         traps: [
-          "Discussing climate targets without reference to the real generation mix",
+          "Energy policy is unrelated to air quality"
         ],
       },
     ],
@@ -1719,22 +1907,151 @@ explanationSections: [
       {
         id: "env-cc-mitigation",
         title: "Mitigation",
+        summary: "Cutting emissions and enhancing sinks to limit future warming.",
+        explanation: "Mitigation reduces the greenhouse gas emissions that drive climate change or enhances sinks that remove them — for example through cleaner energy, efficiency, afforestation, and carbon pricing. Without mitigation, adaptation must cope with ever-larger risks.",
+        examples: [
+          {
+            problem: "Define mitigation in climate policy.",
+            solution: "Reducing GHG emissions or enhancing sinks to limit future warming.",
+            answer: "Cut emissions / enhance sinks",
+          },
+          {
+            problem: "Give two mitigation examples.",
+            solution: "Renewables, efficiency, afforestation/REDD+, public transit, carbon pricing, etc.",
+            answer: "Renewables / efficiency / sinks",
+          }
+        ],
+        shortcuts: [
+          "Mitigation = reduce forcing",
+          "Not the same as adaptation"
+        ],
+        traps: [
+          "Mitigation = only building seawalls"
+        ],
+      },
+      {
+        id: "env-cc-adaptation",
+        title: "Adaptation",
+        summary: "Adjusting societies and ecosystems to climate impacts that cannot be avoided.",
+        explanation: "Adaptation adjusts human and natural systems to actual or expected impacts — drought-resistant crops, flood defences, early warning, heat action plans. Anticipatory adaptation is preferred to purely reactive responses. Adaptation without mitigation leaves the burden growing over time.",
+        examples: [
+          {
+            problem: "Drought-resistant crops and early warning systems are mainly mitigation or adaptation?",
+            solution: "Adaptation.",
+            answer: "Adaptation",
+          },
+          {
+            problem: "Autonomous vs planned adaptation?",
+            solution: "Autonomous = unplanned adjustments; planned = deliberate policy-driven measures.",
+            answer: "Unplanned vs policy-driven",
+          }
+        ],
+        shortcuts: [
+          "Adaptation = adjust",
+          "Anticipatory better than only reactive"
+        ],
+        traps: [
+          "Adaptation replaces the need for mitigation"
+        ],
+      },
+      {
+        id: "env-cc-vulnerability",
+        title: "Vulnerability, exposure, and adaptive capacity",
+        summary: "Why the same hazard harms some places more than others.",
+        explanation: "Vulnerability rises with exposure and sensitivity and falls with adaptive capacity. Two districts facing the same heatwave can differ sharply in outcomes if one has cooling centres, reliable power, and health surveillance while the other does not. Exam answers should separate the hazard from the social capacity to cope.",
+        examples: [
+          {
+            problem: "In teaching form, vulnerability increases with what and decreases with what?",
+            solution: "Increases with exposure and sensitivity; decreases with adaptive capacity.",
+            answer: "↑ exposure/sensitivity; ↓ adaptive capacity",
+          },
+          {
+            problem: "Why is Pakistan often ranked among highly climate-vulnerable countries?",
+            solution: "High exposure to floods, heat, and glacier-related risks combined with development constraints on adaptive capacity.",
+            answer: "High exposure + limited capacity",
+          }
+        ],
+        shortcuts: [
+          "V ≈ exposure + sensitivity − capacity",
+          "Hazard ≠ impact"
+        ],
+        traps: [
+          "Treating vulnerability as only the weather event itself"
+        ],
+      },
+      {
+        id: "env-cc-pakistan-impacts",
+        title: "Pakistan climate impacts and response mix",
+        summary: "Glaciers, floods, heat, and the need for both mitigation and adaptation.",
+        explanation: "Pakistan faces glacier and snowmelt changes in the upper Indus, intense heatwaves, major riverine floods (including the 2010 and 2022 disasters as teaching benchmarks), drought risk, and coastal pressure on the Indus delta. National response needs adaptation for risks already unfolding and mitigation consistent with development and energy transition goals.",
+        examples: [
+          {
+            problem: "Name two climate-related risks frequently cited for Pakistan.",
+            solution: "Floods, heatwaves, GLOF/glacier risks, drought, sea-level pressure on the delta.",
+            answer: "Floods / heat / glacier-related risk",
+          },
+          {
+            problem: "Why is a mitigation-only story incomplete for Pakistan?",
+            solution: "Serious impacts are already occurring; adaptation is required alongside emissions measures.",
+            answer: "Impacts already require adaptation",
+          }
+        ],
+        shortcuts: [
+          "Floods + heat + glaciers",
+          "Both pillars required"
+        ],
+        traps: [
+          "Claiming Pakistan needs only adaptation and zero mitigation attention"
+        ],
+      },
+    ],
+examPoints: [
+      "Mitigation = reducing emissions (cause); Adaptation = adjusting to effects",
+      "Vulnerability = Exposure + Sensitivity − Adaptive Capacity",
+      "Pakistan in top 10 most climate-vulnerable countries",
+      "REDD+ = paying developing countries to protect forests",
+      "Adaptation preferred BEFORE change occurs (anticipatory vs reactive)"
+    ],
+    commonMistakes: [
+      "Treating mitigation and adaptation as alternatives — they are complementary, both needed",
+      "Confusing autonomous (natural) with planned (deliberate) adaptation — autonomous is unplanned, planned is policy-driven",
+      "Thinking carbon capture/storage is proven at scale — most CCS projects are small or have failed"
+    ],
+    
+    comparisonTable: {
+      title: "Mitigation vs adaptation",
+      headers: ["Strategy", "Goal", "Examples"],
+      rows: [
+        ["Mitigation", "Reduce emissions / enhance sinks", "Renewables, efficiency, afforestation"],
+        ["Adaptation", "Live with residual change", "Flood defenses, drought-resistant crops, early warning"],
+      ],
+    },
+    
+    subtopics: [
+      {
+        id: "env-cc-mitigation",
+        title: "Mitigation",
         summary: "Reducing emissions and enhancing sinks.",
         explanation: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing wasteful fuel use, and protecting or expanding forests that store carbon.\n\nMitigation is global in effect: a tonne of carbon dioxide avoided in one country helps the shared climate system. That is why international coordination and national energy policy both matter.",
                 examples: [
           {
-            problem: "Which statement best matches “Mitigation”?",
-            solution: "The accurate idea is: Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere.",
+            problem: "Define mitigation in climate policy.",
+            solution: "Reducing GHG emissions or enhancing sinks to limit future warming.",
+            answer: "Cut emissions / enhance sinks",
           },
           {
-            problem: "Give one exam trap students hit when studying Mitigation.",
-            solution: "Stay close to the text: Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Give two mitigation examples.",
+            solution: "Renewables, efficiency, afforestation/REDD+, public transit, carbon pricing, etc.",
+            answer: "Renewables / efficiency / sinks",
+          }
         ],
-        shortcuts: ["Mitigation = less forcing of the climate system"],
-        traps: ["Treating adaptation projects as if they reduce global emissions by themselves"],
+        shortcuts: [
+          "Mitigation = reduce forcing",
+          "Not the same as adaptation"
+        ],
+        traps: [
+          "Mitigation = only building seawalls"
+        ],
       },
       {
         id: "env-cc-adaptation",
@@ -1743,18 +2060,23 @@ explanationSections: [
         explanation: "Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains.\n\nAdaptation is local in delivery even when finance is international. The same heatwave or flood hits different communities according to housing, services, and livelihoods.",
                 examples: [
           {
-            problem: "Which statement best matches “Adaptation”?",
-            solution: "The accurate idea is: Adaptation reduces harm from climate impacts that cannot be fully avoided. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Adaptation reduces harm from climate impacts that cannot be fully avoided.",
+            problem: "Define adaptation in climate policy.",
+            solution: "Adjusting systems to actual or expected climate impacts.",
+            answer: "Adjust to impacts",
           },
           {
-            problem: "Give one exam trap students hit when studying Adaptation.",
-            solution: "Stay close to the text: Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Drought-resistant crops and early warning systems are mainly mitigation or adaptation?",
+            solution: "Adaptation.",
+            answer: "Adaptation",
+          }
         ],
-        shortcuts: ["Adaptation = live with residual risk more safely"],
-        traps: ["Assuming adaptation makes mitigation unnecessary"],
+        shortcuts: [
+          "Adaptation = adjust",
+          "Anticipatory better than only reactive"
+        ],
+        traps: [
+          "Adaptation replaces the need for mitigation"
+        ],
       },
     ],
 relatedTopics: ["env-international-climate-policy", "env-energy-sources", "env-ozone-depletion"],
@@ -1817,21 +2139,22 @@ explanationSections: [
         explanation: "The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. It recognised climate change as a shared concern, set out principles such as equity and common but differentiated responsibilities, and established Conference of the Parties (COP) meetings as the decision-making forum.\n\nThe Convention itself did not lock in the detailed numerical targets that later instruments debated. Understanding UNFCCC as a framework helps make sense of later agreements: they operate inside this process rather than replacing the idea of a global climate regime altogether.",
                 examples: [
           {
-            problem: "Which statement best matches “The UNFCCC as a framework”?",
-            solution: "The accurate idea is: The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation.",
+            problem: "What is the UNFCCC?",
+            solution: "The international framework convention for climate change cooperation.",
+            answer: "Framework climate convention",
           },
           {
-            problem: "Give one exam trap students hit when studying The UNFCCC as a framework.",
-            solution: "Stay close to the text: The United Nations Framework Convention on Climate Change (1992) created a permanent process for international climate cooperation. It recognised climate change as a shared concern, set out principles such as equity and … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Do annual COP meetings create the convention, or operate under it?",
+            solution: "They operate under the UNFCCC framework.",
+            answer: "Under the framework",
+          }
         ],
         shortcuts: [
-          "UNFCCC = framework and process; later deals add specific architectures",
+          "UNFCCC = framework",
+          "COP = conferences of parties"
         ],
         traps: [
-          "Treating UNFCCC and the Paris Agreement as the same document",
+          "Thinking COP invented climate science itself"
         ],
       },
       {
@@ -1841,21 +2164,22 @@ explanationSections: [
         explanation: "The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. It also experimented with flexible mechanisms so that reductions could be achieved partly through international cooperation.\n\nKyoto’s design reflected a sharper divide between listed developed parties and developing countries than the later Paris architecture. For study purposes, the protocol is best remembered as a targets-and-timetables approach for a defined set of parties, not as the current universal NDC system.",
                 examples: [
           {
-            problem: "Which statement best matches “The Kyoto Protocol in context”?",
-            solution: "The accurate idea is: The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods.",
+            problem: "Kyoto mainly placed quantified targets on which group of countries in its classic design?",
+            solution: "Developed (Annex I) parties with binding targets in the first commitment periods.",
+            answer: "Annex I / developed parties",
           },
           {
-            problem: "Give one exam trap students hit when studying The Kyoto Protocol in context.",
-            solution: "Stay close to the text: The Kyoto Protocol (adopted 1997, entered into force later) attached quantified emission targets to a listed group of developed country parties for commitment periods. It also experimented with flexible mechanisms so tha… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "How does Kyoto differ from Paris in architecture?",
+            solution: "Kyoto: top-down targets for listed developed parties; Paris: NDCs for essentially all parties.",
+            answer: "Top-down Annex targets vs NDCs",
+          }
         ],
         shortcuts: [
-          "Kyoto ≈ binding targets for listed developed parties (historical architecture)",
+          "Kyoto = Annex targets",
+          "Paris = NDC era"
         ],
         traps: [
-          "Saying Kyoto bound every country identically",
+          "Kyoto and Paris are identical treaties"
         ],
       },
       {
@@ -1865,21 +2189,22 @@ explanationSections: [
         explanation: "The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2°C above pre-industrial levels and to pursue efforts toward 1.5°C. A global stocktake cycle reviews collective progress and informs the next round of NDCs.\n\nParis is therefore built on national planning within a global goal, rather than a single Kyoto-style annex of identical target rules for one class of countries. Climate finance, adaptation, and later debates on loss and damage sit alongside mitigation in the wider Paris conversation, even when a short syllabus item focuses on temperature and NDCs.",
                 examples: [
           {
-            problem: "Which statement best matches “The Paris Agreement”?",
-            solution: "The accurate idea is: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts.",
+            problem: "What are NDCs under Paris?",
+            solution: "Nationally Determined Contributions — each party's climate pledges.",
+            answer: "National climate pledges",
           },
           {
-            problem: "Give one exam trap students hit when studying The Paris Agreement.",
-            solution: "Stay close to the text: The Paris Agreement (2015) asks parties to submit nationally determined contributions (NDCs) describing their climate efforts. Collectively, the agreement aims to hold temperature rise well below 2°C above pre-industria… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Paris temperature aims are commonly summarised as what?",
+            solution: "Well below 2°C, pursuing 1.5°C.",
+            answer: "Well below 2°C / pursue 1.5°C",
+          }
         ],
         shortcuts: [
-          "Paris ≈ NDCs + long-term temperature goals + stocktake cycle",
+          "NDCs",
+          "1.5–2°C aims"
         ],
         traps: [
-          "Claiming Paris assigns one identical binding number to every party the way a simple Kyoto table did",
+          "Paris has no temperature language"
         ],
       },
     ],
@@ -1940,18 +2265,23 @@ explanationSections: [
         explanation: "Stratospheric ozone absorbs ultraviolet radiation. Chlorine and bromine from certain synthetic compounds catalyse ozone destruction in the stratosphere. Cold polar conditions over Antarctica enhance the seasonal severe thinning known as the ozone hole.\n\nThe chemistry is global because the gases mix widely, even though the most dramatic thinning is regional and seasonal.",
                 examples: [
           {
-            problem: "Which statement best matches “Stratospheric ozone chemistry”?",
-            solution: "The accurate idea is: Stratospheric ozone absorbs ultraviolet radiation. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Stratospheric ozone absorbs ultraviolet radiation.",
+            problem: "Where is the beneficial ozone layer mainly located?",
+            solution: "Stratosphere.",
+            answer: "Stratosphere",
           },
           {
-            problem: "Give one exam trap students hit when studying Stratospheric ozone chemistry.",
-            solution: "Stay close to the text: Stratospheric ozone absorbs ultraviolet radiation. Chlorine and bromine from certain synthetic compounds catalyse ozone destruction in the stratosphere. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "CFCs release which atoms that catalytically destroy ozone?",
+            solution: "Chlorine (and related halogen chemistry).",
+            answer: "Chlorine / halogens",
+          }
         ],
-        shortcuts: ["Stratospheric ozone protects; ODS catalyse its loss"],
-        traps: ["Blaming carbon dioxide as the main ozone-hole gas"],
+        shortcuts: [
+          "Good ozone = stratosphere",
+          "Halogens catalyse loss"
+        ],
+        traps: [
+          "Confusing tropospheric ozone pollution with the ozone layer"
+        ],
       },
       {
         id: "env-ozone-montreal",
@@ -1960,18 +2290,23 @@ explanationSections: [
         explanation: "The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Many controlled chemicals have been reduced, and recovery of the ozone layer is expected over decades.\n\nThe protocol is a governance success story distinct from the UNFCCC climate regime, even though some substitute chemicals later raised separate climate concerns.",
                 examples: [
           {
-            problem: "Which statement best matches “Montreal Protocol”?",
-            solution: "The accurate idea is: The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved.",
+            problem: "What did the Montreal Protocol target?",
+            solution: "Ozone-depleting substances such as CFCs (and related controls).",
+            answer: "ODS / CFCs",
           },
           {
-            problem: "Give one exam trap students hit when studying Montreal Protocol.",
-            solution: "Stay close to the text: The Montreal Protocol organised international controls on ozone-depleting substances and has been adjusted as science and substitutes evolved. Many controlled chemicals have been reduced, and recovery of the ozone layer … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why is Montreal often cited as a successful environmental treaty?",
+            solution: "Broad participation and measurable ODS reductions with ozone recovery signals.",
+            answer: "Participation + ODS cuts",
+          }
         ],
-        shortcuts: ["Montreal = ODS controls; not the same as Paris climate architecture"],
-        traps: ["Merging Montreal and Paris into one agreement"],
+        shortcuts: [
+          "Montreal → ODS",
+          "Success story vs climate treaties"
+        ],
+        traps: [
+          "Montreal is a CO₂ emissions treaty"
+        ],
       },
     ],
 relatedTopics: ["env-climate-change-response", "env-international-climate-policy", "env-air-pollution"],
@@ -2039,21 +2374,22 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         explanation: "PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and procedures.\n\nEnvironment protection agencies investigate, sample, and pursue compliance within their legal mandates. After the 18th Amendment, students should not assume every function is still centralised in Islamabad. Provincial EPAs and departments carry much of the operational load.",
                 examples: [
           {
-            problem: "Which statement best matches “PEPA and institutional roles”?",
-            solution: "The accurate idea is: PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period.",
+            problem: "What does PEPA refer to in Pakistani environmental law teaching?",
+            solution: "Pakistan Environmental Protection Act — core federal environmental statute framework.",
+            answer: "Pakistan Environmental Protection Act",
           },
           {
-            problem: "Give one exam trap students hit when studying PEPA and institutional roles.",
-            solution: "Stay close to the text: PEPA 1997 is taught as the backbone of Pakistan’s environmental statute book for the contemporary period. It sits alongside later rules, notifications, and provincial legislation that operationalise standards and proce… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Does PEPA alone guarantee clean air without enforcement?",
+            solution: "No — law needs institutions, standards, and compliance.",
+            answer: "Law ≠ automatic compliance",
+          }
         ],
         shortcuts: [
-          "PEPA = main federal act in standard syllabi; provinces implement much of the work",
+          "PEPA = framework statute",
+          "Enforcement required"
         ],
         traps: [
-          "Naming PEPA without any sense of who enforces it today",
+          "Statute text alone cleans the environment"
         ],
       },
       {
@@ -2063,21 +2399,22 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         explanation: "NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Industry discharge consents, ambient monitoring, and public debate all refer back to such numbers.\n\nWhen air or water remains polluted despite NEQS, the failure is often in monitoring coverage, laboratory quality, inspection frequency, or sanctions — not in the mere absence of a written limit.",
                 examples: [
           {
-            problem: "Which statement best matches “NEQS in practice”?",
-            solution: "The accurate idea is: NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "NEQS turn policy goals into measurable ceilings or guidelines for pollutants.",
+            problem: "What are NEQS?",
+            solution: "National Environmental Quality Standards — numeric limits for pollutants.",
+            answer: "National Environmental Quality Standards",
           },
           {
-            problem: "Give one exam trap students hit when studying NEQS in practice.",
-            solution: "Stay close to the text: NEQS turn policy goals into measurable ceilings or guidelines for pollutants. Industry discharge consents, ambient monitoring, and public debate all refer back to such numbers. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Do NEQS alone guarantee ambient standards are met?",
+            solution: "No — monitoring and enforcement determine real outcomes.",
+            answer: "Standards need enforcement",
+          }
         ],
         shortcuts: [
-          "Standard = limit; compliance = measured performance against that limit",
+          "NEQS = numeric limits",
+          "Publish ≠ achieve"
         ],
         traps: [
-          "Equating the existence of NEQS with environmental quality already achieved",
+          "NEQS automatically equal clean ambient air"
         ],
       },
       {
@@ -2087,21 +2424,23 @@ relatedTopics: ["env-climate-change-response", "env-international-climate-policy
         explanation: "Project review is staged. An IEE asks whether impacts are modest enough to proceed with limited study. An EIA develops a fuller picture of impacts and mitigation when significance is higher.\n\nGood assessment is early enough to change design, not only to justify a decision already made. Conditions attached to approval need monitoring during construction and operation, or the assessment becomes a filing exercise.",
                 examples: [
           {
-            problem: "Which statement best matches “IEE and EIA”?",
-            solution: "The accurate idea is: Project review is staged. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Project review is staged.",
+            problem: "IEE vs EIA — which is the fuller assessment?",
+            solution: "EIA is the fuller impact assessment; IEE is a preliminary/screening-level examination.",
+            answer: "EIA fuller; IEE preliminary",
           },
           {
-            problem: "Give one exam trap students hit when studying IEE and EIA.",
-            solution: "Stay close to the text: Project review is staged. An IEE asks whether impacts are modest enough to proceed with limited study. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why require assessment before major projects?",
+            solution: "To identify impacts and mitigation before irreversible decisions.",
+            answer: "Anticipate impacts before build",
+          }
         ],
         shortcuts: [
-          "IEE = screen; EIA = deep review for significant impact",
+          "IEE = initial",
+          "EIA = full",
+          "Before major projects"
         ],
         traps: [
-          "Treating EIA as a construction permit with no link to mitigation or follow-up",
+          "EIA is only a post-project report"
         ],
       },
     ],
@@ -2181,21 +2520,22 @@ explanationSections: [
         explanation: "Pakistan’s environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Urban air pollution harms health and productivity. Land degradation, including salinity and waterlogging in irrigated belts, undermines agriculture. Climate change intensifies extremes—floods, heat, glacial and snowmelt variability—on top of these stresses.\n\nA useful way to study the national picture is as a system: energy and transport choices affect air and climate; irrigation management affects soil and water quality; forest and watershed cover affect erosion and flood behaviour. Isolated facts (forest percentage, a city AQI spike, a treaty name) matter more when they are placed inside this web.",
                 examples: [
           {
-            problem: "Which statement best matches “Interconnected environmental challenges”?",
-            solution: "The accurate idea is: Pakistan’s environmental pressures do not arrive one at a time. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan’s environmental pressures do not arrive one at a time.",
+            problem: "Why treat air, water, and climate stresses as linked in Pakistan?",
+            solution: "Shared drivers (energy, land use, water management) and cascading impacts (floods, pollution, health).",
+            answer: "Shared drivers and cascades",
           },
           {
-            problem: "Give one exam trap students hit when studying Interconnected environmental challenges.",
-            solution: "Stay close to the text: Pakistan’s environmental pressures do not arrive one at a time. Indus basin water depends on seasonal flows, storage, and upstream politics; inefficient use and pollution reduce effective supply. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Name two Pakistan climate-related risks often cited in teaching.",
+            solution: "Floods, heatwaves, glacier/GLOF risk, drought, sea-level pressure on the delta, etc.",
+            answer: "Floods / heat / glacier-related risk",
+          }
         ],
         shortcuts: [
-          "Link water, air, land, and climate rather than memorising isolated headlines",
+          "Linked systems",
+          "Multiple concurrent risks"
         ],
         traps: [
-          "Treating smog, floods, and forest loss as unrelated exam silos",
+          "Treating each hazard as fully independent"
         ],
       },
       {
@@ -2205,22 +2545,22 @@ explanationSections: [
         explanation: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functions are shared with or led by provinces, so outcomes vary with provincial capacity as well as federal frameworks.\n\nThe recurring implementation gap is not only the absence of written policy. Monitoring networks, inspection, industrial compliance, municipal waste systems, and urban transport enforcement decide whether standards change the air people breathe or the water they use. International funds and national programmes (including large afforestation drives) can help, but they do not automatically substitute for steady regulation and service delivery.",
                 examples: [
           {
-            problem: "Which statement best matches “Institutions and policy tools”?",
-            solution: "The accurate idea is: Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle.",
+            problem: "Name two policy tools used in Pakistan's environmental management teaching set.",
+            solution: "PEPA framework, NEQS, IEE/EIA, protected areas, provincial post-18th Amendment roles, etc.",
+            answer: "PEPA / NEQS / EIA / protected areas",
           },
           {
-            problem: "Give one exam trap students hit when studying Institutions and policy tools.",
-            solution: "Stay close to the text: Formal tools include environmental legislation, ambient and effluent standards such as NEQS, protected areas, and project-level assessment requirements in principle. After constitutional change, many environmental functi… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "After the 18th Amendment, environmental administration is best described as?",
+            solution: "More provincialised, with federal coordination still relevant for standards and international issues.",
+            answer: "Provincial lead + federal coordination",
+          }
         ],
         shortcuts: [
-          "Written standards ≠ automatic compliance",
-          "Provincial capacity shapes results after devolution",
+          "Tools + institutions",
+          "18th Amendment shifted roles"
         ],
         traps: [
-          "Assuming a named policy alone implies environmental improvement",
+          "Assuming only federal agencies matter after devolution"
         ],
       },
       {
@@ -2230,21 +2570,22 @@ explanationSections: [
         explanation: "Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protect habitats where species actually live. Their effectiveness depends on management, community relations, and pressure from infrastructure or resource extraction.\n\nStudy these sites as examples of conservation strategy under real constraints, not as a random list of names. Link them back to habitat loss as the dominant global threat and to national forest and land-use pressures discussed under resources.",
                 examples: [
           {
-            problem: "Which statement best matches “Protected areas and living resources”?",
-            solution: "The accurate idea is: Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions.",
+            problem: "Protected areas are mainly which conservation strategy type?",
+            solution: "In-situ conservation.",
+            answer: "In-situ",
           },
           {
-            problem: "Give one exam trap students hit when studying Protected areas and living resources.",
-            solution: "Stay close to the text: Pakistan’s protected areas and emblematic species questions test whether candidates connect biodiversity conservation to land use and institutions. National parks and wildlife sanctuaries are in-situ tools: they protec… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
+            problem: "Why pair protected areas with sustainable use policies?",
+            solution: "Biodiversity and livelihoods both depend on how land and water outside strict reserves are managed.",
+            answer: "Beyond park boundaries",
+          }
         ],
         shortcuts: [
-          "Protected areas = in-situ conservation under management constraints",
+          "Parks = in-situ",
+          "Landscape matters"
         ],
         traps: [
-          "Memorising park names with no link to habitat pressure",
+          "Protected areas alone solve all biodiversity loss"
         ],
       },
     ],
