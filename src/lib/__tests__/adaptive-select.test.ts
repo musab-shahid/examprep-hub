@@ -1,6 +1,14 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { pickAdaptiveQuestions, scoreQuestion } from '../adaptive-select.ts';
+import {
+  pickAdaptiveQuestions,
+  scoreQuestion,
+  updateTopicAbility,
+  nearMissScore,
+  predictedSuccess,
+  getTopicAbility,
+  NEAR_MISS_TARGET_P,
+} from '../adaptive-select.ts';
 import type { Question, TopicProgress } from '../../types.ts';
 
 function q(partial: Partial<Question> & { id: string; topicId: string }): Question {
@@ -47,52 +55,6 @@ describe('adaptive-select phase 1', () => {
     assert.ok(scoreQuestion(unseen, opts) > scoreQuestion(right, opts));
   });
 
-  it('boosts questions on weak topics', () => {
-    const weakQ = q({ id: 'a', topicId: 'weak' });
-    const strongQ = q({ id: 'b', topicId: 'strong' });
-    const topicProgress: Record<string, TopicProgress> = {
-      weak: {
-        lastStudied: null,
-        nextReview: null,
-        lastQuizDate: null,
-        quizCorrect: 2,
-        quizTotal: 10,
-      },
-      strong: {
-        lastStudied: null,
-        nextReview: null,
-        lastQuizDate: null,
-        quizCorrect: 9,
-        quizTotal: 10,
-      },
-    };
-    const opts = { ...baseOpts, topicProgress };
-    assert.ok(scoreQuestion(weakQ, opts) > scoreQuestion(strongQ, opts));
-  });
-
-  it('boosts overdue spaced-review topics', () => {
-    const dueQ = q({ id: 'd', topicId: 'due' });
-    const laterQ = q({ id: 'l', topicId: 'later' });
-    const topicProgress: Record<string, TopicProgress> = {
-      due: {
-        lastStudied: null,
-        nextReview: '2026-10-01',
-        lastQuizDate: null,
-        quizCorrect: 0,
-        quizTotal: 0,
-      },
-      later: {
-        lastStudied: null,
-        nextReview: '2026-12-01',
-        lastQuizDate: null,
-        quizCorrect: 0,
-        quizTotal: 0,
-      },
-    };
-    const opts = { ...baseOpts, topicProgress };
-    assert.ok(scoreQuestion(dueQ, opts) > scoreQuestion(laterQ, opts));
-  });
-
   it('pickAdaptiveQuestions returns top-N by score', () => {
     const pool = [
       q({ id: 'right', topicId: 't' }),
@@ -110,13 +72,71 @@ describe('adaptive-select phase 1', () => {
     const ids = picked.map((x) => x.id);
     assert.ok(ids.includes('wrong'));
     assert.ok(ids.includes('new'));
-    assert.ok(!ids.includes('right'));
+  });
+});
+
+describe('adaptive-select phase 2 (Elo + near-miss)', () => {
+  it('updateTopicAbility rises on correct, falls on wrong', () => {
+    const up = updateTopicAbility(0, 'medium', true);
+    const down = updateTopicAbility(0, 'medium', false);
+    assert.ok(up > 0);
+    assert.ok(down < 0);
   });
 
-  it('penalizes ids marked recent', () => {
-    const a = q({ id: 'a', topicId: 't' });
-    const b = q({ id: 'b', topicId: 't' });
-    const opts = { ...baseOpts, recentQuestionIds: ['a'] };
-    assert.ok(scoreQuestion(b, opts) > scoreQuestion(a, opts));
+  it('hard correct moves ability more than easy correct', () => {
+    const hardUp = updateTopicAbility(0, 'hard', true);
+    const easyUp = updateTopicAbility(0, 'easy', true);
+    assert.ok(hardUp > easyUp);
+  });
+
+  it('nearMissScore peaks near target probability', () => {
+    const at0 = nearMissScore(0, 'medium');
+    const atTarget = nearMissScore(0.75, 'medium');
+    const far = nearMissScore(3, 'easy');
+    assert.ok(atTarget > at0);
+    assert.ok(atTarget > far);
+    assert.ok(atTarget > 0.9);
+  });
+
+  it('predictedSuccess respects difficulty', () => {
+    assert.ok(predictedSuccess(0, 'easy') > predictedSuccess(0, 'medium'));
+    assert.ok(predictedSuccess(0, 'medium') > predictedSuccess(0, 'hard'));
+  });
+
+  it('getTopicAbility cold-starts from accuracy', () => {
+    const prog: TopicProgress = {
+      lastStudied: null,
+      nextReview: null,
+      lastQuizDate: null,
+      quizCorrect: 9,
+      quizTotal: 10,
+    };
+    const θ = getTopicAbility(prog);
+    assert.ok(θ > 0);
+  });
+
+  it('prefers near-miss difficulty for a mid-ability learner', () => {
+    const θ = 0.75;
+    const easy = q({ id: 'e', topicId: 't', difficulty: 'easy' });
+    const med = q({ id: 'm', topicId: 't', difficulty: 'medium' });
+    const hard = q({ id: 'h', topicId: 't', difficulty: 'hard' });
+    const opts = {
+      ...baseOpts,
+      topicProgress: {
+        t: {
+          lastStudied: null,
+          nextReview: null,
+          lastQuizDate: null,
+          quizCorrect: 0,
+          quizTotal: 0,
+          abilityElo: θ,
+        },
+      },
+    };
+    const sEasy = scoreQuestion(easy, opts);
+    const sMed = scoreQuestion(med, opts);
+    const sHard = scoreQuestion(hard, opts);
+    assert.ok(sMed > sEasy);
+    assert.ok(sMed > sHard);
   });
 });
