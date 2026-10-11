@@ -18,115 +18,67 @@ export const topics: Topic[] = [
   sectionId: "METEO-01",
   order: 1,
   title: "Origin & Chemical Evolution of the Atmosphere",
-  definition: "Earth's atmosphere did not appear ready-made. Over roughly 4.6 billion years it passed through three broad stages: a short-lived primitive envelope of hydrogen and helium, a secondary atmosphere built by volcanic outgassing, and the modern oxygen-bearing atmosphere shaped by ocean chemistry and life. Understanding that sequence explains why today's air is mostly nitrogen and oxygen, why free oxygen is geologically young, and why the ozone layer could form only after oxygen had accumulated.",
+  definition: "Earth's atmosphere evolved in stages: a brief primitive H/He envelope, a secondary volcanic atmosphere, then oxygen rise and ozone after life and ocean chemistry reshaped the air. The sequence explains why modern air is N₂–O₂ rich and why the ozone shield is geologically young.",
   keyFacts: [
-    "Primitive atmosphere (~4.6 BYA): dominated by hydrogen and helium; lost early because the young Earth was hot and gravity could not retain such light, fast-moving gases",
-    "Secondary atmosphere (~4.0–2.5 BYA): volcanic outgassing supplied mostly water vapour (~80%), CO₂ (~10%), plus nitrogen compounds, methane, and ammonia — still essentially no free O₂",
-    "Ocean formation: water vapour condensed; CO₂ dissolved into seawater and reacted with crustal minerals, drawing carbon out of the air",
-    "Trace early O₂: ultraviolet photodissociation of water vapour released some oxygen, but this pathway alone cannot explain modern O₂ levels",
-    "Great Oxidation Event (~2.4 BYA): oxygenic photosynthesis by cyanobacteria produced the first sustained rise of free atmospheric oxygen",
-    "Ozone layer: once free O₂ was available, UV photolysis in the stratosphere built O₃ (~15–35 km), shielding the surface from harmful ultraviolet radiation"
+    "Primitive atmosphere (~4.6 BYA): H and He — lost to space",
+    "Secondary atmosphere: volcanic H₂O, CO₂, N compounds — little free O₂",
+    "Oceans + silicate reactions drew down CO₂",
+    "Great Oxidation Event (~2.4 BYA): photosynthetic O₂ rise",
+    "Stratospheric O₃ followed free O₂"
   ],
   explanationSections: [
-    {
-      heading: "Three stages at a glance",
-      body: "It helps to keep a single timeline in mind. First, a hydrogen–helium envelope briefly surrounded the young planet and was lost to space. Second, volcanoes rebuilt an atmosphere rich in water vapour and carbon dioxide but almost free of molecular oxygen. Third, cooling, ocean chemistry, and photosynthesis transformed that secondary mixture into the nitrogen–oxygen air we breathe. Every major exam fact about atmospheric origin is a detail of one of these three stages."
-    },
-    {
-      heading: "Why the story matters for later topics",
-      body: "Composition, greenhouse warming, and the ozone layer all inherit this history. There is no protective ozone without free oxygen; there is no modern oxygen without photosynthesis and earlier ocean-mediated carbon storage. When later topics discuss CO₂, water vapour, or stratospheric ozone, they are describing the latest chapter of the same evolution."
-    }
+    { heading: "Timeline first", body: "Keep three stages in order. Later topics (composition, greenhouse, ozone) inherit this history." }
   ],
   subtopics: [
     {
-      id: "meteo-origin-evolution-loss-of-primitive-atmosphere",
-      title: "Loss of the primitive atmosphere",
-      summary: "Hydrogen and helium escaped the young, hot Earth; the first atmosphere did not become today's air.",
-      explanation: "Hydrogen and helium atoms are light and, at high temperature, move quickly. On the early Earth, many of them exceeded escape velocity and streamed into space. The important teaching point is negative as well as positive: the modern N₂–O₂ mixture is not a leftover of the solar nebula's light gases. Whatever atmosphere we study in weather and climate is a later construction.",
+      id: "meteo-origin-evolution-escape-skill",
+      title: "Why H/He did not become today's air",
+      summary: "Light gases + hot young Earth → escape.",
+      explanation: "Hydrogen and helium move fast at a given temperature. On a hot, lower-gravity early Earth many atoms exceeded escape velocity. The teaching point is negative: today's nitrogen–oxygen air is not leftover primitive solar-composition gas.",
       examples: [
-        {
-          problem: "Why is today's atmosphere not mainly hydrogen and helium, even though those gases dominate the Sun?",
-          solution: "The young Earth was hot and relatively low in gravity for retaining the lightest gases. H and He escaped to space, so the primitive envelope was lost rather than evolving directly into modern air.",
-          answer: "Light H/He escaped early; modern air is a secondary and biological product."
-        }
+        { problem: "Why is the modern atmosphere not mostly hydrogen?", solution: "Early H/He escaped; secondary and biological processes built later composition.", answer: "Early escape of H/He" }
       ],
-      shortcuts: [
-        "Primitive = H/He → lost",
-        "If a question says 'original atmosphere', do not answer N₂–O₂"
-      ],
-      traps: [
-        "Assuming today's nitrogen–oxygen air is the primary atmosphere from planetary formation"
-      ]
+      shortcuts: ["Light + hot → escape", "Modern air ≠ primitive"],
+      traps: ["Today's air = captured solar nebula unchanged"]
     },
     {
-      id: "meteo-origin-evolution-secondary-outgassing",
-      title: "Secondary atmosphere and ocean–rock carbon storage",
-      summary: "Volcanic gases rebuilt the air; condensation and chemistry removed much water vapour and CO₂ from the open atmosphere.",
-      explanation: "Volcanic outgassing supplied a mixture dominated by water vapour and carbon dioxide, with nitrogen-bearing gases and reduced species such as methane and ammonia. As the planet cooled, water vapour condensed to form oceans. Carbon dioxide dissolved into seawater and combined with silicates, so a large fraction of Earth's carbon was locked into sediments and rocks rather than left as an atmospheric greenhouse burden. Free molecular oxygen was still essentially absent — a fact exams often test.",
+      id: "meteo-origin-evolution-co2-drawdown",
+      title: "Where secondary CO₂ went",
+      summary: "Oceans and rocks, not only 'plants ate it all at once'.",
+      explanation: "After oceans formed, CO₂ dissolved and participated in silicate–carbonate weathering, storing carbon in the ocean–crust system. That drawdown is essential between the CO₂-rich secondary atmosphere and later climates. Photosynthesis matters for O₂, but CO₂ history is not only biology in one step.",
       examples: [
-        {
-          problem: "A statement claims the secondary volcanic atmosphere already resembled modern dry air (≈78% N₂, 21% O₂). What is wrong with that claim?",
-          solution: "The secondary atmosphere was rich in water vapour and CO₂ and lacked free O₂. Modern proportions appear only after ocean chemistry and the later rise of oxygenic photosynthesis.",
-          answer: "Secondary air had H₂O and CO₂, not free O₂-dominated modern dry air."
-        }
+        { problem: "Besides biology, what helped reduce secondary-atmosphere CO₂?", solution: "Ocean dissolution and silicate–carbonate reactions.", answer: "Oceans + silicate weathering" }
       ],
-      shortcuts: [
-        "Secondary ≈ volcanic H₂O + CO₂, no free O₂",
-        "Oceans + rocks = major CO₂ sink"
-      ],
-      traps: [
-        "Giving the secondary atmosphere modern O₂ levels",
-        "Forgetting that water vapour condensed into oceans"
-      ]
+      shortcuts: ["CO₂ → ocean/rock storage", "O₂ rise → separate GOE story"],
+      traps: ["All CO₂ removed only by modern forests overnight"]
     },
     {
-      id: "meteo-origin-evolution-oxygen-and-ozone",
-      title: "Rise of oxygen and the ozone shield",
-      summary: "Cyanobacteria drove the Great Oxidation Event; ozone could form only after free O₂ existed.",
-      explanation: "Ultraviolet light can split water vapour and release some oxygen, but the decisive, sustained source was oxygenic photosynthesis: cyanobacteria used light to convert CO₂ and water into organic matter and O₂. Over geological time this produced the Great Oxidation Event around 2.4 billion years ago. Only after free O₂ accumulated could stratospheric photochemistry build the ozone layer (roughly 15–35 km), which absorbs biologically harmful UV and makes complex surface life more viable.",
+      id: "meteo-origin-evolution-goe-ozone-link",
+      title: "Oxygen first, ozone second",
+      summary: "No free O₂, no O₃ shield.",
+      explanation: "The Great Oxidation Event supplied free O₂. Stratospheric ozone forms from O₂ photochemistry. Exam traps that put a modern ozone layer in the anoxic secondary atmosphere fail this dependency.",
       examples: [
-        {
-          problem: "Which came first: the ozone layer or abundant free atmospheric oxygen? Why?",
-          solution: "Abundant free O₂ came first. Ozone (O₃) is produced from oxygen through UV-driven reactions. Without a reservoir of O₂, a persistent ozone shield cannot form.",
-          answer: "Free O₂ first; ozone is derived from O₂."
-        }
+        { problem: "Could a thick ozone shield exist before free O₂ accumulated?", solution: "No — ozone requires oxygen chemistry.", answer: "No" }
       ],
-      shortcuts: [
-        "GOE ≈ cyanobacteria ≈ free O₂ rise",
-        "O₃ needs O₂ + UV (stratosphere ~15–35 km)"
-      ],
-      traps: [
-        "Crediting animals or land plants for the first major oxygen rise",
-        "Placing ozone formation before free oxygen was available"
-      ]
+      shortcuts: ["O₂ before O₃", "GOE unlocks ozone"],
+      traps: ["Ozone layer in the secondary anoxic atmosphere"]
     }
   ],
-  comparisonTable: {
-    title: "Three atmospheric stages",
-    headers: ["Stage", "Main gases", "Free O₂?", "Key process"],
-    rows: [
-      ["Primitive", "H₂, He", "No", "Escape to space"],
-      ["Secondary", "H₂O, CO₂, N-compounds", "Essentially no", "Volcanic outgassing; oceans form"],
-      ["Modern", "N₂, O₂, Ar (+ variable gases)", "Yes", "Photosynthesis + photochemistry"],
-    ],
-  },
   examPoints: [
-    "Secondary atmosphere: no free molecular oxygen — classic trap",
-    "Great Oxidation Event is linked to cyanobacteria, not later land plants",
-    "Ozone forms from O₂ under UV influence and is concentrated near 15–35 km",
-    "Modern dry-air percentages describe today's atmosphere, not the secondary stage"
+    "Three-stage sequence",
+    "Why primitive air was lost",
+    "GOE and ozone dependency"
   ],
   commonMistakes: [
-    "Thinking today's N₂–O₂ air is the original primary atmosphere.",
-    "Crediting animals rather than photosynthetic microbes for the rise of oxygen.",
-    "Assuming the ozone layer could exist before free O₂ accumulated.",
-    "Mixing the volcanic secondary mixture with modern composition."
+    "Modern air = primitive H/He.",
+    "Ozone before oxygen.",
+    "Ignoring ocean–rock CO₂ storage."
   ],
-  relatedTopics: ["meteo-composition-today", "meteo-vertical-structure"],
+  relatedTopics: ["meteo-composition-today", "meteo-greenhouse-effect", "meteo-vertical-structure"],
   content: true,
-  buildsOn: ["phy-states-of-matter", "earth-a4", "earth-g3"],
-  leadsTo: ["meteo-composition-today"],
-  usedIn: ["meteo-composition-today", "meteo-greenhouse-effect", "meteo-solar-volcanic-forcing"]
+  buildsOn: [],
+  leadsTo: ["meteo-composition-today", "meteo-vertical-structure"],
+  usedIn: ["meteo-composition-today", "meteo-greenhouse-effect"]
 },
 
 {
@@ -937,139 +889,115 @@ export const topics: Topic[] = [
 {
   id: "meteo-inversion-types",
   sectionId: "METEO-02",
-  order: 6,
+  order: 9,
   title: "Inversion Types",
-  definition: "Inversions are classified by location and formation: radiation (nocturnal surface), advection, subsidence, and frontal. Each type has a typical weather setting and lifetime.",
+  definition: "Inversions are classified by formation process: radiation, advection, subsidence, and frontal (and others). All share temperature increasing with height; the type name answers how the lid formed.",
   keyFacts: [
-    "Radiation inversion: clear, light-wind nights; shallow; often burns off after sunrise",
-    "Advection inversion: warm air overspreading a colder surface (or cold air undercutting)",
-    "Subsidence inversion: sinking and adiabatic warming aloft; common in highs; can persist",
-    "Frontal inversion: warmer air overlying colder air across a frontal zone",
-    "Marine layers and valley cold pools are frequent inversion habitats",
-    "Diagnose type with both sounding shape and synoptic context"
+    "Radiation: clear-night surface cooling",
+    "Advection: warm air over cold surface (or similar)",
+    "Subsidence: sinking warms and stabilises aloft",
+    "Frontal: warm air overrunning cold air",
+    "Mechanics topic = stability; this topic = formation path"
   ],
   explanationSections: [
-    { heading: "Name the mechanism", body: "Two inversions can look similar on a profile yet form and decay differently. A radiation inversion may vanish by late morning; a subsidence inversion under a strong high may control air quality for days." }
+    { heading: "Stem describes process → pick type", body: "Match the setup, not a random label." }
   ],
   subtopics: [
     {
-      id: "meteo-inversion-types-radiation-advection",
-      title: "Radiation and advection inversions",
-      summary: "Night-time ground cooling versus horizontal temperature contrasts.",
-      explanation: "Radiation inversions are the classic clear-night lid. Advection inversions involve horizontal transport — for example warm air over cold ocean or snow.",
+      id: "meteo-inversion-types-match-skill",
+      title: "Process → type matching",
+      summary: "Four classic setups.",
+      explanation: "Clear calm night → radiation inversion. Warm air moving over cold ground/snow/sea → advection inversion. Large-scale sinking under a high → subsidence inversion aloft. Warm air ascending over a cold front surface → frontal inversion structure.",
       examples: [
-        { problem: "Valley fog under a shallow morning lid that disappears by noon — most likely type?", solution: "Radiation (nocturnal surface) inversion eroded by daytime heating and mixing.", answer: "Radiation inversion" }
+        { problem: "Strong high with sinking air and a warm lid aloft — type?", solution: "Subsidence inversion.", answer: "Subsidence" }
       ],
-      shortcuts: ["Radiation = night, clear, calm, shallow", "Advection = air over different surface T"],
-      traps: ["Calling every fog layer a subsidence inversion"]
+      shortcuts: ["Night calm → radiation", "Sink → subsidence", "Warm over cold → advection/frontal context"],
+      traps: ["All inversions are radiation inversions"]
     },
     {
-      id: "meteo-inversion-types-subsidence-frontal",
-      title: "Subsidence and frontal inversions",
-      summary: "Sinking aloft versus frontal air-mass layering.",
-      explanation: "Subtropical highs produce elevated subsidence inversions that can cap marine air for days. Fronts layer warm over cold air and move with the synoptic system.",
+      id: "meteo-inversion-types-vs-mechanics",
+      title: "Types vs mechanics division",
+      summary: "How formed vs why it traps.",
+      explanation: "Use Inversion Mechanics for stability and pollution trapping. Use this topic when the exam asks which process produced the inversion. Both agree that temperature increases with height.",
       examples: [
-        { problem: "Persistent elevated inversion under a subtropical high trapping haze for days — type?", solution: "Subsidence inversion from large-scale sinking and adiabatic warming aloft.", answer: "Subsidence inversion" }
+        { problem: "Question asks why smoke stays near the ground — mechanics or type name first?", solution: "Mechanics (stable lid); type may be radiation at night.", answer: "Mechanics first / radiation if night setup" }
       ],
-      shortcuts: ["Subsidence ↔ highs, persistent", "Frontal ↔ air-mass contrast"],
-      traps: ["Ignoring synoptic context when naming type"]
+      shortcuts: ["Mechanics = effects", "Types = origin process"],
+      traps: ["Two conflicting definitions of inversion"]
     }
   ],
-  comparisonTable: {
-    title: "Common inversion types",
-    headers: ["Type", "Main cause", "Life / depth"],
-    rows: [
-      ["Radiation", "Nocturnal ground IR cooling", "Shallow; often diurnal"],
-      ["Advection", "Horizontal T contrast", "Variable"],
-      ["Subsidence", "Sinking + adiabatic warming", "Often elevated; can persist"],
-      ["Frontal", "Air-mass overlap", "Moves with front"]
-    ]
-  },
-  examPoints: ["Match type to mechanism", "Radiation inversions are typically nocturnal and shallow", "Subsidence inversions link to highs"],
-  commonMistakes: [
-    "One label for all inversions.",
-    "Expecting radiation inversions to survive strong afternoon mixing.",
-    "Forgetting frontal inversions in warm-over-cold structure.",
-    "Confusing inversion type with cloud type."
+  examPoints: [
+    "Name main types",
+    "Match process to type",
+    "Link to mechanics topic"
   ],
-  relatedTopics: ["meteo-inversion-mechanics", "meteo-fog-types", "meteo-forces-governing-wind"],
+  commonMistakes: [
+    "One type only.",
+    "Subsidence at the ground always.",
+    "Ignoring frontal inversions."
+  ],
+  relatedTopics: ["meteo-inversion-mechanics", "meteo-fog-types", "meteo-static-stability"],
   content: true,
   buildsOn: ["meteo-inversion-mechanics"],
-  leadsTo: ["meteo-static-stability", "meteo-fog-types"],
-  usedIn: ["meteo-fog-types", "env-air-pollution"]
+  leadsTo: ["meteo-fog-types"],
+  usedIn: ["meteo-fog-types", "meteo-static-stability"]
 },
 
 {
   id: "meteo-coriolis-effect",
   sectionId: "METEO-02",
-  order: 7,
+  order: 10,
   title: "Coriolis Effect (Force)",
-  definition: "The Coriolis effect is an apparent deflection of moving objects in Earth's rotating frame. It acts to the right of the motion in the Northern Hemisphere and to the left in the Southern Hemisphere, with magnitude proportional to wind speed and sin(latitude). It shapes synoptic and planetary flows and is negligible for short-lived microscale gusts.",
+  definition: "The Coriolis effect deflects moving air relative to the rotating Earth — to the right in the Northern Hemisphere and to the left in the Southern Hemisphere. It is zero at the equator and maximum at the poles, and it does not start wind by itself.",
   keyFacts: [
-    "NH: deflection to the right of the velocity; SH: to the left",
-    "Coriolis parameter f = 2 Ω sin φ — zero at equator, maximum at poles",
-    "Coriolis acceleration magnitude ≈ f V",
-    "Does not create wind by itself — it deflects existing motion",
-    "Essential for geostrophic balance",
-    "Negligible for microscale turbulence on the simple scale argument"
+    "NH deflection to the right of motion",
+    "SH deflection to the left",
+    "f = 2 Ω sin φ → 0 at equator",
+    "Acts on moving parcels only",
+    "Essential for geostrophic balance"
   ],
   explanationSections: [
-    { heading: "Apparent force, real consequences", body: "On a rotating platform a straight path in space looks curved. Air moving large distances over many hours appears to curve. That organises circulating highs and lows and underpins the geostrophic wind." }
+    { heading: "Deflection, not a push from high to low", body: "PGF starts motion; Coriolis turns it." }
   ],
   subtopics: [
     {
-      id: "meteo-coriolis-effect-direction-latitude",
-      title: "Direction and latitude dependence",
-      summary: "Right in NH, left in SH; vanishes at the equator.",
-      explanation: "Because f = 2 Ω sin φ, the horizontal Coriolis effect is zero at the equator and grows toward the poles. Hemisphere deflection rules are standard MCQ material.",
+      id: "meteo-coriolis-effect-direction-skill",
+      title: "Direction and latitude skill",
+      summary: "NH right, SH left; zero on equator.",
+      explanation: "Face the direction of motion: Coriolis deflects right in the NH. Magnitude grows with wind speed and with sin(latitude). On the equator, sin φ = 0, so large-scale geostrophy fails — one reason tropical cyclones do not form there.",
       examples: [
-        { problem: "NH air flows northward. Which way does Coriolis deflect it?", solution: "To the right of the motion — eastward.", answer: "Right / eastward" }
+        { problem: "Air moving north in the NH is deflected toward which direction?", solution: "Toward the east (right of northward motion).", answer: "East / right" }
       ],
-      shortcuts: ["NH right, SH left", "f = 2Ω sinφ → 0 at equator"],
-      traps: ["Mid-latitude intuition on the equator", "Reversing hemisphere rules"]
+      shortcuts: ["NH right", "SH left", "Equator f=0"],
+      traps: ["Coriolis strongest at equator"]
     },
     {
-      id: "meteo-coriolis-effect-when-it-matters",
-      title: "When Coriolis matters",
-      summary: "Long-lived large-scale flows — not every local eddy.",
-      explanation: "Small Rossby number (large scale, long time) means Coriolis is first-order. A dust devil is too small and short-lived; a mid-latitude cyclone is not.",
+      id: "meteo-coriolis-effect-when-skill",
+      title: "When it matters",
+      summary: "Large-scale, long-lived motions.",
+      explanation: "Toilet-bowl and sink drains are not reliable Coriolis demos. Synoptic and planetary flows over hours and hundreds of kilometres feel Coriolis strongly; short-lived local eddies may not.",
       examples: [
-        { problem: "Why Coriolis for a mid-latitude cyclone but not a dust devil?", solution: "Cyclone: hundreds of km and days. Dust devil: small and brief — other forces dominate.", answer: "Scale and lifetime" }
+        { problem: "Is household drain rotation a trustworthy Coriolis teaching demo?", solution: "No — other forces dominate.", answer: "No" }
       ],
-      shortcuts: ["Large + long-lived → Coriolis matters", "Deflects; does not invent wind alone"],
-      traps: ["Saying Coriolis starts the wind without a pressure gradient"]
+      shortcuts: ["Synoptic yes", "Sink drains no"],
+      traps: ["Coriolis starts wind from rest"]
     }
   ],
-  formula: {
-    name: "Coriolis parameter",
-    expression: "f = 2 \\Omega \\sin\\phi",
-    variables: [
-      { symbol: "Ω", meaning: "Earth rotation rate" },
-      { symbol: "φ", meaning: "latitude" },
-      { symbol: "f", meaning: "Coriolis parameter" }
-    ]
-  },
-  comparisonTable: {
-    title: "Coriolis sensitivity",
-    headers: ["Situation", "Role"],
-    rows: [
-      ["Equator", "f ≈ 0"],
-      ["Mid-latitude synoptic low", "Central to balance"],
-      ["Microscale turbulence", "Negligible"]
-    ]
-  },
-  examPoints: ["NH right, SH left", "f = 2Ω sinφ", "Does not create wind alone", "Synoptic yes, microscale no"],
-  commonMistakes: [
-    "Reversing NH/SH deflection.",
-    "Applying mid-latitude Coriolis at the equator.",
-    "Claiming Coriolis alone starts the wind.",
-    "Forcing Coriolis onto dust devils without scale care."
+  examPoints: [
+    "NH/SH sense",
+    "Latitude dependence",
+    "Does not initiate wind"
   ],
-  relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-scales-of-motion"],
+  commonMistakes: [
+    "Strongest at equator.",
+    "Starts wind alone.",
+    "Wrong hemisphere sense."
+  ],
+  relatedTopics: ["meteo-forces-governing-wind", "meteo-geostrophic-wind", "meteo-tropical-cyclones"],
   content: true,
-  buildsOn: ["meteo-scales-of-motion", "phy-kinematics", "math-2-4"],
-  leadsTo: ["meteo-forces-governing-wind", "meteo-geostrophic-wind"],
-  usedIn: ["meteo-geostrophic-wind", "meteo-gradient-wind", "meteo-global-circulation"]
+  buildsOn: ["meteo-scales-of-motion"],
+  leadsTo: ["meteo-geostrophic-wind", "meteo-forces-governing-wind"],
+  usedIn: ["meteo-geostrophic-wind", "meteo-tropical-cyclones"]
 },
 
 {
@@ -1421,75 +1349,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 4,
   title: "Jet Stream Dynamics",
-  definition: "Jet streams are narrow, fast upper-tropospheric wind cores, typically near the tropopause. The polar-front jet and the subtropical jet dominate mid-latitude weather steering. Their speed and position follow from strong horizontal temperature gradients via thermal-wind thinking and geostrophic balance aloft.",
+  definition: "Jet streams are narrow, fast upper-level wind cores near tropopause breaks. The polar jet steers mid-latitude systems; the subtropical jet sits on the poleward edge of the Hadley cell. Meanders link to Rossby waves and surface weather.",
   keyFacts: [
-    "Located near the tropopause; cores often 10–15 km altitude depending on latitude and season",
-    "Polar-front jet: associated with the mid-latitude baroclinic zone; strongly guides storm tracks",
-    "Subtropical jet: linked to the poleward edge of the Hadley cell",
-    "Stronger and shifted with season — generally stronger in winter in each hemisphere",
-    "Jet streaks (speed maxima) organise divergence/convergence patterns that help cyclogenesis",
-    "Not a single fixed ‘tube’ — a meandering, evolving current"
+    "Polar jet: mid-latitudes; stronger in winter",
+    "Subtropical jet: ~30° poleward Hadley edge",
+    "Cores often near 200–300 hPa",
+    "Jet streaks create local divergence/ascent patterns",
+    "Winter interaction with South Asian topography affects regional storms"
   ],
   explanationSections: [
-    { heading: "Fast air above strong temperature contrast", body: "Where cold and warm air masses meet, the thermal-wind relation implies a strong increase of westerly wind with height. That piles up into a jet near the tropopause. Rossby-wave meanders then shift the jet and the weather systems locked to it." }
+    { heading: "Find the jet on upper charts", body: "Tight 300 hPa contours and strong winds mark the core." }
   ],
   subtopics: [
     {
-      id: "meteo-jet-stream-types-location",
-      title: "Types and location",
-      summary: "Polar-front vs subtropical jets near the tropopause.",
-      explanation: "The polar-front jet sits above the mid-latitude frontal zone and is the main storm-track guide for Pakistan’s winter western disturbances when it digs south. The subtropical jet lies farther equatorward, tied to upper outflow from the Hadley circulation.",
+      id: "meteo-jet-stream-two-jets",
+      title: "Polar vs subtropical jet",
+      summary: "Different latitude and role.",
+      explanation: "The polar jet is tied to the strong mid-latitude temperature gradient and storm track. The subtropical jet aligns with the upper branch of the Hadley circulation. Both can appear on the same hemisphere map in winter.",
       examples: [
-        { problem: "Which jet is most directly tied to mid-latitude cyclone tracks?", solution: "The polar-front jet, aligned with the main baroclinic zone.", answer: "Polar-front jet" }
+        { problem: "Jet on the poleward edge of the Hadley cell — polar or subtropical?", solution: "Subtropical jet.", answer: "Subtropical" }
       ],
-      shortcuts: ["Polar jet ↔ mid-latitude storms", "Subtropical jet ↔ Hadley edge"],
-      traps: ["Treating one permanent fixed jet latitude year-round"]
+      shortcuts: ["Polar ↔ storm track", "Subtropical ↔ Hadley edge"],
+      traps: ["Only one jet exists on Earth"]
     },
     {
-      id: "meteo-jet-stream-weather-role",
-      title: "Role in weather",
-      summary: "Steering, jet streaks, and divergence patterns.",
-      explanation: "Surface cyclones often develop and move in relation to upper jets. Regions of upper-level divergence ahead of troughs and near certain jet-streak quadrants favour surface pressure falls. For FPSC geography, the winter jet’s interaction with western disturbances is high yield.",
+      id: "meteo-jet-stream-weather-skill",
+      title: "Jet and surface weather",
+      summary: "Steering + jet-streak ascent.",
+      explanation: "Surface cyclones often move with the mid-latitude jet pattern. Jet-streak entrance/exit circulations can enhance ascent in preferred quadrants — a conceptual model used in advanced forecasting. For FPSC, link strong jet to active mid-latitude weather and western-disturbance guidance.",
       examples: [
-        { problem: "Why do forecasters watch upper-level jet position when predicting storm tracks?", solution: "The jet marks strong temperature gradients and organises divergence that steers and intensifies synoptic systems.", answer: "Steering + upper divergence support" }
+        { problem: "Why do forecasters inspect 300 hPa winds when tracking winter storms?", solution: "Jet pattern steers and organises development.", answer: "Steering / organisation" }
       ],
-      shortcuts: ["Jet steers storms", "Jet streak → local divergence patterns"],
-      traps: ["Thinking the jet is only a curiosity with no surface impact"]
+      shortcuts: ["Jet steers", "Tight upper contours → jet"],
+      traps: ["Jet only a surface wind feature"]
     }
   ],
-  formula: {
-    name: "Angular Momentum",
-    expression: "L = m × V × r",
-    variables: [
-      { symbol: "m", meaning: "mass" },
-      { symbol: "V", meaning: "speed" },
-      { symbol: "r", meaning: "perpendicular distance from axis" }
-    ]
-  },
-  comparisonTable: {
-    title: "Major jet streams",
-    headers: ["Jet", "Linkage", "Weather role"],
-    rows: [
-      ["Polar-front", "Mid-latitude baroclinic zone", "Storm tracks, WDs"],
-      ["Subtropical", "Hadley cell edge", "Upper subtropical flow"]
-    ]
-  },
   examPoints: [
-    "Jets near tropopause",
-    "Polar-front jet guides mid-latitude storms",
-    "Seasonal strength and position change"
+    "Polar vs subtropical",
+    "Upper-level location",
+    "Steering role"
   ],
   commonMistakes: [
-    "Placing jets in the lower troposphere.",
-    "Confusing polar-front and subtropical jets.",
-    "Treating the jet as static geography.",
-    "Ignoring jet–storm track coupling."
+    "Jet at the surface.",
+    "Single jet only.",
+    "No weather link."
   ],
-  relatedTopics: ["meteo-gradient-wind", "meteo-global-circulation", "meteo-rossby-waves"],
+  relatedTopics: ["meteo-rossby-waves", "meteo-global-circulation", "meteo-western-disturbances"],
   content: true,
-  buildsOn: ["meteo-geostrophic-wind", "meteo-global-circulation"],
-  leadsTo: ["meteo-rossby-waves", "meteo-western-disturbances"],
-  usedIn: ["meteo-rossby-waves", "meteo-western-disturbances", "meteo-cyclones-development"]
+  buildsOn: ["meteo-global-circulation", "meteo-hydrostatic-equation"],
+  leadsTo: ["meteo-rossby-waves", "meteo-cyclones-development"],
+  usedIn: ["meteo-western-disturbances", "meteo-cyclones-development"]
 },
 
 {
@@ -2733,285 +2642,240 @@ export const topics: Topic[] = [
 {
   id: "meteo-pressure-instruments",
   sectionId: "METEO-06",
-  order: 1,
+  order: 3,
   title: "Atmospheric Pressure — Barometers",
-  definition: "Atmospheric pressure is the weight of the air column per unit area. Mercury barometers, aneroid barometers, and modern electronic sensors measure it. Station pressure must often be reduced to sea level for map comparison. Units include hPa (mb), mmHg, and inHg.",
+  definition: "Pressure is measured with mercury, aneroid, and electronic barometers. Operational charts use sea-level reduced pressure so stations at different elevations can be compared.",
   keyFacts: [
-    "Standard sea-level pressure ≈ 1013.25 hPa (1013.25 mb)",
-    "Mercury barometer: height of Hg column balances air pressure",
-    "Aneroid: evacuated capsule expands/contracts with pressure changes",
-    "Station pressure depends on elevation — higher stations read lower raw pressure",
-    "Sea-level reduction allows fair comparison on surface charts",
-    "Pressure tendency (rising/falling) is a key forecast and station-model element"
+    "Mercury barometer: column height ∝ pressure",
+    "Aneroid: evacuated capsule deformation",
+    "Electronic: transducers for automation",
+    "Station pressure ≠ sea-level pressure",
+    "Pressure tendency is a forecasting clue"
   ],
   explanationSections: [
-    { heading: "Measure locally, map fairly", body: "A mountain station always reports lower station pressure than a coastal station in the same weather system if elevation is ignored. Reducing to sea level removes that geometric bias so isobars reflect weather systems, not topography alone." }
+    { heading: "Measure, then reduce", body: "Always know whether a number is station pressure or SLP." }
   ],
   subtopics: [
     {
-      id: "meteo-pressure-instruments-types",
-      title: "Mercury, aneroid, and electronic",
-      summary: "Column balance versus capsule deformation versus transducers.",
-      explanation: "The mercury barometer remains the conceptual standard: air pressure supports a mercury column. Aneroid instruments are portable and common in practice. Electronic sensors enable automated stations and high-frequency sampling.",
+      id: "meteo-pressure-instruments-type-match",
+      title: "Instrument type matching",
+      summary: "Mercury vs aneroid vs electronic.",
+      explanation: "Mercury barometers are absolute references but bulky and toxic. Aneroids are portable and common in aircraft altimetry heritage. Electronic sensors dominate modern networks. Exam stems often ask which uses a liquid column.",
       examples: [
-        { problem: "Why does a mercury barometer need a correction mindset for temperature and gravity in precise work?", solution: "Mercury density and local g affect the height equivalent of a given pressure; precise meteorology accounts for those influences.", answer: "Density/g affect Hg height" }
+        { problem: "Which classical instrument uses a mercury column height?", solution: "Mercury barometer.", answer: "Mercury barometer" }
       ],
-      shortcuts: ["1013.25 hPa standard SLP", "Aneroid = no liquid"],
-      traps: ["Treating station pressure as sea-level pressure at altitude"]
+      shortcuts: ["Mercury = liquid column", "Aneroid = capsule", "Electronic = network default"],
+      traps: ["Aneroid contains a mercury column"]
     },
     {
-      id: "meteo-pressure-instruments-reduction",
-      title: "Sea-level reduction and tendency",
-      summary: "Elevation adjustment for charts; rise/fall for change.",
-      explanation: "Reduction uses the hydrostatic idea: estimate what pressure would be if the station were at sea level in a standard atmosphere column. Tendency over three hours on station models shows whether the pressure is rising or falling.",
+      id: "meteo-pressure-instruments-slp-skill",
+      title: "Why reduce to sea level",
+      summary: "Elevation would otherwise dominate the map.",
+      explanation: "Station pressure falls with height. Without reduction, every mountain would look like a permanent low. Sea-level pressure (SLP) adjusts to a common level so gradients reflect weather systems. Tendency (rising/falling) still uses consistent local practice.",
       examples: [
-        { problem: "Two stations report the same station pressure but one is 1500 m higher. Which has higher sea-level pressure, roughly?", solution: "The higher station — its reduced sea-level value must be larger to compensate for the elevation deficit in station pressure.", answer: "The higher-elevation station" }
+        { problem: "Why not plot raw station pressure for a national isobar map?", solution: "Elevation differences would mask weather gradients.", answer: "Need SLP reduction" }
       ],
-      shortcuts: ["Charts use SLP", "Tendency = recent change"],
-      traps: ["Comparing raw station pressures across different elevations"]
+      shortcuts: ["SLP for maps", "Station p for local height effect"],
+      traps: ["Station pressure = SLP always"]
     }
   ],
-  comparisonTable: {
-    title: "Pressure instruments",
-    headers: ["Type", "Principle"],
-    rows: [
-      ["Mercury", "Liquid column balance"],
-      ["Aneroid", "Evacuated capsule"],
-      ["Electronic", "Pressure transducer"]
-    ]
-  },
   examPoints: [
-    "Standard SLP ≈ 1013.25 hPa",
-    "Station vs sea-level pressure",
-    "Aneroid vs mercury principles"
+    "Barometer types",
+    "Station vs SLP",
+    "Tendency usefulness"
   ],
   commonMistakes: [
-    "Ignoring elevation when comparing pressures.",
-    "Mixing hPa and inHg without conversion.",
-    "Reading tendency as absolute pressure.",
-    "Assuming aneroids need mercury."
+    "No reduction to sea level.",
+    "Mercury vs aneroid swapped.",
+    "Ignoring tendency."
   ],
-  relatedTopics: ["meteo-radiosondes", "meteo-ground-aviation-instruments", "meteo-pressure-conversion", "meteo-station-model"],
+  relatedTopics: ["meteo-pressure-conversion", "meteo-hydrostatic-equation", "meteo-station-model"],
   content: true,
-  buildsOn: ["meteo-hydrostatic-equation", "phy-atmospheric-pressure-physics", "math-2-2"],
-  leadsTo: ["meteo-radiosondes", "meteo-pressure-conversion"],
-  usedIn: ["meteo-station-model", "meteo-isobar-analysis", "meteo-upper-air-charts"]
+  buildsOn: ["meteo-hydrostatic-equation"],
+  leadsTo: ["meteo-station-model", "meteo-pressure-conversion"],
+  usedIn: ["meteo-station-model", "meteo-isobar-analysis"]
 },
 
 {
   id: "meteo-wind-instruments",
   sectionId: "METEO-06",
-  order: 2,
+  order: 6,
   title: "Wind Speed & Direction — Anemometers & Wind Vanes",
-  definition: "Wind is a vector: direction from which it blows and speed. Vanes sense direction; cup, propeller, and sonic anemometers sense speed. Exposure height and siting strongly affect readings. Aviation and synoptic practice use standard reporting conventions (e.g. knots, degrees true).",
+  definition: "Wind direction is the direction from which the wind blows; speed is measured by cup, propeller, or sonic anemometers. Exposure height and averaging time define what the number means.",
   keyFacts: [
-    "Direction: degrees true, direction wind blows FROM",
-    "Cup anemometer: rotation rate ∝ speed; propeller types also common",
-    "Sonic anemometers: use sound travel times; fast response for research/turbulence",
-    "Standard exposure often near 10 m above open ground for synoptic comparison",
-    "Gusts are short-peak speeds; sustained wind is averaged over a defined period",
-    "Poor siting (behind buildings) ruins representativeness"
+    "Direction: FROM convention",
+    "Cup anemometer: rotation rate ∝ speed",
+    "Sonic anemometers: no moving parts; research/airports",
+    "Standard exposure often 10 m for synoptic wind",
+    "Gusts are short-period peaks; mean wind is averaged"
   ],
   explanationSections: [
-    { heading: "Vector plus exposure", body: "A perfect sensor in a bad location measures the eddy behind a shed, not the synoptic wind. Instruments and siting standards together make wind data comparable between stations." }
+    { heading: "Direction vocabulary first", body: "A north wind comes from the north. Station-model staffs use the same FROM convention." }
   ],
   subtopics: [
     {
-      id: "meteo-wind-instruments-sensors",
-      title: "Direction and speed sensors",
-      summary: "Vane for FROM direction; cups/propellers/sonic for speed.",
-      explanation: "The vane aligns with the flow so the tail points downwind and the reading is the direction of origin. Cup anemometers are robust for routine networks; sonic sensors capture turbulence and rapid fluctuations.",
+      id: "meteo-wind-instruments-from-convention",
+      title: "FROM convention + sensor types",
+      summary: "Vane points into the wind; cups measure speed.",
+      explanation: "The vane orients into the oncoming flow. Cup anemometers rotate faster in stronger wind; propellers combine direction and speed. Sonic anemometers use sound-travel times and suit turbulent research. Match the instrument to the question stem.",
       examples: [
-        { problem: "Wind reported as 090° at 10 kt means air is moving toward which compass point?", solution: "From the east toward the west — reported direction is where wind comes FROM.", answer: "Toward the west" }
+        { problem: "Wind reported as 270° — air is moving toward which general direction?", solution: "Toward the east (wind from the west).", answer: "Toward east" }
       ],
-      shortcuts: ["Direction = FROM", "Cups ∝ speed"],
-      traps: ["Reporting direction as where wind goes TO"]
+      shortcuts: ["Direction = FROM", "Cups = speed", "Vane = direction"],
+      traps: ["Direction = where air is going as the named wind"]
     },
     {
-      id: "meteo-wind-instruments-exposure",
-      title: "Exposure, gusts, and averages",
-      summary: "Height and averaging period change the number.",
-      explanation: "Wind increases with height in the boundary layer under usual conditions. Gusts exceed sustained averages. Always read metadata: sensor height and averaging time matter for aviation and storm reports.",
+      id: "meteo-wind-instruments-exposure-gust",
+      title: "Height, obstacles, gusts",
+      summary: "10 m standard vs roof-edge turbulence.",
+      explanation: "Wind increases with height in the surface layer; trees and buildings create eddies. A sensor behind an obstacle under-reads or fluctuates wildly. Gusts are short peaks; mean winds average over minutes. Compare like with like.",
       examples: [
-        { problem: "Why might a rooftop anemometer in a city not match a rural 10 m mast in the same synoptic flow?", solution: "Obstacles and different effective exposure alter speed and direction; urban roughness changes the profile.", answer: "Siting / roughness differences" }
+        { problem: "Anemometer in a courtyard among buildings — representative of open 10 m wind?", solution: "Usually no — sheltered/turbulent site.", answer: "No" }
       ],
-      shortcuts: ["~10 m standard open exposure", "Gust ≠ sustained"],
-      traps: ["Ignoring sensor height"]
-    }
-  ,
+      shortcuts: ["Standard height ~10 m", "Gust ≠ mean", "Obstacles bias"],
+      traps: ["Any height is equivalent"]
+    },
     {
-      id: "meteo-wind-instruments-beaufort",
-      title: "Beaufort scale",
-      summary: "Force numbers from observed effects when instruments are unavailable.",
-      explanation: "The Beaufort scale ranks wind force from 0 (calm) upward using sea state or land effects (smoke, leaves, trees, structural damage). It remains useful for estimates and historical reports even though modern networks report speed in knots or metres per second from anemometers.",
+      id: "meteo-wind-instruments-beaufort-skill",
+      title: "Beaufort as estimate, not anemometer",
+      summary: "Force scale from visual effects.",
+      explanation: "Beaufort forces estimate wind from smoke, leaves, and sea state when instruments are absent. It is ordered and useful, but not a substitute for calibrated anemometer values in precise work.",
       examples: [
-        { problem: "Why might a coastal observer still use Beaufort ideas when the anemometer fails?", solution: "Visual sea and land effects allow a standardised force estimate without a working instrument.", answer: "Visual force estimate" }
+        { problem: "Is Beaufort force a direct cup-anemometer reading?", solution: "No — visual/sea-state estimate scale.", answer: "No" }
       ],
-      shortcuts: ["Beaufort = force from effects", "0 = calm; higher = stronger"],
-      traps: ["Treating Beaufort numbers as m/s without a conversion table"]
+      shortcuts: ["Beaufort = estimated force", "Anemometer = measured speed"],
+      traps: ["Beaufort = exact m/s instrument"]
     }
   ],
-  comparisonTable: {
-    title: "Wind sensors",
-    headers: ["Device", "Measures"],
-    rows: [
-      ["Wind vane", "Direction (FROM)"],
-      ["Cup / propeller anemometer", "Speed"],
-      ["Sonic anemometer", "Fast 3D / turbulence"]
-    ]
-  },
   examPoints: [
-    "Wind direction is FROM",
-    "Anemometer measures speed",
-    "Siting and height matter"
+    "FROM convention",
+    "Anemometer types",
+    "Exposure and gust vs mean"
   ],
   commonMistakes: [
-    "Reversing TO/FROM direction.",
-    "Ignoring exposure standards.",
-    "Confusing gust and mean wind.",
-    "Treating all anemometers as identical response."
+    "Direction inverted.",
+    "Ignoring obstacles.",
+    "Gust reported as mean."
   ],
-  relatedTopics: ["meteo-pressure-instruments", "meteo-remote-sensing", "meteo-station-model", "meteo-isobar-analysis"],
+  relatedTopics: ["meteo-station-model", "meteo-forces-governing-wind"],
   content: true,
-  buildsOn: ["meteo-forces-governing-wind", "phy-vector-applications"],
-  leadsTo: ["meteo-station-model"],
-  usedIn: ["meteo-station-model", "meteo-aviation-products", "meteo-isobar-analysis"]
+  buildsOn: ["meteo-forces-governing-wind"],
+  leadsTo: ["meteo-station-model", "meteo-aviation-products"],
+  usedIn: ["meteo-station-model", "meteo-ground-aviation-instruments"]
 },
 
 {
   id: "meteo-humidity-instruments",
   sectionId: "METEO-06",
-  order: 3,
+  order: 2,
   title: "Humidity — Hygrometers & Psychrometers",
-  definition: "Humidity instruments estimate water vapour in air. Psychrometers use wet-bulb and dry-bulb temperatures; hair and electronic hygrometers respond to moisture-dependent properties. Outputs may be RH, dew point, or wet-bulb temperature depending on the system.",
+  definition: "Humidity instruments infer moisture from wet-bulb cooling, hygroscopic materials, or electronic sensors. The aspirated psychrometer remains a teaching standard: dry- and wet-bulb temperatures yield vapour pressure and RH via tables or formulae.",
   keyFacts: [
-    "Sling / aspirated psychrometer: wet-bulb depression related to humidity",
-    "Wet-bulb temperature ≤ dry-bulb; equal at saturation",
-    "Hair hygrometer: length changes with RH (historical / some screens)",
-    "Electronic sensors: capacitance/resistance of a hygroscopic element",
-    "Calibration and ventilation matter — stagnant air biases wet-bulb readings",
-    "Dew point can be derived from psychrometric data or measured with chilled-mirror devices"
+    "Psychrometer: dry bulb + wet bulb",
+    "Wet-bulb depression grows as air dries",
+    "Hair hygrometer: length changes with RH",
+    "Electronic sensors: capacitance/resistance of polymers",
+    "Ventilation improves psychrometer accuracy"
   ],
   explanationSections: [
-    { heading: "Wet bulb is the key idea", body: "Evaporation from the wet bulb cools it until a balance is reached. Drier air evaporates more, widens the wet-bulb depression, and signals lower humidity. That single physical idea underpins classical humidity measurement." }
+    { heading: "Depression is the signal", body: "When dry and wet bulbs agree, air is saturated. Large depression means dry air." }
   ],
   subtopics: [
     {
-      id: "meteo-humidity-instruments-psychrometer",
-      title: "Psychrometer principle",
-      summary: "Dry-bulb vs wet-bulb depression indicates dryness.",
-      explanation: "Airflow past the wet bulb is required so evaporation is representative. Tables or formulas convert the pair (T, Tw) into RH or vapour pressure. When T = Tw, RH is 100%.",
+      id: "meteo-humidity-instruments-psychrometer-skill",
+      title: "Psychrometer reading skill",
+      summary: "Interpret wet-bulb depression.",
+      explanation: "Evaporation cools the wet bulb until equilibrium. More evaporation (drier air) → larger depression → lower RH. At 100% RH, depression is zero. Aspiration (fan or sling) keeps fresh air on the bulbs so the wet bulb does not sit in its own moist boundary layer.",
       examples: [
-        { problem: "Dry-bulb 30 °C, wet-bulb 30 °C. What is RH?", solution: "Equal bulbs mean saturation — RH = 100%.", answer: "100%" }
+        { problem: "Dry bulb 30 °C, wet bulb 30 °C — RH?", solution: "About 100% (saturated).", answer: "~100%" }
       ],
-      shortcuts: ["T = Tw → saturated", "Larger depression → drier"],
-      traps: ["Using an unventilated wet bulb as accurate"]
+      shortcuts: ["Zero depression → saturated", "Large depression → dry", "Aspire the bulbs"],
+      traps: ["Wet bulb higher than dry bulb in normal liquid water psychrometry"]
     },
     {
-      id: "meteo-humidity-instruments-other",
-      title: "Hair and electronic hygrometers",
-      summary: "Material response versus modern sensors.",
-      explanation: "Hair elements expand with moisture — useful historically in thermohygrographs. Electronic sensors enable continuous automatic weather station records but still need calibration against standards.",
+      id: "meteo-humidity-instruments-sensor-choice",
+      title: "Hair vs electronic vs psychrometer",
+      summary: "When each is appropriate.",
+      explanation: "Hair hygrometers are simple but slow and drift. Electronic sensors suit automation with calibration. Psychrometers teach the physics and remain a reference method when operated correctly. Choose by required accuracy, response time, and maintenance.",
       examples: [
-        { problem: "Why do automatic stations still need humidity calibration checks?", solution: "Sensor drift and contamination change the response of electronic hygrometers over time.", answer: "Drift / contamination" }
+        { problem: "Need a classroom demonstration of wet-bulb depression — best classic tool?", solution: "Sling or aspirated psychrometer.", answer: "Psychrometer" }
       ],
-      shortcuts: ["Hair ↔ RH expansion", "Electronic needs calibration"],
-      traps: ["Assuming electronic RH is never wrong"]
+      shortcuts: ["Psychrometer = teaching + reference", "Electronic = automated networks"],
+      traps: ["Uncalibrated hair hygrometer as primary climate-grade sensor"]
     }
   ],
-  comparisonTable: {
-    title: "Humidity instruments",
-    headers: ["Instrument", "Basis"],
-    rows: [
-      ["Psychrometer", "Wet/dry bulb evaporation"],
-      ["Hair hygrometer", "Length vs RH"],
-      ["Electronic", "Capacitance/resistance"]
-    ]
-  },
   examPoints: [
-    "Wet-bulb depression → humidity",
-    "T = Tw at saturation",
-    "Ventilation required for psychrometers"
+    "Psychrometer principle",
+    "Depression vs RH",
+    "Ventilation importance"
   ],
   commonMistakes: [
-    "Ignoring ventilation.",
-    "Confusing wet-bulb with dew point always.",
-    "Treating RH sensors as maintenance-free.",
-    "Mixing RH with absolute humidity units."
+    "Wet bulb > dry bulb as normal.",
+    "No aspiration needed.",
+    "Hair hygrometer needs no calibration."
   ],
-  relatedTopics: ["meteo-moisture-metrics", "meteo-humidity-calc", "meteo-temperature-instruments", "meteo-radiosondes"],
+  relatedTopics: ["meteo-moisture-metrics", "meteo-temperature-instruments", "meteo-stevenson-screen"],
   content: true,
-  buildsOn: ["meteo-moisture-metrics"],
-  leadsTo: ["meteo-humidity-calc"],
-  usedIn: ["meteo-humidity-calc", "meteo-stevenson-screen", "meteo-radiosondes"]
+  buildsOn: ["meteo-moisture-metrics", "meteo-temperature-instruments"],
+  leadsTo: ["meteo-stevenson-screen"],
+  usedIn: ["meteo-radiosondes", "meteo-humidity-calc"]
 },
 
 {
   id: "meteo-temperature-instruments",
   sectionId: "METEO-06",
-  order: 4,
-  title: "Temperature — Thermometers, Thermographs & Thermistors",
-  definition: "Air temperature is measured with liquid-in-glass thermometers, bimetallic thermographs, resistance temperature detectors, and thermistors. Meteorological air temperature requires shielding from sun and precipitation and adequate ventilation — hence the instrument shelter.",
+  order: 1,
+  title: "Temperature — Thermometers, Thermographs & Thermocouples",
+  definition: "Air temperature is measured with liquid-in-glass, bimetallic, resistance, and thermocouple sensors. Exposure and radiation shielding matter as much as the sensor type — a sunlit thermometer reads the instrument, not the air.",
   keyFacts: [
-    "Liquid-in-glass: mercury or alcohol expansion",
-    "Maximum/minimum thermometers record extremes over an interval",
-    "Thermograph: continuous trace (bimetallic or electronic)",
-    "Thermistors/RTDs: electrical resistance changes with temperature — AWS standard",
-    "Radiation error: sunlight on a sensor biases temperature high without a screen",
-    "Official air temperature is not the temperature of a sunlit wall or bare sensor"
+    "Liquid-in-glass: expansion of mercury or alcohol",
+    "Max/min thermometers record extremes",
+    "Thermograph: continuous record",
+    "Electrical sensors: resistance or thermoelectric",
+    "Must be shielded and ventilated (Stevenson screen)"
   ],
   explanationSections: [
-    { heading: "Sensor plus environment", body: "The physics of expansion or resistance is simple; the meteorology is in exposure. A correct thermometer in direct sun is the wrong measurement of air temperature." }
+    { heading: "Sensor vs exposure", body: "Choosing a thermocouple does not fix radiation error if the housing is wrong." }
   ],
   subtopics: [
     {
-      id: "meteo-temperature-instruments-types",
-      title: "Instrument types",
-      summary: "Glass, mechanical, and electronic sensors.",
-      explanation: "Mercury thermometers were traditional for ordinary ranges; alcohol suits lower temperatures. Max/min thermometers hold extreme readings until reset. Electronic sensors enable continuous digital records for synoptic and climate networks.",
+      id: "meteo-temperature-instruments-sensor-match",
+      title: "Match sensor to job",
+      summary: "Spot reading vs continuous vs remote electrical.",
+      explanation: "Liquid-in-glass suits standard screen observations. Max/min thermometers capture daily extremes without continuous power. Thermographs and loggers provide time series. Resistance thermometers and thermocouples suit automated stations and fast response when properly housed.",
       examples: [
-        { problem: "Why might alcohol be preferred over mercury for very low temperatures?", solution: "Mercury freezes near −39 °C; alcohol remains liquid at much lower temperatures.", answer: "Mercury freezes; alcohol does not as soon" }
+        { problem: "Need yesterday's maximum without a logger — which classic tool?", solution: "Maximum thermometer (or max/min set).", answer: "Max thermometer" }
       ],
-      shortcuts: ["Max/min record extremes", "Electronic for AWS"],
-      traps: ["Assuming any outdoor thermometer is a valid air-temperature station"]
+      shortcuts: ["Max/min = extremes", "Thermograph = continuous", "Electrical = automation"],
+      traps: ["Any sensor is accurate in full sun"]
     },
     {
-      id: "meteo-temperature-instruments-exposure",
-      title: "Exposure and radiation error",
-      summary: "Shade and ventilate; avoid artificial heat sources.",
-      explanation: "Stevenson screens and modern radiation shields exist to keep sensors at air temperature. Placement over natural ground, away from buildings and exhausts, protects long-term climate comparability.",
+      id: "meteo-temperature-instruments-radiation-error",
+      title: "Radiation error trap",
+      summary: "Sunshine on the sensor biases the reading high.",
+      explanation: "A dry thermometer bulb in direct sun absorbs solar radiation and reads warmer than the air. Stevenson screens and aspirated shields exist to enforce shade and airflow. Exam stems about 'thermometer in open sun' test this, not the mercury formula.",
       examples: [
-        { problem: "A sensor in full sun reads 3 °C higher than a screened sensor beside it. Likely issue?", solution: "Radiation error — solar heating of the sensor/housing, not true air temperature difference of that size.", answer: "Radiation error / poor shielding" }
+        { problem: "Unshielded thermometer in midday sun — bias direction?", solution: "Reads too high.", answer: "Too high" }
       ],
-      shortcuts: ["Screen against sun", "Site away from artificial heat"],
-      traps: ["Mounting sensors on sunlit metal roofs"]
+      shortcuts: ["Sun on sensor → high bias", "Screen = shade + ventilation"],
+      traps: ["Blaming only mercury purity for large daytime errors"]
     }
   ],
-  comparisonTable: {
-    title: "Temperature sensors",
-    headers: ["Type", "Note"],
-    rows: [
-      ["Liquid-in-glass", "Expansion; max/min variants"],
-      ["Thermograph", "Continuous analogue/digital trace"],
-      ["Thermistor / RTD", "Electrical; AWS"]
-    ]
-  },
   examPoints: [
-    "Shielded, ventilated exposure required",
-    "Max/min thermometers for extremes",
-    "Radiation error without a screen"
+    "Main sensor types",
+    "Max/min role",
+    "Radiation shielding necessity"
   ],
   commonMistakes: [
-    "Measuring sunlit surfaces as air temperature.",
-    "Ignoring siting near buildings.",
-    "Confusing soil temperature with air temperature.",
-    "Forgetting max/min reset practice."
+    "Ignoring exposure.",
+    "Thermograph = instantaneous only.",
+    "Sunlit readings trusted as air temperature."
   ],
-  relatedTopics: ["meteo-humidity-instruments", "meteo-stevenson-screen", "meteo-radiosondes", "meteo-ground-aviation-instruments"],
+  relatedTopics: ["meteo-stevenson-screen", "meteo-heat-transfer"],
   content: true,
-  buildsOn: ["phy-temperature-heat", "math-2-2"],
-  leadsTo: ["meteo-stevenson-screen"],
-  usedIn: ["meteo-stevenson-screen", "meteo-station-model", "meteo-radiosondes"]
+  buildsOn: ["meteo-heat-transfer"],
+  leadsTo: ["meteo-stevenson-screen", "meteo-humidity-instruments"],
+  usedIn: ["meteo-stevenson-screen", "meteo-radiosondes"]
 },
 
 {
@@ -3074,69 +2938,58 @@ export const topics: Topic[] = [
 {
   id: "meteo-stevenson-screen",
   sectionId: "METEO-06",
-  order: 6,
+  order: 4,
   title: "Siting Standards — The Stevenson Screen (Instrument Shelter)",
-  definition: "The Stevenson screen is a white, louvered wooden (or similar) shelter that houses thermometers and humidity instruments at a standard height. It shades sensors from direct sun and precipitation while allowing air to flow through, so readings represent ambient air temperature and humidity.",
+  definition: "The Stevenson screen is a white, louvered, ventilated shelter that houses thermometers and humidity instruments at a standard height so readings represent shaded air temperature, not sunlit instrument temperature.",
   keyFacts: [
-    "White exterior reflects sunlight; louvers allow ventilation",
-    "Typical thermometer height about 1.25–2 m above short grass (standards vary slightly by service)",
-    "Door faces away from prevailing sun where practical (often north in NH)",
-    "Sited over level open ground away from buildings, concrete, and trees",
-    "Modern AWS radiation shields pursue the same goal with different materials",
-    "Without a proper shelter, radiation and precipitation corrupt climate records"
+    "White exterior reflects sunlight",
+    "Louvers allow airflow but block direct sun and precipitation",
+    "Standard height often about 1.25 m above short grass",
+    "Door faces away from midday sun in many practices",
+    "Poor siting ruins good sensors"
   ],
   explanationSections: [
-    { heading: "A standard microenvironment", body: "Climate and synoptic temperatures are defined by exposure rules, not by whatever a sensor happens to touch. The Stevenson screen is the classic embodiment of those rules." }
+    { heading: "Shelter is part of the measurement", body: "Metrology includes the screen and the ground cover, not only the thermometer certificate." }
   ],
   subtopics: [
     {
-      id: "meteo-stevenson-screen-design",
-      title: "Design features",
-      summary: "White, louvered, ventilated, standard height.",
-      explanation: "Louvers block direct solar beams yet permit air exchange. The white paint minimises absorption. Double-louvered designs reduce radiation errors further. Instruments hang so that bulbs are properly placed inside the volume.",
+      id: "meteo-stevenson-screen-design-skill",
+      title: "Why each design feature exists",
+      summary: "White, louvers, height — not decoration.",
+      explanation: "White paint reduces solar heating of the box. Louvers let air exchange while blocking direct beams and rain on the sensors. Height above short grass avoids extreme ground heating and snow burial. Remove any feature and the temperature bias grows.",
       examples: [
-        { problem: "Why is the screen painted white?", solution: "To reflect solar radiation and reduce heating of the shelter interior.", answer: "Reflect sunlight / reduce heating" }
+        { problem: "Why is the screen painted white?", solution: "To reflect sunlight and reduce solar heating of the shelter.", answer: "Reflect sunlight / reduce heating" }
       ],
-      shortcuts: ["White + louvers", "Ventilated shade"],
-      traps: ["Sealing the screen airtight"]
+      shortcuts: ["White = reflect", "Louvers = ventilate + shade", "Height = standard exposure"],
+      traps: ["Black screen for better absorption"]
     },
     {
-      id: "meteo-stevenson-screen-siting",
-      title: "Siting rules",
-      summary: "Open grass site; distance from obstacles.",
-      explanation: "Buildings, roads, and trees create artificial heat or shade. WMO and national services specify minimum distances and surface type so that long records remain comparable for climate monitoring.",
+      id: "meteo-stevenson-screen-siting-traps",
+      title: "Siting mistakes that fail exams",
+      summary: "Concrete, walls, and rooftops bias readings.",
+      explanation: "Screens over asphalt, beside heat-storing walls, or on rooftops sample microclimates, not representative air. Ideal siting is open level ground with short vegetation and free airflow. Urban heat island studies must document non-standard siting deliberately.",
       examples: [
-        { problem: "A screen sits on a black asphalt rooftop next to an AC exhaust. What is wrong?", solution: "Artificial heat sources and non-standard surface bias temperature well above representative air temperature.", answer: "Non-standard hot siting" }
+        { problem: "Thermometer screen on a black rooftop at midday — likely bias?", solution: "Too warm relative to a standard grass site.", answer: "Warm bias" }
       ],
-      shortcuts: ["Open grass", "Away from buildings/heat"],
-      traps: ["Rooftop and courtyard siting without metadata"]
+      shortcuts: ["Open grass good", "Rooftop/asphalt bad for standard climate series"],
+      traps: ["Any outdoor placement is standard"]
     }
   ],
-  comparisonTable: {
-    title: "Good vs poor exposure",
-    headers: ["Practice", "Effect"],
-    rows: [
-      ["White louvered screen, open grass", "Representative air T/RH"],
-      ["Bare sensor in sun", "Radiation bias high"],
-      ["Next to building exhaust", "Local artificial heat"]
-    ]
-  },
   examPoints: [
-    "Purpose: shade + ventilate",
-    "White louvered design",
-    "Standard height and open siting"
+    "Purpose of screen",
+    "Design features",
+    "Siting rules"
   ],
   commonMistakes: [
-    "Thinking the screen heats the air intentionally.",
-    "Ignoring siting distance rules.",
-    "Painting screens dark colours.",
-    "Equating any box with a Stevenson screen."
+    "Screen optional.",
+    "Ignoring ground surface.",
+    "Wrong height irrelevant."
   ],
-  relatedTopics: ["meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-pmd-operational", "meteo-station-model"],
+  relatedTopics: ["meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-weather-vs-climate"],
   content: true,
-  buildsOn: ["meteo-temperature-instruments", "meteo-humidity-instruments"],
-  leadsTo: [],
-  usedIn: ["meteo-pmd-operational", "meteo-station-model"]
+  buildsOn: ["meteo-temperature-instruments"],
+  leadsTo: ["meteo-weather-vs-climate"],
+  usedIn: ["meteo-temperature-instruments", "meteo-humidity-instruments"]
 },
 
 {
@@ -3201,68 +3054,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-06",
   order: 8,
   title: "Ground-Based & Aviation Observation Instruments (Precipitation, Ceiling, Wind, Microburst & Hail)",
-  definition: "Airports and weather services deploy specialised instruments beyond the basic PTU set: precipitation gauges, ceilometers for cloud base, transmissometers/visibility sensors, low-level wind shear alert systems, and hail sensors. These support both climatology and aviation safety.",
+  definition: "Airfields combine standard meteorological sensors with aviation-specific systems: ceilometers for cloud base, weather radars/LLWAS for wind shear and microbursts, and present-weather/precipitation sensors. The goal is timely hazard detection for take-off and landing.",
   keyFacts: [
-    "Rain gauges: tipping bucket, weighing, optical — measure accumulated depth",
-    "Ceilometer: laser/lidar estimates cloud-base height",
-    "Visibility sensors support RVR and prevailing visibility",
-    "Wind shear / microburst detection: networks of anemometers or lidar/radar alert systems",
-    "Runway-oriented observations are critical for take-off and landing",
-    "Automated Airport Weather Stations combine many sensors in one package"
+    "Ceilometer: cloud-base height",
+    "Tipping-bucket / weighing gauges: precipitation",
+    "LLWAS / Doppler: low-level wind shear and microbursts",
+    "Visibility sensors support RVR-related operations",
+    "Integrates with METAR/SPECI issuance"
   ],
   explanationSections: [
-    { heading: "Operations demand specialised metrics", body: "A synoptic station may need daily rainfall. An airport needs cloud ceiling, visibility, and shear alerts in near real time. The instrument suite expands accordingly." }
+    { heading: "Hazard-focused sensing", body: "Aviation instruments prioritise rapid detection of shear, low cloud, and visibility drops." }
   ],
   subtopics: [
     {
-      id: "meteo-ground-aviation-instruments-precip-ceiling",
-      title: "Precipitation and ceiling",
-      summary: "Gauges for liquid equivalent; ceilometers for base height.",
-      explanation: "Tipping-bucket gauges count tips of known volume; weighing gauges capture snow better when heated/configured properly. Ceilometers pulse a laser upward and time the return from cloud base — essential for ceiling in METAR.",
+      id: "meteo-ground-aviation-instruments-ceiling-vis",
+      title: "Ceiling and visibility tools",
+      summary: "Ceilometer + visibility sensors drive approach decisions.",
+      explanation: "A ceilometer uses a laser (or similar) to estimate cloud-base height. Visibility sensors and human observations support operational minima. When ceiling or visibility crosses thresholds, SPECI and approach-category decisions follow.",
       examples: [
-        { problem: "Which instrument estimates cloud-base height at airports?", solution: "Ceilometer (laser/lidar cloud-base sensor).", answer: "Ceilometer" }
+        { problem: "Primary automated tool for cloud-base height at an airport?", solution: "Ceilometer.", answer: "Ceilometer" }
       ],
-      shortcuts: ["Gauge → accumulation", "Ceilometer → cloud base"],
-      traps: ["Using only radar for official point rainfall climate without gauges"]
+      shortcuts: ["Ceilometer = cloud base", "VIS sensors = visibility"],
+      traps: ["Ceilometer measures wind shear"]
     },
     {
       id: "meteo-ground-aviation-instruments-shear",
-      title: "Wind shear and hazardous weather sensors",
-      summary: "Detect microbursts and low-level shear for aviation.",
-      explanation: "Microbursts produce life-threatening wind shear on approach. Alert systems compare winds across a network or use Doppler detection to warn towers and pilots. Hail sensors and lightning networks add further hazard layers.",
+      title: "Microburst and shear detection",
+      summary: "LLWAS/Doppler protect against sudden wind changes.",
+      explanation: "Microbursts produce damaging divergent outflow near the surface. Low-Level Wind Shear Alert Systems and terminal Doppler radar aim to detect shear signatures quickly so alerts can be issued. This is distinct from routine mean-wind climatology.",
       examples: [
-        { problem: "Why is a single anemometer at the terminal insufficient for microburst warning on a long runway?", solution: "Microbursts are small and short-lived; detection needs spatial coverage along the approach/runway corridor.", answer: "Need spatial network / dedicated detection" }
+        { problem: "System network designed to alert on low-level wind shear at airports?", solution: "LLWAS (or equivalent terminal shear detection).", answer: "LLWAS / terminal Doppler" }
       ],
-      shortcuts: ["Microburst = small-scale shear hazard", "Network > single sensor"],
-      traps: ["Ignoring shear when visibility is good"]
+      shortcuts: ["Microburst = divergent outflow hazard", "LLWAS = shear alert"],
+      traps: ["Mean cup anemometer alone is enough for microburst warning"]
     }
   ],
-  comparisonTable: {
-    title: "Aviation-focused instruments",
-    headers: ["Need", "Instrument class"],
-    rows: [
-      ["Rain amount", "Precipitation gauge"],
-      ["Cloud base", "Ceilometer"],
-      ["Visibility / RVR", "Visibility sensors"],
-      ["Low-level shear", "LLWAS / Doppler systems"]
-    ]
-  },
   examPoints: [
-    "Ceilometer → cloud base",
-    "Gauges measure precipitation at a point",
-    "Shear detection is spatial and time-critical"
+    "Ceilometer purpose",
+    "Microburst/shear detection",
+    "Link to METAR/SPECI"
   ],
   commonMistakes: [
-    "Confusing ceilometer with radiosonde.",
-    "Assuming radar replaces all rain gauges.",
-    "Ignoring microburst scale.",
-    "Treating terminal wind as runway wind always."
+    "Ceilometer = rain gauge.",
+    "Ignoring shear systems.",
+    "No link to aviation products."
   ],
-  relatedTopics: ["meteo-remote-sensing", "meteo-aviation-products", "meteo-radiosondes", "meteo-pmd-operational"],
+  relatedTopics: ["meteo-aviation-products", "meteo-remote-sensing", "meteo-wind-instruments"],
   content: true,
-  buildsOn: ["meteo-pressure-instruments", "meteo-wind-instruments", "meteo-precipitation-types"],
+  buildsOn: ["meteo-wind-instruments", "meteo-remote-sensing"],
   leadsTo: ["meteo-aviation-products"],
-  usedIn: ["meteo-aviation-products", "meteo-pmd-operational"]
+  usedIn: ["meteo-aviation-products"]
 },
 
 {
@@ -3947,72 +3788,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-08",
   order: 7,
   title: "The Pakistan National Climate Change Policy (NCCP) 2012",
-  definition: "Pakistan’s National Climate Change Policy (2012) provides a national framework for climate change adaptation and mitigation in a country highly exposed to floods, droughts, heat, glacial change, and agricultural stress. It links science and vulnerability to sectoral policy directions rather than serving as a physical-science textbook.",
+  definition: "Pakistan’s NCCP (2012) is the national policy framework for climate change. It prioritises adaptation to impacts already facing the country while also addressing mitigation, capacity, and mainstreaming across sectors.",
   keyFacts: [
-    "Approved framework for addressing climate risks and response in Pakistan",
-    "Emphasis on adaptation given high vulnerability, alongside mitigation where feasible",
-    "Sectors: water, agriculture, forestry, biodiversity, energy, transport, urban, disaster risk, etc.",
-    "Recognises Pakistan’s low historical emissions relative to impacts faced",
-    "Connects to later implementation strategies and provincial actions in the policy landscape",
-    "Students should link NCCP themes to monsoon/WD climate variability and arid-zone water stress"
+    "Adaptation is a central emphasis for a high-impact country",
+    "Mitigation and energy choices also appear",
+    "Water, agriculture, forests, biodiversity, disaster risks are key sectors",
+    "Policy framework — implementation needs further plans and institutions",
+    "Links to extreme events and development planning"
   ],
   explanationSections: [
-    { heading: "Policy meets physical exposure", body: "NCCP matters in FPSC content because Pakistan’s climate risks are not abstract: water security, extreme heat, floods, and glacial-fed river variability. The policy document organises response priorities around those exposures." }
+    { heading: "Policy, not a physics law", body: "NCCP organises national response; it does not replace the physical science of forcing and feedbacks." }
   ],
   subtopics: [
     {
-      id: "meteo-pakistan-nccp-adaptation-mitigation",
-      title: "Adaptation emphasis and mitigation role",
-      summary: "Live with changing risks; reduce emissions where practical.",
-      explanation: "Adaptation covers water management, resilient agriculture, disaster preparedness, and coastal/urban planning. Mitigation addresses energy efficiency, renewables, and forestry — important globally and nationally even when per-capita historic emissions are low.",
+      id: "meteo-pakistan-nccp-adapt-first",
+      title: "Why adaptation is emphasised",
+      summary: "High exposure to floods, droughts, heat, GLOFs.",
+      explanation: "Pakistan faces serious hydrometeorological risks now. Policy therefore stresses adaptation — water management, disaster risk reduction, resilient agriculture — alongside longer-term mitigation. Exam answers should not claim NCCP ignores adaptation.",
       examples: [
-        { problem: "Why might adaptation feature prominently in Pakistan’s climate policy?", solution: "High exposure to climate hazards (floods, droughts, heat, water stress) makes risk management urgent regardless of global emission shares.", answer: "High vulnerability / exposure" }
+        { problem: "Does NCCP focus only on cutting emissions with no adaptation pillar?", solution: "No — adaptation is central.", answer: "No" }
       ],
-      shortcuts: ["Adaptation = manage impacts", "Mitigation = reduce forcing"],
-      traps: ["Treating NCCP as only an emissions document"]
+      shortcuts: ["Adaptation central", "Mitigation also present"],
+      traps: ["NCCP = mitigation-only document"]
     },
     {
-      id: "meteo-pakistan-nccp-sectors",
-      title: "Sectoral and water links",
-      summary: "Water and agriculture sit at the centre of risk.",
-      explanation: "Monsoon variability, western disturbances, and glacial/snowmelt contributions to Indus-basin water make climate policy inseparable from hydrology and food security. Forestry and energy appear as both adaptation and mitigation levers.",
+      id: "meteo-pakistan-nccp-sectors-skill",
+      title: "Sector checklist for MCQs",
+      summary: "Water, ag, disasters, forests…",
+      explanation: "When stems ask which sectors NCCP addresses, water resources, agriculture, forestry, biodiversity, and disaster risk are safe anchors. Integrate with the extreme-events topic for concrete hazards (floods, GLOFs, heat).",
       examples: [
-        { problem: "Name two climate-sensitive sectors central to Pakistan’s policy concern.", solution: "Water resources and agriculture (among others listed in the policy framework).", answer: "Water and agriculture" }
+        { problem: "Name two sectors commonly prioritised under NCCP-style framing.", solution: "e.g. water and agriculture (or DRR, forests).", answer: "Water / agriculture / DRR / forests" }
       ],
-      shortcuts: ["Water + agriculture core", "DRR linked to extremes"],
-      traps: ["Ignoring water when discussing Pakistan climate policy"]
+      shortcuts: ["Water + ag + DRR", "Policy → sectors"],
+      traps: ["NCCP only about aviation weather codes"]
     }
   ],
-  comparisonTable: {
-    title: "Policy pillars (sketch)",
-    headers: ["Pillar", "Focus"],
-    rows: [
-      ["Adaptation", "Risk reduction, resilience"],
-      ["Mitigation", "Emissions and sinks"],
-      ["Sectors", "Water, ag, energy, urban, DRR…"]
-    ]
-  },
-  pakistanExamFocus: [
-    "NCCP 2012 as national policy framework",
-    "Adaptation prominence under high vulnerability",
-    "Link to water, agriculture, and extremes — not only global CO₂ graphs"
-  ],
   examPoints: [
-    "NCCP 2012 = national climate policy framework",
-    "Adaptation + mitigation",
-    "Sectoral coverage with water/agriculture central"
+    "NCCP 2012 identity",
+    "Adaptation emphasis",
+    "Key sectors"
   ],
   commonMistakes: [
-    "Confusing NCCP with IPCC RCP scenarios.",
-    "Ignoring adaptation.",
-    "Treating Pakistan as low-risk.",
-    "Detaching policy from monsoon/WD/water facts."
+    "Mitigation-only reading.",
+    "Confusing policy with IPCC scenarios.",
+    "No sector detail."
   ],
-  relatedTopics: ["meteo-radiative-forcing", "meteo-nccp-objectives"],
+  relatedTopics: ["meteo-nccp-objectives", "meteo-extreme-events", "meteo-ipcc-rcps"],
   content: true,
-  buildsOn: ["meteo-ipcc-rcps", "meteo-pakistan-macroclimate"],
+  buildsOn: ["meteo-extreme-events", "meteo-climate-feedbacks"],
   leadsTo: ["meteo-nccp-objectives"],
-  usedIn: ["meteo-nccp-objectives", "env-climate-change-response"]
+  usedIn: ["meteo-nccp-objectives"]
 },
 // ============================= SECTION I =============================
 
@@ -4398,72 +4223,56 @@ export const topics: Topic[] = [
   sectionId: "METEO-09",
   order: 7,
   title: "National Climate Change Policy (NCCP) Objectives",
-  definition: "The objectives of Pakistan’s National Climate Change Policy centre on enhancing adaptive capacity, reducing vulnerability, promoting sustainable economic growth under climate constraints, and pursuing mitigation compatible with national development priorities. They translate the 2012 policy framework into directional goals for sectors and institutions.",
+  definition: "NCCP objectives spell out what the policy aims to achieve: resilient development through adaptation, appropriate mitigation, capacity building, and integration of climate into planning. This topic is the objectives lens; the NCCP topic is the policy frame.",
   keyFacts: [
-    "Strengthen adaptation to climate risks (water, agriculture, extremes, health, ecosystems)",
-    "Integrate climate change into development planning",
-    "Promote mitigation through energy, forestry, and efficiency where feasible",
-    "Build institutional and scientific capacity for climate response",
-    "Raise awareness and support vulnerable communities",
-    "Align with international climate processes while prioritising national vulnerabilities"
+    "Adaptation to adverse impacts",
+    "Mitigation where feasible and aligned with development",
+    "Capacity building and awareness",
+    "Mainstreaming climate into sectoral plans",
+    "Complementary to hazard science topics"
   ],
   explanationSections: [
-    { heading: "Objectives as a checklist for action", body: "Where the NCCP topic introduces the policy, this topic stresses what it aims to achieve. Exam answers should connect objectives to Pakistan’s actual risks: water security, floods, droughts, heat, and glacial systems — not generic global slogans only." }
+    { heading: "Objectives vs hazards", body: "Objectives are policy goals; GLOFs and heatwaves are physical hazards the goals respond to." }
   ],
   subtopics: [
     {
-      id: "meteo-nccp-objectives-adaptation",
-      title: "Adaptation-centred objectives",
-      summary: "Reduce vulnerability; protect water and livelihoods.",
-      explanation: "Objectives emphasise resilient water resources, climate-smart agriculture, disaster risk reduction, and protection of vulnerable populations. These map directly onto monsoon variability, WDs, GLOFs, and heat extremes.",
+      id: "meteo-nccp-objectives-adapt-mitigate",
+      title: "Adaptation and mitigation objectives",
+      summary: "Both appear; adaptation is urgent.",
+      explanation: "Objectives include reducing vulnerability (adaptation) and contributing to GHG management (mitigation) in line with national circumstances. For MCQs, do not drop either pillar, but recognise adaptation’s prominence for Pakistan’s risk profile.",
       examples: [
-        { problem: "Why do NCCP objectives stress water resources so strongly?", solution: "Pakistan’s agriculture, cities, and energy systems depend on climate-sensitive water from monsoon, melt, and rivers under high variability.", answer: "Water security under climate stress" }
+        { problem: "Is building flood resilience an adaptation or a pure GHG accounting objective?", solution: "Adaptation.", answer: "Adaptation" }
       ],
-      shortcuts: ["Adaptation objectives ↔ vulnerability sectors", "Water + ag central"],
-      traps: ["Listing only CO₂ targets as NCCP objectives"]
+      shortcuts: ["Resilience → adaptation", "Emissions → mitigation"],
+      traps: ["Objectives = only plant trees slogans without adaptation"]
     },
     {
-      id: "meteo-nccp-objectives-mitigation-capacity",
-      title: "Mitigation, capacity, and integration",
-      summary: "Development-compatible mitigation; institutions and awareness.",
-      explanation: "Mitigation objectives include cleaner energy pathways and sinks such as forestry. Capacity-building and mainstreaming climate into planning aim to make adaptation and mitigation durable across ministries and provinces.",
+      id: "meteo-nccp-objectives-capacity-skill",
+      title: "Capacity and mainstreaming",
+      summary: "Institutions and plans, not one-off projects only.",
+      explanation: "Capacity building, research, and mainstreaming climate into water, energy, and urban plans turn policy text into durable practice. Exam stems may contrast isolated projects with systemic integration.",
       examples: [
-        { problem: "Name two non-meteorological supports required for NCCP objectives to work.", solution: "Institutional capacity and integration into development planning (also finance, awareness, and local implementation).", answer: "Institutions + planning integration" }
+        { problem: "Integrating climate risk into national water planning illustrates which objective theme?", solution: "Mainstreaming / integration.", answer: "Mainstreaming" }
       ],
-      shortcuts: ["Mitigation + adaptation together", "Capacity enables policy"],
-      traps: ["Treating policy objectives as self-executing without institutions"]
+      shortcuts: ["Mainstreaming = into sector plans", "Capacity = skills & institutions"],
+      traps: ["Policy objectives end when a single project finishes"]
     }
   ],
-  comparisonTable: {
-    title: "Objective clusters",
-    headers: ["Cluster", "Emphasis"],
-    rows: [
-      ["Adaptation", "Vulnerability, water, extremes"],
-      ["Mitigation", "Energy, forestry, efficiency"],
-      ["Enablers", "Institutions, awareness, planning"]
-    ]
-  },
-  pakistanExamFocus: [
-    "NCCP objectives prioritise adaptation under high vulnerability",
-    "Connect objectives to floods, droughts, heat, water, glaciers",
-    "Mitigation appears alongside — not instead of — adaptation"
-  ],
   examPoints: [
-    "Core objectives: adaptation, mitigation, integration, capacity",
-    "Water and agriculture are central",
-    "Policy goals link to physical climate risks"
+    "List core objective themes",
+    "Adaptation vs mitigation examples",
+    "Mainstreaming meaning"
   ],
   commonMistakes: [
-    "Confusing objectives with RCP scenarios.",
-    "Adaptation-only or mitigation-only caricatures.",
-    "Generic answers with no Pakistan hazard link.",
-    "Ignoring institutional capacity."
+    "Objectives = hazards list only.",
+    "No mitigation mention when asked fully.",
+    "Mainstreaming undefined."
   ],
-  relatedTopics: ["meteo-pakistan-nccp", "meteo-extreme-events", "meteo-temp-rainfall-distribution", "meteo-pmd-operational"],
+  relatedTopics: ["meteo-pakistan-nccp", "meteo-extreme-events"],
   content: true,
   buildsOn: ["meteo-pakistan-nccp"],
   leadsTo: [],
-  usedIn: ["env-climate-change-response", "meteo-extreme-events"]
+  usedIn: ["meteo-pakistan-nccp"]
 },
 
 // ============================= SECTION METEO-J: Weather Forecasting Basics =============================
