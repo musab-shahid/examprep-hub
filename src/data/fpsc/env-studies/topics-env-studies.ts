@@ -2508,134 +2508,572 @@ explanationSections: [
     sectionId: "ENV-05",
     order: 3,
     title: "Soil Pollution, Solid & Hazardous Waste",
-    definition: "Soil pollution is the contamination of soil by chemicals, wastes, or pathogens in ways that damage fertility, ecosystems, or human health. In irrigated landscapes, rising water tables and evaporation can also salinise and waterlog fields even without industrial spills. Solid and hazardous wastes require ordered management that prefers prevention and reuse over disposal, with special handling for toxic and medical streams.",
+    content: true,
+  
+    definition:
+      "Soil pollution is contamination of soil by chemicals, wastes, or pathogens that damage fertility, ecosystems, or health. In irrigated drylands, rising water tables and evaporation can salinise and waterlog fields without any industrial spill. Solid and hazardous wastes need ordered management that prefers prevention and reuse over disposal, with segregated handling for toxic and medical streams.",
+  
     keyFacts: [
-      "Soil pollution sources: PESTICIDES and herbicides (agriculture), INDUSTRIAL WASTE (chemicals, heavy metals), SEWAGE SLUDGE, MINING (acid mine drainage), LANDFILL LEACHATE (liquids seeping from waste dumps)",
-      "Effects of soil pollution: REDUCED FERTILITY (soils can't grow crops), BIOACCUMULATION in food (chemicals up the food chain), GROUNDWATER CONTAMINATION (leaching into aquifers), ECOSYSTEM DAMAGE (soil organisms die)",
-      "Pakistan soil issues: SALINITY (salt buildup from irrigation, ~6 million hectares affected), WATERLOGGING (historic, partially solved by SCARP), EROSION in mountain areas, LOW ORGANIC MATTER in arid soils, PESTICIDE accumulation in cotton-wheat belt",
-      "Solid waste types: MUNICIPAL SOLID WASTE (MSW — household, commercial), INDUSTRIAL waste, AGRICULTURAL waste (crop residue, manure), BIOMEDICAL waste (infectious — needs special handling), HAZARDOUS waste (toxic/reactive/flammable/corrosive), E-WASTE (fastest growing stream globally), PLASTIC waste (non-biodegradable, microplastics ubiquitous)",
-      "The 5Rs waste hierarchy (in order of preference): REFUSE → REDUCE → REUSE → RECYCLE → RECOVER (energy from waste) → DISPOSE (last resort)",
-      "Waste management methods: SANITARY LANDFILL (engineered, lined, with leachate control — most common for MSW), OPEN DUMPING (uncontrolled, common in developing countries — HAZARDOUS), INCINERATION (reduces volume but has air emissions), COMPOSTING (for organic waste), ANAEROBIC DIGESTION (produces biogas), RECYCLING, WASTE-TO-ENERGY (combustion with energy recovery)",
-      "Pakistan waste: 12,000+ tons/day Karachi (mostly uncollected), 6,000+ tons/day Lahore. Limited segregation, few sanitary landfills, open dumping common, single-use plastic bans in some cities. E-waste is a growing concern",
-      "Biomedical waste: infectious waste from hospitals must be autoclaved or incinerated, not mixed with general waste"
+      "Soil-pollution sources: pesticides/herbicides, industrial chemicals and metals, sewage sludge, mining (acid mine drainage), landfill leachate",
+      "Effects: fertility loss, food-chain uptake, leach-to-groundwater, death of soil biota — soil retains pollutants; it does not flush like a river",
+      "Pakistan soils: salinity ~6 million ha (irrigation + evaporation), waterlogging (partially eased by SCARP), mountain erosion, low organic matter in arid soils, pesticide load in the cotton–wheat belt",
+      "Salinity + waterlogging are hydrological twins, not ‘dumping’: excess canal water → water table up → roots drown and/or salts concentrate in the root zone",
+      "Waste types: MSW (household/commercial), industrial, agricultural (residue, manure), biomedical (infectious), hazardous (toxic/reactive/flammable/corrosive), e-waste (fastest-growing stream), plastics/microplastics",
+      "Hierarchy (best → worst): REFUSE → REDUCE → REUSE → RECYCLE → RECOVER (energy) → DISPOSE",
+      "Sanitary landfill = engineered, lined, leachate + gas control. Open dump = uncontrolled — soil, water, air, fire, disease. Not synonyms",
+      "Other methods: incineration (volume down, air emissions), composting (organics), anaerobic digestion (biogas), recycling, waste-to-energy",
+      "Pakistan MSW: Karachi 12,000+ t/day, Lahore 6,000+ t/day; weak segregation; few sanitary landfills; open dumping common; patchy single-use plastic bans; e-waste rising",
+      "Biomedical waste: autoclave or incinerate; never mix into general MSW",
     ],
-explanationSections: [
-      { heading: "Soil pollution and degradation", body: "Soil receives contaminants from agricultural chemicals, industrial disposal, sewage sludge, and leaking waste sites. Many pollutants bind to soil or degrade only slowly, so contamination can persist for decades. Because crops grow in soil, pollutants may enter food chains as well as local ecosystems.\n\nDegradation also includes erosion and structural damage. Healthy soil is a living system; losing it is slower to reverse than many surface-water pollution events that can move downstream." },
-      { heading: "Salinity and waterlogging", body: "In irrigated regions, excess water can raise the water table. Evaporation then concentrates salts in the root zone, reducing fertility. Waterlogging deprives roots of air. Large parts of the Indus basin have long struggled with these twin problems where drainage and water management lag behind canal supply.\n\nThe mechanism is hydrological and agricultural, not merely chemical dumping. Solutions involve drainage, efficient irrigation, and land husbandry matched to local soils." },
-      { heading: "Waste streams and the hierarchy of preference", body: "Municipal solid waste, hazardous industrial waste, biomedical waste, and electronic waste pose different risks and require different handling. Mixing hazardous or clinical waste into ordinary refuse multiplies harm. The preferred order of action remains prevention and reduction, then reuse, then recycling or recovery, with disposal as the last resort.\n\nPolicy that only builds dumps without reducing waste generation addresses the symptom after the material has already been extracted and discarded." },
+  
+    explanationSections: [
+      {
+        heading: "Soil contamination persists",
+        body:
+          "Soil takes pesticides, industrial metals, sewage sludge, mine residues, and landfill leachate. Many bind to clays and organic matter or degrade only slowly, so a field can remain a source for decades after the factory closes. Crops and soil fauna then move residues into food webs; infiltrating water moves them into aquifers. That is why soil pollution is both an ecological and a drinking-water problem.\n\nDegradation is wider than chemistry. Erosion strips topsoil in mountains and on bare slopes; low organic matter in arid Pakistani soils weakens structure and water-holding. A living soil recovers slowly. A river may export a pulse downstream; soil mostly keeps it.",
+      },
+      {
+        heading: "Salinity and waterlogging — irrigation without drainage",
+        body:
+          "In the Indus basin, canal supply often exceeds crop use plus drainage. The water table rises. Saturated roots cannot breathe (waterlogging). Evaporation at the surface leaves salts behind (secondary salinisation). Yields fall long before the field looks like an industrial Superfund site. About 6 million hectares in Pakistan are salt-affected; waterlogging was historically severe and only partly relieved by SCARP (Salinity Control and Reclamation Projects) tubewells and drains.\n\nThe lever is water management: drainage that exports salts, irrigation that matches crop demand, land levelling, and sometimes gypsum or salt-tolerant cultivars. ‘More water’ without an exit path makes the problem worse.",
+      },
+      {
+        heading: "Waste streams and why mixing is the original sin",
+        body:
+          "MSW, hazardous industrial waste, biomedical waste, and e-waste are different risk classes. Hazardous waste is toxic, reactive, flammable, or corrosive. Biomedical waste is infectious. E-waste pairs valuable metals with lead, cadmium, brominated flame retardants — informal dumping and open burning are therefore a soil, air, and occupational disaster at once. Plastics do not biodegrade on human timescales; they fragment to microplastics.\n\nThe hierarchy exists because every tonne not generated needs no landfill. Refuse and reduce beat recycle; recycle beats dump. A policy that only opens dumps treats the symptom after extraction and discard have already happened. Sanitary landfills are engineered last resorts (liner, leachate collection, gas management), not the same object as an open plot on the city edge.",
+      },
     ],
+  
+    formulas: [
+      {
+        name: "Waste hierarchy (preference order)",
+        expression:
+          "\\text{Refuse} \\succ \\text{Reduce} \\succ \\text{Reuse} \\succ \\text{Recycle} \\succ \\text{Recover} \\succ \\text{Dispose}",
+        variables: [
+          { symbol: "\\succ", meaning: "is preferred to" },
+          { symbol: "Recover", meaning: "energy from waste (WtE, biogas) — still below material reuse" },
+          { symbol: "Dispose", meaning: "landfill or incineration without recovery — last resort" },
+        ],
+        notes:
+          "Recycling is mid-table, not the top. Exam trap: ‘best = recycle’.",
+      },
+      {
+        name: "Sodium adsorption ratio (sodicity risk)",
+        expression: "\\mathrm{SAR} = \\frac{[\\mathrm{Na}^+]}{\\sqrt{([\\mathrm{Ca}^{2+}]+[\\mathrm{Mg}^{2+}])/2}}",
+        variables: [
+          { symbol: "Na^+, Ca^{2+}, Mg^{2+}", meaning: "cation concentrations in irrigation water or soil extract (meq L⁻¹)" },
+          { symbol: "SAR", meaning: "high SAR → soil disperses, structure collapses, infiltration dies" },
+        ],
+        notes:
+          "Salinity (total salts, EC) and sodicity (Na dominance, SAR) are related but not identical. Gypsum (CaSO₄) is a sodicity amendment, not a magic salt eraser.",
+      },
+      {
+        name: "Leaching requirement (salt export)",
+        expression: "LR \\approx \\frac{EC_w}{EC_{dw}}\\quad (\\text{fraction of water that must drain})",
+        variables: [
+          { symbol: "EC_w", meaning: "electrical conductivity of irrigation water" },
+          { symbol: "EC_{dw}", meaning: "tolerable conductivity of drainage water / root-zone leachate" },
+          { symbol: "LR", meaning: "minimum extra water needed to flush salts below the root zone" },
+        ],
+        notes:
+          "Leaching without working drainage just raises the water table — the Indus failure mode. LR assumes an exit path.",
+      },
+      {
+        name: "Compost C:N target",
+        expression: "C{:}N \\approx 25\\text{–}30{:}1",
+        variables: [
+          { symbol: "C{:}N", meaning: "carbon-to-nitrogen ratio of the mix" },
+        ],
+        notes:
+          "Too much N (food waste, manure) → ammonia; too much C (dry residue, paper) → slow pile. Agriculture waste is compostable; biomedical and mixed hazardous are not.",
+      },
+    ],
+  
     examPoints: [
-      "Soil pollution sources: pesticides, industrial waste, sewage, mining, landfills",
-      "5Rs: Refuse > Reduce > Reuse > Recycle > Recover > Dispose",
-      "Sanitary landfill vs open dumping (sanitary is engineered, open is hazardous)",
-      "E-waste is the fastest growing waste stream",
-      "Pakistan soil issues: salinity (6M ha affected), waterlogging, erosion"
+      "Soil sources: pesticides, industry, sludge, mining, landfill leachate — persistent, food + groundwater pathways",
+      "Pakistan: ~6 Mha saline; waterlogging; erosion; low OM; cotton–wheat pesticides",
+      "Salinity/waterlogging = over-irrigation + poor drainage, not only chemical dumps",
+      "5Rs: Refuse > Reduce > Reuse > Recycle > Recover > Dispose — refuse first, recycle is not best",
+      "Sanitary landfill ≠ open dump (engineered vs uncontrolled)",
+      "E-waste = fastest-growing stream; biomedical = autoclave/incinerate, never mix",
+      "Karachi 12,000+ t/d, Lahore 6,000+ t/d; open dumping still common",
     ],
+  
     commonMistakes: [
-      "Recycling is the BEST step — actually, REFUSE is the best (prevent waste first)",
-      "Sanitary landfill and open dumping are the same — they're not (sanitary is engineered, open is uncontrolled)",
-      "Biomedical waste can be mixed with regular waste — it CANNOT (must be autoclaved/incinerated)"
+      "Recycling is the best step — refuse/prevent sits above it",
+      "Sanitary landfill = open dumping — one is lined and controlled; the other is a hazard",
+      "Biomedical waste can ride in MSW trucks — it cannot; autoclave or incinerate",
+      "More irrigation always raises yield — without drainage it waterlogs and salinises",
+      "Soil pollution washes away like a river spill — soil binds and stores",
+      "Composting or recycling mixed hazardous/e-waste — hierarchy does not license mixing",
+      "Incineration is ‘zero waste’ — volume falls; ash and air emissions remain",
+      "SCARP ‘solved’ Indus salinity — partial relief, not a closed chapter",
     ],
-    
+  
+    workedExamples: [
+      {
+        problem:
+          "Rank these: (a) not buying the bag, (b) recycling the bag, (c) dumping the bag, (d) reusing the bag.",
+        solution:
+          "Hierarchy: refuse/prevent (a) > reuse (d) > recycle (b) > dispose (c).",
+        answer: "a > d > b > c",
+      },
+      {
+        problem:
+          "A canal command has a rising water table and white crusts on the soil. Industrial spill or irrigation effect? What two harms hit the crop?",
+        solution:
+          "Classic secondary salinisation + waterlogging from over-irrigation and weak drainage. Roots lose oxygen; salts in the root zone cut yield.",
+        answer: "Irrigation hydrology; waterlog + salt",
+      },
+      {
+        problem: "Why is drainage a salinity solution rather than ‘just add more water’?",
+        solution:
+          "Leaching salts below the root zone only works if water and salt can leave. Extra irrigation without an outlet lifts the water table and evaporates more salt to the surface.",
+        answer: "Drainage exports water and salts",
+      },
+      {
+        problem:
+          "Hospital sharps and cotton dressings are put in the municipal skip. Name the error and the correct treatment.",
+        solution:
+          "Biomedical mixed into MSW — infection and injury risk along the whole chain. Autoclave or dedicated incineration, segregated at source.",
+        answer: "Never mix; autoclave/incinerate",
+      },
+      {
+        problem:
+          "City A: lined landfill, leachate collected, gas flared. City B: ravine dump, fires, seepage to a nullah. Same method?",
+        solution:
+          "A is a sanitary landfill (engineered disposal). B is open dumping (uncontrolled). Same ‘bury waste’ family, opposite environmental class.",
+        answer: "No — sanitary vs open dump",
+      },
+      {
+        problem:
+          "Informal e-waste burning recovers copper. Which media are polluted, and where does this sit on the hierarchy?",
+        solution:
+          "Air (dioxins, metals), soil, and ash-to-groundwater; workers exposed. It is dirty recovery at best, disposal in practice — far below proper reuse/recycling.",
+        answer: "Air + soil + water; bottom-end / illegal recovery",
+      },
+      {
+        problem: "Name two Pakistan soil issues that are not industrial metal spills.",
+        solution:
+          "Secondary salinity (~6 Mha), waterlogging, mountain erosion, low organic matter, pesticide residues in the cotton–wheat belt.",
+        answer: "Salinity/waterlogging (or erosion / low OM / pesticides)",
+      },
+    ],
+  
     comparisonTable: {
-      title: "Waste hierarchy (prefer top first)",
+      title: "Waste hierarchy (prefer the top)",
       headers: ["Priority", "Action", "Why"],
       rows: [
-        ["1", "Prevent / reduce", "Least environmental load"],
-        ["2", "Reuse", "Keeps product in use"],
-        ["3", "Recycle / recover", "Materials or energy recovery"],
-        ["4", "Dispose", "Last resort (landfill/incineration without recovery)"],
+        ["1", "Refuse / prevent", "No material extracted, no residual"],
+        ["2", "Reduce", "Less mass and toxicity in the economy"],
+        ["3", "Reuse", "Product stays in use; no remanufacture"],
+        ["4", "Recycle / recover", "Materials or energy back; still processing cost"],
+        ["5", "Dispose", "Last resort — sanitary landfill or incineration without recovery"],
       ],
     },
-    
+  
+    comparisonTables: [
+      {
+        title: "Sanitary landfill vs open dump",
+        headers: ["", "Sanitary landfill", "Open dump"],
+        rows: [
+          ["Design", "Sited, lined, cells, daily cover", "Uncontrolled pile or ravine"],
+          ["Leachate", "Collected and treated", "Seeps to soil and groundwater"],
+          ["Gas", "Managed (flare, WtE)", "Fugitive CH₄, fires, odour"],
+          ["Vectors", "Reduced by cover", "Rats, birds, informal pickers at high risk"],
+          ["Hierarchy slot", "Engineered last resort", "Illegal/poor disposal — not a ‘method’ of choice"],
+          ["Pakistan reality", "Few true sanitary sites", "Still common at city edges"],
+        ],
+      },
+      {
+        title: "Salinity vs waterlogging",
+        headers: ["", "Salinity", "Waterlogging"],
+        rows: [
+          ["What", "Salt concentrated in root zone", "Pore space filled with water; roots lack O₂"],
+          ["How (Indus)", "Evaporation after irrigation / shallow water table", "Water table rises into the root zone"],
+          ["Crop effect", "Osmotic stress, ion toxicity, poor structure if sodic", "Anoxia, reduced uptake, disease"],
+          ["Shared cause", "Irrigation > crop use + drainage", "Same hydrological imbalance"],
+          ["Shared fix", "Drainage, matched irrigation, husbandry", "Drainage, matched irrigation — not more canal time"],
+        ],
+      },
+      {
+        title: "Waste stream vs handling",
+        headers: ["Stream", "Risk", "Do not", "Do"],
+        rows: [
+          ["MSW", "Volume, organics, mixed plastics", "Open dump, mix with clinical waste", "Segregate; compost organics; sanitary residual"],
+          ["Hazardous industrial", "Toxic / reactive / flammable / corrosive", "Dilute into MSW", "Segregate, licensed treatment, tracked"],
+          ["Biomedical", "Infection, sharps", "Municipal skip", "Autoclave or incinerate"],
+          ["E-waste", "Metals + toxics in one device", "Open burn, backyard acid baths", "Formal take-back, controlled recovery"],
+          ["Agri residue / manure", "If burned: air; if dumped: nutrient leak", "Uncontrolled burn next to cities", "Compost, digest, incorporate; not a hazardous class"],
+        ],
+      },
+    ],
+  
+    methodChooser: {
+      title: "Name the soil problem or pick the waste lever",
+      root: "What is the question asking?",
+      branches: [
+        {
+          condition: "Soil / land degradation type",
+          branches: [
+            {
+              condition: "White crust, EC up, irrigation area",
+              result: "SECONDARY SALINITY — drainage + leach with an outlet",
+            },
+            {
+              condition: "Soggy field, shallow water table, yellowing",
+              result: "WATERLOGGING — lower table; do not add more canal water",
+            },
+            {
+              condition: "Metals, pesticides, sludge, mine acid, leachate",
+              result: "CHEMICAL SOIL POLLUTION — prevent; remediation is slow",
+            },
+            {
+              condition: "Thin topsoil on slopes / mountains",
+              result: "EROSION — cover, terraces, not a landfill issue",
+            },
+          ],
+        },
+        {
+          condition: "Where does this action sit on the 5Rs?",
+          branches: [
+            { condition: "Not buying / banning the item", result: "REFUSE (best)" },
+            { condition: "Lighter packaging, less generation", result: "REDUCE" },
+            { condition: "Same object used again", result: "REUSE" },
+            { condition: "Remake material", result: "RECYCLE (mid, not top)" },
+            { condition: "Burn for electricity / biogas", result: "RECOVER" },
+            { condition: "Landfill or dump", result: "DISPOSE (worst)" },
+          ],
+        },
+        {
+          condition: "Which facility / method?",
+          branches: [
+            { condition: "Lined cell, leachate pipes, gas wells", result: "SANITARY LANDFILL" },
+            { condition: "Uncovered pile, fires, seepage", result: "OPEN DUMP — not acceptable" },
+            { condition: "Wet organics, want soil amendment", result: "COMPOST (C:N ~25–30)" },
+            { condition: "Wet organics, want methane", result: "ANAEROBIC DIGESTION" },
+            { condition: "Hospital infectious / sharps", result: "AUTOCLAVE or dedicated incinerator" },
+          ],
+        },
+        {
+          condition: "Pakistan item",
+          branches: [
+            { condition: "6 million hectares / white alkali", result: "Indus salinity" },
+            { condition: "SCARP", result: "Tubewells/drains against waterlogging and salinity" },
+            { condition: "Karachi 12,000 t or Lahore 6,000 t", result: "MSW volume; collection + dumping gap" },
+            { condition: "Cotton–wheat belt chemicals", result: "Pesticide accumulation in soil/food" },
+          ],
+        },
+      ],
+    },
+  
+    limitCases: [
+      {
+        condition: "Irrigation leaching without drainage",
+        result:
+          "Salts move down briefly, then the water table rises and evaporation returns them. LR formula assumes an exit. Indus pathology.",
+      },
+      {
+        condition: "High EC but low SAR vs high SAR",
+        result:
+          "Saline soils can still have structure; sodic soils disperse and seal. Gypsum addresses Na, not every salt crust.",
+      },
+      {
+        condition: "Recycling rate high, generation still rising",
+        result:
+          "Hierarchy says generation still wins. Recycle is not a licence to produce unlimited packaging.",
+      },
+      {
+        condition: "Incineration / WtE without emission control",
+        result:
+          "Volume and pathogens fall; dioxins, metals, and ash become air and soil problems. Recovery can sit above dump and still fail.",
+      },
+      {
+        condition: "Arid soil, OM → 0",
+        result:
+          "Even without a spill: weak structure, low water hold, easy erosion. Contamination and degradation stack.",
+      },
+      {
+        condition: "Open dump set on fire to ‘reduce volume’",
+        result:
+          "Uncontrolled combustion: CH₄/CO, dioxins from plastics, metal fumes — soil plus air pollution, not a 5R success.",
+      },
+      {
+        condition: "Clean MSW compost contaminated by one battery bag / clinical bag",
+        result:
+          "Mixing destroys the organics pathway. Segregation is the switch; treatment cannot fully unmix.",
+      },
+    ],
+  
+    misconceptionRemediation: [
+      {
+        name: "Recycling is the greenest thing you can do",
+        whyStudentsThinkIt: "School campaigns and bin colours start at recycle.",
+        correctModel:
+          "The hierarchy is prevention-first. Recycle still uses energy and loses quality. Refuse/reduce/reuse sit above it. Dispose sits below.",
+        remedy: "Recite Refuse → Reduce → Reuse → Recycle → Recover → Dispose in that order.",
+      },
+      {
+        name: "A landfill is a landfill",
+        whyStudentsThinkIt: "Both are ‘putting waste in the ground’.",
+        correctModel:
+          "Sanitary: liner, leachate, gas, cover, siting. Open dump: none of those. One is engineered disposal; the other is a multi-media polluter.",
+        remedy: "Ask: liner? leachate pipes? If no, it is a dump.",
+      },
+      {
+        name: "Salt-affected fields mean someone dumped chemicals",
+        whyStudentsThinkIt: "Pollution = factory in the mental model.",
+        correctModel:
+          "Secondary salinity is evaporation chemistry plus hydrology. Canal water + no drainage is enough. Metals and pesticides are a different soil story.",
+        remedy: "Two soil chapters: irrigation salts vs contaminant spills.",
+      },
+      {
+        name: "More canal water will wash the salt out and save the crop",
+        whyStudentsThinkIt: "Leaching is taught as ‘apply extra water’.",
+        correctModel:
+          "Leaching works only with drainage. Extra water on a closed basin waterlogs and then re-salinises from the top.",
+        remedy: "No outlet, no leach — only a higher water table.",
+      },
+      {
+        name: "Hospital waste is just dirty MSW",
+        whyStudentsThinkIt: "It looks like soiled cloth and plastic.",
+        correctModel:
+          "Infection and sharps risk. Autoclave or incinerate in a dedicated stream. Mixing multiplies harm to workers and pickers.",
+        remedy: "Segregate at the ward, not at the dump.",
+      },
+    ],
+  
+    qualitativeScenarios: [
+      {
+        question:
+          "Yields fall in a command area after years of extra watering. No factory nearby. What should you inspect first?",
+        answer: "Water table depth, soil EC, and drainage outlets.",
+        reasoning:
+          "The default Indus diagnosis is waterlogging/salinity from irrigation imbalance, not a hidden metal spill.",
+      },
+      {
+        question: "A mayor boasts a new recycling plant while MSW generation doubles. Progress?",
+        answer: "Incomplete — hierarchy judges generation first.",
+        reasoning:
+          "Recycling is mid-ladder. If refuse/reduce fail, residual and leakage still grow. Report kg/person plus capture rate, not the plant ribbon alone.",
+      },
+      {
+        question: "Why can yesterday’s pesticide still be in today’s wheat?",
+        answer: "Soil binds and stores; uptake continues.",
+        reasoning:
+          "Unlike a flushed river, many agrochemicals persist in the root zone and enter the food chain — cotton–wheat belt exam theme.",
+      },
+      {
+        question: "Pickers on an open dump vs operators at a sanitary landfill: whose exposure is the policy failure?",
+        answer: "Pickers — dump = no cover, fires, mixed hazardous/clinical.",
+        reasoning:
+          "Informal recovery on mixed waste is an occupational and environmental failure of both hierarchy and segregation.",
+      },
+      {
+        question: "SCARP tubewells lowered some water tables but parts of the basin are still saline. Contradiction?",
+        answer: "No — partial, local, and not a substitute for on-farm water control.",
+        reasoning:
+          "Drainage projects help where they pump/export; they do not repeal evaporation or poor irrigation scheduling elsewhere.",
+      },
+      {
+        question: "City bans bags (refuse) but dumps everything else in a nullah. Which problem did it actually solve?",
+        answer: "A thin slice of plastic generation; not MSW management.",
+        reasoning:
+          "Refuse on one item is real but tiny if the residual stream is still open-dumped. Match the lever to the mass of the problem.",
+      },
+    ],
+  
     subtopics: [
       {
         id: "env-soil-salinity",
         title: "Salinity and waterlogging in irrigated land",
-        summary: "How irrigation can raise water tables and salt to the root zone.",
-        explanation: "In arid and semi-arid irrigation systems, water applied to fields may exceed what crops and drainage remove. The water table can rise toward the surface. Evaporation then leaves salts behind in the upper soil, and crop roots encounter a saline environment that reduces yield or kills sensitive plants.\n\nPakistan’s Indus basin irrigation is a classic setting for this problem. Large areas have been described as salt-affected or waterlogged when drainage and water management lag behind canal supply. Remedies involve drainage, more careful water application, salt-tolerant practices, and sometimes soil amendments—not slogans alone.",
-                examples: [
+        summary: "Over-irrigation raises the water table; evaporation salts the root zone.",
+        explanation:
+          "When applied water exceeds crop use plus drainage, the water table climbs. Waterlogging fills root pores (anoxia). Evaporation leaves salts (secondary salinity); high SAR adds sodicity and structural collapse. Indus basin type-case; ~6 Mha salt-affected; SCARP = drainage/tubewell response. Fixes: drainage, irrigation matching demand, levelling, sometimes gypsum/salt-tolerant crops — not more canal time.",
+        examples: [
           {
             problem: "How can over-irrigation raise water tables and harm crops?",
-            solution: "Waterlogging saturates roots; evaporation can leave salts in the root zone (salinisation).",
+            solution: "Saturation anoxia + evaporative salt in the root zone.",
             answer: "Waterlog + salt accumulation",
           },
           {
             problem: "Why is drainage part of the solution?",
-            solution: "Removes excess water and helps export salts from the root zone.",
+            solution: "It removes excess water and exports salts; leaching without an outlet fails.",
             answer: "Drainage exports water/salts",
-          }
+          },
         ],
         shortcuts: [
           "Over-irrigation → waterlog/salinity",
-          "Drainage matters"
+          "Drainage is the outlet",
+          "SAR = sodicity, EC = salinity",
         ],
         traps: [
-          "Assuming more water always improves irrigated yields"
+          "Assuming more water always improves irrigated yields",
+          "Treating Indus salinity as an industrial dump story",
         ],
       },
       {
         id: "env-soil-pollution",
         title: "Soil contamination",
-        summary: "Persistent chemicals and the slow recovery of land.",
-        explanation: "Soil can be contaminated by pesticides, industrial wastes, sewage sludge, mining residues, and landfill leachate. Many pollutants bind to soil particles or persist for years. Because food systems depend on soil, contamination becomes a pathway to human exposure as well as an ecological problem.\n\nUnlike a river that may flush downstream, soil often retains pollutants. Prevention and careful waste handling therefore matter more than hoping for rapid natural clean-up.",
-                examples: [
+        summary: "Persistent chemicals; slow recovery; food and groundwater pathways.",
+        explanation:
+          "Pesticides, industrial wastes, sewage sludge, mining (including acid mine drainage), landfill leachate. Binding to particles + slow degradation = decades of source strength. Pathways: crop uptake (food chain) and leaching (aquifers). Soil biota die; fertility falls. Prevention beats clean-up because reversal is costly and incomplete.",
+        examples: [
           {
             problem: "Name two sources of soil contamination.",
-            solution: "Examples: industrial waste, agrochemicals, mining, improper hazardous disposal.",
+            solution: "Industrial waste, agrochemicals, mining, sludge, leachate.",
             answer: "Industry / agrochemicals / waste",
           },
           {
             problem: "Why is soil contamination hard to reverse?",
-            solution: "Pollutants can bind to particles and persist; cleanup is costly and slow.",
+            solution: "Sorption and persistence; excavation/remediation is slow and expensive.",
             answer: "Persistence + costly cleanup",
-          }
+          },
         ],
-        shortcuts: [
-          "Multiple sources",
-          "Persistence"
-        ],
-        traps: [
-          "Soil pollution disappears quickly after emissions stop"
-        ],
+        shortcuts: ["Multiple sources", "Soil stores, rivers flush", "Food + groundwater"],
+        traps: ["Soil pollution disappears when emissions stop", "Confusing salinity with metal contamination"],
       },
       {
         id: "env-waste-hierarchy",
         title: "Waste hierarchy and hazardous streams",
-        summary: "Prefer prevention and reuse; treat hazardous waste as a special class.",
-        explanation: "A practical hierarchy ranks prevention and reduction first, then reuse, then recycling and recovery, with disposal last. The point is to reduce environmental load before materials become residual waste.\n\nHazardous and biomedical wastes require segregated handling because of toxicity or infection risk. Mixing them into ordinary municipal streams multiplies harm. E-waste adds valuable metals and hazardous components in the same devices, which is why informal dumping and open burning are particularly damaging.",
-                examples: [
+        summary: "Prevent first; treat hazardous, biomedical, and e-waste as special classes.",
+        explanation:
+          "Refuse → reduce → reuse → recycle → recover → dispose. Hazardous (toxic/reactive/flammable/corrosive) and biomedical (infectious) must stay out of MSW. E-waste mixes value and toxics; informal burning is multi-media pollution. Open dumping is the hierarchy’s failure mode: no recovery, leachate, fires. Sanitary landfill is engineered disposal, still last.",
+        examples: [
           {
-            problem: "Where do hazardous wastes sit relative to ordinary municipal waste management?",
-            solution: "They need special handling; hierarchy still prefers prevention, but disposal must be controlled.",
+            problem: "Where do hazardous wastes sit relative to ordinary MSW?",
+            solution: "Special handling always; prevention still preferred; disposal must be controlled.",
             answer: "Special handling required",
           },
           {
-            problem: "Why is open dumping of mixed waste a poor hierarchy choice?",
-            solution: "It is disposal without recovery and risks soil, water, and air pollution.",
+            problem: "Why is open dumping a poor hierarchy choice?",
+            solution: "It is disposal without recovery and pollutes soil, water, and air.",
             answer: "Bottom of hierarchy + pollution risk",
-          }
+          },
         ],
         shortcuts: [
+          "Refuse beats recycle",
           "Hazardous = special controls",
-          "Dumping is last resort"
+          "Dumping is last resort — and open dumping is below even that",
         ],
         traps: [
-          "All waste is equally safe in open dumps"
+          "All waste is equally safe in open dumps",
+          "Calling recycling the top of the hierarchy",
         ],
       },
     ],
+  
+    vocabularyGroups: [
+      {
+        title: "Soil and waste terms",
+        cards: [
+          {
+            word: "Leachate",
+            definition: "Liquid that has percolated through waste or contaminated soil, carrying dissolved pollutants",
+            synonym: "Dump seepage",
+            antonym: "Contained/collected process water",
+            example: "Unlined dump leaking into an aquifer",
+            difficulty: "medium",
+          },
+          {
+            word: "Sanitary landfill",
+            definition: "Engineered disposal site with liner, cover, leachate and gas control",
+            synonym: "Controlled landfill",
+            antonym: "Open dump",
+            example: "Lined cells with leachate pipes",
+            difficulty: "easy",
+          },
+          {
+            word: "Waterlogging",
+            definition: "Water table in the root zone; pores filled, roots starved of air",
+            synonym: "Root-zone saturation",
+            antonym: "Well-drained profile",
+            example: "Indus command with a 1 m water table",
+            difficulty: "easy",
+          },
+          {
+            word: "Secondary salinisation",
+            definition: "Salt build-up in soil from irrigation and evaporation, not from a marine deposit alone",
+            synonym: "Irrigation salinity",
+            antonym: "Primary/desert evaporite salinity only",
+            example: "White crust after years of canal irrigation",
+            difficulty: "medium",
+          },
+          {
+            word: "SAR",
+            definition: "Sodium adsorption ratio — Na relative to Ca and Mg; predicts sodicity",
+            synonym: "Sodicity index of water/soil",
+            antonym: "EC (total salinity, different question)",
+            example: "High-SAR water dispersing clay",
+            difficulty: "hard",
+          },
+          {
+            word: "SCARP",
+            definition: "Salinity Control and Reclamation Projects — Pakistan drainage/tubewell programme",
+            synonym: "Indus drainage programme",
+            antonym: "More canal supply without drainage",
+            example: "Tubewells lowering a water table",
+            difficulty: "medium",
+          },
+          {
+            word: "E-waste",
+            definition: "Discarded electrical/electronic equipment; fastest-growing stream; metals + toxics",
+            synonym: "WEEE",
+            antonym: "Inert construction rubble",
+            example: "Phones burned for copper",
+            difficulty: "easy",
+          },
+          {
+            word: "Biomedical waste",
+            definition: "Infectious or sharps waste from healthcare; not MSW",
+            synonym: "Clinical / healthcare waste",
+            antonym: "Ordinary household refuse",
+            example: "Sharps box to autoclave",
+            difficulty: "easy",
+          },
+        ],
+      },
+    ],
+  
+    quantFormulas: [
+      {
+        name: "Hierarchy as an inequality",
+        expression: "\\text{environmental load: prevent} < \\text{reuse} < \\text{recycle} < \\text{dump}",
+        notes: "Direction of preference is the exam; exact numbers are site-specific.",
+      },
+      {
+        name: "Pakistan MSW order of magnitude",
+        expression: "\\text{Karachi }\\gtrsim 12\\times 10^3\\,t\\,d^{-1};\\quad \\text{Lahore }\\gtrsim 6\\times 10^3\\,t\\,d^{-1}",
+        notes: "Figures flag scale and the collection/dumping gap, not a physics constant.",
+      },
+      {
+        name: "Salt-affected area (Pakistan exam figure)",
+        expression: "\\sim 6\\times 10^6\\,\\mathrm{ha}\\ \\text{saline / salt-affected}",
+        notes: "Pair with waterlogging + SCARP, not with a metal-spill narrative.",
+      },
+      {
+        name: "Incineration volume cut (rule of thumb)",
+        expression: "V_{ash} \\ll V_{MSW}\\ \\text{but mass and toxicity do not go to zero}",
+        notes: "Volume reduction ≠ pollution elimination; ash still needs controlled disposal.",
+      },
+    ],
+  
     pakistanExamFocus: [
       "Salinity and waterlogging in Indus-basin irrigated lands are classic Pakistan soil-environment items",
       "Drainage and water-management reforms are part of the solution story, not only more irrigation",
       "Urban solid waste and open dumping link to soil, water, and air pathways",
       "Hazardous and hospital waste require special handling beyond ordinary municipal streams",
+      "Numbers often asked: ~6 Mha salt-affected; Karachi 12,000+ t/day; Lahore 6,000+ t/day; SCARP as the named programme",
     ],
-  relatedTopics: ["env-air-pollution", "env-water-pollution-and-quality", "env-climate-change-response"],
-    content: true,
-  buildsOn: ["env-water-pollution-and-quality", "earth-e1"],
-  leadsTo: ["env-pakistan-environmental-context"],
-  usedIn: ["env-pakistan-environmental-context"]
+  
+    relatedTopics: [
+      "env-air-pollution",
+      "env-water-pollution-and-quality",
+      "env-climate-change-response",
+    ],
+    buildsOn: ["env-water-pollution-and-quality", "earth-e1"],
+    leadsTo: ["env-pakistan-environmental-context"],
+    usedIn: ["env-pakistan-environmental-context"],
   },
   {
     id: "env-energy-sources",
