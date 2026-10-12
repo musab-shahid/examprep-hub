@@ -238,12 +238,49 @@ export function getAttentionItems(
  *  4. No activity in last 24 h → Quick Practice
  *  5. Otherwise → Mock
  */
+
+/**
+ * Topic ids for a short daily session: due reviews first, then weak topics.
+ * Caps at maxTopics; used by Dashboard "3-minute review".
+ */
+export function buildDailyReviewTopicIds(
+  data: AppData,
+  scopedTopicIds: Set<string>,
+  maxTopics = 6,
+): string[] {
+  const due = getDueReviews(data, scopedTopicIds).map((d) => d.topicId);
+  const weak = getWeakTopicsFromData(data, scopedTopicIds).map((w) => w.topicId);
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const id of [...due, ...weak]) {
+    if (!scopedTopicIds.has(id) || seen.has(id)) continue;
+    seen.add(id);
+    out.push(id);
+    if (out.length >= maxTopics) break;
+  }
+  return out;
+}
+
+/** First unmastered prerequisite on a topic graph, if any. */
+export function firstUnmasteredPrereq(
+  topicId: string,
+  data: AppData,
+  getBuildsOn: (id: string) => string[] | undefined,
+): string | null {
+  const prereqs = getBuildsOn(topicId) ?? [];
+  for (const pid of prereqs) {
+    if (!isTopicMastered(pid, data)) return pid;
+  }
+  return null;
+}
+
 export function getDashboardRecommendation(
   attention: AttentionItems,
   options?: {
     getTopicTitle?: (topicId: string) => string | undefined;
     getTopicSectionLabel?: (topicId: string) => string | undefined;
     isTopicStudied?: (topicId: string) => boolean;
+    getUnmasteredPrereq?: (topicId: string) => string | null;
   },
 ): DashboardRecommendation {
   const { dueReviewCount, weakTopics, unfinished, daysSinceLastActivity } = attention;
@@ -279,6 +316,22 @@ export function getDashboardRecommendation(
   }
 
   if (weakTopics.length >= 3) {
+    // Prefer an unmastered prerequisite of the weakest topic when the graph says so
+    const weakest = weakTopics[0]?.topicId;
+    const prereqId = weakest && options?.getUnmasteredPrereq
+      ? options.getUnmasteredPrereq(weakest)
+      : null;
+    if (prereqId) {
+      const prereqTitle = options?.getTopicTitle?.(prereqId) ?? 'a foundation topic';
+      const weakTitle = options?.getTopicTitle?.(weakest) ?? 'this topic';
+      return {
+        kind: 'continue',
+        headline: `Study prerequisite: ${prereqTitle}`,
+        subtext: `Needed before "${weakTitle}" can stick. Build the foundation first.`,
+        action: 'Open Prerequisite',
+        payload: { screen: 'topic', topicId: prereqId },
+      };
+    }
     return {
       kind: 'weak',
       headline: `Address ${weakTopics.length} weak areas`,

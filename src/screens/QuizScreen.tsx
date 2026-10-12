@@ -16,7 +16,7 @@ import { PageContainer, Card, ProgressBar, Button, EmptyState, LoadingSpinner } 
 import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@/data/lazy-data';
 import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId, TopicProgress } from '@/types';
 import { quizSignature } from '@/lib/quiz-signature';
-import { pickAdaptiveQuestions } from '@/lib/adaptive-select';
+import { pickAdaptiveQuestions, recentQuestionIdsFromResults } from '@/lib/adaptive-select';
 import { instantiatePool } from '@/lib/quant-template';
 
 const VALID_MODES: PracticeMode[] = ['topic', 'quick', 'mock', 'review', 'challenge'];
@@ -194,11 +194,12 @@ function pickQuestions(
     }
     return shuffleArray(picked);
   }
-  // Phase 1 adaptive: prioritize wrong, unseen, SR-due, weak topics
+  // Adaptive: wrong / unseen / SR-due / weak / near-miss / variant groups
   return pickAdaptiveQuestions(pool, Math.min(targetCount, pool.length), {
     mode,
     questionResults,
     topicProgress,
+    recentQuestionIds: recentQuestionIdsFromResults(questionResults),
   });
 }
 

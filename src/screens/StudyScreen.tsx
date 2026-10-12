@@ -18,6 +18,7 @@ import { loadQuestionsForTopic } from '@/data/lazy-data';
 import type { SubjectId, Topic, Question, MethodChooser, ComparisonTable as ComparisonTableType } from '@/types';
 import { AiTutorChat } from '@/components/AiTutorChat';
 import { buildTopicContext, buildStudentContext, consumePendingExplain } from '@/lib/ai-tutor';
+import { isTopicMastered } from '@/lib/attention';
 import { getTopicStatusFromProgress } from '@/lib/constants';
 
 // ---- Learn Landing ----
@@ -631,6 +632,35 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           </Card>
         )}
 
+        {(() => {
+          const unmastered = (topic.buildsOn ?? [])
+            .map((id) => ({ id, topic: getTopic(id) }))
+            .filter((x) => x.topic && !isTopicMastered(x.id, data));
+          if (unmastered.length === 0) return null;
+          return (
+            <Card className="p-4 border-amber-200 bg-amber-50/60">
+              <h3 className="font-semibold text-amber-900 text-sm mb-1 flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+                Prerequisites not mastered yet
+              </h3>
+              <p className="text-amber-800/80 text-xs mb-3">
+                Review these first so this topic sticks — the graph says they support what you are reading.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {unmastered.map(({ id, topic: pt }) => (
+                  <button
+                    key={id}
+                    type="button"
+                    onClick={() => navigate({ screen: 'topic', topicId: id })}
+                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-white border border-amber-200 text-amber-900 hover:bg-amber-100 transition-colors"
+                  >
+                    {pt!.title}
+                  </button>
+                ))}
+              </div>
+            </Card>
+          );
+        })()}
         {(() => {
           const groups: { label: string; ids: string[]; chipClass: string }[] = [];
           if (topic.buildsOn?.length) groups.push({ label: 'Builds On', ids: topic.buildsOn, chipClass: 'bg-green-50 hover:bg-green-100 text-green-700' });

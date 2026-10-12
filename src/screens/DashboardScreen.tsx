@@ -1,5 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
-import { getAttentionItems, getDashboardRecommendation } from '@/lib/attention';
+import { getAttentionItems, getDashboardRecommendation, buildDailyReviewTopicIds, firstUnmasteredPrereq } from '@/lib/attention';
 import {
   Zap, ChevronRight, Trophy, Clock,
   AlertTriangle, Target, Flame, TrendingUp, Brain,
@@ -99,6 +99,8 @@ export function DashboardScreen() {
       return topic ? sectionMap[topic.sectionId]?.title : undefined;
     },
     isTopicStudied: (id) => data.studiedTopics.includes(id),
+    getUnmasteredPrereq: (id) =>
+      firstUnmasteredPrereq(id, data, (tid) => getTopic(tid)?.buildsOn),
   });
   const recHeadline = rec.headline;
   const recSubtext = rec.subtext;
@@ -112,6 +114,33 @@ export function DashboardScreen() {
     } else if (p.screen === 'review') {
       navigate({ screen: 'review', parent: null });
     }
+  };
+
+  // Track-scoped topic ids for daily adaptive session
+  const trackTopicIdSet = useMemo(() => {
+    const ids = new Set<string>();
+    for (const top of topics) {
+      const sid = sectionMap[top.sectionId]?.subjectId;
+      if (sid && subjectsByTrack(activeTrack).some((s) => s.id === sid)) ids.add(top.id);
+    }
+    return ids;
+  }, [activeTrack]);
+  const dailyTopicIds = useMemo(
+    () => buildDailyReviewTopicIds(data, trackTopicIdSet, 6),
+    [data, trackTopicIdSet],
+  );
+  const startDailyReview = () => {
+    if (dailyTopicIds.length === 0) {
+      navigate({ screen: 'practice', mode: 'quick', parent: null });
+      return;
+    }
+    navigate({
+      screen: 'quiz',
+      mode: 'review',
+      topicIds: dailyTopicIds,
+      count: 8,
+      parent: null,
+    });
   };
 
   const statsByTrack = useMemo(() => {
@@ -221,6 +250,32 @@ export function DashboardScreen() {
           {recAction} <ChevronRight className="w-4 h-4" />
         </button>
       </ActionCard>
+
+      {/* Daily 3-minute adaptive review */}
+      <Card className="p-4 mb-4 animate-fade-in-up border-brand-100 bg-gradient-to-br from-white to-sky-50/80" style={{ animationDelay: '0.12s' }}>
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-wide text-brand-600 flex items-center gap-1.5">
+              <Zap className="w-3.5 h-3.5" /> 3-minute review
+            </p>
+            <p className="text-base font-bold text-slate-900 mt-1">
+              {dailyTopicIds.length > 0
+                ? {dailyTopicIds.length} high-ROI topics · up to 8 adaptive questions
+                : 'Quick adaptive practice'}
+            </p>
+            <p className="text-slate-500 text-sm mt-1">
+              Due reviews first, then weak spots — same adaptive engine as Practice.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={startDailyReview}
+            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-btn bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/20"
+          >
+            Start <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      </Card>
 
       {/* Exam Track Sections */}
       {examTracks.map((track, trackIdx) => {

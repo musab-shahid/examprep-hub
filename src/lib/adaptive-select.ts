@@ -90,6 +90,22 @@ const W = {
   jitter: 0.04,
 } as const;
 
+/** Question ids answered within the last `withinMs` (default 48h) — for anti-cram. */
+export function recentQuestionIdsFromResults(
+  questionResults: Record<string, { timestamp?: number } | undefined> | undefined,
+  now = Date.now(),
+  withinMs = 48 * DAY_MS,
+): string[] {
+  if (!questionResults) return [];
+  const ids: string[] = [];
+  for (const [id, r] of Object.entries(questionResults)) {
+    if (r && typeof r.timestamp === 'number' && now - r.timestamp < withinMs) {
+      ids.push(id);
+    }
+  }
+  return ids;
+}
+
 export function sigmoid(x: number): number {
   if (x >= 15) return 1;
   if (x <= -15) return 0;
