@@ -1,7 +1,7 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
 import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { updateTopicAbility, getTopicAbility, updateQuestionStrength } from '@/lib/adaptive-select';
-import { resolveReviewStage, nextStageAfterReview, reviewDateForStage } from '@/lib/spaced-repetition';
+import { resolveReviewStage, reviewDateForStage, scheduleAfterReview } from '@/lib/spaced-repetition';
 import { sectionMap } from '@/data/sections';
 import { resolveTopicId } from '@/lib/topic-id-aliases';
 import { resolveQuestionId } from '@/lib/question-id-aliases';
@@ -77,6 +77,12 @@ function sanitizeTopicProgress(p: TopicProgress): TopicProgress {
   }
   if (typeof p.abilityElo === 'number' && Number.isFinite(p.abilityElo)) {
     clean.abilityElo = p.abilityElo;
+  }
+  if (typeof p.easeFactor === 'number' && Number.isFinite(p.easeFactor)) {
+    clean.easeFactor = p.easeFactor;
+  }
+  if (typeof p.intervalDays === 'number' && Number.isFinite(p.intervalDays) && p.intervalDays > 0) {
+    clean.intervalDays = p.intervalDays;
   }
   return clean;
 }
@@ -473,9 +479,16 @@ export function recordQuizResult(
     prog.recentSessions = [...prev, { correct, total, at: now }].slice(-RECENT_QUIZ_SESSION_WINDOW);
     const accuracy = getEffectiveQuizStats(prog).accuracy;
     const quizStage = resolveReviewStage(prog.reviewStage, prog.nextReview);
-    const nextStage = nextStageAfterReview(quizStage, accuracy);
-    prog.reviewStage = nextStage;
-    prog.nextReview = reviewDateForStage(nextStage);
+    const scheduled = scheduleAfterReview({
+      intervalDays: prog.intervalDays,
+      easeFactor: prog.easeFactor,
+      reviewStage: quizStage,
+      accuracy,
+    });
+    prog.reviewStage = scheduled.reviewStage;
+    prog.nextReview = scheduled.nextReview;
+    prog.intervalDays = scheduled.intervalDays;
+    prog.easeFactor = scheduled.easeFactor;
 
     // Phase 2: update topic ability θ from each answer on this topic
     let θ = getTopicAbility(prog);

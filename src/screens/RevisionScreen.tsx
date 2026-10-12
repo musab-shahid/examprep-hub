@@ -93,11 +93,12 @@ export function RevisionScreen() {
           <Card className="p-4 mb-6 bg-slate-50/50">
             <div className="flex items-center gap-2 mb-2">
               <Clock className="w-4 h-4 text-slate-600" />
-              <p className="text-slate-700 text-sm font-medium">Schedule: New → 1d → 3d → 7d → 14d → 30d</p>
+              <p className="text-slate-700 text-sm font-medium">Adaptive schedule (ease-based intervals)</p>
             </div>
             <p className="text-slate-500 text-xs">
-              Topics are scheduled when you mark them as studied or complete a quiz.
-              If accuracy is below 60%, the next review is pulled back one stage.
+              Quizzes update each topic&apos;s interval and ease: strong scores space reviews further out
+              (up to ~90 days); weak scores reset toward a 1-day retry. First mark-as-studied only seeds
+              a 1-day check if nothing was scheduled yet.
             </p>
           </Card>
 

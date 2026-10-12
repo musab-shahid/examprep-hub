@@ -396,6 +396,10 @@ export interface TopicProgress {
    * Updated after each answer; cold-start via accuracy if missing.
    */
   abilityElo?: number;
+  /** SM-2-style ease factor (default ~2.5, min 1.3). */
+  easeFactor?: number;
+  /** Last scheduled interval length in days. */
+  intervalDays?: number;
   /**
    * @deprecated Migration only. loadData maps these into quizCorrect/quizTotal/nextReview.
    * Do not write in new code; prefer quizCorrect/quizTotal/nextReview.
