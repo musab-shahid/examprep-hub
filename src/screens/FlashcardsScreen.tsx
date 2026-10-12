@@ -10,6 +10,8 @@ import {
   buildFlashcardsForTopics,
   shuffleCards,
   KIND_LABEL,
+  loadKnownFlashcardIds,
+  persistKnownFlashcardIds,
   type Flashcard,
   type FlashcardKind,
 } from '@/lib/flashcards';
@@ -35,7 +37,11 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
   const [deck, setDeck] = useState<Flashcard[]>([]);
   const [idx, setIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const [knownIds, setKnownIds] = useState<Set<string>>(() => new Set());
+  const [knownIds, setKnownIds] = useState<Set<string>>(() => loadKnownFlashcardIds());
+
+  useEffect(() => {
+    persistKnownFlashcardIds(knownIds);
+  }, [knownIds]);
 
   useEffect(() => {
     let cancelled = false;

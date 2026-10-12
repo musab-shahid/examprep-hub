@@ -1,11 +1,13 @@
 import { TrendingUp, Brain, Target, GraduationCap, Award } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { subjectMap, subjects, subjectsByTrack } from '@/data/subjects';
 import { getTopic } from '@/data/topics';
+import { getStickyMisses, getFragileWins, getTeachWithoutTestTopics } from '@/lib/item-analytics';
+import { useRouter } from '@/router';
 import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSectionAccuracy } from '@/lib/stats';
@@ -25,11 +27,15 @@ function practicedSubjectsNote(isAll: boolean): string {
 
 export function ProgressScreen() {
   const { data } = useData();
+  const { navigate } = useRouter();
   const sd = useSubjectData();
   const { getActiveSubject, setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
 
   const activeSubject = getActiveSubject('progress');
   const isAllSubjects = activeSubject === 'all';
+  useEffect(() => {
+    void sd.ensureQuestionsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId));
+  }, [activeSubject, isAllSubjects, sd]);
   const subjectTitle = isAllSubjects ? 'All Subjects' : (subjectMap[activeSubject as string]?.title ?? 'Subject');
 
   const handleSubjectChange = (value: SubjectFilterValue) => {
@@ -83,7 +89,20 @@ export function ProgressScreen() {
   const totalQuestionsThisPeriod = weeklyData.reduce((s, d) => s + d.questions, 0);
   const bestWeek = validWeeks.length > 0 ? validWeeks.reduce((best, d) => d.accuracy! > best.accuracy! ? d : best) : null;
 
-  return (
+  
+  const scopedQuestions = sd.questionsFor(isAllSubjects ? 'all' : (activeSubject as SubjectId));
+  const stickyMisses = getStickyMisses(data, scopedQuestions, 5);
+  const fragileWins = getFragileWins(data, scopedQuestions, 3);
+  const teachOnly = getTeachWithoutTestTopics(
+    data,
+    scopedQuestions,
+    (data.studiedTopics ?? []).filter((id) =>
+      isAllSubjects ? true : allTopicIds.has(id),
+    ),
+    5,
+  );
+
+return (
     <PageContainer>
       <div className="mb-2">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Progress</h1>
@@ -236,6 +255,75 @@ export function ProgressScreen() {
               <EmptyState title="No weak areas yet" message="Take quizzes to identify topics needing attention." icon={<Target className="w-10 h-10" />} />
             )}
           </Card>
+
+
+          {/* Item analytics — sticky misses & teach-without-test */}
+          {(stickyMisses.length > 0 || teachOnly.length > 0 || fragileWins.length > 0) && (
+            <Card className="p-5">
+              <h3 className="font-semibold text-slate-900 mb-1">From your practice history</h3>
+              <p className="text-xs text-slate-500 mb-4">
+                Sticky misses and topics you studied but barely tested — not official scores.
+              </p>
+              {stickyMisses.length > 0 && (
+                <div className="mb-4">
+                  <p className="text-xs font-semibold text-danger-600 uppercase tracking-wide mb-2">Sticky misses</p>
+                  <div className="space-y-2">
+                    {stickyMisses.map((m) => {
+                      const topic = getTopic(m.topicId);
+                      return (
+                        <button
+                          key={m.questionId}
+                          type="button"
+                          onClick={() => navigate({ screen: 'topic', topicId: m.topicId, parent: null })}
+                          className="w-full text-left p-3 rounded-lg bg-red-50/80 border border-red-100 hover:bg-red-50 transition-colors"
+                        >
+                          <p className="text-sm text-slate-800 line-clamp-2">{m.stem}</p>
+                          <p className="text-xs text-slate-500 mt-1">
+                            {topic?.title ?? m.topicId} · {m.attempts} attempts
+                          </p>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+              {teachOnly.length > 0 && (
+                <div className="mb-2">
+                  <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-2">Studied, little practice</p>
+                  <div className="flex flex-wrap gap-2">
+                    {teachOnly.map((g) => {
+                      const topic = getTopic(g.topicId);
+                      return (
+                        <button
+                          key={g.topicId}
+                          type="button"
+                          onClick={() =>
+                            navigate({
+                              screen: 'quiz',
+                              mode: 'topic',
+                              topicId: g.topicId,
+                              parent: null,
+                            })
+                          }
+                          className="px-3 py-1.5 rounded-lg text-sm font-medium bg-amber-50 border border-amber-200 text-amber-900 hover:bg-amber-100"
+                        >
+                          {topic?.title ?? g.topicId}
+                          <span className="text-amber-600/80 text-xs ml-1">
+                            ({g.questionsTouched}/{g.questionsInBank})
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+              {fragileWins.length > 0 && stickyMisses.length === 0 && (
+                <p className="text-xs text-slate-500">
+                  Some recent corrects still look fragile — a short review quiz will firm them up.
+                </p>
+              )}
+            </Card>
+          )}
 
           {/* Achievements */}
           <Card className="p-5">

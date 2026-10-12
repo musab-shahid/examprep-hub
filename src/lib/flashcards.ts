@@ -149,3 +149,29 @@ export const KIND_LABEL: Record<FlashcardKind, string> = {
   substitution: 'One-word',
   mistake: 'Trap',
 };
+
+
+const FLASH_KNOWN_KEY = 'examprep-flashcard-known';
+
+/** Load persisted "known" card ids (session-spanning, local only). */
+export function loadKnownFlashcardIds(): Set<string> {
+  try {
+    const raw = localStorage.getItem(FLASH_KNOWN_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw) as unknown;
+    if (!Array.isArray(arr)) return new Set();
+    return new Set(arr.filter((x) => typeof x === 'string'));
+  } catch {
+    return new Set();
+  }
+}
+
+export function persistKnownFlashcardIds(ids: Set<string>): void {
+  try {
+    // Cap growth — keep most recent 2000 ids as array
+    const arr = [...ids].slice(-2000);
+    localStorage.setItem(FLASH_KNOWN_KEY, JSON.stringify(arr));
+  } catch {
+    /* quota */
+  }
+}
