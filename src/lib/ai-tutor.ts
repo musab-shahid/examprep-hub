@@ -1,6 +1,7 @@
 import { env } from '@/lib/runtime-env';
 import type { Topic, Formula, WorkedExample, MethodChooser, MethodChooserStep, LimitCase, ComparisonTable, AppData, Question } from '@/types';
 import { getEffectiveQuizStats, deriveStatus, MASTERY_ACCURACY_THRESHOLD } from '@/lib/constants';
+import { getTopic } from '@/data/topics';
 
 const SYSTEM_PROMPT = `You are an expert tutor for Pakistani civil service exam preparation (FPSC and HAT exams).
 Your role is to help students understand study topics deeply and close their specific knowledge gaps.
@@ -329,31 +330,38 @@ export function buildStudentContext(
   if (typeof prog?.reviewStage === 'number' && prog.reviewStage >= 0) {
     lines.push(`Review stage index: ${prog.reviewStage}`);
   }
+  if (typeof prog?.abilityElo === 'number' && Number.isFinite(prog.abilityElo)) {
+    lines.push(`Adaptive ability estimate (Elo-scale): ${prog.abilityElo.toFixed(2)}`);
+  }
 
-  // Recent wrong questions on this topic (from stored results + topic question bank)
+  // Recent wrong questions on this topic — most recent first
   const qs = topicQuestions ?? [];
   if (qs.length > 0) {
-    const wrong: string[] = [];
+    const wrongRows: { stem: string; at: number }[] = [];
     for (const q of qs) {
       const r = (data.questionResults ?? {})[q.id];
       if (r && !r.correct) {
-        wrong.push(clip(q.question.replace(/\s+/g, ' '), 120));
-        if (wrong.length >= 5) break;
+        wrongRows.push({
+          stem: clip(q.question.replace(/\s+/g, ' '), 120),
+          at: typeof r.timestamp === 'number' ? r.timestamp : 0,
+        });
       }
     }
-    if (wrong.length) {
-      lines.push('Recent misses on this topic:');
-      for (const w of wrong) lines.push(`- ${w}`);
+    wrongRows.sort((a, b) => b.at - a.at);
+    if (wrongRows.length) {
+      lines.push('Recent misses on this topic (newest first):');
+      for (const w of wrongRows.slice(0, 5)) lines.push(`- ${w.stem}`);
     }
   }
 
   // Lifetime weak signal across subjects (top 3 by accuracy among attempted)
-  const weak: { id: string; acc: number; total: number }[] = [];
+  const weak: { id: string; title: string; acc: number; total: number }[] = [];
   for (const [tid, p] of Object.entries(data.topicProgress ?? {})) {
     const e = getEffectiveQuizStats(p);
     if (e.total < 3) continue;
     if (e.accuracy < MASTERY_ACCURACY_THRESHOLD) {
-      weak.push({ id: tid, acc: e.accuracy, total: e.total });
+      const title = getTopic(tid)?.title ?? tid;
+      weak.push({ id: tid, title, acc: e.accuracy, total: e.total });
     }
   }
   weak.sort((a, b) => a.acc - b.acc);
@@ -362,7 +370,7 @@ export function buildStudentContext(
       'Weak topics overall (lowest accuracy): ' +
         weak
           .slice(0, 3)
-          .map((w) => `${w.id} (${w.acc}%)`)
+          .map((w) => `${w.title} (${w.acc}%)`)
           .join(', '),
     );
   }

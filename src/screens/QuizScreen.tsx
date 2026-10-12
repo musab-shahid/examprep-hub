@@ -3,7 +3,7 @@ import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X, Sparkles } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
-import { buildMistakePrompt, isTutorAvailable, buildTopicContext } from '@/lib/ai-tutor';
+import { buildMistakePrompt, isTutorAvailable, buildTopicContext, buildStudentContext } from '@/lib/ai-tutor';
 import { AiTutorChat } from '@/components/AiTutorChat';
 import { allQuestions, questionsByTopic } from '@/data/questions';
 import { getTopic } from '@/data/topics';
@@ -1246,10 +1246,12 @@ function QuizResults({
 }) {
   const { navigate } = useRouter();
   const tutorReady = isTutorAvailable();
+  const { data } = useData();
   const [explainSession, setExplainSession] = useState<{
     topicId: string;
     topicTitle: string;
     topicContext?: string;
+    studentContext?: string;
     message: string;
   } | null>(null);
   const pct = results.total > 0 ? Math.round((results.score / results.total) * 100) : 0;
@@ -1391,7 +1393,14 @@ function QuizResults({
       {/* Recommendations */}
       {weakTopics.length > 0 && (
         <div className="space-y-2 mb-4">
-          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Recommendations</p>
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+            {mode === 'mock' ? 'Biggest score-gain focus' : 'Recommendations'}
+          </p>
+          {mode === 'mock' && (
+            <p className="text-xs text-slate-500 -mt-1 mb-1">
+              Estimated study impact from this mock — not official marks. Fix these first.
+            </p>
+          )}
           {weakTopics.slice(0, 3).map((t) => {
             const topicInfo = getTopic(t.topicId);
             if (!topicInfo) return null;
@@ -1549,10 +1558,12 @@ function QuizResults({
                             onClick={() => {
                               const message = buildMistakePrompt(q, ans.selectedIndices);
                               const topic = getTopic(q.topicId);
+                              const topicQs = results.questions.filter((qq) => qq.topicId === q.topicId);
                               setExplainSession({
                                 topicId: q.topicId,
                                 topicTitle: topic?.title ?? q.topicId,
                                 topicContext: topic ? buildTopicContext(topic) : undefined,
+                                studentContext: buildStudentContext(data, q.topicId, topicQs),
                                 message,
                               });
                             }}
@@ -1590,6 +1601,7 @@ function QuizResults({
           topicId={explainSession.topicId}
           topicTitle={explainSession.topicTitle}
           topicContext={explainSession.topicContext}
+          studentContext={explainSession.studentContext}
           initialMessage={explainSession.message}
           autoOpen
           onInitialMessageConsumed={() => {

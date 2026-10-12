@@ -24,7 +24,7 @@ import {
   formatCountdownShort,
   getNextSession,
 } from '@/lib/exam-schedule';
-import { computeReadiness, readinessLabel, rankScoreGainOpportunities } from '@/lib/readiness';
+import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -86,6 +86,10 @@ export function DashboardScreen() {
   const gainOps = useMemo(
     () => rankScoreGainOpportunities(data, trackTopicIds, 3),
     [data, trackTopicIds],
+  );
+  const readinessWhy = useMemo(
+    () => readinessDrivers(readiness, reviewDue.length),
+    [readiness, reviewDue.length],
   );
 
   // Single recommendation source (attention.ts) — do not duplicate priority logic here
@@ -187,6 +191,13 @@ export function DashboardScreen() {
               cover {readiness.coveragePct}% · master {readiness.masteryPct}% · acc {readiness.accuracyPct}%
             </span>
           </div>
+          {readinessWhy.length > 0 && (
+            <ul className="mt-2 text-xs text-slate-600 space-y-0.5 list-disc list-inside">
+              {readinessWhy.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          )}
           {gainOps.length > 0 && (
             <p className="mt-2 text-xs text-slate-600 leading-relaxed">
               Biggest lifts:{' '}

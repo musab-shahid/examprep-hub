@@ -42,6 +42,37 @@ export function readinessLabel(score: number): string {
   return 'Just beginning';
 }
 
+
+/** Human-readable drivers for why the readiness estimate is high or low. */
+export function readinessDrivers(result: ReadinessResult, dueCount = 0): string[] {
+  const drivers: string[] = [];
+  if (result.coveragePct < 40) {
+    drivers.push(`Low coverage (${result.coveragePct}% of topics studied)`);
+  } else if (result.coveragePct < 70) {
+    drivers.push(`Coverage still building (${result.coveragePct}%)`);
+  }
+  if (result.masteryPct < 25) {
+    drivers.push(`Few topics mastered (${result.masteryPct}%)`);
+  } else if (result.masteryPct < 50) {
+    drivers.push(`Mastery mid-range (${result.masteryPct}%)`);
+  }
+  if (result.accuracyPct > 0 && result.accuracyPct < 65) {
+    drivers.push(`Quiz accuracy needs work (${result.accuracyPct}%)`);
+  } else if (result.accuracyPct >= 80) {
+    drivers.push(`Strong recent accuracy (${result.accuracyPct}%)`);
+  }
+  if (dueCount >= 5) {
+    drivers.push(`${dueCount} reviews due — clearing them lifts readiness`);
+  } else if (dueCount >= 1) {
+    drivers.push(`${dueCount} review${dueCount === 1 ? '' : 's'} waiting`);
+  }
+  if (drivers.length === 0) {
+    drivers.push('Balanced coverage, mastery, and accuracy');
+  }
+  return drivers.slice(0, 4);
+}
+
+
 export interface GainOpportunity {
   topicId: string;
   potentialGain: number;
