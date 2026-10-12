@@ -1,184 +1,184 @@
 import type { Topic } from '@/types';
 
 export const topics: Topic[] = [
-  {
-  id: "env-fundamentals-and-sustainability",
-  sectionId: "ENV-01",
-  order: 1,
-  title: "Environment, Key Distinctions & Sustainability",
-
-  definition:
-    "Environment means all surrounding physical, chemical, and biological conditions—natural and built—that influence organisms and human life. Environmental science explains these conditions using interacting Earth spheres (air, water, land, life) and precise vocabulary (biotic/abiotic, habitat/niche, population/community). Sustainability (Brundtland, 1987) asks how development can meet present needs without reducing future generations’ ability to meet theirs.",
-
-  keyFacts: [
-    "Four spheres: Atmosphere (air) • Hydrosphere (water) • Lithosphere (soil/rock) • Biosphere (living organisms)",
-    "Biotic factors = living (plants, animals, microbes); Abiotic factors = non-living (temperature, light, pH, salinity, minerals)",
-    "Natural drivers: storms, floods, earthquakes, volcanic activity; Anthropogenic drivers: emissions, deforestation, overfishing, waste, land-use change",
-    "Levels of organisation: Organism → Population (one species) → Community (many species) → Ecosystem (community + abiotic environment + interactions)",
-    "Habitat = WHERE an organism lives; Niche = WHAT it does (role, resource use, interactions, tolerance limits)",
-    "Ecology = the study/science of organism–environment interactions; Ecosystem = the interacting unit; Environment = surrounding conditions (often broader than one ecosystem)",
-    "Sustainable development (Brundtland Report, 1987): meeting present needs without compromising future generations’ ability to meet their needs",
-    "Three pillars of sustainability: Environmental integrity + Economic viability + Social equity (all required)",
-    "Precautionary principle: act to prevent serious/irreversible harm even if full scientific certainty is lacking",
-    "Polluter-pays principle: polluters bear prevention/cleanup costs (costs are not shifted to society)",
-    "Equity: Intergenerational (future generations) and Intragenerational (fairness within today’s society)"
-  ],
-
-  explanationSections: [
     {
-      heading: "1) Environment: what it includes (not just ‘nature’)",
-      body:
-        "Environment is everything around a living system that affects it—physical, chemical, and biological conditions. It includes natural surroundings (forests, rivers) and the built environment (cities, industry) because built systems change air quality, water quality, heat, noise, and disease risk. In exams, avoid mixing terms: environment = surrounding conditions; ecosystem = interacting unit; ecology = the science that studies interactions."
+    id: "env-fundamentals-and-sustainability",
+    sectionId: "ENV-01",
+    order: 1,
+    title: "Environment, Key Distinctions & Sustainability",
+  
+    definition:
+      "Environment means all surrounding physical, chemical, and biological conditions—natural and built—that influence organisms and human life. Environmental science explains these conditions using interacting Earth spheres (air, water, land, life) and precise vocabulary (biotic/abiotic, habitat/niche, population/community). Sustainability (Brundtland, 1987) asks how development can meet present needs without reducing future generations’ ability to meet theirs.",
+  
+    keyFacts: [
+      "Four spheres: Atmosphere (air) • Hydrosphere (water) • Lithosphere (soil/rock) • Biosphere (living organisms)",
+      "Biotic factors = living (plants, animals, microbes); Abiotic factors = non-living (temperature, light, pH, salinity, minerals)",
+      "Natural drivers: storms, floods, earthquakes, volcanic activity; Anthropogenic drivers: emissions, deforestation, overfishing, waste, land-use change",
+      "Levels of organisation: Organism → Population (one species) → Community (many species) → Ecosystem (community + abiotic environment + interactions)",
+      "Habitat = WHERE an organism lives; Niche = WHAT it does (role, resource use, interactions, tolerance limits)",
+      "Ecology = the study/science of organism–environment interactions; Ecosystem = the interacting unit; Environment = surrounding conditions (often broader than one ecosystem)",
+      "Sustainable development (Brundtland Report, 1987): meeting present needs without compromising future generations’ ability to meet their needs",
+      "Three pillars of sustainability: Environmental integrity + Economic viability + Social equity (all required)",
+      "Precautionary principle: act to prevent serious/irreversible harm even if full scientific certainty is lacking",
+      "Polluter-pays principle: polluters bear prevention/cleanup costs (costs are not shifted to society)",
+      "Equity: Intergenerational (future generations) and Intragenerational (fairness within today’s society)"
+    ],
+  
+    explanationSections: [
+      {
+        heading: "1) Environment: what it includes (not just ‘nature’)",
+        body:
+          "Environment is everything around a living system that affects it—physical, chemical, and biological conditions. It includes natural surroundings (forests, rivers) and the built environment (cities, industry) because built systems change air quality, water quality, heat, noise, and disease risk. In exams, avoid mixing terms: environment = surrounding conditions; ecosystem = interacting unit; ecology = the science that studies interactions."
+      },
+      {
+        heading: "2) Four spheres: use them to TRACE problems",
+        body:
+          "The atmosphere, hydrosphere, lithosphere, and biosphere are connected. Most environmental problems start in one sphere and produce impacts in others. A high-scoring answer follows a simple structure: Source sphere → pathway/transfer → impacted sphere(s). Example: emissions in the atmosphere can form acid rain that changes water chemistry (hydrosphere), damages soils (lithosphere), and harms forests/fish/humans (biosphere)."
+      },
+      {
+        heading: "3) The vocabulary that creates (or loses) marks",
+        body:
+          "Many MCQs are built on confusing pairs. Use fixed tests: Habitat answers ‘where?’; niche answers ‘what role/how does it survive?’. Population means one species in an area; community means all species in that area. Biotic factors are living; abiotic factors are non-living physical/chemical conditions (temperature, pH, salinity)."
+      },
+      {
+        heading: "4) Sustainability: definition + a quick decision test",
+        body:
+          "Brundtland (1987) defines sustainable development as meeting present needs without compromising future generations’ ability to meet theirs. Practically, a policy/project is sustainable only if it passes all three pillars: (i) environmental limits (resources/pollution), (ii) economic viability (works long term), and (iii) social equity (health, fairness, rights). Two common policy principles: precaution (act early under serious risk) and polluter-pays (the polluter pays for prevention/cleanup)."
+      }
+    ],
+  
+    examPoints: [
+      "Four spheres (know names + examples): atmosphere, hydrosphere, lithosphere, biosphere",
+      "Habitat = WHERE; Niche = WHAT/ROLE",
+      "Population = one species; Community = many species; Ecosystem = community + abiotic environment",
+      "Ecology = study/science; Ecosystem = interacting unit; Environment = surrounding conditions",
+      "Brundtland Report (1987) is the standard sustainability definition",
+      "Sustainability needs all three pillars: environmental + social + economic",
+      "Precautionary principle: act before full certainty if harm may be serious/irreversible",
+      "Polluter-pays principle: polluter bears prevention/cleanup cost"
+    ],
+  
+    commonMistakes: [
+      "Confusing ecology (study) with ecosystem (system/unit)",
+      "Using habitat and niche interchangeably (habitat=place; niche=role)",
+      "Calling chemical/physical conditions ‘biotic’ (pH, salinity, temperature are abiotic)",
+      "Treating sustainability as only environmental protection and ignoring social/economic pillars",
+      "In case questions, not stating the source sphere first (answers become vague)"
+    ],
+  
+    comparisonTable: {
+      title: "High-yield distinctions (MCQ traps)",
+      headers: ["Pair/Term", "Correct meaning", "Fast cue", "Example"],
+      rows: [
+        ["Biotic", "Living factor", "Bio = life", "Trees, fish, bacteria"],
+        ["Abiotic", "Non-living factor", "Non-living conditions", "Temperature, pH, salinity, minerals"],
+        ["Habitat", "Where it lives", "Address", "Pond (frog habitat)"],
+        ["Niche", "Role/resource use/interactions", "Job", "Frog as insect predator"],
+        ["Population", "One species in an area", "One species", "All frogs in one pond"],
+        ["Community", "All species in an area", "Many species", "Frogs + insects + algae in pond"],
+        ["Ecology", "Study of interactions", "Science", "Studying predator–prey relationships"],
+        ["Ecosystem", "Community + abiotic environment + interactions", "System/unit", "Pond ecosystem"],
+        ["Sustainability (Brundtland)", "Present needs without harming future ability", "1987 definition", "Clean energy that is affordable and equitable"]
+      ]
     },
-    {
-      heading: "2) Four spheres: use them to TRACE problems",
-      body:
-        "The atmosphere, hydrosphere, lithosphere, and biosphere are connected. Most environmental problems start in one sphere and produce impacts in others. A high-scoring answer follows a simple structure: Source sphere → pathway/transfer → impacted sphere(s). Example: emissions in the atmosphere can form acid rain that changes water chemistry (hydrosphere), damages soils (lithosphere), and harms forests/fish/humans (biosphere)."
+  
+    workedExample: {
+      problem:
+        "A factory releases SO₂. Later, acid rain occurs and fish decline in a lake. (a) Identify the source sphere and an impacted sphere, (b) name one abiotic change, (c) name one sustainability principle that supports regulation.",
+      solution:
+        "(a) Source sphere: atmosphere (SO₂ emissions). Impacted sphere: hydrosphere (lake), then biosphere (fish).\n(b) Abiotic change: lake pH decreases (water becomes more acidic).\n(c) Precautionary principle (control emissions early under serious risk) and/or polluter-pays (polluter bears control/cleanup costs).",
+      answer:
+        "(a) Atmosphere → Hydrosphere/Biosphere (b) pH (c) Precautionary or Polluter-pays"
     },
-    {
-      heading: "3) The vocabulary that creates (or loses) marks",
-      body:
-        "Many MCQs are built on confusing pairs. Use fixed tests: Habitat answers ‘where?’; niche answers ‘what role/how does it survive?’. Population means one species in an area; community means all species in that area. Biotic factors are living; abiotic factors are non-living physical/chemical conditions (temperature, pH, salinity)."
-    },
-    {
-      heading: "4) Sustainability: definition + a quick decision test",
-      body:
-        "Brundtland (1987) defines sustainable development as meeting present needs without compromising future generations’ ability to meet theirs. Practically, a policy/project is sustainable only if it passes all three pillars: (i) environmental limits (resources/pollution), (ii) economic viability (works long term), and (iii) social equity (health, fairness, rights). Two common policy principles: precaution (act early under serious risk) and polluter-pays (the polluter pays for prevention/cleanup)."
-    }
-  ],
-
-  examPoints: [
-    "Four spheres (know names + examples): atmosphere, hydrosphere, lithosphere, biosphere",
-    "Habitat = WHERE; Niche = WHAT/ROLE",
-    "Population = one species; Community = many species; Ecosystem = community + abiotic environment",
-    "Ecology = study/science; Ecosystem = interacting unit; Environment = surrounding conditions",
-    "Brundtland Report (1987) is the standard sustainability definition",
-    "Sustainability needs all three pillars: environmental + social + economic",
-    "Precautionary principle: act before full certainty if harm may be serious/irreversible",
-    "Polluter-pays principle: polluter bears prevention/cleanup cost"
-  ],
-
-  commonMistakes: [
-    "Confusing ecology (study) with ecosystem (system/unit)",
-    "Using habitat and niche interchangeably (habitat=place; niche=role)",
-    "Calling chemical/physical conditions ‘biotic’ (pH, salinity, temperature are abiotic)",
-    "Treating sustainability as only environmental protection and ignoring social/economic pillars",
-    "In case questions, not stating the source sphere first (answers become vague)"
-  ],
-
-  comparisonTable: {
-    title: "High-yield distinctions (MCQ traps)",
-    headers: ["Pair/Term", "Correct meaning", "Fast cue", "Example"],
-    rows: [
-      ["Biotic", "Living factor", "Bio = life", "Trees, fish, bacteria"],
-      ["Abiotic", "Non-living factor", "Non-living conditions", "Temperature, pH, salinity, minerals"],
-      ["Habitat", "Where it lives", "Address", "Pond (frog habitat)"],
-      ["Niche", "Role/resource use/interactions", "Job", "Frog as insect predator"],
-      ["Population", "One species in an area", "One species", "All frogs in one pond"],
-      ["Community", "All species in an area", "Many species", "Frogs + insects + algae in pond"],
-      ["Ecology", "Study of interactions", "Science", "Studying predator–prey relationships"],
-      ["Ecosystem", "Community + abiotic environment + interactions", "System/unit", "Pond ecosystem"],
-      ["Sustainability (Brundtland)", "Present needs without harming future ability", "1987 definition", "Clean energy that is affordable and equitable"]
-    ]
-  },
-
-  workedExample: {
-    problem:
-      "A factory releases SO₂. Later, acid rain occurs and fish decline in a lake. (a) Identify the source sphere and an impacted sphere, (b) name one abiotic change, (c) name one sustainability principle that supports regulation.",
-    solution:
-      "(a) Source sphere: atmosphere (SO₂ emissions). Impacted sphere: hydrosphere (lake), then biosphere (fish).\n(b) Abiotic change: lake pH decreases (water becomes more acidic).\n(c) Precautionary principle (control emissions early under serious risk) and/or polluter-pays (polluter bears control/cleanup costs).",
-    answer:
-      "(a) Atmosphere → Hydrosphere/Biosphere (b) pH (c) Precautionary or Polluter-pays"
-  },
-
-  subtopics: [
-    {
-      id: "env-fundamentals-and-sustainability-four-spheres",
-      title: "1) The four spheres (and how to use them in answers)",
-      summary:
-        "Atmosphere, hydrosphere, lithosphere, biosphere—use them to trace: source → pathway → impacts.",
-      explanation:
-        "Don’t treat spheres as a memorisation list. Use them to structure case answers: identify where the stress begins (source sphere), how it moves (air transport, runoff, food chain), and where effects appear (impacted spheres).",
-      examples: [
-        {
-          problem: "Urban smog is mainly a problem of which sphere?",
-          solution: "Smog is air pollution → atmosphere.",
-          answer: "Atmosphere"
-        },
-        {
-          problem: "Sewage discharge into a river affects which sphere first?",
-          solution: "Water body contamination → hydrosphere first; then biosphere impacts.",
-          answer: "Hydrosphere"
-        }
-      ],
-      shortcuts: ["Write: source sphere → impacted sphere(s)."],
-      traps: ["Calling everything ‘biosphere’ because living things are affected later."]
-    },
-
-    {
-      id: "env-fundamentals-and-sustainability-key-distinction-pairs",
-      title: "2) Key distinctions (habitat/niche, population/community, biotic/abiotic)",
-      summary:
-        "Most exam mistakes come from swapping paired terms; use one test per pair.",
-      explanation:
-        "Habitat answers ‘where?’. Niche answers ‘what role/how?’. Population = one species; community = multiple species. Biotic = living; abiotic = physical/chemical conditions.",
-      examples: [
-        {
-          problem: "Deer in a forest: ‘all deer’ is what level? ‘deer + wolves + grass’ is what level?",
-          solution: "One species → population. Multiple species together → community.",
-          answer: "Population; Community"
-        },
-        {
-          problem: "Is dissolved oxygen biotic or abiotic?",
-          solution: "It is a non-living chemical condition of water → abiotic.",
-          answer: "Abiotic"
-        }
-      ],
-      shortcuts: ["Habitat = address; niche = job."],
-      traps: ["Calling pH/salinity ‘biotic’ because it affects living things."]
-    },
-
-    {
-      id: "env-fundamentals-and-sustainability-sustainability-core",
-      title: "3) Sustainability (Brundtland + pillars + principles)",
-      summary:
-        "One definition (Brundtland 1987), one test (3 pillars), two principles (precaution, polluter-pays).",
-      explanation:
-        "Quote Brundtland when asked for definition. For application questions, test the three pillars: environmental limits, economic viability, social equity. Then justify governance using precaution (act early under serious risk) and polluter-pays (responsibility for costs).",
-      examples: [
-        {
-          problem: "A project increases profit but destroys wetlands and displaces people. Sustainable?",
-          solution: "Fails environmental and social pillars even if economically profitable.",
-          answer: "Not sustainable"
-        },
-        {
-          problem: "Which principle makes the polluter pay for cleanup costs?",
-          solution: "Polluter-pays principle.",
-          answer: "Polluter-pays"
-        }
-      ],
-      shortcuts: ["Sustainability = 3 pillars together."],
-      traps: ["Writing only ‘save environment’ without economic/social pillars."]
-    }
-  ],
-
-  pakistanExamFocus: [
-    "Brundtland (1987) definition is frequently asked verbatim",
-    "Habitat vs niche and population vs community are common one-liner MCQs",
-    "Sphere-mapping helps on local examples: urban smog (atmosphere), river/groundwater pollution (hydrosphere), soil salinity/waterlogging (lithosphere↔hydrosphere), deforestation effects (biosphere → atmosphere)"
-  ],
-
-  relatedTopics: [
-    "env-carry-capacity-and-footprint",
-    "env-biodiversity",
-    "env-natural-resources"
-  ],
-
-  content: true,
-  buildsOn: [],
-  leadsTo: ["env-carry-capacity-and-footprint", "env-ecosystem-structure-and-energy-flow"],
-  usedIn: ["env-carry-capacity-and-footprint", "env-climate-change-response"]
-}, 
+  
+    subtopics: [
+      {
+        id: "env-fundamentals-and-sustainability-four-spheres",
+        title: "1) The four spheres (and how to use them in answers)",
+        summary:
+          "Atmosphere, hydrosphere, lithosphere, biosphere—use them to trace: source → pathway → impacts.",
+        explanation:
+          "Don’t treat spheres as a memorisation list. Use them to structure case answers: identify where the stress begins (source sphere), how it moves (air transport, runoff, food chain), and where effects appear (impacted spheres).",
+        examples: [
+          {
+            problem: "Urban smog is mainly a problem of which sphere?",
+            solution: "Smog is air pollution → atmosphere.",
+            answer: "Atmosphere"
+          },
+          {
+            problem: "Sewage discharge into a river affects which sphere first?",
+            solution: "Water body contamination → hydrosphere first; then biosphere impacts.",
+            answer: "Hydrosphere"
+          }
+        ],
+        shortcuts: ["Write: source sphere → impacted sphere(s)."],
+        traps: ["Calling everything ‘biosphere’ because living things are affected later."]
+      },
+  
+      {
+        id: "env-fundamentals-and-sustainability-key-distinction-pairs",
+        title: "2) Key distinctions (habitat/niche, population/community, biotic/abiotic)",
+        summary:
+          "Most exam mistakes come from swapping paired terms; use one test per pair.",
+        explanation:
+          "Habitat answers ‘where?’. Niche answers ‘what role/how?’. Population = one species; community = multiple species. Biotic = living; abiotic = physical/chemical conditions.",
+        examples: [
+          {
+            problem: "Deer in a forest: ‘all deer’ is what level? ‘deer + wolves + grass’ is what level?",
+            solution: "One species → population. Multiple species together → community.",
+            answer: "Population; Community"
+          },
+          {
+            problem: "Is dissolved oxygen biotic or abiotic?",
+            solution: "It is a non-living chemical condition of water → abiotic.",
+            answer: "Abiotic"
+          }
+        ],
+        shortcuts: ["Habitat = address; niche = job."],
+        traps: ["Calling pH/salinity ‘biotic’ because it affects living things."]
+      },
+  
+      {
+        id: "env-fundamentals-and-sustainability-sustainability-core",
+        title: "3) Sustainability (Brundtland + pillars + principles)",
+        summary:
+          "One definition (Brundtland 1987), one test (3 pillars), two principles (precaution, polluter-pays).",
+        explanation:
+          "Quote Brundtland when asked for definition. For application questions, test the three pillars: environmental limits, economic viability, social equity. Then justify governance using precaution (act early under serious risk) and polluter-pays (responsibility for costs).",
+        examples: [
+          {
+            problem: "A project increases profit but destroys wetlands and displaces people. Sustainable?",
+            solution: "Fails environmental and social pillars even if economically profitable.",
+            answer: "Not sustainable"
+          },
+          {
+            problem: "Which principle makes the polluter pay for cleanup costs?",
+            solution: "Polluter-pays principle.",
+            answer: "Polluter-pays"
+          }
+        ],
+        shortcuts: ["Sustainability = 3 pillars together."],
+        traps: ["Writing only ‘save environment’ without economic/social pillars."]
+      }
+    ],
+  
+    pakistanExamFocus: [
+      "Brundtland (1987) definition is frequently asked verbatim",
+      "Habitat vs niche and population vs community are common one-liner MCQs",
+      "Sphere-mapping helps on local examples: urban smog (atmosphere), river/groundwater pollution (hydrosphere), soil salinity/waterlogging (lithosphere↔hydrosphere), deforestation effects (biosphere → atmosphere)"
+    ],
+  
+    relatedTopics: [
+      "env-carry-capacity-and-footprint",
+      "env-biodiversity",
+      "env-natural-resources"
+    ],
+  
+    content: true,
+    buildsOn: [],
+    leadsTo: ["env-carry-capacity-and-footprint", "env-ecosystem-structure-and-energy-flow"],
+    usedIn: ["env-carry-capacity-and-footprint", "env-climate-change-response"]
+  }, 
   {
     id: "env-carry-capacity-and-footprint",
     sectionId: "ENV-01",
