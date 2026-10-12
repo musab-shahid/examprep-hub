@@ -261,6 +261,7 @@ export function screenDisplayName(screen: ScreenName | string): string {
     'section': 'Section',
     'topic': 'Topic',
     'formulas': 'Formulas',
+    'flashcards': 'Flashcards',
     'cloud-atlas': 'Cloud Atlas',
     'practice': 'Practice',
     'quiz': 'Quiz',

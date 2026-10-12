@@ -80,7 +80,7 @@ export function getFragileWins(
     const attempts = r.attempts ?? 1;
     const strength = resolveStrength(r) ?? 0.5;
     if (strength >= 0.55) continue;
-    if (attempts < 1) continue;
+    if (attempts < 2) continue;
     const q = byId.get(qid);
     if (!q) continue;
     out.push({

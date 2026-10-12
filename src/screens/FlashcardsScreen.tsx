@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
+import type { SubjectId } from '@/types';
 import { Layers, RotateCcw, ChevronLeft, ChevronRight, Eye, EyeOff, Shuffle, BookOpen } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -15,8 +16,6 @@ import {
   type Flashcard,
   type FlashcardKind,
 } from '@/lib/flashcards';
-import type { SubjectId } from '@/types';
-
 const KIND_FILTERS: Array<FlashcardKind | 'all'> = [
   'all',
   'fact',
@@ -29,6 +28,7 @@ const KIND_FILTERS: Array<FlashcardKind | 'all'> = [
 export function FlashcardsScreen({ topicId }: { topicId?: string }) {
   const { navigate } = useRouter();
   const sd = useSubjectData();
+  const { ensureTopicsLoaded, topicsFor } = sd;
   const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
   const activeSubject = getActiveSubject('learn');
 
@@ -48,8 +48,8 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
     setLoading(true);
     const scope = topicId ? undefined : activeSubject;
     const load = topicId
-      ? sd.ensureTopicsLoaded('all') // ensure bank; we'll filter by topic id
-      : sd.ensureTopicsLoaded(scope === 'all' ? 'all' : (scope as SubjectId));
+      ? ensureTopicsLoaded('all') // ensure bank; we'll filter by topic id
+      : ensureTopicsLoaded(scope === 'all' ? 'all' : (scope as SubjectId));
     Promise.resolve(load)
       .then(() => {
         if (cancelled) return;
@@ -61,15 +61,15 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
     return () => {
       cancelled = true;
     };
-  }, [activeSubject, topicId, sd]);
+  }, [activeSubject, topicId, ensureTopicsLoaded]);
 
   const sourceTopics = useMemo(() => {
     if (topicId) {
-      const all = sd.topicsFor('all');
+      const all = topicsFor('all');
       return all.filter((t) => t.id === topicId);
     }
-    return sd.topicsFor(activeSubject === 'all' ? 'all' : (activeSubject as SubjectId));
-  }, [sd, activeSubject, topicId]);
+    return topicsFor(activeSubject === 'all' ? 'all' : (activeSubject as SubjectId));
+  }, [topicsFor, activeSubject, topicId]);
 
   const allCards = useMemo(() => buildFlashcardsForTopics(sourceTopics), [sourceTopics]);
 
