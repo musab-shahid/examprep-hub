@@ -171,7 +171,7 @@ export function ProgressBar({
   /** Accessible name — defaults to "X% complete"; pass e.g. "X% accuracy" for non-completion bars */
   ariaLabel?: string;
 }) {
-  const pct = max > 0 ? Math.min(100, Math.round((value / max) * 100)) : 0;
+  const pct = max > 0 ? Math.max(0, Math.min(100, Math.round((value / max) * 100))) : 0;
   const colors = {
     sky: 'bg-brand-500',
     green: 'bg-success-500',

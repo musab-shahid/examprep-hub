@@ -13,7 +13,6 @@ import { subjectsByTrack } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
-import { deriveAccuracy } from '@/lib/constants';
 
 const SUBJECT_DESCRIPTIONS: Record<string, string> = {
   'meteo-climatology': 'Atmospheric science, weather systems, climate classification, and Pakistan-specific meteorology — the most content-rich subject.',
@@ -26,7 +25,7 @@ const SUBJECT_DESCRIPTIONS: Record<string, string> = {
 };
 
 export function FpscLandingScreen() {
-  const { navigate } = useRouter();
+  const { navigate, currentRoute } = useRouter();
   const sd = useSubjectData();
   const { setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
   useEffect(() => { setActiveTrack('fpsc'); }, [setActiveTrack]);
@@ -59,12 +58,12 @@ export function FpscLandingScreen() {
 
   const handleStudySubject = (subjectId: SubjectId) => {
     setActiveSubjectForScreen('learn', subjectId);
-    navigate({ screen: 'learn', parent: null });
+    navigate({ screen: 'learn', parent: currentRoute });
   };
 
   const handlePracticeSubject = (subjectId: SubjectId) => {
     setActiveSubjectForScreen('practice', subjectId);
-    navigate({ screen: 'practice', parent: null });
+    navigate({ screen: 'practice', parent: currentRoute });
   };
 
   return (

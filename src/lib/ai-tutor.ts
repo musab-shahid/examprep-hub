@@ -22,8 +22,14 @@ Guidelines:
 /** Cap study-material context sent to the model (chars). */
 const MAX_CONTEXT_CHARS = 8000;
 
-function clip(s: string | undefined | null, max: number): string {
-  const str = s ?? '';
+function clip(s: unknown, max: number): string {
+  let str: string;
+  if (s == null) str = '';
+  else if (typeof s === 'string') str = s;
+  else if (typeof s === 'number' || typeof s === 'boolean') str = String(s);
+  else {
+    try { str = JSON.stringify(s); } catch { str = String(s); }
+  }
   return str.length > max ? str.slice(0, max) + '…' : str;
 }
 
@@ -329,7 +335,7 @@ export function buildStudentContext(
   if (qs.length > 0) {
     const wrong: string[] = [];
     for (const q of qs) {
-      const r = data.questionResults[q.id];
+      const r = (data.questionResults ?? {})[q.id];
       if (r && !r.correct) {
         wrong.push(clip(q.question.replace(/\s+/g, ' '), 120));
         if (wrong.length >= 5) break;
@@ -1033,6 +1039,10 @@ export async function askTutor(
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
   if (signal) {
+    if (signal.aborted) {
+      clearTimeout(timeoutId);
+      throw new DOMException('The operation was aborted.', 'AbortError');
+    }
     signal.addEventListener('abort', () => controller.abort(), { once: true });
   }
 

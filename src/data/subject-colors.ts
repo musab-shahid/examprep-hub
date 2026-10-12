@@ -339,5 +339,12 @@ export function getTrackStyle(track: string): TrackStyle {
 // ── HAT section helper ──
 
 export function getHatSectionStyle(sectionId: string): SubjectStyle {
-  return getSubjectStyle(`hat-${sectionId}`);
+  // Section ids are HATV-01 / HATA-02 / HATQ-03 — map prefix to subject style keys
+  const prefix = sectionId.split('-')[0]?.toUpperCase() ?? '';
+  const subjectKey =
+    prefix === 'HATV' ? 'hat-verbal' :
+    prefix === 'HATA' ? 'hat-analytical' :
+    prefix === 'HATQ' ? 'hat-quantitative' :
+    sectionId.startsWith('hat-') ? sectionId : `hat-${sectionId}`;
+  return getSubjectStyle(subjectKey);
 }

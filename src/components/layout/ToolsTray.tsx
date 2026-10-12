@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import {
   Search, Clock, Settings as SettingsIcon, BookCopy, Brain, RotateCcw,
   Sigma, TrendingUp, X, Trophy, FileText, BarChart3,
@@ -16,6 +17,10 @@ interface ToolsTrayProps {
 export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
   const { navigate } = useRouter();
   const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
+  const sheetRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(sheetRef, isOpen && variant === 'mobile-sheet', {
+    onEscape: onClose,
+  });
 
   useEffect(() => {
     if (!isOpen) return;
@@ -64,6 +69,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
       icon: BarChart3,
       label: 'Progress',
       onClick: () => {
+        setActiveSubjectForScreen('progress', 'all');
         navigate({ screen: 'progress', parent: null });
         onClose();
       },
@@ -101,7 +107,7 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
           role="dialog"
           aria-modal="true"
           aria-label="More tools"
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[85vh] overflow-y-auto pb-safe animate-fade-in-up"
+          ref={sheetRef} className="fixed bottom-0 left-0 right-0 z-50 bg-white rounded-t-2xl shadow-2xl max-h-[85vh] overflow-y-auto pb-safe animate-fade-in-up"
         >
           <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10 pt-3 pb-2 border-b border-slate-100">
             <div className="sheet-handle mb-3" aria-hidden />

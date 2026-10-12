@@ -1,5 +1,5 @@
 import { ChevronDown, Check } from 'lucide-react';
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, useId } from 'react';
 import { subjects, subjectsByTrack } from '@/data/subjects';
 import { getSubjectStyle } from '@/data/subject-colors';
 import { topicsBySubject } from '@/data/topics';
@@ -44,8 +44,11 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
   }, [open, setOpen]);
   const currentLabel = value === 'all'
     ? 'All Subjects'
-    : trackSubjects.find((s) => s.id === value)?.title ?? 'All Subjects';
-  const panelId = 'subject-selector-panel';
+    : (trackSubjects.find((s) => s.id === value)?.title
+        ?? subjects.find((s) => s.id === value)?.title
+        ?? 'All Subjects');
+  const panelId = useId();
+  const valueStyle = value !== 'all' ? getSubjectStyle(value) : null;
   const handleSelect = useCallback((val: SubjectFilterValue) => {
     onChange(val);
     closeDropdown();
@@ -73,8 +76,8 @@ export function SubjectSelector({ value, onChange, showAllOption = true, compact
         className={`flex items-center justify-between gap-2 px-3 py-2 rounded-btn border border-slate-200 bg-white text-slate-800 text-sm font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors duration-DEFAULT min-h-touch touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1 ${open ? 'border-brand-300 ring-2 ring-brand-500/20' : ''} ${compact ? 'min-w-[160px]' : 'w-full sm:w-[240px]'}`}
       >
         <span className="flex items-center gap-2 truncate">
-          {value !== 'all' && (
-            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${getSubjectStyle(value).dotBg}`} />
+          {value !== 'all' && valueStyle && (
+            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${valueStyle.dotBg}`} />
           )}
           <span className="truncate">{currentLabel}</span>
         </span>

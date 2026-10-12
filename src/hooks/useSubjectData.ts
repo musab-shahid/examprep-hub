@@ -185,7 +185,7 @@ export function useSubjectData(): SubjectDataLayer {
       }).length;
     }
     return trackSections.reduce((sum, s) => sum + s.questionCount, 0);
-  }, [trackSections, trackSubjectIds, trackSubjectIdList, loadedSubjects]);
+  }, [trackSections, trackSubjectIds, trackSubjectIdList, loadedQuestionSubjects]);
   const totalFormulas = useMemo(() => {
     return trackSubjectIdList.reduce((sum, sid) => sum + getFormulasForSubject(sid).length, 0);
   }, [trackSubjectIdList]);

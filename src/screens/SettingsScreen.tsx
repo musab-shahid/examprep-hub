@@ -91,16 +91,22 @@ export function SettingsScreen() {
   };
 
   const handleReset = () => {
-    if (isFullReset) {
-      reset();
-      setResetDone('All data has been reset');
-    } else {
-      resetSubjects([...selectedSubjects]);
-      const n = selectedSubjects.size;
-      setResetDone(`${n} subject${n !== 1 ? 's' : ''} reset successfully`);
+    try {
+      if (isFullReset) {
+        reset();
+        setResetDone('All data has been reset');
+      } else {
+        resetSubjects([...selectedSubjects]);
+        const n = selectedSubjects.size;
+        setResetDone(`${n} subject${n !== 1 ? 's' : ''} reset successfully`);
+      }
+      setSelectedSubjects(new Set());
+      setConfirming(false);
+    } catch (err) {
+      console.error('[settings] reset failed', err);
+      setResetDone('Reset failed — try again');
+      setConfirming(false);
     }
-    setSelectedSubjects(new Set());
-    setConfirming(false);
   };
 
   // Install card: always offer a path when not already installed (audit I2)
@@ -203,7 +209,7 @@ export function SettingsScreen() {
             <p className="font-semibold text-slate-900 text-sm">Export progress</p>
             <p className="text-slate-500 text-xs mt-0.5">Download a JSON backup of your local study data.</p>
           </div>
-          <Button variant="secondary" onClick={() => downloadBackupFile()}>Download backup</Button>
+          <Button variant="secondary" onClick={() => { try { downloadBackupFile(); } catch (e) { console.error('[settings] export failed', e); } }}>Download backup</Button>
         </div>
       </Card>
 
@@ -291,6 +297,7 @@ export function SettingsScreen() {
         {examTracks.map((track) => {
           const trackSubjects = subjectsByTrack(track.id);
           const trackMeta = examTrackMap[track.id];
+          if (!trackMeta) return null;
           const TrackIcon = trackMeta.icon;
           const selectedInTrack = trackSubjects.filter((s) => selectedSubjects.has(s.id as SubjectId));
           const allTrackSelected = selectedInTrack.length === trackSubjects.length;

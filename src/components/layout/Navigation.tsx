@@ -73,7 +73,7 @@ export function Sidebar() {
   };
   const getReviewDueCount = (subjectId: SubjectId): number => {
     const stats = sd.statsFor(subjectId);
-    return stats.todayRevision.length;
+    return stats.todayRevision?.length ?? 0;
   };
   const toggleSubject = (subjectId: string) => {
     setExpandedSubject((prev) => (prev === subjectId ? null : subjectId));
@@ -113,7 +113,7 @@ export function Sidebar() {
           const trackId = track.id as ExamTrackId;
           // Full subject objects from data (color, icon) — both FPSC and HAT are multi-subject
           const trackSubs = subjectsByTrack(trackId);
-          const styles = trackNavStyles[trackId];
+          const styles = trackNavStyles[trackId] ?? trackNavStyles.fpsc;
           const TrackIcon = track.icon;
           const landing = getLandingScreenForTrack(trackId);
           const isTrackActive = isTrackLandingActive(trackId);

@@ -8,7 +8,6 @@ import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/S
 import { refreshFormulaVault } from '@/data/formulas';
 import { subjectMap } from '@/data/subjects';
 import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
-import { ensureTopicsLoaded } from '@/data/lazy-data';
 import type { SubjectId } from '@/types';
 
 export function FormulaVaultScreen() {
@@ -32,7 +31,7 @@ export function FormulaVaultScreen() {
     let cancelled = false;
     setLoading(true);
     setLoadError(false);
-    ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
+    sd.ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
       .then(() => {
         if (cancelled) return;
         setVaultTick((n) => n + 1);
@@ -40,7 +39,7 @@ export function FormulaVaultScreen() {
       })
       .catch(() => { if (!cancelled) { setLoading(false); setLoadError(true); } });
     return () => { cancelled = true; };
-  }, [isAllSubjects, activeSubject]);
+  }, [isAllSubjects, activeSubject, sd]);
 
   const scopedFormulas = useMemo(() => {
     if (loading) return [];
@@ -53,7 +52,7 @@ export function FormulaVaultScreen() {
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading formulas. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
         <div className="flex justify-center mt-4">
-          <Button onClick={() => { setLoadError(false); setLoading(true); ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
+          <Button onClick={() => { setLoadError(false); setLoading(true); sd.ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
         </div>
       </Card>
     </PageContainer>
@@ -96,7 +95,7 @@ export function FormulaVaultScreen() {
                   {formulas.map((f) => (
                     <Card key={`${f.topicId}-${f.name}`} className="p-4">
                       <button
-                        onClick={() => setExpanded(expanded === f.name ? null : f.name)}
+                        onClick={() => { const k = `${f.topicId}:${f.name}`; setExpanded(expanded === k ? null : k); }}
                         className="w-full text-left"
                       >
                         <div className="flex items-center justify-between gap-3">
@@ -107,10 +106,10 @@ export function FormulaVaultScreen() {
                             </div>
                             <p className="text-slate-500 text-xs mt-1">From: {f.topicTitle}</p>
                           </div>
-                          <ChevronRight className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${expanded === f.name ? 'rotate-90' : ''}`} />
+                          <ChevronRight className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${expanded === `${f.topicId}:${f.name}` ? 'rotate-90' : ''}`} />
                         </div>
                       </button>
-                      {expanded === f.name && (
+                      {expanded === `${f.topicId}:${f.name}` && (
                         <div className="mt-4 pt-4 border-t border-slate-100">
                           <div className="space-y-1.5 mb-4">
                             {f.variables.map((v, i) => (

@@ -39,9 +39,14 @@ export function HatLandingScreen() {
 
   useEffect(() => {
     let active = true;
-    Promise.all([loadAllHatTopics(), loadAllHatQuestions()]).then(([t, q]) => {
-      if (active) { setHatTopics(t); setHatQuestions(q); }
-    });
+    Promise.all([loadAllHatTopics(), loadAllHatQuestions()])
+      .then(([t, q]) => {
+        if (active) { setHatTopics(t); setHatQuestions(q); }
+      })
+      .catch((err) => {
+        console.error('Failed to load HAT data', err);
+        if (active) { setHatTopics([]); setHatQuestions([]); }
+      });
     return () => { active = false; };
   }, []);
   const handleStudySection = (sectionCode: string) => {
@@ -55,7 +60,7 @@ export function HatLandingScreen() {
   const sectionEntries = Object.values(HAT_SECTIONS);
   const totalTopics = hatTopics.length;
   const totalQuestions = hatQuestions.length;
-  const studiedHatTopics = hatTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
+  const studiedHatTopics = hatTopics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
   const quizTouchedHatTopics = hatTopics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
   const overallProgress = totalTopics > 0 ? Math.round((studiedHatTopics / totalTopics) * 100) : 0;
   const stats = [
@@ -177,7 +182,7 @@ export function HatLandingScreen() {
           const Icon = SECTION_ICONS[section.id];
           const topics = hatTopics.filter((t) => t.hatSection === section.id);
           const sectionQuestionCount = hatQuestions.filter((q) => q.sectionId === section.sectionCode || q.sectionId.startsWith(section.sectionCode + '-')).length;
-          const studiedCount = topics.filter((t) => data.studiedTopics.includes(t.id)).length;
+          const studiedCount = topics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
           const quizCount = topics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
           const sectionProgress = topics.length > 0 ? Math.round((studiedCount / topics.length) * 100) : 0;
           return (

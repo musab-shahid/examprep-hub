@@ -72,12 +72,18 @@ function buildRoute(options: NavigateOptions): Route {
   switch (options.screen) {
     case 'home': return { screen: 'home' };
     case 'learn': return { screen: 'learn' };
-    case 'section': return { screen: 'section', sectionId: options.sectionId! };
-    case 'topic': return { screen: 'topic', topicId: options.topicId! };
+    case 'section':
+      if (!options.sectionId) return { screen: 'learn' };
+      return { screen: 'section', sectionId: options.sectionId };
+    case 'topic':
+      if (!options.topicId) return { screen: 'learn' };
+      return { screen: 'topic', topicId: options.topicId };
     case 'formulas': return { screen: 'formulas' };
     case 'cloud-atlas': return { screen: 'cloud-atlas' };
     case 'practice': return { screen: 'practice', mode: options.mode as 'topic' | 'quick' | 'mock' | undefined };
-    case 'quiz': return { screen: 'quiz', mode: options.mode!, topicId: options.topicId, topicIds: options.topicIds, scope: options.scope, subjectId: options.subjectId, count: options.count, difficulty: options.difficulty, timeLimit: options.timeLimit, wrongPool: options.wrongPool };
+    case 'quiz':
+      if (!options.mode) return { screen: 'practice' };
+      return { screen: 'quiz', mode: options.mode, topicId: options.topicId, topicIds: options.topicIds, scope: options.scope, subjectId: options.subjectId, count: options.count, difficulty: options.difficulty, timeLimit: options.timeLimit, wrongPool: options.wrongPool };
     case 'review': return { screen: 'review' };
     case 'progress': return { screen: 'progress' };
     case 'search': return { screen: 'search' };

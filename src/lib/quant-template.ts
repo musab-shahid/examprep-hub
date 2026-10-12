@@ -38,7 +38,8 @@ export function rngFromSeed(seed: string): () => number {
 }
 
 export function sampleParam(spec: TemplateParamSpec, rnd: () => number): number {
-  const step = spec.step ?? 1;
+  const rawStep = spec.step ?? 1;
+  const step = rawStep === 0 || !Number.isFinite(rawStep) ? 1 : rawStep;
   const min = spec.min;
   const max = spec.max;
   if (max < min) return min;
@@ -227,12 +228,12 @@ export const EXAMPLE_LAPSE_TEMPLATE: QuantTemplate = {
   },
   answer: F.round(F.sub(F.param('T'), F.mul(F.param('gamma'), F.param('dz'))), 1),
   distractors: [
-    // forgot to multiply by dz
+    // forgot to multiply by dz → T − gamma (never equals T − gamma*dz for dz≥1)
     F.round(F.sub(F.param('T'), F.param('gamma')), 1),
     // added instead of subtracted
     F.round(F.add(F.param('T'), F.mul(F.param('gamma'), F.param('dz'))), 1),
-    // used dz in meters mistakenly (gamma * dz * 1000) — too large; use gamma*2 as mild trap
-    F.round(F.sub(F.param('T'), F.mul(F.param('gamma'), F.const(2))), 1),
+    // used (dz+1) km by off-by-one height error — distinct from correct for all dz in range
+    F.round(F.sub(F.param('T'), F.mul(F.param('gamma'), F.add(F.param('dz'), F.const(1)))), 1),
   ],
   optionFormat: '{{value}}°C',
   explanation:

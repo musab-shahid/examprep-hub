@@ -3,7 +3,7 @@ import { useRouter } from '@/router';
 
 export function Breadcrumbs() {
   const { currentRoute, navigate } = useRouter();
-  const items = currentRoute.breadcrumb;
+  const items = Array.isArray(currentRoute.breadcrumb) ? currentRoute.breadcrumb : [];
   if (items.length <= 1) return null;
   return (
     <nav aria-label="Breadcrumb" className="flex items-center gap-1 text-xs sm:text-sm overflow-x-auto scrollbar-hide">
