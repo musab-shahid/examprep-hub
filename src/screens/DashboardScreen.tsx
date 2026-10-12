@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { getAttentionItems, getDashboardRecommendation } from '@/lib/attention';
 import {
   Zap, ChevronRight, Trophy, Clock,
@@ -19,6 +19,14 @@ import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-
 import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
 import { getWeeklyAccuracy } from '@/lib/stats';
+import {
+  FPSC_OCT_2026_SESSIONS,
+  getCountdownParts,
+  formatCountdownShort,
+  getNextSession,
+  hasUpcomingExam,
+} from '@/lib/exam-schedule';
+import { computeReadiness, readinessLabel, rankScoreGainOpportunities } from '@/lib/readiness';
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -58,6 +66,29 @@ export function DashboardScreen() {
 
 
   const overallProgress = globalStats.totalTopics > 0 ? Math.round((globalStats.studiedTopics / globalStats.totalTopics) * 100) : 0;
+
+  // Live clock for exam countdown (1s tick; cheap)
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const tick = () => setNow(new Date());
+    const id = window.setInterval(tick, 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  const nextExam = useMemo(() => getNextSession(FPSC_OCT_2026_SESSIONS, now), [now]);
+  const examCountdown = useMemo(
+    () => (nextExam ? getCountdownParts(nextExam.startsAtIso, now) : null),
+    [nextExam, now],
+  );
+
+  const readiness = useMemo(
+    () => computeReadiness(data, globalStats.totalTopics, trackTopicIds),
+    [data, globalStats.totalTopics, trackTopicIds],
+  );
+  const gainOps = useMemo(
+    () => rankScoreGainOpportunities(data, trackTopicIds, 3),
+    [data, trackTopicIds],
+  );
 
   // Single recommendation source (attention.ts) — do not duplicate priority logic here
   const attention = getAttentionItems(data, trackTopicIds, {
@@ -100,6 +131,56 @@ export function DashboardScreen() {
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Home</h1>
       </div>
       <PurposeLine className="animate-fade-in-up">Your study command center — see what to do and how you're doing.</PurposeLine>
+
+      {/* FPSC Oct 16 countdown + readiness (skill score; urgency is separate) */}
+      {examCountdown && nextExam && !examCountdown.started && (
+        <Card elevation="raised" className="p-4 sm:p-5 mb-4 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-orange-50 animate-fade-in-up">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC exam window</p>
+              <p className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
+                16 Oct 2026 · {nextExam.label}
+              </p>
+              <p className="text-xs text-slate-500 mt-1 leading-snug">{nextExam.note}</p>
+            </div>
+            <div className="text-right shrink-0">
+              <p className="text-2xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
+                {formatCountdownShort(examCountdown)}
+              </p>
+              <p className="text-[11px] text-amber-600/80 mt-1">Pakistan time</p>
+            </div>
+          </div>
+          <div className="mt-3 pt-3 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
+            <span className="font-semibold text-slate-800">
+              Readiness {readiness.score}
+              <span className="text-slate-400 font-normal">/100</span>
+              <span className="ml-1.5 text-xs font-medium text-slate-500">({readinessLabel(readiness.score)})</span>
+            </span>
+            <span className="text-xs text-slate-500">
+              cover {readiness.coveragePct}% · master {readiness.masteryPct}% · acc {readiness.accuracyPct}%
+            </span>
+          </div>
+          {gainOps.length > 0 && (
+            <p className="mt-2 text-xs text-slate-600 leading-relaxed">
+              Biggest lifts:{' '}
+              {gainOps.map((g, i) => {
+                const title = getTopic(g.topicId)?.title ?? g.topicId;
+                return (
+                  <button
+                    key={g.topicId}
+                    type="button"
+                    className="text-brand-700 font-medium hover:underline mr-1"
+                    onClick={() => navigate({ screen: 'topic', topicId: g.topicId, parent: null })}
+                  >
+                    {title}{i < gainOps.length - 1 ? ',' : ''}
+                  </button>
+                );
+              })}
+              <span className="text-slate-400"> (study impact, not official marks)</span>
+            </p>
+          )}
+        </Card>
+      )}
 
       {/* Hero card */}
       <Card elevation="hero" className="hero-glow p-5 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
