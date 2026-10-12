@@ -175,7 +175,7 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.qualitativeScenarios?.length) {
     const items = topic.qualitativeScenarios.map((q) =>
-      `- Scenario: ${q.scenario}\n  Answer: ${q.answer}\n  Why: ${clip(q.why, 300)}`,
+      `- Scenario: ${q.scenario ?? (q as { question?: string }).question}\n  Answer: ${q.answer}\n  Why: ${clip(q.why ?? (q as { reasoning?: string }).reasoning, 300)}`,
     );
     parts.push('Think it through:\n' + items.join('\n'));
   }
@@ -183,8 +183,11 @@ export function buildTopicContext(topic: Topic): string {
   if (topic.commonMistakes?.length) {
     const mistakes = topic.commonMistakes.map((m) => {
       if (typeof m === 'string') return `- ${m}`;
-      const o = m as { mistake: string; correction: string; explanation: string };
-      return `- ${o.mistake} → ${o.correction}${o.explanation ? ` (${clip(o.explanation, 200)})` : ''}`;
+      const o = m as { mistake?: string; name?: string; correction?: string; explanation?: string; correctModel?: string; remedy?: string };
+      const label = o.mistake ?? o.name ?? '';
+      const fix = o.correction ?? o.remedy ?? '';
+      const detail = o.explanation ?? o.correctModel ?? '';
+      return `- ${label} → ${fix}${detail ? ` (${clip(detail, 200)})` : ''}`;
     });
     parts.push('Common mistakes:\n' + mistakes.join('\n'));
   }
@@ -212,7 +215,8 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.vocabularyGroups?.length) {
     const groups = topic.vocabularyGroups.map((g) => {
-      const words = g.words.map((w) => `${w.word}: ${w.definition}${w.synonym ? ` (syn: ${w.synonym})` : ''}${w.antonym ? ` (ant: ${w.antonym})` : ''}`).join('; ');
+      const wordList = (g.words ?? (g as { cards?: typeof g.words }).cards) ?? [];
+      const words = wordList.map((w) => `${w.word}: ${w.definition}${w.synonym ? ` (syn: ${w.synonym})` : ''}${w.antonym ? ` (ant: ${w.antonym})` : ''}`).join('; ');
       return `${g.title}: ${clip(words, 600)}`;
     });
     parts.push('Vocabulary:\n' + groups.join('\n'));
