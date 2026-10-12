@@ -12,7 +12,7 @@ import { routeToPath, pathToRoute, breadcrumbForRoute } from './paths';
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
 export type ScreenName =
-  | 'home' | 'learn' | 'section' | 'topic' | 'formulas' | 'cloud-atlas'
+  | 'home' | 'learn' | 'section' | 'topic' | 'formulas' | 'flashcards' | 'cloud-atlas'
   | 'practice' | 'quiz' | 'review' | 'progress' | 'search' | 'settings' | 'hat' | 'fpsc';
 
 export type Route =
@@ -21,6 +21,7 @@ export type Route =
   | { screen: 'section'; sectionId: string }
   | { screen: 'topic'; topicId: string }
   | { screen: 'formulas' }
+  | { screen: 'flashcards'; topicId?: string }
   | { screen: 'cloud-atlas' }
   | { screen: 'practice'; mode?: 'topic' | 'quick' | 'mock' }
   | { screen: 'quiz'; mode: PracticeMode; topicId?: string; topicIds?: string[]; scope?: 'subject' | 'all'; subjectId?: string; count?: number | 'all'; difficulty?: DifficultyFilter; timeLimit?: TimeLimitSetting; wrongPool?: boolean }
@@ -79,6 +80,7 @@ function buildRoute(options: NavigateOptions): Route {
       if (!options.topicId) return { screen: 'learn' };
       return { screen: 'topic', topicId: options.topicId };
     case 'formulas': return { screen: 'formulas' };
+    case 'flashcards': return { screen: 'flashcards', topicId: options.topicId };
     case 'cloud-atlas': return { screen: 'cloud-atlas' };
     case 'practice': return { screen: 'practice', mode: options.mode as 'topic' | 'quick' | 'mock' | undefined };
     case 'quiz':
@@ -104,6 +106,7 @@ export function routeLabel(route: Route): string {
       return t?.title ?? 'Topic';
     }
     case 'formulas': return 'Formulas';
+    case 'flashcards': return 'Flashcards';
     case 'cloud-atlas': return 'Cloud Atlas';
     case 'practice': return route.mode === 'mock' ? 'Mock Exam' : 'Practice';
     case 'quiz': return route.mode === 'mock' ? 'Mock Exam' : route.mode === 'quick' ? 'Quick Quiz' : route.mode === 'review' ? 'Review Wrong' : route.mode === 'challenge' ? 'Challenge' : 'Topic Quiz';

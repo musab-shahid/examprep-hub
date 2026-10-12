@@ -7,6 +7,7 @@ import { Header } from '@/components/layout/Header';
 import { DashboardScreen } from '@/screens/DashboardScreen';
 import { StudyScreen, SectionScreen, TopicScreen } from '@/screens/StudyScreen';
 import { FormulaVaultScreen } from '@/screens/FormulaVaultScreen';
+import { FlashcardsScreen } from '@/screens/FlashcardsScreen';
 import { CloudAtlasScreen } from '@/screens/CloudAtlasScreen';
 import { PracticeScreen } from '@/screens/PracticeScreen';
 import { QuizScreen } from '@/screens/QuizScreen';
@@ -39,6 +40,8 @@ function ScreenRouter() {
       return <TopicScreen topicId={route.topicId} />;
     case 'formulas':
       return <FormulaVaultScreen />;
+    case 'flashcards':
+      return <FlashcardsScreen topicId={route.topicId} />;
     case 'cloud-atlas':
       return <CloudAtlasScreen />;
     case 'practice':
@@ -91,6 +94,8 @@ function getHeaderTitle(route: Route): { title: string; subtitle?: string } {
     }
     case 'formulas':
       return { title: 'Formulas' };
+    case 'flashcards':
+      return { title: 'Flashcards' };
     case 'cloud-atlas':
       return { title: 'Cloud Atlas', subtitle: 'Meteorology & Climatology' };
     case 'practice':

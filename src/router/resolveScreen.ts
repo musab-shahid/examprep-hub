@@ -5,6 +5,8 @@ const ALIASES: Record<string, ScreenName> = {
   'study': 'learn',
   'revision': 'review',
   'formula-vault': 'formulas',
+  'flash-cards': 'flashcards',
+  cards: 'flashcards',
 };
 
 export function resolveScreen(screen: string): ScreenName {

@@ -13,6 +13,7 @@ export type PathRoute =
   | { screen: 'section'; sectionId: string }
   | { screen: 'topic'; topicId: string }
   | { screen: 'formulas' }
+  | { screen: 'flashcards'; topicId?: string }
   | { screen: 'cloud-atlas' }
   | { screen: 'practice'; mode?: 'topic' | 'quick' | 'mock' }
   | {
@@ -46,6 +47,10 @@ export function routeToPath(route: PathRoute): string {
       return `/topic/${encodeURIComponent(route.topicId)}`;
     case 'formulas':
       return '/formulas';
+    case 'flashcards':
+      return route.topicId
+        ? `/flashcards/${encodeURIComponent(route.topicId)}`
+        : '/flashcards';
     case 'cloud-atlas':
       return '/cloud-atlas';
     case 'practice':
@@ -94,6 +99,10 @@ export function pathToRoute(pathname: string): PathRoute {
     }
     case 'formulas':
       return { screen: 'formulas' };
+    case 'flashcards':
+      return a
+        ? { screen: 'flashcards', topicId: decodeURIComponent(a) }
+        : { screen: 'flashcards' };
     case 'cloud-atlas':
       return { screen: 'cloud-atlas' };
     case 'practice': {
@@ -170,6 +179,7 @@ function routeLabelFallback(route: PathRoute): string {
   const names: Record<string, string> = {
     learn: 'Learn',
     formulas: 'Formulas',
+    flashcards: 'Flashcards',
     'cloud-atlas': 'Cloud Atlas',
     review: 'Review',
     progress: 'Progress',

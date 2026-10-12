@@ -688,6 +688,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <Button onClick={() => markStudied(topicId)} disabled={isStudied} variant={isStudied ? 'secondary' : 'primary'} className="flex-1">{isStudied ? 'Marked as Studied' : 'Mark as Studied'}</Button>
           {topicQuestions.length > 0 && <Button variant="secondary" onClick={() => navigate({ screen: 'quiz', mode: 'topic', topicId })} className="flex-1">Test Me — {topicQuestions.length} Question{topicQuestions.length !== 1 ? 's' : ''}</Button>}
+          <Button variant="secondary" onClick={() => navigate({ screen: 'flashcards', topicId })} className="flex-1">Flashcards</Button>
         </div>
         {(() => {
           const sectionTopics = topicsBySection(topic.sectionId);

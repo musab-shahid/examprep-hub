@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import {
   Search, Clock, Settings as SettingsIcon, BookCopy, Brain, RotateCcw,
-  Sigma, TrendingUp, X, Trophy, FileText, BarChart3,
+  Sigma, TrendingUp, X, Trophy, FileText, BarChart3, Layers,
 } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -71,6 +71,14 @@ export function ToolsTray({ isOpen, onClose, variant }: ToolsTrayProps) {
       onClick: () => {
         setActiveSubjectForScreen('progress', 'all');
         navigate({ screen: 'progress', parent: null });
+        onClose();
+      },
+    },
+    {
+      icon: Layers,
+      label: 'Flashcards',
+      onClick: () => {
+        navigate({ screen: 'flashcards', parent: null });
         onClose();
       },
     },
