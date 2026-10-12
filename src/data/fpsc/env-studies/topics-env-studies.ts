@@ -1925,130 +1925,583 @@ explanationSections: [
     sectionId: "ENV-05",
     order: 2,
     title: "Water Pollution, BOD/COD/DO & Treatment",
-    definition: "Water pollution is the introduction into rivers, lakes, groundwater, or seas of substances or conditions that impair human use or ecological function. Organic wastes raise the demand for dissolved oxygen as microbes decompose them; nutrients can trigger eutrophication; and persistent chemicals may accumulate in organisms and food webs. Indicators such as dissolved oxygen, biochemical oxygen demand, and chemical oxygen demand help describe the oxygen regime of a water body.",
+    content: true,
+  
+    definition:
+      "Water pollution is the introduction into rivers, lakes, groundwater, or seas of substances or conditions that impair human use or ecological function. Organic wastes drive microbial oxygen demand; nutrients can trigger eutrophication; persistent chemicals accumulate in organisms and food webs. Dissolved oxygen (DO), biochemical oxygen demand (BOD), and chemical oxygen demand (COD) describe the oxygen regime of a water body.",
+  
     keyFacts: [
-      "Sources of water pollution: POINT (identifiable, e.g., pipe or factory outfall) vs NON-POINT (diffuse, e.g., agricultural runoff, urban stormwater)",
-      "Major pollutants: ORGANIC (sewage, food waste — cause oxygen depletion), NUTRIENTS (N, P from fertilizer — cause eutrophication), HEAVY METALS (Pb, Hg, Cd, Cr, As — toxic, persistent), PATHOGENS (E. coli, coliforms — disease), PESTICIDES (biomagnify up food chain), PLASTICS (microplastics ubiquitous), THERMAL (power plants — reduce DO)",
-      "BOD (Biochemical Oxygen Demand): O₂ bacteria need to decompose organic waste. HIGH BOD = polluted water",
-      "COD (Chemical Oxygen Demand): total O₂ for chemical oxidation. ALWAYS > BOD (chemical > biological demand)",
-      "DO (Dissolved Oxygen): O₂ available to aquatic life. HIGH DO = clean water. Low DO = polluted/struggling ecosystem",
-      "The BOD/COD/DO rule: CLEAN WATER = high DO, LOW BOD, LOW COD. POLLUTED WATER = low DO, HIGH BOD, HIGH COD. INVERSE relationship between DO and BOD",
-      "Eutrophication cascade: excess nutrients (N, P) → algal bloom → light blocked → plant death → bacterial decomposition → O₂ depletion → fish death → DEAD ZONE",
-      "Dead zones: Gulf of Mexico (Mississippi runoff), parts of Indus estuary, Baltic Sea, Chesapeake Bay",
-      "Bioaccumulation: buildup of substance in single organism over time. Biomagnification: increasing concentration UP the food chain. Top predators (eagles, humans, large fish) most affected. Classic example: DDT",
-      "Treatment stages: PRIMARY (physical: screening, sedimentation — removes solids), SECONDARY (biological: bacteria breakdown — removes organic matter), TERTIARY (advanced: chemical, UV, filtration — removes nutrients, pathogens, metals)",
-      "Pakistan water pollution: raw sewage in rivers (Lyari, Malir), industrial effluents (Kasur tanneries), arsenic in groundwater (parts of Sindh, southern Punjab), marine pollution (Karachi coast)"
+      "POINT source = identifiable pipe/outfall; NON-POINT = diffuse (farm runoff, urban stormwater)",
+      "Pollutant classes: organic (sewage → O₂ crash), nutrients N/P (eutrophication), metals Pb/Hg/Cd/Cr/As (toxic, persistent), pathogens (E. coli/coliforms), pesticides (biomagnify), plastics/microplastics, thermal (power plants → lower DO)",
+      "DO = O₂ available to aerobic life. HIGH DO = healthy. Low DO = stress/hypoxia",
+      "BOD = O₂ microbes use to decompose biodegradable organics (usually BOD₅ at 20 °C). HIGH BOD = organic pollution",
+      "COD = O₂ equivalent of chemical oxidation. COD ≥ BOD always (chemical oxidises more than bacteria do in the test)",
+      "Clean water: HIGH DO, LOW BOD, LOW COD. Polluted organic water: LOW DO, HIGH BOD, HIGH COD. DO and BOD move inversely",
+      "Eutrophication: excess N,P → bloom → light block → die-off → bacterial decay → O₂ crash → fish kill → dead zone",
+      "Dead-zone examples: Gulf of Mexico (Mississippi), Baltic, Chesapeake, parts of Indus estuary",
+      "Bioaccumulation = buildup in ONE organism (intake > elimination). Biomagnification = concentration rises UP the food chain. Top predators hit hardest. Classic: DDT",
+      "Treatment: PRIMARY physical (screens, grit, sedimentation) → SECONDARY biological (activated sludge, trickling filter, ponds) → TERTIARY advanced (N/P removal, UV/chlorine, membranes, carbon)",
+      "Pakistan: raw sewage (Lyari, Malir), tanneries (Kasur), arsenic groundwater (Sindh, southern Punjab), Karachi coastal pollution; Indus irrigation links quality to salinity and waterlogging",
     ],
-explanationSections: [
-      { heading: "Dissolved oxygen, BOD, and COD", body: "Dissolved oxygen supports fish and other aerobic aquatic life. When biodegradable organic matter enters a water body, microorganisms decompose it and consume oxygen. Biochemical oxygen demand estimates that microbial oxygen use; high BOD signals a heavy organic load and a risk of oxygen decline.\n\nChemical oxygen demand measures the oxygen equivalent of material that can be oxidised chemically. It is often higher than BOD because it includes substances that resist rapid biodegradation. Together, the two indicators help describe how much oxygen demand pollution places on a river or lake." },
-      { heading: "Eutrophication", body: "Eutrophication is the enrichment of water by nutrients, especially nitrogen and phosphorus, leading to excessive growth of algae and plants. When the bloom dies, decomposition consumes dissolved oxygen and can create hypoxic zones that kill fish and shift community structure.\n\nSources include agricultural runoff, sewage, and some industrial discharges. Because much nutrient input is diffuse rather than confined to a single pipe, controlling eutrophication requires land-use and farming practices as well as wastewater treatment." },
-      { heading: "Bioaccumulation and biomagnification", body: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds elimination. Persistent, fat-soluble chemicals are especially likely to accumulate in tissues. Biomagnification is the rise in concentration of such substances at successive trophic levels as predators consume many contaminated prey.\n\nThe two processes explain why top predators and human consumers of certain fish can receive high doses even when water concentrations look low. They are related but not interchangeable terms." },
+  
+    explanationSections: [
+      {
+        heading: "The oxygen trio: DO, BOD, COD",
+        body:
+          "Fish and other aerobic organisms need dissolved oxygen. When biodegradable organic matter (sewage, food waste, mill effluent) enters a river, microbes oxidise it and consume that oxygen. BOD estimates that microbial draw — classically BOD₅, oxygen used over five days at 20 °C. High BOD means a large biodegradable load and a real risk that DO will sag below what fish can tolerate (hypoxia often quoted near 2 mg L⁻¹; anoxia is ~0).\n\nCOD is the oxygen equivalent of matter oxidised by a strong chemical oxidant (typically dichromate). It is faster to measure and always at least as large as BOD, because the chemical attack includes substances microbes barely touch in five days. Read them as a pair: BOD = biologically available oxygen debt; COD = broader chemical debt; DO = cash remaining in the till. Thermal discharges worsen the same ledger: warmer water holds less O₂ (Henry’s law) while metabolism of fish and microbes speeds up — demand up, supply down.",
+      },
+      {
+        heading: "Eutrophication is a chain, not a spill",
+        body:
+          "Eutrophication is nutrient enrichment — especially phosphorus in many freshwaters and nitrogen in many coastal waters — that drives excess algal and plant growth. The bloom shades the water column; when biomass dies, decomposers strip DO and can create hypoxic ‘dead zones’. Community structure shifts toward tolerant, often less desirable, species; toxins from some cyanobacteria add a drinking-water and livestock risk.\n\nSewage and some industry are point sources. Fertiliser, manure, and urban stormwater are diffuse. A pipe can be permitted; a catchment cannot, which is why eutrophication persists after factories are regulated. Controlling it means wastewater nutrient removal plus land-use and farming practice, not only a screen on an outfall.",
+      },
+      {
+        heading: "Persistence, food webs, treatment, Pakistan",
+        body:
+          "Bioaccumulation is the rise of a substance in one body when intake beats breakdown and excretion. Fat-soluble persistents (DDT, PCBs, methylmercury) sit in lipids for years. Biomagnification is the further rise at each trophic step: a predator eats many contaminated prey. Water can look ‘clean’ while a top predator or a human eating large fish is not. The terms are related, not synonyms.\n\nTreatment is staged because no single unit does everything. Primary takes solids. Secondary grows bacteria that eat dissolved organics (BOD). Tertiary polishes nutrients, pathogens, metals, or residual organics. Skip a stage and you skip its target.\n\nIn Pakistan, untreated urban sewage in drains such as Lyari and Malir, tannery chromium at Kasur, arsenic in parts of Sindh and southern Punjab groundwater, and Karachi coastal effluent are the syllabus map. Indus-basin irrigation ties quality to salinity, waterlogging, and downstream reuse — polluted water is not only an urban-river story.",
+      },
     ],
+  
+    formulas: [
+      {
+        name: "BOD₅ (unseeded dilution)",
+        expression: "BOD_5 = (DO_i - DO_f)\\,\\times\\,DF",
+        variables: [
+          { symbol: "DO_i", meaning: "dissolved oxygen at t = 0 (mg L⁻¹)" },
+          { symbol: "DO_f", meaning: "dissolved oxygen after 5 days at 20 °C" },
+          { symbol: "DF", meaning: "dilution factor = bottle volume / sample volume" },
+        ],
+        notes:
+          "If the sample is seeded, subtract the seed blank. BOD₅ is a 5-day convention, not the ultimate oxygen demand (BODᵤ).",
+      },
+      {
+        name: "COD vs BOD inequality",
+        expression: "COD \\ge BOD_5 \\ge 0",
+        variables: [
+          { symbol: "COD", meaning: "chemical oxygen demand (dichromate oxidation)" },
+          { symbol: "BOD_5", meaning: "5-day biochemical oxygen demand" },
+        ],
+        notes:
+          "Gap (COD − BOD) is the hard-to-biodegrade fraction. A high COD with modest BOD flags chemically oxidisable but biologically stubborn waste (some industrial organics).",
+      },
+      {
+        name: "Oxygen sag / well-mixed debit",
+        expression: "\\Delta DO \\approx f(BOD\\ load,\\ reaeration,\\ mixing,\\ T)",
+        variables: [
+          { symbol: "Reaeration", meaning: "O₂ transfer from atmosphere (faster in shallow, turbulent water)" },
+          { symbol: "T", meaning: "temperature: lower saturation DO, faster microbial kinetics" },
+        ],
+        notes:
+          "Streeter–Phelps: deoxygenation vs reaeration along a river. Fast mountain stream recovers; slow warm drain does not. Same BOD load, different DO outcome.",
+      },
+      {
+        name: "Henry / thermal hit on DO",
+        expression: "DO_{sat}\\downarrow\\ \\text{as}\\ T\\uparrow\\quad\\text{and}\\quad\\text{metabolic }O_2\\text{ demand}\\uparrow\\ \\text{as}\\ T\\uparrow",
+        variables: [
+          { symbol: "DO_{sat}", meaning: "saturation concentration of dissolved oxygen" },
+          { symbol: "T", meaning: "water temperature" },
+        ],
+        notes:
+          "Thermal pollution is not ‘just warm water’. It is a simultaneous supply cut and demand spike.",
+      },
+    ],
+  
     examPoints: [
-      "Clean water: HIGH DO, LOW BOD, LOW COD (inverse DO-BOD relationship)",
-      "Eutrophication: N+P → algal bloom → light block → O₂ depletion → dead zone",
-      "Bioaccumulation: in one organism; Biomagnification: up the food chain",
-      "Treatment: Primary (physical) → Secondary (biological) → Tertiary (advanced)",
-      "DDT is the classic biomagnification example"
+      "Clean: HIGH DO, LOW BOD, LOW COD — DO and BOD inverse",
+      "COD is always ≥ BOD (chemical ≥ biological demand in the test)",
+      "Eutrophication: N+P → bloom → decay → hypoxia → dead zone (not a toxic spill)",
+      "Bioaccumulation = one body; biomagnification = up the chain; DDT classic",
+      "Point = pipe; non-point = runoff/stormwater",
+      "Treatment: primary physical → secondary biological → tertiary advanced",
+      "Pakistan: sewage drains, Kasur tanneries, arsenic groundwater, Karachi coast, Indus salinity/waterlogging",
     ],
+  
     commonMistakes: [
-      "Mixing up BOD and COD — COD is ALWAYS higher than BOD (chemical > biological demand)",
-      "Thinking clean water has high BOD — clean water has LOW BOD (less decomposable waste)",
-      "Confusing bioaccumulation (in one organism) with biomagnification (up food chain)"
+      "COD < BOD — impossible under standard tests; COD always ≥ BOD",
+      "High BOD = clean water — opposite: high BOD is organic pollution",
+      "High DO = polluted — opposite: high DO is the clean signature",
+      "Bioaccumulation ↔ biomagnification swap — one organism vs up the food chain",
+      "Eutrophication = chemical spill — it is nutrient-driven oxygen collapse after a bloom",
+      "Primary treatment ‘cleans’ sewage — it mostly removes solids, not dissolved BOD, N, P, or viruses",
+      "Thermal pollution harmless because it is not a chemical — it still cuts DO and raises oxygen demand",
+      "Clear water = safe water — pathogens, arsenic, and pesticides need not be visible",
     ],
-    
+  
+    workedExamples: [
+      {
+        problem:
+          "A river has DO = 2 mg L⁻¹ and BOD₅ = 18 mg L⁻¹. Clean or organically polluted? What happens to fish?",
+        solution:
+          "Clean signature is high DO, low BOD. Here DO is near hypoxia and BOD is high → microbes are burning a large organic load. Aerobic fish are stressed or dying; tolerant species may remain.",
+        answer: "Organically polluted; DO crash / fish stress",
+      },
+      {
+        problem: "Lab reports COD = 80 mg L⁻¹ and BOD₅ = 95 mg L⁻¹. Believe it?",
+        solution:
+          "COD oxidises at least everything BOD does, plus more. COD ≥ BOD₅. The pair is inconsistent — dilution, units, or a swapped label.",
+        answer: "No — COD cannot be below BOD₅",
+      },
+      {
+        problem: "Factory outfall vs fertiliser washed off fields after rain. Classify each source.",
+        solution:
+          "Outfall is a single identifiable pipe → point. Field wash-off has no single pipe → non-point / diffuse.",
+        answer: "Point; non-point",
+      },
+      {
+        problem: "Outline the chain from excess phosphorus in a lake to a fish kill.",
+        solution:
+          "P fuels algal bloom → light blocked, plants die → bloom dies → bacterial decay consumes DO → hypoxia/anoxia → fish kill. That is eutrophication, not an immediate poison pulse.",
+        answer: "Nutrients → bloom → decay → hypoxia",
+      },
+      {
+        problem:
+          "DDT is barely detectable in lake water but high in eagles. Which process, and why are humans at risk if they eat large fish?",
+        solution:
+          "Build-up in each organism = bioaccumulation. Rise from plankton → fish → eagle = biomagnification. Humans occupying a high trophic step on the same chain get the magnified dose.",
+        answer: "Both: accumulate in bodies, magnify up the chain",
+      },
+      {
+        problem:
+          "A town wants to cut solids, then BOD, then phosphate and pathogens. Map each goal to a treatment stage.",
+        solution:
+          "Solids → primary (screens, sedimentation). BOD/organic → secondary (bacteria). Phosphate and pathogens → tertiary (chemical P removal, UV/chlorine, filtration).",
+        answer: "Primary; secondary; tertiary",
+      },
+      {
+        problem:
+          "Kasur tannery waste vs Sindh tubewell arsenic: same class of problem?",
+        solution:
+          "Both are toxic metals/metalloids, but Kasur is typically industrial point-source chromium in surface drains; Sindh arsenic is often geogenic groundwater (non-pipe, hydrogeological). Treatment and policy differ: effluent control vs well testing, alternative supply, or arsenic removal.",
+        answer: "Both toxic, different source logic (industrial point vs geogenic groundwater)",
+      },
+    ],
+  
     comparisonTable: {
       title: "Point vs non-point water pollution",
-      headers: ["Type", "Source pattern", "Example"],
+      headers: ["Type", "Source pattern", "Example", "Control logic"],
       rows: [
-        ["Point source", "Single identifiable pipe/outfall", "Factory discharge, sewage outlet"],
-        ["Non-point (diffuse)", "Many scattered sources", "Agricultural runoff, urban stormwater"],
+        [
+          "Point",
+          "Single identifiable pipe/outfall",
+          "Factory discharge, sewage outlet",
+          "Permit, monitor, treat at the pipe",
+        ],
+        [
+          "Non-point (diffuse)",
+          "Many scattered sources",
+          "Agricultural runoff, urban stormwater",
+          "Land use, farming practice, drainage design — no single tap to close",
+        ],
       ],
     },
-    
+  
+    comparisonTables: [
+      {
+        title: "DO vs BOD vs COD",
+        headers: ["Indicator", "What it measures", "Clean water", "Organically polluted"],
+        rows: [
+          ["DO", "O₂ actually dissolved, available to life", "High", "Low (sag, hypoxia)"],
+          ["BOD₅", "O₂ microbes will use on biodegradable organics", "Low", "High"],
+          ["COD", "O₂ equivalent of chemical oxidation", "Low", "High (and ≥ BOD)"],
+        ],
+      },
+      {
+        title: "Bioaccumulation vs biomagnification",
+        headers: ["", "Bioaccumulation", "Biomagnification"],
+        rows: [
+          ["Scale", "One organism over time", "Food chain / trophic levels"],
+          ["Mechanism", "Intake > elimination", "Predator eats many contaminated prey"],
+          ["Favoured chemicals", "Persistent, often fat-soluble", "Same, plus efficient trophic transfer"],
+          ["Exam picture", "Mercury rising in one tuna as it ages", "DDT: plankton ≪ fish ≪ eagle"],
+        ],
+      },
+      {
+        title: "Wastewater treatment stages",
+        headers: ["Stage", "Nature", "Removes", "Does not (mainly) remove"],
+        rows: [
+          [
+            "Primary",
+            "Physical",
+            "Screens, grit, settleable solids, some BOD bound to solids",
+            "Dissolved organics, N, P, viruses, most metals",
+          ],
+          [
+            "Secondary",
+            "Biological",
+            "Biodegradable organics (BOD), some non-settleable solids",
+            "Nutrients (unless designed to), persistent chemicals, many pathogens fully",
+          ],
+          [
+            "Tertiary",
+            "Advanced / chemical / physical polish",
+            "N and/or P, pathogens (UV/Cl₂), residual organics, some metals",
+            "Whatever the specific unit was not built for",
+          ],
+        ],
+      },
+    ],
+  
+    methodChooser: {
+      title: "Classify the problem or pick the lever",
+      root: "What is the question asking?",
+      branches: [
+        {
+          condition: "Classify the source",
+          branches: [
+            { condition: "One pipe, factory, STP outfall", result: "POINT" },
+            { condition: "Fields, streets, atmosphere, many wells", result: "NON-POINT / DIFFUSE" },
+          ],
+        },
+        {
+          condition: "Interpret oxygen numbers",
+          branches: [
+            { condition: "High DO, low BOD, low COD", result: "CLEAN (aerobic, low organic load)" },
+            { condition: "Low DO, high BOD, high COD", result: "ORGANIC POLLUTION / oxygen stress" },
+            { condition: "COD ≫ BOD", result: "Hard organics / industrial chemical oxygen demand" },
+            { condition: "Reported BOD > COD", result: "DATA ERROR" },
+          ],
+        },
+        {
+          condition: "Bloom then fish kill, green water, not a tanker spill",
+          result: "EUTROPHICATION — control N and/or P, not only ‘toxics’",
+        },
+        {
+          condition: "Chemical in tissues vs up the chain",
+          branches: [
+            { condition: "One body, over its life", result: "BIOACCUMULATION" },
+            { condition: "Concentration rises trophic level by trophic level", result: "BIOMAGNIFICATION" },
+          ],
+        },
+        {
+          condition: "Which treatment stage?",
+          branches: [
+            { condition: "Rags, grit, settleable solids", result: "PRIMARY" },
+            { condition: "Dissolved sewage organics / BOD", result: "SECONDARY" },
+            { condition: "Nutrients, pathogens, residual organics, some metals", result: "TERTIARY" },
+          ],
+        },
+        {
+          condition: "Pakistan item",
+          branches: [
+            { condition: "Karachi drains (Lyari, Malir)", result: "Raw urban sewage → organic + pathogen load" },
+            { condition: "Kasur", result: "Tannery metals (Cr) — industrial point" },
+            { condition: "Sindh / southern Punjab wells", result: "Arsenic in groundwater" },
+            { condition: "Indus irrigation", result: "Quality tied to salinity, waterlogging, reuse" },
+          ],
+        },
+      ],
+    },
+  
+    limitCases: [
+      {
+        condition: "BOD → 0 but water still unsafe",
+        result:
+          "No biodegradable organic debt, yet metals, arsenic, pesticides, or salts can remain. BOD is not a universal purity meter.",
+      },
+      {
+        condition: "T high (thermal discharge, hot season)",
+        result:
+          "DO_sat falls and respiration rises. A BOD load that a cold river survives can kill in a warm one.",
+      },
+      {
+        condition: "Mountain torrent vs stagnant drain, same BOD load",
+        result:
+          "Turbulent shallow water reaerate; the drain does not. DO outcome follows mixing and reaeration, not BOD alone.",
+      },
+      {
+        condition: "Freshwater vs coastal limiting nutrient",
+        result:
+          "P often limits lakes; N often limits marine/estuarine blooms. ‘Always phosphorus’ is a freshwater stereotype, not a universal law.",
+      },
+      {
+        condition: "Oligotrophic → hypereutrophic",
+        result:
+          "Clear, high-DO, low-nutrient water vs bloom-prone, low-DO water. Eutrophication is a gradient, not an on/off switch.",
+      },
+      {
+        condition: "Groundwater vs surface water",
+        result:
+          "No algal bloom in a closed aquifer, but arsenic, fluoride, salinity, and leaking sewage still pollute. Eutrophication language does not transfer blindly.",
+      },
+      {
+        condition: "Primary treatment only",
+        result:
+          "Solids drop; dissolved BOD, N, P, and pathogens largely remain. Downstream DO sag and disease risk continue.",
+      },
+    ],
+  
+    misconceptionRemediation: [
+      {
+        name: "High BOD means the water is full of oxygen",
+        whyStudentsThinkIt: "‘Demand’ is misread as ‘how much oxygen is present’.",
+        correctModel:
+          "BOD is how much oxygen microbes will take. It is a debt. DO is the cash on hand. High BOD tends to empty the till.",
+        remedy: "BOD = hunger of the bacteria; DO = food (O₂) left for fish.",
+      },
+      {
+        name: "COD is just another name for BOD",
+        whyStudentsThinkIt: "Both are ‘oxygen demand’ with three letters.",
+        correctModel:
+          "BOD = biological, 5-day, biodegradable. COD = chemical, aggressive oxidant, broader. COD ≥ BOD.",
+        remedy: "C for chemical and for ‘covers more’.",
+      },
+      {
+        name: "Bioaccumulation and biomagnification are interchangeable",
+        whyStudentsThinkIt: "Both are ‘build-up of poison in animals’.",
+        correctModel:
+          "Accumulation is within one organism. Magnification is the staircase up the food web. You can have accumulation without a long chain; magnification needs trophic transfer.",
+        remedy: "Accumulate in a body; magnify up a chain.",
+      },
+      {
+        name: "Eutrophication is a toxic-chemical accident",
+        whyStudentsThinkIt: "Fish kills look like poisoning.",
+        correctModel:
+          "The usual killer is oxygen collapse after a nutrient-fed bloom dies — suffocation, not necessarily a pesticide pulse. Some blooms also make toxins, but the defining chain is nutrients → bloom → decay → hypoxia.",
+        remedy: "Draw the cascade; do not stop at ‘pollution killed fish’.",
+      },
+      {
+        name: "If it went through a treatment plant, nutrients and pathogens are gone",
+        whyStudentsThinkIt: "‘Treated’ sounds complete.",
+        correctModel:
+          "Primary ≠ secondary ≠ tertiary. Pathogens and phosphate need the stages built for them. Many plants discharge after secondary; N and P still eutrophy the receiving water.",
+        remedy: "Name the stage, then name what it actually removes.",
+      },
+    ],
+  
+    qualitativeScenarios: [
+      {
+        question:
+          "After a sewage overflow, BOD spikes immediately; fish die the next night, not in the first hour. Why the lag?",
+        answer: "Oxygen debt is paid over hours as microbes work.",
+        reasoning:
+          "The overflow is organic, not an instant respiratory poison. BOD exerts itself as decomposition proceeds and DO sags, often overnight when photosynthesis stops and reaeration is weak.",
+      },
+      {
+        question: "A lake turns bright green, then fish float. Student says ‘toxic dump’. Evaluate.",
+        answer: "More likely eutrophication than a tanker spill.",
+        reasoning:
+          "Colour + later kill matches bloom → decay → hypoxia. Still test for toxins (cyanobacteria) and spills, but the default chain is nutrients.",
+      },
+      {
+        question: "Why can a desalinated or boiled water still fail a ‘safe water’ exam item?",
+        answer: "Boiling kills pathogens; it does not remove arsenic, salts, or many pesticides.",
+        reasoning:
+          "Different pollutants need different barriers. Pathogen logic ≠ metal logic. Sindh arsenic is the Pakistan illustration.",
+      },
+      {
+        question: "Secondary effluent has low BOD but the downstream lake still blooms. Failure?",
+        answer: "Not on BOD — likely on nutrients.",
+        reasoning:
+          "Secondary is built for organics. Residual N and P are enough to eutrophy. Need tertiary nutrient removal or catchment controls.",
+      },
+      {
+        question: "Methylmercury is low in water, high in sharks. Is the water ‘clean enough’ for a fishing community?",
+        answer: "Water concentration is the wrong metric for that risk.",
+        reasoning:
+          "Bioaccumulation + biomagnification move the dose into high-trophic fish. Human exposure is dietary, not a glass of lake water.",
+      },
+      {
+        question:
+          "Karachi coast vs an upland glacier stream: same BOD standard, which fails first and why?",
+        answer: "The warm, less-mixed coastal/drain setting.",
+        reasoning:
+          "DO_sat and reaeration are lower; organic load from the city is higher. Capacity to absorb BOD is not universal.",
+      },
+    ],
+  
     subtopics: [
       {
         id: "env-water-bod-cod-do",
         title: "Dissolved oxygen, BOD, and COD",
-        summary: "How oxygen demand measures describe the health of a water body.",
-        explanation: "Clean surface water usually holds enough dissolved oxygen (DO) for fish and other aerobic organisms. When organic waste enters the water, microbes consume that waste and, in doing so, consume oxygen as well. Biochemical oxygen demand (BOD) estimates how much oxygen those microbes will use over a standard period, commonly five days (BOD₅). A high BOD means a large load of biodegradable organic matter and a greater risk that DO will fall to harmful levels.\n\nChemical oxygen demand (COD) measures the oxygen equivalent of organic matter that can be oxidised chemically. COD is typically higher than BOD because it includes substances that microbes degrade only slowly, or not at all, under the test conditions. In environmental monitoring, the two are often read together: BOD speaks to biologically available pollution, while COD gives a faster, broader chemical picture.",
+        summary: "How oxygen-demand measures describe the health of a water body.",
+        explanation:
+          "DO is oxygen now in the water. BOD₅ is the oxygen microbes will take from biodegradable organics over five days at 20 °C. COD is the oxygen a chemical oxidant takes, including harder organics. Clean: high DO, low BOD, low COD. Organic pollution inverts that. COD ≥ BOD. Temperature and mixing decide whether a given BOD load actually crashes DO.",
         examples: [
           {
             problem: "High BOD in a river generally does what to dissolved oxygen?",
-            solution: "Lowers DO as microbes consume O₂ while decomposing organic matter.",
+            solution: "Microbes consume O₂ while decomposing organics.",
             answer: "DO falls",
           },
           {
             problem: "BOD vs COD in one line?",
-            solution: "BOD = oxygen demand of biodegradable organics; COD = chemical oxidation demand including more substances.",
-            answer: "BOD biological; COD chemical",
-          }
+            solution: "BOD = biodegradable oxygen debt; COD = chemical oxidation debt (broader).",
+            answer: "BOD biological; COD chemical (≥ BOD)",
+          },
         ],
-        shortcuts: [
-          "High BOD → low DO",
-          "COD ≥ biodegradable fraction"
-        ],
-        traps: [
-          "High BOD means cleaner water"
-        ],
+        shortcuts: ["High BOD → low DO", "COD ≥ BOD", "DO is the remaining cash"],
+        traps: ["High BOD means cleaner water", "Treating COD as oxygen present"],
       },
       {
         id: "env-water-eutrophication",
         title: "Eutrophication",
         summary: "Nutrient enrichment, algal blooms, and oxygen collapse.",
-        explanation: "Eutrophication begins when nitrogen and phosphorus enter lakes or slow rivers in excess, often from fertiliser runoff, sewage, or detergents. Algae and aquatic plants grow rapidly. When the bloom dies, decomposers break down the biomass and consume large amounts of dissolved oxygen. The result can be hypoxic or anoxic water, fish kills, and a shift toward species that tolerate low oxygen.\n\nThe process is a chain, not a single event: nutrients → bloom → death and decay → oxygen decline → ecological damage. Point sources can be regulated at a pipe; diffuse agricultural runoff is harder to control and is a major reason eutrophication remains widespread.",
-                examples: [
+        explanation:
+          "Excess N and P (fertiliser, sewage, detergents) → bloom → shading and then die-off → microbial decay → hypoxia → fish kills and dead zones. Freshwater often P-sensitive; many coasts N-sensitive. Point pipes can be treated; diffuse farm and street runoff need catchment measures. Gulf of Mexico, Baltic, Chesapeake, parts of the Indus estuary are type-cases.",
+        examples: [
           {
             problem: "What nutrients most often drive freshwater eutrophication?",
-            solution: "Phosphorus (and nitrogen in many systems).",
+            solution: "Phosphorus is the usual freshwater lever; nitrogen matters in many systems too.",
             answer: "P (and N)",
           },
           {
             problem: "Outline the chain from nutrient excess to fish kills.",
-            solution: "Algal bloom → die-off → microbial decay → oxygen crash → fish stress/death.",
+            solution: "Algal bloom → die-off → microbial decay → oxygen crash → fish death.",
             answer: "Bloom → decay → hypoxia",
-          }
+          },
         ],
-        shortcuts: [
-          "Nutrients → bloom → hypoxia",
-          "Ag runoff is a common source"
-        ],
-        traps: [
-          "Eutrophication = only toxic chemical spills"
-        ],
+        shortcuts: ["Nutrients → bloom → hypoxia", "Ag runoff is the classic non-point driver"],
+        traps: ["Eutrophication = only toxic chemical spills", "Assuming one pipe fix ends catchment nutrients"],
       },
       {
         id: "env-water-bioaccumulation",
         title: "Bioaccumulation and biomagnification",
-        summary: "How some pollutants build up in organisms and along food chains.",
-        explanation: "Bioaccumulation is the build-up of a substance in an individual organism when intake exceeds the rate of breakdown or excretion. Fat-soluble persistent chemicals are classic examples because they remain in tissues for a long time.\n\nBiomagnification is the increase in concentration of such substances at successive trophic levels. Predators eat many contaminated prey, so the pollutant load concentrates upward through the food web. The two ideas are related but not the same: accumulation happens within one organism; magnification describes the pattern across the chain.",
-                examples: [
+        summary: "Build-up in one organism versus rising concentrations up the food chain.",
+        explanation:
+          "Bioaccumulation: one body, intake > loss; persistents in fat (DDT, PCBs, methylmercury). Biomagnification: the same substances concentrate at each trophic step. Top predators and people who eat large fish take the highest doses even when water tests look low. Related processes; different scales.",
+        examples: [
           {
             problem: "Bioaccumulation vs biomagnification?",
-            solution: "Bioaccumulation = build-up in one organism over time; biomagnification = concentration increase up the food chain.",
+            solution: "One organism over time vs concentration increase up trophic levels.",
             answer: "One body vs up the chain",
-          }
+          },
         ],
-        shortcuts: [
-          "Accumulate in body",
-          "Magnify up trophic levels"
+        shortcuts: ["Accumulate in a body", "Magnify up trophic levels", "DDT is the mascot"],
+        traps: ["Swapping the two terms", "Using water concentration alone for fish-eating humans"],
+      },
+      {
+        id: "env-water-treatment",
+        title: "Treatment stages",
+        summary: "Physical → biological → advanced; match the unit to the pollutant.",
+        explanation:
+          "Primary: screens, grit, sedimentation — solids. Secondary: activated sludge, trickling filters, oxidation ponds — biodegradable organics (BOD). Tertiary: nutrient stripping, disinfection (UV/chlorine), membranes, activated carbon — N/P, pathogens, residual organics, some metals. Ozone and DO problems downstream of cities are often ‘missing secondary/tertiary’, not missing screens.",
+        examples: [
+          {
+            problem: "Which stage is aimed at dissolved sewage organics?",
+            solution: "Bacteria in secondary treatment oxidise BOD.",
+            answer: "Secondary",
+          },
         ],
-        traps: [
-          "Swapping the two terms"
+        shortcuts: ["Primary = physical solids", "Secondary = bacteria/BOD", "Tertiary = nutrients/pathogens/polish"],
+        traps: ["Calling any plant ‘complete treatment’", "Using primary as a pathogen or phosphate solution"],
+      },
+    ],
+  
+    vocabularyGroups: [
+      {
+        title: "Water-quality terms",
+        cards: [
+          {
+            word: "BOD",
+            definition: "Oxygen microbes use to decompose biodegradable organics (often BOD₅)",
+            synonym: "Biochemical oxygen demand",
+            antonym: "DO (oxygen present)",
+            example: "High BOD below a sewage outfall",
+            difficulty: "easy",
+          },
+          {
+            word: "COD",
+            definition: "Oxygen equivalent of chemical oxidation of waterborne matter",
+            synonym: "Chemical oxygen demand",
+            antonym: "BOD (narrower, biological)",
+            example: "COD > BOD on industrial waste",
+            difficulty: "easy",
+          },
+          {
+            word: "Eutrophication",
+            definition: "Nutrient enrichment leading to bloom, decay, and oxygen collapse",
+            synonym: "Nutrient over-enrichment",
+            antonym: "Oligotrophy",
+            example: "Dead zone from N/P runoff",
+            difficulty: "medium",
+          },
+          {
+            word: "Hypoxia",
+            definition: "Low dissolved oxygen, insufficient for most fish",
+            synonym: "Oxygen stress",
+            antonym: "Oxic / well-aerated",
+            example: "DO near 2 mg L⁻¹ after a bloom crash",
+            difficulty: "medium",
+          },
+          {
+            word: "Bioaccumulation",
+            definition: "Build-up of a substance in one organism over time",
+            synonym: "Tissue build-up",
+            antonym: "Rapid excretion / no retention",
+            example: "Mercury increasing in one tuna",
+            difficulty: "medium",
+          },
+          {
+            word: "Biomagnification",
+            definition: "Rising concentration of a persistent substance up trophic levels",
+            synonym: "Trophic magnification",
+            antonym: "Biodilution",
+            example: "DDT in eagles vs plankton",
+            difficulty: "medium",
+          },
+          {
+            word: "Point source",
+            definition: "Identifiable discrete discharge",
+            synonym: "Pipe/outfall source",
+            antonym: "Non-point / diffuse source",
+            example: "Tannery drain at Kasur",
+            difficulty: "easy",
+          },
+          {
+            word: "Tertiary treatment",
+            definition: "Advanced polish after secondary: nutrients, pathogens, residuals",
+            synonym: "Advanced wastewater treatment",
+            antonym: "Primary-only screening",
+            example: "UV + phosphate precipitation",
+            difficulty: "hard",
+          },
         ],
       },
     ],
+  
+    quantFormulas: [
+      {
+        name: "Clean vs polluted oxygen signature",
+        expression: "\\text{clean: } DO\\uparrow,\\ BOD\\downarrow,\\ COD\\downarrow \\quad\\text{polluted organics: inverse}",
+        notes: "DO and BOD move in opposite directions when the stressor is biodegradable waste.",
+      },
+      {
+        name: "COD–BOD gap",
+        expression: "COD - BOD_5 \\approx \\text{hard / slowly biodegradable fraction}",
+        notes: "Large gap → industrial or recalcitrant organics, not raw sewage alone.",
+      },
+      {
+        name: "BOD₅ definitional conditions",
+        expression: "BOD_5:\\ 5\\,\\text{days},\\ 20^\\circ\\mathrm{C},\\ dark",
+        notes: "Dark so algae do not photosynthesise extra O₂ into the bottle.",
+      },
+      {
+        name: "Hypoxia rule of thumb",
+        expression: "DO \\lesssim 2\\,\\mathrm{mg\\,L^{-1}} \\rightarrow \\text{hypoxia; } 0 \\rightarrow \\text{anoxia}",
+        notes: "Exact thresholds vary by species; the exam idea is ‘too little O₂ to support most fish’.",
+      },
+    ],
+  
     pakistanExamFocus: [
       "Untreated urban and industrial discharge into rivers is a recurring Pakistan syllabus theme",
       "Indus-basin irrigation systems link water quality to salinity, waterlogging, and downstream use",
       "BOD/DO logic explains oxygen stress in organically polluted rivers and drains",
       "Safe drinking water and wastewater treatment stages appear in applied FPSC-style items",
+      "Map: Lyari/Malir sewage, Kasur tanneries, arsenic in Sindh and southern Punjab, Karachi marine pollution",
     ],
-  relatedTopics: ["env-air-pollution", "env-soil-and-waste", "env-biodiversity-threats-and-iucn"],
-    content: true,
-  buildsOn: ["env-productivity-and-biogeochemical-cycles", "earth-j1", "earth-j2", "meteo-moisture-metrics"],
-  leadsTo: ["env-soil-and-waste"],
-  usedIn: ["env-pakistan-environmental-context", "meteo-extreme-events"]
+  
+    relatedTopics: [
+      "env-air-pollution",
+      "env-soil-and-waste",
+      "env-biodiversity-threats-and-iucn",
+    ],
+    buildsOn: [
+      "env-productivity-and-biogeochemical-cycles",
+      "earth-j1",
+      "earth-j2",
+      "meteo-moisture-metrics",
+    ],
+    leadsTo: ["env-soil-and-waste"],
+    usedIn: ["env-pakistan-environmental-context", "meteo-extreme-events"],
   },
   {
     id: "env-soil-and-waste",
