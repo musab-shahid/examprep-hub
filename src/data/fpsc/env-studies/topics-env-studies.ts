@@ -1412,136 +1412,513 @@ explanationSections: [
     sectionId: "ENV-05",
     order: 1,
     title: "Air Pollution: Primary & Secondary Pollutants",
-    definition: "Air pollution is the presence in indoor or outdoor air of chemicals, particles, or biological materials at concentrations that harm human health, materials, or ecosystems. Primary pollutants are emitted directly from sources; secondary pollutants form when primary substances react in the atmosphere, as when sunlight drives the formation of ground-level ozone. Weather, fuel use, and urban form all influence how severe pollution becomes.",
+    content: true,
+  
+    definition:
+      "Air pollution is chemicals, particles, or biological material in indoor or outdoor air at levels that harm health, materials, or ecosystems. Primary pollutants are emitted directly; secondary pollutants form in the air when precursors react (e.g. sunlight + NOₓ + VOCs → ground-level ozone). Fuel mix, weather, urban form, and topography set how severe an episode becomes.",
+  
     keyFacts: [
-      "PRIMARY pollutants: emitted DIRECTLY from a source (PM, SO₂, NOₓ, CO, VOCs, lead, NH₃)",
-      "SECONDARY pollutants: FORMED in atmosphere by reactions (O₃ — tropospheric ozone, smog, acid rain H₂SO₄/HNO₃, PAN)",
-      "PM₁₀ vs PM₂.₅: PM₁₀ = particles ≤10 micrometers; PM₂.₅ = particles ≤2.5 micrometers (more dangerous, penetrates deeper into lungs)",
-      "Photochemical smog (LA-type): summer, NOₓ + VOCs + sunlight → O₃ and PAN. Damages lungs, eyes, plants",
-      "Sulfurous smog (London-type): winter, SO₂ + smoke + fog. The classic 1952 London smog killed thousands",
-      "Acid rain: H₂SO₄ (from SO₂) and HNO₃ (from NOₓ) — damages buildings, forests (especially European forests in 1980s), lakes (kills fish)",
-      "Ozone (O₃) good vs bad: STRATOSPHERIC ozone protects from UV-B; TROPOSPHERIC ozone is a pollutant that harms lungs and plants",
-      "Indoor air pollution: biomass cooking smoke (kills ~4 million/year globally), radon (geological, second-leading lung cancer cause), asbestos, formaldehyde, tobacco smoke",
-      "Control technologies: electrostatic precipitator (particulates), bag filter/cyclone (particulates), scrubber wet/dry (SO₂), catalytic converter (NOₓ/CO/VOCs in cars), HEPA filter (fine particles), cleaner fuels (overall reduction)",
-      "Pakistan air quality: Lahore, Karachi, Peshawar among world's most polluted; AQI regularly exceeds 300 in winter; sources = vehicles, industry, brick kilns, trans-boundary agricultural residue burning",
-      "NEQS = National Environmental Quality Standards — Pakistan's legal limits for ambient air pollutants"
+      "PRIMARY = emitted directly: PM, SO₂, NOₓ, CO, VOCs, lead, NH₃",
+      "SECONDARY = formed in air: tropospheric O₃, PAN, H₂SO₄/HNO₃ (acid rain), secondary PM",
+      "PM₁₀ ≤ 10 µm; PM₂.₅ ≤ 2.5 µm (subset of PM₁₀; reaches alveoli/blood → more dangerous)",
+      "Photochemical / LA-type smog: summer, NOₓ + VOCs + sunlight → O₃ + PAN (oxidising)",
+      "Classical / London-type smog: winter, coal smoke + SO₂ + fog (reducing); 1952 London smog killed thousands",
+      "Good vs bad O₃: stratosphere protects from UV-B; troposphere is a pollutant (lungs, crops)",
+      "Acid rain: SO₂ → H₂SO₄, NOₓ → HNO₃; buildings, forests, fish kills (Al³⁺)",
+      "Indoor: biomass cook-smoke (~4 million deaths/year), radon (2nd lung-cancer cause), asbestos, formaldehyde, tobacco",
+      "Controls: ESP/bag/cyclone → PM; scrubber → SO₂; 3-way cat → NOₓ/CO/VOCs; DPF → diesel PM; HEPA → indoor fine PM; cleaner fuel → several at once",
+      "Pakistan: Lahore, Karachi, Peshawar among world’s worst; winter AQI often >300; traffic, industry, brick kilns, dust, trans-boundary residue burning",
+      "Winter inversions trap pollutants in a shallow layer — the meteorological amplifier",
+      "NEQS = Pakistan’s legal ambient/stack limits; compliance needs monitoring + enforcement",
     ],
-explanationSections: [
-      { heading: "Primary and secondary pollutants", body: "Primary pollutants are emitted directly: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur in fuels, nitric oxide from high-temperature burning, and particles from diesel exhaust, industry, and dust. Secondary pollutants form in the atmosphere when primary substances react. Ground-level ozone is a leading example, produced when nitrogen oxides and volatile organic compounds react in sunlight.\n\nControl strategies differ accordingly. Filters and fuel standards can cut primary emissions at the stack or tailpipe. Secondary pollutants require attention to precursors and to the meteorological conditions that favour their formation." },
-      { heading: "Classical and photochemical smog", body: "Classical smog, associated historically with coal smoke and sulphur dioxide in cold, foggy weather, is chemically reducing and heavy with particulates and sulphurous compounds. Photochemical smog develops in sunny conditions when nitrogen oxides and hydrocarbons form oxidants such as ozone.\n\nModern cities may show mixed patterns: traffic and industry emit primary pollutants, sunlight drives secondary chemistry, and seasonal weather traps the mixture near the ground. Clear classification helps explain why summer afternoon ozone and winter particulate episodes are not the same phenomenon." },
-      { heading: "Air quality in the Pakistani context", body: "Several large Pakistani cities experience severe particulate pollution. Contributors include vehicles, industrial combustion, brick kilns, dust, and, in some seasons, regional agricultural residue burning. Winter temperature inversions can trap pollutants in a shallow boundary layer and prolong unhealthy episodes.\n\nNational Environmental Quality Standards provide legal reference points. Whether air improves depends on monitoring, enforcement, cleaner fuels and vehicles, and regional cooperation on seasonal burning — not on standards written in isolation from practice." },
+  
+    explanationSections: [
+      {
+        heading: "Primary vs secondary — why the split matters",
+        body:
+          "Primary pollutants leave the source already in the form a monitor records: CO from incomplete combustion, SO₂ from sulphur in coal and residual oil, NO from hot engines and boilers, NH₃ from agriculture, lead from remaining industrial/fuel sources, and PM from diesel, kilns, industry, construction, and dust.\n\nSecondary pollutants are manufactured in the atmosphere. Tropospheric ozone forms when NOₓ and VOCs react in sunlight. SO₂ and NOₓ oxidise to sulphuric and nitric acids, then to secondary sulphate/nitrate particles (often with ammonia). PAN rides in the same photochemical mix as ozone. A stack filter can cut primary PM; it cannot “filter ozone” that has not been born yet. Secondary control means cutting precursors and knowing when meteorology (sun, stagnation, inversion) cooks them.",
+      },
+      {
+        heading: "Two smogs, one word",
+        body:
+          "Classical (London-type) smog is chemically reducing: coal smoke, SO₂, fog, cool stagnant air; sulphate and soot dominate. Photochemical (LA-type) smog is oxidising: NOₓ + VOCs + sunlight → ozone, PAN, aldehydes, secondary organic aerosol, typically peaking in the afternoon downwind of the morning traffic pulse.\n\nPakistani megacities are often mixed: diesel and kilns emit primary PM and NOₓ; haze chemistry and occasional sun make secondary aerosol and oxidants; winter weather supplies the lid. Summer afternoon ozone and winter PM episodes are both called smog — they are not the same phenomenon.",
+      },
+      {
+        heading: "Particles, acids, indoors, Pakistan",
+        body:
+          "Coarse PM (PM₁₀–₂.₅) deposits in upper airways (dust, construction). Fine PM₂.₅ reaches alveoli and blood (combustion + secondary aerosol). Toxicity depends on mass and composition: black carbon and metals punch above their weight; dust is not harmless at high loadings. Acids return wet or dry: limestone → gypsum crusts; soils lose base cations and mobilise Al³⁺; poorly buffered lakes lose fish.\n\nIndoor dose often exceeds outdoor: cook-smoke, radon, formaldehyde, asbestos, tobacco. In Pakistan, ageing diesel, kilns, dust, and Indo-Gangetic residue burning sit under winter radiation/subsidence inversions. NEQS are the legal line; outcomes follow monitoring, enforcement, fuel/vehicle standards, zigzag kilns, and regional burning cooperation — not the gazette notification alone.",
+      },
     ],
+  
+    formulas: [
+      {
+        name: "Tropospheric ozone (simplified NOₓ–VOC cycle)",
+        expression:
+          "NO_2 + h\\nu \\rightarrow NO + O \\; (\\lambda < 420\\,nm);\\quad O + O_2 + M \\rightarrow O_3 + M;\\quad NO + O_3 \\rightarrow NO_2 + O_2",
+        variables: [
+          { symbol: "h\\nu", meaning: "photon (sunlight)" },
+          { symbol: "M", meaning: "third body (N₂ or O₂) that stabilises O₃" },
+          { symbol: "HO_2 / RO_2", meaning: "peroxy radicals from VOCs; convert NO → NO₂ without consuming O₃" },
+        ],
+        notes:
+          "The first three reactions net to zero ozone. Net O₃ accumulates only when VOCs break the NO–O₃ titration.",
+      },
+      {
+        name: "Acid formation (net stoichiometry)",
+        expression:
+          "SO_2 + \\tfrac{1}{2}O_2 + H_2O \\rightarrow H_2SO_4;\\quad 2NO_2 + H_2O \\rightarrow HNO_3 + HNO_2",
+        variables: [
+          { symbol: "SO_2", meaning: "primary sulphur emission" },
+          { symbol: "NO_2", meaning: "oxidised NOₓ" },
+        ],
+        notes:
+          "Real paths: OH-initiated gas-phase oxidation and in-cloud H₂O₂/O₃ oxidation. Acids are secondary.",
+      },
+      {
+        name: "Well-mixed box (why inversions kill)",
+        expression: "C \\approx E / (H \\cdot u \\cdot L)",
+        variables: [
+          { symbol: "C", meaning: "concentration" },
+          { symbol: "E", meaning: "emission rate" },
+          { symbol: "H", meaning: "mixing height" },
+          { symbol: "u", meaning: "wind speed" },
+          { symbol: "L", meaning: "city length scale" },
+        ],
+        notes: "Same emissions, smaller H (inversion) → much higher C. Night-time radiation inversions shrink H.",
+      },
+    ],
+  
     examPoints: [
-      "Primary = emitted directly; Secondary = formed in atmosphere",
-      "PM₂.₅ (≤2.5 μm) is more dangerous than PM₁₀ (≤10 μm)",
-      "Photochemical smog (summer) vs Sulfurous smog (winter)",
-      "Stratospheric O₃ protects; Tropospheric O₃ pollutes",
-      "Pakistan: Lahore/Karachi/Peshawar among world's most polluted"
+      "Primary = emitted; secondary = formed in air (O₃ is secondary)",
+      "PM₂.₅ ⊂ PM₁₀; PM₂.₅ is the health headline",
+      "LA smog = sun + NOₓ + VOCs; London smog = winter coal + SO₂ + fog",
+      "Stratospheric O₃ protect; tropospheric O₃ pollute",
+      "Match device to species: ESP/bag = PM, scrubber = SO₂, cat = NOₓ/CO/VOC, DPF = diesel soot",
+      "Pakistan winter PM: inversion + traffic + kilns + residue burning; NEQS ≠ clean air",
     ],
+  
     commonMistakes: [
-      "Thinking ozone is always good — stratospheric O₃ protects, but tropospheric O₃ is a harmful pollutant",
-      "Confusing primary and secondary — primary is EMITTED, secondary is FORMED in air",
-      "Mixing up PM₁₀ and PM₂.₅ — PM₂.₅ is smaller and more dangerous"
+      "Ozone always good — only stratospheric O₃ protects; tropospheric O₃ harms",
+      "Primary/secondary swap — emitted vs formed",
+      "PM₁₀ and PM₂.₅ as rival species — nested size cuts of one aerosol",
+      "Ozone as a tailpipe gas — cars emit NOₓ/VOCs; O₃ forms later, often downwind",
+      "One chemistry for all ‘smog’ — London-type reducing winter vs LA-type oxidising sun",
+      "3-way cat removes PM — it converts NOₓ/CO/HC; diesel soot needs a DPF",
+      "NEQS = clean air — standard without enforcement is paper",
+      "Outdoor AQI = personal dose — indoor smoke/radon can dominate",
+      "Acid rain = SO₂ only — NOₓ → HNO₃ is co-equal where traffic dominates",
     ],
-    
+  
+    workedExamples: [
+      {
+        problem:
+          "A coal plant emits SO₂. Downwind rain is acidic with high sulphate. Classify SO₂ and the acid.",
+        solution:
+          "SO₂ leaves the stack unchanged → primary. It oxidises in air/cloud to H₂SO₄ → secondary. Damage is a secondary problem driven by a primary precursor.",
+        answer: "SO₂ primary; H₂SO₄ secondary",
+      },
+      {
+        problem:
+          "Urban O₃ is low at 08:00 and high at 15:00 although traffic peaked in the morning. Why?",
+        solution:
+          "Morning traffic emits NOₓ and VOCs (primary). NO₂ photolysis and VOC-driven NO → NO₂ need sunlight and time. Early NO even destroys O₃ (titration). Secondary O₃ therefore lags and often peaks downwind.",
+        answer: "Secondary photochemistry lags the emission pulse",
+      },
+      {
+        problem:
+          "PM₁₀ = 180 µg m⁻³, PM₂.₅ = 160 µg m⁻³. Dust storm or combustion/secondary smog?",
+        solution:
+          "Almost all PM₁₀ mass is PM₂.₅ → fine-mode episode (combustion + secondary aerosol). Dust storms have PM₁₀ ≫ PM₂.₅.",
+        answer: "Combustion/secondary-dominated, not dust",
+      },
+      {
+        problem: "A brick kiln must cut SO₂ and visible smoke. Which controls? Why not a catalytic converter?",
+        solution:
+          "Visible smoke ≈ PM → ESP, bag filter, or better combustion (zigzag kiln, better fuel). SO₂ → wet/dry scrubber or low-S fuel. A 3-way cat is a petrol-vehicle device for NOₓ/CO/VOCs, not a kiln SO₂/PM fix.",
+        answer: "PM collector + scrubber/low-S fuel",
+      },
+      {
+        problem: "Lahore, January, calm clear night, AQI > 300. Mechanism?",
+        solution:
+          "Ground radiates heat → surface inversion. Traffic, industry, kilns emit into a shallow layer; residue-burning plumes can add PM. With low u and small H, C ≈ E/(H·u·L) spikes.",
+        answer: "Radiation inversion trapping primary PM + secondary aerosol",
+      },
+    ],
+  
     comparisonTable: {
       title: "Primary vs secondary air pollutants",
-      headers: ["Type", "How formed", "Examples"],
+      headers: ["Type", "How formed", "Examples", "Control logic"],
       rows: [
-        ["Primary", "Emitted directly", "CO, SO₂, NO, PM from stacks/vehicles"],
-        ["Secondary", "Formed in air from reactions", "Ozone (O₃), some acids, photochemical smog components"],
+        [
+          "Primary",
+          "Emitted directly",
+          "CO, SO₂, NO, PM, lead, NH₃, many VOCs",
+          "Stack/tailpipe standards, filters, fuel quality",
+        ],
+        [
+          "Secondary",
+          "Formed in air from reactions",
+          "O₃, PAN, H₂SO₄, HNO₃, secondary PM",
+          "Cut precursors (and know the meteorology)",
+        ],
       ],
     },
-    
+  
+    comparisonTables: [
+      {
+        title: "Classical vs photochemical smog",
+        headers: ["", "Classical (London-type)", "Photochemical (LA-type)"],
+        rows: [
+          ["Season / weather", "Winter, fog, cool, stagnant", "Strong sun, typically warm"],
+          ["Chemistry", "Reducing", "Oxidising"],
+          ["Ingredients", "Coal smoke, SO₂, fog", "NOₓ, VOCs, sunlight"],
+          ["Products", "Sulphate, soot, H₂SO₄", "O₃, PAN, aldehydes, SOA"],
+          ["Marker event", "London 1952", "Los Angeles mid-20th c."],
+          ["Pakistan analogue", "Winter PM/smog (often mixed)", "Sunny-season ozone in some cities"],
+        ],
+      },
+      {
+        title: "Stratospheric vs tropospheric ozone",
+        headers: ["", "Stratospheric O₃", "Tropospheric O₃"],
+        rows: [
+          ["Height", "~15–35 km", "Ground to ~10–15 km"],
+          ["Role", "Absorbs UV-B (protects)", "Pollutant: lungs, crops, materials"],
+          ["Made by", "O₂ photolysis (UV) + O + O₂", "NO₂ photolysis + VOC chemistry"],
+          ["Policy", "Protect / restore (Montreal)", "Reduce (cut NOₓ and VOCs)"],
+        ],
+      },
+    ],
+  
+    methodChooser: {
+      title: "Classify the species or pick the control",
+      root: "What is the question asking?",
+      branches: [
+        {
+          condition: "Classify a species",
+          branches: [
+            { condition: "Leaves the source in this form", result: "PRIMARY" },
+            { condition: "Needs air reaction / sunlight / cloud", result: "SECONDARY" },
+          ],
+        },
+        {
+          condition: "Which smog type?",
+          branches: [
+            { condition: "Coal + fog + winter + SO₂", result: "CLASSICAL / SULFUROUS" },
+            { condition: "Sun + NOₓ + VOCs + O₃/PAN", result: "PHOTOCHEMICAL" },
+          ],
+        },
+        {
+          condition: "Which ozone?",
+          branches: [
+            { condition: "UV shield / ozone hole / 15–35 km", result: "STRATOSPHERIC — protect" },
+            { condition: "Smog / crop damage / coughing", result: "TROPOSPHERIC — reduce" },
+          ],
+        },
+        {
+          condition: "Which PM metric?",
+          result: "Default PM₂.₅ unless the question is dust, visibility, or a PM₁₀ standard",
+        },
+        {
+          condition: "Which abatement device?",
+          branches: [
+            { condition: "Smoke / fly ash / dust", result: "ESP or bag filter (cyclone only if coarse)" },
+            { condition: "SO₂ from coal/oil/kilns", result: "Scrubber or low-S fuel" },
+            { condition: "Petrol exhaust CO, NOₓ, HC", result: "Three-way catalytic converter" },
+            { condition: "Diesel soot", result: "DPF / better combustion — cat alone is not enough" },
+            { condition: "Indoor fine PM", result: "Ventilation + HEPA; cookstoves → clean fuel" },
+            { condition: "Ozone at the tailpipe", result: "Impossible — cut NOₓ and VOCs instead" },
+          ],
+        },
+      ],
+    },
+  
+    limitCases: [
+      {
+        condition: "No sunlight (night, thick cloud)",
+        result:
+          "Photochemical O₃ production collapses; NO titration can destroy O₃. Lahore winter nights are PM problems, not ozone problems.",
+      },
+      {
+        condition: "VOC-limited urban core",
+        result:
+          "Cutting NOₓ alone can raise local O₃ (less NO titration) until VOCs fall too. Downwind regional O₃ is often NOₓ-limited.",
+      },
+      {
+        condition: "Mixing height → 0 (strong inversion)",
+        result:
+          "The city becomes a closed reactor. Emission rates that are tolerable with mixing become extreme. Box model: C ∝ 1/H.",
+      },
+      {
+        condition: "Zero-sulphur fuel",
+        result:
+          "SO₂ and sulphate fall; nitrate and organic PM can remain. Low-S is not zero PM₂.₅.",
+      },
+      {
+        condition: "Dust storm",
+        result:
+          "PM₁₀ spikes far more than PM₂.₅. Toxicity per µg often lower than combustion smog; mass can still be extreme.",
+      },
+      {
+        condition: "Complete combustion",
+        result: "CO falls, CO₂ rises — better for acute toxicity, not a climate fix.",
+      },
+      {
+        condition: "Indoor, no combustion",
+        result: "Outdoor PM still infiltrates; radon rises in closed winter houses.",
+      },
+    ],
+  
+    misconceptionRemediation: [
+      {
+        name: "Ozone is healthy everywhere",
+        whyStudentsThinkIt: "Ozone layer = good; ‘fresh air’ marketing uses the same word.",
+        correctModel:
+          "Same molecule, opposite policy by layer. Stratosphere = UV shield. Troposphere = oxidant that inflames lungs and stomata.",
+        remedy: "Never say ozone without attaching a layer.",
+      },
+      {
+        name: "Cars don’t emit ozone, so cars aren’t responsible",
+        whyStudentsThinkIt: "Primary/secondary split is missed.",
+        correctModel:
+          "Cars emit NOₓ and VOCs. Sunlight manufactures O₃ hours later, often kilometres downwind. Precursor ≠ product.",
+        remedy: "Track the recipe, not only the dish.",
+      },
+      {
+        name: "PM₁₀ and PM₂.₅ are two non-overlapping pollutants",
+        whyStudentsThinkIt: "Two numbers on the AQI board.",
+        correctModel: "Nested aerodynamic cuts of one population. PM₂.₅ is inside PM₁₀.",
+        remedy: "Draw concentric circles; inner disk = PM₂.₅.",
+      },
+      {
+        name: "NEQS mean Pakistani air is legally clean",
+        whyStudentsThinkIt: "Existence of a standard is confused with compliance.",
+        correctModel:
+          "A standard is a reference line. Major cities routinely exceed it; enforcement, monitoring gaps, and trans-boundary plumes decide reality.",
+        remedy: "Standard ≠ status.",
+      },
+    ],
+  
+    qualitativeScenarios: [
+      {
+        question: "A city bans daytime trucks but ozone still peaks at 15:00. Did the ban fail?",
+        answer: "Not necessarily.",
+        reasoning:
+          "O₃ is secondary. Morning NOₓ/VOC still cook through midday. Judge success on precursor inventory and downwind O₃, not truck visibility at noon.",
+      },
+      {
+        question: "Coal → gas collapses SO₂, but winter PM₂.₅ stays high. Why?",
+        answer: "Gas is not a full PM₂.₅ solution.",
+        reasoning:
+          "Diesel, kilns, dust, residue burning, secondary nitrate from NOₓ, and household fuels still feed PM₂.₅. Gas solved a primary SO₂ problem.",
+      },
+      {
+        question: "Same emissions. Day A windy and mixed; Day B calm, 150 m inversion. Which is worse?",
+        answer: "Day B.",
+        reasoning: "Same mass, smaller volume. C ≈ E / (H × u × L).",
+      },
+      {
+        question: "Why can a forest downwind show more ozone injury than the city centre?",
+        answer: "Secondary maxima are often not at the source.",
+        reasoning:
+          "In the core, fresh NO titrates O₃. Downwind, peroxy radicals convert NO → NO₂ and ozone accumulates.",
+      },
+      {
+        question: "Are London 1952 and modern Lahore smog ‘the same thing’?",
+        answer: "Shared meteorology, not shared recipe.",
+        reasoning:
+          "Both: winter, stagnant, high PM, inversion, deadly. London was coal/SO₂/fog (reducing). Lahore is mixed diesel/kiln/dust/secondary aerosol.",
+      },
+      {
+        question: "Indoor CO alarm, outdoor AQI ‘moderate’. Possible?",
+        answer: "Yes.",
+        reasoning:
+          "A faulty heater or indoor charcoal is a different reactor. Ambient AQI does not measure that room.",
+      },
+    ],
+  
     subtopics: [
       {
         id: "env-air-primary-secondary",
         title: "Primary and secondary pollutants",
-        summary: "Emitted directly versus formed by reactions in the atmosphere.",
-        explanation: "Primary pollutants are released straight into the air from identifiable sources: carbon monoxide from incomplete combustion, sulphur dioxide from sulphur-bearing fuels, nitric oxide from high-temperature combustion, and particulate matter from dust, diesel, and industrial processes.\n\nSecondary pollutants form when primary emissions react in the atmosphere. Ground-level ozone is a central example. It is not emitted in large amounts by vehicles themselves; it forms when nitrogen oxides and volatile organic compounds react in sunlight. Some components of photochemical smog and certain secondary particles follow the same logic. For regulation and health messaging, the distinction matters: controlling secondary pollution means controlling the precursors and the conditions that drive the chemistry, not only the secondary species at the monitor.",
-                examples: [
+        summary: "Emitted directly versus formed by reactions in the air.",
+        explanation:
+          "Primary: CO, SO₂, NO, NH₃, lead, fresh PM — already in final form at the source. Secondary: O₃, PAN, H₂SO₄, HNO₃, secondary sulphate/nitrate/organic PM — born downwind. Regulating secondary pollution means regulating precursors and conditions, not only the species at the monitor.",
+        examples: [
           {
             problem: "Is ground-level ozone primarily emitted or formed in the air?",
-            solution: "Formed in the air from precursors (secondary pollutant).",
+            solution: "Formed from NOₓ + VOCs + sunlight.",
             answer: "Secondary (formed)",
           },
           {
-            problem: "SO₂ from a power plant stack is primarily which class?",
-            solution: "Primary pollutant — emitted directly.",
+            problem: "SO₂ from a power-plant stack is which class?",
+            solution: "Leaves the stack as SO₂.",
             answer: "Primary",
-          }
+          },
         ],
-        shortcuts: [
-          "Primary = emitted",
-          "Secondary = formed",
-          "Ozone is secondary"
-        ],
+        shortcuts: ["Primary = emitted", "Secondary = formed", "Ozone is secondary", "Acid-rain acids are secondary"],
         traps: [
-          "Calling ozone a primary stack emission"
+          "Calling ozone a primary stack emission",
+          "Forgetting secondary PM often dominates urban PM₂.₅ mass",
         ],
       },
       {
         id: "env-air-smog-types",
         title: "Classical and photochemical smog",
-        summary: "Two smog regimes with different chemistry and conditions.",
-        explanation: "Classical (London-type) smog is associated with coal smoke, sulphur dioxide, fog, and cool, stagnant weather. It is reducing in chemical character and historically produced severe sulphate and particulate pollution.\n\nPhotochemical (Los Angeles-type) smog develops in sunny, warm conditions when nitrogen oxides and volatile organic compounds form oxidants such as ozone. Many modern megacities show photochemical features, sometimes mixed with particulate pollution from diesel, dust, and regional biomass burning. Seasonal smog in parts of South Asia often combines local emissions, regional agricultural fire plumes, and winter temperature inversions that trap pollutants near the surface.",
-                examples: [
+        summary: "Two regimes: reducing winter coal vs oxidising sun-driven NOₓ/VOC.",
+        explanation:
+          "Classical = coal + SO₂ + fog + cool stagnation → sulphate/soot. Photochemical = NOₓ + VOCs + sun → O₃/PAN. South Asian winter smog is often a hybrid (combustion PM + secondary aerosol + fire plumes + inversion). Do not force one textbook box; do not blur the two classical types either.",
+        examples: [
           {
             problem: "Classical (London-type) smog is associated with which fuels and conditions?",
-            solution: "Coal smoke + fog/cool humid conditions; sulfur chemistry.",
-            answer: "Coal + fog / sulfur",
+            solution: "Coal smoke + fog/cool humidity; sulphur chemistry.",
+            answer: "Coal + fog / sulphur",
           },
           {
             problem: "Photochemical smog needs sunlight and which precursor family?",
-            solution: "NOx and volatile organic compounds (VOCs) forming ozone and oxidants.",
-            answer: "NOx + VOCs + sunlight",
-          }
+            solution: "NOₓ and VOCs forming ozone and oxidants.",
+            answer: "NOₓ + VOCs + sunlight",
+          },
         ],
-        shortcuts: [
-          "Classical = coal/sulfur",
-          "Photochemical = NOx/VOC + sun"
-        ],
-        traps: [
-          "Swapping classical and photochemical causes"
-        ],
+        shortcuts: ["Classical = coal/sulphur", "Photochemical = NOₓ/VOC + sun", "PAN marks photochemical oxidant smog"],
+        traps: ["Swapping classical and photochemical causes", "Assuming all ‘smog’ is ozone"],
       },
       {
         id: "env-air-pakistan",
         title: "Air quality in the Pakistani context",
-        summary: "Sources, winter meteorology, and standards.",
-        explanation: "Large Pakistani cities frequently record high particulate pollution. Local sources include traffic (including older diesel fleets), industrial activity, brick kilns, and dust. In late autumn and winter, temperature inversions can trap emissions near the ground, while seasonal agricultural residue burning in the wider region adds a transboundary plume on some days.\n\nNational Environmental Quality Standards (NEQS) set legal reference limits, but outcomes depend on monitoring capacity and enforcement. Reading air quality only as 'factories' misses the combined role of transport, seasonal meteorology, and regional fire activity.",
-                examples: [
+        summary: "Sources, winter meteorology, NEQS vs reality.",
+        explanation:
+          "Headline metric is PM, especially winter PM₂.₅. Sources: older diesel fleets, industry, brick kilns, dust, seasonal residue burning across the Indo-Gangetic Plain. Radiation and subsidence inversions cap a shallow mixed layer. NEQS set limits; monitoring, enforcement, kiln upgrades, fuel/vehicle policy, and trans-boundary cooperation set outcomes. ‘Only factories’ misses transport, households, meteorology, and regional fires.",
+        examples: [
           {
             problem: "Name two common urban air problems relevant to Pakistani cities.",
-            solution: "Examples: PM₂.₅/PM₁₀, winter smog, vehicle and industrial emissions, agricultural residue burning.",
-            answer: "PM / smog / emissions",
+            solution: "PM₂.₅/PM₁₀, winter inversion smog, vehicle/industrial/kiln emissions, residue burning.",
+            answer: "PM / winter smog / mixed emissions",
           },
           {
             problem: "Why is PM₂.₅ especially concerning?",
-            solution: "Fine particles penetrate deeper into lungs and bloodstream.",
-            answer: "Deeper lung penetration",
-          }
+            solution: "Fine particles reach alveoli and the bloodstream.",
+            answer: "Deeper lung + systemic penetration",
+          },
         ],
         shortcuts: [
-          "PM is a core metric",
-          "Winter inversion worsens smog"
+          "PM is the core metric",
+          "Winter inversion worsens smog",
+          "NEQS = limits, not automatic compliance",
         ],
         traps: [
-          "Assuming outdoor air quality is only a rural issue"
+          "Treating outdoor air quality as only a rural or ‘factory’ issue",
+          "Equating a published standard with clean air",
         ],
       },
     ],
+  
+    vocabularyGroups: [
+      {
+        title: "Air-pollution terms",
+        cards: [
+          {
+            word: "Primary pollutant",
+            definition: "Emitted directly from a source",
+            synonym: "Stack/tailpipe emission",
+            antonym: "Secondary pollutant",
+            example: "SO₂ from coal",
+            difficulty: "easy",
+          },
+          {
+            word: "Secondary pollutant",
+            definition: "Formed in the atmosphere by reactions",
+            synonym: "Reaction product",
+            antonym: "Primary pollutant",
+            example: "Tropospheric O₃",
+            difficulty: "easy",
+          },
+          {
+            word: "Photochemical smog",
+            definition: "Sun-driven oxidant smog from NOₓ + VOCs",
+            synonym: "LA-type smog",
+            antonym: "Classical/London smog",
+            example: "Afternoon O₃ + PAN",
+            difficulty: "medium",
+          },
+          {
+            word: "Temperature inversion",
+            definition: "Warm air over cool air; vertical mixing suppressed",
+            synonym: "Capping lid",
+            antonym: "Unstable well-mixed boundary layer",
+            example: "Lahore winter nights",
+            difficulty: "medium",
+          },
+          {
+            word: "NEQS",
+            definition: "Pakistan’s legal ambient and stack quality limits",
+            synonym: "National Environmental Quality Standards",
+            antonym: "Measured AQI / actual concentration",
+            example: "Ambient PM limits in the regulations",
+            difficulty: "medium",
+          },
+          {
+            word: "PAN",
+            definition: "Peroxyacetyl nitrate — photochemical oxidant and eye irritant",
+            synonym: "Photochemical smog product",
+            antonym: "Classical soot/sulphate",
+            example: "LA-type smog component",
+            difficulty: "hard",
+          },
+        ],
+      },
+    ],
+  
+    quantFormulas: [
+      {
+        name: "PM size cut",
+        expression: "PM_x = mass of particles with aerodynamic diameter \\le x\\,\\mu m",
+        notes: "PM₂.₅ ⊂ PM₁₀. Health ranking per µg: fine > coarse. PM₁₀ is not harmless.",
+      },
+      {
+        name: "Incomplete vs complete combustion",
+        expression: "C + 1/2 O_2 \\rightarrow CO \\quad vs \\quad C + O_2 \\rightarrow CO_2",
+        notes: "CO is a primary toxicant from oxygen-starved burning (engines, kilns, cookstoves).",
+      },
+      {
+        name: "Limestone attack (acid rain on buildings)",
+        expression: "CaCO_3 + H_2SO_4 \\rightarrow CaSO_4 + CO_2 + H_2O",
+        notes: "Gypsum crusts on marble/limestone façades.",
+      },
+      {
+        name: "Ozone rule of thumb",
+        expression: "Net\\,O_3 \\iff NO_2 + h\\nu + VOC\\ (RO_2)\\ that\\ spares\\ O_3\\ from\\ NO",
+        notes: "No sun → no photochemical O₃. No VOC → NO destroys O₃.",
+      },
+    ],
+  
     pakistanExamFocus: [
       "Urban PM₂.₅ / PM₁₀ and winter smog are core Pakistan air-quality exam themes",
-      "Sources: traffic (incl. diesel), industry, brick kilns, dust, and seasonal agricultural residue burning",
+      "Sources: traffic (incl. diesel), industry, brick kilns, dust, seasonal agricultural residue burning",
       "Winter temperature inversions trap pollutants near the surface in major cities",
       "NEQS set reference limits — outcomes still depend on monitoring and enforcement",
     ],
-  relatedTopics: ["env-water-pollution-and-quality", "env-climate-change-response", "env-resource-conflicts"],
-    content: true,
-  buildsOn: ["meteo-composition-today", "meteo-inversion-types", "env-productivity-and-biogeochemical-cycles", "math-1-7", "phy-heat-transfer-mechanisms", "phy-atmospheric-pressure-physics"],
-  leadsTo: ["env-water-pollution-and-quality", "env-ozone-depletion"],
-  usedIn: ["env-ozone-depletion", "env-pakistan-environmental-context", "meteo-inversion-types", "meteo-arabian-sea-cyclones-local", "ra-descriptive-statistics"]
+  
+    relatedTopics: [
+      "env-water-pollution-and-quality",
+      "env-climate-change-response",
+      "env-resource-conflicts",
+    ],
+    buildsOn: [
+      "meteo-composition-today",
+      "meteo-inversion-types",
+      "env-productivity-and-biogeochemical-cycles",
+      "math-1-7",
+      "phy-heat-transfer-mechanisms",
+      "phy-atmospheric-pressure-physics",
+    ],
+    leadsTo: ["env-water-pollution-and-quality", "env-ozone-depletion"],
+    usedIn: [
+      "env-ozone-depletion",
+      "env-pakistan-environmental-context",
+      "meteo-inversion-types",
+      "meteo-arabian-sea-cyclones-local",
+      "ra-descriptive-statistics",
+    ],
   },
   {
     id: "env-water-pollution-and-quality",
