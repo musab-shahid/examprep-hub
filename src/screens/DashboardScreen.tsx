@@ -260,7 +260,7 @@ export function DashboardScreen() {
             </p>
             <p className="text-base font-bold text-slate-900 mt-1">
               {dailyTopicIds.length > 0
-                ? {dailyTopicIds.length} high-ROI topics · up to 8 adaptive questions
+                ? `${dailyTopicIds.length} high-ROI topics · up to 8 adaptive questions`
                 : 'Quick adaptive practice'}
             </p>
             <p className="text-slate-500 text-sm mt-1">

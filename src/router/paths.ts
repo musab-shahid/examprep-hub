@@ -2,8 +2,8 @@
  * Path ↔ route mapping for shareable / refreshable URLs (Phase A).
  * Live quiz parameters stay out of the URL (storage-backed resume).
  */
-import { getTopic } from '@/data/topics';
-import { sectionMap } from '@/data/sections';
+import { getTopic } from '../data/topics';
+import { sectionMap } from '../data/sections';
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
 /** Local mirror of router.Route to avoid circular imports with index.tsx */
