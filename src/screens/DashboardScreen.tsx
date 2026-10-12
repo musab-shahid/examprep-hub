@@ -16,15 +16,13 @@ import { sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
 import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator } from '@/components/ui';
 import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
-import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics } from '@/lib/streak';
+import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics, getWeeklyAccuracy } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
-import { getWeeklyAccuracy } from '@/lib/stats';
 import {
   FPSC_OCT_2026_SESSIONS,
   getCountdownParts,
   formatCountdownShort,
   getNextSession,
-  hasUpcomingExam,
 } from '@/lib/exam-schedule';
 import { computeReadiness, readinessLabel, rankScoreGainOpportunities } from '@/lib/readiness';
 
