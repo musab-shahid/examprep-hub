@@ -23,9 +23,12 @@ function getRevisionGroups(
   const due = Object.entries(topicProgress)
     .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.nextReview && parseLocalDate(p.nextReview) <= today)
     .map(([topicId, p]) => {
-      const accuracy = getEffectiveQuizStats(p).accuracy;
+      const stats = getEffectiveQuizStats(p);
+      const accuracy = stats.accuracy;
       let group: 'high' | 'review' | 'refresh';
-      if (accuracy < 60) group = 'high';
+      // No quiz attempts yet → neutral refresh, not "weak / high priority"
+      if (stats.total <= 0) group = 'refresh';
+      else if (accuracy < 60) group = 'high';
       else if (accuracy < 75) group = 'review';
       else group = 'refresh';
       return { topicId, dateStr: p.nextReview!, accuracy, group };

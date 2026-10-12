@@ -1,6 +1,6 @@
-import { createContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId } from '@/types';
-import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData, flushPendingSave } from '@/lib/storage';
+import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
 import { sections } from '@/data/sections';
 import { topics } from '@/data/topics';
 
@@ -17,29 +17,27 @@ export const DataContext = createContext<DataContextValue | null>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<AppData>(() => loadData());
+  const isFirst = useState(() => ({ current: true }))[0];
+
+  // Persist outside setState updaters (StrictMode-safe: one effect per committed data)
+  useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
+    saveData(data);
+  }, [data, isFirst]);
 
   const markStudied = useCallback((topicId: string) => {
-    setData((prev) => {
-      const next = markTopicStudied(prev, topicId);
-      saveData(next);
-      return next;
-    });
+    setData((prev) => markTopicStudied(prev, topicId));
   }, []);
 
   const recordQuiz = useCallback((topicId: string | null, answers: { questionId: string; correct: boolean }[], questions: Question[], mode: PracticeMode, subjectId?: string, difficultyFilter?: DifficultyFilter) => {
-    setData((prev) => {
-      const next = recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter);
-      saveData(next);
-      return next;
-    });
+    setData((prev) => recordQuizResult(prev, topicId, answers, questions, mode, subjectId, difficultyFilter));
   }, []);
 
   const setLastTopic = useCallback((topicId: string) => {
-    setData((prev) => {
-      const next = setLastOpenedTopic(prev, topicId);
-      saveData(next);
-      return next;
-    });
+    setData((prev) => setLastOpenedTopic(prev, topicId));
   }, []);
 
   const reset = useCallback(() => {
@@ -57,7 +55,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         topics.filter((t) => subjectSectionIds.has(t.sectionId)).map((t) => t.id)
       );
 
-      const next: AppData = {
+      return {
         studiedTopics: prev.studiedTopics.filter((tid) => !subjectTopicIds.has(tid)),
         topicProgress: Object.fromEntries(
           Object.entries(prev.topicProgress).filter(([tid]) => !subjectTopicIds.has(tid))
@@ -78,9 +76,6 @@ export function DataProvider({ children }: { children: ReactNode }) {
         ),
         lastOpenedTopic: subjectTopicIds.has(prev.lastOpenedTopic) ? '' : prev.lastOpenedTopic,
       };
-
-      saveData(next);
-      return next;
     });
   }, []);
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { RouterProvider, useRouter, routeLabel, type Route } from '@/router';
 import { DataProvider } from '@/data-context';
 import { SubjectSelectionProvider, useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -19,6 +19,7 @@ import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { UpdatePrompt } from '@/components/UpdatePrompt';
 import { OfflineIndicator } from '@/components/OfflineIndicator';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { sectionMap } from '@/data/sections';
 import { getTopic } from '@/data/topics';
 import { subjectMap } from '@/data/subjects';
@@ -153,7 +154,7 @@ function AppContent() {
 
   const [storageWarning, setStorageWarning] = useState<string | null>(() => consumeStorageWarning());
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
-  const hasBackup = Boolean(getBackupRaw());
+  const hasBackup = useMemo(() => Boolean(getBackupRaw()), [storageWarning]);
 
   useEffect(() => {
     const onOnline = () => setIsOffline(false);
@@ -210,7 +211,9 @@ function AppContent() {
           />
         )}
         <main id="main-content" className="pb-mobile-nav min-h-screen bg-pattern-topo" tabIndex={-1}>
-          <ScreenRouter />
+          <ErrorBoundary>
+              <ScreenRouter />
+            </ErrorBoundary>
         </main>
       </div>
       <MobileNav />

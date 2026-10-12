@@ -121,11 +121,16 @@ export function SettingsScreen() {
 
   const handleInstall = async () => {
     if (!deferredPrompt) return;
-    await deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === 'accepted' || outcome === 'dismissed') {
+    try {
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted' || outcome === 'dismissed') {
+        setDeferredPrompt(null);
+        setShowInstall(false);
+      }
+    } catch (err) {
+      console.warn('[install] prompt failed', err);
       setDeferredPrompt(null);
-      setShowInstall(false);
     }
   };
 

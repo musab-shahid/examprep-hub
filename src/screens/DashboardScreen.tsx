@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { getAttentionItems, getDashboardRecommendation } from '@/lib/attention';
 import {
   Zap, ChevronRight, Trophy, Clock,
@@ -17,6 +18,7 @@ import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, 
 import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
+import { getWeeklyAccuracy } from '@/lib/stats';
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -37,14 +39,14 @@ export function DashboardScreen() {
   const todayActivity = getTodayActivity(data);
   const weekActivity = getWeekActivity(data);
 
-  const globalTopicIds = new Set(topics.map((t) => t.id));
+  const globalTopicIds = useMemo(() => new Set(topics.map((t) => t.id)), []);
   const stats = sd.statsFor('all');
-  const globalStats = {
+  const globalStats = useMemo(() => ({
     ...stats,
     totalTopics: topics.length,
     studiedTopics: data.studiedTopics.filter((id) => globalTopicIds.has(id)).length,
-  };
-  const allStats = subjects.map((s) => sd.statsFor(s.id as SubjectId));
+  }), [stats, data.studiedTopics, globalTopicIds]);
+  const allStats = useMemo(() => subjects.map((s) => sd.statsFor(s.id as SubjectId)), [sd, subjects]);
 
   const reviewDue = sd.revisionQueueAll();
   const trackTopicsList = topics.filter((t) => {
@@ -83,11 +85,14 @@ export function DashboardScreen() {
     }
   };
 
-  const statsByTrack: Record<ExamTrack, typeof allStats> = { fpsc: [], hat: [] };
-  for (const s of allStats) {
-    const sub = subjects.find((sub) => sub.id === s.subjectId);
-    if (sub) statsByTrack[sub.track].push(s);
-  }
+  const statsByTrack = useMemo(() => {
+    const map: Record<ExamTrack, typeof allStats> = { fpsc: [], hat: [] };
+    for (const s of allStats) {
+      const sub = subjects.find((sub) => sub.id === s.subjectId);
+      if (sub) map[sub.track].push(s);
+    }
+    return map;
+  }, [allStats]);
 
   return (
     <PageContainer>
@@ -372,7 +377,6 @@ function QuickActionTile({
   );
 }
 
-import { getWeeklyAccuracy } from '@/lib/streak';
 
 function WeeklyAccuracyChart({ data }: { data: import('@/types').AppData }) {
   const weeks = getWeeklyAccuracy(data, 8);

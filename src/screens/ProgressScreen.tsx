@@ -48,7 +48,9 @@ export function ProgressScreen() {
   const weeklyData = getWeeklyAccuracy(data, 8, scopedSubjectIds);
 
   // Mastery calculation
-  const masteryScore = computeMasteryScore(currentStats.studiedTopics, currentStats.totalTopics, currentStats.accuracy);
+  const masteryScore = currentStats.totalTopics > 0
+    ? computeMasteryScore(currentStats.studiedTopics, currentStats.totalTopics, currentStats.accuracy)
+    : 0;
 
   // Achievements
   const totalQuestionsAll = allStats.reduce((s, st) => s + st.questionsAnswered, 0);

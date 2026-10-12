@@ -22,6 +22,15 @@ import { instantiatePool } from '@/lib/quant-template';
 const VALID_MODES: PracticeMode[] = ['topic', 'quick', 'mock', 'review', 'challenge'];
 const VALID_SUBJECT_IDS = Object.keys(subjectMap);
 
+/** Pack matching answers: optionIdx * MATCH_PACK + matchIdx (supports up to MATCH_PACK match options). */
+const MATCH_PACK = 1000;
+function packMatchSelect(optionIdx: number, matchIdx: number): number {
+  return optionIdx * MATCH_PACK + matchIdx;
+}
+function unpackMatchSelect(idx: number): { optionIdx: number; matchIdx: number } {
+  return { optionIdx: Math.floor(idx / MATCH_PACK), matchIdx: idx % MATCH_PACK };
+}
+
 function validateQuizParams(params: {
   mode?: PracticeMode;
   count?: number | 'all';
@@ -97,8 +106,16 @@ function applySavedOptionOrders(
   questionIds: string[],
   optionOrders?: number[][],
 ): Question[] {
-  return questions.map((q, i) => {
-    const order = optionOrders?.[i];
+  // Align orders by question id — not by filtered array index (missing bank IDs would shift rows)
+  const orderById = new Map<string, number[]>();
+  if (optionOrders?.length) {
+    questionIds.forEach((id, i) => {
+      const order = optionOrders[i];
+      if (order) orderById.set(id, order);
+    });
+  }
+  return questions.map((q) => {
+    const order = orderById.get(q.id);
     if (!order || order.length !== q.options.length) return q;
     // Defensive: skip invalid permutations
     if (new Set(order).size !== order.length) return q;
@@ -342,6 +359,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const [showExitConfirm, setShowExitConfirm] = useState(false);
   const [showKeysHelp, setShowKeysHelp] = useState(false);
   const exitModalRef = useRef<HTMLDivElement>(null);
+  const keysHelpModalRef = useRef<HTMLDivElement>(null);
   const [results, setResults] = useState<ResultsData | null>(null);
 
   // Snapshot question results once at mount — do not rewrite every render
@@ -444,12 +462,19 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       initQuiz();
       return;
     }
-    // Restore session option order (legacy saves without optionOrders keep bank order)
+    // Restore session option order by question id (survives missing bank items)
     const restoredQuestions = applySavedOptionOrders(bankQuestions, saved.questionIds, saved.optionOrders);
-    const optionOrders =
-      saved.optionOrders && saved.optionOrders.length === restoredQuestions.length
-        ? saved.optionOrders
-        : restoredQuestions.map((q) => q.options.map((_, i) => i));
+    const orderById = new Map<string, number[]>();
+    if (saved.optionOrders?.length) {
+      saved.questionIds.forEach((id, i) => {
+        if (saved.optionOrders![i]) orderById.set(id, saved.optionOrders![i]);
+      });
+    }
+    const optionOrders = restoredQuestions.map((q) => {
+      const savedOrder = orderById.get(q.id);
+      if (savedOrder && savedOrder.length === q.options.length) return savedOrder;
+      return q.options.map((_, i) => i);
+    });
     recordedRef.current = false;
     const resumedElapsed = Math.max(0, saved.elapsedSeconds ?? 0);
     setState({
@@ -585,6 +610,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   useFocusTrap(exitModalRef, showExitConfirm, {
     onEscape: () => setShowExitConfirm(false),
   });
+  useFocusTrap(keysHelpModalRef, showKeysHelp, {
+    onEscape: () => setShowKeysHelp(false),
+  });
 
   // ── All hooks MUST be above any early return (Rules of Hooks) ──
   const handleCheck = useCallback(() => {
@@ -610,19 +638,23 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const handleNext = useCallback(() => {
     lastTapRef.current = null;
-    const prev = stateRef.current;
-    if (!prev) return;
-    if (prev.currentIdx + 1 >= prev.questions.length) {
+    const snapshot = stateRef.current;
+    if (!snapshot) return;
+    if (snapshot.currentIdx + 1 >= snapshot.questions.length) {
       // Side effects outside setState
-      finishQuiz(prev, prev.answers);
+      finishQuiz(snapshot, snapshot.answers);
       return;
     }
-    setState({
-      ...prev,
-      currentIdx: prev.currentIdx + 1,
-      selectedIndices: [],
-      checked: false,
-    });
+    setState((prev) =>
+      prev
+        ? {
+            ...prev,
+            currentIdx: prev.currentIdx + 1,
+            selectedIndices: [],
+            checked: false,
+          }
+        : prev,
+    );
   }, [finishQuiz]);
 
   /**
@@ -667,9 +699,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     }
 
     if (q.type === 'matching') {
-      // idx is encoded as optionIndex * 100 + matchOptionIndex
-      const optionIdx = Math.floor(idx / 100);
-      const matchIdx = idx % 100;
+      // idx is packed as optionIndex * MATCH_PACK + matchOptionIndex
+      const { optionIdx, matchIdx } = unpackMatchSelect(idx);
       setState((prev) => {
         if (!prev || prev.checked) return prev;
         // Keep a dense array so length/every/some never skip holes
@@ -1118,8 +1149,15 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* Exit confirmation */}
       
       {showKeysHelp && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40" role="dialog" aria-modal="true" aria-labelledby="keys-help-title" onClick={() => setShowKeysHelp(false)}>
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-sm w-full p-5" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40" onClick={() => setShowKeysHelp(false)}>
+          <div
+            ref={keysHelpModalRef}
+            className="bg-white rounded-2xl shadow-xl border border-slate-200 max-w-sm w-full p-5"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="keys-help-title"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-between mb-3">
               <h2 id="keys-help-title" className="font-semibold text-slate-900 text-base flex items-center gap-2">
                 <Keyboard className="w-4 h-4 text-brand-600" />
@@ -1592,7 +1630,7 @@ function MatchingOptions({ question, selectedIndices, checked, onSelect }: {
             <select
               value={selectedMatch ?? ''}
               disabled={checked}
-              onChange={(e) => onSelect(optIdx * 100 + parseInt(e.target.value, 10))}
+              onChange={(e) => onSelect(packMatchSelect(optIdx, parseInt(e.target.value, 10)))}
               className="flex-1 min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 focus:border-brand-400 focus:outline-none disabled:opacity-60"
               aria-label={`Match for ${opt}`}
             >

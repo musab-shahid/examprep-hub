@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useDeferredValue, useEffect } from 'react';
 import { Search, BookOpen, Calculator, ChevronRight, GraduationCap, AlertTriangle } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -15,6 +15,7 @@ export function SearchScreen() {
   const { navigate } = useRouter();
   const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
   const [query, setQuery] = useState('');
+  const deferredQuery = useDeferredValue(query);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
 
@@ -54,8 +55,8 @@ export function SearchScreen() {
 
   const results = useMemo(() => {
     if (loading) return [];
-    return searchTopics(query, searchScope);
-  }, [query, searchScope, loading]);
+    return searchTopics(deferredQuery, searchScope);
+  }, [deferredQuery, searchScope, loading]);
 
   if (loadError) return (
     <PageContainer>
@@ -123,10 +124,10 @@ export function SearchScreen() {
             <div>
               <p className="text-slate-500 text-sm mb-3">{results.length} result{results.length !== 1 ? 's' : ''}</p>
               <div className="space-y-2">
-                {results.map((result) => {
+                {results.map((result, i) => {
                   const section = sectionMap[result.sectionId];
                   return (
-                    <Card key={`${result.type}-${result.topicId}`} className="p-0">
+                    <Card key={`${i}-${result.type}-${result.topicId}`} className="p-0">
                       <button
                         onClick={() => navigate({ screen: 'topic', topicId: result.topicId })}
                         className="w-full flex items-start gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl"
@@ -138,7 +139,7 @@ export function SearchScreen() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-medium text-slate-900 text-sm">{result.title}</p>
-                          <p className="text-slate-500 text-xs mt-0.5">Section {section?.id} — {section?.title}</p>
+                          <p className="text-slate-500 text-xs mt-0.5">Section {section?.id ?? result.topicId} — {section?.title ?? "Unknown section"}</p>
                           <p className="text-slate-600 text-sm mt-2 line-clamp-2 bg-slate-50 px-3 py-2 rounded-lg">
                             {result.match}
                           </p>

@@ -94,7 +94,10 @@ export function AiTutorChat({ topicId, topicTitle, topicContext, studentContext,
 
   const dragRef = useRef<{ startX: number; startY: number; origX: number; origY: number } | null>(null);
   const resizeRef = useRef<{ startX: number; startY: number; origW: number; origH: number } | null>(null);
+  const dragListenersRef = useRef<{ move: (e: PointerEvent) => void; up: () => void } | null>(null);
+  const resizeListenersRef = useRef<{ move: (e: PointerEvent) => void; up: () => void } | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const userCancelledRef = useRef(false);
   const lastSentRef = useRef<number>(0);
   const lastFailedRef = useRef<{ text: string; messages: ChatMessage[] } | null>(null);
   const prevModelIdRef = useRef<string>('');
@@ -186,7 +189,11 @@ export function AiTutorChat({ topicId, topicTitle, topicContext, studentContext,
   useEffect(() => {
     const models = getAvailableModels();
     setAvailableModels(models);
-    if (models.length > 0 && !modelId) setModelId(getDefaultModelId());
+    if (models.length > 0 && !modelId) {
+      const def = getDefaultModelId();
+      setModelId(def);
+      prevModelIdRef.current = def;
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -250,20 +257,21 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
       }
       lastFailedRef.current = null;
     } catch (err) {
-      if (controller.signal.aborted) {
-        if (err instanceof Error && err.message.includes('too long')) {
-          setError(err.message);
-          lastFailedRef.current = { text: trimmed, messages: newMessages };
-        } else {
-          // User-initiated cancel — nothing to retry
-          lastFailedRef.current = null;
-        }
+      if (controller.signal.aborted && userCancelledRef.current) {
+        // User clicked Stop — nothing to retry
+        lastFailedRef.current = null;
+      } else if (controller.signal.aborted) {
+        // Aborted for length/policy — surface message if present
+        const msg = err instanceof Error ? err.message : 'Request was stopped.';
+        setError(msg);
+        lastFailedRef.current = { text: trimmed, messages: newMessages };
       } else {
         const msg = err instanceof Error ? err.message : 'Something went wrong.';
         setError(msg);
         lastFailedRef.current = { text: trimmed, messages: newMessages };
       }
     } finally {
+      userCancelledRef.current = false;
       setLoading(false);
       abortRef.current = null;
     }
@@ -298,6 +306,7 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
   }, [modelId, error, loading, sendMessage]);
 
   const handleStop = useCallback(() => {
+    userCancelledRef.current = true;
     abortRef.current?.abort();
     setLoading(false);
     abortRef.current = null;
@@ -366,8 +375,10 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
       dragRef.current = null;
       document.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerup', onUp);
+      dragListenersRef.current = null;
     };
 
+    dragListenersRef.current = { move: onMove, up: onUp };
     document.addEventListener('pointermove', onMove);
     document.addEventListener('pointerup', onUp);
   };
@@ -397,11 +408,31 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
       resizeRef.current = null;
       document.removeEventListener('pointermove', onMove);
       document.removeEventListener('pointerup', onUp);
+      resizeListenersRef.current = null;
     };
 
+    resizeListenersRef.current = { move: onMove, up: onUp };
     document.addEventListener('pointermove', onMove);
     document.addEventListener('pointerup', onUp);
   };
+
+  // Clean up document listeners if panel unmounts mid-drag/resize
+  useEffect(() => {
+    return () => {
+      const d = dragListenersRef.current;
+      if (d) {
+        document.removeEventListener('pointermove', d.move);
+        document.removeEventListener('pointerup', d.up);
+        dragListenersRef.current = null;
+      }
+      const r = resizeListenersRef.current;
+      if (r) {
+        document.removeEventListener('pointermove', r.move);
+        document.removeEventListener('pointerup', r.up);
+        resizeListenersRef.current = null;
+      }
+    };
+  }, []);
 
   const stopDragPropagation = (e: React.PointerEvent) => {
     e.stopPropagation();
