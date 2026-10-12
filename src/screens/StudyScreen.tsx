@@ -461,7 +461,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.idiomGroups && topic.idiomGroups.length > 0 && (
           <IdiomGroupsBlock groups={topic.idiomGroups} expandedGroups={expandedGroups} onToggleGroup={toggleSet(setExpandedGroups)} />
         )}
-        {topic.formula && (() => { const formulas = Array.isArray(topic.formula) ? topic.formula : [topic.formula]; return formulas.map((f, fi) => (
+        {(() => { const raw = topic.formula ?? (topic as Topic & { formulas?: typeof topic.formula }).formulas; if (!raw) return null; const formulas = Array.isArray(raw) ? raw : [raw]; return formulas.map((f, fi) => (
           <Card key={fi} className="p-5 bg-slate-900">
             <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
             <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
@@ -481,7 +481,8 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.comparisonTableEras && <ComparisonTableBlock table={topic.comparisonTableEras} />}
         {topic.comparisonTableEras2 && <ComparisonTableBlock table={topic.comparisonTableEras2} />}
         {topic.comparisonTableHazards && <ComparisonTableBlock table={topic.comparisonTableHazards} />}
-        {topic.workedExample && (() => { const examples = Array.isArray(topic.workedExample) ? topic.workedExample : [topic.workedExample]; return examples.map((ex, ei) => (
+        {(topic as Topic & { comparisonTables?: ComparisonTableType[] }).comparisonTables?.map((t, i) => <ComparisonTableBlock key={`ct-plural-${i}`} table={t} />)}
+        {(() => { const rawEx = topic.workedExample ?? (topic as Topic & { workedExamples?: typeof topic.workedExample }).workedExamples; if (!rawEx) return null; const examples = Array.isArray(rawEx) ? rawEx : [rawEx]; return examples.map((ex, ei) => (
           <Card key={ei} className="p-5 border-l-4 border-l-emerald-500 bg-emerald-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-emerald-700 font-semibold text-sm uppercase tracking-wide">Worked Example{examples.length > 1 ? ` ${ei + 1}` : ''}</span></div>
             <div className="space-y-3">
@@ -542,6 +543,24 @@ export function TopicScreen({ topicId }: { topicId: string }) {
               </Card>
             );
           }
+          const tc = chooser as { title?: string; root?: string; branches?: Array<{ condition: string; result?: string; branches?: any[] }> };
+          if (tc.branches) {
+            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: any[] }>, depth: number) =>
+              branches.map((b, i) => (
+                <li key={`${depth}-${i}`} className={depth > 0 ? 'pl-4' : ''}>
+                  <span className="font-medium text-sky-800">{b.condition}</span>
+                  {b.result && <span className="text-slate-700"> → <MathText text={b.result} /></span>}
+                  {b.branches && <ul className="space-y-1 mt-1 pl-4 border-l border-sky-200">{renderBranches(b.branches, depth + 1)}</ul>}
+                </li>
+              ));
+            return (
+              <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+                <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{tc.title ?? 'Which method / equation?'}</h3>
+                {tc.root && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={tc.root} /></p>}
+                <ul className="space-y-2">{renderBranches(tc.branches, 0)}</ul>
+              </Card>
+            );
+          }
           const mc = chooser as MethodChooser;
           if (!mc.options?.length) return null;
           return (
@@ -593,7 +612,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <div className="space-y-4">
               {topic.misconceptionRemediation.map((m, i) => (
                 <div key={i} className="space-y-1">
-                  <p className="text-sm font-medium text-amber-900"><XCircle className="inline w-3.5 h-3.5 text-danger-500 -mt-0.5 mr-1" /><MathText text={m.misconception} /></p>
+                  <p className="text-sm font-medium text-amber-900"><XCircle className="inline w-3.5 h-3.5 text-danger-500 -mt-0.5 mr-1" /><MathText text={m.misconception ?? (m as { name?: string }).name} /></p>
                   {m.whyStudentsThinkIt && <p className="text-xs text-slate-600 leading-relaxed"><span className="font-medium">Why it feels right: </span><MathText text={m.whyStudentsThinkIt} /></p>}
                   {m.correctModel && <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Correct model: </span><MathText text={m.correctModel} /></p>}
                   {m.remedy && <p className="text-sm text-slate-800 leading-relaxed"><span className="font-medium text-emerald-700">Remedy: </span><MathText text={m.remedy} /></p>}
@@ -609,9 +628,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             <div className="space-y-4">
               {topic.qualitativeScenarios.map((q, i) => (
                 <div key={i} className="space-y-1">
-                  <p className="text-sm font-medium text-slate-900"><MathText text={q.scenario} /></p>
+                  <p className="text-sm font-medium text-slate-900"><MathText text={q.scenario ?? (q as { question?: string }).question} /></p>
                   <p className="text-sm text-violet-800"><span className="font-medium">Answer: </span><MathText text={q.answer} /></p>
-                  <p className="text-xs text-slate-600 leading-relaxed"><MathText text={q.why} /></p>
+                  <p className="text-xs text-slate-600 leading-relaxed"><MathText text={q.why ?? (q as { reasoning?: string }).reasoning} /></p>
                 </div>
               ))}
             </div>
@@ -869,7 +888,9 @@ function VocabularyGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   expandedGroups: Set<number>;
   onToggleGroup: (index: number) => void;
 }) {
-  const validGroups = groups.filter((g) => g.words.length > 0);
+  const validGroups = groups
+    .map((g) => ({ ...g, words: g.words ?? (g as { cards?: typeof g.words }).cards ?? [] }))
+    .filter((g) => g.words.length > 0);
 
   return (
     <Card className="p-5">
@@ -1275,7 +1296,7 @@ function QuantFormulasBlock({ formulas }: { formulas: QuantFormulaEntry[] }) {
           <div key={fi} className="py-2">
             <p className="text-sky-300 text-sm font-medium mb-1">{f.name}</p>
             <p className="text-sky-200 text-lg font-mono text-center py-2 bg-slate-800 rounded-xl"><MathText text={`$${f.expression}$`} /></p>
-            {f.note && <p className="text-slate-400 text-xs mt-1">{f.note}</p>}
+            {(f.note ?? (f as { notes?: string }).notes) && <p className="text-slate-400 text-xs mt-1">{f.note ?? (f as { notes?: string }).notes}</p>}
           </div>
         ))}
       </div>
