@@ -1,7 +1,7 @@
 import {
   RefreshCw,
   Trash2, Library, Flame, TrendingUp, BookOpen, Brain, Target,
-  Check, CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
+  CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
   Download, Share,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
