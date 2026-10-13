@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit",
     "validate:data": "tsx scripts/validate-question-bank.ts",
     "check": "npm run lint && npm run validate:data && npm test && npm run typecheck && npm run build",
-    "test": "tsx --test src/lib/__tests__/*.test.ts src/router/__tests__/*.test.ts",
+    "test": "tsx --tsconfig tsconfig.app.json --test src/lib/__tests__/*.test.ts src/router/__tests__/*.test.ts",
     "lint": "eslint \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,mjs}\" \"*.config.js\" \"vite.config.ts\" --max-warnings=15"
   },
   "devDependencies": {
