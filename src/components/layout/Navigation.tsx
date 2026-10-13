@@ -303,6 +303,7 @@ export function MobileNav() {
             const active = currentScreen === item.screen;
             const Icon = item.icon;
             const isHat = item.screen === 'hat';
+            const isFpsc = item.screen === 'fpsc';
             const activeColor = isHat ? getTrackStyle('hat').accent : getTrackStyle('fpsc').accent;
             return (
               <button

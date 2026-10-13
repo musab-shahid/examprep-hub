@@ -83,9 +83,7 @@ function serializeMethodChooser(mc: MethodChooser | MethodChooserStep[]): string
   }
   if (mc.options?.length) {
     for (const opt of mc.options) {
-      const optName = opt.name ?? (opt as { answer?: string }).answer ?? '';
-      const optWhen = opt.when ?? (opt as { condition?: string }).condition;
-      lines.push(`- ${optName}${optWhen ? ` (when: ${optWhen})` : ''}`);
+      lines.push(`- ${opt.name || ''}${opt.when ? ` (when: ${opt.when})` : ''}`);
       if (opt.steps?.length) lines.push(`  Steps: ${opt.steps.join('; ')}`);
     }
   }
@@ -96,15 +94,15 @@ function serializeMethodChooser(mc: MethodChooser | MethodChooserStep[]): string
 function serializeLimitCases(cases: LimitCase[]): string {
   return cases.map((lc) => {
     if (lc.condition) {
-      return `- ${lc.condition} → ${lc.result || ''}${lc.physicalMeaning ? ` (${lc.physicalMeaning})` : ''}${lc.note ? ` (note: ${lc.note})` : ''}`;
+      return `- ${lc.condition} → ${lc.result || ''}${lc.physicalMeaning ? ` (${lc.physicalMeaning})` : ''}`;
     }
-    return `- ${lc.case || ''}: ${lc.example || ''} → ${lc.resolution || ''}${lc.note ? ` (note: ${lc.note})` : ''}`;
+    return `- ${lc.case || ''}: ${lc.example || ''} → ${lc.resolution || ''}`;
   }).join('\n');
 }
 
 function serializeComparisonTable(table: ComparisonTable): string {
   const headers = table.headers || [];
-  const rows = (table.rows ?? []).map((row) => {
+  const rows = table.rows.map((row) => {
     if (Array.isArray(row)) return row;
     return headers.map((h) => row[h] || '');
   });
@@ -166,8 +164,7 @@ export function buildTopicContext(topic: Topic): string {
   if (topic.misconceptionRemediation?.length) {
     const items = topic.misconceptionRemediation.map((m) => {
       const lines = [`- Misconception: ${m.misconception}`];
-      const whyText = m.whyStudentsThinkIt ?? (m as { whyStudentsThinkSo?: string }).whyStudentsThinkSo;
-      if (whyText) lines.push(`  Why it seems right: ${clip(whyText, 300)}`);
+      if (m.whyStudentsThinkIt) lines.push(`  Why it seems right: ${clip(m.whyStudentsThinkIt, 300)}`);
       if (m.correctModel) lines.push(`  Correct model: ${clip(m.correctModel, 400)}`);
       if (m.remedy) lines.push(`  Remedy: ${clip(m.remedy, 400)}`);
       if (m.drill) lines.push(`  Drill: ${clip(m.drill, 300)}`);
@@ -178,7 +175,7 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.qualitativeScenarios?.length) {
     const items = topic.qualitativeScenarios.map((q) =>
-      `- Scenario: ${q.scenario ?? (q as { question?: string }).question ?? ''}\n  Answer: ${q.answer ?? ''}\n  Why: ${clip(q.why ?? (q as { reasoning?: string }).reasoning, 300)}`,
+      `- Scenario: ${q.scenario ?? (q as { question?: string }).question}\n  Answer: ${q.answer}\n  Why: ${clip(q.why ?? (q as { reasoning?: string }).reasoning, 300)}`,
     );
     parts.push('Think it through:\n' + items.join('\n'));
   }
@@ -1058,8 +1055,7 @@ export async function askTutor(
       clearTimeout(timeoutId);
       throw new DOMException('The operation was aborted.', 'AbortError');
     }
-    const onAbort = () => controller.abort();
-    signal.addEventListener('abort', onAbort, { once: true });
+    signal.addEventListener('abort', () => controller.abort(), { once: true });
   }
 
   try {
@@ -1101,6 +1097,5 @@ export async function askTutor(
     throw err;
   } finally {
     clearTimeout(timeoutId);
-    if (signal) signal.removeEventListener('abort', onAbort);
   }
 }

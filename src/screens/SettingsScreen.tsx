@@ -1,7 +1,7 @@
 import {
   RefreshCw,
   Trash2, Library, Flame, TrendingUp, BookOpen, Brain, Target,
-  CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
+  Check, CheckCircle2, Minus, AlertTriangle, FileText, Database, Info,
   Download, Share,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
@@ -366,7 +366,7 @@ export function SettingsScreen() {
                       </span>
                       <span className="flex items-center justify-center">
                         {selected
-                          ? <CheckCircle2 className="w-4 h-4 text-sky-600" />
+                          ? <Check className="w-4 h-4 text-sky-600" />
                           : <Minus className="w-4 h-4 text-slate-300" />}
                       </span>
                     </button>

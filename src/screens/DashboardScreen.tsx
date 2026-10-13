@@ -340,7 +340,7 @@ export function DashboardScreen() {
                     {hasContent ? (
                       <>
                         <div className="mb-1.5">
-                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} ariaLabel={`${studiedPct}% of topics studied`} />
+                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} />
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className={color.text}>{studiedPct}%</span>

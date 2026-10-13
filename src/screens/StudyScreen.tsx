@@ -5,15 +5,13 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
-import { subjectMap, subjectsByTrack } from '@/data/subjects';
+import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
 import { topicsBySection, getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
 import { MathText } from '@/components/MathText';
-
-type MethodBranch = { condition: string; result?: string; branches?: MethodBranch[] };
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
@@ -103,7 +101,7 @@ export function StudyScreen() {
                       <span className="text-slate-500 text-xs">{topics.length} topics</span>
                       <span className={`text-xs font-medium ${color.text}`}>{studied}/{topics.length} studied</span>
                     </div>
-                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} ariaLabel={`${studied} of ${topics.length} topics studied`} /></div>
+                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} /></div>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
                 </button>
@@ -467,476 +465,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           <Card key={fi} className="p-5 bg-slate-900">
             <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
             <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
-            <div className="space-y-1.5">{(f.variables ?? []).map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`${v.symbol}import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronLeft, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
-import { useRouter } from '@/router';
-import { useSubjectData } from '@/hooks/useSubjectData';
-import { useSubjectSelection } from '@/contexts/subject-selection-context';
-import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
-import { useData } from '@/hooks/useData';
-import { subjectMap, subjectsByTrack } from '@/data/subjects';
-import { topicsBySection, getTopic } from '@/data/topics';
-import { sectionMap } from '@/data/sections';
-import { SectionBadge } from '@/components/SectionBadge';
-import { getSubjectColor } from '@/data/subject-colors';
-import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
-import { MathText } from '@/components/MathText';
-
-type MethodBranch = { condition: string; result?: string; branches?: MethodBranch[] };
-import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { getTopicAsync } from '@/data/topics';
-import { loadQuestionsForTopic } from '@/data/lazy-data';
-import type { SubjectId, Topic, Question, MethodChooser, ComparisonTable as ComparisonTableType } from '@/types';
-import { AiTutorChat } from '@/components/AiTutorChat';
-import { buildTopicContext, buildStudentContext, consumePendingExplain } from '@/lib/ai-tutor';
-import { isTopicMastered } from '@/lib/attention';
-import { getTopicStatusFromProgress } from '@/lib/constants';
-
-// ---- Learn Landing ----
-export function StudyScreen() {
-  const { navigate } = useRouter();
-  const sd = useSubjectData();
-  const { getActiveSubject, setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
-  const { data } = useData();
-
-  const activeSubject = getActiveSubject('learn');
-  const isAllSubjects = activeSubject === 'all';
-  const subjectId = isAllSubjects ? 'all' : (activeSubject as SubjectId);
-
-  const subjectSections = isAllSubjects ? [] : sd.sectionsFor(subjectId);
-  const subjectTopics = sd.topicsFor(subjectId);
-  const hasContent = isAllSubjects || subjectTopics.length > 0;
-  const subjectTitle = isAllSubjects ? 'All Subjects' : (subjectMap[subjectId]?.title ?? 'Subject');
-
-  const handleSubjectChange = (value: SubjectFilterValue) => {
-    setActiveSubjectForScreen('learn', value);
-  };
-
-  // Continue Learning logic
-  const continueTopic = useMemo(() => {
-    if (isAllSubjects || !hasContent) return null;
-    if (data.lastOpenedTopic) {
-      const t = getTopic(data.lastOpenedTopic);
-      if (t && subjectTopics.some((st) => st.id === t.id) && !data.studiedTopics.includes(t.id)) {
-        return t;
-      }
-    }
-    const inProgress = subjectTopics
-      .filter((t) => {
-        const p = data.topicProgress[t.id];
-        const studied = data.studiedTopics.includes(t.id);
-        return getTopicStatusFromProgress(studied, p) === 'studied';
-      })
-      .sort((a, b) => {
-        const aTime = data.topicProgress[a.id]?.lastStudied ? new Date(data.topicProgress[a.id]!.lastStudied!).getTime() : 0;
-        const bTime = data.topicProgress[b.id]?.lastStudied ? new Date(data.topicProgress[b.id]!.lastStudied!).getTime() : 0;
-        return bTime - aTime;
-      });
-    if (inProgress.length > 0) return inProgress[0];
-    const notStarted = subjectTopics.find((t) => !data.studiedTopics.includes(t.id));
-    if (notStarted) return notStarted;
-    return null;
-  }, [isAllSubjects, hasContent, data.lastOpenedTopic, data.topicProgress, data.studiedTopics, subjectTopics]);
-
-  // Accordion state
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
-
-  // All subjects view
-  if (isAllSubjects) {
-    const trackSubjects = subjectsByTrack(activeTrack);
-    const subjectsWithContent = trackSubjects.filter((s) => sd.topicsFor(s.id as SubjectId).length > 0);
-    return (
-      <PageContainer>
-        <div className="mb-2">
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Learn</h1>
-        </div>
-        <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
-        <div className="mb-6">
-          <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
-        </div>
-        <div className="space-y-3">
-          {subjectsWithContent.map((subject) => {
-            const topics = sd.topicsFor(subject.id as SubjectId);
-            const studied = topics.filter((t) => data.studiedTopics.includes(t.id)).length;
-            const color = getSubjectColor(subject.id);
-            const Icon = subject.lucideIcon;
-            return (
-              <Card key={subject.id} className="p-4">
-                <button onClick={() => handleSubjectChange(subject.id as SubjectId)} className="w-full flex items-center gap-4 text-left">
-                  <div className={`w-12 h-12 rounded-xl ${color.tint} flex items-center justify-center shrink-0`}>
-                    {Icon && <Icon className={`w-6 h-6 ${color.text}`} />}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className={`font-semibold text-sm sm:text-base truncate ${color.text}`}>{subject.title}</p>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span className="text-slate-500 text-xs">{topics.length} topics</span>
-                      <span className={`text-xs font-medium ${color.text}`}>{studied}/{topics.length} studied</span>
-                    </div>
-                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} ariaLabel={`${studied} of ${topics.length} topics studied`} /></div>
-                  </div>
-                  <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
-                </button>
-              </Card>
-            );
-          })}
-        </div>
-      </PageContainer>
-    );
-  }
-
-  return (
-    <PageContainer>
-      <div className="mb-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Learn</h1>
-      </div>
-      <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
-
-      <div className="mb-6">
-        <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
-      </div>
-
-      {!hasContent ? (
-        <Card className="p-8">
-          <EmptyState title={`No content for ${subjectTitle} yet`} message="Try selecting a different subject or use All Subjects." icon={<GraduationCap className="w-12 h-12" />} />
-        </Card>
-      ) : (
-        <>
-          {/* Continue Learning card */}
-          {continueTopic && (() => {
-            const contColor = getSubjectColor(subjectId as string);
-            return (
-            <ActionCard className="mb-6" borderColorClass={contColor.borderLeft}>
-              <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${contColor.text}`}>Continue Learning</p>
-              <p className="text-lg font-bold text-slate-900 mb-1">{continueTopic.title}</p>
-              <p className="text-slate-500 text-sm mb-1">Section: {sectionMap[continueTopic.sectionId]?.title ?? continueTopic.sectionId}</p>
-              <p className="text-slate-400 text-xs mb-4">
-                {data.studiedTopics.includes(continueTopic.id) ? '100% read' : '0% read'}
-              </p>
-              <button
-                onClick={() => navigate({ screen: 'topic', topicId: continueTopic.id })}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl ${contColor.bar} text-white text-sm font-semibold hover:opacity-90 transition-opacity`}
-              >
-                Continue Reading <ArrowRight className="w-4 h-4" />
-              </button>
-            </ActionCard>
-            );
-          })()}
-
-          {/* Featured links */}
-          {subjectId === 'meteo-climatology' && (
-            <button
-              onClick={() => navigate({ screen: 'section', sectionId: 'METEO-09' })}
-              className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 text-white hover:from-sky-600 hover:to-sky-700 transition-colors text-left mb-4"
-            >
-              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0"><Map className="w-6 h-6 text-white" /></div>
-              <div className="flex-1">
-                <p className="font-semibold text-lg">Pakistan Climate</p>
-                <p className="text-sky-100 text-sm">7 topics covering climate zones, monsoon patterns, and climate change</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-white/70 shrink-0" />
-            </button>
-          )}
-
-          <div className={`grid gap-3 mb-6 ${subjectId === 'meteo-climatology' ? 'grid-cols-2' : 'grid-cols-1'}`}>
-            <button onClick={() => navigate({ screen: 'formulas' })} className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 transition-colors text-left">
-              <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0"><Calculator className="w-5 h-5 text-slate-700" /></div>
-              <div className="min-w-0"><p className="font-semibold text-slate-900 text-sm">Formula Vault</p><p className="text-slate-500 text-xs">All formulas in {subjectTitle}</p></div>
-            </button>
-            {subjectId === 'meteo-climatology' && (
-              <button onClick={() => navigate({ screen: 'cloud-atlas' })} className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 transition-colors text-left">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0"><Cloud className="w-5 h-5 text-slate-700" /></div>
-                <div className="min-w-0"><p className="font-semibold text-slate-900 text-sm">Cloud Atlas</p><p className="text-slate-500 text-xs">10 cloud genera</p></div>
-              </button>
-            )}
-          </div>
-
-          {/* Sections accordion */}
-          <Card className="p-5 mb-6">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-slate-900">Sections</h3>
-              <span className="text-slate-400 text-sm">{subjectSections.length}</span>
-            </div>
-            <div className="space-y-2">
-              {subjectSections.map((section) => {
-                const sectionTopics = topicsBySection(section.id);
-                const studiedInSection = sectionTopics.filter((t) => data.studiedTopics.includes(t.id)).length;
-                const masteredInSection = sectionTopics.filter((t) => {
-                  const p = data.topicProgress[t.id];
-                  const studied = data.studiedTopics.includes(t.id);
-                  return getTopicStatusFromProgress(studied, p) === 'mastered';
-                }).length;
-                const isExpanded = expandedSection === section.id;
-                return (
-                  <div key={section.id}>
-                    <button
-                      onClick={() => setExpandedSection(isExpanded ? null : section.id)}
-                      className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors text-left"
-                    >
-                      <SectionBadge section={section} />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-slate-900 text-sm truncate">{section.title}</p>
-                        <p className="text-slate-500 text-xs mt-0.5">{section.topicCount} topics · {studiedInSection} studied · {masteredInSection} mastered</p>
-                      </div>
-                      {isExpanded ? <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" /> : <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />}
-                    </button>
-                    {isExpanded && (
-                      <div className="ml-12 pl-3 pr-1 py-1 space-y-1">
-                        {sectionTopics.map((topic) => {
-                          const p = data.topicProgress[topic.id];
-                          const studied = data.studiedTopics.includes(topic.id);
-                          const status = getTopicStatusFromProgress(studied, p);
-                          const statusLabel = status === 'mastered' ? 'mastered' : status === 'studied' ? 'studied' : 'not started';
-                          return (
-                            <button
-                              key={topic.id}
-                              onClick={() => navigate({ screen: 'topic', topicId: topic.id })}
-                              className="w-full flex items-center gap-3 p-2.5 rounded-lg hover:bg-slate-50 transition-colors text-left"
-                            >
-                              <TopicStatusIcon status={status} />
-                              <span className="text-slate-700 text-sm font-medium truncate flex-1">{topic.title}</span>
-                              {topic.postRestriction === 'bs17' && (
-                                <span className="text-xs font-medium px-2 py-0.5 rounded bg-amber-100 text-amber-700 border border-amber-200 shrink-0">BS-17</span>
-                              )}
-                              <span className="text-slate-400 text-xs shrink-0">{statusLabel}</span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </Card>
-
-          {/* Stats footer */}
-          <p className="text-slate-500 text-sm text-center">
-            {subjectTopics.filter((t) => data.studiedTopics.includes(t.id)).length} / {subjectTopics.length} topics studied · {subjectTopics.length > 0 ? Math.round((subjectTopics.filter((t) => data.studiedTopics.includes(t.id)).length / subjectTopics.length) * 100) : 0}% complete
-          </p>
-        </>
-      )}
-    </PageContainer>
-  );
-}
-
-// ---- Section → Topic List ----
-export function SectionScreen({ sectionId }: { sectionId: string }) {
-  const { navigate } = useRouter();
-  const { data } = useData();
-  const section = sectionMap[sectionId];
-  const sectionTopics = topicsBySection(sectionId);
-
-  if (!section) {
-    return (
-      <PageContainer>
-        <BackButton />
-        <EmptyState
-          title="Section not found"
-          message="This section does not exist or was removed."
-          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
-        />
-      </PageContainer>
-    );
-  }
-
-  return (
-    <PageContainer>
-      <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-1">
-          <SectionBadge section={section} />
-        </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">{section.title}</h1>
-        <p className="text-slate-500 mt-1">{section.topicCount} topics</p>
-      </div>
-      <div className="space-y-2">
-        {sectionTopics.map((topic) => {
-          const prog = data.topicProgress[topic.id];
-          const studied = data.studiedTopics.includes(topic.id);
-          const status = getTopicStatusFromProgress(studied, prog);
-          return (
-            <Card key={topic.id} className="p-0">
-              <button onClick={() => navigate({ screen: 'topic', topicId: topic.id })} className="w-full flex items-center gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl">
-                <span className="text-slate-400 text-xs font-bold w-6 shrink-0">{topic.order}</span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-medium text-slate-900 text-sm sm:text-base truncate">{topic.title}</p>
-                  {topic.content ? <span className="text-success-600 text-xs font-medium">Content available</span> : <span className="text-slate-400 text-xs">Content coming soon</span>}
-                </div>
-                <TopicStatusIcon status={status} />
-                <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
-              </button>
-            </Card>
-          );
-        })}
-      </div>
-    </PageContainer>
-  );
-}
-
-// ---- Topic Reader ----
-export function TopicScreen({ topicId }: { topicId: string }) {
-  const { navigate } = useRouter();
-  const { data, markStudied, setLastTopic } = useData();
-  const meta = getTopic(topicId);
-  const [topic, setTopic] = useState<Topic | undefined>(meta);
-  const [topicQuestions, setTopicQuestions] = useState<Question[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [loadError, setLoadError] = useState(false);
-  const [expandedGroups, setExpandedGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedSubGroups, setExpandedSubGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedVocabGroups, setExpandedVocabGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedPrefixGroups, setExpandedPrefixGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedSuffixGroups, setExpandedSuffixGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedRootGroups, setExpandedRootGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedGrammarGroups, setExpandedGrammarGroups] = useState<Set<number>>(new Set([0]));
-  const [expandedSubtopics, setExpandedSubtopics] = useState<Set<number>>(new Set([0]));
-  const [pendingExplain, setPendingExplain] = useState<string | null>(null);
-  const [autoOpenTutor, setAutoOpenTutor] = useState(false);
-
-  useEffect(() => { window.scrollTo(0, 0); }, [topicId]);
-
-  // Consume one-shot "explain my mistake" payload from quiz results
-  useEffect(() => {
-    const payload = consumePendingExplain(topicId);
-    if (payload?.message) {
-      setPendingExplain(payload.message);
-      setAutoOpenTutor(true);
-    } else {
-      setPendingExplain(null);
-      setAutoOpenTutor(false);
-    }
-  }, [topicId]);
-
-  useEffect(() => { setLastTopic(topicId); }, [topicId, setLastTopic]);
-
-  const toggleSet = (setter: React.Dispatch<React.SetStateAction<Set<number>>>) => (idx: number) => {
-    setter((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx);
-      else next.add(idx);
-      return next;
-    });
-  };
-
-  useEffect(() => {
-    let cancelled = false;
-    setLoading(true);
-    setLoadError(false);
-    getTopicAsync(topicId).then((t) => {
-      if (cancelled) return;
-      setTopic(t);
-      setLoading(false);
-      if (t?.content) {
-        loadQuestionsForTopic(topicId).then((qs) => {
-          if (!cancelled) setTopicQuestions(qs);
-        }).catch(() => {});
-      }
-    }).catch(() => {
-      if (cancelled) return;
-      setLoadError(true);
-      setLoading(false);
-    });
-    return () => { cancelled = true; };
-  }, [topicId]);
-
-  if (loading) return <PageContainer><LoadingSpinner label="Loading topic…" /></PageContainer>;
-  if (loadError) return (
-    <PageContainer>
-      <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <Card className="p-8">
-        <EmptyState title="Failed to load" message="Something went wrong while loading this topic." icon={<AlertTriangle className="w-12 h-12" />} />
-        <div className="flex justify-center mt-4">
-          <Button onClick={() => window.location.reload()}>Retry</Button>
-        </div>
-      </Card>
-    </PageContainer>
-  );
-  if (!topic) {
-    return (
-      <PageContainer>
-        <BackButton />
-        <EmptyState
-          title="Topic not found"
-          message="This topic does not exist or was removed."
-          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
-        />
-      </PageContainer>
-    );
-  }
-
-  const isStudied = data.studiedTopics.includes(topicId);
-
-  if (!topic.content) {
-    return (
-      <PageContainer>
-        <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-        <div className="mb-4">
-          <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{topic.title}</h1>
-        </div>
-        <Card className="p-8">
-          <EmptyState title="Content Coming Soon" message="This topic hasn't been authored yet." icon={<BookOpen className="w-12 h-12" />} />
-          <div className="flex justify-center mt-4">
-            <Button variant="secondary" onClick={() => navigate({ screen: 'section', sectionId: topic.sectionId })}>Back to Section</Button>
-          </div>
-        </Card>
-      </PageContainer>
-    );
-  }
-
-  return (
-    <PageContainer>
-      <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
-        <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{topic.title}</h1>
-        {isStudied && <span className="inline-flex items-center gap-1 text-success-600 text-sm font-medium mt-2"><BookOpen className="w-4 h-4" /> Studied</span>}
-      </div>
-      <div className="space-y-4">
-        {topic.definition && (
-          <Card className="p-5 border-l-4 border-l-sky-500">
-            <div className="flex items-center gap-2 mb-2"><BookOpen className="w-4 h-4 text-sky-500" /><h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Definition</h3></div>
-            <p className="text-slate-700 text-base leading-relaxed"><MathText text={topic.definition} /></p>
-          </Card>
-        )}
-        {topic.keyFacts && topic.keyFacts.length > 0 && (
-          <Card className="p-5">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Key Facts</h3>
-            <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" /><MathText text={fact} /></li>)}</ul>
-          </Card>
-        )}
-        {topic.explanationSections && topic.explanationSections.map((sec, i) => (
-          <Card key={i} className="p-5"><h3 className="font-semibold text-slate-900 mb-2">{sec.heading}</h3><p className="text-slate-700 text-base leading-relaxed"><MathText text={sec.body} /></p></Card>
-        ))}
-        {(topic as Topic & { subtopics?: unknown[] }).subtopics && (topic as Topic & { subtopics?: unknown[] }).subtopics!.length > 0 && (
-          <SubtopicsBlock subtopics={(topic as Topic & { subtopics?: QuantSubtopic[] }).subtopics!} expandedGroups={expandedSubtopics} onToggleGroup={toggleSet(setExpandedSubtopics)} />
-        )}
-        {topic.vocabularyGroups && topic.vocabularyGroups.length > 0 && (
-          <VocabularyGroupsBlock groups={topic.vocabularyGroups} expandedGroups={expandedVocabGroups} onToggleGroup={toggleSet(setExpandedVocabGroups)} />
-        )}
-        {topic.prefixGroups && topic.prefixGroups.length > 0 && (
-          <PrefixGroupsBlock groups={topic.prefixGroups} expandedGroups={expandedPrefixGroups} onToggleGroup={toggleSet(setExpandedPrefixGroups)} />
-        )}
-        {topic.suffixGroups && topic.suffixGroups.length > 0 && (
-          <SuffixGroupsBlock groups={topic.suffixGroups} expandedGroups={expandedSuffixGroups} onToggleGroup={toggleSet(setExpandedSuffixGroups)} />
-        )}
-        {topic.rootGroups && topic.rootGroups.length > 0 && (
-          <RootGroupsBlock groups={topic.rootGroups} expandedGroups={expandedRootGroups} onToggleGroup={toggleSet(setExpandedRootGroups)} />
-        )}
-        {topic.grammarRules && topic.grammarRules.length > 0 && (
-          <GrammarRulesBlock groups={topic.grammarRules} expandedGroups={expandedGrammarGroups} onToggleGroup={toggleSet(setExpandedGrammarGroups)} />
-        )}
-        {topic.substitutionGroups && topic.substitutionGroups.length > 0 && (
-          <SubstitutionGroupsBlock groups={topic.substitutionGroups} expandedGroups={expandedSubGroups} onToggleGroup={toggleSet(setExpandedSubGroups)} />
-        )}
-        {topic.idiomGroups && topic.idiomGroups.length > 0 && (
-          <IdiomGroupsBlock groups={topic.idiomGroups} expandedGroups={expandedGroups} onToggleGroup={toggleSet(setExpandedGroups)} />
-        )}
-        {(() => { const raw = topic.formula ?? (topic as Topic & { formulas?: typeof topic.formula }).formulas; if (!raw) return null; const formulas = Array.isArray(raw) ? raw : [raw]; return formulas.map((f, fi) => (
-          <Card key={fi} className="p-5 bg-slate-900">
-            <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
-            <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
-} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
+            <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`$${v.symbol}$`} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
           </Card>
         )); })()}
         {(topic as Topic & { quantFormulas?: unknown[] }).quantFormulas && (topic as Topic & { quantFormulas?: unknown[] }).quantFormulas!.length > 0 && (
@@ -1014,9 +543,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
               </Card>
             );
           }
-          const tc = chooser as { title?: string; root?: string; branches?: MethodBranch[] };
+          const tc = chooser as { title?: string; root?: string; branches?: Array<{ condition: string; result?: string; branches?: any[] }> };
           if (tc.branches) {
-            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: MethodBranch[] }>, depth: number) =>
+            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: any[] }>, depth: number) =>
               branches.map((b, i) => (
                 <li key={`${depth}-${i}`} className={depth > 0 ? 'pl-4' : ''}>
                   <span className="font-medium text-sky-800">{b.condition}</span>
@@ -1469,7 +998,7 @@ function PrefixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                         <p className="text-slate-900 text-sm font-semibold font-mono">{item.prefix}</p>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
                         <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {(item.examples ?? []).map((ex, ei) => (
+                          {item.examples.map((ex, ei) => (
                             <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">{ex}</span>
                           ))}
                         </div>
@@ -1531,7 +1060,7 @@ function SuffixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                         </div>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
                         <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {(item.examples ?? []).map((ex, ei) => (
+                          {item.examples.map((ex, ei) => (
                             <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">{ex}</span>
                           ))}
                         </div>
@@ -1587,7 +1116,7 @@ function RootGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                         <p className="text-slate-900 text-sm font-semibold font-mono">{item.root}</p>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
                         <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {(item.wordFamily ?? []).map((word, wi) => (
+                          {item.wordFamily.map((word, wi) => (
                             <span key={wi} className="text-xs font-medium px-2 py-0.5 rounded-full bg-orange-50 text-orange-700 border border-orange-200">{word}</span>
                           ))}
                         </div>
@@ -1712,8 +1241,8 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                   <p className="text-slate-500 text-xs mt-0.5">{sub.summary}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {(sub.examples ?? []).length > 0 && (
-                    <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums" title="Worked examples">{(sub.examples ?? []).length}</span>
+                  {sub.examples.length > 0 && (
+                    <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums" title="Worked examples">{sub.examples.length}</span>
                   )}
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
                 </div>
@@ -1722,10 +1251,10 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                 <div className="px-4 pb-4 pt-1 border-t border-amber-100">
                   <div className="space-y-3 mt-3">
                     <p className="text-slate-700 text-sm leading-relaxed whitespace-pre-line">{sub.explanation}</p>
-                    {(sub.examples ?? []).length > 0 && (
+                    {sub.examples.length > 0 && (
                       <div className="space-y-2">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Worked Examples</p>
-                        {(sub.examples ?? []).map((ex, ei) => (
+                        {sub.examples.map((ex, ei) => (
                           <div key={ei} className="pl-3 border-l-2 border-emerald-300">
                             <p className="text-slate-800 text-sm font-medium"><MathText text={ex.problem} /></p>
                             <p className="text-slate-600 text-sm mt-0.5"><MathText text={ex.solution} /></p>
@@ -1734,16 +1263,16 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                         ))}
                       </div>
                     )}
-                    {(sub.shortcuts ?? []).length > 0 && (
+                    {sub.shortcuts.length > 0 && (
                       <div className="rounded-lg bg-sky-50/60 p-3">
                         <div className="flex items-center gap-1.5 mb-1.5"><Lightbulb className="w-3.5 h-3.5 text-sky-600" /><span className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Key anchors</span></div>
-                        <ul className="space-y-1">{(sub.shortcuts ?? []).map((s, si2) => <li key={si2} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" /><MathText text={s} /></li>)}</ul>
+                        <ul className="space-y-1">{sub.shortcuts.map((s, si2) => <li key={si2} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" /><MathText text={s} /></li>)}</ul>
                       </div>
                     )}
-                    {(sub.traps ?? []).length > 0 && (
+                    {sub.traps.length > 0 && (
                       <div className="rounded-lg bg-rose-50/60 p-3">
                         <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-danger-600" /><span className="text-xs font-semibold text-danger-700 uppercase tracking-wide">Common pitfalls</span></div>
-                        <ul className="space-y-1">{(sub.traps ?? []).map((t, ti) => <li key={ti} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" /><MathText text={t} /></li>)}</ul>
+                        <ul className="space-y-1">{sub.traps.map((t, ti) => <li key={ti} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" /><MathText text={t} /></li>)}</ul>
                       </div>
                     )}
                   </div>

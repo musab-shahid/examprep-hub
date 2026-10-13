@@ -49,7 +49,7 @@ export function getNextSession(
   const sorted = [...sessions].sort(
     (a, b) => new Date(a.startsAtIso).getTime() - new Date(b.startsAtIso).getTime(),
   );
-  return sorted.find((s) => new Date(s.startsAtIso).getTime() > now.getTime()) ?? null;
+  return sorted.find((s) => new Date(s.startsAtIso).getTime() > now.getTime()) ?? sorted[0] ?? null;
 }
 
 export function hasUpcomingExam(sessions: ExamSession[], now: Date = new Date()): boolean {

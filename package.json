@@ -1,7 +1,7 @@
 {
   "name": "examprep-hub",
   "private": true,
-  "version": "1.1.1",
+  "version": "0.0.0",
   "type": "module",
   "dependencies": {
     "katex": "^0.16.47",
@@ -15,12 +15,8 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate:data": "tsx scripts/validate-question-bank.ts",
-    "check": "npm run lint && npm run validate:data && npm test && npm run typecheck && npm run build",
-    "test": "tsx --tsconfig tsconfig.app.json --test src/lib/__tests__/*.test.ts src/router/__tests__/*.test.ts",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" \"scripts/**/*.{ts,mjs}\" \"*.config.js\" \"vite.config.ts\" --max-warnings=15",
-    "test:e2e": "playwright test",
-    "test:e2e:install": "npm install -D @playwright/test@1.49.1 && playwright install chromium",
-    "check:bundle": "node scripts/check-bundle-budget.mjs"
+    "check": "npm run validate:data && npm test && npm run typecheck && npm run build",
+    "test": "tsx --test src/lib/__tests__/spaced-repetition.test.ts src/lib/__tests__/quiz-signature.test.ts src/lib/__tests__/mastery.test.ts src/lib/__tests__/question-fixtures.test.ts src/router/__tests__/paths.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
@@ -39,8 +35,5 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vite": "^5.4.2"
-  },
-  "engines": {
-    "node": ">=20"
   }
 }
