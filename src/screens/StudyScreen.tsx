@@ -659,21 +659,21 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             .filter((x) => x.topic && !isTopicMastered(x.id, data));
           if (unmastered.length === 0) return null;
           return (
-            <Card className="p-4 border-amber-200 bg-amber-50/60">
-              <h3 className="font-semibold text-amber-900 text-sm mb-1 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+            <Card className="p-3 border-amber-200 bg-amber-50/60">
+              <h3 className="font-semibold text-amber-900 text-xs mb-1 flex items-center gap-1.5">
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 Prerequisites not mastered yet
               </h3>
-              <p className="text-amber-800/80 text-xs mb-3">
-                Review these first so this topic sticks — the graph says they support what you are reading.
+              <p className="text-amber-800/70 text-[11px] mb-2">
+                Review these first so this topic sticks.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {unmastered.map(({ id, topic: pt }) => (
                   <button
                     key={id}
                     type="button"
                     onClick={() => navigate({ screen: 'topic', topicId: id })}
-                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-white border border-amber-200 text-amber-900 hover:bg-amber-100 transition-colors"
+                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-white border border-amber-200 text-amber-900 hover:bg-amber-100 transition-colors"
                   >
                     {pt!.title}
                   </button>
@@ -689,15 +689,15 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           if (topic.usedIn?.length) groups.push({ label: 'Used In', ids: topic.usedIn, chipClass: 'bg-amber-50 hover:bg-amber-100 text-amber-700' });
           if (groups.length === 0) return null;
           return (
-            <Card className="p-5">
-              <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Connected Topics</h3>
-              <div className="space-y-3">
+            <Card className="p-3">
+              <h3 className="font-semibold text-slate-500 text-xs uppercase tracking-wide mb-2">Connected Topics</h3>
+              <div className="space-y-2">
                 {groups.map((g) => (
                   <div key={g.label}>
-                    <p className="text-slate-400 text-xs font-medium mb-1.5">{g.label}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <p className="text-slate-400 text-[11px] font-medium mb-1">{g.label}</p>
+                    <div className="flex flex-wrap gap-1.5">
                       {g.ids.map((rid) => { const t = getTopic(rid); if (!t) return null; return (
-                        <button key={rid} onClick={() => navigate({ screen: 'topic', topicId: rid })} className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${g.chipClass}`}>{t.title}</button>
+                        <button key={rid} onClick={() => navigate({ screen: 'topic', topicId: rid })} className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${g.chipClass}`}>{t.title}</button>
                       ); })}
                     </div>
                   </div>

@@ -77,6 +77,8 @@ function saveMessages(topicKey: string, msgs: ChatMessage[]) {
 export function AiTutorChat({ topicId, topicTitle, topicContext, studentContext, initialMessage, autoOpen, onInitialMessageConsumed }: AiTutorChatProps) {
   const topicKey = topicId || topicTitle;
   const [isOpen, setIsOpen] = useState(Boolean(autoOpen));
+  const [fabPos, setFabPos] = useState<{ x: number; y: number } | null>(null);
+  const fabDragRef = useRef<{ startX: number; startY: number; origX: number; origY: number; moved: boolean } | null>(null);
   const initialSentRef = useRef(false);
   const isMistakeThreadRef = useRef(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -449,17 +451,64 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
   }
 
   if (!isOpen) {
+    const fabStyle: React.CSSProperties = fabPos
+      ? { left: fabPos.x, top: fabPos.y }
+      : { right: '1.5rem', bottom: '5rem' };
+    const handleFabPointerDown = (e: React.PointerEvent) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      const rect = btn.getBoundingClientRect();
+      const current = fabPos ?? { x: rect.left, y: rect.top };
+      fabDragRef.current = { startX: e.clientX, startY: e.clientY, origX: current.x, origY: current.y, moved: false };
+
+      const onMove = (ev: PointerEvent) => {
+        if (!fabDragRef.current) return;
+        const dx = ev.clientX - fabDragRef.current.startX;
+        const dy = ev.clientY - fabDragRef.current.startY;
+        if (Math.abs(dx) > 4 || Math.abs(dy) > 4) fabDragRef.current.moved = true;
+        const btnRect = btn.getBoundingClientRect();
+        let nx = fabDragRef.current.origX + dx;
+        let ny = fabDragRef.current.origY + dy;
+        const maxX = window.innerWidth - btnRect.width - 8;
+        const maxY = window.innerHeight - btnRect.height - 8;
+        nx = Math.max(8, Math.min(nx, maxX));
+        ny = Math.max(8, Math.min(ny, maxY));
+        setFabPos({ x: nx, y: ny });
+      };
+
+      const onUp = (ev: PointerEvent) => {
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        const wasDragged = fabDragRef.current?.moved ?? false;
+        fabDragRef.current = null;
+        if (wasDragged) {
+          // Suppress the click that follows pointerup after a drag
+          ev.preventDefault();
+          ev.stopPropagation();
+          btn.addEventListener('click', function suppress(clickEv) {
+            clickEv.preventDefault();
+            clickEv.stopPropagation();
+            btn.removeEventListener('click', suppress, true);
+          }, true);
+          return;
+        }
+        // It was a click, not a drag — open the panel
+        const w = Math.min(window.innerWidth - 24, 448);
+        const h = Math.min(window.innerHeight * 0.7, 500);
+        setPosition({ x: window.innerWidth - w - 24, y: window.innerHeight - h - 24 });
+        setIsOpen(true);
+      };
+
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+    };
+
     return (
       <button
-        onClick={() => {
-          const w = Math.min(window.innerWidth - 24, 448);
-          const h = Math.min(window.innerHeight * 0.7, 500);
-          setPosition({ x: window.innerWidth - w - 24, y: window.innerHeight - h - 24 });
-          setIsOpen(true);
-        }}
-        className="fixed bottom-20 right-6 z-[9999] flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-all"
+        onPointerDown={handleFabPointerDown}
+        className="fixed z-[9999] flex items-center gap-2 px-5 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold text-sm shadow-lg shadow-sky-500/30 hover:shadow-xl hover:shadow-sky-500/40 hover:scale-105 transition-transform touch-none select-none cursor-grab active:cursor-grabbing"
+        style={fabStyle}
       >
-        <Sparkles className="w-5 h-5" />
+        <Sparkles className="w-5 h-5 pointer-events-none" />
         Ask AI Tutor
       </button>
     );
