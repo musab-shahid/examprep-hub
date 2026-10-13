@@ -27,11 +27,12 @@ export function FormulaVaultScreen() {
     setActiveSubjectForScreen('formulas', value);
   };
 
+  const { ensureTopicsLoaded, formulasFor } = sd;
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setLoadError(false);
-    sd.ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
+    ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
       .then(() => {
         if (cancelled) return;
         setVaultTick((n) => n + 1);
@@ -39,20 +40,20 @@ export function FormulaVaultScreen() {
       })
       .catch(() => { if (!cancelled) { setLoading(false); setLoadError(true); } });
     return () => { cancelled = true; };
-  }, [isAllSubjects, activeSubject, sd]);
+  }, [isAllSubjects, activeSubject, ensureTopicsLoaded]);
 
   const scopedFormulas = useMemo(() => {
     if (loading) return [];
     if (isAllSubjects) return refreshFormulaVault();
-    return sd.formulasFor(activeSubject as SubjectId);
-  }, [isAllSubjects, activeSubject, sd, loading, vaultTick]);
+    return formulasFor(activeSubject as SubjectId);
+  }, [isAllSubjects, activeSubject, formulasFor, loading, vaultTick]);
 
   if (loadError) return (
     <PageContainer>
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading formulas. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
         <div className="flex justify-center mt-4">
-          <Button onClick={() => { setLoadError(false); setLoading(true); sd.ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
+          <Button onClick={() => { setLoadError(false); setLoading(true); ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
         </div>
       </Card>
     </PageContainer>

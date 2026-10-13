@@ -135,7 +135,7 @@ export function DashboardScreen() {
   );
   const startDailyReview = () => {
     if (dailyTopicIds.length === 0) {
-      navigate({ screen: 'practice', mode: 'quick', parent: null });
+      navigate({ screen: 'practice', mode: 'quick' });
       return;
     }
     navigate({
@@ -143,7 +143,6 @@ export function DashboardScreen() {
       mode: 'review',
       topicIds: dailyTopicIds,
       count: 8,
-      parent: null,
     });
   };
 
