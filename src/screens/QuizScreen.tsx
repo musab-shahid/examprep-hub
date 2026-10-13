@@ -800,7 +800,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             icon={<AlertTriangle className="w-12 h-12" />}
           />
           <div className="flex justify-center mt-4">
-            <Button variant="secondary" onClick={() => navigate({ screen: 'practice' })}>
+            <Button variant="secondary" onClick={() => navigate({ screen: 'practice', parent: null })}>
               Back to Practice
             </Button>
           </div>
@@ -881,7 +881,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             icon={<CheckCircle2 className="w-12 h-12" />}
           />
           <div className="flex justify-center mt-4">
-            <Button onClick={() => navigate({ screen: 'practice' })}>Back to Practice</Button>
+            <Button onClick={() => navigate({ screen: 'practice', parent: null })}>Back to Practice</Button>
           </div>
         </Card>
       </PageContainer>
@@ -894,9 +894,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         results={results}
         mode={mode}
         onRetry={handleRetry}
-        onNavigateToTopic={(tid) => navigate({ screen: 'topic', topicId: tid })}
+        onNavigateToTopic={(tid) => navigate({ screen: 'topic', topicId: tid, parent: null })}
         onPracticeTopic={(tid) => navigate({ screen: 'quiz', mode: 'topic', topicId: tid, count: 5 })}
-        onNavigateToProgress={() => navigate({ screen: 'progress' })}
+        onNavigateToProgress={() => navigate({ screen: 'progress', parent: null })}
         onBack={back}
       />
     );
