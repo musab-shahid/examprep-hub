@@ -103,7 +103,7 @@ export function StudyScreen() {
                       <span className="text-slate-500 text-xs">{topics.length} topics</span>
                       <span className={`text-xs font-medium ${color.text}`}>{studied}/{topics.length} studied</span>
                     </div>
-                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} /></div>
+                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} ariaLabel={`${studied} of ${topics.length} topics studied`} /></div>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
                 </button>

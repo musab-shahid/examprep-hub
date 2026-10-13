@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X, Sparkles } from 'lucide-react';
+import { CheckCircle2, XCircle, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X, Sparkles } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { buildMistakePrompt, isTutorAvailable, buildTopicContext, buildStudentContext } from '@/lib/ai-tutor';
@@ -725,7 +725,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
     lastTapRef.current = { idx, at: now };
     setState((prev) => (prev && !prev.checked ? { ...prev, selectedIndices: [idx] } : prev));
-  }, [handleCheck, handleNext]);
+  }, [handlehandleNext]);
 
   const handleExit = useCallback(() => {
     const s = stateRef.current;
@@ -784,7 +784,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [finished, showExitConfirm, showKeysHelp, handleCheck, handleNext, handleExit, toggleOption]);
+  }, [finished, showExitConfirm, showKeysHelp, handlehandleNext, handleExit, toggleOption]);
 
   // ── Early returns only AFTER all hooks ──
   const validationError = validateQuizParams({ mode, count, topicId, subjectId });
@@ -964,7 +964,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
             Only {state.questions.length} questions available for this mock (full mock targets 60). Continuing with the full available set.
           </p>
         )}
-        <ProgressBar value={state.answers.length} max={state.questions.length} color="sky" />
+        <ProgressBar value={state.answers.length} max={state.questions.length} color="sky" ariaLabel={`${state.answers.length} of ${state.questions.length} answered`} />
       </div>
 
       {/* Topic + difficulty + source citation */}
@@ -1043,7 +1043,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                       : 'bg-slate-100 text-slate-500'
                   }`}
                 >
-                  {currentQ.type === 'multi' ? (isSelected ? <Check className="w-3 h-3" /> : '') : String.fromCharCode(65 + idx)}
+                  {currentQ.type === 'multi' ? (isSelected ? <CheckCircle2 className="w-3.5 h-3.5" /> : '') : String.fromCharCode(65 + idx)}
                 </div>
                 <span className="text-slate-800 text-sm flex-1">{opt}</span>
                 {state.checked && isCorrectOption && <CheckCircle2 className="w-5 h-5 text-success-500 shrink-0" />}

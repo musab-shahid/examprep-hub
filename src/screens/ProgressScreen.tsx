@@ -192,7 +192,7 @@ return (
                         </div>
                         <span className="text-sm font-bold shrink-0 ml-2">{mScore}/100</span>
                       </div>
-                      <ProgressBar value={mScore} colorClass={color.bar} />
+                      <ProgressBar value={mScore} colorClass={color.bar} ariaLabel={`${mScore}% mastery`} />
                       <p className="text-slate-400 text-xs mt-0.5">{sStats.studiedTopics}/{sStats.totalTopics} topics · {sStats.accuracy}% accuracy</p>
                     </div>
                   );
@@ -215,7 +215,7 @@ return (
                         </div>
                         <span className="text-sm font-bold shrink-0 ml-2">{accuracy !== null ? `${accuracy}%` : '—'}</span>
                       </div>
-                      <ProgressBar value={accuracy ?? 0} color={accuracy === null ? 'sky' : accuracy >= 75 ? 'green' : accuracy >= 50 ? 'amber' : 'red'} />
+                      <ProgressBar value={accuracy ?? 0} color={accuracy === null ? 'sky' : accuracy >= 75 ? 'green' : accuracy >= 50 ? 'amber' : 'red'} ariaLabel={accuracy === null ? 'No accuracy data' : `${accuracy}% accuracy`} />
                       <p className="text-slate-400 text-xs mt-0.5">{studiedCount}/{section.topicCount} topics studied</p>
                     </div>
                   );

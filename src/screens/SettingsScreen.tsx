@@ -366,7 +366,7 @@ export function SettingsScreen() {
                       </span>
                       <span className="flex items-center justify-center">
                         {selected
-                          ? <Check className="w-4 h-4 text-sky-600" />
+                          ? <CheckCircle2 className="w-4 h-4 text-sky-600" />
                           : <Minus className="w-4 h-4 text-slate-300" />}
                       </span>
                     </button>
