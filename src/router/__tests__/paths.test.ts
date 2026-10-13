@@ -36,4 +36,23 @@ describe('Phase A path mapping', () => {
   it('unknown paths fall back to home', () => {
     assert.equal(pathToRoute('/not-a-real-page').screen, 'home');
   });
+
+  it('round-trips section and topic paths when ids resolve', () => {
+    const sectionPath = routeToPath({ screen: 'section', sectionId: 'METEO-01' });
+    assert.equal(sectionPath, '/section/METEO-01');
+    assert.equal(pathToRoute(sectionPath).screen, 'section');
+
+    const topicPath = routeToPath({ screen: 'topic', topicId: 'meteo-origin-evolution' });
+    assert.equal(topicPath, '/topic/meteo-origin-evolution');
+    const topicRoute = pathToRoute(topicPath);
+    assert.equal(topicRoute.screen, 'topic');
+    if (topicRoute.screen === 'topic') {
+      assert.equal(topicRoute.topicId, 'meteo-origin-evolution');
+    }
+  });
+
+  it('unknown section/topic ids fall back to learn', () => {
+    assert.equal(pathToRoute('/section/NOT-REAL').screen, 'learn');
+    assert.equal(pathToRoute('/topic/not-a-real-topic').screen, 'learn');
+  });
 });

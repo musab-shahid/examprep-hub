@@ -145,4 +145,4 @@ Repository visibility does not by itself grant reuse rights to third-party exam 
 
 ## Version
 
-App version is defined in [`package.json`](./package.json) and injected at build time as `__APP_VERSION__`.
+App version is defined in [`package.json`](./package.json) and injected at build time as `__APP_VERSION__`. See [CHANGELOG.md](./CHANGELOG.md).
