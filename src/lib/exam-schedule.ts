@@ -8,9 +8,9 @@ export interface ExamSession {
 export const FPSC_OCT_2026_SESSIONS: ExamSession[] = [
   {
     id: 'fpsc-oct-2026-window',
-    label: 'Exam Window',
+    label: 'Subject Test Window',
     startsAtIso: '2026-10-16T09:00:00+05:00',
-    note: 'FPSC subject test window opens. Check your roll number slip for the exact date and time.',
+    note: 'The FPSC subject test window opens on this date. Check your roll number slip for your exact test date and time.',
   },
 ];
 
