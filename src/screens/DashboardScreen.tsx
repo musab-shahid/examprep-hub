@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { getAttentionItems, getDashboardRecommendation, buildDailyReviewTopicIds, firstUnmasteredPrereq } from '@/lib/attention';
 import {
-  Zap, ChevronRight, Trophy, Clock,
+  Zap, ChevronRight, Trophy, Clock, CheckCircle2,
   AlertTriangle, Target, Flame, TrendingUp, Brain,
   RotateCcw, BarChart3, FileText, Sparkles,
 } from 'lucide-react';
@@ -20,10 +20,11 @@ import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics, getWee
 import { getLandingScreenForTrack } from '@/lib/exam-track';
 import {
   FPSC_OCT_2026_SESSIONS,
+  EXAM_DAY_CHECKLIST,
   getCountdownParts,
   formatCountdownShort,
   getNextSession,
-  getSessionUrgencyIso,
+  getExamCountdownTarget,
 } from '@/lib/exam-schedule';
 import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
 
@@ -75,10 +76,13 @@ export function DashboardScreen() {
   }, []);
 
   const nextExam = useMemo(() => getNextSession(FPSC_OCT_2026_SESSIONS, now), [now]);
-  // Countdown to report-by when set (doors/hall), else paper start — practical exam-day urgency
-  const examCountdown = useMemo(
-    () => (nextExam ? getCountdownParts(getSessionUrgencyIso(nextExam), now) : null),
+  const examTarget = useMemo(
+    () => (nextExam ? getExamCountdownTarget(nextExam, now) : null),
     [nextExam, now],
+  );
+  const examCountdown = useMemo(
+    () => (examTarget ? getCountdownParts(examTarget.iso, now) : null),
+    [examTarget, now],
   );
 
   const readiness = useMemo(
@@ -165,7 +169,7 @@ export function DashboardScreen() {
       <PurposeLine className="animate-fade-in-up">Your study command center — see what to do and how you're doing.</PurposeLine>
 
       {/* FPSC Oct 16 countdown + readiness (skill score; urgency is separate) */}
-      {examCountdown && nextExam && !examCountdown.started && (
+      {examCountdown && nextExam && examTarget && examTarget.phase !== 'started' && (
         <Card elevation="raised" className="p-4 sm:p-5 mb-4 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-orange-50 animate-fade-in-up">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
@@ -174,16 +178,35 @@ export function DashboardScreen() {
                 {nextExam.label}
               </p>
               <p className="text-xs text-slate-500 mt-1 leading-snug">{nextExam.note}</p>
+              {nextExam.venue && (
+                <p className="text-xs text-slate-500 mt-0.5 leading-snug">{nextExam.venue}</p>
+              )}
             </div>
             <div className="text-right shrink-0">
               <p className="text-2xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
                 {formatCountdownShort(examCountdown)}
               </p>
               <p className="text-[11px] text-amber-600/80 mt-1">
-                {nextExam.reportByIso ? 'until report time' : 'until test starts'}
+                {examTarget.label}
               </p>
             </div>
           </div>
+
+          {/* Exam-day hall checklist (from admission certificate) */}
+          <div className="mt-3 pt-3 border-t border-amber-100">
+            <p className="text-[11px] font-semibold uppercase tracking-wide text-amber-800/90 mb-2">
+              Exam day — bring / follow
+            </p>
+            <ul className="space-y-1.5">
+              {EXAM_DAY_CHECKLIST.map((item) => (
+                <li key={item.id} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" aria-hidden />
+                  <span>{item.label}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className="mt-3 pt-3 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
             <span className="font-semibold text-slate-800">
               Readiness {readiness.score}
