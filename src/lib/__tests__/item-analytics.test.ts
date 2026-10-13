@@ -46,7 +46,7 @@ describe('item-analytics', () => {
     const data: AppData = {
       ...empty,
       questionResults: {
-        Q1: { correct: true, timestamp: 1, attempts: 1, strength: 0.3 },
+        Q1: { correct: true, timestamp: 1, attempts: 2, strength: 0.3 },
       },
     };
     const fragile = getFragileWins(data, questions, 3);
