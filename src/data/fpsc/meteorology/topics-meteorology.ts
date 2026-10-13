@@ -834,7 +834,7 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 7,
   title: "Temperature Inversions — Mechanics",
-  definition: "An inversion is a layer where temperature increases with height. It is strongly stable, suppresses vertical mixing, and can trap pollutants or cap convection until eroded by heating or dynamics.",
+  definition: "An inversion is a layer where temperature increases with height — a strongly stable lid. It suppresses vertical mixing, traps pollutants and moisture near the surface, and can cap convection until eroded by daytime heating, frontal passage, or upper-level dynamics. Mechanism (how it forms) and type name (radiation, subsidence, frontal, advective) are related but not identical exam skills.",
   keyFacts: [
     "Temperature increases with height in the layer",
     "Strong static stability — acts as a lid",
@@ -1018,16 +1018,18 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 8,
   title: "Static Stability of the Atmosphere",
-  definition: "Static stability describes whether a displaced air parcel accelerates away from its level, returns, or stays put. It is diagnosed from the environmental sounding relative to dry and moist process curves — the same ELR/DALR/SALR logic as lapse rates, applied to weather outcomes (mixing, cloud growth, trapping of pollutants).",
+  definition: "Static stability describes whether a displaced air parcel accelerates away from its level, returns, or stays put. Compare the environmental lapse rate (ELR) with the dry adiabatic lapse rate (DALR ≈ 9.8 °C/km) for unsaturated parcels and with the saturated adiabatic lapse rate (SALR, typically ~4–7 °C/km) once saturated. Labels matter only if you can state the weather consequence.",
   keyFacts: [
-    "Stable: parcel returns toward original level after displacement",
-    "Unstable: parcel accelerates further from original level",
-    "Conditional instability: depends on whether the parcel is saturated",
-    "Stable layers suppress deep convection and vertical mixing",
-    "Unstable layers favour thermals, cumulus, and turbulence"
+    "Stable: parcel colder than environment after lift → returns (resists vertical motion)",
+    "Unstable: parcel warmer than environment after lift → accelerates upward",
+    "Conditionally unstable: stable for dry lift, unstable once saturated (usual pre-storm setup)",
+    "Absolute stability: ELR < SALR — even saturated parcels resist deep ascent",
+    "Absolute instability: ELR > DALR — strong mixing; rare as a deep layer",
+    "Inversions (T increasing with height) are strongly stable lids"
   ],
   explanationSections: [
-    { heading: "From classification to weather", body: "Lapse-rate comparisons give the label; stability explains the consequence — whether the boundary layer mixes, whether CAPE can be realised, and whether smoke stays near the surface." }
+    { heading: "Parcel decision procedure (exam method)", body: "Lift the parcel dry along the DALR until saturation (LCL), then follow the SALR. At each height: is the parcel warmer or colder than the environmental sounding? Warmer → buoyant ascent; colder → sinks back. Conditional instability means energy is stored until a trigger (heating, frontal or orographic lift) helps parcels reach the LCL/LFC." },
+    { heading: "From classification to weather", body: "Stable layers suppress cumulus towers, trap smoke and moisture near the ground, and favour stratiform cloud if moisture is present. Unstable layers favour thermals, gustiness, and convective clouds. Storm forecasting asks whether instability can be released and whether a lid still caps it." }
   ],
   subtopics: [
     {
@@ -1248,7 +1250,7 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 2,
   title: "Geostrophic Wind",
-  definition: "Geostrophic wind is the horizontal wind that results when the pressure-gradient force exactly balances the Coriolis force. Flow is parallel to straight isobars, with speed proportional to isobar packing — a core approximation above the friction layer.",
+  definition: "Geostrophic wind is the horizontal wind when the pressure-gradient force exactly balances the Coriolis force. Flow is parallel to straight isobars, with speed proportional to isobar packing. It is the baseline approximation above the friction layer; near the ground, friction turns the wind across isobars toward low pressure. Gradient-wind corrections apply on curved paths (subgeostrophic in cyclones, supergeostrophic in anticyclones).",
   keyFacts: [
     "Balance: PGF + Coriolis = 0 (no friction, no acceleration)",
     "Wind parallel to isobars / height contours",
@@ -1362,13 +1364,14 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 4,
   title: "Jet Stream Dynamics",
-  definition: "Jet streams are narrow, fast upper-level wind cores near tropopause breaks. The polar jet steers mid-latitude systems; the subtropical jet sits on the poleward edge of the Hadley cell. Meanders link to Rossby waves and surface weather.",
+  definition: "Jet streams are narrow, fast upper-level wind cores near tropopause breaks. Their speed is the upper-level expression of the thermal-wind relation: strong horizontal temperature gradients produce strong vertical shear, so the polar jet sits above the main mid-latitude baroclinic zone. The polar jet steers mid-latitude systems; the subtropical jet marks the poleward edge of the Hadley cell. Meanders (Rossby waves) couple upper flow to surface cyclones and anticyclones.",
   keyFacts: [
-    "Polar jet: mid-latitudes; stronger in winter",
-    "Subtropical jet: ~30° poleward Hadley edge",
-    "Cores often near 200–300 hPa",
-    "Jet streaks create local divergence/ascent patterns",
-    "Winter interaction with South Asian topography affects regional storms"
+    "Polar jet: mid-latitudes; stronger in winter when the pole-to-equator temperature contrast peaks",
+    "Subtropical jet: ~30° on the poleward edge of the Hadley cell",
+    "Cores often near 200–300 hPa (upper troposphere / tropopause)",
+    "Thermal wind: tighter horizontal temperature gradient → stronger upper westerlies",
+    "Jet streaks: entrance/exit regions favour organised ascent or descent — link to surface development",
+    "Winter interaction with South Asian topography affects western disturbances and regional storms"
   ],
   explanationSections: [
     { heading: "Find the jet on upper charts", body: "Tight 300 hPa contours and strong winds mark the core." }
@@ -1476,7 +1479,7 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 6,
   title: "The Monsoon Wind System",
-  definition: "A monsoon is a seasonal reversal of large-scale winds driven by differential heating of land and ocean, bringing distinct wet and dry seasons. The South Asian monsoon is the archetype: summer inflow of moist maritime air, winter outflow of drier continental air.",
+  definition: "A monsoon is a seasonal reversal of large-scale winds driven by differential heating of land and ocean, bringing distinct wet and dry seasons. The South Asian monsoon is the archetype: summer heat low over land draws moist maritime air inland; condensation heating reinforces the overturning. Winter brings cooler, drier offshore flow. Pakistan sits on the northwest fringe — only parts of the country receive reliable summer totals; western disturbances dominate much of the winter precipitation signal.",
   keyFacts: [
     "Seasonal wind reversal — not just 'heavy rain'",
     "Summer: land heats → thermal low → moist onshore flow",
@@ -2335,7 +2338,7 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 1,
   title: "Air Masses & Frontal Boundaries",
-  definition: "An air mass is a large body of air with relatively uniform temperature and moisture inherited from its source region. Fronts are boundaries between air masses; the type of front controls the weather sequence as it passes.",
+  definition: "An air mass is a large body of air with relatively uniform temperature and moisture inherited from its source region (c/m × T/P/A coding). Fronts are sloping boundaries between air masses: cold fronts are typically steeper with narrower, more convective bands; warm fronts are gentler with broader stratiform shield ahead. The front type sets the passage sequence of wind, temperature, dew point, and pressure.",
   keyFacts: [
     "Coding: c/m = continental/maritime; T/P/A = tropical/polar/arctic",
     "Cold front: cold air advances — often narrow band of sharper weather",
@@ -2392,7 +2395,7 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 2,
   title: "Mid-Latitude Cyclones — Baroclinic Instability & Growth",
-  definition: "Mid-latitude cyclones grow by baroclinic instability: they extract energy from horizontal temperature gradients (available potential energy) along fronts, typically under upper-level trough and jet support. They are cold-core, frontal systems — not tropical warm-core cyclones.",
+  definition: "Mid-latitude cyclones grow by baroclinic instability: they extract energy from horizontal temperature gradients along fronts, typically under upper-level trough and jet support. Classic polar-front theory stages — wave → mature open wave with warm sector → occlusion → decay — organise the surface weather sequence. They are cold-core frontal systems, not tropical warm-core cyclones.",
   keyFacts: [
     "Energy source: baroclinic temperature gradients / fronts",
     "Upper trough and jet streaks favour development by enhancing ascent",
@@ -2401,7 +2404,8 @@ export const topics: Topic[] = [
     "Western disturbances are related mid-latitude/subtropical systems affecting Pakistan in winter"
   ],
   explanationSections: [
-    { heading: "Surface and upper coupling", body: "A surface low deepens when upper divergence and cool air aloft support column ascent. Looking only at the surface chart misses the growth mechanism." }
+    { heading: "Surface and upper coupling", body: "A surface low deepens when upper-level divergence (often near a jet-streak favourable quadrant or ahead of an upper trough) removes mass from the column while cool air aloft keeps the core cold. Looking only at the surface chart misses the growth mechanism." },
+    { heading: "Polar-front lifecycle (exam skeleton)", body: "Incipient wave on a baroclinic front → open wave with distinct cold and warm fronts and a warm sector → occlusion as the cold front catches the warm front → decay as temperature contrasts weaken and the system fills. Weather is sharpest near the fronts; the warm sector is milder and often moister." }
   ],
   subtopics: [
     {
