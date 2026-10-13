@@ -5,6 +5,7 @@
 ```bash
 npm ci
 npm run check   # lint → validate:data → test → typecheck → build
+# After build: npm run check:bundle
 ```
 
 CI runs the same sequence on every push and PR to `main`.
