@@ -2717,4 +2717,277 @@ export const questions: Question[] = [
   sourceCitation: "Depth polish — AMOC" },
 
 
+
+
+  // ─── Density top-up: high-exam thin topics (aligned to study material) ───
+
+  { id: "METEO-02-Q045", sectionId: "METEO-02", topicId: "meteo-greenhouse-effect", difficulty: "medium", type: "single",
+    question: "The atmospheric window that lets surface longwave radiation escape to space most freely is mainly in which approximate IR band?",
+    options: ["0.4–0.7 µm (visible)", "8–12 µm", "15 µm CO₂ band only", "Microwave 1–10 cm only"],
+    correctAnswer: 1,
+    explanation: "The 8–12 µm region is the classic clear-sky atmospheric window for terrestrial IR. Strong greenhouse bands (e.g. near 15 µm for CO₂) absorb in other parts of the spectrum; visible light is shortwave, not the surface’s thermal emission peak.",
+    variantGroupId: "meteo-greenhouse-window-skill",
+    sourceCitation: "Density top-up — greenhouse window" },
+  { id: "METEO-02-Q046", sectionId: "METEO-02", topicId: "meteo-greenhouse-effect", difficulty: "hard", type: "single",
+    question: "Why is calling the greenhouse effect a 'closed glass box that traps all outgoing radiation' a poor exam answer?",
+    options: [
+      "Because the real atmosphere is selective: gases absorb and re-emit in specific bands while a spectral window still allows some longwave escape",
+      "Because Earth has no infrared radiation at all",
+      "Because only ozone absorbs terrestrial radiation",
+      "Because greenhouse gases only reflect sunlight"
+    ],
+    correctAnswer: 0,
+    explanation: "Greenhouse warming is spectral and layered, not a perfect one-way trap. Molecules absorb/re-emit in bands; the atmospheric window and TOA balance still matter. Glass-box metaphors overstate trapping and understate wavelength dependence.",
+    variantGroupId: "meteo-greenhouse-window-skill",
+    sourceCitation: "Density top-up — greenhouse mechanism" },
+
+  { id: "METEO-03-Q041", sectionId: "METEO-03", topicId: "meteo-geostrophic-wind", difficulty: "medium", type: "single",
+    question: "In the Northern Hemisphere, geostrophic wind blows with lower pressure on which side of the flow?",
+    options: ["To the right of the wind", "To the left of the wind", "Always directly toward the low", "Always directly toward the high"],
+    correctAnswer: 1,
+    explanation: "Buys Ballot / geostrophic rule (NH): with the wind at your back, low pressure is on the left. Flow is parallel to isobars, not across them, when PGF and Coriolis balance.",
+    variantGroupId: "meteo-geostrophic-balance-skill",
+    sourceCitation: "Density top-up — geostrophic NH" },
+  { id: "METEO-03-Q042", sectionId: "METEO-03", topicId: "meteo-geostrophic-wind", difficulty: "hard", type: "single",
+    question: "Geostrophic balance is a poor approximation in which situation?",
+    options: [
+      "Near the surface in the friction layer, or near the equator where the Coriolis parameter is very small",
+      "In the free troposphere at mid-latitudes with straight isobars",
+      "Only above 50 km altitude",
+      "Only inside the thermosphere"
+    ],
+    correctAnswer: 0,
+    explanation: "Vg assumes frictionless flow and a meaningful Coriolis force. Friction near the ground turns wind across isobars toward low pressure; near the equator f→0 so pure geostrophy fails.",
+    variantGroupId: "meteo-geostrophic-balance-skill",
+    sourceCitation: "Density top-up — geostrophic limits" },
+
+  { id: "METEO-03-Q043", sectionId: "METEO-03", topicId: "meteo-jet-stream", difficulty: "medium", type: "single",
+    question: "The subtropical and polar-front jet streams are found near which vertical level of the atmosphere?",
+    options: ["Sea-surface microlayer", "Near the tropopause in the upper troposphere", "Only inside the permanent ozone hole", "Deep ocean thermocline"],
+    correctAnswer: 1,
+    explanation: "Jet cores sit in the upper troposphere near the tropopause, where the thermal-wind response to strong horizontal temperature gradients concentrates westerly momentum.",
+    variantGroupId: "meteo-jet-core-skill",
+    sourceCitation: "Density top-up — jet height" },
+  { id: "METEO-03-Q044", sectionId: "METEO-03", topicId: "meteo-jet-stream", difficulty: "hard", type: "true_false",
+    question: "True or False: Stronger horizontal temperature contrast between cold polar air and warmer subtropical air tends to strengthen the polar-front jet via the thermal-wind relationship.",
+    options: ["True", "False"],
+    correctAnswer: 0,
+    explanation: "True. Thermal wind links vertical shear of the geostrophic wind to horizontal temperature gradients; a sharper baroclinic zone supports a stronger upper-level jet.",
+    variantGroupId: "meteo-jet-core-skill",
+    sourceCitation: "Density top-up — thermal wind jet" },
+
+  { id: "METEO-03-Q045", sectionId: "METEO-03", topicId: "meteo-monsoon-system", difficulty: "medium", type: "single",
+    question: "The classic large-scale driver of a summer monsoon circulation is:",
+    options: [
+      "Differential heating between land and ocean that reverses seasonal pressure and wind patterns",
+      "Only the daily sea-breeze cycle at one beach",
+      "Permanent easterlies that never reverse",
+      "Tidal forcing from the Moon alone"
+    ],
+    correctAnswer: 0,
+    explanation: "Monsoons are seasonal reversals tied to land–sea thermal contrast: summer heat lows over land draw moist onshore flow; winter cooling supports offshore return flow.",
+    variantGroupId: "meteo-monsoon-reversal-skill",
+    sourceCitation: "Density top-up — monsoon driver" },
+  { id: "METEO-03-Q046", sectionId: "METEO-03", topicId: "meteo-monsoon-system", difficulty: "hard", type: "single",
+    question: "In the Northern Hemisphere winter monsoon regime over South Asia, the low-level flow tendency is best described as:",
+    options: [
+      "Cooler, drier offshore or northeasterly flow from land toward the ocean",
+      "Continuous moist southwesterlies identical to July",
+      "No wind at any coastal station",
+      "Only mountain-valley breezes with no seasonal signal"
+    ],
+    correctAnswer: 0,
+    explanation: "Winter monsoon flow is dominated by land-cooled high pressure and offshore/northeasterly dry winds — the seasonal reverse of the moist summer onshore monsoon.",
+    variantGroupId: "meteo-monsoon-reversal-skill",
+    sourceCitation: "Density top-up — winter monsoon" },
+
+  { id: "METEO-04-Q043", sectionId: "METEO-04", topicId: "meteo-fog-types", difficulty: "hard", type: "single",
+    question: "Radiation fog is most favoured when which set of conditions coincides?",
+    options: [
+      "Clear night, light winds, and a moist ground layer that cools to the dew point",
+      "Strong afternoon mixing under a cloudless sky with 20 m s⁻¹ wind",
+      "Warm air blowing over a much colder ocean only (never inland nights)",
+      "Only inside cumulonimbus updrafts"
+    ],
+    correctAnswer: 0,
+    explanation: "Nocturnal longwave cooling under clear skies, weak turbulence, and near-surface moisture let temperature fall to the dew point — the radiation-fog recipe. Strong wind mixes the surface layer and usually prevents it.",
+    variantGroupId: "meteo-fog-type-skill",
+    sourceCitation: "Density top-up — radiation fog" },
+  { id: "METEO-04-Q044", sectionId: "METEO-04", topicId: "meteo-fog-types", difficulty: "medium", type: "single",
+    question: "Advection fog forms primarily when:",
+    options: [
+      "Moist air moves horizontally over a colder surface and is cooled to saturation",
+      "Only ice crystals fall from cirrus",
+      "The entire column warms by compression in free descent",
+      "Ozone absorbs UV in the stratosphere"
+    ],
+    correctAnswer: 0,
+    explanation: "Advection fog is cooling by horizontal transport over a colder underlying surface (classic: warm moist air over cold ocean or snow). It is distinct from pure nocturnal radiation fog.",
+    variantGroupId: "meteo-fog-type-skill",
+    sourceCitation: "Density top-up — advection fog" },
+
+  { id: "METEO-04-Q045", sectionId: "METEO-04", topicId: "meteo-orographic-rainshadow", difficulty: "medium", type: "single",
+    question: "On the windward slope of a mountain barrier in moist flow, precipitation is enhanced mainly because air is:",
+    options: [
+      "Forced to rise, cool adiabatically, and condense once saturation is reached",
+      "Forced to sink and warm so that all clouds evaporate immediately",
+      "Heated only by urban surfaces",
+      "Removed from the Coriolis force entirely"
+    ],
+    correctAnswer: 0,
+    explanation: "Orographic lift drives ascent, adiabatic cooling, condensation, and heavier windward precipitation. The leeward side experiences descent, warming, and drying — the rain shadow.",
+    variantGroupId: "meteo-orographic-shadow-skill",
+    sourceCitation: "Density top-up — windward lift" },
+  { id: "METEO-04-Q046", sectionId: "METEO-04", topicId: "meteo-orographic-rainshadow", difficulty: "hard", type: "true_false",
+    question: "True or False: The leeward rain-shadow side of a range is typically drier because descending air warms adiabatically and relative humidity falls.",
+    options: ["True", "False"],
+    correctAnswer: 0,
+    explanation: "True. Descent on the lee side causes adiabatic warming, which lowers RH and suppresses cloud/precipitation relative to the windward slope.",
+    variantGroupId: "meteo-orographic-shadow-skill",
+    sourceCitation: "Density top-up — rain shadow" },
+
+  { id: "METEO-04-Q047", sectionId: "METEO-04", topicId: "meteo-precipitation-processes", difficulty: "medium", type: "single",
+    question: "The Bergeron (ice-crystal) process requires which environment to grow precipitation-sized particles efficiently?",
+    options: [
+      "A mixed-phase cloud with ice crystals and supercooled liquid droplets",
+      "Only warm clouds with temperatures everywhere above 20 °C",
+      "A completely dry desert boundary layer with no cloud",
+      "Only the permanent vacuum of space"
+    ],
+    correctAnswer: 0,
+    explanation: "Bergeron growth exploits saturation vapour-pressure differences: ice grows at the expense of supercooled liquid in mixed-phase clouds. Purely warm clouds rely more on collision–coalescence.",
+    variantGroupId: "meteo-precip-process-skill",
+    sourceCitation: "Density top-up — Bergeron" },
+  { id: "METEO-04-Q048", sectionId: "METEO-04", topicId: "meteo-precipitation-processes", difficulty: "hard", type: "single",
+    question: "Collision–coalescence is the dominant growth path for raindrops in:",
+    options: [
+      "Warm clouds where droplets collide and merge without needing an ice phase",
+      "Only polar stratospheric clouds at −80 °C",
+      "The dry stratosphere above 20 km exclusively",
+      "Soil moisture processes underground"
+    ],
+    correctAnswer: 0,
+    explanation: "In warm clouds, larger collector drops sweep up smaller ones (collision–coalescence). Ice-phase Bergeron growth is not required there.",
+    variantGroupId: "meteo-precip-process-skill",
+    sourceCitation: "Density top-up — coalescence" },
+
+  { id: "METEO-06-Q038", sectionId: "METEO-06", topicId: "meteo-pressure-instruments", difficulty: "medium", type: "single",
+    question: "An aneroid barometer measures pressure primarily by:",
+    options: [
+      "Flexing of a sealed evacuated metal capsule as outside pressure changes",
+      "The height of a water column in an open well only",
+      "Counting raindrops in a tipping bucket",
+      "Measuring only wind speed with cups"
+    ],
+    correctAnswer: 0,
+    explanation: "Aneroid instruments use a sealed evacuated cell that expands/contracts with ambient pressure; levers amplify the motion to a dial or transducer — no mercury column required.",
+    sourceCitation: "Density top-up — aneroid" },
+  { id: "METEO-06-Q039", sectionId: "METEO-06", topicId: "meteo-pressure-instruments", difficulty: "hard", type: "true_false",
+    question: "True or False: Station pressure must often be reduced to mean sea level before drawing synoptic isobars so that elevation differences do not dominate the map.",
+    options: ["True", "False"],
+    correctAnswer: 0,
+    explanation: "True. Raw station pressure reflects altitude as well as weather systems. MSL reduction allows isobars to show horizontal meteorological patterns.",
+    sourceCitation: "Density top-up — MSL pressure" },
+
+  { id: "METEO-06-Q040", sectionId: "METEO-06", topicId: "meteo-radiosondes", difficulty: "medium", type: "single",
+    question: "A radiosonde sounding typically provides vertical profiles of:",
+    options: [
+      "Temperature, humidity, and pressure (with winds when tracked as a rawinsonde)",
+      "Only ocean salinity",
+      "Only soil pH",
+      "Only satellite IR brightness at one level"
+    ],
+    correctAnswer: 0,
+    explanation: "Balloon-borne radiosondes measure T, RH, and pressure versus height/time; radar or GPS tracking yields wind profiles (rawinsonde).",
+    sourceCitation: "Density top-up — radiosonde vars" },
+  { id: "METEO-06-Q041", sectionId: "METEO-06", topicId: "meteo-radiosondes", difficulty: "hard", type: "single",
+    question: "Why are radiosonde networks still critical even in the satellite era?",
+    options: [
+      "They give high-vertical-resolution in situ profiles that anchor and verify remotely sensed and model analyses",
+      "They replace the need for any surface observations forever",
+      "They only measure magma temperature",
+      "Satellites already observe every variable at 1 m resolution globally without error"
+    ],
+    correctAnswer: 0,
+    explanation: "Sondes supply detailed vertical structure and calibration/validation for NWP and remote sensing. They complement — not obsolete — satellites and surface networks.",
+    sourceCitation: "Density top-up — sondes vs satellites" },
+
+  { id: "METEO-06-Q042", sectionId: "METEO-06", topicId: "meteo-temperature-instruments", difficulty: "medium", type: "single",
+    question: "Stevenson-screen siting aims mainly to ensure that air temperature is measured:",
+    options: [
+      "In shaded, ventilated conditions representative of ambient air, not sun-baked instrument housings",
+      "Inside direct midday sun on asphalt",
+      "Only at 100 m height on a tower with no shelter standards",
+      "Underwater in a river"
+    ],
+    correctAnswer: 0,
+    explanation: "The white, louvered screen shades sensors from direct solar radiation while allowing airflow, so the reading represents air temperature rather than instrument heating.",
+    sourceCitation: "Density top-up — screen purpose" },
+
+  { id: "METEO-09-Q027", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
+    question: "Arabian Sea tropical cyclones that affect Pakistan’s coast are most favoured when which ingredients align?",
+    options: [
+      "Warm sea-surface temperatures, sufficient Coriolis effect offshore, and low vertical wind shear",
+      "Permanent ice cover over the entire Arabian Sea",
+      "Only desert dust with no ocean heat",
+      "Zero moisture and strong shear always"
+    ],
+    correctAnswer: 0,
+    explanation: "Tropical cyclone genesis needs a warm ocean energy source, enough planetary vorticity (away from the equator), and an environment not shredded by strong shear — the same physics as other basins, applied to the Arabian Sea.",
+    sourceCitation: "Density top-up — AS cyclones" },
+  { id: "METEO-09-Q028", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "hard", type: "true_false",
+    question: "True or False: Summer heat lows over Pakistan’s interior can sharpen the monsoon trough and influence regional wind and dust-storm patterns even when a full tropical cyclone is not present.",
+    options: ["True", "False"],
+    correctAnswer: 0,
+    explanation: "True. The seasonal heat low organises pressure gradients, monsoon surge, and dusty boundary-layer winds independent of any single named cyclone.",
+    sourceCitation: "Density top-up — heat low" },
+
+  { id: "METEO-09-Q029", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "hard", type: "single",
+    question: "Which framing best matches Pakistan’s National Climate Change Policy themes in exam answers?",
+    options: [
+      "Water, food, and energy security plus adaptation needs under a changing climate",
+      "Only space-weather forecasts for satellites",
+      "Abolishing all meteorological observation",
+      "Replacing the monsoon with artificial seasons"
+    ],
+    correctAnswer: 0,
+    explanation: "NCCP-style objectives emphasise sectoral security (water, food, energy) and adaptation/resilience — not denial of meteorology or pure technology fantasies.",
+    sourceCitation: "Density top-up — NCCP themes" },
+
+  { id: "METEO-09-Q030", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "single",
+    question: "Which broad pattern best describes rainfall across Pakistan for exam-level geography?",
+    options: [
+      "Generally higher in northern/monsoon-influenced belts and much lower on hyper-arid plateaus such as much of Balochistan",
+      "Uniform daily rainfall of 50 mm at every station year-round",
+      "Only snowfall on the Karachi coast every month",
+      "Zero rainfall in the entire northern mountains"
+    ],
+    correctAnswer: 0,
+    explanation: "Pakistan’s rainfall is highly uneven: monsoon and orographic effects wetter north/east belts contrast with arid Balochistan and rain-shadow interiors.",
+    sourceCitation: "Density top-up — PK rainfall pattern" },
+
+  { id: "METEO-08-Q028", sectionId: "METEO-08", topicId: "meteo-solar-volcanic-forcing", difficulty: "medium", type: "single",
+    question: "Large explosive volcanic eruptions can cool global climate for a year or two mainly by:",
+    options: [
+      "Injecting sulfate aerosols into the stratosphere that reflect sunlight",
+      "Adding only water vapour that immediately creates permanent greenhouse warming only",
+      "Removing all CO₂ from the air in one day",
+      "Stopping Earth’s rotation"
+    ],
+    correctAnswer: 0,
+    explanation: "Stratospheric sulfate aerosols increase planetary albedo and reduce shortwave absorption at the surface — the Pinatubo-type mechanism — distinct from long-lived CO₂ forcing.",
+    sourceCitation: "Density top-up — volcanic aerosols" },
+  { id: "METEO-08-Q029", sectionId: "METEO-08", topicId: "meteo-past-climate-reconstruction", difficulty: "medium", type: "single",
+    question: "Ice cores are valuable climate proxies primarily because they can preserve:",
+    options: [
+      "Trapped air bubbles and chemical signals that record past atmosphere and temperature-related indicators",
+      "Only tomorrow’s weather forecast",
+      "Direct measurements of future RCP pathways",
+      "Live radiosonde trains"
+    ],
+    correctAnswer: 0,
+    explanation: "Cores archive ancient air and isotopic/chemical proxies used to reconstruct past composition and climate — foundational paleoclimate evidence.",
+    sourceCitation: "Density top-up — ice cores" },
+
+
 ];
