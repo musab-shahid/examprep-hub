@@ -1,5 +1,7 @@
 # ExamPrep Hub
 
+[![CI](https://github.com/musab-shahid/examprep-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/musab-shahid/examprep-hub/actions/workflows/ci.yml)
+
 Local-first PWA for **FPSC** and **HAT** exam preparation: structured topics, quizzes, spaced repetition, mastery tracking, flashcards, progress analytics, and an optional multi-provider AI tutor.
 
 [![Open in Bolt](https://bolt.new/static/open-in-bolt.svg)](https://bolt.new/~/sb1-g6kmfx2a)
