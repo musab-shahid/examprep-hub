@@ -5,13 +5,15 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
-import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
+import { subjectMap, subjectsByTrack } from '@/data/subjects';
 import { topicsBySection, getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
 import { MathText } from '@/components/MathText';
+
+type MethodBranch = { condition: string; result?: string; branches?: MethodBranch[] };
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
@@ -543,9 +545,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
               </Card>
             );
           }
-          const tc = chooser as { title?: string; root?: string; branches?: Array<{ condition: string; result?: string; branches?: any[] }> };
+          const tc = chooser as { title?: string; root?: string; branches?: MethodBranch[] };
           if (tc.branches) {
-            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: any[] }>, depth: number) =>
+            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: MethodBranch[] }>, depth: number) =>
               branches.map((b, i) => (
                 <li key={`${depth}-${i}`} className={depth > 0 ? 'pl-4' : ''}>
                   <span className="font-medium text-sky-800">{b.condition}</span>

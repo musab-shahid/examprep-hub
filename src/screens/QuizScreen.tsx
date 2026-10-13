@@ -1244,7 +1244,6 @@ function QuizResults({
   onPracticeTopic: (topicId: string) => void;
   onBack: () => void;
 }) {
-  const { navigate } = useRouter();
   const tutorReady = isTutorAvailable();
   const { data } = useData();
   const [explainSession, setExplainSession] = useState<{
