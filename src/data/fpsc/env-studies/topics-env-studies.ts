@@ -1564,7 +1564,7 @@ explanationSections: [
       ],
     },
   
-    comparisonTables: [
+    comparisonTable: [
       {
         title: "Classical vs photochemical smog",
         headers: ["", "Classical (London-type)", "Photochemical (LA-type)"],
@@ -1670,27 +1670,27 @@ explanationSections: [
   
     misconceptionRemediation: [
       {
-        name: "Ozone is healthy everywhere",
+        misconception: "Ozone is healthy everywhere",
         whyStudentsThinkIt: "Ozone layer = good; ‘fresh air’ marketing uses the same word.",
         correctModel:
           "Same molecule, opposite policy by layer. Stratosphere = UV shield. Troposphere = oxidant that inflames lungs and stomata.",
         remedy: "Never say ozone without attaching a layer.",
       },
       {
-        name: "Cars don’t emit ozone, so cars aren’t responsible",
+        misconception: "Cars don’t emit ozone, so cars aren’t responsible",
         whyStudentsThinkIt: "Primary/secondary split is missed.",
         correctModel:
           "Cars emit NOₓ and VOCs. Sunlight manufactures O₃ hours later, often kilometres downwind. Precursor ≠ product.",
         remedy: "Track the recipe, not only the dish.",
       },
       {
-        name: "PM₁₀ and PM₂.₅ are two non-overlapping pollutants",
+        misconception: "PM₁₀ and PM₂.₅ are two non-overlapping pollutants",
         whyStudentsThinkIt: "Two numbers on the AQI board.",
         correctModel: "Nested aerodynamic cuts of one population. PM₂.₅ is inside PM₁₀.",
         remedy: "Draw concentric circles; inner disk = PM₂.₅.",
       },
       {
-        name: "NEQS mean Pakistani air is legally clean",
+        misconception: "NEQS mean Pakistani air is legally clean",
         whyStudentsThinkIt: "Existence of a standard is confused with compliance.",
         correctModel:
           "A standard is a reference line. Major cities routinely exceed it; enforcement, monitoring gaps, and trans-boundary plumes decide reality.",
@@ -1815,7 +1815,7 @@ explanationSections: [
     vocabularyGroups: [
       {
         title: "Air-pollution terms",
-        cards: [
+        words: [
           {
             word: "Primary pollutant",
             definition: "Emitted directly from a source",
@@ -2095,7 +2095,7 @@ explanationSections: [
       ],
     },
   
-    comparisonTables: [
+    comparisonTable: [
       {
         title: "DO vs BOD vs COD",
         headers: ["Indicator", "What it measures", "Clean water", "Organically polluted"],
@@ -2232,35 +2232,35 @@ explanationSections: [
   
     misconceptionRemediation: [
       {
-        name: "High BOD means the water is full of oxygen",
+        misconception: "High BOD means the water is full of oxygen",
         whyStudentsThinkIt: "‘Demand’ is misread as ‘how much oxygen is present’.",
         correctModel:
           "BOD is how much oxygen microbes will take. It is a debt. DO is the cash on hand. High BOD tends to empty the till.",
         remedy: "BOD = hunger of the bacteria; DO = food (O₂) left for fish.",
       },
       {
-        name: "COD is just another name for BOD",
+        misconception: "COD is just another name for BOD",
         whyStudentsThinkIt: "Both are ‘oxygen demand’ with three letters.",
         correctModel:
           "BOD = biological, 5-day, biodegradable. COD = chemical, aggressive oxidant, broader. COD ≥ BOD.",
         remedy: "C for chemical and for ‘covers more’.",
       },
       {
-        name: "Bioaccumulation and biomagnification are interchangeable",
+        misconception: "Bioaccumulation and biomagnification are interchangeable",
         whyStudentsThinkIt: "Both are ‘build-up of poison in animals’.",
         correctModel:
           "Accumulation is within one organism. Magnification is the staircase up the food web. You can have accumulation without a long chain; magnification needs trophic transfer.",
         remedy: "Accumulate in a body; magnify up a chain.",
       },
       {
-        name: "Eutrophication is a toxic-chemical accident",
+        misconception: "Eutrophication is a toxic-chemical accident",
         whyStudentsThinkIt: "Fish kills look like poisoning.",
         correctModel:
           "The usual killer is oxygen collapse after a nutrient-fed bloom dies — suffocation, not necessarily a pesticide pulse. Some blooms also make toxins, but the defining chain is nutrients → bloom → decay → hypoxia.",
         remedy: "Draw the cascade; do not stop at ‘pollution killed fish’.",
       },
       {
-        name: "If it went through a treatment plant, nutrients and pathogens are gone",
+        misconception: "If it went through a treatment plant, nutrients and pathogens are gone",
         whyStudentsThinkIt: "‘Treated’ sounds complete.",
         correctModel:
           "Primary ≠ secondary ≠ tertiary. Pathogens and phosphate need the stages built for them. Many plants discharge after secondary; N and P still eutrophy the receiving water.",
@@ -2389,7 +2389,7 @@ explanationSections: [
     vocabularyGroups: [
       {
         title: "Water-quality terms",
-        cards: [
+        words: [
           {
             word: "BOD",
             definition: "Oxygen microbes use to decompose biodegradable organics (often BOD₅)",
@@ -2672,7 +2672,7 @@ explanationSections: [
       ],
     },
   
-    comparisonTables: [
+    comparisonTable: [
       {
         title: "Sanitary landfill vs open dump",
         headers: ["", "Sanitary landfill", "Open dump"],
@@ -2807,35 +2807,35 @@ explanationSections: [
   
     misconceptionRemediation: [
       {
-        name: "Recycling is the greenest thing you can do",
+        misconception: "Recycling is the greenest thing you can do",
         whyStudentsThinkIt: "School campaigns and bin colours start at recycle.",
         correctModel:
           "The hierarchy is prevention-first. Recycle still uses energy and loses quality. Refuse/reduce/reuse sit above it. Dispose sits below.",
         remedy: "Recite Refuse → Reduce → Reuse → Recycle → Recover → Dispose in that order.",
       },
       {
-        name: "A landfill is a landfill",
+        misconception: "A landfill is a landfill",
         whyStudentsThinkIt: "Both are ‘putting waste in the ground’.",
         correctModel:
           "Sanitary: liner, leachate, gas, cover, siting. Open dump: none of those. One is engineered disposal; the other is a multi-media polluter.",
         remedy: "Ask: liner? leachate pipes? If no, it is a dump.",
       },
       {
-        name: "Salt-affected fields mean someone dumped chemicals",
+        misconception: "Salt-affected fields mean someone dumped chemicals",
         whyStudentsThinkIt: "Pollution = factory in the mental model.",
         correctModel:
           "Secondary salinity is evaporation chemistry plus hydrology. Canal water + no drainage is enough. Metals and pesticides are a different soil story.",
         remedy: "Two soil chapters: irrigation salts vs contaminant spills.",
       },
       {
-        name: "More canal water will wash the salt out and save the crop",
+        misconception: "More canal water will wash the salt out and save the crop",
         whyStudentsThinkIt: "Leaching is taught as ‘apply extra water’.",
         correctModel:
           "Leaching works only with drainage. Extra water on a closed basin waterlogs and then re-salinises from the top.",
         remedy: "No outlet, no leach — only a higher water table.",
       },
       {
-        name: "Hospital waste is just dirty MSW",
+        misconception: "Hospital waste is just dirty MSW",
         whyStudentsThinkIt: "It looks like soiled cloth and plastic.",
         correctModel:
           "Infection and sharps risk. Autoclave or incinerate in a dedicated stream. Mixing multiplies harm to workers and pickers.",
@@ -2966,7 +2966,7 @@ explanationSections: [
     vocabularyGroups: [
       {
         title: "Soil and waste terms",
-        cards: [
+        words: [
           {
             word: "Leachate",
             definition: "Liquid that has percolated through waste or contaminated soil, carrying dissolved pollutants",
