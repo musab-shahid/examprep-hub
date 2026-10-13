@@ -4,11 +4,20 @@ import {
   getCountdownParts,
   formatCountdownShort,
   getNextSession,
+  getSessionUrgencyIso,
   FPSC_OCT_2026_SESSIONS,
 } from '../exam-schedule.ts';
 
 describe('exam-schedule', () => {
-  it('counts down to morning session before exam', () => {
+  it('has morning Assistant Met then evening Meteorologist on 16 Oct 2026', () => {
+    assert.equal(FPSC_OCT_2026_SESSIONS.length, 2);
+    assert.equal(FPSC_OCT_2026_SESSIONS[0].id, 'fpsc-2026-10-16-am-asst-met');
+    assert.equal(FPSC_OCT_2026_SESSIONS[1].id, 'fpsc-2026-10-16-pm-met');
+    assert.equal(FPSC_OCT_2026_SESSIONS[0].startsAtIso, '2026-10-16T10:00:00+05:00');
+    assert.equal(FPSC_OCT_2026_SESSIONS[1].startsAtIso, '2026-10-16T15:00:00+05:00');
+  });
+
+  it('counts down to morning paper before exam day', () => {
     const now = new Date('2026-10-12T21:00:00+05:00');
     const parts = getCountdownParts(FPSC_OCT_2026_SESSIONS[0].startsAtIso, now);
     assert.equal(parts.started, false);
@@ -16,21 +25,26 @@ describe('exam-schedule', () => {
     assert.ok(formatCountdownShort(parts).includes('d'));
   });
 
-  it('marks started after start time', () => {
+  it('marks morning paper started at/after 10:00', () => {
     const now = new Date('2026-10-16T10:00:00+05:00');
     const parts = getCountdownParts(FPSC_OCT_2026_SESSIONS[0].startsAtIso, now);
     assert.equal(parts.started, true);
     assert.equal(formatCountdownShort(parts), 'Started');
   });
 
-  it('getNextSession skips past sessions', () => {
+  it('getNextSession returns evening paper after morning has started', () => {
     const now = new Date('2026-10-16T10:00:00+05:00');
     const next = getNextSession(FPSC_OCT_2026_SESSIONS, now);
-    assert.equal(next?.id, 'fpsc-2026-10-16-noon');
+    assert.equal(next?.id, 'fpsc-2026-10-16-pm-met');
   });
 
-  it('getNextSession null after all done', () => {
-    const now = new Date('2026-10-17T00:00:00+05:00');
+  it('getNextSession null after both papers ended', () => {
+    const now = new Date('2026-10-16T17:00:00+05:00');
     assert.equal(getNextSession(FPSC_OCT_2026_SESSIONS, now), null);
+  });
+
+  it('urgency iso prefers report-by time', () => {
+    const am = FPSC_OCT_2026_SESSIONS[0];
+    assert.equal(getSessionUrgencyIso(am), '2026-10-16T09:15:00+05:00');
   });
 });

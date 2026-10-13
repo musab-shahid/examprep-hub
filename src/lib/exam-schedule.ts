@@ -1,16 +1,49 @@
+/**
+ * Personal FPSC exam windows from the official admission certificate (roll no. slip).
+ * Times are Asia/Karachi (+05:00). Do not store CNIC / personal identifiers here.
+ */
+
 export interface ExamSession {
   id: string;
+  /** Short label shown on Home countdown */
   label: string;
+  /** Paper / case reference (public post codes only) */
+  caseRef?: string;
+  /** Wall-clock start of the written test */
   startsAtIso: string;
+  /** Wall-clock end of the written test */
+  endsAtIso?: string;
+  /** Report-by time at the examination hall (not the paper start) */
+  reportByIso?: string;
+  /** Doors close — after this, entry is not allowed */
+  doorsCloseIso?: string;
   note: string;
 }
 
+/**
+ * 16 Oct 2026 (Friday) — Multan centre, two papers same day.
+ * Morning: Assistant Meteorologist · Evening: Meteorologist.
+ */
 export const FPSC_OCT_2026_SESSIONS: ExamSession[] = [
   {
-    id: 'fpsc-oct-2026-window',
-    label: 'Subject Test Window',
-    startsAtIso: '2026-10-16T09:00:00+05:00',
-    note: 'The FPSC subject test window opens on this date. Check your roll number slip for your exact test date and time.',
+    id: 'fpsc-2026-10-16-am-asst-met',
+    label: 'Assistant Meteorologist · Morning',
+    caseRef: 'F4-17/2026-R',
+    startsAtIso: '2026-10-16T10:00:00+05:00',
+    endsAtIso: '2026-10-16T11:40:00+05:00',
+    reportByIso: '2026-10-16T09:15:00+05:00',
+    doorsCloseIso: '2026-10-16T09:45:00+05:00',
+    note: 'Report by 09:15 · doors close 09:45 · test 10:00–11:40. Multan (Gulgash). Original CNIC/Passport + admission certificate required.',
+  },
+  {
+    id: 'fpsc-2026-10-16-pm-met',
+    label: 'Meteorologist · Evening',
+    caseRef: 'F4-16/2026-R',
+    startsAtIso: '2026-10-16T15:00:00+05:00',
+    endsAtIso: '2026-10-16T16:40:00+05:00',
+    reportByIso: '2026-10-16T14:15:00+05:00',
+    doorsCloseIso: '2026-10-16T14:45:00+05:00',
+    note: 'Report by 14:15 · doors close 14:45 · test 15:00–16:40. Same Multan centre. Black ball pen only; no phone in the hall.',
   },
 ];
 
@@ -42,6 +75,7 @@ export function formatCountdownShort(c: CountdownParts): string {
   return `${c.minutes}m ${c.seconds}s`;
 }
 
+/** Next session whose test start is still in the future; null when all are past. */
 export function getNextSession(
   sessions: ExamSession[],
   now: Date = new Date(),
@@ -49,9 +83,14 @@ export function getNextSession(
   const sorted = [...sessions].sort(
     (a, b) => new Date(a.startsAtIso).getTime() - new Date(b.startsAtIso).getTime(),
   );
-  return sorted.find((s) => new Date(s.startsAtIso).getTime() > now.getTime()) ?? sorted[0] ?? null;
+  return sorted.find((s) => new Date(s.startsAtIso).getTime() > now.getTime()) ?? null;
 }
 
 export function hasUpcomingExam(sessions: ExamSession[], now: Date = new Date()): boolean {
   return sessions.some((s) => new Date(s.startsAtIso).getTime() > now.getTime());
+}
+
+/** Prefer report-by time for “leave for centre” urgency when available. */
+export function getSessionUrgencyIso(session: ExamSession): string {
+  return session.reportByIso ?? session.startsAtIso;
 }

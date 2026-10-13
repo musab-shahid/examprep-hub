@@ -23,6 +23,7 @@ import {
   getCountdownParts,
   formatCountdownShort,
   getNextSession,
+  getSessionUrgencyIso,
 } from '@/lib/exam-schedule';
 import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
 
@@ -74,8 +75,9 @@ export function DashboardScreen() {
   }, []);
 
   const nextExam = useMemo(() => getNextSession(FPSC_OCT_2026_SESSIONS, now), [now]);
+  // Countdown to report-by when set (doors/hall), else paper start — practical exam-day urgency
   const examCountdown = useMemo(
-    () => (nextExam ? getCountdownParts(nextExam.startsAtIso, now) : null),
+    () => (nextExam ? getCountdownParts(getSessionUrgencyIso(nextExam), now) : null),
     [nextExam, now],
   );
 
@@ -167,9 +169,9 @@ export function DashboardScreen() {
         <Card elevation="raised" className="p-4 sm:p-5 mb-4 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-orange-50 animate-fade-in-up">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC Subject Test</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC · 16 Oct 2026</p>
               <p className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                16 Oct 2026 · {nextExam.label}
+                {nextExam.label}
               </p>
               <p className="text-xs text-slate-500 mt-1 leading-snug">{nextExam.note}</p>
             </div>
@@ -177,7 +179,9 @@ export function DashboardScreen() {
               <p className="text-2xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
                 {formatCountdownShort(examCountdown)}
               </p>
-              <p className="text-[11px] text-amber-600/80 mt-1">until window opens</p>
+              <p className="text-[11px] text-amber-600/80 mt-1">
+                {nextExam.reportByIso ? 'until report time' : 'until test starts'}
+              </p>
             </div>
           </div>
           <div className="mt-3 pt-3 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
