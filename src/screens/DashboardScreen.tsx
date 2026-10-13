@@ -112,11 +112,11 @@ export function DashboardScreen() {
   const recNavigate = () => {
     const p = rec.payload;
     if (p.screen === 'topic' && p.topicId) {
-      navigate({ screen: 'topic', topicId: p.topicId, parent: null });
+      navigate({ screen: 'topic', topicId: p.topicId });
     } else if (p.screen === 'practice') {
-      navigate({ screen: 'practice', mode: p.mode, parent: null });
+      navigate({ screen: 'practice', mode: p.mode });
     } else if (p.screen === 'review') {
-      navigate({ screen: 'review', parent: null });
+      navigate({ screen: 'review' });
     }
   };
 
