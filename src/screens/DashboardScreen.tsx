@@ -168,7 +168,7 @@ export function DashboardScreen() {
         <Card elevation="raised" className="p-4 sm:p-5 mb-4 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-orange-50 animate-fade-in-up">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC exam window</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC Subject Test</p>
               <p className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                 16 Oct 2026 · {nextExam.label}
               </p>
@@ -178,7 +178,7 @@ export function DashboardScreen() {
               <p className="text-2xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
                 {formatCountdownShort(examCountdown)}
               </p>
-              <p className="text-[11px] text-amber-600/80 mt-1">Pakistan time</p>
+              <p className="text-[11px] text-amber-600/80 mt-1">until window opens</p>
             </div>
           </div>
           <div className="mt-3 pt-3 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
@@ -340,7 +340,7 @@ export function DashboardScreen() {
                     {hasContent ? (
                       <>
                         <div className="mb-1.5">
-                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} ariaLabel={`${studiedPct}% of topics studied`} />
+                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} />
                         </div>
                         <div className="flex items-center justify-between text-xs">
                           <span className={color.text}>{studiedPct}%</span>

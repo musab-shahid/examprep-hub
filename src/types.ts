@@ -154,6 +154,8 @@ export interface Topic {
   comparisonTableEras?: ComparisonTable;
   comparisonTableEras2?: ComparisonTable;
   comparisonTableHazards?: ComparisonTable;
+  /** Extra comparison tables used by some env-studies topics */
+  comparisonTables?: ComparisonTable[];
   pakistanExamFocus?: string[];
   content: boolean;
   postRestriction?: 'bs17' | 'bs16' | 'all' | Array<{ rule: string; restriction: string; consequence: string }>;

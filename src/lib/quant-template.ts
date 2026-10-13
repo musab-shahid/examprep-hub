@@ -3,7 +3,7 @@
  * Sample parameters, evaluate a small formula AST (no eval), build a concrete Question.
  * Strength / cooldown stay on the base question.id (or variantGroupId), not the instance.
  */
-import type { Question, QuantTemplate, TemplateFormula, TemplateParamSpec } from '@/types';
+import type { Question, QuestionType, QuantTemplate, TemplateFormula, TemplateParamSpec } from '@/types';
 
 export type { QuantTemplate, TemplateFormula, TemplateParamSpec } from '@/types';
 
@@ -16,6 +16,9 @@ export interface InstantiatedQuant {
   baseId: string;
 }
 
+function clamp(n: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, n));
+}
 
 /** Deterministic RNG from string seed (mulberry32) */
 export function rngFromSeed(seed: string): () => number {

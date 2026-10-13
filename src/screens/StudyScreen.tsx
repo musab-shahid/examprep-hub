@@ -5,15 +5,13 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
-import { subjectMap, subjectsByTrack } from '@/data/subjects';
+import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
 import { topicsBySection, getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
 import { MathText } from '@/components/MathText';
-
-type MethodBranch = { condition: string; result?: string; branches?: MethodBranch[] };
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
 import { loadQuestionsForTopic } from '@/data/lazy-data';
@@ -103,7 +101,7 @@ export function StudyScreen() {
                       <span className="text-slate-500 text-xs">{topics.length} topics</span>
                       <span className={`text-xs font-medium ${color.text}`}>{studied}/{topics.length} studied</span>
                     </div>
-                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} ariaLabel={`${studied} of ${topics.length} topics studied`} /></div>
+                    <div className="mt-2"><ProgressBar value={topics.length > 0 ? Math.round((studied / topics.length) * 100) : 0} colorClass={getSubjectColor(subject.id).bar} /></div>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />
                 </button>
@@ -439,8 +437,8 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.explanationSections && topic.explanationSections.map((sec, i) => (
           <Card key={i} className="p-5"><h3 className="font-semibold text-slate-900 mb-2">{sec.heading}</h3><p className="text-slate-700 text-base leading-relaxed"><MathText text={sec.body} /></p></Card>
         ))}
-        {(topic as Topic & { subtopics?: unknown[] }).subtopics && (topic as Topic & { subtopics?: unknown[] }).subtopics!.length > 0 && (
-          <SubtopicsBlock subtopics={(topic as Topic & { subtopics?: QuantSubtopic[] }).subtopics!} expandedGroups={expandedSubtopics} onToggleGroup={toggleSet(setExpandedSubtopics)} />
+        {topic.subtopics && topic.subtopics.length > 0 && (
+          <SubtopicsBlock subtopics={topic.subtopics} expandedGroups={expandedSubtopics} onToggleGroup={toggleSet(setExpandedSubtopics)} />
         )}
         {topic.vocabularyGroups && topic.vocabularyGroups.length > 0 && (
           <VocabularyGroupsBlock groups={topic.vocabularyGroups} expandedGroups={expandedVocabGroups} onToggleGroup={toggleSet(setExpandedVocabGroups)} />
@@ -467,7 +465,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           <Card key={fi} className="p-5 bg-slate-900">
             <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
             <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
-            <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`$${v.symbol}$`} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
+            {(f.variables?.length ?? 0) > 0 && (
+              <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`$${v.symbol}$`} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
+            )}
           </Card>
         )); })()}
         {(topic as Topic & { quantFormulas?: unknown[] }).quantFormulas && (topic as Topic & { quantFormulas?: unknown[] }).quantFormulas!.length > 0 && (
@@ -483,7 +483,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {topic.comparisonTableEras && <ComparisonTableBlock table={topic.comparisonTableEras} />}
         {topic.comparisonTableEras2 && <ComparisonTableBlock table={topic.comparisonTableEras2} />}
         {topic.comparisonTableHazards && <ComparisonTableBlock table={topic.comparisonTableHazards} />}
-        {(topic as Topic & { comparisonTables?: ComparisonTableType[] }).comparisonTables?.map((t, i) => <ComparisonTableBlock key={`ct-plural-${i}`} table={t} />)}
+        {topic.comparisonTables?.map((t, i) => <ComparisonTableBlock key={`ct-plural-${i}`} table={t} />)}
         {(() => { const rawEx = topic.workedExample ?? (topic as Topic & { workedExamples?: typeof topic.workedExample }).workedExamples; if (!rawEx) return null; const examples = Array.isArray(rawEx) ? rawEx : [rawEx]; return examples.map((ex, ei) => (
           <Card key={ei} className="p-5 border-l-4 border-l-emerald-500 bg-emerald-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-emerald-700 font-semibold text-sm uppercase tracking-wide">Worked Example{examples.length > 1 ? ` ${ei + 1}` : ''}</span></div>
@@ -545,9 +545,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
               </Card>
             );
           }
-          const tc = chooser as { title?: string; root?: string; branches?: MethodBranch[] };
+          const tc = chooser as { title?: string; root?: string; branches?: Array<{ condition: string; result?: string; branches?: any[] }> };
           if (tc.branches) {
-            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: MethodBranch[] }>, depth: number) =>
+            const renderBranches = (branches: Array<{ condition: string; result?: string; branches?: any[] }>, depth: number) =>
               branches.map((b, i) => (
                 <li key={`${depth}-${i}`} className={depth > 0 ? 'pl-4' : ''}>
                   <span className="font-medium text-sky-800">{b.condition}</span>
@@ -659,21 +659,21 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             .filter((x) => x.topic && !isTopicMastered(x.id, data));
           if (unmastered.length === 0) return null;
           return (
-            <Card className="p-4 border-amber-200 bg-amber-50/60">
-              <h3 className="font-semibold text-amber-900 text-sm mb-1 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
+            <Card className="p-3 border-amber-200 bg-amber-50/60">
+              <h3 className="font-semibold text-amber-900 text-xs mb-1 flex items-center gap-1.5">
+                <AlertTriangle className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 Prerequisites not mastered yet
               </h3>
-              <p className="text-amber-800/80 text-xs mb-3">
-                Review these first so this topic sticks — the graph says they support what you are reading.
+              <p className="text-amber-800/70 text-[11px] mb-2">
+                Review these first so this topic sticks.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {unmastered.map(({ id, topic: pt }) => (
                   <button
                     key={id}
                     type="button"
                     onClick={() => navigate({ screen: 'topic', topicId: id })}
-                    className="px-3 py-1.5 rounded-lg text-sm font-medium bg-white border border-amber-200 text-amber-900 hover:bg-amber-100 transition-colors"
+                    className="px-2.5 py-1 rounded-md text-xs font-medium bg-white border border-amber-200 text-amber-900 hover:bg-amber-100 transition-colors"
                   >
                     {pt!.title}
                   </button>
@@ -689,15 +689,15 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           if (topic.usedIn?.length) groups.push({ label: 'Used In', ids: topic.usedIn, chipClass: 'bg-amber-50 hover:bg-amber-100 text-amber-700' });
           if (groups.length === 0) return null;
           return (
-            <Card className="p-5">
-              <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Connected Topics</h3>
-              <div className="space-y-3">
+            <Card className="p-3">
+              <h3 className="font-semibold text-slate-500 text-xs uppercase tracking-wide mb-2">Connected Topics</h3>
+              <div className="space-y-2">
                 {groups.map((g) => (
                   <div key={g.label}>
-                    <p className="text-slate-400 text-xs font-medium mb-1.5">{g.label}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <p className="text-slate-400 text-[11px] font-medium mb-1">{g.label}</p>
+                    <div className="flex flex-wrap gap-1.5">
                       {g.ids.map((rid) => { const t = getTopic(rid); if (!t) return null; return (
-                        <button key={rid} onClick={() => navigate({ screen: 'topic', topicId: rid })} className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${g.chipClass}`}>{t.title}</button>
+                        <button key={rid} onClick={() => navigate({ screen: 'topic', topicId: rid })} className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors ${g.chipClass}`}>{t.title}</button>
                       ); })}
                     </div>
                   </div>
@@ -999,11 +999,13 @@ function PrefixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                       <div key={ii} className="pl-3 border-l-2 border-teal-200">
                         <p className="text-slate-900 text-sm font-semibold font-mono">{item.prefix}</p>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
-                        <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {item.examples.map((ex, ei) => (
-                            <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">{ex}</span>
-                          ))}
-                        </div>
+                        {(item.examples?.length ?? 0) > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-1.5">
+                            {item.examples.map((ex, ei) => (
+                              <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">{ex}</span>
+                            ))}
+                          </div>
+                        )}
                         {item.notes && (
                           <p className="text-slate-400 text-xs mt-1.5 italic">{item.notes}</p>
                         )}
@@ -1061,11 +1063,13 @@ function SuffixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                           <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-200 shrink-0">{item.partOfSpeech}</span>
                         </div>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
-                        <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {item.examples.map((ex, ei) => (
-                            <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">{ex}</span>
-                          ))}
-                        </div>
+                        {(item.examples?.length ?? 0) > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-1.5">
+                            {item.examples.map((ex, ei) => (
+                              <span key={ei} className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200">{ex}</span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -1117,11 +1121,13 @@ function RootGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
                       <div key={ii} className="pl-3 border-l-2 border-orange-200">
                         <p className="text-slate-900 text-sm font-semibold font-mono">{item.root}</p>
                         <p className="text-slate-600 text-sm mt-0.5">{item.meaning}</p>
-                        <div className="flex flex-wrap gap-1.5 mt-1.5">
-                          {item.wordFamily.map((word, wi) => (
-                            <span key={wi} className="text-xs font-medium px-2 py-0.5 rounded-full bg-orange-50 text-orange-700 border border-orange-200">{word}</span>
-                          ))}
-                        </div>
+                        {(item.wordFamily?.length ?? 0) > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-1.5">
+                            {item.wordFamily.map((word, wi) => (
+                              <span key={wi} className="text-xs font-medium px-2 py-0.5 rounded-full bg-orange-50 text-orange-700 border border-orange-200">{word}</span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -1243,7 +1249,7 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                   <p className="text-slate-500 text-xs mt-0.5">{sub.summary}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {sub.examples.length > 0 && (
+                  {(sub.examples?.length ?? 0) > 0 && (
                     <span className="text-xs font-medium text-warning-600 bg-warning-100 px-2 py-0.5 rounded-full tabular-nums" title="Worked examples">{sub.examples.length}</span>
                   )}
                   <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
@@ -1253,7 +1259,7 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                 <div className="px-4 pb-4 pt-1 border-t border-amber-100">
                   <div className="space-y-3 mt-3">
                     <p className="text-slate-700 text-sm leading-relaxed whitespace-pre-line">{sub.explanation}</p>
-                    {sub.examples.length > 0 && (
+                    {(sub.examples?.length ?? 0) > 0 && (
                       <div className="space-y-2">
                         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Worked Examples</p>
                         {sub.examples.map((ex, ei) => (
@@ -1265,13 +1271,13 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
                         ))}
                       </div>
                     )}
-                    {sub.shortcuts.length > 0 && (
+                    {(sub.shortcuts?.length ?? 0) > 0 && (
                       <div className="rounded-lg bg-sky-50/60 p-3">
                         <div className="flex items-center gap-1.5 mb-1.5"><Lightbulb className="w-3.5 h-3.5 text-sky-600" /><span className="text-xs font-semibold text-sky-700 uppercase tracking-wide">Key anchors</span></div>
                         <ul className="space-y-1">{sub.shortcuts.map((s, si2) => <li key={si2} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0" /><MathText text={s} /></li>)}</ul>
                       </div>
                     )}
-                    {sub.traps.length > 0 && (
+                    {(sub.traps?.length ?? 0) > 0 && (
                       <div className="rounded-lg bg-rose-50/60 p-3">
                         <div className="flex items-center gap-1.5 mb-1.5"><AlertTriangle className="w-3.5 h-3.5 text-danger-600" /><span className="text-xs font-semibold text-danger-700 uppercase tracking-wide">Common pitfalls</span></div>
                         <ul className="space-y-1">{sub.traps.map((t, ti) => <li key={ti} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" /><MathText text={t} /></li>)}</ul>
@@ -1307,9 +1313,10 @@ function QuantFormulasBlock({ formulas }: { formulas: QuantFormulaEntry[] }) {
 }
 
 function ComparisonTableBlock({ table }: { table: ComparisonTableType }) {
-  const isMatrixRows = table.rows.length > 0 && !Array.isArray(table.rows[0]);
+  const rows = table.rows ?? [];
+  const isMatrixRows = rows.length > 0 && !Array.isArray(rows[0]);
   if (isMatrixRows) {
-    const matrixRows = table.rows as Array<Record<string, string>>;
+    const matrixRows = rows as Array<Record<string, string>>;
     const headers = Object.keys(matrixRows[0] || {});
     return (
       <Card className="p-5 overflow-hidden">
@@ -1337,7 +1344,7 @@ function ComparisonTableBlock({ table }: { table: ComparisonTableType }) {
       </Card>
     );
   }
-  const arrayRows = table.rows as string[][];
+  const arrayRows = rows as string[][];
   return (
     <Card className="p-5 overflow-hidden">
       {table.title && <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">{table.title}</h3>}

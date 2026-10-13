@@ -20,6 +20,9 @@ function getKatex(): Promise<typeof import('katex').default> {
   return katexPromise;
 }
 
+function hasMath(text: string): boolean {
+  return text.includes('$') || text.includes('\\(') || text.includes('\\[');
+}
 
 // ── Inline rendering ──────────────────────────────────────────────
 

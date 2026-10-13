@@ -198,7 +198,7 @@ function RevisionGroup({ title, icon, items, onOpen }: {
                   <span className="text-slate-500 text-xs">Due: {new Date(item.dateStr).toLocaleDateString()}</span>
                 </div>
                 <div className="mt-2">
-                  <ProgressBar value={item.accuracy} colorClass={subjColor?.bar ?? 'bg-slate-400'} ariaLabel={`${item.accuracy}% accuracy`} />
+                  <ProgressBar value={item.accuracy} colorClass={subjColor?.bar ?? 'bg-slate-400'} />
                 </div>
               </button>
             </Card>

@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, type ReactNode } from 'react';
-import { Download, X, Library } from 'lucide-react';
+import { Download, X, Library, Share } from 'lucide-react';
 
 const DISMISS_KEY = 'pwa-install-dismissed';
 const DISMISS_DURATION_MS = 14 * 24 * 60 * 60 * 1000;
