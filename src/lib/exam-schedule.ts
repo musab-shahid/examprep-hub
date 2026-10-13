@@ -43,7 +43,7 @@ export const FPSC_OCT_2026_SESSIONS: ExamSession[] = [
     endsAtIso: "2026-10-16T11:40:00+05:00",
     reportByIso: "2026-10-16T09:15:00+05:00",
     doorsCloseIso: "2026-10-16T09:45:00+05:00",
-    venue: "Govt. Comprehensive HSS for Girls, Gulgash, Multan (Main Hall-1)",
+    venue: "Govt. Comprehensive HSS for Girls, Gulgasht, Multan (Main Hall-1)",
     note: "Report by 09:15 · doors close 09:45 · test 10:00–11:40.",
   },
   {
