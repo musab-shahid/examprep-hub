@@ -262,7 +262,7 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
         <EmptyState
           title="Section not found"
           message="This section does not exist or was removed."
-          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
+          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn' })}>Back to Learn</Button>}
         />
       </PageContainer>
     );
@@ -387,7 +387,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         <EmptyState
           title="Topic not found"
           message="This topic does not exist or was removed."
-          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn', parent: null })}>Back to Learn</Button>}
+          action={<Button variant="secondary" onClick={() => navigate({ screen: 'learn' })}>Back to Learn</Button>}
         />
       </PageContainer>
     );

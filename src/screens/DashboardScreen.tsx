@@ -207,7 +207,7 @@ export function DashboardScreen() {
                     key={g.topicId}
                     type="button"
                     className="text-brand-700 font-medium hover:underline mr-1"
-                    onClick={() => navigate({ screen: 'topic', topicId: g.topicId, parent: null })}
+                    onClick={() => navigate({ screen: 'topic', topicId: g.topicId })}
                   >
                     {title}{i < gainOps.length - 1 ? ',' : ''}
                   </button>
@@ -303,7 +303,7 @@ export function DashboardScreen() {
                 <h3 className="font-semibold text-slate-900">{trackTs.label}</h3>
               </div>
               <button
-                onClick={() => navigate({ screen: getLandingScreenForTrack(track.id), parent: null })}
+                onClick={() => navigate({ screen: getLandingScreenForTrack(track.id) })}
                 className={`text-sm font-medium hover:underline ${trackTs.accent}`}
               >
                 Open {track.shortTitle}
@@ -325,7 +325,7 @@ export function DashboardScreen() {
                     key={sStats.subjectId}
                     onClick={() => {
                       setActiveSubjectForScreen('learn', sStats.subjectId);
-                      navigate({ screen: 'learn', parent: null });
+                      navigate({ screen: 'learn' });
                     }}
                     disabled={!hasContent}
                     className="text-left p-3 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -380,7 +380,7 @@ export function DashboardScreen() {
                   return (
                     <button
                       key={w.topicId}
-                      onClick={() => navigate({ screen: 'topic', topicId: w.topicId, parent: null })}
+                      onClick={() => navigate({ screen: 'topic', topicId: w.topicId })}
                       className="w-full flex items-center justify-between px-2 py-2 rounded-lg hover:bg-white transition-colors text-left"
                     >
                       <div className="flex items-center gap-2 min-w-0">
@@ -396,7 +396,7 @@ export function DashboardScreen() {
                 })}
               </div>
               <button
-                onClick={() => navigate({ screen: 'practice', parent: null })}
+                onClick={() => navigate({ screen: 'practice' })}
                 className="text-warning-700 text-sm font-semibold hover:text-warning-700"
               >
                 Practice these
@@ -423,42 +423,42 @@ export function DashboardScreen() {
               iconBg="bg-warning-50 border border-warning-100"
               title="Quick Practice"
               subtitle="10 questions"
-              onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
+              onClick={() => navigate({ screen: 'practice', mode: 'quick' })}
             />
             <QuickActionTile
               icon={<Target className="w-5 h-5 text-brand-600" />}
               iconBg="bg-brand-50 border border-brand-200"
               title="Focus Practice"
               subtitle="Pick your topics"
-              onClick={() => navigate({ screen: 'practice', parent: null })}
+              onClick={() => navigate({ screen: 'practice' })}
             />
             <QuickActionTile
               icon={<FileText className="w-5 h-5 text-sky-600" />}
               iconBg="bg-sky-50 border border-sky-200"
               title="FPSC Exam"
               subtitle="7 subjects"
-              onClick={() => navigate({ screen: 'fpsc', parent: null })}
+              onClick={() => navigate({ screen: 'fpsc' })}
             />
             <QuickActionTile
               icon={<Trophy className="w-5 h-5 text-indigo-600" />}
               iconBg="bg-indigo-50 border border-indigo-200"
               title="HAT Prep"
               subtitle="3 modules"
-              onClick={() => navigate({ screen: 'hat', parent: null })}
+              onClick={() => navigate({ screen: 'hat' })}
             />
             <QuickActionTile
               icon={<RotateCcw className="w-5 h-5 text-success-600" />}
               iconBg="bg-success-50 border border-success-100"
               title="Review Queue"
               subtitle={`${reviewDue.length} due`}
-              onClick={() => navigate({ screen: 'review', parent: null })}
+              onClick={() => navigate({ screen: 'review' })}
             />
             <QuickActionTile
               icon={<Clock className="w-5 h-5 text-brand-400" />}
               iconBg="bg-slate-900 border border-slate-700"
               title="Mock Exam"
               subtitle="Full simulation"
-              onClick={() => navigate({ screen: 'practice', mode: 'mock', parent: null })}
+              onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
               disabled={(sd.statsFor('all').totalQuestions) < 30}
               dark
             />

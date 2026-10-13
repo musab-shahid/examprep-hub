@@ -142,7 +142,7 @@ export function FpscLandingScreen() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <button
-            onClick={() => navigate({ screen: 'practice', mode: 'quick', parent: null })}
+            onClick={() => navigate({ screen: 'practice', mode: 'quick' })}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors"
           >
             <Zap className="w-5 h-5 text-warning-600" />
@@ -150,7 +150,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">10 Qs · 5 min</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'review', parent: null })}
+            onClick={() => navigate({ screen: 'review' })}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
             <RotateCcw className="w-5 h-5 text-success-600" />
@@ -158,7 +158,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">Spaced repetition</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'search', parent: null })}
+            onClick={() => navigate({ screen: 'search' })}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-brand-50 border border-brand-200 hover:bg-brand-100 transition-colors"
           >
             <BookOpen className="w-5 h-5 text-brand-600" />
@@ -166,7 +166,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">Find any topic</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'practice', mode: 'mock', parent: null })}
+            onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
             disabled={totalQuestions < 10}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-slate-900 text-white hover:bg-slate-800 transition-colors disabled:opacity-50"
           >
@@ -295,7 +295,7 @@ export function FpscLandingScreen() {
               </p>
             </div>
             <Button
-              onClick={() => navigate({ screen: 'practice', mode: 'mock', parent: null })}
+              onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
               disabled={totalQuestions < 10}
               className="shrink-0 bg-white/10 text-slate-300 border-white/20 hover:bg-white/10"
             >

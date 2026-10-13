@@ -274,7 +274,7 @@ return (
                         <button
                           key={m.questionId}
                           type="button"
-                          onClick={() => navigate({ screen: 'topic', topicId: m.topicId, parent: null })}
+                          onClick={() => navigate({ screen: 'topic', topicId: m.topicId })}
                           className="w-full text-left p-3 rounded-lg bg-red-50/80 border border-red-100 hover:bg-red-50 transition-colors"
                         >
                           <p className="text-sm text-slate-800 line-clamp-2">{m.stem}</p>
@@ -302,7 +302,6 @@ return (
                               screen: 'quiz',
                               mode: 'topic',
                               topicId: g.topicId,
-                              parent: null,
                             })
                           }
                           className="px-3 py-1.5 rounded-lg text-sm font-medium bg-amber-50 border border-amber-200 text-amber-900 hover:bg-amber-100"
