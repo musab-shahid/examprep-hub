@@ -27,3 +27,13 @@ CI runs the same sequence on every push and PR to `main`.
 
 - Small PRs preferred (logic vs large bank edits).
 - Describe user-visible impact and any migration notes for localStorage shapes.
+
+## End-to-end smoke (optional locally)
+
+```bash
+npm run build
+npx playwright install chromium
+npm run test:e2e
+```
+
+CI runs this in a separate `e2e` job after the main `check` job.
