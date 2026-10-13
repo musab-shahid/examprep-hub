@@ -540,7 +540,6 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     load();
     return () => { cancelled = true; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- mode/topicId/scope/subjectId live inside initQuiz
   }, [initQuiz]);
 
   // ── Shared finish helper — side effects only outside setState updaters ──

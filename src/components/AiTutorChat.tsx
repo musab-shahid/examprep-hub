@@ -194,7 +194,6 @@ export function AiTutorChat({ topicId, topicTitle, topicContext, studentContext,
       setModelId(def);
       prevModelIdRef.current = def;
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -290,7 +289,6 @@ _…reply may have been cut off by the model length limit. Ask “continue” to
       onInitialMessageConsumed?.();
     }, 80);
     return () => clearTimeout(t);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [initialMessage, autoOpen, modelId, availableModels.length]);
 
   // Auto-retry when model changes after an error

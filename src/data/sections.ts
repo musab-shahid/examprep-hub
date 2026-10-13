@@ -43,7 +43,7 @@ export const sections: Section[] = [
   { id: 'PHY-11', subjectId: 'physics', title: 'Units, Measurement & Vectors', topicCount: 4, questionCount: 12 },
 
   // ── Mathematics ──
-  { id: 'MATH-01', subjectId: 'maths', title: 'Number Systems & Arithmetic', topicCount: 8, questionCount: 94 },
+  { id: 'MATH-01', subjectId: 'maths', title: 'Number Systems & Arithmetic', topicCount: 8, questionCount: 103 },
   { id: 'MATH-02', subjectId: 'maths', title: 'Algebra', topicCount: 7, questionCount: 80 },
   { id: 'MATH-03', subjectId: 'maths', title: 'Powers, Roots & Logarithms', topicCount: 4, questionCount: 48 },
   { id: 'MATH-04', subjectId: 'maths', title: 'Geometry & Mensuration', topicCount: 6, questionCount: 72 },
@@ -53,9 +53,9 @@ export const sections: Section[] = [
   { id: 'MATH-08', subjectId: 'maths', title: 'Word Problems & Applications', topicCount: 5, questionCount: 61 },
 
   // ── English ──
-  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 106 },
-  { id: 'ENG-02', subjectId: 'english', title: 'Vocabulary', topicCount: 3, questionCount: 78 },
-  { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 62 },
+  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 88 },
+  { id: 'ENG-02', subjectId: 'english', title: 'Vocabulary', topicCount: 3, questionCount: 59 },
+  { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 53 },
 
   // ── Environmental Studies ──
   { id: 'ENV-01', subjectId: 'env-studies', title: 'Environmental Fundamentals', topicCount: 2, questionCount: 42 },
