@@ -5,10 +5,19 @@ import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
-import { refreshFormulaVault } from '@/data/formulas';
+import { getFormulasForSubject, refreshFormulaVault } from '@/data/formulas';
 import { subjectMap } from '@/data/subjects';
 import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
 import type { SubjectId } from '@/types';
+
+/** Formula-heavy subjects load first so the vault is usable before every bank finishes. */
+const FORMULA_PRIORITY: SubjectId[] = [
+  'physics',
+  'maths',
+  'meteo-climatology',
+  'earth-science',
+  'env-studies',
+];
 
 export function FormulaVaultScreen() {
   const { navigate } = useRouter();
@@ -27,39 +36,60 @@ export function FormulaVaultScreen() {
     setActiveSubjectForScreen('formulas', value);
   };
 
-  const { ensureTopicsLoaded, formulasFor } = sd;
+  const { ensureTopicsLoaded } = sd;
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setLoadError(false);
-    ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
-      .then(() => {
-        if (cancelled) return;
-        setVaultTick((n) => n + 1);
-        setLoading(false);
-      })
-      .catch(() => { if (!cancelled) { setLoading(false); setLoadError(true); } });
+
+    async function load() {
+      try {
+        if (isAllSubjects) {
+          // Show useful content ASAP; one slow subject must not brick the whole vault
+          await Promise.allSettled(FORMULA_PRIORITY.map((id) => ensureTopicsLoaded(id)));
+          if (cancelled) return;
+          setVaultTick((n) => n + 1);
+          setLoading(false);
+          await ensureTopicsLoaded('all');
+          if (cancelled) return;
+          setVaultTick((n) => n + 1);
+        } else {
+          await ensureTopicsLoaded(activeSubject as SubjectId);
+          if (cancelled) return;
+          setVaultTick((n) => n + 1);
+          setLoading(false);
+        }
+      } catch {
+        if (!cancelled) {
+          setLoading(false);
+          setLoadError(true);
+        }
+      }
+    }
+
+    void load();
     return () => { cancelled = true; };
   }, [isAllSubjects, activeSubject, ensureTopicsLoaded]);
 
   const scopedFormulas = useMemo(() => {
-    if (loading) return [];
     if (isAllSubjects) return refreshFormulaVault();
-    return formulasFor(activeSubject as SubjectId);
-  }, [isAllSubjects, activeSubject, formulasFor, loading, vaultTick]);
+    return getFormulasForSubject(activeSubject as SubjectId);
+  }, [isAllSubjects, activeSubject, vaultTick]);
 
-  if (loadError) return (
+  if (loadError && scopedFormulas.length === 0) return (
     <PageContainer>
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading formulas. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
         <div className="flex justify-center mt-4">
-          <Button onClick={() => { setLoadError(false); setLoading(true); ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
+          <Button onClick={() => { setLoadError(false); setLoading(true); setVaultTick((n) => n + 1); }}>Retry</Button>
         </div>
       </Card>
     </PageContainer>
   );
 
-  if (loading) return <PageContainer><LoadingSpinner label="Loading formulas…" /></PageContainer>;
+  if (loading && scopedFormulas.length === 0) {
+    return <PageContainer><LoadingSpinner label="Loading formulas…" /></PageContainer>;
+  }
 
   const categories = [...new Set(scopedFormulas.map((f) => f.category))];
 
@@ -68,7 +98,7 @@ export function FormulaVaultScreen() {
       <div className="mb-6">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Formulas</h1>
         <p className="text-slate-500 mt-1">
-          {isAllSubjects ? 'All formulas across all subjects' : `All formulas in ${subjectTitle}`}, grouped by category
+          {isAllSubjects ? 'All formulas across all subjects' : `All formulas in ${subjectTitle}`}, grouped by category{loading ? ' · loading more…' : ''}
         </p>
       </div>
 

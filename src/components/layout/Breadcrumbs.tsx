@@ -32,13 +32,16 @@ export function Breadcrumbs() {
   );
 }
 
-export function BackButton() {
-  const { back, canGoBack } = useRouter();
-  if (!canGoBack) return null;
+export function BackButton({ fallbackToHome = false }: { fallbackToHome?: boolean } = {}) {
+  const { back, canGoBack, navigate } = useRouter();
+  if (!canGoBack && !fallbackToHome) return null;
   return (
     <button
       type="button"
-      onClick={back}
+      onClick={() => {
+        if (canGoBack) back();
+        else navigate({ screen: 'home', parent: null });
+      }}
       className="flex items-center justify-center w-11 h-11 rounded-btn text-slate-600 hover:bg-slate-100 hover:text-slate-900 active:bg-slate-200 transition-colors duration-DEFAULT shrink-0 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-1"
       aria-label="Go back"
     >

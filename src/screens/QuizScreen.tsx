@@ -352,7 +352,12 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
 }) {
-  const { back, navigate } = useRouter();
+  const { back, canGoBack, navigate } = useRouter();
+  /** Prefer in-app stack; from Home CTAs (3-min / recommendation) fall back to Home. */
+  const exitToOrigin = useCallback(() => {
+    if (canGoBack) back();
+    else navigate({ screen: 'home', parent: null });
+  }, [canGoBack, back, navigate]);
   const { recordQuiz, data } = useData();
   const { activeTrack } = useSubjectSelection();
   const [state, setState] = useState<QuizState | null>(null);
@@ -733,10 +738,9 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     if (s && (s.answers.length > 0 || s.currentIdx > 0) && !finishedRef.current) {
       setShowExitConfirm(true);
     } else {
-      clearQuizProgress();
-      back();
+      exitToOrigin();
     }
-  }, [back]);
+  }, [exitToOrigin]);
 
   // Keyboard shortcuts
   useEffect(() => {
@@ -792,7 +796,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   if (validationError) {
     return (
       <PageContainer>
-        <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
             title="Invalid quiz parameters"
@@ -822,7 +826,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       : 'Challenge';
     return (
       <PageContainer>
-        <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
             title={`Resume ${subjectLabel} · ${modeLabel}?`}
@@ -842,7 +846,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     if (questionsLoadError) {
       return (
         <PageContainer>
-          <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
+          <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
           <Card className="p-8">
             <EmptyState title="Failed to load" message="Something went wrong while loading questions. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
             <div className="flex justify-center mt-4">
@@ -857,11 +861,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   if (state.questions.length === 0) {
     const emptyReturnTarget = mode === 'topic' && topicId
-      ? () => navigate({ screen: 'topic', topicId })
-      : () => back();
+      ? () => navigate({ screen: 'topic', topicId, parent: null })
+      : exitToOrigin;
     return (
       <PageContainer>
-        <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState title="No questions available" message={mode === 'topic' && topicId ? "This topic doesn't have any questions yet." : "No questions are available yet."} icon={<Brain className="w-12 h-12" />} />
           <div className="flex justify-center mt-4"><Button variant="secondary" onClick={emptyReturnTarget}>Back</Button></div>
@@ -873,7 +877,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   if (finished && retakeEmpty) {
     return (
       <PageContainer>
-        <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
             title="No wrong answers left"
@@ -897,7 +901,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         onNavigateToTopic={(tid) => navigate({ screen: 'topic', topicId: tid, parent: null })}
         onPracticeTopic={(tid) => navigate({ screen: 'quiz', mode: 'topic', topicId: tid, count: 5 })}
         onNavigateToProgress={() => navigate({ screen: 'progress', parent: null })}
-        onBack={back}
+        onBack={exitToOrigin}
       />
     );
   }
@@ -1213,7 +1217,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
                 onClick={() => {
                   setShowExitConfirm(false);
                   clearQuizProgress();
-                  back();
+                  exitToOrigin();
                 }}
                 className="flex-1"
               >
@@ -1293,7 +1297,7 @@ function QuizResults({
             : 'Challenge Mode';
 
   const handleDone = () => onBack();
-  const doneLabel = 'Back';
+  const doneLabel = 'Done';
 
   return (
     <PageContainer>
