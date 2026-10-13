@@ -132,6 +132,13 @@ Rollback: redeploy the previous `dist` artifact or git revision.
 3. For content: validate banks; avoid breaking stable question/topic IDs without aliases  
 4. Prefer small PRs for logic vs large bank edits  
 
+## Privacy, security, release
+
+- [PRIVACY.md](./PRIVACY.md) — local data, AI tutor, export/reset
+- [SECURITY.md](./SECURITY.md) — vulnerability reporting, key handling
+- [RELEASE.md](./RELEASE.md) — deploy, rollback, backups, migrations
+- [CONTRIBUTING.md](./CONTRIBUTING.md) — check pipeline and content rules
+
 ## License & content
 
 Repository visibility does not by itself grant reuse rights to third-party exam materials. Prefer original teaching prose and properly licensed sources. Add an explicit `LICENSE` file if you intend open reuse of the app code.
