@@ -83,7 +83,9 @@ function serializeMethodChooser(mc: MethodChooser | MethodChooserStep[]): string
   }
   if (mc.options?.length) {
     for (const opt of mc.options) {
-      lines.push(`- ${opt.name || ''}${opt.when ? ` (when: ${opt.when})` : ''}`);
+      const optName = opt.name ?? opt.answer ?? '';
+      const optWhen = opt.when ?? opt.condition ?? '';
+      lines.push(`- ${optName}${optWhen ? ` (when: ${optWhen})` : ''}`);
       if (opt.steps?.length) lines.push(`  Steps: ${opt.steps.join('; ')}`);
     }
   }
@@ -94,7 +96,8 @@ function serializeMethodChooser(mc: MethodChooser | MethodChooserStep[]): string
 function serializeLimitCases(cases: LimitCase[]): string {
   return cases.map((lc) => {
     if (lc.condition) {
-      return `- ${lc.condition} → ${lc.result || ''}${lc.physicalMeaning ? ` (${lc.physicalMeaning})` : ''}`;
+      const note = lc.note ? ` [note: ${clip(lc.note, 200)}]` : '';
+      return `- ${lc.condition} → ${lc.result || ''}${lc.physicalMeaning ? ` (${lc.physicalMeaning})` : ''}${note}`;
     }
     return `- ${lc.case || ''}: ${lc.example || ''} → ${lc.resolution || ''}`;
   }).join('\n');
@@ -102,7 +105,7 @@ function serializeLimitCases(cases: LimitCase[]): string {
 
 function serializeComparisonTable(table: ComparisonTable): string {
   const headers = table.headers || [];
-  const rows = table.rows.map((row) => {
+  const rows = (table.rows ?? []).map((row) => {
     if (Array.isArray(row)) return row;
     return headers.map((h) => row[h] || '');
   });
@@ -165,6 +168,7 @@ export function buildTopicContext(topic: Topic): string {
     const items = topic.misconceptionRemediation.map((m) => {
       const lines = [`- Misconception: ${m.misconception}`];
       if (m.whyStudentsThinkIt) lines.push(`  Why it seems right: ${clip(m.whyStudentsThinkIt, 300)}`);
+      if (m.whyStudentsThinkSo) lines.push(`  Why it seems right: ${clip(m.whyStudentsThinkSo, 300)}`);
       if (m.correctModel) lines.push(`  Correct model: ${clip(m.correctModel, 400)}`);
       if (m.remedy) lines.push(`  Remedy: ${clip(m.remedy, 400)}`);
       if (m.drill) lines.push(`  Drill: ${clip(m.drill, 300)}`);
@@ -175,7 +179,7 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.qualitativeScenarios?.length) {
     const items = topic.qualitativeScenarios.map((q) =>
-      `- Scenario: ${q.scenario ?? (q as { question?: string }).question}\n  Answer: ${q.answer}\n  Why: ${clip(q.why ?? (q as { reasoning?: string }).reasoning, 300)}`,
+      `- Scenario: ${q.scenario ?? (q as { question?: string }).question}\n  Answer: ${q.answer ?? ''}\n  Why: ${clip(q.why ?? (q as { reasoning?: string }).reasoning, 300)}`,
     );
     parts.push('Think it through:\n' + items.join('\n'));
   }
@@ -202,6 +206,10 @@ export function buildTopicContext(topic: Topic): string {
 
   if (topic.comparisonTable) {
     parts.push('Comparison table:\n' + serializeComparisonTable(topic.comparisonTable));
+  }
+  const extraTables = (topic as Topic & { comparisonTables?: ComparisonTable[] }).comparisonTables;
+  if (extraTables?.length) {
+    parts.push('Comparison tables (extra):\n' + extraTables.map((t) => serializeComparisonTable(t)).join('\n\n'));
   }
   if (topic.comparisonTableEras) {
     parts.push('Comparison table (eras):\n' + serializeComparisonTable(topic.comparisonTableEras));
@@ -1050,12 +1058,13 @@ export async function askTutor(
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
+  const onAbort = () => controller.abort();
   if (signal) {
     if (signal.aborted) {
       clearTimeout(timeoutId);
       throw new DOMException('The operation was aborted.', 'AbortError');
     }
-    signal.addEventListener('abort', () => controller.abort(), { once: true });
+    signal.addEventListener('abort', onAbort, { once: true });
   }
 
   try {
@@ -1097,5 +1106,6 @@ export async function askTutor(
     throw err;
   } finally {
     clearTimeout(timeoutId);
+    if (signal) signal.removeEventListener('abort', onAbort);
   }
 }

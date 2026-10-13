@@ -76,9 +76,13 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
     }
     // Search common mistakes
     if (topic.commonMistakes) {
-      const mistake = topic.commonMistakes.find((m) => m.toLowerCase().includes(q));
+      const mistake = topic.commonMistakes.find((m) => {
+        const text = typeof m === 'string' ? m : (m.mistake ?? m.name ?? '') + ' ' + (m.correction ?? m.remedy ?? '') + ' ' + (m.explanation ?? m.correctModel ?? '');
+        return text.toLowerCase().includes(q);
+      });
       if (mistake) {
-        results.push({ type: 'mistake', ...base, match: snippet(mistake, q) });
+        const text = typeof mistake === 'string' ? mistake : (mistake.mistake ?? mistake.name ?? '');
+        results.push({ type: 'mistake', ...base, match: snippet(text, q) });
         continue;
       }
     }
@@ -142,7 +146,8 @@ export function searchTopics(query: string, scopedTopics: Topic[] = topics): Sea
     if (topic.vocabularyGroups) {
       let matched = false;
       for (const group of topic.vocabularyGroups) {
-        const word = group.words.find(
+        const wordList = group.words ?? (group as { cards?: typeof group.words }).cards ?? [];
+        const word = wordList.find(
           (w) => w.word.toLowerCase().includes(q) || w.definition.toLowerCase().includes(q) ||
             (w.synonym && w.synonym.toLowerCase().includes(q)) ||
             (w.antonym && w.antonym.toLowerCase().includes(q)),
