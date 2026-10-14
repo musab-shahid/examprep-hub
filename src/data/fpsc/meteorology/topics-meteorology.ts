@@ -1834,56 +1834,203 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 7,
   title: "Global Atmospheric Circulation (Three-Cell Model)",
-  definition: "The three-cell model divides each hemisphere into Hadley, Ferrel, and polar cells. It is a teaching idealisation that links equatorial heating, subtropical deserts, mid-latitude westerlies, and polar easterlies — real flow also includes waves, monsoons, and seasonal shifts.",
+  definition:
+    "A simplified map of how air tends to rise, sink, and flow between the equator and the poles in each hemisphere. It is built from one basic fact — the tropics receive more solar heating than the poles — plus Earth’s rotation. The model explains, in broad strokes, trade winds, subtropical deserts, mid-latitude westerlies, and polar easterlies. Real weather is messier (storms, monsoons, seasons), but the three-cell picture is the standard starting framework.",
+
   keyFacts: [
-    "Hadley: rise near equator, sink near 30° — trade winds at surface",
-    "Ferrel: mid-latitudes — thermally indirect; surface westerlies",
-    "Polar: sink near pole, surface polar easterlies; polar front near ~60°",
-    "Subtropical highs sit under the Hadley sinking branch",
-    "ITCZ marks the rising equatorial branch (seasonally mobile)"
+    "Tropics are heated more strongly than poles → air wants to rise in the warm belt and sink in the cold belt",
+    "Without rotation, one huge cell per hemisphere would be the simplest picture; rotation breaks the flow into three cells",
+    "Hadley cell (tropics to ~30°): air rises near the equator, flows poleward aloft, sinks near 30°, returns equatorward at the surface as trade winds",
+    "Where Hadley air sinks: subtropical highs → often clear, dry weather → many of the world’s hot deserts sit near 30°",
+    "Where Hadley air rises: ITCZ (Intertropical Convergence Zone) → heavy tropical rain; the ITCZ shifts with the seasons",
+    "Polar cell (poles to ~60°): cold air sinks near the pole and spreads outward at the surface as polar easterlies",
+    "Near ~60°: milder air from lower latitudes meets polar air → polar front → frequent mid-latitude storms",
+    "Ferrel cell (roughly 30°–60°): the middle cell; surface winds are mostly westerly (the mid-latitude westerlies)",
+    "Ferrel is called thermally indirect: it is not a simple “warm air rises at 60°, cool air sinks at 30°” heat engine like Hadley; much of its mean flow is shaped by storms and waves",
+    "The three-cell model is a teaching average — daily weather maps will not show three perfect closed loops",
   ],
+
   explanationSections: [
-    { heading: "Idealisation with a purpose", body: "Use the cells to organise deserts, ITCZ rain, and storm tracks. Do not expect perfect closed loops every day on a weather map." }
-  ],
-  subtopics: [
     {
-      id: "meteo-global-circulation-exam-map",
-      title: "What each cell explains on a world map",
-      summary: "Deserts, trades, westerlies — attach features to cells.",
-      explanation: "Hadley sinking → subtropical desert belts and trade-wind oceans. Equatorial rising → ITCZ convection. Ferrel belt → mid-latitude westerlies and migrating cyclones. Polar cell → cold polar easterlies and the polar front zone near 60°. Exam maps test these attachments.",
-      examples: [
-        { problem: "Why are many deserts near 30° latitude in the three-cell picture?", solution: "Hadley sinking branch dries the column under subtropical highs.", answer: "Hadley subsidence / subtropical high" }
-      ],
-      shortcuts: ["30° sink → dry", "Equator rise → wet", "Mid-lat west winds → Ferrel"],
-      traps: ["Treating cells as rigid walls that storms cannot cross"]
+      heading: "Start here: unequal heating",
+      body:
+        "Sunlight is concentrated near the equator and spread thin near the poles. Warm air in the tropics is less dense and tends to rise; cooler high-latitude air is denser and tends to sink. Rising air is linked with clouds and rain (air cools as it rises, moisture condenses). Sinking air is linked with clearer, drier conditions (air warms as it descends and relative humidity drops). Any global circulation model is really a story about where air rises and where it sinks.",
     },
     {
-      id: "meteo-global-circulation-ferrel-indirect",
-      title: "Why the Ferrel cell is 'indirect'",
-      summary: "Not a simple tropical-style heat engine.",
-      explanation: "The Hadley cell is thermally direct: heat drives ascent at low latitudes. The Ferrel cell’s mean overturning is maintained largely by eddies (waves and storms) rather than by heating at 60° and cooling at 30°. Calling Ferrel a second Hadley is a common error.",
-      examples: [
-        { problem: "Is the Ferrel cell thermally direct like Hadley?", solution: "No — it is described as thermally indirect in the classical model.", answer: "No — indirect" }
-      ],
-      shortcuts: ["Hadley direct", "Ferrel indirect / eddy-driven"],
-      traps: ["Drawing Ferrel with tropical-style heating at 60° as the sole driver"]
-    }
+      heading: "Hadley cell — the tropical loop you must know",
+      body:
+        "Picture the equator: strong heating → rising air → rain (ITCZ). Aloft, that air spreads toward the subtropics. Near about 30° latitude it sinks, building the subtropical high-pressure belts. At the surface, air flows back toward the equator. Earth’s rotation twists that return flow so that, in the tropics, surface winds are the trade winds (northeast trades in the Northern Hemisphere, southeast trades in the Southern). One exam sentence: rising = wet ITCZ; sinking ≈ 30° = dry subtropical deserts and semi-deserts.",
+    },
+    {
+      heading: "Polar cell and the polar front",
+      body:
+        "Over the poles, cold air sinks and spills outward at the surface. Rotation again twists the flow, giving polar easterlies. Around 60°, this cold polar air collides with milder air from lower latitudes. That battle zone is the polar front — a cradle for mid-latitude cyclones. You do not need equations here: cold side, warm side, frequent storms near that latitude belt.",
+    },
+    {
+      heading: "Ferrel cell — the confusing middle one",
+      body:
+        "Between ~30° and ~60° lies the Ferrel cell. At the surface, the stand-out fact for exams is the belt of prevailing westerlies (winds from west to east) that steer much mid-latitude weather. Textbooks call Ferrel thermally indirect: unlike Hadley, you should not explain it as a clean tropical-style heat engine driven only by heating at 60° and cooling at 30°. Large eddies (weather systems and waves) help maintain the average mid-latitude overturning. Practical takeaway: do not describe Ferrel as “just another Hadley cell.”",
+    },
+    {
+      heading: "What the model is — and is not",
+      body:
+        "Use the three cells to organise world patterns: deserts near 30°, rains near the ITCZ, westerlies in mid-latitudes, easterlies near the poles. Do not expect a satellite loop or a day’s chart to show three tidy conveyor belts. Monsoons, land–sea contrasts, jet streams, and Rossby waves all distort the simple picture. The model is a scaffold, not a photograph.",
+    },
   ],
+
   examPoints: [
-    "Three cells and surface winds",
-    "Subtropical dry / ITCZ wet",
-    "Ferrel is indirect"
+    "Unequal heating: tropics warm → rise; poles cold → sink",
+    "Hadley: rise near equator (ITCZ, wet); sink near 30° (subtropical highs, often dry deserts)",
+    "Surface Hadley return flow + rotation → trade winds",
+    "Polar cell: sink at pole; polar easterlies; polar front ~60° with storms",
+    "Ferrel belt: mid-latitude westerlies; Ferrel is thermally indirect (not a second Hadley)",
+    "ITCZ shifts seasonally with the sun",
+    "Model = average teaching picture, not daily weather truth",
   ],
+
   commonMistakes: [
-    "Ferrel = second Hadley.",
-    "Ignoring seasonal ITCZ shift.",
-    "Expecting perfect cells on daily charts."
+    {
+      mistake: "Treating the Ferrel cell as a second Hadley cell",
+      correction: "Hadley is the classic direct tropical cell; Ferrel is indirect and heavily eddy-influenced.",
+      explanation: "Exam options often invite you to copy Hadley logic onto 30°–60° without change.",
+    },
+    {
+      mistake: "Putting deserts at the equator because ‘it is hot’",
+      correction: "Equatorial heat drives rising air and rain (ITCZ); many hot deserts sit under subtropical sinking near 30°.",
+      explanation: "Heat alone does not make a desert — sinking dry air does.",
+    },
+    {
+      mistake: "Expecting three perfect cells on every weather map",
+      correction: "Use the model for global mean patterns; real flow includes storms, monsoons, and waves.",
+      explanation: "The idealisation organises facts; it does not replace synoptic charts.",
+    },
   ],
+
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A world-map question asks why the Sahara and Australian deserts sit near the subtropics rather than on the equator.",
+      answer:
+        "They lie under the Hadley sinking branch / subtropical highs — descending air suppresses persistent deep rain.",
+      why: "Equator is the rising, rainy branch (ITCZ); ~30° is the sinking, often dry branch.",
+    },
+    {
+      scenario:
+        "Why do ships historically rely on ‘trade winds’ when sailing toward the equator in the tropics?",
+      answer:
+        "Surface return flow of the Hadley cell, deflected by rotation, produces steady trade-wind belts.",
+      why: "Hadley cell + Coriolis → persistent tropical easterlies (trades).",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Three cells — beginner map",
+    headers: ["Cell", "Rough latitudes", "Surface wind belt (mean)", "Wet/dry cue"],
+    rows: [
+      ["Hadley", "0° to ~30°", "Trades (toward equator)", "Wet near equator; dry near 30° sink"],
+      ["Ferrel", "~30° to ~60°", "Westerlies", "Stormy mid-latitudes; not a simple desert rule"],
+      ["Polar", "~60° to 90°", "Polar easterlies", "Cold sinking near pole; front/storms near ~60°"],
+    ],
+  },
+
+  subtopics: [
+    {
+      id: "meteo-global-circulation-why-cells-exist",
+      title: "From unequal heating to cells",
+      summary:
+        "Tropics gain more heat than poles; rise and sink patterns, then rotation, shape the three-cell sketch.",
+      explanation:
+        "If you only remember one driver, remember unequal solar heating. Rising branches favour rain; sinking branches favour dryness. Rotation prevents a single simple cell from matching the real planet, so the textbook splits each hemisphere into three.",
+      examples: [
+        {
+          problem:
+            "Air is rising strongly in a tropical belt. What weather is favoured there, and why?",
+          solution:
+            "Clouds and rain — rising air cools, condensation is favoured (ITCZ idea).",
+          answer: "Wet / convective rain",
+        },
+        {
+          problem:
+            "Air is sinking in a subtropical high. Why is long-lived heavy rain less likely?",
+          solution:
+            "Descent warms and dries the column; deep cloud is suppressed.",
+          answer: "Sinking air → drier, clearer conditions",
+        },
+      ],
+      shortcuts: [
+        "Rise → expand/cool → wet; sink → compress/warm → dry",
+      ],
+      traps: [
+        "Hot = desert (false at the equator in this model)",
+      ],
+    },
+    {
+      id: "meteo-global-circulation-hadley-itcz-deserts",
+      title: "Hadley cell, ITCZ, and 30° deserts",
+      summary:
+        "The must-know loop: equatorial rise, subtropical sink, trades at the surface.",
+      explanation:
+        "Link three labels every time: ITCZ (rise, rain), subtropical high (sink, often dry), trade winds (surface return). Seasonal sun angle shifts the ITCZ — that matters for monsoon climates later.",
+      examples: [
+        {
+          problem:
+            "In the three-cell model, why are many great deserts near 30° N/S?",
+          solution:
+            "Hadley cell sinking branch and subtropical highs dry the air.",
+          answer: "Hadley subsidence / subtropical high",
+        },
+        {
+          problem:
+            "What does ITCZ stand for, and is it wet or dry in the mean picture?",
+          solution:
+            "Intertropical Convergence Zone — the rising, rainy equatorial branch.",
+          answer: "Intertropical Convergence Zone — wet",
+        },
+      ],
+      shortcuts: [
+        "0° rise wet; 30° sink dry; trades blow toward the equator at the surface",
+      ],
+      traps: [
+        "Placing the Sahara on the ITCZ as a ‘hot desert’ explanation",
+      ],
+    },
+    {
+      id: "meteo-global-circulation-ferrel-polar",
+      title: "Ferrel cell, westerlies, polar cell",
+      summary:
+        "Mid-latitude westerlies, polar easterlies, polar front storms; Ferrel ≠ second Hadley.",
+      explanation:
+        "Memorise surface wind belts first. Then add one subtlety: Ferrel is indirect. Then add the polar front as the storm factory near 60°.",
+      examples: [
+        {
+          problem:
+            "Prevailing surface winds over much of the mid-latitude oceans blow from which direction in the mean picture?",
+          solution:
+            "From the west — mid-latitude westerlies (Ferrel belt).",
+          answer: "West (westerlies)",
+        },
+        {
+          problem:
+            "Is the Ferrel cell thermally direct like the Hadley cell?",
+          solution:
+            "No — classical teaching treats it as thermally indirect / eddy-influenced.",
+          answer: "No — indirect",
+        },
+      ],
+      shortcuts: [
+        "30–60°: westerlies; poles: easterlies; ~60°: polar front / storms; Ferrel ≠ Hadley",
+      ],
+      traps: [
+        "Drawing Ferrel as a pure heat-driven twin of Hadley",
+      ],
+    },
+  ],
+
   relatedTopics: ["meteo-monsoon-system", "meteo-jet-stream", "meteo-global-precip-patterns"],
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-heat-transfer"],
   leadsTo: ["meteo-jet-stream", "meteo-rossby-waves", "meteo-monsoon-system"],
-  usedIn: ["meteo-global-precip-patterns", "meteo-koppen-system"]
+  usedIn: ["meteo-global-precip-patterns", "meteo-koppen-system"],
 },
 
 {
