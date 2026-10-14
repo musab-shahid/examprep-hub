@@ -16,154 +16,297 @@ export const topics: Topic[] = [
   sectionId: "PHY-01",
   order: 1,
   title: "Kinematics: Distance, Displacement, Speed, Velocity & Acceleration",
-  definition: "Kinematics describes the motion of objects using distance, displacement, speed, velocity and acceleration without explaining the forces that cause the motion.",
+  definition: "Kinematics describes how objects move — position, speed, velocity and acceleration — without asking what forces cause the motion. Master four ideas in order: (1) path length vs net position change, (2) scalar rates vs directed rates, (3) how velocity changes with time, and (4) the constant-acceleration equations and motion graphs used in every FPSC calculation item.",
   keyFacts: [
-    "Distance is the total path length travelled; it is a scalar with SI unit metre (m).",
-    "Displacement is the straight-line change in position from start to finish, including direction; it is a vector with SI unit metre (m).",
-    "Speed = distance / time, a scalar with SI unit m/s.",
-    "Velocity = displacement / time, a vector with SI unit m/s.",
-    "Acceleration = change in velocity / time interval, a vector with SI unit m/s².",
-    "On a distance-time graph, slope = speed; on a velocity-time graph, slope = acceleration and area under graph = displacement.",
-    "Uniform circular motion at constant speed is accelerated motion because velocity direction changes continuously."
+    "Distance = total path length (scalar, m). Displacement = straight-line change in position from start to finish, with direction (vector, m).",
+    "Speed = distance / time (scalar, m/s). Velocity = displacement / time (vector, m/s).",
+    "Average speed for a whole trip = total distance / total time — never the average of the leg speeds unless times are equal.",
+    "Acceleration a = (v − u) / t (vector, m/s²). It can come from changing speed or changing direction (e.g. uniform circular motion).",
+    "Constant-acceleration equations (one dimension): v = u + at; s = ut + ½at²; v² = u² + 2as; s = ((u + v)/2) × t.",
+    "Free fall (no air resistance): use the same equations with a = g ≈ 10 m/s² downward; from rest, v = gt and s = ½gt².",
+    "Distance–time graph: slope = speed. Velocity–time graph: slope = acceleration; area under the curve = displacement. Acceleration–time graph: area = change in velocity.",
+    "Distance ≥ |displacement|; equality only for straight motion with no reversal."
   ],
   explanationSections: [
-    { heading: "Scalar vs vector quantities", body: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has travelled 400 m distance but has zero displacement, because the finish coincides with the start. Two cars may have the same speed but opposite velocities if they move in opposite directions." },
-    { heading: "Reading motion graphs", body: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph, a horizontal line means constant velocity (zero acceleration), an upward slope means speeding up in the positive direction, and the signed area between the line and the time axis gives displacement." },
-    { heading: "Sign conventions for acceleration", body: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A ball thrown upward has negative acceleration (g downward) throughout its flight, even at the instant it is momentarily at rest at the top." },
-    { heading: "How FPSC tests this", body: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v. Always check whether the question gives total path length or net change in position, and whether the object reverses direction." }
+    {
+      heading: "1. Position language: distance vs displacement",
+      body: "Imagine a path from A to B. Distance is every metre of path you actually walked. Displacement is the single arrow from where you started to where you stopped. A full lap of a 400 m track: distance = 400 m, displacement = 0 because start and finish coincide. If you walk 3 km east and 4 km north, distance = 7 km, but displacement is 5 km north-east (the hypotenuse). Always ask: is the question asking for path length or net change in position?"
+    },
+    {
+      heading: "2. Speed vs velocity; average for multi-leg trips",
+      body: "Speed ignores direction; velocity includes it. Two cars at 60 km/h in opposite directions have equal speeds and opposite velocities. Average speed for an entire trip is total distance divided by total time. Example used in the bank: 60 km in 1 h then 90 km in 2 h → total distance 150 km, total time 3 h → average speed = 50 km/h. Averaging the two leg speeds (60 and 45) gives 52.5 km/h and is wrong unless each leg lasts the same time. Average velocity uses total displacement over total time and can be much smaller than average speed if the path folds back."
+    },
+    {
+      heading: "3. Acceleration and sign",
+      body: "Acceleration is how quickly velocity changes. Choose a positive direction at the start of the problem and keep it. If velocity increases in the positive direction, a is positive; if it decreases, a is negative (often called deceleration, but the signed value is what equations need). A ball thrown upward has acceleration g downward for the whole flight — including the instant at the top when velocity is zero. Changing direction at constant speed (circular path) is still acceleration because velocity is a vector."
+    },
+    {
+      heading: "4. Equations of motion (constant acceleration)",
+      body: "When acceleration is constant in one dimension, four linked equations cover almost every MCQ. Symbols: u = initial velocity, v = final velocity, a = acceleration, t = time, s = displacement (often written x or Δx).\n\n• v = u + at — use when you know u, a, t and need v (or rearrange for any one unknown).\n• s = ut + ½at² — use when you need displacement and do not know v.\n• v² = u² + 2as — use when time is not given.\n• s = ((u + v)/2) × t — average velocity times time when a is constant.\n\nFrom rest (u = 0): v = at, s = ½at², v² = 2as. Dropped object: same with a = g. Always write knowns, choose the equation that omits the unknown you do not have, and keep units consistent (m, s, m/s, m/s²)."
+    },
+    {
+      heading: "5. Reading motion graphs end-to-end",
+      body: "Distance–time (s–t or d–t): slope at any interval = speed for that interval. Steeper → faster. Horizontal → stationary. Curved upward → speeding up. You cannot read acceleration directly from slope of s–t without care; constant slope means constant speed.\n\nVelocity–time (v–t): slope = acceleration. Horizontal line → constant velocity (a = 0). Straight line through rising values → constant positive a. Area between the v–t graph and the time axis = displacement (signed: below the axis subtracts). Distance travelled is the total of absolute areas if the graph crosses the axis.\n\nAcceleration–time (a–t): area under the graph over an interval = change in velocity Δv for that interval. Slope of a–t is not needed at FPSC level.\n\nExam traps: area under v–t is not acceleration; slope of s–t is not acceleration; a horizontal v–t line is not 'no motion' — it is steady motion."
+    },
+    {
+      heading: "6. How FPSC-style items twist the ideas",
+      body: "Typical traps: (1) calling path length 'displacement' after a closed loop; (2) averaging speeds instead of total distance/total time; (3) using v = u + at when a is not constant; (4) forgetting the ½ in s = ut + ½at²; (5) dropping the sign in v² = u² + 2as when the object slows; (6) saying free-fall acceleration is zero at the top of the throw. Read every stem for 'from rest', 'uniformly', 'returns to start', and which quantity is asked."
+    }
   ],
   formula: [
     {
-      name: "Average speed and velocity",
-      expression: "v_{avg} = \\frac{\\Delta s}{\\Delta t} \\quad a_{avg} = \\frac{\\Delta v}{\\Delta t}",
+      name: "Average speed",
+      expression: "\\text{average speed} = \\frac{\\text{total distance}}{\\text{total time}}",
       variables: [
-        { symbol: "v_{avg}", meaning: "average velocity (m/s)" },
+        { symbol: "\\text{distance}", meaning: "total path length (m or km)" },
+        { symbol: "\\text{time}", meaning: "total elapsed time (s or h)" }
+      ]
+    },
+    {
+      name: "Average velocity",
+      expression: "v_{avg} = \\frac{\\Delta s}{\\Delta t}",
+      variables: [
         { symbol: "\\Delta s", meaning: "displacement (m)" },
-        { symbol: "\\Delta t", meaning: "time interval (s)" },
-        { symbol: "a_{avg}", meaning: "average acceleration (m/s²)" },
-        { symbol: "\\Delta v", meaning: "change in velocity (m/s)" }
+        { symbol: "\\Delta t", meaning: "time interval (s)" }
+      ]
+    },
+    {
+      name: "Acceleration",
+      expression: "a = \\frac{v - u}{t}",
+      variables: [
+        { symbol: "u", meaning: "initial velocity (m/s)" },
+        { symbol: "v", meaning: "final velocity (m/s)" },
+        { symbol: "t", meaning: "time (s)" },
+        { symbol: "a", meaning: "acceleration (m/s²)" }
+      ]
+    },
+    {
+      name: "Constant acceleration — velocity",
+      expression: "v = u + at",
+      variables: [
+        { symbol: "u", meaning: "initial velocity (m/s)" },
+        { symbol: "v", meaning: "final velocity (m/s)" },
+        { symbol: "a", meaning: "constant acceleration (m/s²)" },
+        { symbol: "t", meaning: "time (s)" }
+      ]
+    },
+    {
+      name: "Constant acceleration — displacement",
+      expression: "s = ut + \\tfrac{1}{2}at^{2}",
+      variables: [
+        { symbol: "s", meaning: "displacement (m)" },
+        { symbol: "u", meaning: "initial velocity (m/s)" },
+        { symbol: "a", meaning: "constant acceleration (m/s²)" },
+        { symbol: "t", meaning: "time (s)" }
+      ]
+    },
+    {
+      name: "Constant acceleration — no time",
+      expression: "v^{2} = u^{2} + 2as",
+      variables: [
+        { symbol: "u, v", meaning: "initial and final velocity (m/s)" },
+        { symbol: "a", meaning: "constant acceleration (m/s²)" },
+        { symbol: "s", meaning: "displacement (m)" }
+      ]
+    },
+    {
+      name: "Constant acceleration — average velocity form",
+      expression: "s = \\frac{u + v}{2} \\, t",
+      variables: [
+        { symbol: "s", meaning: "displacement (m)" },
+        { symbol: "u, v", meaning: "initial and final velocity (m/s)" },
+        { symbol: "t", meaning: "time (s)" }
       ]
     }
   ],
   workedExample: [
     {
-      problem: "A car travels 120 km north in 2.0 h, then 80 km south in 1.5 h. Find (a) total distance, (b) displacement, (c) average speed, (d) average velocity.",
-      solution: "Take north as positive. (a) Distance = 120 km + 80 km = 200 km. (b) Displacement = +120 km + (−80 km) = +40 km north. (c) Average speed = 200 km / 3.5 h ≈ 57.1 km/h. (d) Average velocity = 40 km north / 3.5 h ≈ 11.4 km/h north.",
-      answer: "Distance = 200 km; displacement = 40 km north; average speed ≈ 57.1 km/h; average velocity ≈ 11.4 km/h north."
+      problem: "A car travels 60 km in 1 hour, then 90 km in 2 hours. What is the average speed for the whole trip?",
+      solution: "Total distance = 60 + 90 = 150 km. Total time = 1 + 2 = 3 h. Average speed = 150 / 3 = 50 km/h. Do not average 60 km/h and 45 km/h.",
+      answer: "50 km/h"
     },
     {
-      problem: "A train slows from 30 m/s to 10 m/s in 5.0 s. Calculate its average acceleration.",
-      solution: "Using a = (v − u)/t: change in velocity = 10 m/s − 30 m/s = −20 m/s. a = −20 m/s / 5.0 s = −4.0 m/s². The negative sign shows deceleration opposite to the initial motion.",
-      answer: "−4.0 m/s² (or 4.0 m/s² deceleration)."
+      problem: "A car travels 120 km north in 2.0 h, then 80 km south in 1.5 h. Find distance, displacement, average speed and average velocity.",
+      solution: "Take north as positive. Distance = 120 + 80 = 200 km. Displacement = +120 − 80 = +40 km (north). Time = 3.5 h. Average speed = 200 / 3.5 ≈ 57.1 km/h. Average velocity = 40 / 3.5 ≈ 11.4 km/h north.",
+      answer: "200 km; 40 km north; ≈57.1 km/h; ≈11.4 km/h north"
+    },
+    {
+      problem: "A train slows from 30 m/s to 10 m/s in 5.0 s. Find average acceleration.",
+      solution: "a = (v − u)/t = (10 − 30)/5 = −20/5 = −4.0 m/s². Negative means opposite the original direction of motion.",
+      answer: "−4.0 m/s²"
+    },
+    {
+      problem: "A ball is dropped from rest. After 2 s, find its velocity (g = 10 m/s², no air resistance).",
+      solution: "u = 0, a = g = 10 m/s², t = 2 s. v = u + at = 0 + 10×2 = 20 m/s downward.",
+      answer: "20 m/s downward"
+    },
+    {
+      problem: "An object accelerates uniformly from rest at 4 m/s². How far does it travel in 5 s?",
+      solution: "u = 0, a = 4 m/s², t = 5 s. s = ut + ½at² = 0 + ½(4)(25) = 50 m.",
+      answer: "50 m"
+    },
+    {
+      problem: "A car decelerates uniformly from 20 m/s to 10 m/s over 50 m. Find acceleration.",
+      solution: "u = 20 m/s, v = 10 m/s, s = 50 m. v² = u² + 2as → 100 = 400 + 100a → 100a = −300 → a = −3 m/s².",
+      answer: "−3 m/s²"
     }
   ],
   commonMistakes: [
-    "Treating distance and displacement as the same quantity — distance is path length, displacement is net position change.",
-    "Using average speed (total distance/time) when the question asks for average velocity (total displacement/time).",
-    "Confusing initial velocity u with final velocity v in equations.",
-    "Forgetting that acceleration can be caused by a change in direction even when speed is constant.",
-    "Ignoring the sign of acceleration when an object is slowing down in the positive direction."
+    "Treating distance and displacement as the same — closed loops have distance > 0 but displacement 0.",
+    "Averaging leg speeds instead of total distance / total time.",
+    "Using average speed when the question asks for average velocity (or the reverse).",
+    "Forgetting that constant-speed circular motion still has acceleration (direction changes).",
+    "Dropping the factor ½ in s = ut + ½at².",
+    "Ignoring the sign of a when the object slows down.",
+    "Saying acceleration is zero at the top of a vertical throw because velocity is zero.",
+    "Claiming area under a v–t graph is acceleration (it is displacement)."
   ],
   examPoints: [
-    "Distance is always greater than or equal to the magnitude of displacement; equality holds only for straight-line motion without reversal.",
-    "A velocity-time graph's area gives displacement, not distance; take absolute areas for distance.",
-    "The SI unit of acceleration is m/s², read as 'metres per second squared'.",
-    "FPSC often asks about motion graphs: slope of s-t = speed, slope of v-t = acceleration, area of v-t = displacement."
+    "Average speed = total distance / total time for the whole journey.",
+    "Displacement after a closed path is zero; distance is not.",
+    "v = u + at, s = ut + ½at², v² = u² + 2as — pick the equation that avoids the unknown you were not given.",
+    "From rest: s = ½at² and v = at.",
+    "s–t slope → speed; v–t slope → acceleration; v–t area → displacement; a–t area → Δv.",
+    "SI units: distance/displacement m; speed/velocity m/s; acceleration m/s²."
   ],
   comparisonTable: {
-    headers: ["Quantity", "Type", "Definition", "SI unit", "Direction needed?"],
+    headers: ["Quantity", "Type", "Definition", "SI unit", "Direction?"],
     rows: [
       ["Distance", "Scalar", "Total path length", "m", "No"],
-      ["Displacement", "Vector", "Straight-line change in position", "m", "Yes"],
-      ["Speed", "Scalar", "Distance/time", "m/s", "No"],
-      ["Velocity", "Vector", "Displacement/time", "m/s", "Yes"],
-      ["Acceleration", "Vector", "Change in velocity/time", "m/s²", "Yes"]
+      ["Displacement", "Vector", "Change in position (start → finish)", "m", "Yes"],
+      ["Speed", "Scalar", "Distance / time", "m/s", "No"],
+      ["Velocity", "Vector", "Displacement / time", "m/s", "Yes"],
+      ["Acceleration", "Vector", "Change in velocity / time", "m/s²", "Yes"]
     ]
   },
   methodChooser: {
-    title: "Choosing the right kinematic quantity",
-    intro: "For basic kinematics problems, identify exactly what is asked before choosing a formula.",
+    title: "Which equation or graph skill?",
+    intro: "Match the knowns to the tool. Assume constant acceleration unless the stem says otherwise.",
     steps: [
-      { condition: "You need how far the object actually travelled", recommendation: "Use distance = speed × time", notes: "scalar; add all segments" },
-      { condition: "You need the net change in position", recommendation: "Use displacement = velocity × time", notes: "vector; watch signs" },
-      { condition: "You need how quickly velocity changes", recommendation: "Use a = (v − u)/t", notes: "sign shows direction of acceleration" },
-      { condition: "A graph is given", recommendation: "Read slopes and areas", notes: "slope of s-t = speed; slope of v-t = acceleration; area of v-t = displacement" }
+      { condition: "Trip average speed over several legs", recommendation: "total distance / total time", notes: "Do not average the leg speeds." },
+      { condition: "Net change in position", recommendation: "displacement (with signs)", notes: "Closed path → 0 displacement." },
+      { condition: "Know u, a, t; need v", recommendation: "v = u + at", notes: "From rest: v = at." },
+      { condition: "Know u, a, t; need s (not v)", recommendation: "s = ut + ½at²", notes: "From rest: s = ½at²." },
+      { condition: "Know u, v, s; no time", recommendation: "v² = u² + 2as", notes: "Solve for a or s." },
+      { condition: "Graph given", recommendation: "slope and area rules", notes: "s–t slope = speed; v–t slope = a; v–t area = displacement; a–t area = Δv." }
     ]
   },
   limitCases: [
-    { condition: "a = 0", result: "v is constant", physicalMeaning: "Zero acceleration means uniform velocity (straight-line motion at constant speed)." },
-    { condition: "v = 0 at the top of vertical motion", result: "a is still g downward", physicalMeaning: "Velocity is momentarily zero but acceleration continues to act." }
+    { condition: "a = 0", result: "v constant; s = ut", physicalMeaning: "Uniform velocity; no speeding up or slowing down." },
+    { condition: "u = 0 (from rest)", result: "v = at; s = ½at²; v² = 2as", physicalMeaning: "Simplifies free-fall and many launch problems." },
+    { condition: "Closed path", result: "displacement = 0; average velocity = 0", physicalMeaning: "Distance still equals the full path length." },
+    { condition: "Top of vertical throw", result: "v = 0 but a = g downward", physicalMeaning: "Zero velocity does not mean zero acceleration." }
   ],
   misconceptionRemediation: [
     {
-      misconception: "A faster car always has a larger displacement than a slower car.",
-      whyStudentsThinkIt: "Everyday language confuses speed with how far you end up from the start.",
-      correctModel: "Displacement depends on net position change, not on speed or path length. A fast car that returns to its start has zero displacement."
+      misconception: "Average speed is the average of the speeds on each leg.",
+      whyStudentsThinkIt: "Arithmetic mean feels natural.",
+      correctModel: "Weight by time: total distance / total time. Equal times are the only case where averaging leg speeds works."
+    },
+    {
+      misconception: "If speed is constant there is no acceleration.",
+      whyStudentsThinkIt: "Everyday language ties acceleration only to 'going faster'.",
+      correctModel: "Acceleration is change of velocity. Direction change at constant speed (circle) is acceleration."
+    },
+    {
+      misconception: "At the highest point a thrown ball has zero acceleration.",
+      whyStudentsThinkIt: "Velocity is zero for an instant.",
+      correctModel: "Gravity still acts; a = g downward the whole time."
     }
   ],
   relatedTopics: ["phy-newtons-laws", "phy-momentum-impulse", "phy-scalars-vectors"],
-    subtopics: [
-      {
-        id: "phy-kinematics-scalar-vs-vector-quantities",
-        title: "Scalar vs vector quantities",
-        summary: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has…",
-        explanation: "Distance and speed carry only magnitude. Displacement and velocity carry magnitude and direction. A runner completing one 400 m lap has travelled 400 m distance but has zero displacement, because the finish coincides with the start. Two cars may have the same speed but opposite velocities if they move in opposite directions.",
-                examples: [
-          {
-            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
-            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
-            answer: "Distance 400 m; displacement 0",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "phy-kinematics-reading-motion-graphs",
-        title: "Reading motion graphs",
-        summary: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph,…",
-        explanation: "A steeper slope on a distance-time graph means a higher speed; a horizontal line means the object is stationary. On a velocity-time graph, a horizontal line means constant velocity (zero acceleration), an upward slope means speeding up in the positive direction, and the signed area between the line and the time axis gives displacement.",
-                examples: [
-          {
-            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
-            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
-            answer: "Distance 400 m; displacement 0",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "phy-kinematics-sign-conventions-for-acceleration",
-        title: "Sign conventions for acceleration",
-        summary: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A…",
-        explanation: "Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. A ball thrown upward has negative acceleration (g downward) throughout its flight, even at the instant it is momentarily at rest at the top.",
-                examples: [
-          {
-            problem: "In one exam-style sentence, state what “Sign conventions for acceleration” requires you to distinguish or calculate.",
-            solution: "Use the core idea: Acceleration is positive when velocity increases in the chosen positive direction and negative when velocity decreases in that direction. Apply definitions and units carefully; check whether the quantity is scalar or vector if relevant.",
-            answer: "Sign conventions for acceleration",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "phy-kinematics-how-fpsc-tests-this",
-        title: "How FPSC tests this",
-        summary: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v.…",
-        explanation: "MCQs often swap distance with displacement, average speed with instantaneous speed, or the initial velocity u with the final velocity v. Always check whether the question gives total path length or net change in position, and whether the object reverses direction.",
-                examples: [
-          {
-            problem: "A runner completes one full 400 m circular track and stops at the start. What are the distance and displacement?",
-            solution: "Distance is the path length = 400 m. Displacement is the change in position = 0 because start and finish coincide.",
-            answer: "Distance 400 m; displacement 0",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
+  subtopics: [
+    {
+      id: "phy-kinematics-scalar-vs-vector-quantities",
+      title: "Distance, displacement, speed and velocity",
+      summary: "Scalars vs vectors; trip averages.",
+      explanation: "Distance and speed are scalars. Displacement and velocity are vectors — they need a direction (or a sign in 1D). Average speed uses total path length; average velocity uses net displacement. A runner's lap and multi-leg car trips are the standard checks.",
+      examples: [
+        {
+          problem: "A runner completes one 400 m lap and stops at the start. Distance and displacement?",
+          solution: "Distance = 400 m. Displacement = 0.",
+          answer: "400 m; 0"
+        },
+        {
+          problem: "60 km in 1 h then 90 km in 2 h. Average speed?",
+          solution: "150 km / 3 h = 50 km/h.",
+          answer: "50 km/h"
+        }
+      ],
+      shortcuts: ["Closed loop → displacement 0", "Trip average speed = Σs / Σt"],
+      traps: ["Averaging leg speeds", "Calling path length 'displacement'"]
+    },
+    {
+      id: "phy-kinematics-equations-of-motion",
+      title: "Constant-acceleration equations",
+      summary: "v = u+at, s = ut+½at², v² = u²+2as, and free fall.",
+      explanation: "Use these only when acceleration is constant. List u, v, a, t, s; pick the equation that leaves out the quantity you do not know. From rest set u = 0. Free fall set a = g (often 10 m/s² in MCQs) downward.",
+      examples: [
+        {
+          problem: "From rest, a = 4 m/s², t = 5 s. Find s.",
+          solution: "s = ½at² = ½×4×25 = 50 m.",
+          answer: "50 m"
+        },
+        {
+          problem: "u = 20 m/s, v = 10 m/s, s = 50 m. Find a.",
+          solution: "v² = u² + 2as → 100 = 400 + 100a → a = −3 m/s².",
+          answer: "−3 m/s²"
+        },
+        {
+          problem: "Dropped from rest, t = 2 s, g = 10 m/s². Find v.",
+          solution: "v = gt = 20 m/s downward.",
+          answer: "20 m/s down"
+        }
+      ],
+      shortcuts: ["Missing v → s = ut+½at²", "Missing t → v² = u²+2as", "From rest → u = 0"],
+      traps: ["Forgetting ½", "Using g = 0 at the top of a throw"]
+    },
+    {
+      id: "phy-kinematics-reading-motion-graphs",
+      title: "Motion graphs (s–t, v–t, a–t)",
+      summary: "Slope and area rules for every standard graph.",
+      explanation: "s–t: slope = speed; horizontal = rest. v–t: slope = acceleration; area = displacement (signed). a–t: area = Δv. Horizontal v–t means constant velocity, not zero motion. Area under v–t is never acceleration.",
+      examples: [
+        {
+          problem: "Which readings are correct? v–t slope; s–t slope; a–t area; v–t area claimed as acceleration.",
+          solution: "v–t slope = a; s–t slope = speed; a–t area = Δv; v–t area = displacement — not acceleration.",
+          answer: "First three true; last false"
+        }
+      ],
+      shortcuts: ["Slope of v–t → a", "Area of v–t → displacement", "Area of a–t → Δv"],
+      traps: ["Area of v–t = acceleration", "Horizontal v–t means stopped"]
+    },
+    {
+      id: "phy-kinematics-sign-conventions-for-acceleration",
+      title: "Signs, free fall and circular motion",
+      summary: "Positive direction, g, and acceleration at constant speed.",
+      explanation: "Pick a positive axis once. Slowing in the positive direction gives negative a. In free fall, a = g downward whether the object is going up, down, or is momentarily at rest. Uniform circular motion has constant speed but nonzero acceleration because direction changes continuously.",
+      examples: [
+        {
+          problem: "True or false: constant speed on a circle means zero acceleration.",
+          solution: "False — velocity direction changes, so the object accelerates.",
+          answer: "False"
+        }
+      ],
+      shortcuts: ["Top of throw: v = 0, a = g down", "Circle: speed constant ≠ a = 0"],
+      traps: ["Zero velocity ⇒ zero acceleration"]
+    },
+    {
+      id: "phy-kinematics-how-fpsc-tests-this",
+      title: "Exam checklist",
+      summary: "What to verify before committing an answer.",
+      explanation: "Check: path vs net position; total distance/total time vs mean of speeds; whether a is constant; whether u is zero; graph slope vs area; units. If the stem says 'returns to starting point', displacement and average velocity are zero even though distance and average speed are not.",
+      examples: [
+        {
+          problem: "Name two quantities that become zero after a closed path.",
+          solution: "Displacement and average velocity.",
+          answer: "Displacement; average velocity"
+        }
+      ],
+      shortcuts: ["Underline what is asked: distance or displacement", "List knowns before picking a formula"],
+      traps: ["Swapping u and v", "Mixing average speed with average velocity"]
+    }
+  ],
 
   content: true,
   buildsOn: ["math-8-3", "math-5-4", "phy-units-measurement", "phy-scalars-vectors"],
