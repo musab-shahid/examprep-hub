@@ -690,28 +690,28 @@ export const topics: Topic[] = [
   formula: [
     {
       name: "Wien's displacement law",
-      expression: "\lambda_{\max} = \frac{b}{T}",
+      expression: "\\lambda_{\\max} = \\frac{b}{T}",
       variables: [
-        { symbol: "\lambda_{\max}", meaning: "wavelength of peak emission (m)" },
+        { symbol: "\\lambda_{\\max}", meaning: "wavelength of peak emission (m)" },
         { symbol: "T", meaning: "absolute temperature (K)" },
         { symbol: "b", meaning: "Wien's constant ≈ 2.90 × 10⁻³ m·K" }
       ]
     },
     {
       name: "Stefan–Boltzmann law",
-      expression: "E = \sigma T^{4}",
+      expression: "E = \\sigma T^{4}",
       variables: [
         { symbol: "E", meaning: "emitted radiant flux (W/m²)" },
-        { symbol: "\sigma", meaning: "Stefan–Boltzmann constant ≈ 5.67 × 10⁻⁸ W/m²·K⁴" },
+        { symbol: "\\sigma", meaning: "Stefan–Boltzmann constant ≈ 5.67 × 10⁻⁸ W/m²·K⁴" },
         { symbol: "T", meaning: "absolute temperature (K)" }
       ]
     },
     {
       name: "Kirchhoff's law (absorptivity–emissivity)",
-      expression: "\alpha_{\lambda} = \varepsilon_{\lambda}",
+      expression: "\\alpha_{\\lambda} = \\varepsilon_{\\lambda}",
       variables: [
-        { symbol: "\alpha_{\lambda}", meaning: "absorptivity at wavelength λ (fraction of incident radiation absorbed)" },
-        { symbol: "\varepsilon_{\lambda}", meaning: "emissivity at the same wavelength λ (efficiency as an emitter)" }
+        { symbol: "\\alpha_{\\lambda}", meaning: "absorptivity at wavelength λ (fraction of incident radiation absorbed)" },
+        { symbol: "\\varepsilon_{\\lambda}", meaning: "emissivity at the same wavelength λ (efficiency as an emitter)" }
       ]
     }
   ],
