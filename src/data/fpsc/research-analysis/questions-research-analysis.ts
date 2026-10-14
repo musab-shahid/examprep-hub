@@ -1254,7 +1254,7 @@ export const questions: Question[] = [
     "INVESTIGATED — may be data error or genuine rare value",
     "Doubled to reduce its effect"
   ],
-  correctAnswer: 1,
+  correctAnswer: 2,
   explanation: "OUTLIERS should be INVESTIGATED, not automatically removed. They may be: (1) data entry errors (correct or remove), (2) measurement errors (investigate and possibly remove), OR (3) genuine rare values (report separately — they may be the most important data points). Blindly deleting outliers can hide important findings.",
   sourceCitation: "Standard research methods curriculum" },
 
