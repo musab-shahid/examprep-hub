@@ -690,20 +690,28 @@ export const topics: Topic[] = [
   formula: [
     {
       name: "Wien's displacement law",
-      expression: "\\lambda_{\\max} = \\frac{b}{T}",
+      expression: "\lambda_{\max} = \frac{b}{T}",
       variables: [
-        { symbol: "\\lambda_{\\max}", meaning: "wavelength of peak emission (m)" },
+        { symbol: "\lambda_{\max}", meaning: "wavelength of peak emission (m)" },
         { symbol: "T", meaning: "absolute temperature (K)" },
         { symbol: "b", meaning: "Wien's constant ≈ 2.90 × 10⁻³ m·K" }
       ]
     },
     {
       name: "Stefan–Boltzmann law",
-      expression: "E = \\sigma T^{4}",
+      expression: "E = \sigma T^{4}",
       variables: [
         { symbol: "E", meaning: "emitted radiant flux (W/m²)" },
-        { symbol: "\\sigma", meaning: "Stefan–Boltzmann constant ≈ 5.67 × 10⁻⁸ W/m²·K⁴" },
+        { symbol: "\sigma", meaning: "Stefan–Boltzmann constant ≈ 5.67 × 10⁻⁸ W/m²·K⁴" },
         { symbol: "T", meaning: "absolute temperature (K)" }
+      ]
+    },
+    {
+      name: "Kirchhoff's law (absorptivity–emissivity)",
+      expression: "\alpha_{\lambda} = \varepsilon_{\lambda}",
+      variables: [
+        { symbol: "\alpha_{\lambda}", meaning: "absorptivity at wavelength λ (fraction of incident radiation absorbed)" },
+        { symbol: "\varepsilon_{\lambda}", meaning: "emissivity at the same wavelength λ (efficiency as an emitter)" }
       ]
     }
   ],
@@ -872,114 +880,218 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 7,
   title: "Temperature Inversions — Mechanics",
-  definition: "An inversion is a layer where temperature increases with height — a strongly stable lid. It suppresses vertical mixing, traps pollutants and moisture near the surface, and can cap convection until eroded by daytime heating, frontal passage, or upper-level dynamics. Mechanism (how it forms) and type name (radiation, subsidence, frontal, advective) are related but not identical exam skills.",
+  definition: "A temperature inversion is a layer in which temperature increases with height (∂T/∂z > 0), reversing the usual tropospheric decrease. That structure is statically stable: a parcel lifted into warmer surroundings becomes colder than its environment and sinks back. Mechanically, an inversion acts as a lid — it suppresses vertical mixing, traps pollutants and moisture near the surface, can produce fog or frost, and may cap cumulus until heating or dynamics erode the lid.",
   keyFacts: [
-    "Temperature increases with height in the layer",
-    "Strong static stability — acts as a lid",
-    "Surface-based: common on clear nights (radiation)",
-    "Elevated: subsidence or frontal",
-    "Impacts air quality and minimum temperatures"
+    "Definition: temperature increases with height in the layer (∂T/∂z > 0)",
+    "Any inversion is strongly stable — displaced parcels return",
+    "Surface-based lids trap emissions in the breathing layer (smog, haze)",
+    "Elevated lids (caps) can store CAPE beneath until the lid breaks",
+    "Erosion: daytime solar heating, wind mixing, frontal passage, or upper-level dynamics",
+    "Mechanics (this topic) = structure + effects; Types (next topic) = formation process names"
   ],
   explanationSections: [
-    { heading: "Stable by definition", body: "Any inversion is a stable layer. The mechanics topic explains why it forms; the types topic names radiation, subsidence, frontal, and others." }
+    {
+      heading: "Why an inversion is a lid",
+      body: "In the normal troposphere, temperature usually falls with height. In an inversion it rises. Lift a parcel from below the inversion into the warmer layer: the parcel is colder (denser) than its surroundings, so buoyancy restores it downward. That resistance to vertical motion is static stability. Smoke, car exhaust, and moisture therefore stay near the ground under a surface inversion until the lid weakens."
+    },
+    {
+      heading: "Surface-based vs elevated",
+      body: "A surface-based inversion starts at or near the ground — classic clear-night radiation cooling. An elevated inversion sits aloft with cooler air below — common under large-scale subsidence or above a frontal surface. Both are lids; surface lids dominate air-quality and frost stories, while elevated caps dominate thunderstorm ‘cap and break’ stories."
+    },
+    {
+      heading: "How lids are destroyed",
+      body: "Solar heating warms the ground and mixes the lower atmosphere from below. Stronger winds increase mechanical mixing. A front can replace the air mass. Upper-level cooling or forced ascent can also weaken an elevated lid. Until one of these processes works, concentrations of pollutants rise and deep convection may stay suppressed."
+    }
   ],
   subtopics: [
     {
+      id: "meteo-inversion-mechanics-definition",
+      title: "Definition and stability",
+      summary: "∂T/∂z > 0 ⇒ strong static stability.",
+      explanation: "Exam stems often state ‘temperature increases with height’ without the word inversion. That is still an inversion layer. Contrast with a steep lapse rate (temperature falls rapidly with height), which favours mixing and convection rather than trapping.",
+      examples: [
+        { problem: "Sounding shows T rising from 5 °C at the surface to 12 °C at 200 m. Is the layer stable or unstable?", solution: "Stable inversion — temperature increases with height.", answer: "Stable inversion" }
+      ],
+      shortcuts: ["T increases with z → inversion", "Inversion ⇒ lid / stable"],
+      traps: ["Calling any cold surface air an inversion without the height profile"]
+    },
+    {
       id: "meteo-inversion-mechanics-lid",
       title: "Lid behaviour and air quality",
-      summary: "Why smog and smoke linger.",
-      explanation: "Parcels displaced upward become cooler than their warmer surroundings in an inversion and sink back. Emissions stay near the breathing level. Daytime heating or stronger winds can erode the inversion and ventilate the boundary layer.",
+      summary: "Why smog and smoke linger under a surface lid.",
+      explanation: "Under a surface inversion, vertical mixing is weak. Continuous emissions accumulate near the surface; visibility falls; respiratory exposure rises. Valley and basin sites worsen the problem because cold air pools and the inversion deepens. After sunrise or wind increase, the mixed layer deepens and concentrations often drop.",
       examples: [
-        { problem: "Why do pollutant concentrations often peak under a night-time surface inversion?", solution: "Vertical mixing is suppressed; emissions accumulate.", answer: "Trapped by stable lid" }
+        { problem: "Why do pollutant concentrations often peak under a night-time surface inversion?", solution: "Vertical mixing is suppressed; emissions accumulate in a shallow layer.", answer: "Trapped by stable lid" }
       ],
-      shortcuts: ["Inversion = lid", "Erode by heat/wind"],
-      traps: ["Thinking inversions enhance mixing"]
+      shortcuts: ["Surface inversion → trap near ground", "Heat/wind erode the lid"],
+      traps: ["Thinking inversions enhance mixing or ‘ventilate’ the city"]
+    },
+    {
+      id: "meteo-inversion-mechanics-cap-convection",
+      title: "Elevated caps and convection",
+      summary: "A warm lid aloft can delay storms until it breaks.",
+      explanation: "An elevated inversion or warm layer aloft can hold CAPE beneath it (CIN-like inhibition). Surface heating or forced lift may eventually allow parcels through the lid. When the cap breaks, towers can grow rapidly. This is mechanics of elevated lids — the type name may be subsidence or frontal, taught next.",
+      examples: [
+        { problem: "Cumulus stay shallow all morning under a warm layer aloft, then explode after noon. Interpretation?", solution: "Elevated lid suppressed growth until heating/erosion allowed breakthrough.", answer: "Cap then break" }
+      ],
+      shortcuts: ["Elevated lid → delayed deep convection", "Break → rapid growth possible"],
+      traps: ["Assuming every inversion is only a pollution story"]
     },
     {
       id: "meteo-inversion-mechanics-vs-types",
       title: "Mechanics vs named types",
-      summary: "How it works vs how it is classified.",
-      explanation: "Use this topic for stability and trapping logic. Use Inversion Types for radiation vs subsidence vs frontal formation paths. Do not memorise two conflicting definitions of 'inversion' — both share temperature increasing with height.",
+      summary: "Effects here; formation names in the types topic.",
+      explanation: "Use this topic for definition, stability, trapping, and lid/cap behaviour. Use Inversion Types when the exam asks how the inversion formed (radiation, subsidence, frontal, advective, terrain). Both share the same definition: temperature increases with height.",
       examples: [
-        { problem: "Clear calm night surface cooling — mechanism that starts a surface inversion?", solution: "Radiative cooling of the ground.", answer: "Radiation / surface IR loss" }
+        { problem: "Stem asks why smoke stays near the ground on a clear calm night — start with mechanics or type?", solution: "Mechanics (stable lid); type is likely radiation.", answer: "Mechanics first; radiation if asked for type" }
       ],
-      shortcuts: ["Mechanics = stability/trapping", "Types = formation path"],
-      traps: ["Listing every type without the stability meaning"]
+      shortcuts: ["Mechanics = structure + effects", "Types = formation path"],
+      traps: ["Memorising two different definitions of ‘inversion’"]
     }
   ],
+  comparisonTable: {
+    title: "Surface-based vs elevated inversion (mechanics)",
+    headers: ["Feature", "Surface-based", "Elevated"],
+    rows: [
+      ["Base", "At/near ground", "Above the surface"],
+      ["Typical effect", "Air quality, frost, fog", "Caps convection; may still affect mixing below"],
+      ["Common night story", "Radiation cooling", "Subsidence or residual layer"],
+      ["Erosion clue", "Daytime heating from below", "Heating, lift, or dynamic change aloft"]
+    ]
+  },
   examPoints: [
-    "Definition: T increases with height",
-    "Suppresses mixing",
-    "Air-quality link"
+    "Define inversion: T increases with height",
+    "Explain why it is a stable lid",
+    "Link surface lids to pollution/fog and elevated lids to convective caps",
+    "List main ways a lid is eroded"
   ],
   commonMistakes: [
-    "Inversion = unstable.",
-    "Ignoring pollutant trapping.",
-    "Confusing with isothermal layers only."
+    "Thinking inversions enhance vertical mixing.",
+    "Confusing steep lapse rates with inversions.",
+    "Ignoring elevated caps when only studying pollution.",
+    "Treating ‘mechanics’ and ‘type name’ as the same skill."
   ],
-  relatedTopics: ["meteo-inversion-types", "meteo-static-stability", "meteo-fog-types"],
+  relatedTopics: ["meteo-inversion-types", "meteo-static-stability", "meteo-heat-transfer", "meteo-fog-types"],
   content: true,
   buildsOn: ["meteo-lapse-rates", "meteo-heat-transfer"],
   leadsTo: ["meteo-inversion-types", "meteo-fog-types"],
-  usedIn: ["meteo-inversion-types", "meteo-static-stability"]
+  usedIn: ["meteo-static-stability", "meteo-fog-types"]
 },
 
 {
   id: "meteo-inversion-types",
   sectionId: "METEO-02",
-  order: 9,
-  title: "Inversion Types",
-  definition: "Inversions are classified by formation process: radiation, advection, subsidence, and frontal (and others). All share temperature increasing with height; the type name answers how the lid formed.",
+  order: 8,
+  title: "Temperature Inversions — Types",
+  definition: "Inversion types name the formation process, not a different definition of temperature increasing with height. The main exam families are radiation (nocturnal surface), subsidence (sinking and compressional warming aloft), frontal (warm air over cold air along a front), advective (warm air over a cold surface), and terrain or drainage (cold air pooling in valleys). Matching process → type is the core skill.",
   keyFacts: [
-    "Radiation: clear-night surface cooling",
-    "Advection: warm air over cold surface (or similar)",
-    "Subsidence: sinking warms and stabilises aloft",
-    "Frontal: warm air overrunning cold air",
-    "Mechanics topic = stability; this topic = formation path"
+    "Radiation: clear, calm nights — ground cools by IR; air in contact chills",
+    "Subsidence: sinking air in highs warms by compression → warm lid aloft (often dry)",
+    "Frontal: warm air overruns colder air (especially warm fronts) → T increases with height across the frontal zone",
+    "Advective: warm air moves over a cold surface (snow, cold water) and is cooled from below",
+    "Terrain / drainage: katabatic flow pools cold air in valleys and basins under milder air aloft",
+    "Capping inversion: operational name for an elevated lid that restrains convection until it breaks"
   ],
   explanationSections: [
-    { heading: "Stem describes process → pick type", body: "Match the setup, not a random label." }
+    {
+      heading: "Match the process, not the weather word",
+      body: "If the stem stresses clear calm night and surface frost or fog, choose radiation. If it stresses large high pressure and a warm dry layer aloft on a sounding, choose subsidence. If warm air overtakes a cold wedge, choose frontal. Valley pooling after downslope drainage is terrain/radiation–drainage. ‘Capping’ describes elevated convective lids; the formation path is often subsidence or residual."
+    },
+    {
+      heading: "Surface vs aloft by type",
+      body: "Radiation and many terrain inversions are surface-based. Subsidence and many frontal inversions are elevated. Advective cooling is surface-based where the cold surface is. Knowing base height helps eliminate distractors."
+    }
   ],
   subtopics: [
     {
-      id: "meteo-inversion-types-match-skill",
-      title: "Process → type matching",
-      summary: "Four classic setups.",
-      explanation: "Clear calm night → radiation inversion. Warm air moving over cold ground/snow/sea → advection inversion. Large-scale sinking under a high → subsidence inversion aloft. Warm air ascending over a cold front surface → frontal inversion structure.",
+      id: "meteo-inversion-types-radiation",
+      title: "Radiation (nocturnal) inversion",
+      summary: "Clear, calm nights; IR cooling of the ground.",
+      explanation: "With weak winds and few clouds, the ground loses longwave radiation efficiently and cools. Air touching the ground cools by conduction and shallow mixing, building a surface inversion. Ideal conditions for radiation fog and for trapping smoke in cities and valleys.",
       examples: [
-        { problem: "Strong high with sinking air and a warm lid aloft — type?", solution: "Subsidence inversion.", answer: "Subsidence" }
+        { problem: "Clear winter night, light wind, surface colder than air at 50 m — most likely type?", solution: "Radiation (nocturnal) inversion.", answer: "Radiation" }
       ],
-      shortcuts: ["Night calm → radiation", "Sink → subsidence", "Warm over cold → advection/frontal context"],
-      traps: ["All inversions are radiation inversions"]
+      shortcuts: ["Clear + calm + night → radiation", "Surface-based"],
+      traps: ["Calling every fog event a subsidence inversion"]
+    },
+    {
+      id: "meteo-inversion-types-subsidence",
+      title: "Subsidence inversion",
+      summary: "Sinking air warms by compression; lid forms aloft.",
+      explanation: "In persistent highs, air sinks and warms adiabatically. A warm, often dry layer develops aloft while cooler air may remain below — an elevated inversion. It suppresses deep mixing and can trap haze under the lid for days.",
+      examples: [
+        { problem: "High-pressure dome, warm dry layer at 850–700 hPa over cooler moist air — type?", solution: "Subsidence inversion.", answer: "Subsidence" }
+      ],
+      shortcuts: ["Sink + compress + warm aloft → subsidence", "Often elevated"],
+      traps: ["Placing subsidence inversion only at the ground"]
+    },
+    {
+      id: "meteo-inversion-types-frontal-advective",
+      title: "Frontal and advective inversions",
+      summary: "Warm over cold along a front, or warm air over a cold surface.",
+      explanation: "Along a warm front, warm air overruns a retreating cold air mass so temperature increases with height through the frontal zone — a frontal inversion. Advective inversions form when warmer air moves over a much colder surface (snow, cold sea) and is cooled from below; the surface layer becomes stable even without nocturnal radiation as the main driver.",
+      examples: [
+        { problem: "Warm air overrunning a cold wedge along a warm front — inversion type?", solution: "Frontal inversion.", answer: "Frontal" },
+        { problem: "Mild air flowing over snow-covered ground becomes chilled near the surface — type family?", solution: "Advective (warm over cold surface).", answer: "Advective" }
+      ],
+      shortcuts: ["Warm front overrun → frontal", "Warm air over snow/cold water → advective"],
+      traps: ["Linking frontal inversions only to cold fronts"]
+    },
+    {
+      id: "meteo-inversion-types-terrain-cap",
+      title: "Terrain drainage and capping lids",
+      summary: "Valley pooling vs convective cap language.",
+      explanation: "At night, cooled air drains downslope (katabatic) and ponds in valleys under warmer air aloft — a terrain or drainage inversion, often combined with radiation cooling. A capping inversion is the forecaster’s name for an elevated lid that holds convection down until heating or forcing breaks it; formation is often subsidence or residual warm air aloft.",
+      examples: [
+        { problem: "Cold air drains into a basin at night and ponds under milder air — type?", solution: "Terrain / drainage (valley) inversion.", answer: "Terrain/drainage" },
+        { problem: "Elevated lid restrains thunderstorms until afternoon break — operational name?", solution: "Capping inversion.", answer: "Capping" }
+      ],
+      shortcuts: ["Valley ponding → terrain/drainage", "Convective lid aloft → capping"],
+      traps: ["Thinking capping is a different definition of temperature vs height"]
     },
     {
       id: "meteo-inversion-types-vs-mechanics",
-      title: "Types vs mechanics division",
-      summary: "How formed vs why it traps.",
-      explanation: "Use Inversion Mechanics for stability and pollution trapping. Use this topic when the exam asks which process produced the inversion. Both agree that temperature increases with height.",
+      title: "Types vs mechanics",
+      summary: "Origin process here; lid effects in mechanics.",
+      explanation: "When the question is ‘why does smoke stay near the ground?’, answer with stability/trapping (mechanics). When it is ‘which process produced this inversion?’, answer with the type. Both use the same temperature–height definition.",
       examples: [
-        { problem: "Question asks why smoke stays near the ground — mechanics or type name first?", solution: "Mechanics (stable lid); type may be radiation at night.", answer: "Mechanics first / radiation if night setup" }
+        { problem: "Exam asks for the process on a clear calm night — type or mechanics?", solution: "Type: radiation; mechanics explains the lid effect.", answer: "Radiation type" }
       ],
-      shortcuts: ["Mechanics = effects", "Types = origin process"],
+      shortcuts: ["Types = how formed", "Mechanics = what it does"],
       traps: ["Two conflicting definitions of inversion"]
     }
   ],
+  comparisonTable: {
+    title: "Inversion types at a glance",
+    headers: ["Type", "Formation process", "Typical height", "Exam cue"],
+    rows: [
+      ["Radiation", "Surface IR cooling, clear calm night", "Surface-based", "Night, clear, calm, frost/fog"],
+      ["Subsidence", "Sinking + compressional warming", "Elevated", "High pressure, warm dry lid aloft"],
+      ["Frontal", "Warm air over cold air along front", "Elevated / sloping", "Warm front overrun"],
+      ["Advective", "Warm air over cold surface", "Surface-based", "Snow cover, cold water"],
+      ["Terrain/drainage", "Katabatic pooling in valleys", "Surface-based", "Basin/valley night ponding"],
+      ["Capping (ops)", "Elevated lid over unstable layer", "Elevated", "Storms held then break"]
+    ]
+  },
   examPoints: [
-    "Name main types",
-    "Match process to type",
-    "Link to mechanics topic"
+    "Match process → radiation / subsidence / frontal / advective / terrain",
+    "Know surface-based vs elevated for each main type",
+    "Warm-front association for frontal inversions",
+    "Capping = elevated convective lid (often subsidence/residual)"
   ],
   commonMistakes: [
-    "One type only.",
-    "Subsidence at the ground always.",
-    "Ignoring frontal inversions."
+    "Only remembering radiation inversions.",
+    "Putting subsidence inversions always at the ground.",
+    "Linking frontal inversions only to cold fronts.",
+    "Treating ‘capping’ as unrelated to temperature increasing with height."
   ],
-  relatedTopics: ["meteo-inversion-mechanics", "meteo-fog-types", "meteo-static-stability"],
+  relatedTopics: ["meteo-inversion-mechanics", "meteo-fog-types", "meteo-static-stability", "meteo-heat-transfer"],
   content: true,
-  buildsOn: ["meteo-inversion-mechanics"],
+  buildsOn: ["meteo-inversion-mechanics", "meteo-static-stability"],
   leadsTo: ["meteo-fog-types"],
   usedIn: ["meteo-fog-types", "meteo-static-stability"]
 },
+
 
 {
   id: "meteo-coriolis-effect",
