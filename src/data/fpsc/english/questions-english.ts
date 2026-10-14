@@ -691,144 +691,196 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Pronouns, Prepositions & Conjunctions
+// TOPIC: Pronouns, Prepositions & Conjunctions — top-up (aligned to A3)
+// IDs begin ENG-01-Q073 (avoid clash with Q034–Q050)
 // ═══════════════════════════════════════════════════════════════════
 
-// Easy
-{ id: "ENG-01-Q034", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["Between you and I, this is secret.", "Between you and me, this is secret.", "Between you and myself, this is secret.", "Between you and mine, this is secret."],
+// —— Easy ——
+{ id: "ENG-01-Q073", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
+  question: "Choose the correct pronoun: 'The letter was addressed to Sara and _____.'",
+  options: ["I", "me", "myself", "mine"],
   correctAnswer: 1,
-  explanation: "After a preposition (between), use the OBJECT case of the pronoun: 'me', not 'I'. The preposition 'between' governs the object form.",
+  explanation: "To is a preposition, so the pronoun must be object case: me. Test without the other name: 'addressed to me' (not to I). Myself is reflexive, not a polite substitute for me here.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q035", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
-  question: "I have known him _____ 2010. Choose the correct preposition:",
-  options: ["for", "since", "from", "during"],
-  correctAnswer: 1,
-  explanation: "'Since' marks a POINT in the past (2010 is a specific year). 'For' would mark a duration (e.g., 'for 14 years'). 'Since 2010' is the standard form for actions continuing from that point.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q036", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "true_false",
-  question: "'Although he is rich, but he is unhappy' is grammatically correct.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. 'Although' already implies contrast — adding 'but' creates a double conjunction error. Correct: 'Although he is rich, he is unhappy' (no 'but') OR 'He is rich, but he is unhappy' (no 'although').",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// Medium
-{ id: "ENG-01-Q037", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["He is good in mathematics.", "He is good at mathematics.", "He is good on mathematics.", "He is good with mathematics."],
-  correctAnswer: 1,
-  explanation: "The fixed phrase is 'good AT' (skilled at). 'Good in' is sometimes used informally for skills within a subject, but 'good at' is the standard correct form for abilities.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q038", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Choose the correct relative pronoun: 'The scientist _____ work I admire is here.'",
-  options: ["who", "which", "whose", "that"],
+{ id: "ENG-01-Q074", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
+  question: "The seminar is _____ June. Choose the correct preposition:",
+  options: ["at", "on", "in", "since"],
   correctAnswer: 2,
-  explanation: "'Whose' is the possessive form — 'the scientist whose work' = the work BELONGS TO the scientist. 'Who' is the subject form (the scientist who works).",
+  explanation: "Months take in (in June, in 2024). On is for days/dates; at is for clock times; since marks a starting point for a continuing period.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q039", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "The book is on the table. Identify the prepositional phrase:",
-  options: ["The book", "is on", "on the table", "the table"],
-  correctAnswer: 2,
-  explanation: "A prepositional phrase begins with a preposition and ends with its object (usually a noun phrase). 'On the table' = preposition 'on' + noun phrase 'the table'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q040", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["I prefer tea than coffee.", "I prefer tea over coffee.", "I prefer tea to coffee.", "I prefer tea against coffee."],
-  correctAnswer: 2,
-  explanation: "The standard comparison structure with 'prefer' is 'prefer X TO Y', NOT 'prefer X than Y'. This is a common error — 'than' is used for adjectives/adverbs (I am taller than you), not for 'prefer'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q041", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Identify the type of conjunction in: 'I was tired, so I went to bed early.'",
-  options: ["Subordinating", "Coordinating", "Correlative", "Conjunctive adverb"],
-  correctAnswer: 1,
-  explanation: "'So' is a coordinating conjunction (part of FANBOYS: For, And, Nor, But, Or, Yet, So). It joins two INDEPENDENT clauses of equal status. Subordinating conjunctions (because, although) join a dependent clause to an independent one.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q042", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["The book is different than mine.", "The book is different from mine.", "The book is different to mine.", "The book is different of mine."],
-  correctAnswer: 1,
-  explanation: "The standard phrase is 'different FROM', not 'than' or 'to' (in American English) or 'of' (in any English). 'Different than' is common in speech but considered nonstandard in formal writing.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q043", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "Choose the correct preposition: 'He has been married _____ her for ten years.'",
-  options: ["with", "to", "from", "of"],
-  correctAnswer: 1,
-  explanation: "The fixed phrase is 'married TO' (not 'with', 'from', or 'of'). The preposition 'to' indicates the relationship bond. Same pattern: 'engaged to', 'attached to', 'devoted to'. Note: 'for ten years' requires the present perfect 'has been married', not the simple present.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q044", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
-  question: "The meeting starts _____ Monday. Choose the correct preposition:",
-  options: ["in", "on", "at", "by"],
-  correctAnswer: 1,
-  explanation: "Days of the week and dates take 'on' (on Monday, on June 5). Months/years take 'in' (in June), exact times take 'at' (at 9 AM). 'By' would mean 'no later than' (by Monday = before Monday ends).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q045", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "true_false",
-  question: "'She hurt herself' uses the reflexive pronoun correctly (subject = object).",
+{ id: "ENG-01-Q075", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "true_false",
+  question: "In formal standard English, 'its' (no apostrophe) is the possessive form of it.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. Reflexive pronouns (myself, yourself, herself, etc.) are used when the subject and object of the verb are the same person/thing. 'She hurt herself' = she hurt (her) — same person.",
+  explanation: "True. its = belonging to it. it's = it is / it has. Apostrophe marks the contraction, not possession, for this pair.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q046", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "true_false",
-  question: "'Because he was tired, so he slept' is grammatically correct.",
+{ id: "ENG-01-Q076", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "easy", type: "single",
+  question: "Choose the correct word: 'Divide the sweets _____ the two children.'",
+  options: ["among", "between", "across", "through"],
+  correctAnswer: 1,
+  explanation: "Between is used for two; among for more than two. With exactly two children, between is the standard choice.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Medium ——
+{ id: "ENG-01-Q077", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct relative pronoun: 'The officer _____ we interviewed refused to comment.'",
+  options: ["who", "whom", "which", "whose"],
+  correctAnswer: 1,
+  explanation: "We interviewed him → object role → whom. Who would be subject (he refused). Which is for things; whose marks possession.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q078", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct relative pronoun: 'The officer _____ refused to comment left the room.'",
+  options: ["who", "whom", "which", "whose"],
+  correctAnswer: 0,
+  explanation: "He refused → subject role → who. Contrast with 'the officer whom we interviewed' (object).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q079", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct form: 'She is not only efficient _____ also careful.'",
+  options: ["and", "but", "or", "nor"],
+  correctAnswer: 1,
+  explanation: "The fixed correlative pair is not only…but also. And/or/nor break the standard pair used in exam keys.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q080", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Which sentence keeps parallel structure?",
+  options: [
+    "She is both intelligent and a good speaker.",
+    "She is both intelligent and articulate.",
+    "She is both intelligence and articulate.",
+    "She is both intelligent and speaks well."
+  ],
+  correctAnswer: 1,
+  explanation: "both…and requires matching forms. Intelligent and articulate are both adjectives. Adjective + noun phrase, or adjective + clause, breaks parallelism.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q081", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct prepositions: 'The briefing is _____ Friday _____ 9 a.m.'",
+  options: ["in / at", "on / at", "at / on", "on / in"],
+  correctAnswer: 1,
+  explanation: "Days take on (on Friday); clock times take at (at 9 a.m.). in is for months/years/parts of day (in the morning), not for named weekdays in this pattern.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q082", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He has lived here since five years.",
+    "He has lived here for five years.",
+    "He has lived here during five years.",
+    "He has lived here from five years."
+  ],
+  correctAnswer: 1,
+  explanation: "for + duration (for five years). since + starting point (since 2019). since five years is a classic error.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q083", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct form: 'Neither the maps _____ the compass was missing.'",
+  options: ["or", "and", "nor", "but"],
+  correctAnswer: 2,
+  explanation: "The correlative pair is neither…nor (not neither…or). Agreement with the nearer subject is a separate rule; the connector itself must be nor.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q084", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "true_false",
+  question: "'The person to who I spoke has left' is correct formal English.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. This is a double-conjunction error. 'Because' already establishes cause. Use 'so' OR use 'because' — not both. Correct: 'Because he was tired, he slept' (drop the 'so') OR 'He was tired, so he slept' (drop the 'because').",
+  explanation: "False. After a preposition use whom: to whom I spoke (I spoke to him). who is the subject form.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q047", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "true_false",
-  question: "In 'This is the scientist who discovered penicillin,' 'who' is the object of the verb.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. 'Who' is the SUBJECT of 'discovered' (the scientist performed the action). Test: replace 'who' with 'she' (subject) — 'she discovered' makes sense. 'Whom' would be the object (test: 'her discovered' doesn't work).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// Hard
-{ id: "ENG-01-Q048", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "multi",
-  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+{ id: "ENG-01-Q085", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
   options: [
-    "He is senior than me.",
-    "She is good at physics.",
-    "Although it rained, we went out.",
-    "Despite of the rain, we stayed home."
-  ],
-  correctAnswer: [1, 2],
-  explanation: "Fixed phrase: 'good at'. Concessive 'although' stands alone (no 'but'). Wrong: 'senior than' (standard is 'senior to'); 'despite of' (use 'despite' or 'in spite of').",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q049", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "multi",
-  question: "Which of the following contain CORRECT preposition usage? (Select all that apply.)",
-  options: [
-    "We discussed about the issue.",
-    "I am good at math.",
-    "He is married to her.",
-    "The book is different than yours."
-  ],
-  correctAnswer: [1, 2],
-  explanation: "Fixed phrases: 'good at', 'married to'. Wrong: 'discuss about' (discuss takes a direct object); 'different than' in formal standard English is 'different from'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q050", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
-  question: "Choose the correctly punctuated sentence:",
-  options: [
-    "Although he studied hard, but he failed.",
-    "He studied hard, although he failed.",
-    "Because he studied hard, so he passed.",
-    "He studied hard although, but he failed."
+    "She is senior than her colleague.",
+    "She is senior to her colleague.",
+    "She is senior from her colleague.",
+    "She is senior of her colleague."
   ],
   correctAnswer: 1,
-  explanation: "Correct: 'although' introduces the concessive clause without a second conjunction. Wrong patterns: 'although… but…', 'because… so…', and doubled conjunctions with a misplaced comma.",
+  explanation: "senior / junior / preferable take to, not than. than is for comparative adjectives (taller than), not this fixed pattern.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Hard ——
+{ id: "ENG-01-Q086", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
+  question: "Choose the best formal sentence:",
+  options: [
+    "Although the road was blocked, but traffic was diverted.",
+    "Although the road was blocked, traffic was diverted.",
+    "Because the road was blocked, so traffic was diverted.",
+    "Although the road was blocked so traffic was diverted."
+  ],
+  correctAnswer: 1,
+  explanation: "Although already marks contrast — do not add but. Because already marks cause — do not add so. One logical connector is enough.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q087", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "multi",
+  question: "Which sentences are correct in formal standard English? (Select all that apply.)",
+  options: [
+    "Between you and me, the plan is secret.",
+    "The scientist whom discovered the law is here.",
+    "She is both careful and thorough.",
+    "We discussed about the agenda for an hour."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "Object case after between is correct; both…and with two adjectives is parallel. Wrong: whom as subject (use who discovered); discuss takes a direct object (no about).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q088", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
+  question: "Choose the sentence that uses a reflexive pronoun correctly:",
+  options: [
+    "Please contact myself if you have questions.",
+    "The director and myself will attend.",
+    "She prepared herself for the interview.",
+    "Give the files to myself tomorrow."
+  ],
+  correctAnswer: 2,
+  explanation: "Reflexives are correct when subject and object are the same (she…herself). They are not formal stand-ins for me/I in please contact me or the director and I.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q089", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
+  question: "Choose the correct completion: 'Either the charts _____ the tables need revision.'",
+  options: ["nor", "or", "and", "but also"],
+  correctAnswer: 1,
+  explanation: "either…or is the pair. neither…nor is the negative pair. Mixing either…nor is a common correlative error.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q090", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "multi",
+  question: "Which time expressions are correctly paired? (Select all that apply.)",
+  options: [
+    "at 5 p.m.",
+    "in Monday",
+    "on 15 June",
+    "since 2010 (continuing to now)"
+  ],
+  correctAnswer: [0, 2, 3],
+  explanation: "at + clock time; on + date; since + starting point for a continuing situation. in Monday is wrong — weekdays take on.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q091", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
+  question: "Identify the error type: 'He is both a skilled analyst and writes clearly.'",
+  options: [
+    "Wrong relative pronoun",
+    "Broken correlative parallelism",
+    "Incorrect time preposition",
+    "Subject–verb disagreement only"
+  ],
+  correctAnswer: 1,
+  explanation: "both…and links a noun phrase (a skilled analyst) to a verb phrase (writes clearly). Parallel form would match two noun phrases or two verb phrases.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q092", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The results are different than the forecast.",
+    "The results are different from the forecast.",
+    "The results are different of the forecast.",
+    "The results are different with the forecast."
+  ],
+  correctAnswer: 1,
+  explanation: "Formal exam standard is different from. different than is common in speech but usually marked wrong in formal keys.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
