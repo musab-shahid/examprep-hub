@@ -2485,56 +2485,138 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 8,
   title: "Rossby Waves (Planetary Waves)",
-  definition: "Rossby waves are large-scale meanders of the mid-latitude westerly flow arising from the conservation of potential vorticity and the variation of Coriolis with latitude. They organise troughs and ridges that steer weather systems.",
+  definition:
+    "Huge, slow meanders of the mid-latitude westerly wind belt — alternating troughs (equatorward dips) and ridges (poleward bulges) that circle the hemisphere. They exist because the Coriolis effect changes with latitude and because large-scale air columns conserve potential vorticity. On a 500 hPa chart they are the wavy pattern of height contours; they steer surface highs and lows and work together with the jet stream.",
+
   keyFacts: [
-    "Planetary-scale waves in the westerlies",
-    "Troughs and ridges alternate downstream",
-    "Steering influence on surface cyclones",
-    "Linked to jet-stream meanders",
-    "Longer waves move more slowly"
+    "Scale: thousands of kilometres — planetary / large synoptic, not a sea breeze or a thunderstorm",
+    "Appear as a train of troughs and ridges in the mid-latitude westerlies",
+    "Trough: equatorward bend / lower heights; ridge: poleward bend / higher heights",
+    "Surface cyclones often track and develop in preferred positions relative to the upper wave (especially ahead of upper troughs)",
+    "Ridges aloft tend to favour quieter, more settled weather beneath",
+    "Closely tied to jet-stream meanders — the jet is often strongest along the wave",
+    "Longer waves (fewer troughs around the hemisphere) generally move more slowly; shorter waves move faster",
+    "Timescale: evolve over days, not minutes",
   ],
+
   explanationSections: [
-    { heading: "Waves, not random wiggles", body: "A 500 hPa chart with a sequence of troughs and ridges is the practical face of Rossby-wave flow." }
-  ],
-  subtopics: [
     {
-      id: "meteo-rossby-waves-steering",
-      title: "Steering and surface weather",
-      summary: "Downstream of upper troughs, surface lows often deepen.",
-      explanation: "Upper-level troughs favour divergence and ascent ahead of the trough axis in standard conceptual models, supporting surface cyclogenesis. Ridges favour more settled weather. Matching surface storm tracks to the upper wave pattern is the applied skill.",
-      examples: [
-        { problem: "Surface cyclone under a building upper ridge — favoured to deepen or weaken?", solution: "More often weaken / less favourable than under a trough-exit pattern.", answer: "Weaken / less favoured" }
-      ],
-      shortcuts: ["Trough aloft ↔ active weather risk", "Ridge aloft ↔ quieter"],
-      traps: ["Ignoring upper pattern when forecasting surface lows"]
+      heading: "What you are looking at on a chart",
+      body:
+        "Open a mid-troposphere map (classically 500 hPa). Instead of a perfect west-to-east jet, the height contours usually buckle: a trough swings south, then a ridge swings north, then another trough. That sequence is the practical face of Rossby-wave flow. The wave is not a small ripple on a lake — a single trough–ridge pair can span a continent.",
     },
+    {
+      heading: "Why these waves exist (simple physical story)",
+      body:
+        "Coriolis is stronger toward the poles and weaker toward the equator. Large-scale air moving north or south therefore feels a changing ‘spin environment.’ Potential vorticity conservation makes the flow oscillate about a mean latitude rather than run in a straight permanent path — the result is a train of long waves. You do not need the full equation for FPSC: remember that planetary waves are the natural large-scale response of westerlies on a rotating sphere with latitude-dependent Coriolis.",
+    },
+    {
+      heading: "Link to surface weather",
+      body:
+        "Upper troughs and ridges organise where surface storms strengthen or weaken. In standard conceptual models, the region downstream of an upper trough (ahead of the trough axis) often supports divergence aloft and ascent — favourable for surface cyclones to deepen. Under a building ridge, descent and more stable patterns are more common. Forecasting skill is matching the surface low’s position to the upper wave, not treating the surface chart in isolation.",
+    },
+    {
+      heading: "What Rossby waves are not",
+      body:
+        "Not a tornado, not a local mountain wave, not a sea-breeze circulation, not only an ocean phenomenon (ocean Rossby waves exist too, but this topic is atmospheric planetary waves in the westerlies). If the feature is a few kilometres wide or lasts an hour, it is the wrong scale.",
+    },
+  ],
+
+  examPoints: [
+    "Planetary-scale meanders of the mid-latitude westerlies (trough–ridge train)",
+    "Seen clearly on mid/upper charts (e.g. 500 hPa)",
+    "Steer and organise surface cyclones and anticyclones",
+    "Longer waves move more slowly than shorter ones",
+    "Wrong scale ≠ thunderstorm or local breeze",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Treating Rossby waves as mesoscale or local features",
+      correction: "They are planetary / large synoptic meanders spanning thousands of km.",
+      explanation: "Scale is the first identity test.",
+    },
+    {
+      mistake: "Ignoring the upper wave when explaining surface storm tracks",
+      correction: "Surface cyclones ride and interact with the upper trough–ridge pattern.",
+      explanation: "Steering and development are upper–lower coupled.",
+    },
+    {
+      mistake: "Assuming only ocean Rossby waves exist",
+      correction: "This topic is atmospheric waves in the westerly belt.",
+      explanation: "Same name, different medium and application.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A 500 hPa chart shows a deep trough over the eastern Mediterranean and a ridge over western Europe. What kind of pattern is this?",
+      answer: "Large-scale Rossby-wave trough–ridge structure in the westerlies.",
+      why: "Alternating height minima and maxima at planetary scale.",
+    },
+    {
+      scenario:
+        "A surface cyclone sits under a strengthening upper ridge. Is deepening favoured?",
+      answer: "Usually less favoured — ridge environments are quieter than trough-exit patterns.",
+      why: "Upper ridge tends to support descent / more stable coupling than an active trough.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Scale check",
+    headers: ["Feature", "Typical scale", "Rossby wave?"],
+    rows: [
+      ["Sea breeze", "Tens of km, hours", "No"],
+      ["Thunderstorm", "km–tens of km, hours", "No"],
+      ["Synoptic cyclone", "Hundreds–~1000 km, days", "Rides on the wave; not the wave itself"],
+      ["Rossby wave", "Thousands of km, days", "Yes"],
+    ],
+  },
+
+  subtopics: [
     {
       id: "meteo-rossby-waves-scale",
       title: "Planetary scale identity",
-      summary: "Not a sea breeze or a tornado.",
-      explanation: "Rossby waves span thousands of kilometres and evolve over days. They are the macroscale backbone on which synoptic cyclones ride. Confusing them with mesoscale waves or local winds misses the point of the topic.",
+      summary:
+        "Thousands of kilometres; days; trough–ridge train in the westerlies.",
+      explanation:
+        "If you cannot point to a hemisphere-scale meander on an upper chart, you are not looking at a Rossby wave.",
       examples: [
-        { problem: "Is a Rossby wave a mesoscale thunderstorm feature?", solution: "No — planetary/synoptic–global scale.", answer: "No" }
+        {
+          problem: "Is a Rossby wave a mesoscale thunderstorm feature?",
+          solution: "No — planetary / large-scale.",
+          answer: "No",
+        },
       ],
-      shortcuts: ["Planetary meander", "Jet stream partner"],
-      traps: ["Rossby wave = local mountain wave only"]
-    }
+      shortcuts: ["Planetary meander", "Jet-stream partner"],
+      traps: ["Rossby wave = local mountain wave only"],
+    },
+    {
+      id: "meteo-rossby-waves-steering",
+      title: "Steering and surface weather",
+      summary:
+        "Upper troughs favour active storm environments; ridges favour quieter weather.",
+      explanation:
+        "Match surface systems to the upper wave. Downstream of troughs is the classic risk zone for deepening cyclones in textbook models.",
+      examples: [
+        {
+          problem:
+            "Surface cyclone under a building upper ridge — deepen or weaken tendency?",
+          solution: "More often weaken / less favoured than under an active trough pattern.",
+          answer: "Weaken / less favoured",
+        },
+      ],
+      shortcuts: ["Trough aloft ↔ active risk", "Ridge aloft ↔ quieter"],
+      traps: ["Forecasting surface lows with no upper-chart context"],
+    },
   ],
-  examPoints: [
-    "Planetary waves in westerlies",
-    "Trough/ridge steering",
-    "Scale distinction"
-  ],
-  commonMistakes: [
-    "Wrong scale.",
-    "No link to surface cyclones.",
-    "Confusing with ocean Rossby waves only."
-  ],
+
   relatedTopics: ["meteo-jet-stream", "meteo-global-circulation", "meteo-cyclones-development"],
   content: true,
   buildsOn: ["meteo-global-circulation", "meteo-coriolis-effect"],
   leadsTo: ["meteo-cyclones-development", "meteo-jet-stream"],
-  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"]
+  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"],
 },
 
 {
@@ -2542,56 +2624,138 @@ export const topics: Topic[] = [
   sectionId: "METEO-03",
   order: 9,
   title: "Upper-Air Charts & Constant-Pressure Analysis",
-  definition: "Upper-air charts display the height of a constant-pressure surface (e.g. 500 hPa) or variables on that surface. Height contours play a role analogous to isobars: packing and curvature relate to wind through near-geostrophic or gradient balance.",
+  definition:
+    "Maps that show conditions on a surface of constant pressure (for example 850, 500, or 300 hPa). Instead of drawing pressure at a fixed height, we draw the height of that pressure surface. Closely packed height contours mean strong winds (near-geostrophic / gradient balance). Troughs and ridges on these charts are the upper-air skeleton that steers surface weather.",
+
   keyFacts: [
-    "Constant-pressure surface: plot height (metres/dam) of that pressure",
-    "Low heights ↔ cooler columns (hypsometric intuition)",
-    "Tight height gradients ↔ stronger winds",
-    "500 hPa is a standard mid-tropospheric steering chart",
-    "Troughs and ridges organise surface storm tracks"
+    "Constant-pressure chart: plots the height of a chosen pressure surface (metres or decametres)",
+    "Low heights on a pressure surface ↔ relatively cold / dense column beneath (hypsometric idea)",
+    "High heights ↔ relatively warm / deep column",
+    "Tight height contours ↔ strong winds (same logic as tight isobars at the surface)",
+    "500 hPa: standard mid-troposphere chart for waves and steering",
+    "300–200 hPa: jet-stream level",
+    "850 hPa: lower-troposphere temperature advection and moisture patterns",
+    "Upper troughs/ridges organise surface storm tracks — read them together with the surface map",
   ],
+
   explanationSections: [
-    { heading: "Heights, not surface pressure", body: "A 500 hPa 'low' is a height minimum of the 500 hPa surface — related to, but not identical to, a surface low's label." }
+    {
+      heading: "Height of a pressure surface — not surface pressure",
+      body:
+        "At the ground we map pressure on a flat height (sea level). Aloft we often fix the pressure (say 500 hPa) and map how high you must go to reach that pressure. Where the air column is cold and dense, pressure falls off faster with height, so the 500 hPa surface sits lower — a height ‘low’ or trough. Where the column is warm, the same pressure surface sits higher — a ridge. A 500 hPa low is therefore related to temperature structure in the column; it is not automatically the same label as a surface low, though they often couple in real systems.",
+    },
+    {
+      heading: "Reading wind from height contours",
+      body:
+        "Above the friction layer, wind is still governed by the same balances you learned: pressure-gradient (here expressed as a height gradient on the pressure surface), Coriolis, and sometimes curvature. Closely packed contours → strong gradient → strong wind. That is why jet streams light up as tight contour belts on 300 hPa charts. Curved contour patterns are the troughs and ridges of the Rossby-wave flow.",
+    },
+    {
+      heading: "Which level for which question?",
+      body:
+        "850 hPa: low-level warmth, cold advection, moisture tongues. 500 hPa: mid-level wave pattern and steering of synoptic systems. 300 or 200 hPa: jet core and upper divergence patterns. Pick the chart that matches the physics in the question — a jet-stream item is not answered from the surface isobar map alone.",
+    },
+    {
+      heading: "Link to surface development",
+      body:
+        "Downstream of an upper trough, divergence aloft often supports ascent and surface cyclone deepening in conceptual models. Under upper ridges, quieter conditions are more common. Upper-air charts exist so you can see that skeleton, not as decoration.",
+    },
   ],
+
+  examPoints: [
+    "Constant-pressure chart = height of a pressure surface",
+    "Cold columns → lower heights; warm columns → higher heights",
+    "Tight height contours → strong winds",
+    "500 hPa → waves/steering; 300 hPa → jet; 850 hPa → low-level T and moisture",
+    "Upper trough/ridge pattern organises surface storms",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Treating a 500 hPa height low as identical to a surface pressure low in every respect",
+      correction: "It is a height minimum of the 500 hPa surface, tied to column temperature; coupling with the surface is real but not a name-for-name clone.",
+      explanation: "Wording traps mix ‘low’ labels across levels.",
+    },
+    {
+      mistake: "Ignoring contour packing when estimating upper wind",
+      correction: "Packing ↔ gradient ↔ wind speed.",
+      explanation: "Same rule as surface isobar spacing.",
+    },
+    {
+      mistake: "Looking for the polar jet on a surface chart only",
+      correction: "Use upper levels (≈300 hPa).",
+      explanation: "Jet core is near the tropopause.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario:
+        "500 hPa chart shows very tightly packed height contours. Expect weak or strong winds?",
+      answer: "Strong winds.",
+      why: "Large height gradient → large balanced wind.",
+    },
+    {
+      scenario:
+        "Which standard chart is most associated with the polar jet core?",
+      answer: "Upper-troposphere charts such as 300 hPa (or 200 hPa).",
+      why: "Jet cores sit near the tropopause, not at the ground.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Common upper levels",
+    headers: ["Level", "Main use"],
+    rows: [
+      ["850 hPa", "Low-level temperature advection, moisture"],
+      ["500 hPa", "Mid-level waves, steering, trough/ridge pattern"],
+      ["300–200 hPa", "Jet stream cores"],
+    ],
+  },
+
   subtopics: [
     {
       id: "meteo-upper-air-charts-read",
       title: "Reading height contours",
-      summary: "Packing → speed; trough/ridge → wave pattern.",
-      explanation: "Closely packed contours mean strong winds (jet segments). A trough is a height minimum axis; a ridge is a maximum axis. Downstream of troughs, divergence aloft often supports surface cyclogenesis — linking upper charts to surface development.",
+      summary:
+        "Packing → speed; trough = low-heights axis; ridge = high-heights axis.",
+      explanation:
+        "Translate the map into wind and wave language before forecasting surface weather.",
       examples: [
-        { problem: "500 hPa chart shows very tight contours — expect weak or strong winds?", solution: "Strong winds.", answer: "Strong" }
+        {
+          problem:
+            "500 hPa chart shows very tight contours — weak or strong winds?",
+          solution: "Strong.",
+          answer: "Strong",
+        },
       ],
       shortcuts: ["Tight contours → fast", "Trough = low heights axis"],
-      traps: ["Reading height contours as surface isobars without care"]
+      traps: ["Reading height contours as surface isobars without thinking"],
     },
     {
       id: "meteo-upper-air-charts-levels",
       title: "Why 850 / 500 / 300 differ",
-      summary: "Different jobs by level.",
-      explanation: "850 hPa is often used for lower-tropospheric temperature advection and moisture. 500 hPa shows mid-level steering and waves. 300–200 hPa highlights the jet stream. Pick the level that matches the question’s physical focus.",
+      summary:
+        "Different standard levels answer different physical questions.",
+      explanation:
+        "Match level to topic: moisture/thermal advection low; waves middle; jet high.",
       examples: [
-        { problem: "Which standard chart is most associated with the polar jet core?", solution: "Upper levels such as 300 hPa (near tropopause jet).", answer: "300 hPa / upper jet level" }
+        {
+          problem:
+            "Which standard chart is most associated with the polar jet core?",
+          solution: "≈300 hPa (upper jet level).",
+          answer: "300 hPa / upper jet level",
+        },
       ],
       shortcuts: ["850 thermal/moisture", "500 waves/steering", "300 jet"],
-      traps: ["Using only surface charts for jet-stream questions"]
-    }
+      traps: ["Using only surface charts for jet-stream questions"],
+    },
   ],
-  examPoints: [
-    "Constant-pressure height charts",
-    "Contour packing and wind",
-    "Level selection"
-  ],
-  commonMistakes: [
-    "Confusing height lows with surface pressure mechanically.",
-    "Ignoring packing for wind speed.",
-    "Wrong level for jet questions."
-  ],
+
   relatedTopics: ["meteo-geostrophic-wind", "meteo-jet-stream", "meteo-hydrostatic-equation"],
   content: true,
   buildsOn: ["meteo-geostrophic-wind", "meteo-hydrostatic-equation"],
   leadsTo: ["meteo-cyclones-development", "meteo-forecasting-methods"],
-  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"]
+  usedIn: ["meteo-cyclones-development", "meteo-western-disturbances"],
 },
 
 // ============================= SECTION D =============================
