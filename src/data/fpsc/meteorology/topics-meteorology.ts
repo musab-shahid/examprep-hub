@@ -795,49 +795,74 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 4,
   title: "Lapse Rates",
-  definition: "A lapse rate is the rate of temperature change with height. Three rates matter in exams: the dry adiabatic lapse rate (DALR) for unsaturated parcels, the saturated adiabatic lapse rate (SALR) for cloudy parcels, and the environmental lapse rate (ELR) measured in the real atmosphere. Stability is diagnosed by comparing ELR with DALR and SALR.",
+  definition: "A lapse rate is the rate at which temperature changes with height, usually expressed in °C per kilometre. In meteorology three different lapse rates are used together: the environmental lapse rate (ELR) describes the actual atmosphere at a moment in time; the dry adiabatic lapse rate (DALR) describes how an unsaturated air parcel changes temperature when it rises or sinks; and the saturated (moist) adiabatic lapse rate (SALR) describes the same process once the parcel is saturated and condensation (or evaporation) is exchanging latent heat.",
   keyFacts: [
-    "DALR ≈ 9.8 °C/km (often 10 °C/km in MCQs) — unsaturated rising/sinking parcel",
-    "SALR < DALR — latent heat release slows cooling; typical exam range ~4–7 °C/km",
-    "ELR — actual sounding slope; varies in time and place",
-    "Stability uses comparisons: ELR vs DALR and SALR",
-    "Inversions: ELR negative (temperature increases with height) — very stable"
+    "Lapse rate = change of temperature with height (conventionally positive when temperature falls upward)",
+    "DALR ≈ 9.8 °C/km (often taken as 10 °C/km in MCQs) for unsaturated parcels",
+    "SALR is smaller than DALR — typically about 4–7 °C/km — because condensation releases latent heat",
+    "ELR is measured by radiosonde or aircraft; it is not a fixed constant of nature",
+    "When temperature increases with height, the environmental lapse rate is negative — that layer is an inversion"
   ],
   explanationSections: [
-    { heading: "Parcel rates vs environment", body: "DALR and SALR describe process curves for moving air parcels. ELR is what the radiosonde measures. Never treat ELR as a fixed constant equal to DALR." }
+    {
+      heading: "What a lapse rate actually measures",
+      body: "Imagine climbing through the atmosphere with a thermometer. If temperature falls by about 6.5 °C for every kilometre of height in a particular layer, the environmental lapse rate in that layer is 6.5 °C/km. That number is a property of the air column as it is observed — it can be steep in the afternoon boundary layer, shallow under high pressure, or negative in an inversion. It is not the same thing as the rate a rising bubble of air would cool."
+    },
+    {
+      heading: "Dry adiabatic lapse rate — unsaturated parcels",
+      body: "When a volume of unsaturated air is lifted, it expands into lower pressure and does work on its surroundings. That expansion cools the parcel. If no heat is exchanged with the environment (the adiabatic idealisation) and no condensation occurs, the cooling rate is nearly constant: about 9.8 °C for every kilometre of ascent. The same magnitude appears as warming when the parcel sinks and is compressed. This rate is the dry adiabatic lapse rate. It is set by thermodynamics (specific heat and gravity), not by the day's weather, which is why exams treat DALR ≈ 10 °C/km as a reliable number."
+    },
+    {
+      heading: "Saturated adiabatic lapse rate — why it is smaller",
+      body: "Once a rising parcel becomes saturated, further ascent produces condensation. Condensation releases latent heat into the parcel, so the parcel's temperature does not fall as quickly as in dry ascent. The saturated adiabatic lapse rate is therefore smaller than the DALR — often near 6 °C/km in mid-latitudes, and still smaller in warm, very moist tropical air. In cold, dry air little water condenses, so SALR approaches DALR. The physical point is always the same: latent heat partially offsets expansional cooling."
+    },
+    {
+      heading: "Using the three rates together",
+      body: "Stability is judged by comparing how fast the environment cools with height (ELR) with how fast a parcel would cool (DALR if unsaturated, SALR if saturated). If the environment cools faster with height than the parcel would, the lifted parcel soon becomes warmer than its surroundings and is buoyant. If the environment cools more slowly — or warms with height — the parcel becomes colder than its surroundings and sinks back. That comparison is the bridge from lapse-rate numbers to weather: mixing, trapping, and the potential for deep convection."
+    }
   ],
   subtopics: [
     {
-      id: "meteo-lapse-rates-decision",
-      title: "Stability decision rule",
-      summary: "Compare ELR with DALR and SALR — one comparison table for exams.",
-      explanation: "Absolutely unstable: ELR > DALR (parcel colder-rate environment — environment cools faster than a dry parcel). Conditionally unstable: SALR < ELR < DALR. Absolutely stable: ELR < SALR. Inversion layers (temperature rising upward) are strongly stable and suppress mixing.",
+      id: "meteo-lapse-rates-dalr",
+      title: "Dry adiabatic cooling and warming",
+      summary: "Expansion cools; compression warms — about 9.8 °C/km.",
+      explanation: "A parcel forced upward expands because surrounding pressure falls. Expansion requires work; internal energy drops; temperature falls at the dry adiabatic rate if the air stays unsaturated. Forced downward, the parcel is compressed and warms at the same rate. Mountain lee warming after dry descent is the same physics on a larger scale.",
       examples: [
-        { problem: "ELR = 8 °C/km, DALR = 10, SALR = 6. Classification?", solution: "SALR < ELR < DALR → conditionally unstable.", answer: "Conditionally unstable" }
+        { problem: "Unsaturated air at 20 °C is lifted 2 km. Approximate temperature if it stays unsaturated?", solution: "Cooling ≈ 9.8 × 2 ≈ 20 °C, so the parcel is near 0 °C.", answer: "≈ 0 °C" }
       ],
-      shortcuts: ["ELR > DALR → absolute instability", "SALR < ELR < DALR → conditional", "ELR < SALR → absolute stability"],
-      traps: ["Using only DALR and ignoring whether the parcel is saturated", "Calling every steep ELR 'conditional' without checking SALR"]
+      shortcuts: ["Unsaturated ascent → cool ≈ 10 °C/km", "Unsaturated descent → warm ≈ 10 °C/km"],
+      traps: ["Using SALR before the parcel is saturated", "Treating DALR as the environmental sounding"]
     },
     {
-      id: "meteo-lapse-rates-why-salr",
-      title: "Why SALR is smaller than DALR",
-      summary: "Latent heat, not a second unrelated constant.",
-      explanation: "When vapour condenses, latent heat is released into the parcel, so temperature falls more slowly with height than in dry ascent. In cold dry air SALR approaches DALR; in warm moist air SALR is much smaller. That is why tropical cloudy ascent differs from polar dry ascent.",
+      id: "meteo-lapse-rates-salr",
+      title: "Why the moist rate is gentler",
+      summary: "Latent heat released in condensation slows the cooling.",
+      explanation: "In a cloudy rising parcel, water vapour condenses. The latent heat released is shared with the air in the parcel, so temperature falls more slowly than in clear dry ascent. Warmer air can hold and condense more vapour, so SALR is smaller in warm moist conditions than in cold dry ones.",
       examples: [
-        { problem: "Does SALR stay fixed at 6 °C/km in every cloud?", solution: "No — it varies with temperature and moisture; 6 is only a typical mid-latitude teaching value.", answer: "No — variable" }
+        { problem: "Why does a cloudy parcel cool more slowly while rising than a clear dry parcel?", solution: "Condensation releases latent heat inside the parcel, offsetting part of the expansional cooling.", answer: "Latent heat release" }
       ],
-      shortcuts: ["Condensation heats → slower cooling", "Warm moist → smaller SALR"],
-      traps: ["Memorising one SALR number as a physical constant like g"]
+      shortcuts: ["Condensation → heat into parcel → smaller lapse rate", "Cold dry air: SALR ≈ DALR"],
+      traps: ["Memorising one fixed SALR for every climate", "Thinking SALR is larger than DALR"]
+    },
+    {
+      id: "meteo-lapse-rates-elr-compare",
+      title: "Environmental rate and stability labels",
+      summary: "ELR is the sounding; compare it with DALR and SALR.",
+      explanation: "The radiosonde gives ELR layer by layer. Absolute instability means ELR > DALR: even dry parcels become buoyant. Absolute stability means ELR < SALR: even saturated parcels remain colder than the environment when lifted a little. Conditional instability means SALR < ELR < DALR: dry lift is stable, but once the parcel saturates it can become buoyant. Inversions (temperature increasing upward) are the extreme of stability and strongly suppress mixing.",
+      examples: [
+        { problem: "ELR = 8 °C/km, DALR = 10 °C/km, SALR = 6 °C/km. Classification?", solution: "SALR < ELR < DALR, so the layer is conditionally unstable.", answer: "Conditionally unstable" }
+      ],
+      shortcuts: ["ELR > DALR → absolute instability", "SALR < ELR < DALR → conditional", "ELR < SALR → absolute stability"],
+      traps: ["Ignoring whether the parcel is saturated", "Assuming ELR is always 6.5 °C/km"]
     }
   ],
   comparisonTable: {
-    title: "Stability from ELR",
-    headers: ["Condition", "Meaning"],
+    title: "Three lapse rates",
+    headers: ["Rate", "What it describes", "Typical value", "Notes"],
     rows: [
-      ["ELR > DALR", "Absolutely unstable"],
-      ["SALR < ELR < DALR", "Conditionally unstable"],
-      ["ELR < SALR", "Absolutely stable"],
-      ["Temperature ↑ with height", "Inversion — strongly stable"]
+      ["DALR", "Unsaturated parcel ascent/descent", "≈ 9.8 °C/km", "Fixed by thermodynamics"],
+      ["SALR", "Saturated (cloudy) parcel ascent", "≈ 4–7 °C/km", "Smaller because of latent heat"],
+      ["ELR", "Actual atmosphere (sounding)", "Varies", "Measured; used for stability"]
     ]
   },
   formula: [
@@ -845,35 +870,38 @@ export const topics: Topic[] = [
       name: "Dry adiabatic lapse rate (DALR)",
       expression: "\\Gamma_d \\approx 9.8\\,^{\\circ}\\mathrm{C\\,/\\,km}",
       variables: [
-        { symbol: "\\Gamma_d", meaning: "rate a dry (unsaturated) parcel cools while rising" }
+        { symbol: "\\Gamma_d", meaning: "cooling (or warming) rate of an unsaturated parcel with height" }
       ]
     },
     {
-      name: "Environmental vs process rates",
-      expression: "\\text{compare ELR with } \\Gamma_d \\text{ and } \\Gamma_s",
+      name: "Stability classification (compare rates)",
+      expression: "\\text{ELR}>\\Gamma_d\\Rightarrow\\text{abs. unstable};\\quad \\Gamma_s<\\text{ELR}<\\Gamma_d\\Rightarrow\\text{conditional};\\quad \\text{ELR}<\\Gamma_s\\Rightarrow\\text{abs. stable}",
       variables: [
-        { symbol: "\\mathrm{ELR}", meaning: "environmental lapse rate (sounding)" },
+        { symbol: "\\mathrm{ELR}", meaning: "environmental lapse rate (°C/km)" },
         { symbol: "\\Gamma_d", meaning: "DALR ≈ 9.8 °C/km" },
-        { symbol: "\\Gamma_s", meaning: "SALR ≈ 4–7 °C/km (latent heat slows cooling)" }
+        { symbol: "\\Gamma_s", meaning: "SALR ≈ 4–7 °C/km" }
       ]
     }
   ],
   examPoints: [
-    "Name and approximate DALR",
-    "SALR < DALR and why",
-    "Classify stability from ELR, DALR, SALR"
+    "Define lapse rate and name DALR, SALR, ELR",
+    "State DALR ≈ 9.8 °C/km and why SALR is smaller",
+    "Classify stability by comparing ELR with DALR and SALR",
+    "Recognise inversion as temperature increasing with height"
   ],
   commonMistakes: [
-    "Treating ELR as always 6.5 °C/km in stability problems.",
-    "Ignoring saturation state of the parcel.",
-    "Confusing process rates (DALR/SALR) with the environmental sounding."
+    "Treating ELR as a fixed global constant equal to DALR.",
+    "Using SALR before the parcel reaches saturation.",
+    "Forgetting that inversions are strongly stable.",
+    "Confusing parcel process rates with the measured sounding."
   ],
-  relatedTopics: ["meteo-static-stability", "meteo-vertical-structure", "meteo-adiabatic-cloud-formation"],
+  relatedTopics: ["meteo-static-stability", "meteo-vertical-structure", "meteo-adiabatic-cloud-formation", "meteo-inversion-mechanics"],
   content: true,
   buildsOn: ["meteo-vertical-structure", "meteo-heat-transfer"],
-  leadsTo: ["meteo-static-stability", "meteo-inversion-mechanics"],
+  leadsTo: ["meteo-static-stability", "meteo-inversion-mechanics", "meteo-lapse-calc"],
   usedIn: ["meteo-static-stability", "meteo-thermodynamic-diagrams", "meteo-lapse-calc"]
 },
+
 
 {
   id: "meteo-inversion-mechanics",
@@ -941,7 +969,7 @@ export const topics: Topic[] = [
       id: "meteo-inversion-mechanics-vs-types",
       title: "Mechanics vs named types",
       summary: "Effects here; formation names in the types topic.",
-      explanation: "Use this topic for definition, stability, trapping, and lid/cap behaviour. Use Inversion Types when the exam asks how the inversion formed (radiation, subsidence, frontal, advective, terrain). Both share the same definition: temperature increases with height.",
+      explanation: "Definition, stability, trapping, and lid behaviour belong to the mechanics of the layer. Formation names — radiation, subsidence, frontal, advective, terrain — classify how the same structure was produced.",
       examples: [
         { problem: "Stem asks why smoke stays near the ground on a clear calm night — start with mechanics or type?", solution: "Mechanics (stable lid); type is likely radiation.", answer: "Mechanics first; radiation if asked for type" }
       ],
@@ -1179,43 +1207,73 @@ export const topics: Topic[] = [
   sectionId: "METEO-02",
   order: 8,
   title: "Static Stability of the Atmosphere",
-  definition: "Static stability describes whether a displaced air parcel accelerates away from its level, returns, or stays put. Compare the environmental lapse rate (ELR) with the dry adiabatic lapse rate (DALR ≈ 9.8 °C/km) for unsaturated parcels and with the saturated adiabatic lapse rate (SALR, typically ~4–7 °C/km) once saturated. Labels matter only if you can state the weather consequence.",
+  definition: "Static stability describes how the atmosphere responds when a small volume of air is displaced upward or downward. In a stable layer the parcel returns toward its starting level; in an unstable layer it accelerates farther away; in a neutral layer it stays put. The response is governed by the temperature difference between the parcel and its surroundings after the displacement — which is why static stability is diagnosed from lapse rates.",
   keyFacts: [
-    "Stable: parcel colder than environment after lift → returns (resists vertical motion)",
-    "Unstable: parcel warmer than environment after lift → accelerates upward",
-    "Conditionally unstable: stable for dry lift, unstable once saturated (usual pre-storm setup)",
-    "Absolute stability: ELR < SALR — even saturated parcels resist deep ascent",
-    "Absolute instability: ELR > DALR — strong mixing; rare as a deep layer",
-    "Inversions (T increasing with height) are strongly stable lids"
+    "Stable: displaced parcel returns — vertical motions are resisted",
+    "Unstable: displaced parcel accelerates away — vertical motions grow",
+    "Neutral: parcel stays at the new level",
+    "Conditional instability: stable for unsaturated lift, unstable once saturated",
+    "Inversions are strongly stable and act as lids on mixing and convection"
   ],
   explanationSections: [
-    { heading: "Parcel decision procedure (exam method)", body: "Lift the parcel dry along the DALR until saturation (LCL), then follow the SALR. At each height: is the parcel warmer or colder than the environmental sounding? Warmer → buoyant ascent; colder → sinks back. Conditional instability means energy is stored until a trigger (heating, frontal or orographic lift) helps parcels reach the LCL/LFC." },
-    { heading: "From classification to weather", body: "Stable layers suppress cumulus towers, trap smoke and moisture near the ground, and favour stratiform cloud if moisture is present. Unstable layers favour thermals, gustiness, and convective clouds. Storm forecasting asks whether instability can be released and whether a lid still caps it." }
+    {
+      heading: "Buoyancy after a small lift",
+      body: "Lift a parcel a short distance and let it adjust pressure to its new height. If the parcel is then colder (denser) than the air around it, gravity pulls it back down — stable. If it is warmer (lighter) than its surroundings, buoyancy pushes it farther up — unstable. That single comparison is the physical core of static stability. Everything else is how we estimate the comparison from a sounding."
+    },
+    {
+      heading: "From lapse rates to parcel fate",
+      body: "An unsaturated parcel cools at about 9.8 °C/km while rising. If the environment cools faster than that with height, the rising parcel soon finds itself warmer than the surroundings and keeps rising (absolute instability). If the environment cools more slowly than even a saturated parcel would, lifted air remains colder than the environment (absolute stability). Between those limits lies conditional instability: dry lift is stable, but once cloud forms and the parcel follows the gentler moist rate, it can become buoyant. That structure stores energy until a trigger — surface heating, a front, or orographic lift — helps parcels reach saturation."
+    },
+    {
+      heading: "Weather meaning of stability",
+      body: "Stable layers suppress thermals and cumulus towers. Smoke, haze, and moisture stay near the surface under nocturnal inversions; visibility falls and pollutants accumulate. Unstable layers favour gusty thermals, deep convective clouds, and turbulence. Conditional instability is the usual pre-storm setup: fuel is present, but a stable layer or dry layer may still need to be overcome. Stability is potential — it does not by itself say that it is raining now."
+    }
   ],
   subtopics: [
     {
-      id: "meteo-static-stability-weather",
-      title: "Weather consequences of stability",
-      summary: "What each regime allows or blocks in the real atmosphere.",
-      explanation: "Strong stability (including inversions) produces smooth stratified flow, trapped pollution, and suppressed cumulus. Instability supports gusty thermals, deep convective clouds, and turbulence. Conditional instability is the usual pre-storm setup: energy is stored until parcels saturate or a lid is removed.",
+      id: "meteo-static-stability-parcel-test",
+      title: "The parcel method",
+      summary: "Lift, compare temperature with the environment, read buoyancy.",
+      explanation: "Follow the parcel as it cools: dry adiabat while unsaturated, moist adiabat after saturation. Wherever the parcel is warmer than the environmental sounding, buoyancy is positive and the parcel accelerates upward. Wherever the environment is warmer than the parcel, the layer inhibits ascent. The same logic applies with numbers: compare ELR with DALR and SALR layer by layer.",
       examples: [
-        { problem: "Clear night, strong surface inversion — expect deep thunderstorms or trapped haze?", solution: "Trapped haze / suppressed deep mixing until the inversion erodes.", answer: "Trapped haze / suppressed convection" }
+        { problem: "A lifted unsaturated parcel is 2 °C colder than the environment at the same height. What happens if left alone?", solution: "It is denser than its surroundings, so it sinks back — stable response.", answer: "Returns downward (stable)" }
       ],
-      shortcuts: ["Stable → suppress mixing", "Unstable → thermals & cumulus", "Conditional → fuel with a lid"],
-      traps: ["Equating 'unstable' with 'it is raining now' — instability is potential, not a precipitation gauge"]
+      shortcuts: ["Parcel warmer than env → rises", "Parcel colder than env → sinks"],
+      traps: ["Judging stability from surface temperature alone without a vertical comparison"]
     },
     {
-      id: "meteo-static-stability-vs-lapse",
-      title: "How this topic differs from 'Lapse Rates'",
-      summary: "Lapse rates name the slopes; stability names the parcel response and impacts.",
-      explanation: "Use the Lapse Rates topic for the numbers and the ELR–DALR–SALR decision table. Use Static Stability for exam questions about mixing, inversions as lids, and why the same ELR means different outcomes once saturation changes. Do not memorise two conflicting classification systems — they share one comparison.",
+      id: "meteo-static-stability-regimes",
+      title: "Absolute, conditional, and neutral",
+      summary: "Three classical labels and what they allow.",
+      explanation: "Absolute instability (ELR > DALR) produces vigorous mixing; deep layers of absolute instability are uncommon because mixing quickly rearranges the profile. Absolute stability (ELR < SALR), including inversions, resists both dry and moist ascent. Conditional instability (SALR < ELR < DALR) is common ahead of storms: the column can support deep convection only after parcels saturate. Neutral balance means the parcel rate matches the environment so there is little acceleration either way.",
       examples: [
-        { problem: "Question asks why smog persists under clear nights — which concept is central?", solution: "Surface stability / inversion suppressing vertical mixing.", answer: "Stable surface layer / inversion" }
+        { problem: "ELR lies between SALR and DALR. What label applies?", solution: "Conditional instability.", answer: "Conditionally unstable" }
       ],
-      shortcuts: ["Lapse topic = rates & table", "Stability topic = parcel fate & impacts"],
-      traps: ["Rewriting the entire DALR table here instead of applying it"]
+      shortcuts: ["ELR > DALR → absolute instability", "Between SALR and DALR → conditional", "ELR < SALR → absolute stability"],
+      traps: ["Calling every steep ELR conditional without checking SALR"]
+    },
+    {
+      id: "meteo-static-stability-weather",
+      title: "Mixing, pollution, and convection",
+      summary: "What each regime allows or blocks in the real atmosphere.",
+      explanation: "Under strong stability, especially surface inversions, vertical exchange is weak: fog and haze linger, and urban pollutants build up until heating or wind deepens the mixed layer. Under instability, thermals carry heat and moisture upward and cumulus can grow. Shear and moisture still matter for organised storms, but without instability the deep convective engine lacks buoyancy.",
+      examples: [
+        { problem: "Clear night, strong surface inversion — expect deep thunderstorms or trapped haze?", solution: "Trapped haze and suppressed deep convection until the inversion erodes.", answer: "Trapped haze / suppressed convection" }
+      ],
+      shortcuts: ["Stable → suppress mixing", "Unstable → thermals and cumulus", "Conditional → fuel that needs a trigger"],
+      traps: ["Equating unstable with it is raining now"]
     }
   ],
+  comparisonTable: {
+    title: "Static stability regimes",
+    headers: ["Regime", "Lapse-rate condition", "Parcel response", "Typical weather link"],
+    rows: [
+      ["Absolutely unstable", "ELR > DALR", "Accelerates upward even if dry", "Strong mixing; rare as a deep layer"],
+      ["Conditionally unstable", "SALR < ELR < DALR", "Stable if dry; can be buoyant if saturated", "Common pre-storm setup"],
+      ["Absolutely stable", "ELR < SALR (incl. inversion)", "Resists dry and moist lift", "Trapping, stratiform cloud, capped convection"],
+      ["Neutral", "ELR matches parcel rate", "Little acceleration", "Well-mixed layers"]
+    ]
+  },
   formula: [
     {
       name: "Stability classification (compare rates)",
@@ -1228,21 +1286,24 @@ export const topics: Topic[] = [
     }
   ],
   examPoints: [
-    "Stable vs unstable parcel response",
-    "Conditional instability as common storm setup",
-    "Link stability to mixing and pollution"
+    "Define stable vs unstable parcel response",
+    "Explain conditional instability physically",
+    "Link stability to mixing, pollution, and convection",
+    "Use ELR vs DALR/SALR to classify a layer"
   ],
   commonMistakes: [
-    "Treating stability as a different formula system from lapse rates.",
-    "Ignoring saturation when saying 'unstable'.",
-    "Assuming instability equals ongoing severe weather."
+    "Treating stability as unrelated to lapse rates.",
+    "Ignoring saturation when labelling a layer unstable.",
+    "Assuming instability always means active severe weather.",
+    "Confusing surface warmth with column instability."
   ],
-  relatedTopics: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-thunderstorms"],
+  relatedTopics: ["meteo-lapse-rates", "meteo-inversion-mechanics", "meteo-thunderstorms", "meteo-thermodynamic-diagrams"],
   content: true,
-  buildsOn: ["meteo-lapse-rates", "meteo-vertical-structure"],
-  leadsTo: ["meteo-thunderstorms", "meteo-thermodynamic-diagrams"],
-  usedIn: ["meteo-thunderstorms", "meteo-inversion-mechanics", "meteo-lapse-calc"]
+  buildsOn: ["meteo-lapse-rates", "meteo-heat-transfer"],
+  leadsTo: ["meteo-inversion-mechanics", "meteo-thunderstorms"],
+  usedIn: ["meteo-thunderstorms", "meteo-thermodynamic-diagrams"]
 },
+
 
 {
   id: "meteo-gas-law",
