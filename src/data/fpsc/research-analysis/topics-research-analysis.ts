@@ -21,163 +21,191 @@ export const topics: Topic[] = [
   sectionId: "RA-01",
   order: 1,
   title: "Scientific Method",
-  definition: "The scientific method is a systematic cycle for investigating questions about the world: observe, ask, propose a testable explanation, predict, gather evidence, analyse, conclude, and allow others to repeat the work. Its purpose is not to protect favourite ideas, but to expose claims to evidence so that reliable knowledge can survive scrutiny.",
+  definition:
+    "A systematic process for producing reliable knowledge: observe a phenomenon, ask a focused question, propose a testable and falsifiable hypothesis, derive predictions, test them under controlled conditions, analyse results, draw conclusions, and allow independent replication. The goal is to reduce bias and separate claims that survive evidence from those that do not.",
   keyFacts: [
-    "Typical cycle: Observation → Question → Hypothesis → Prediction → Investigation → Analysis → Conclusion → Replication",
-    "Hypothesis: a TESTABLE, FALSIFIABLE tentative explanation — evidence must be able to count against it",
-    "Theory: a broad, well-supported explanation that has survived extensive testing (explains why)",
-    "Law: a concise description of a regular pattern in nature (describes what happens; does not by itself explain why)",
-    "Model: a simplified representation of a system used to explore behaviour and make predictions",
-    "Independent variable (IV): what the researcher manipulates (putative cause)",
-    "Dependent variable (DV): what is measured (putative effect)",
-    "Controlled variables: factors held constant so the IV's effect is clearer",
-    "Extraneous / confounding variables: unwanted factors that also affect the DV and threaten internal validity",
+    "Typical cycle: Observation → Question → Hypothesis → Prediction → Experiment/Test → Analysis → Conclusion → Replication",
+    "Hypothesis: a tentative explanation that is TESTABLE and FALSIFIABLE (evidence could show it is wrong)",
+    "Theory: a broad, well-supported explanation that has survived repeated testing (explains WHY)",
+    "Law: a descriptive generalisation about regular behaviour in nature (describes WHAT; does not by itself explain why)",
+    "Model: a simplified representation used to understand a system and make predictions",
+    "Independent variable (IV): what the researcher manipulates (the presumed cause)",
+    "Dependent variable (DV): what is measured (the presumed effect)",
+    "Controlled variables: factors held constant so the IV’s effect can be isolated",
+    "Extraneous / confounding variables: unwanted factors that also vary and can distort the DV",
     "Deductive reasoning: general principle → specific prediction (top-down)",
     "Inductive reasoning: specific observations → broader generalisation (bottom-up)",
-    "Abductive reasoning: observations → the best available explanation among alternatives"
+    "Abductive reasoning: incomplete observations → most plausible explanation among rivals",
   ],
   explanationSections: [
     {
-      heading: "What the method is for",
-      body: "The scientific method is a discipline for turning curiosity into checkable claims. Observation and questions open the work; a hypothesis proposes a mechanism or relationship; a prediction states what must be true if that idea is roughly right; data collection and analysis test the prediction; a conclusion says whether the evidence supports, weakens, or rejects the idea; replication asks whether the result holds when others try again.\n\nThe cycle is iterative. Failed predictions force revision. Successful predictions still invite further tests. Science is less a single experiment than a community process of public, revisable argument."
+      heading: "Falsifiability — the line between science and non-science",
+      body:
+        "A scientific hypothesis must be capable of being proven wrong by evidence. Claims such as “it is what it is” or “untestable supernatural forces caused it” are not scientific because no observation could refute them. “All swans are white” is scientific: it is clear, testable, and was falsified when black swans were observed in Australia. Science advances by risking being wrong, not by protecting claims from scrutiny.",
     },
     {
-      heading: "Falsifiability",
-      body: "A claim is scientific only if some possible evidence could show it is wrong. 'All swans are white' is falsifiable: one black swan refutes it. Vague or supernatural claims that can absorb any outcome are not scientific hypotheses because nothing could count as a failure.\n\nFalsifiability does not mean a hypothesis is already false. It means the rules of the game allow defeat. That standard is what separates science from slogans that can never lose."
+      heading: "Variables: IV, DV, controls, and confounders",
+      body:
+        "IV = what you change (e.g. fertiliser dose). DV = what you measure (e.g. plant height). Controlled variables = same soil, light, water, pot size — so differences in the DV can be attributed to the IV. Confounders are extras that slip in (e.g. one group gets more sunlight by accident). Strong design anticipates confounders and holds them constant, randomises, or measures them. Memory aid: you CHANGE the independent variable; you MEASURE the dependent variable.",
     },
     {
-      heading: "Hypothesis, theory, law, and model",
-      body: "A hypothesis is provisional and local: a clear, testable claim about a relationship or mechanism. A theory is a broader explanatory framework that organises many findings (for example, germ theory or plate tectonics). A scientific law states a regular quantitative or qualitative pattern — what happens under stated conditions — without by itself supplying the full causal story.\n\nA model is a deliberate simplification (diagram, equation set, computer simulation) used to reason and predict. Models can be useful even when incomplete; their job is controlled approximation, not perfect copy of reality.\n\nExam trap: do not rank law above theory as 'more proven.' Laws describe patterns; theories explain. Both rest on evidence."
+      heading: "Deductive, inductive, and abductive reasoning",
+      body:
+        "Deductive: from a general rule to a specific prediction (If all metals expand when heated, this metal rod should expand). Inductive: from many specific cases to a general claim (These 200 samples showed pattern X → perhaps all similar cases do). Abductive: from puzzling facts to the best current explanation (symptoms + context → most likely diagnosis). Real research often uses all three: abduction to generate hypotheses, deduction to predict what must follow if the hypothesis is true, induction to build broader theories from repeated results.",
     },
     {
-      heading: "Variables in experimental thinking",
-      body: "The independent variable is what the researcher changes by design. The dependent variable is what is recorded as the outcome. Controlled variables are held steady so differences in the DV can more fairly be attributed to the IV. Extraneous variables are factors that vary when they should not; when they correlate with the IV, they become confounders and cloud causal interpretation.\n\nMemory aid: you manipulate the independent variable; you measure the dependent variable. Good design lists what is controlled and what still threatens validity."
+      heading: "Theory vs law (exam favourite)",
+      body:
+        "A law summarises a stable pattern (what happens under stated conditions). A theory explains the pattern (why/how it happens) and organises many facts and laws. Theories are not “guesses that failed to become laws”; mature theories are among the strongest products of science. Laws do not automatically “upgrade” into theories — they answer different questions.",
     },
-    {
-      heading: "Deduction, induction, and abduction",
-      body: "Deductive reasoning moves from a general rule to a specific prediction: if the theory is right, this experiment should show X. Inductive reasoning builds generalisations from repeated particular results. Abductive reasoning proposes the most plausible explanation for a set of observations when several stories could fit.\n\nResearch often uses all three: abduction to generate candidate hypotheses, deduction to derive testable predictions, and induction to strengthen or revise theories after many consistent outcomes."
-    }
   ],
   examPoints: [
-    "Hypothesis must be testable and falsifiable — not merely clever wording",
-    "Independent = manipulated; Dependent = measured; Controlled = held constant",
-    "Law describes a pattern; theory explains mechanisms or systems",
-    "Deductive: general → specific; Inductive: specific → general; Abductive: best explanation among rivals",
-    "Replication is part of reliability — one study is a starting point, not the final word"
+    "Hypothesis must be testable AND falsifiable",
+    "IV = manipulated; DV = measured; controls = held constant; confounders = unwanted variation",
+    "Law describes regularities; theory explains them",
+    "Deductive = general → specific; inductive = specific → general; abductive = best explanation",
+    "Replication strengthens confidence; one study is rarely enough",
   ],
   commonMistakes: [
-    "Treating a law as an explanation and a theory as a mere guess",
-    "Believing a hypothesis must already be true — it must be open to being shown wrong",
-    "Swapping independent and dependent variables",
-    "Ignoring confounders and claiming pure causation from a messy design"
+    {
+      mistake: "Treating theory as a weak guess and law as proven truth",
+      correction: "Theory explains; law describes. Strong theories are heavily tested, not casual opinions.",
+      explanation: "Exam options often imply ‘theory = unproven, law = proven.’ Reject that hierarchy.",
+    },
+    {
+      mistake: "Thinking a hypothesis must be proven true to be scientific",
+      correction: "It must be falsifiable — open to being shown wrong.",
+      explanation: "Science privileges claims that risk failure under test.",
+    },
+    {
+      mistake: "Swapping independent and dependent variables",
+      correction: "You change the IV; you measure the DV.",
+      explanation: "If the stem says ‘researcher varies temperature and records reaction rate,’ temperature is IV, rate is DV.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A claim states: ‘This herbal remedy works because of invisible energies that cannot be measured by any instrument.’ Is this a scientific hypothesis?",
+      answer: "No.",
+      why: "It is not falsifiable: no possible observation is allowed to count against it. A scientific claim must specify evidence that would weaken or refute it.",
+    },
+    {
+      scenario:
+        "A lab studies whether caffeine improves short-term memory. Participants drink either caffeinated or decaf coffee (identical taste). Memory scores are recorded. Name IV, DV, and one control.",
+      answer:
+        "IV: caffeine presence/dose; DV: memory score; controls: same test conditions, similar participants, blinded drink, same time of day, etc.",
+      why: "The researcher manipulates caffeine, measures memory, and holds other factors steady to isolate the effect.",
+    },
   ],
   relatedTopics: ["ra-research-design", "ra-inferential-stats", "ra-research-ethics"],
   subtopics: [
     {
       id: "ra-scientific-method-falsifiability",
       title: "Falsifiability",
-      summary: "Scientific claims must risk being wrong.",
-      explanation: "Falsifiability is the requirement that a hypothesis could, in principle, be contradicted by evidence. Without that risk, a claim cannot be disciplined by observation. Clear hypotheses state what would count as support and what would count as failure.",
+      summary:
+        "A hypothesis is scientific only if evidence could, in principle, show it is false.",
+      explanation:
+        "Falsifiability is the boundary condition for scientific claims. Untestable statements may be meaningful in other domains (faith, pure preference) but they are not scientific hypotheses. Craft exam answers by asking: ‘What result would count against this claim?’ If none, it is not scientific.",
       examples: [
         {
-          problem: "Which is a falsifiable hypothesis?",
-          solution: "'Increasing nitrogen fertiliser raises maize yield under specified conditions' can be tested. 'Destiny arranges yields as they must' cannot.",
-          answer: "A claim that evidence could refute"
+          problem:
+            "Which of the following is a falsifiable hypothesis?\nA) Good weather is caused by cosmic goodwill\nB) Increasing nitrogen in this soil will raise wheat yield under stated conditions\nC) The true meaning of life cannot be known\nD) Whatever happens was meant to happen",
+          solution:
+            "Only B makes a concrete, testable prediction. A, C, and D are insulated from contrary evidence.",
+          answer: "B",
         },
         {
-          problem: "Why is 'it works in mysterious ways' not a scientific hypothesis?",
-          solution: "No observation can count against it; every outcome can be absorbed.",
-          answer: "Not falsifiable"
-        }
+          problem:
+            "Why does ‘all swans are white’ count as a scientific hypothesis even though it turned out false?",
+          solution:
+            "Because clear observations (a black swan) could refute it. Being wrong after a fair test is a success of method, not a failure of science.",
+          answer:
+            "It was testable and open to refutation; observation of black swans falsified it.",
+        },
       ],
       shortcuts: [
-        "Could evidence prove this wrong?",
-        "If nothing can fail, it is not a scientific test"
+        "Ask: ‘What would prove this wrong?’ — if nothing, not scientific",
       ],
       traps: [
-        "Confusing 'falsifiable' with 'already false'",
-        "Accepting explanations that fit every possible result"
-      ]
+        "Assuming ‘scientific’ means ‘already proven true’",
+        "Confusing unfalsifiable claims with deep or profound ones",
+      ],
     },
     {
       id: "ra-scientific-method-variables",
-      title: "Independent, dependent, and controlled variables",
-      summary: "Cause, effect, and what is held steady.",
-      explanation: "In an experiment, the independent variable is the planned change. The dependent variable is the measured outcome. Controlled variables are kept as constant as practical so the comparison is fair. Extraneous factors that still vary can confound results and threaten internal validity.",
+      title: "Variables (IV, DV, controls, confounders)",
+      summary:
+        "Separate what you change, what you measure, what you hold constant, and what accidentally varies.",
+      explanation:
+        "Internal validity rises when the IV is cleanly isolated. Confounders create alternative explanations (maybe sunlight, not fertiliser, drove growth). Good answers name all four roles when a stem describes a study.",
       examples: [
         {
-          problem: "A study varies study time and records exam scores, keeping the same test form. Name IV, DV, and one controlled factor.",
-          solution: "IV = study time; DV = score; controlled = test form (and ideally difficulty, time of day, etc.).",
-          answer: "IV study time; DV score; control test form"
+          problem:
+            "Researchers assign classes to either ‘active learning’ or ‘lecture only,’ then compare final exam scores. Identify IV and DV.",
+          solution:
+            "Teaching method is manipulated → IV. Exam scores are measured → DV. Class size, teacher experience, and prior ability should be controlled or randomised.",
+          answer: "IV: instructional method; DV: exam score",
         },
         {
-          problem: "Why is temperature a confounder if it rises only in the treatment greenhouse?",
-          solution: "It varies with the treatment and may drive the outcome instead of (or with) the intended IV.",
-          answer: "It co-varies with treatment"
-        }
+          problem:
+            "In the same study, morning classes get active learning and afternoon classes get lectures. What is the threat?",
+          solution:
+            "Time of day is confounded with method — performance differences may reflect alertness, not pedagogy.",
+          answer: "Confounding (extraneous variable: time of day)",
+        },
       ],
       shortcuts: [
-        "Change IV → measure DV",
-        "Control what you can; name what you cannot"
+        "CHANGE = independent; MEASURE = dependent; CONSTANT = controlled; UNWANTED = confounder",
       ],
       traps: [
-        "Calling the measured outcome the independent variable",
-        "Assuming 'we controlled everything' without listing controls"
-      ]
+        "Calling every measured quantity the IV",
+        "Ignoring confounders when two factors change together",
+      ],
     },
     {
       id: "ra-scientific-method-reasoning-types",
-      title: "Deductive, inductive, and abductive reasoning",
-      summary: "Three directions of inference used in research.",
-      explanation: "Deduction derives specific expectations from general principles. Induction generalises from particular results. Abduction selects the best current explanation for surprising observations. Strong research programmes move among all three rather than relying on a single style of argument.",
+      title: "Deductive, inductive, abductive reasoning",
+      summary:
+        "Top-down prediction, bottom-up generalisation, and inference to the best explanation.",
+      explanation:
+        "Match the stem’s direction of inference. Deductive conclusions are forced if premises are true; inductive conclusions are probable and open to revision; abductive conclusions are the best current story, not a proof.",
       examples: [
         {
-          problem: "From 'metals expand when heated' predict what a heated steel rail does. Which reasoning?",
-          solution: "Deductive: general rule → specific case.",
-          answer: "Deductive"
+          problem:
+            "From ‘All tropical cyclones need warm ocean energy’ a student predicts a named storm will weaken over cold water. Which reasoning?",
+          solution:
+            "General principle applied to a specific case → deductive.",
+          answer: "Deductive",
         },
         {
-          problem: "After many stations show the same pattern, researchers propose a regional rule. Which reasoning?",
-          solution: "Inductive: many particulars → broader claim.",
-          answer: "Inductive"
-        }
+          problem:
+            "After many station records show a pattern, a researcher proposes a general regional climate rule. Which reasoning?",
+          solution:
+            "Specific data → broader claim → inductive.",
+          answer: "Inductive",
+        },
       ],
       shortcuts: [
-        "Deduce predictions; induce patterns; abduce best explanations",
-        "Match the arrow: general↔specific vs best-fit story"
+        "Deduce = down from theory; Induce = up from data; Abduce = best story for the facts",
       ],
       traps: [
-        "Labelling every guess as deduction",
-        "Treating induction from a tiny sample as proof"
-      ]
+        "Treating inductive conclusions as certain",
+        "Calling every hypothesis ‘deductive’ because it ‘sounds logical’",
+      ],
     },
-    {
-      id: "ra-scientific-method-theory-law-model",
-      title: "Theory, law, and model",
-      summary: "Explain, describe, and approximate.",
-      explanation: "Theories organise and explain. Laws state compact regularities. Models simplify systems so predictions and 'what if' questions become workable. Confusing these roles is a common exam error: a law is not automatically 'higher' than a theory, and a model is not dismissed merely because it omits detail.",
-      examples: [
-        {
-          problem: "Newton's law of cooling describes rate of temperature change; kinetic theory helps explain heat transfer. Which is law-like description vs explanatory framework?",
-          solution: "The named 'law' states a pattern; kinetic ideas supply mechanism-level explanation.",
-          answer: "Pattern vs explanation"
-        }
-      ],
-      shortcuts: [
-        "Law ≈ what; theory ≈ why (at system scale)",
-        "Model = useful simplification"
-      ],
-      traps: [
-        "Theory = unproven guess",
-        "Law = ultimate explanation"
-      ]
-    }
   ],
   content: true,
   postRestriction: "bs17",
   buildsOn: [],
   leadsTo: ["ra-research-design", "ra-research-quality"],
-  usedIn: ["ra-research-design", "ra-data-interpretation", "ra-scientific-reporting", "meteo-forecast-skill", "earth-k1"]
+  usedIn: [
+    "ra-research-design",
+    "ra-data-interpretation",
+    "ra-scientific-reporting",
+    "meteo-forecast-skill",
+    "earth-k1",
+  ],
 },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -189,173 +217,193 @@ export const topics: Topic[] = [
   sectionId: "RA-02",
   order: 1,
   title: "Research Design",
-  definition: "Research design is the plan for how a study will be carried out: what kind of data will be collected, whether variables are manipulated, how participants or sites are chosen, over what time span evidence is gathered, and how major biases will be limited. A clear design links the research question to methods that can actually answer it.",
+  definition:
+    "The overall plan for a study: what kind of data will be collected (quantitative, qualitative, or mixed), what approach will answer the question (descriptive, exploratory, explanatory, experimental, observational), who is studied (population and sample), and how participants or units are selected (sampling method). Design choices determine what conclusions are justified.",
   keyFacts: [
-    "Quantitative: numbers, measurements, statistical summary",
-    "Qualitative: words, themes, meanings, and interpretations",
-    "Mixed methods: intentional combination of both in one programme of work",
-    "Descriptive designs map 'what is'; exploratory designs probe unfamiliar ground; explanatory designs target 'why'",
-    "Experimental: researcher manipulates an independent variable and measures outcomes under control",
-    "Observational: no manipulation — records naturally occurring variation",
-    "Cross-sectional: one time point; Longitudinal: follow-up over time",
-    "Population: full group of interest; Sample: studied subset; Census: data on every member",
-    "Probability sampling (simple random, systematic, stratified, cluster) supports generalisation better than convenience samples",
-    "Non-probability sampling (convenience, snowball, purposive) is faster or necessary for hard-to-reach groups but limits claims",
-    "Major biases: selection, measurement, recall, observer, confirmation, survivorship",
-    "Action research: practitioner-researcher cycles of plan–act–observe–reflect inside a real system"
+    "Quantitative: numbers, measurement, statistical summary",
+    "Qualitative: words, themes, meanings, interpretations",
+    "Mixed methods: intentional combination of both to answer related facets of a question",
+    "Descriptive: documents ‘what is’ (surveys, case studies, structured observation)",
+    "Exploratory: early investigation of an unfamiliar topic; flexible design",
+    "Explanatory: aims at ‘why’ — tests relationships or causal claims",
+    "Experimental: researcher manipulates IV, controls conditions, measures DV",
+    "Observational: no manipulation of IV; records naturally occurring variation",
+    "Cross-sectional: one time point (snapshot)",
+    "Longitudinal: same units followed over time",
+    "Population: full set of interest; sample: subset studied; census: data on every member",
+    "Larger samples generally reduce sampling error, but design quality matters more than size alone",
   ],
   explanationSections: [
     {
-      heading: "Matching design to the question",
-      body: "Design begins with the question. 'How many stations exceeded a threshold?' points toward quantitative measurement. 'How did forecasters interpret conflicting model guidance?' points toward qualitative inquiry. Many applied problems need both: counts for scale and interviews or documents for meaning.\n\nDescriptive work charts a situation. Exploratory work maps a poorly known area. Explanatory work seeks mechanisms or causes. Choosing an experimental or observational strategy depends on whether manipulation is ethical, practical, and necessary for the claim you want to make."
+      heading: "Quantitative, qualitative, and mixed methods",
+      body:
+        "Quantitative designs answer ‘how much / how many / how strongly associated?’ using measurements and statistics (e.g. rainfall totals, Likert counts). Qualitative designs answer ‘how / why / what does it mean?’ using interviews, focus groups, texts, or observations coded into themes. Mixed methods combine both deliberately (e.g. a national survey plus in-depth interviews). Choose by the research question — not by which method feels more ‘scientific.’",
     },
     {
-      heading: "Experimental versus observational studies",
-      body: "In experiments, the researcher assigns or varies the independent variable and tries to hold other factors steady, strengthening causal inference when randomisation and controls are sound. In observational studies, the researcher measures what occurs without assigning treatments. Observational work is essential when experiments are impossible, but association is not automatic proof of causation.\n\nAlways ask: was the putative cause manipulated? What else differed between groups? What alternative explanations remain?"
+      heading: "Experimental vs observational",
+      body:
+        "Experimental designs manipulate an IV and, with good controls/randomisation, support stronger causal claims. Observational designs do not assign the IV; they compare groups or conditions as they occur. Observational studies can show association and generate hypotheses, but causation is harder to establish because confounders are harder to rule out. Exam stems that say ‘researcher assigns / administers / varies’ lean experimental; ‘records / compares existing groups’ lean observational.",
     },
     {
-      heading: "Time and sampling",
-      body: "Cross-sectional designs take a snapshot. Longitudinal designs track change and can separate stable differences from trajectories over time, at higher cost and risk of attrition.\n\nSampling links the study to a population. Probability methods give each unit a known chance of selection and support statistical generalisation when implemented well. Stratified sampling protects subgroup representation; cluster sampling is practical for geographically spread populations. Convenience samples are quick but biased toward whoever is easy to reach. Snowball sampling helps hidden populations; purposive sampling serves qualitative depth rather than frequency estimates."
+      heading: "Sampling methods — match method to population structure",
+      body:
+        "Simple random: every unit equal chance (needs a full list; strong for generalisation). Systematic: every k-th unit on a list. Stratified: random samples within important subgroups (gender, region, grade) so each stratum is represented. Cluster: random groups (schools, villages), then study units inside clusters — efficient for spread-out populations. Convenience: whoever is easy to reach — fast, often biased. Snowball: participants recruit others — useful for hidden populations. Purposive: deliberate selection of informative cases — common in qualitative work. Name the method by the selection rule, not by the topic.",
     },
     {
-      heading: "Bias as a design problem",
-      body: "Bias is systematic error, not mere bad luck. Selection bias appears when the sample systematically differs from the population of interest. Measurement bias arises from poor instruments or procedures. Recall bias distorts self-reports of the past. Observer bias lets expectations shape recording. Confirmation bias steers attention toward supportive evidence. Survivorship bias studies only those who remained visible (successful firms, surviving patients) and ignores the silent rest.\n\nDesign choices — randomisation, blinding where possible, validated measures, pre-specified analyses — reduce bias. Reporting limitations keeps claims honest."
-    }
+      heading: "Bias threats",
+      body:
+        "Selection bias: sample systematically differs from the population (volunteers only, online-only, one city). Measurement bias: instrument or procedure distorts values. Recall bias: memory errors in self-report. Observer/researcher bias: expectations shape recording. Confirmation bias: seeking supportive evidence only. Survivorship bias: studying only those who ‘remained’ (successful firms, surviving patients). Design reduces bias; it rarely eliminates it. Strong answers name the bias and the fix (randomisation, blinding, better sampling frame, validated instruments).",
+    },
   ],
   examPoints: [
     "Quantitative = numbers; qualitative = meanings; mixed = both by design",
-    "Experimental manipulates IV; observational does not — causation claims differ",
+    "Experimental = manipulate IV; observational = no manipulation",
     "Cross-sectional = one time; longitudinal = over time",
     "Stratified = random within subgroups; cluster = random groups; simple random = equal chance for each unit",
-    "Convenience sampling is useful for pilots, weak for generalising to a population"
+    "Association ≠ causation unless design supports causal inference",
   ],
   commonMistakes: [
-    "Treating any observed association as proven causation",
-    "Confusing cross-sectional snapshots with longitudinal change",
-    "Calling convenience samples 'random' because the researcher did not consciously pick favourites",
-    "Assuming qualitative research is 'unscientific' rather than suited to different questions"
+    {
+      mistake: "Confusing cross-sectional with longitudinal",
+      correction: "Cross-sectional = one snapshot; longitudinal = repeated measures over time on the same units.",
+      explanation: "A single national survey is cross-sectional even if the questionnaire asks about the past.",
+    },
+    {
+      mistake: "Assuming observational studies are ‘invalid’",
+      correction: "They are appropriate for many questions; they simply support weaker causal claims than well-run experiments.",
+      explanation: "Ethics and practicality often forbid experiments (e.g. assigning people to smoke).",
+    },
+    {
+      mistake: "Calling convenience samples ‘wrong’ in every case",
+      correction: "They are limited for generalisation but usable for pilots and some qualitative work if limitations are stated.",
+      explanation: "The error is over-claiming, not using convenience samples at all.",
+    },
   ],
-  relatedTopics: ["ra-scientific-method", "ra-data-types", "ra-research-quality"],
+  qualitativeScenarios: [
+    {
+      scenario:
+        "You need attitudes toward a new flood-warning app from rural and urban users in equal depth, then overall percentages nationwide. Suggest a mixed design sketch.",
+      answer:
+        "Stratified or quota survey for quantitative estimates + purposive interviews in rural and urban strata for qualitative depth.",
+      why: "Numbers answer prevalence; interviews answer meaning and barriers. Sampling should respect the rural/urban structure.",
+    },
+    {
+      scenario:
+        "A study compares exam scores of students who chose an online course vs campus course, with no assignment by researchers. Design type?",
+      answer: "Observational (self-selected groups).",
+      why: "No manipulation of IV; differences may reflect motivation or prior ability, not only mode of delivery.",
+    },
+  ],
   comparisonTable: {
     title: "Experimental vs observational",
     headers: ["Feature", "Experimental", "Observational"],
     rows: [
       ["Manipulation of IV", "Yes (by design)", "No"],
       ["Causal strength (when well run)", "Stronger", "Weaker; needs careful reasoning"],
-      ["Typical use", "Test interventions under control", "Natural settings, ethics, feasibility"]
-    ]
+      ["Typical use", "Test interventions under control", "Natural settings, ethics, feasibility"],
+    ],
   },
+  relatedTopics: ["ra-scientific-method", "ra-data-types", "ra-research-quality"],
   subtopics: [
     {
       id: "ra-research-design-quant-qual-mixed",
-      title: "Quantitative, qualitative, and mixed methods",
-      summary: "Choose data type from the research question.",
-      explanation: "Quantitative designs prioritise measurement and statistical pattern. Qualitative designs prioritise depth of meaning in words, images, or practices. Mixed methods combine both when one stream alone cannot answer the full question — for example a survey of forecast use plus interviews about trust in warnings.",
+      title: "Quantitative vs qualitative vs mixed",
+      summary:
+        "Match data type to the question: counts and magnitudes vs meanings and processes vs both.",
+      explanation:
+        "Do not rank quantitative as automatically superior. For ‘what proportion of stations exceeded a threshold?’ use quantitative methods. For ‘how do farmers interpret drought warnings?’ use qualitative methods. Mixed designs link the two when both kinds of answer are required.",
       examples: [
         {
-          problem: "Research question: 'What share of stations recorded frost?' Quantitative or qualitative?",
-          solution: "Quantitative — a countable or measurable share.",
-          answer: "Quantitative"
+          problem:
+            "Research question: ‘How do coastal communities describe risk from storm surge?’ Best primary approach?",
+          solution:
+            "Focus is meaning and description of experience → qualitative (interviews, focus groups, narrative analysis).",
+          answer: "Qualitative",
         },
         {
-          problem: "Research question: 'How do farmers decide whether to act on a warning?' Primary lean?",
-          solution: "Qualitative (or mixed) — decision processes and meanings.",
-          answer: "Qualitative / mixed"
-        }
-      ],
-      shortcuts: [
-        "How many / how much → quantitative",
-        "How / why in lived terms → qualitative"
-      ],
-      traps: [
-        "Forcing numbers onto a pure meaning question",
-        "Calling any two data sources 'mixed methods' without integration"
-      ]
-    },
-    {
-      id: "ra-research-design-experimental-observational",
-      title: "Experimental vs observational",
-      summary: "Manipulation is the key fork for causal claims.",
-      explanation: "Experiments assign or vary treatments and aim to isolate effects. Observational studies measure without assignment. Both can be rigorous; they answer differently. Overclaiming causation from uncontrolled observation is a classic exam and real-world error.",
-      examples: [
-        {
-          problem: "Researchers randomly assign irrigation levels and measure yield. Design type?",
-          solution: "Experimental — IV manipulated.",
-          answer: "Experimental"
+          problem:
+            "Research question: ‘Did mean monsoon rainfall differ between two decades?’ Best primary approach?",
+          solution:
+            "Comparison of measured magnitudes → quantitative.",
+          answer: "Quantitative",
         },
-        {
-          problem: "Researchers compare yields across farms that already differ in irrigation. Design type?",
-          solution: "Observational — no assignment by the researcher.",
-          answer: "Observational"
-        }
       ],
       shortcuts: [
-        "Did we assign the cause?",
-        "Association ≠ automatic causation"
+        "How many / how much → quantitative; how / why in context → qualitative; both needed → mixed",
       ],
       traps: [
-        "Labelling every field study 'experimental'",
-        "Ignoring confounders in observational comparisons"
-      ]
+        "Treating interviews as ‘invalid’ research",
+        "Running a survey and calling it mixed methods without a real qualitative component",
+      ],
     },
     {
       id: "ra-research-design-sampling",
-      title: "Sampling strategies",
-      summary: "How cases enter the study shapes what you may claim.",
-      explanation: "Simple random sampling gives each unit equal chance when a full list exists. Systematic sampling takes every kth unit. Stratified sampling samples within important subgroups. Cluster sampling selects groups first. Convenience, snowball, and purposive strategies trade generalisability for access or depth. Report the method; do not pretend a clinic waiting-room sample is a national random sample.",
+      title: "Sampling methods",
+      summary:
+        "Selection rule determines how far you can generalise and which subgroups are represented.",
+      explanation:
+        "Start from the population structure. If subgroups must be represented, stratify. If units are clustered geographically, cluster sampling may be efficient. If no list exists and the group is hidden, snowball may be the only feasible path — with clear limits on inference.",
       examples: [
         {
-          problem: "Need equal-probability sample from a complete student list. Method?",
-          solution: "Simple random (or systematic on a shuffled list).",
-          answer: "Simple random / systematic"
+          problem:
+            "A national exam board wants equal-precision estimates for each province. Which sampling idea fits best?",
+          solution:
+            "Stratified sampling by province (then random within strata) so small provinces are not drowned out.",
+          answer: "Stratified sampling",
         },
         {
-          problem: "Need representation of each province proportional to size. Method?",
-          solution: "Stratified sampling by province.",
-          answer: "Stratified"
-        }
+          problem:
+            "Researchers interview one person with a rare condition, who introduces three others, who introduce more. Method?",
+          solution:
+            "Referral chain → snowball sampling; useful but not a random cross-section of all patients.",
+          answer: "Snowball sampling",
+        },
       ],
       shortcuts: [
-        "List + equal chance → simple random",
-        "Protect subgroups → stratify; geography → often cluster"
+        "Strata = subgroups; clusters = whole groups drawn at random; convenience = easy access; purposive = chosen for information value",
       ],
       traps: [
-        "Convenience ≠ random",
-        "Cluster ≠ stratified (groups vs sampling within strata)"
-      ]
+        "Confusing stratified (within subgroups) with cluster (of groups)",
+        "Assuming large convenience samples are automatically representative",
+      ],
     },
     {
-      id: "ra-research-design-bias-types",
-      title: "Major biases",
-      summary: "Systematic error from who is studied and how data are taken.",
-      explanation: "Selection bias warps who enters the sample. Measurement bias warps the numbers or codes. Recall and observer biases warp reports and recordings. Confirmation bias warps attention. Survivorship bias warps the frame by studying only those still visible. Name the threat, then say what design feature reduces it.",
+      id: "ra-research-design-bias",
+      title: "Bias threats",
+      summary:
+        "Systematic error from how people are selected, how data are measured, or how results are interpreted.",
+      explanation:
+        "Bias is directional error, not random noise. Name the mechanism in the stem: who entered the sample, how the instrument worked, what was remembered, what the observer expected, what was left out (survivors only).",
       examples: [
         {
-          problem: "Only volunteers for a long survey respond. Main risk?",
-          solution: "Selection bias — volunteers may differ from non-respondents.",
-          answer: "Selection bias"
+          problem:
+            "A ‘success habits’ study interviews only CEOs of companies still operating after 20 years. Main bias risk?",
+          solution:
+            "Failed companies are missing → survivorship bias; habits of failures are invisible.",
+          answer: "Survivorship bias",
         },
         {
-          problem: "A study of 'successful startups' ignores failed ones. Main risk?",
-          solution: "Survivorship bias.",
-          answer: "Survivorship bias"
-        }
+          problem:
+            "Only students who finish a voluntary online survey are analysed; many stressed students drop out. Risk?",
+          solution:
+            "Completers differ from dropouts → selection bias; stress may be under-estimated.",
+          answer: "Selection bias",
+        },
       ],
       shortcuts: [
-        "Who is missing?",
-        "What could push results in one direction?"
+        "Ask: who is missing, what is mis-measured, what is mis-remembered, what is expected, what is confirmed only?",
       ],
       traps: [
-        "Calling random noise 'bias'",
-        "Assuming large n cancels selection bias"
-      ]
-    }
+        "Calling every problem ‘random error’",
+        "Fixating on sample size while ignoring a biased sampling frame",
+      ],
+    },
   ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-scientific-method"],
   leadsTo: ["ra-data-types", "ra-research-quality"],
-  usedIn: ["ra-data-types", "ra-inferential-stats", "ra-research-ethics", "earth-k1"]
+  usedIn: ["ra-data-types", "ra-inferential-stats", "ra-research-ethics", "earth-k1"],
 },
 
 // ═══════════════════════════════════════════════════════════════════
