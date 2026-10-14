@@ -620,121 +620,220 @@ export const topics: Topic[] = [
     "earth-h2",
   ],
 },
-
 // ═══════════════════════════════════════════════════════════════════
 // RA-4: Descriptive Statistics
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-descriptive-statistics",
   sectionId: "RA-04",
   order: 1,
   title: "Descriptive Statistics",
-  definition: "Descriptive statistics summarize a dataset using measures of central tendency (mean, median, mode), dispersion (range, variance, standard deviation, IQR), and distribution shape. They describe the data you have — unlike inferential statistics, which make claims about a larger population.",
+  definition:
+    "Numerical and graphical summaries of a dataset you already have: centre (mean, median, mode), spread (range, variance, SD, IQR), relative standing (percentiles, z-scores), and shape (symmetry vs skew). Descriptive statistics describe the sample; inferential statistics use the sample to make claims about a wider population.",
   keyFacts: [
-    "MEAN (x̄): arithmetic average = Σxᵢ / n. Sensitive to outliers.",
-    "MEDIAN: middle value when sorted. Robust to outliers.",
-    "MODE: most frequent value. Can be unimodal, bimodal, or multimodal.",
-    "WEIGHTED MEAN: Σ(wᵢxᵢ) / Σwᵢ. Used when data points have different importance/reliability.",
-    "GEOMETRIC MEAN: nth root of product of values. Used for growth rates (e.g., average growth rate).",
-    "HARMONIC MEAN: n / Σ(1/xᵢ). Used for rates (e.g., average speed).",
-    "RANGE: maximum − minimum. Sensitive to outliers.",
-    "VARIANCE (σ²): average of squared deviations from mean. σ² = Σ(xᵢ − μ)² / n (population) or n−1 (sample).",
-    "STANDARD DEVIATION (σ): square root of variance. In original units. ~68% within 1σ, ~95% within 2σ for normal data.",
-    "INTERQUARTILE RANGE (IQR): Q3 − Q1. The middle 50% of data. Robust to outliers.",
-    "PERCENTILES: value below which a given percentage of data falls. Median = 50th percentile.",
-    "QUARTILES: Q1 (25th), Q2 (50th = median), Q3 (75th percentile)",
-    "Z-SCORE: (x − μ) / σ. Number of standard deviations from mean. Z = 0 is average; Z = +2 is 2 SD above mean.",
-    "OUTLIERS: beyond Q1 − 1.5×IQR or Q3 + 1.5×IQR. Investigate — may be error or genuine.",
-    "DISTRIBUTION SHAPE: symmetric (mean = median), right-skewed (tail right, mean > median), left-skewed (tail left, mean < median)"
+    "Mean (x̄): Σxᵢ / n — uses every value; pulled by outliers and skew",
+    "Median: middle value of ordered data — robust to extreme values",
+    "Mode: most frequent value — natural for categorical / discrete peaks; may be multi-modal",
+    "Weighted mean: Σ(wᵢxᵢ) / Σwᵢ — when observations differ in weight or reliability",
+    "Geometric mean: nth root of product — natural for average growth factors / multiplicative rates",
+    "Harmonic mean: n / Σ(1/xᵢ) — natural for average rates over equal distances (e.g. speeds)",
+    "Range: max − min — simple but highly outlier-sensitive",
+    "Variance: average of squared deviations from the mean (population ÷ n; sample often ÷ n−1)",
+    "Standard deviation (SD): √variance — spread in the original units of the data",
+    "Empirical rule (approx. normal): ~68% within 1 SD, ~95% within 2 SD, ~99.7% within 3 SD of the mean",
+    "IQR: Q3 − Q1 — spread of the middle 50%; robust to tails",
+    "Percentile: value below which a stated percent of the data fall; median = 50th percentile",
+    "Quartiles: Q1 ≈ 25th, Q2 = median, Q3 ≈ 75th percentile",
+    "Z-score: (x − μ) / σ — how many SDs a point lies from the mean",
+    "Tukey fence (common rule): outlier candidates < Q1 − 1.5×IQR or > Q3 + 1.5×IQR",
+    "Shape: symmetric → mean ≈ median; right-skew → mean > median; left-skew → mean < median",
   ],
   explanationSections: [
-    { heading: "Three means — when to use which", body: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers (better when data is skewed or has outliers). MODE: the most frequent value; useful for categorical data. For symmetric, outlier-free data, mean is best. For skewed or outlier-containing data, median is more representative. GEOMETRIC MEAN is used for growth rates (e.g., 'the population grew at an average rate of 3% per year'). HARMONIC MEAN is used for rates (e.g., average speed over equal distances)." },
-    { heading: "Why standard deviation matters", body: "Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1σ of mean, ~95% within 2σ, ~99.7% within 3σ. This is the empirical rule (68-95-99.7). A small SD = data clustered tightly around mean. A large SD = data spread out. SD is in the original units of the data, making it interpretable (e.g., 'temperatures vary by ±2°C')." },
-    { heading: "Skewness and what mean vs median tells you", body: "In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). In a LEFT-SKEWED distribution (long left tail, e.g., exam scores when most students do well): mean < median. The MEDIAN is more robust to skewness and outliers, which is why income is usually reported as median, not mean." }
+    {
+      heading: "Centre: which average fits the question?",
+      body:
+        "Arithmetic mean is the balance point of the data; one extreme value moves it a lot. Median is the 50% split point; extremes barely move it. Mode marks the peak frequency — useful for categories or discrete counts. Prefer mean for roughly symmetric numerical data without wild outliers; prefer median for skewed data (income, many environmental extremes) or when outliers are present. Geometric mean suits average multiplicative growth (e.g. successive growth factors). Harmonic mean suits average rates when the quantity in the denominator is what is held equal (classic: average speed over equal distances).",
+    },
+    {
+      heading: "Spread: range, variance, SD, IQR",
+      body:
+        "Range only uses two points, so one error at either end ruins it. Variance averages squared deviations — large deviations count heavily; units are squared (e.g. °C²), so interpretation is awkward. SD is the square root, back in the original units (°C, mm, marks). IQR uses the middle half of the data and ignores the outer quarters, so it is a robust spread measure. Sample variance often divides by n−1 (Bessel’s correction) to reduce bias when estimating a population variance; know which formula a stem specifies.",
+    },
+    {
+      heading: "Z-scores and the empirical rule",
+      body:
+        "A z-score standardises a value: z = 0 is at the mean; z = +2 is two SDs above the mean; z = −1 is one SD below. Comparing z-scores lets you compare relative standing across different units or exams. For approximately normal data, the empirical rule is a quick check: most points lie within 1–2 SDs; values beyond about 3 SDs are rare and worth inspecting. Do not force the 68–95–99.7 rule on clearly skewed or multi-modal data.",
+    },
+    {
+      heading: "Skew, mean vs median, and outliers",
+      body:
+        "Right-skew (long high tail): a few large values pull the mean above the median (classic: income). Left-skew (long low tail): mean falls below the median (classic: easy test where most scores pile near the top). Report median (and IQR) when skew or outliers dominate the story. Outlier rules (e.g. 1.5×IQR fences) flag candidates — they may be data errors, rare events, or the most scientifically interesting points. Always investigate; do not delete automatically.",
+    },
   ],
   examPoints: [
-    "Mean = sensitive to outliers; Median = robust to outliers",
-    "Variance uses squared deviations; SD = square root of variance (in original units)",
-    "IQR = Q3 - Q1 (middle 50% of data)",
-    "Z-score = (x − μ) / σ — standard deviations from mean",
-    "Outliers: beyond Q1 − 1.5×IQR or Q3 + 1.5×IQR"
+    "Mean sensitive to outliers; median robust",
+    "SD = √variance and is in original units; variance is in squared units",
+    "IQR = Q3 − Q1 (middle 50%)",
+    "z = (x − mean) / SD",
+    "Right-skew: mean > median; left-skew: mean < median; symmetric: mean ≈ median",
+    "Outlier fence (common): Q1 − 1.5×IQR and Q3 + 1.5×IQR",
   ],
   commonMistakes: [
-    "Confusing variance (squared units) with standard deviation (original units) — they're related but not the same",
-    "Computing mean of categorical data (e.g., 'average climate type') — meaningless",
-
-    "Thinking 'no outliers' = 'low SD' — SD is about overall spread, not just extreme values"
+    {
+      mistake: "Confusing variance with standard deviation",
+      correction: "Variance is squared units; SD is the square root in original units.",
+      explanation: "Saying ‘variance is 4 °C’ is wrong if variance is 16 °C² and SD is 4 °C.",
+    },
+    {
+      mistake: "Using the mean for heavily skewed data as the ‘typical’ value",
+      correction: "Prefer median (and show IQR) when the tail dominates.",
+      explanation: "A few extremes can make the mean unrepresentative of most observations.",
+    },
+    {
+      mistake: "Applying 68–95–99.7 to any dataset",
+      correction: "Empirical rule is for approximately normal distributions.",
+      explanation: "Skewed or multi-peak data need different description.",
+    },
   ],
-  relatedTopics: ["ra-data-types", "ra-probability", "ra-correlation-regression", "ra-data-visualization"],
-    subtopics: [
-      {
-        id: "ra-descriptive-statistics-three-means-when-to-use-which",
-        title: "Three means — when to use which",
-        summary: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers…",
-        explanation: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers (better when data is skewed or has outliers). MODE: the most frequent value; useful for categorical data. For symmetric, outlier-free data, mean is best. For skewed or outlier-containing data, median is more representative. GEOMETRIC MEAN is used for growth rates (e.g., 'the population grew at an average rate of 3% per year'). HARMONIC MEAN is used for rates (e.g., average speed over equal distances).",
-                examples: [
-          {
-            problem: "Which statement best matches “Three means — when to use which”?",
-            solution: "The accurate idea is: ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Three means — when to use which.",
-            solution: "Stay close to the text: ARITHMETIC MEAN: the standard average; sensitive to outliers (one extreme value pulls it). MEDIAN: the middle value; robust to outliers (better when data is skewed or has outliers). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-descriptive-statistics-why-standard-deviation-matters",
-        title: "Why standard deviation matters",
-        summary: "Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data…",
-        explanation: "Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1σ of mean, ~95% within 2σ, ~99.7% within 3σ. This is the empirical rule (68-95-99.7). A small SD = data clustered tightly around mean. A large SD = data spread out. SD is in the original units of the data, making it interpretable (e.g., 'temperatures vary by ±2°C').",
-                examples: [
-          {
-            problem: "Which statement best matches “Why standard deviation matters”?",
-            solution: "The accurate idea is: Standard deviation (σ) measures the average distance of data points from the mean. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Standard deviation (σ) measures the average distance of data points from the mean.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why standard deviation matters.",
-            solution: "Stay close to the text: Standard deviation (σ) measures the average distance of data points from the mean. For a NORMAL (bell-shaped) distribution: ~68% of data within 1σ of mean, ~95% within 2σ, ~99.7% within 3σ. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-descriptive-statistics-skewness-and-what-mean-vs-median-tells-y",
-        title: "Skewness and what mean vs median tells you",
-        summary: "In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few…",
-        explanation: "In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). In a LEFT-SKEWED distribution (long left tail, e.g., exam scores when most students do well): mean < median. The MEDIAN is more robust to skewness and outliers, which is why income is usually reported as median, not mean.",
-                examples: [
-          {
-            problem: "Which statement best matches “Skewness and what mean vs median tells you”?",
-            solution: "The accurate idea is: In a SYMMETRIC distribution: mean ≈ median ≈ mode. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "In a SYMMETRIC distribution: mean ≈ median ≈ mode.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Skewness and what mean vs median tells you.",
-            solution: "Stay close to the text: In a SYMMETRIC distribution: mean ≈ median ≈ mode. In a RIGHT-SKEWED distribution (long right tail, e.g., income): mean > median (a few high earners pull the mean up). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "Five lab temperatures (°C): 20, 21, 20, 22, 35. Which centre better describes a ‘typical’ reading, and why?",
+      answer: "Median (20–21 region) is more typical; mean is pulled up by 35.",
+      why: "One extreme value inflates the arithmetic mean; the median resists it.",
+    },
+    {
+      scenario:
+        "A distribution of household income is right-skewed. What is the expected order of mean and median?",
+      answer: "Mean > median.",
+      why: "High-income tail pulls the mean upward more than the median.",
+    },
+  ],
+  comparisonTable: {
+    title: "Measures of centre — quick choice",
+    headers: ["Measure", "Uses all values?", "Outlier effect", "Best when"],
+    rows: [
+      ["Mean", "Yes", "High", "Symmetric numerical data"],
+      ["Median", "Order only", "Low", "Skew or outliers"],
+      ["Mode", "Frequencies", "Low", "Categories / clear peaks"],
     ],
-
+  },
+  relatedTopics: [
+    "ra-data-types",
+    "ra-probability",
+    "ra-correlation-regression",
+    "ra-data-visualization",
+  ],
+  subtopics: [
+    {
+      id: "ra-descriptive-statistics-centre",
+      title: "Measures of centre",
+      summary:
+        "Mean, median, mode — and when geometric or harmonic means are the right tool.",
+      explanation:
+        "Choose the measure that matches both the scale of the data and the shape of the distribution. State which one you used; ‘average’ is ambiguous in careful work.",
+      examples: [
+        {
+          problem:
+            "Dataset: 2, 3, 3, 4, 100. Compare mean and median.",
+          solution:
+            "Median of five ordered values is 3. Mean is (2+3+3+4+100)/5 = 22.4 — dominated by 100.",
+          answer: "Median = 3; mean = 22.4 (mean inflated by outlier)",
+        },
+        {
+          problem:
+            "Average speed for equal 100 km legs at 40 km/h and 60 km/h — which mean?",
+          solution:
+            "Equal distances → harmonic mean: 2 / (1/40 + 1/60) = 48 km/h (not the arithmetic 50).",
+          answer: "Harmonic mean = 48 km/h",
+        },
+      ],
+      shortcuts: [
+        "Skew or outliers → median; clean symmetric numbers → mean; categories → mode",
+      ],
+      traps: [
+        "Calling the mean the ‘middle’ when the distribution is skewed",
+        "Using arithmetic mean for chained growth factors (use geometric)",
+      ],
+    },
+    {
+      id: "ra-descriptive-statistics-spread",
+      title: "Measures of spread",
+      summary:
+        "Range, variance, SD, IQR — sensitivity vs robustness.",
+      explanation:
+        "Pair a centre with a compatible spread: mean with SD (when appropriate); median with IQR when robustness matters. Always check units.",
+      examples: [
+        {
+          problem:
+            "If variance of temperatures is 9 (°C)², what is the SD?",
+          solution:
+            "SD = √9 = 3 °C — original units.",
+          answer: "3 °C",
+        },
+        {
+          problem:
+            "Why might two cities with the same mean annual temperature feel different climate-wise?",
+          solution:
+            "Different SDs/IQRs: one may have mild seasons, the other large swings.",
+          answer: "Different spread (variability), not only the mean",
+        },
+      ],
+      shortcuts: [
+        "SD for typical deviation from mean; IQR for middle-half width; range for extremes only",
+      ],
+      traps: [
+        "Reporting variance with non-squared units",
+        "Assuming small range implies small SD without checking the bulk of the data",
+      ],
+    },
+    {
+      id: "ra-descriptive-statistics-shape-z-outliers",
+      title: "Shape, z-scores, and outliers",
+      summary:
+        "Skew direction from mean vs median; standardise with z; flag outliers carefully.",
+      explanation:
+        "Mean − median sign is a quick skew hint (not a formal test). Z-scores enable comparison across scales. Outlier rules are screening tools, not automatic delete buttons.",
+      examples: [
+        {
+          problem:
+            "Score 85; class mean 70; SD 10. What is z?",
+          solution:
+            "z = (85 − 70) / 10 = 1.5 (one and a half SDs above the mean).",
+          answer: "1.5",
+        },
+        {
+          problem:
+            "Q1 = 10, Q3 = 22. Using 1.5×IQR fences, what are the outlier cut-offs?",
+          solution:
+            "IQR = 12; lower = 10 − 18 = −8; upper = 22 + 18 = 40.",
+          answer: "Below −8 or above 40",
+        },
+      ],
+      shortcuts: [
+        "Mean > median → suspect right skew; mean < median → suspect left skew",
+        "z = (x − mean) / SD",
+      ],
+      traps: [
+        "Deleting outliers without investigation",
+        "Using empirical rule on strongly skewed data",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-data-types", "math-2-1", "math-8-1"],
   leadsTo: ["ra-data-visualization", "ra-probability"],
-  usedIn: ["ra-correlation-regression", "ra-inferential-stats", "meteo-forecast-skill", "meteo-pakistan-macroclimate", "meteo-temp-rainfall-distribution", "env-air-pollution", "earth-h4", "earth-c2"]
+  usedIn: [
+    "ra-correlation-regression",
+    "ra-inferential-stats",
+    "meteo-forecast-skill",
+    "meteo-pakistan-macroclimate",
+    "meteo-temp-rainfall-distribution",
+    "env-air-pollution",
+    "earth-h4",
+    "earth-c2",
+  ],
 },
 
 // ═══════════════════════════════════════════════════════════════════
