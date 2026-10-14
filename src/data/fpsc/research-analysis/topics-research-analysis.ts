@@ -2287,111 +2287,205 @@ export const topics: Topic[] = [
 // ═══════════════════════════════════════════════════════════════════
 // RA-12: Research Ethics
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-research-ethics",
   sectionId: "RA-12",
   order: 1,
   title: "Research Ethics",
-  definition: "Research ethics covers the principles and rules that ensure research is conducted honestly, responsibly, and with respect for participants and the scientific community. Violations can end careers and undermine public trust in science.",
+  definition:
+    "Standards that keep research honest, accountable, and respectful of participants, animals, and the scientific record. Core duties include integrity of data and reporting, fair authorship, disclosure of conflicts, and ethics review with informed consent where people (or animals/sensitive data) are involved.",
   keyFacts: [
-    "INTEGRITY: honest, accurate, transparent reporting of methods and results",
-    "PLAGIARISM: presenting others' work (words, ideas, data) as your own — serious ethical violation",
-    "FABRICATION: inventing data or results that were never collected (e.g., fake participants, made-up measurements)",
-    "FALSIFICATION: manipulating data, methods, or results to support a hypothesis (e.g., selectively omitting data points)",
-    "AUTHORSHIP: only those who contributed substantially to conception, design, execution, or interpretation should be authors (no honorary or ghost authorship)",
-    "CONFLICTS OF INTEREST: disclose any financial, personal, or professional interests that could bias the research",
-    "DATA SHARING: open data is increasingly expected; allows others to verify and build on findings",
-    "IRB/ETHICS APPROVAL: required for research involving human subjects, animals, or sensitive data; protects participants",
-    "INFORMED CONSENT: participants must understand the research and voluntarily agree to participate",
-    "FABRICATION vs FALSIFICATION: fabrication = making up data; falsification = manipulating real data. Both are serious fraud."
+    "Integrity: honest methods, complete reporting of procedures and results (including inconvenient ones)",
+    "Plagiarism: presenting others’ words, ideas, or results as your own without proper attribution",
+    "Fabrication: inventing data, cases, or results that were never obtained",
+    "Falsification: altering, omitting, or manipulating real data/methods so the record misleads",
+    "Authorship: credit only substantial intellectual contributions; no honorary or ghost authors",
+    "Conflicts of interest: disclose financial, personal, or institutional interests that could bias judgment",
+    "Data transparency: increasingly expected so others can verify and reuse (with privacy limits)",
+    "IRB / ethics committee approval: required before many studies involving humans, animals, or sensitive data",
+    "Informed consent: voluntary agreement based on understandable information about purpose, risks, and rights",
+    "Fabrication ≠ falsification: made-up data vs distorted real data — both are serious misconduct",
   ],
   explanationSections: [
-    { heading: "The hierarchy of research integrity violations", body: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION: manipulating real data to support a hypothesis (e.g., excluding 'outliers' that contradict your theory). (3) PLAGIARISM: stealing others' work. (4) UNETHICAL AUTHORSHIP: honorary or ghost authorship. (5) UNDISCLOSED CONFLICTS OF INTEREST. (6) FAILURE TO OBTAIN ETHICS APPROVAL for human subjects research. The first three are the most career-ending offenses. Most journals now require raw data submission for verification." },
-    { heading: "Authorship and credit", body: "Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2) data acquisition, (3) analysis or interpretation, AND (4) drafting or critical revision. All four should contribute. Honorary authorship (giving authorship to a senior person who didn't really contribute) and ghost authorship (omitting someone who did) are both unethical. The 'first author' is usually the person who did the most work; the 'corresponding author' handles communication. ORDER MATTERS — the first and last positions are typically the most prestigious." },
-    { heading: "Ethics approval and human subjects protection", body: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. This protects participants from harm and ensures informed consent. The IRB reviews: (1) risk/benefit ratio, (2) informed consent process, (3) confidentiality protections, (4) recruitment procedures. Researchers must report serious adverse events. ETHICS VIOLATIONS (e.g., Tuskegee syphilis study, Milgram obedience experiments) led to the development of modern research ethics frameworks (Belmont Report, Declaration of Helsinki)." }
+    {
+      heading: "Misconduct: fabrication, falsification, plagiarism",
+      body:
+        "Fabrication creates a fictional dataset (phantom participants, invented readings). Falsification starts from real observations but warps them (secretly dropping inconvenient points, tweaking images, changing values). Plagiarism steals credit for text, ideas, or results. All three corrupt the literature; journals and institutions treat them as research misconduct, not minor style issues. Honest error, corrected promptly, is different from intentional deception.",
+    },
+    {
+      heading: "Authorship and credit",
+      body:
+        "Common guidelines (e.g. ICMJE-style expectations) require substantial contribution to design or data or analysis/interpretation, plus drafting or critical revision, approval of the final version, and accountability. Honorary authorship (name added for status without work) and ghost authorship (real contributor omitted) are both unethical. Author order signals contribution norms that vary by field; first and senior/last positions are often the most scrutinised.",
+    },
+    {
+      heading: "Protecting participants: IRB and consent",
+      body:
+        "Ethics review asks whether risks are justified, consent is informed and voluntary, privacy is protected, and recruitment is fair. Approval is obtained before data collection, not after. Landmark abuses (e.g. Tuskegee syphilis study) and high-risk social experiments helped shape modern frameworks (Belmont Report principles: respect for persons, beneficence, justice; Declaration of Helsinki for medical research). ‘Low risk’ surveys still often need institutional clearance — local rules decide, not the researcher alone.",
+    },
+    {
+      heading: "Conflicts of interest and transparency",
+      body:
+        "A conflict exists when secondary interests (funding, employment, personal relationships) could influence design, analysis, or reporting. Disclosure does not erase the conflict but lets readers discount bias. Hiding funding sources or negative results undermines trust as surely as sloppy methods.",
+    },
   ],
   examPoints: [
-    "Fabrication = inventing data; Falsification = manipulating data; both are fraud",
-    "Plagiarism = using others' work without attribution",
-    "Ethics approval required for research on human subjects",
-    "All four ICMJE authorship criteria should be met"
+    "Fabrication = invent data; falsification = manipulate real data; plagiarism = steal credit",
+    "All three are research misconduct",
+    "Honorary and ghost authorship are unethical",
+    "Human-subjects work typically needs prior ethics approval and informed consent",
+    "Disclose conflicts of interest",
+    "Honest error ≠ intentional fraud — but errors must be corrected",
   ],
   commonMistakes: [
-    "Confusing fabrication (making up data) with falsification (manipulating real data) — both are serious but different",
-
-    "Thinking honorary authorship is fine ('just putting the lab head on the paper') — it's unethical",
-    "Forgetting ethics approval is needed even for low-risk survey research — most institutions require it regardless"
+    {
+      mistake: "Swapping fabrication and falsification",
+      correction: "Fabrication invents; falsification distorts what was actually collected.",
+      explanation: "Both are fraud; the mechanism differs.",
+    },
+    {
+      mistake: "Treating honorary authorship as a harmless courtesy",
+      correction: "Authorship implies accountability for the work.",
+      explanation: "Credit without contribution misleads readers and funders.",
+    },
+    {
+      mistake: "Assuming only medical trials need ethics review",
+      correction: "Many behavioural, educational, and data studies also require approval under institutional rules.",
+      explanation: "Risk and identifiability, not only ‘clinical’ labels, matter.",
+    },
   ],
-  relatedTopics: ["ra-scientific-method", "ra-research-design", "ra-scientific-reporting"],
-    subtopics: [
-      {
-        id: "ra-research-ethics-the-hierarchy-of-research-integrity-viol",
-        title: "The hierarchy of research integrity violations",
-        summary: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION:…",
-        explanation: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION: manipulating real data to support a hypothesis (e.g., excluding 'outliers' that contradict your theory). (3) PLAGIARISM: stealing others' work. (4) UNETHICAL AUTHORSHIP: honorary or ghost authorship. (5) UNDISCLOSED CONFLICTS OF INTEREST. (6) FAILURE TO OBTAIN ETHICS APPROVAL for human subjects research. The first three are the most career-ending offenses. Most journals now require raw data submission for verification.",
-                examples: [
-          {
-            problem: "Which statement best matches “The hierarchy of research integrity violations”?",
-            solution: "The accurate idea is: The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The hierarchy of research integrity violations.",
-            solution: "Stay close to the text: The most serious violations, in order: (1) FABRICATION: inventing data (e.g., making up participants in a study). (2) FALSIFICATION: manipulating real data to support a hypothesis (e.g., excluding 'outliers' that contrad… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-research-ethics-authorship-and-credit",
-        title: "Authorship and credit",
-        summary: "Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2)…",
-        explanation: "Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2) data acquisition, (3) analysis or interpretation, AND (4) drafting or critical revision. All four should contribute. Honorary authorship (giving authorship to a senior person who didn't really contribute) and ghost authorship (omitting someone who did) are both unethical. The 'first author' is usually the person who did the most work; the 'corresponding author' handles communication. ORDER MATTERS — the first and last positions are typically the most prestigious.",
-                examples: [
-          {
-            problem: "Which statement best matches “Authorship and credit”?",
-            solution: "The accurate idea is: Who deserves authorship? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Who deserves authorship?",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Authorship and credit.",
-            solution: "Stay close to the text: Who deserves authorship? Standard guidelines (e.g., ICMJE, APA): only those who contributed SUBSTANTIALLY to (1) conception or design, (2) data acquisition, (3) analysis or interpretation, AND (4) drafting or critical re… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-research-ethics-ethics-approval-and-human-subjects-prote",
-        title: "Ethics approval and human subjects protection",
-        summary: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional…",
-        explanation: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. This protects participants from harm and ensures informed consent. The IRB reviews: (1) risk/benefit ratio, (2) informed consent process, (3) confidentiality protections, (4) recruitment procedures. Researchers must report serious adverse events. ETHICS VIOLATIONS (e.g., Tuskegee syphilis study, Milgram obedience experiments) led to the development of modern research ethics frameworks (Belmont Report, Declaration of Helsinki).",
-                examples: [
-          {
-            problem: "Which statement best matches “Ethics approval and human subjects protection”?",
-            solution: "The accurate idea is: Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFOR…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Ethics approval and human subjects protection.",
-            solution: "Stay close to the text: Research involving human subjects, animals, personal data, or sensitive topics typically requires ETHICS APPROVAL from an Institutional Review Board (IRB) or ethics committee BEFORE the research begins. This protects par… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A student deletes five participants who ‘ruined’ the significant result and does not report the deletion. Which misconduct?",
+      answer: "Falsification (selective omission of real data to shape the result).",
+      why: "The data existed; hiding them misrepresents what was observed.",
+    },
+    {
+      scenario:
+        "A senior name is added to a paper though they only secured funding and never saw the analysis. Problem?",
+      answer: "Honorary authorship (credit without substantial scholarly contribution).",
+      why: "Funding alone usually warrants acknowledgement, not automatic authorship.",
+    },
+  ],
+  comparisonTable: {
+    title: "Integrity violations (quick map)",
+    headers: ["Issue", "What happens", "Core harm"],
+    rows: [
+      ["Fabrication", "Data/results invented", "False evidence enters the record"],
+      ["Falsification", "Real data altered or selectively hidden", "Distorted evidence"],
+      ["Plagiarism", "Others’ work used without credit", "Stolen intellectual credit"],
+      ["Honorary authorship", "Credit without contribution", "False accountability"],
+      ["Ghost authorship", "Contributor omitted", "Hidden responsibility / stolen credit"],
+      ["Undisclosed COI", "Bias sources hidden", "Readers cannot judge influence"],
     ],
-
+  },
+  relatedTopics: ["ra-scientific-method", "ra-research-design", "ra-scientific-reporting"],
+  subtopics: [
+    {
+      id: "ra-research-ethics-misconduct",
+      title: "Fabrication, falsification, plagiarism",
+      summary:
+        "Three core misconducts that corrupt the scientific record.",
+      explanation:
+        "Classify the act by mechanism: invent, distort, or steal credit. Intentional deception is misconduct; transparent correction of honest mistakes is part of integrity.",
+      examples: [
+        {
+          problem:
+            "Inventing 30 survey responses that were never collected. Label?",
+          solution:
+            "No real observations → fabrication.",
+          answer: "Fabrication",
+        },
+        {
+          problem:
+            "Copying a methods paragraph from a paper without citation. Label?",
+          solution:
+            "Others’ text presented as own → plagiarism.",
+          answer: "Plagiarism",
+        },
+        {
+          problem:
+            "Quietly changing a spreadsheet value so p falls under 0.05. Label?",
+          solution:
+            "Real data altered to mislead → falsification.",
+          answer: "Falsification",
+        },
+      ],
+      shortcuts: [
+        "Invent → fabricate; distort/omit deceptively → falsify; steal credit → plagiarise",
+      ],
+      traps: [
+        "Calling any messy dataset ‘fabrication’",
+        "Thinking paraphrasing without citation is always safe",
+      ],
+    },
+    {
+      id: "ra-research-ethics-authorship-coi",
+      title: "Authorship and conflicts of interest",
+      summary:
+        "Who earns a byline; what must be disclosed.",
+      explanation:
+        "Authorship is responsibility, not a gift. COI disclosure lets readers interpret possible bias.",
+      examples: [
+        {
+          problem:
+            "Omitting a student who ran all analyses and drafted Results. Problem?",
+          solution:
+            "Ghost authorship — a real contributor is hidden.",
+          answer: "Ghost authorship",
+        },
+        {
+          problem:
+            "A drug trial funded by the manufacturer fails to state the funding source. Issue?",
+          solution:
+            "Undisclosed conflict of interest.",
+          answer: "Undisclosed COI",
+        },
+      ],
+      shortcuts: [
+        "Substantial scholarly work → author; money/status alone → usually acknowledgement; always disclose material COIs",
+      ],
+      traps: [
+        "Gift authorship for supervisors by default",
+        "Hiding industry funding",
+      ],
+    },
+    {
+      id: "ra-research-ethics-irb-consent",
+      title: "Ethics review and informed consent",
+      summary:
+        "Prior approval, voluntary informed participation, privacy, and historical lessons.",
+      explanation:
+        "IRB/ethics committees review risk, consent, confidentiality, and recruitment before the study starts. Consent must be understandable and free of coercion.",
+      examples: [
+        {
+          problem:
+            "When should ethics approval normally be obtained for a human-subjects study?",
+          solution:
+            "Before recruitment and data collection begin.",
+          answer: "Before the research starts",
+        },
+        {
+          problem:
+            "Name one principle emphasised in the Belmont Report.",
+          solution:
+            "Respect for persons, beneficence, or justice (any one).",
+          answer: "e.g. Respect for persons / beneficence / justice",
+        },
+      ],
+      shortcuts: [
+        "Approve first, collect later; consent = informed + voluntary; protect privacy",
+      ],
+      traps: [
+        "Seeking approval only after results look publishable",
+        "Assuming ‘anonymous online form’ never needs review",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-scientific-method", "ra-research-quality"],
   leadsTo: [],
-  usedIn: ["ra-scientific-reporting"]
+  usedIn: ["ra-scientific-reporting"],
 }
-
 ];
