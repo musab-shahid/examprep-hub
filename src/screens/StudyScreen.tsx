@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { BookOpen, ChevronRight, ChevronLeft, ChevronDown, Cloud, Calculator, Map, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
+import { BookOpen, ChevronRight, ChevronLeft, ChevronDown, Cloud, Calculator, MapIcon, GraduationCap, ArrowRight, AlertTriangle, Library, BookCopy, Type, Sparkles, CheckCircle2, XCircle, Star, BookA, PenLine, Atom, Lightbulb } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -157,7 +157,7 @@ export function StudyScreen() {
               onClick={() => navigate({ screen: 'section', sectionId: 'METEO-09' })}
               className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 text-white hover:from-sky-600 hover:to-sky-700 transition-colors text-left mb-4"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0"><Map className="w-6 h-6 text-white" /></div>
+              <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0"><MapIcon className="w-6 h-6 text-white" /></div>
               <div className="flex-1">
                 <p className="font-semibold text-lg">Pakistan Climate</p>
                 <p className="text-sky-100 text-sm">7 topics covering climate zones, monsoon patterns, and climate change</p>
