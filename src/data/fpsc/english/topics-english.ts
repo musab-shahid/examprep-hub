@@ -551,139 +551,393 @@ export const topics: Topic[] = [
     "ra-scientific-reporting",
   ],
 },
+
 // --------------------------------------------------------------------------
 // A2 — Subject-Verb Agreement & Articles
 // --------------------------------------------------------------------------
 {
-  id: 'english-agreement-and-articles',
-  sectionId: 'ENG-01',
+  id: "english-agreement-and-articles",
+  sectionId: "ENG-01",
   order: 2,
-  title: 'Subject-Verb Agreement & Articles',
+  title: "Subject-Verb Agreement & Articles",
   definition:
-    'Subject-verb agreement requires the verb to match its true subject in number and person. Articles (a, an, the, or zero) signal whether a noun is general, specific or already known; the choice between a and an depends on the following sound, not the letter.',
+    "Subject-verb agreement means the verb matches its true grammatical subject in number and person — not a nearby noun in a prepositional phrase. Articles (a, an, the, or zero) mark a noun as general, specific, or already known. a vs an depends on the following sound, not the spelling.",
+
   keyFacts: [
-    'The verb agrees with the subject, not with the nearest noun or with any noun inside a prepositional phrase.',
-    'Always singular: each, every, everyone, everything, somebody, anyone, anything, nobody, nothing, either, neither, one, much.',
-    'Always plural: both, few, many, several.',
-    'Variable (depends on the noun that follows): all, some, any, most, none, more.',
-    'Collective nouns (team, committee, government) are usually singular in American English when the group acts as a single unit; in British English they may take a plural verb when members act individually. "The team IS competing" (American) vs "The team ARE arguing among themselves" (British).',
-    'either…or / neither…nor — verb agrees with the NEARER subject: "Either the teacher or the parents ARE responsible."',
-    'a / an = first mention or non-specific; the = specific, unique, already identified, superlative or ordinal.',
-    'a versus an is decided by sound: an hour, an honest man (silent h); a university, a European, a one-rupee note (consonant sound).',
-    'Zero article with general plurals (Dogs are loyal), general uncountables (Water is essential) and most proper names (Pakistan).',
-    'Geographical names that take the: rivers, mountain ranges, seas, oceans, deserts, island groups, and a few country names (the USA, the UK, the Netherlands).',
-    'Common uncountable nouns taking singular verb and zero article: information, advice, furniture, luggage, equipment, news, knowledge, research, weather, work, traffic.'
-  ],
-  explanationSections: [
-    {
-      heading: 'Prepositional phrases are distractors',
-      body: '"The effects of climate change are severe" — subject is effects (plural). "The effect of these changes is severe" — subject is effect (singular). Isolate the head noun by stripping every prepositional phrase (of, in, on, at, with, by, for, from) between the subject and verb before choosing the verb. The prepositional phrase is a distractor; do not let it decide agreement.'
-    },
-    {
-      heading: 'a / an is phonetic',
-      body: 'Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound — even if the letter is a vowel — takes a (a university, a European, a one-rupee note, an MBA where vowel pronunciation is "em-bee-ay"). This is one of the most frequently tested points for Pakistani candidates because silent-h words (hour, honest, honor, heir) are imported from Arabic.'
-    },
-    {
-      heading: 'the versus zero article',
-      body: 'Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and most proper nouns. Many geographical features are an exception and require the: rivers (the Indus), seas (the Arabian Sea), mountain ranges (the Himalayas), oceans (the Atlantic). Most countries take zero article (Pakistan, France, China), except plurals (the Netherlands, the Philippines) and compound forms (the USA, the UK).'
-    },
-    {
-      heading: 'Link forward',
-      body: 'Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself a parts-of-speech issue from A1. Pronoun-antecedent agreement in A3 reuses the same singular/plural matching logic. Common-error items in A5 test wrong article choice (most usefully: an UNCLE or a UNCLE? — vowel sound → an) and agreement with uncountable nouns (information IS, news IS).'
-    }
-  ],
-  examPoints: [
-    'each / every / either / neither → singular verb.',
-    'many / both / few / several → plural verb.',
-    'Ignore nouns inside prepositional phrases.',
-    'a university / an hour / an honest man — sound decides.',
-    'the Indus / Ø Pakistan / the USA — geographical article rules.',
-    'either…or / neither…nor — verb agrees with the nearer subject.'
-  ],
-  commonMistakes: [
-    '"A honest man" → "An honest man".',
-    '"Many of the river has dried" → "Many of the rivers have dried".',
-    '"I want to become the meteorologist" → "… a meteorologist" (first mention, not specific).',
-    '"The team of scientists are working together" — singular or plural both acceptable depending on meaning; safer rewrite: "The members of the team of scientists are working together" if plurality intended.',
-    '"The news are fake" → "The news IS fake" (news is uncountable).'
+    "Agree with the head subject, not with nouns inside of/in/on/at/with/by/for/from phrases",
+    "Always singular indefinite: each, every, everyone, everything, somebody, someone, anyone, anybody, anything, nobody, no one, nothing, either, neither, one, much, little",
+    "Always plural: both, few, many, several, a few, a number of (usually)",
+    "Variable with the following noun: all, some, any, most, none, more, half, lots of, plenty of",
+    "Collective nouns (team, committee, government, family, staff, jury): singular when the group acts as one unit; plural when members act separately (AmE prefers singular more often)",
+    "either…or / neither…nor / not only…but also → verb agrees with the NEARER subject",
+    "There is / There are agrees with the real subject that follows",
+    "a/an = non-specific or first mention; the = specific, unique, previously identified, superlative, ordinal",
+    "a/an is phonetic: an hour, an honest man; a university, a European, a one-rupee note",
+    "Zero article: general plurals, general uncountables, most country names",
+    "the + rivers, seas, oceans, mountain ranges, deserts, island groups; the USA, the UK, the Netherlands",
+    "Uncountables take singular verbs: information, advice, furniture, luggage, equipment, news, research, weather, traffic, work (as employment/task mass)",
   ],
 
-    subtopics: [
-      {
-        id: "english-agreement-and-articles-prepositional-phrases-are-distractors",
-        title: "Prepositional phrases are distractors",
-        summary: "",
-        explanation: "",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Prepositional phrases are distractors”.",
-            solution: "From the notes:  Prefer the option that matches standard formal usage and the rule stated above.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-agreement-and-articles-a-an-is-phonetic",
-        title: "a / an is phonetic",
-        summary: "Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound — even if the…",
-        explanation: "Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound — even if the letter is a vowel — takes a (a university, a European, a one-rupee note, an MBA where vowel pronunciation is ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “a / an is phonetic”.",
-            solution: "From the notes: Listen for the first sound, not the first letter. Silent h takes an (an hour, an honest man, an honor); a consonant sound â even if the letter is a vowel â takes a (a university, a European, a one-rupee note, an MBA where vowel pronunciation is Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Listen for the first sound, not the first letter.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-agreement-and-articles-the-versus-zero-article",
-        title: "the versus zero article",
-        summary: "Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and…",
-        explanation: "Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and most proper nouns. Many geographical features are an exception and require the: rivers (the Indus), seas (the Arabian Sea), mountain ranges (the Himalayas), oceans (the Atlantic). Most countries take zero article (Pakistan, France, China), except plurals (the Netherlands, the Philippines) and compound forms (the USA, the UK).",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “the versus zero article”.",
-            solution: "From the notes: Use the when the noun is unique, already known, or made specific by a clause or superlative. Use zero article for general statements and most proper nouns. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Use the when the noun is unique, already known, or made specific by a clause or superlative.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-agreement-and-articles-link-forward",
-        title: "Link forward",
-        summary: "Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself…",
-        explanation: "Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself a parts-of-speech issue from A1. Pronoun-antecedent agreement in A3 reuses the same singular/plural matching logic. Common-error items in A5 test wrong article choice (most usefully: an UNCLE or a UNCLE? — vowel sound → an) and agreement with uncountable nouns (information IS, news IS).",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Link forward”.",
-            solution: "From the notes: Agreement and article rules reappear in almost every later error-identification item. They also interact with countability, which is itself a parts-of-speech issue from A1. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Agreement and article rules reappear in almost every later error-identification item.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  explanationSections: [
+    {
+      heading: "Find the real subject first",
+      body:
+        "Strip every prepositional phrase between subject and verb. The effects of climate change are severe (effects = plural). The effect of these changes is severe (effect = singular). Distance and nearby plurals are deliberate distractors.",
+    },
+    {
+      heading: "Quantifiers have fixed number behaviour",
+      body:
+        "Memorise three baskets: always singular, always plural, and “depends on the noun of…”. Getting the basket right is faster than reasoning from scratch under exam time.",
+    },
+    {
+      heading: "Articles are meaning signals",
+      body:
+        "a/an introduces one non-specific member of a class. the points to a known, unique, or restricted referent. Zero article makes a general claim (Dogs bark; Water freezes at 0 °C) or names most countries and people.",
+    },
+  ],
+
+  examPoints: [
+    "Ignore nouns inside prepositional phrases",
+    "each / every / either / neither → singular",
+    "both / few / many / several → plural",
+    "either…or / neither…nor → nearer subject",
+    "a university / an hour / an honest man — sound decides",
+    "the Indus / Ø Pakistan / the USA — geography rules",
+    "news / information / advice → singular verb",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "A honest man / The news are fake / Many of the river has dried",
+      correction: "An honest man / The news is fake / Many of the rivers have dried",
+      explanation: "Sound of h is silent; news is uncountable singular; many requires a plural head.",
+    },
+    {
+      mistake: "I want to become the meteorologist (first mention, career).",
+      correction: "… a meteorologist",
+      explanation: "Non-specific member of a profession → a/an, not the.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Quantifier agreement at a glance",
+    headers: ["Type", "Examples", "Verb"],
+    rows: [
+      ["Always singular", "each, every, everyone, either, neither, much", "singular"],
+      ["Always plural", "both, few, many, several", "plural"],
+      ["Depends on of-phrase", "all/some/most/none of the + N", "matches N"],
+      ["Nearer subject", "either A or B / neither A nor B", "matches B"],
     ],
+  },
+
+  subtopics: [
+    {
+      id: "english-a2-find-subject",
+      title: "Finding the true subject",
+      summary:
+        "Head noun vs prepositional distractors; there is/are; inverted order.",
+      explanation:
+        "The grammatical subject is the head of the subject noun phrase, not the last noun before the verb.\n\n" +
+        "Prepositional distractors: of, in, on, at, with, by, for, from, between, among. Cross them out mentally. The list of requirements is long (list = singular). A box of tools was delivered (box = singular).\n\n" +
+        "Along with / as well as / together with / in addition to / accompanied by do not make a singular subject plural: The director, along with her deputies, is attending.\n\n" +
+        "There is / There are: the real subject follows the verb. There is a problem. There are several problems.\n\n" +
+        "Questions and inversions still agree with the subject: Where are the files? (files = plural).",
+      examples: [
+        {
+          problem: "The results of the experiment ___ published. (was/were)",
+          solution: "results → were.",
+          answer: "were",
+        },
+        {
+          problem: "The quality of these products ___ poor. (is/are)",
+          solution: "quality → is.",
+          answer: "is",
+        },
+        {
+          problem: "There ___ two sensors on the mast. (is/are)",
+          solution: "two sensors → are.",
+          answer: "are",
+        },
+      ],
+      shortcuts: [
+        "Delete of/in/on… phrases; agree with what remains",
+        "along with ≠ and (does not pluralise)",
+        "There is/are → look right of the verb",
+      ],
+      traps: [
+        "Agreeing with the nearest noun inside of…",
+        "The team of experts are… when unit meaning is intended without checking style",
+      ],
+    },
+    {
+      id: "english-a2-indefinite-quantifiers",
+      title: "Indefinite pronouns and quantifiers",
+      summary:
+        "Always singular, always plural, and of-phrase variables.",
+      explanation:
+        "Always singular subjects: each, every, everyone, everybody, everything, someone, somebody, anyone, anybody, anything, no one, nobody, nothing, either, neither, one, another, much, little. → Each of the stations reports hourly. Everyone is ready.\n\n" +
+        "Always plural: both, few, many, several, others. → Many were delayed. Both are correct.\n\n" +
+        "Variable — verb matches the noun after of: all / some / any / most / none / half / plenty / lots of the + noun. Most of the data are… (if data treated as plural) / Most of the information is…. None of the answers is/are — formal keys often allow singular none; many modern texts allow plural when the noun is plural.\n\n" +
+        "a number of + plural noun → plural verb (A number of officers were present). the number of + plural noun → singular (The number of officers was high).",
+      examples: [
+        {
+          problem: "Each of the gauges ___ calibrated. (is/are)",
+          solution: "Each → is.",
+          answer: "is",
+        },
+        {
+          problem: "Many of the rivers ___ dried up. (has/have)",
+          solution: "Many + rivers → have.",
+          answer: "have",
+        },
+        {
+          problem: "A number of reports ___ missing. / The number of reports ___ high.",
+          solution: "were / was.",
+          answer: "were / was",
+        },
+      ],
+      shortcuts: [
+        "each/every/either/neither → singular",
+        "both/few/many/several → plural",
+        "a number of → plural; the number of → singular",
+      ],
+      traps: [
+        "Each of the students are…; The number of applicants are…",
+      ],
+    },
+    {
+      id: "english-a2-correlatives-collectives",
+      title: "Correlative subjects and collective nouns",
+      summary:
+        "Nearer-subject rule; group as unit vs individuals.",
+      explanation:
+        "either A or B / neither A nor B / not only A but also B → verb agrees with B (the nearer subject). Neither the sensors nor the gauge is working. Neither the gauge nor the sensors are working.\n\n" +
+        "or / nor alone: same nearer-subject logic when subjects differ in number.\n\n" +
+        "and usually pluralises (The captain and the crew are ready) unless the two nouns name one unit (Bread and butter is his usual breakfast; The poet and philosopher is dead — one person).\n\n" +
+        "Collective nouns: team, committee, government, family, staff, jury, audience, public, class. Singular verb when the group acts as one (The committee has decided). Plural when members act as individuals (The committee are arguing among themselves) — more common in British usage. For exam safety, follow the meaning cue in the stem (united action vs internal disagreement).",
+      examples: [
+        {
+          problem: "Either the teacher or the parents ___ responsible. (is/are)",
+          solution: "Nearer subject parents → are.",
+          answer: "are",
+        },
+        {
+          problem: "Neither the parents nor the teacher ___ available. (is/are)",
+          solution: "Nearer subject teacher → is.",
+          answer: "is",
+        },
+        {
+          problem: "The jury ___ reached a unanimous verdict. (has/have)",
+          solution: "United action → has (typical formal AmE/exam choice).",
+          answer: "has",
+        },
+      ],
+      shortcuts: [
+        "or/nor/not only…but also → agree with the closer subject",
+        "and → plural unless one combined idea/person",
+        "collective: one unit → singular; individuals → plural",
+      ],
+      traps: [
+        "Always plural after neither…nor without checking the nearer noun",
+      ],
+    },
+    {
+      id: "english-a2-special-nouns",
+      title: "Special noun forms and uncountables",
+      summary:
+        "News, mathematics, criteria, data; mass nouns that take singular verbs.",
+      explanation:
+        "Singular despite -s look: news, mathematics, physics, economics, measles, mumps, the United States (as country name in many styles). The news is good.\n\n" +
+        "Plural despite no -s: people, police, cattle, vermin → plural verbs. The police are investigating.\n\n" +
+        "Greek/Latin plurals often tested: criterion/criteria, phenomenon/phenomena, analysis/analyses, thesis/theses, crisis/crises, appendix/appendices (or appendixes), index/indices|indexes. One criterion is…; Several criteria are…\n\n" +
+        "data: traditionally plural (these data are); increasingly singular in informal use (this data is). Prefer plural in formal scientific keys unless the paper’s style guide says otherwise.\n\n" +
+        "Uncountable mass nouns — always singular verb, no a/an, no bare plural: information, advice, furniture, luggage, baggage, equipment, research, knowledge, progress, homework, work (mass sense), traffic, weather, scenery, vocabulary. Pieces of advice; items of furniture.",
+      examples: [
+        {
+          problem: "The news ___ alarming. (is/are)",
+          solution: "is.",
+          answer: "is",
+        },
+        {
+          problem: "These criteria ___ mandatory. (is/are)",
+          solution: "criteria plural → are.",
+          answer: "are",
+        },
+        {
+          problem: "Correct: “The informations are useful.”",
+          solution: "Information is uncountable → The information is useful.",
+          answer: "The information is useful",
+        },
+      ],
+      shortcuts: [
+        "news/mathematics → singular",
+        "people/police → plural",
+        "criterion singular; criteria plural",
+        "information/advice/furniture → singular, no a/an",
+      ],
+      traps: [
+        "The news are…; an information; criterias; this criteria is…",
+      ],
+    },
+    {
+      id: "english-a2-a-an",
+      title: "a / an — the sound rule",
+      summary:
+        "Vowel sound vs consonant sound; silent h; university/one/MBA patterns.",
+      explanation:
+        "Use a before a consonant sound; an before a vowel sound — ignore spelling.\n\n" +
+        "Silent h → an: an hour, an honest man, an honour/honor, an heir, an hourly report.\n\n" +
+        "Pronounced h → a: a house, a historic event (both a historic and an historic appear; a historic is widely accepted in modern formal English).\n\n" +
+        "Vowel letter but consonant sound → a: a university (/juː/), a European, a ewe, a one-rupee note (/wʌn/), a useful tool.\n\n" +
+        "Consonant letter but vowel sound → an: an MBA (/em/), an SOS, an X-ray (/eks/), an hour.\n\n" +
+        "a/an marks one non-specific singular countable noun. Never with uncountables or bare plurals.",
+      examples: [
+        {
+          problem: "a or an? ___ hour / ___ university / ___ honest error / ___ one-way road",
+          solution: "an hour; a university; an honest error; a one-way road.",
+          answer: "an / a / an / a",
+        },
+        {
+          problem: "a or an? ___ MBA / ___ European city",
+          solution: "an MBA; a European city.",
+          answer: "an / a",
+        },
+      ],
+      shortcuts: [
+        "hear the first sound, do not only look at the letter",
+        "silent h → an; /juː/ and /w/ starts → a",
+      ],
+      traps: [
+        "a honest; an university; an one-rupee note",
+      ],
+    },
+    {
+      id: "english-a2-the-zero",
+      title: "the vs zero article",
+      summary:
+        "Specific vs general; unique nouns; first vs second mention.",
+      explanation:
+        "Use the when the hearer can identify the referent: previous mention, unique in context (the sun, the president of Pakistan), restricted by a clause (the data that we collected), superlatives and ordinals (the best model, the first chapter).\n\n" +
+        "Use a/an on first mention of one countable item; switch to the when it becomes known: We deployed a sensor. The sensor failed after two hours.\n\n" +
+        "Zero article for general plurals and general uncountables: Sensors measure pressure. Information travels quickly. Do not say The sensors measure pressure unless you mean a specific set.\n\n" +
+        "Institutions in a general activity sense often take zero: go to school/hospital/prison/church (BrE patterns); the school when meaning the building as a specific place.\n\n" +
+        "Meals, languages, sports: zero in general use (have breakfast; speak Urdu; play cricket) unless specified (the breakfast we missed; the Urdu of the Quranic classroom — rare).",
+      examples: [
+        {
+          problem: "___ honesty is essential in research. (the / a / zero)",
+          solution: "Zero — general abstract.",
+          answer: "zero article",
+        },
+        {
+          problem: "___ sun rises in ___ east.",
+          solution: "The sun; the east (unique/conventional).",
+          answer: "The / the",
+        },
+        {
+          problem: "She wants to become ___ meteorologist.",
+          solution: "a — one member of a profession, first mention.",
+          answer: "a",
+        },
+      ],
+      shortcuts: [
+        "known / unique / superlative → the",
+        "general plural or mass → zero",
+        "one non-specific countable → a/an",
+      ],
+      traps: [
+        "the honesty is essential (general); become the engineer as career first mention",
+      ],
+    },
+    {
+      id: "english-a2-geography-articles",
+      title: "Articles with geographical and proper names",
+      summary:
+        "When place names take the — and when they take zero.",
+      explanation:
+        "Zero article: most countries (Pakistan, China, France), continents (Asia), cities (Lahore), single mountains (Mount Everest), single lakes (Lake Victoria), most streets and squares.\n\n" +
+        "the + : rivers (the Indus, the Ravi), seas and oceans (the Arabian Sea, the Pacific), mountain ranges (the Himalayas, the Alps), deserts (the Thar, the Sahara), island groups (the Maldives, the Philippines), peninsulas (the Iberian Peninsula), canals (the Suez Canal), republics/kingdoms/unions with descriptive names (the United States, the United Kingdom, the Netherlands, the Czech Republic).\n\n" +
+        "Regions: the Punjab (sometimes), the Middle East, the north of Pakistan — conventionalised the is common with directional regions.\n\n" +
+        "Newspapers often the (the Dawn in some styles; titles vary). Languages and subjects: zero (Urdu, physics) unless specified.",
+      examples: [
+        {
+          problem: "___ Pakistan / ___ Indus / ___ Himalayas / ___ United Kingdom",
+          solution: "Ø Pakistan; the Indus; the Himalayas; the United Kingdom.",
+          answer: "Ø / the / the / the",
+        },
+        {
+          problem: "___ Mount Everest / ___ Alps",
+          solution: "Ø Mount Everest; the Alps.",
+          answer: "Ø / the",
+        },
+      ],
+      shortcuts: [
+        "single mountain/lake/city/most countries → zero",
+        "river/sea/range/desert/island group/USA-UK → the",
+      ],
+      traps: [
+        "the Pakistan; Indus without the; the Mount Everest",
+      ],
+    },
+    {
+      id: "english-a2-exam-integration",
+      title: "Exam integration — agreement meets articles",
+      summary:
+        "How A1 countability, A2 agreement, and article choice combine in one stem.",
+      explanation:
+        "A single error-spotting line may hide three decisions: Is the noun countable? What is the true subject? Does the noun need a/an/the/zero?\n\n" +
+        "Work in order: (1) identify the head subject and its number; (2) pick the verb; (3) check article/countability on every noun in the options.\n\n" +
+        "Classic stacked trap: Many of the information is wrong → many cannot take uncountable information; much of the information is… or many of the reports are…",
+      examples: [
+        {
+          problem: "Correct the line: “Many of the information available online are unreliable.”",
+          solution: "Much of the information available online is unreliable.",
+          answer: "Much … information … is",
+        },
+        {
+          problem: "Correct: “A honest officer reported the news that were false.”",
+          solution: "An honest officer reported the news that was false.",
+          answer: "An … news … was",
+        },
+      ],
+      shortcuts: [
+        "subject → verb → articles",
+        "many + countable plural; much + uncountable",
+      ],
+      traps: [
+        "many information; news are; a honest",
+      ],
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "The set of recommendations from the panels ___ under review.",
+      answer: "is (set = singular head)",
+      why: "of-phrases are distractors.",
+    },
+    {
+      scenario: "Neither the field stations nor the central logger ___ responding.",
+      answer: "is (nearer subject logger)",
+      why: "neither…nor → agree with the closer subject.",
+    },
+  ],
+
   relatedTopics: [
-    'english-parts-of-speech-and-tenses',
-    'english-pronouns-prepositions-conjunctions'
+    "english-parts-of-speech-and-tenses",
+    "english-pronouns-prepositions-conjunctions",
+    "english-common-errors",
   ],
   content: true,
-  examScope: ['bs17', 'bs16'],
-  buildsOn: ['english-parts-of-speech-and-tenses'],
+  examScope: ["bs17", "bs16"],
+  buildsOn: ["english-parts-of-speech-and-tenses"],
   leadsTo: [
-    'english-pronouns-prepositions-conjunctions',
-    'english-common-errors'
+    "english-pronouns-prepositions-conjunctions",
+    "english-common-errors",
   ],
   usedIn: [
-    'english-common-errors',
-    'english-sentence-types-errors-transformation'
-  ]
+    "english-common-errors",
+    "english-sentence-types-errors-transformation",
+  ],
 },
 // --------------------------------------------------------------------------
 // A3 — Pronouns, Prepositions & Conjunctions
