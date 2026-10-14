@@ -1226,198 +1226,271 @@ export const topics: Topic[] = [
   order: 4,
   title: 'Modals, Voice & Narration',
   definition:
-    'Modals are auxiliary verbs that express ability, permission, obligation, advice or probability. Voice shows whether the subject performs the action (active) or receives it (passive). Narration converts direct speech into reported speech with systematic changes of tense, pronoun, time and place.',
+    'Modals are auxiliaries that colour a main verb with ability, permission, obligation, advice, or probability. Voice shows whether the subject acts (active) or is acted upon (passive). Narration (reported speech) restates direct speech with systematic shifts of tense, pronoun, time, and place when the reporting verb is past.',
   keyFacts: [
-    'Core modals: can, could, may, might, must, should, will, would, shall.',
-    'Modal + bare infinitive (no to, no -s): can swim, must go.',
-    'Modal perfects (past meanings): must have + past participle (deduction), should have + pp (regret or criticism), could have + pp (missed opportunity), may/might have + pp (past possibility).',
-    'Passive formation: object of active becomes subject of passive; verb becomes be + past participle; agent optionally in a by-phrase.',
-    'Use passive when the agent is unknown, obvious, or less important than the action.',
-    'Pure intransitives (occur, happen, arrive, die, sleep) and many stative verbs do not form natural passives at all — there is no passive because there is no object.',
-    'Verbs with two objects (give, show, send, tell, lend, teach, offer): either object can become the passive subject. "He gave me a book" → "I was given a book" or "A book was given to me".',
-    'Reported speech with past reporting verb: present → past, past → past perfect, will → would; here → there, now → then, today → that day, yesterday → the day before, tomorrow → the next day.',
-    'Commands → to-infinitive: "Open the window" → He told me to open the window.',
-    'Yes/no questions → if/whether + statement order; wh-questions keep the wh-word and become statement order; no question mark.',
-    'say + (to + person) / tell + person (directly) — never "said me" or "told to me".',
-    'Exclamations → "exclaimed that + statement" or "exclaimed with joy/surprise that…".',
-    'Modal shift in reported speech: can → could, may → might, will → would, shall → should.'
+    'Core modals: can, could, may, might, must, should, will, would, shall — followed by bare infinitive (no to, no -s): can swim, must go.',
+    'Modal perfects: modal + have + past participle — must have (past deduction), should have (past advice not taken), could have (missed possibility), may/might have (past possibility).',
+    'Passive: be + past participle; active object → passive subject; agent optional in by-phrase.',
+    'Use passive when the agent is unknown, obvious, or less important than the action or result.',
+    'No natural passive for pure intransitives (happen, occur, arrive, die, sleep) — no object to promote.',
+    'Two-object verbs (give, show, send, tell, lend, teach, offer): either object can become passive subject.',
+    'Reported speech (past reporting verb): present → past; past → past perfect; will → would; can → could; may → might.',
+    'Time/place shifts: now → then, today → that day, yesterday → the day before, tomorrow → the next day, here → there.',
+    'Commands → told/asked + (not) to + infinitive; yes/no → if/whether + statement order; wh- → keep wh-word + statement order.',
+    'say (+ to + person); tell + person (never said me / told to me).',
+    'Universal truths may keep present tense after a past reporting verb when the fact is still true.',
   ],
   explanationSections: [
     {
-      heading: 'Modal perfects',
-      body: 'must have left = I am sure he left. should have informed = you did not, but it was advisable. could have helped = it was possible but did not happen. may/might have missed = it is possible that he missed. These four patterns are tested repeatedly. Mnemonic: modal + HAVE + PAST PARTICIPLE = past situation viewed through the modal\'s meaning. The modal keeps its MEANING (advice, deduction, possibility); HAVE+PP moves the action to the past.'
+      heading: 'Modals: form and the four perfects',
+      body:
+        'A modal never takes to or a third-person -s: can swim, not can to swim or cans swim. Modal perfects place the modal’s meaning in the past: must have left (strong deduction about the past), should have informed (desirable action that did not happen), could have helped (possible but unrealised), may/might have missed (weaker past possibility). Pattern: modal + have + past participle. The modal keeps its force; have + pp moves the situation into the past.',
     },
     {
-      heading: 'Passive — when and when not',
-      body: 'Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive because they have no object: "The accident happened" cannot become "was happened"; "She slept" cannot become "was slept". Verbs of measurement and possession ("weigh", "cost", "own", "contain") also resist natural passive. Always check that the past participle is correct (shown, not showed; gone, not went; written, not wrote; taken, not took).'
+      heading: 'Passive: when it works and when it fails',
+      body:
+        'Form the passive with the correct tense of be + past participle (is written, was shown, has been taken). Prefer passive when the doer is unknown, obvious, or backgrounded. Pure intransitives cannot passivise: The accident happened — not was happened. Many measurement and possession verbs (weigh, cost, own, contain) also resist natural passives. Watch irregular participles: shown (not showed), written (not wrote), gone (not went), taken (not took).',
     },
     {
       heading: 'Two-object verbs in the passive',
-      body: 'Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either can become the passive subject. "He gave me a book" → "I was given a book" (IO promoted, DO kept) OR "A book was given to me" (DO promoted, IO with preposition "to"). "He told me a story" → "I was told a story" OR "A story was told to me". Rule of thumb: IO (the receiver, usually) is promoted first; when DO is promoted, the IO requires the preposition (to / for / on).'
+      body:
+        'Verbs such as give, show, send, lend, teach, tell, offer allow either the indirect object (receiver) or the direct object (thing) to become subject. He gave me a book → I was given a book or A book was given to me. When the thing is promoted, the receiver usually needs to/for. Both forms are acceptable; exams often accept either if grammar is otherwise clean.',
     },
     {
-      heading: 'Reported speech is mechanical',
-      body: 'Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for "logic"; the grammar rule overrides. UNIVERSAL TRUTH EXCEPTION: "The sun rises in the east" → "He said the sun rises in the east" (no shift, because the fact remains true). However, in exam practice, expect the regular shift unless the universal-truth exception is explicitly signalled.'
+      heading: 'Reported speech: back-shift is the default',
+      body:
+        'With a past reporting verb (said, told, asked), tenses normally move one step back. Pronouns and time/place words shift to the reporter’s frame. Do not keep the original present “because it feels logical” unless the stem is a standing truth (The sun rises in the east → He said the sun rises in the east). In ordinary exam items, expect the regular shift.',
     },
     {
-      heading: 'Commands, questions and exclamations in reported form',
-      body: 'Commands (imperatives): "Open the window" → "He told me TO open the window". Negative command: "Don\'t open" → "He told me NOT TO open". Yes/no questions: "Are you coming?" → "He asked IF/WHETHER I was coming" (no question mark, statement word order). Wh-questions: "Where do you live?" → "He asked WHERE I lived" (keep wh-word, statement word order). Exclamations: "What a beautiful day!" → "He exclaimed THAT it was a very beautiful day".'
+      heading: 'Commands, questions, and say vs tell',
+      body:
+        'Imperative: Open the window → He told me to open the window; Don’t open → He told me not to open. Yes/no: Are you coming? → He asked if/whether I was coming (statement order, no question mark). Wh-: Where do you live? → He asked where I lived. say may take to + person; tell requires a person object: He told me that… — not He said me or He told to me.',
     },
-    {
-      heading: 'say vs tell',
-      body: 'SAY + optional "to + person" + (that) clause: "He said (to me) that he was tired." TELL + direct person object + (that) clause: "He told me that he was tired." Common errors: (1) "He said me that…" ❌ — say cannot take a direct object pronoun. (2) "He told that he was tired" ❌ — tell must have a person object. (3) "He told to me that…" ❌ — tell doesn\'t take "to". Other reporting verbs follow similar logic — TELL/INFORM/NOTIFY/ADVISE/WARN need a person object; SAY/MENTION/EXPLAIN/REPLY/ADD/REMARK can stand alone or use "to + person".'
-    },
-    {
-      heading: 'Link forward',
-      body: 'Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there. Common-error questions (A5) frequently test modal mistakes (can + to, can + ing, must + -s) and passive mistakes (showed vs shown, was happened). B-section vocabulary often uses modal idioms ("would rather", "had better", "used to"). C-section sentence restructuring uses voice change and direct-indirect conversion as exercises — A4 is the foundation.'
-    }
   ],
   examPoints: [
     'Modal + bare infinitive (no to, no -s).',
-    'Four modal-perfect meanings: must have / should have / could have / may have.',
-    'Passive: be + past participle; agent optional.',
-    'Intransitive verbs (happen, occur, sleep) cannot be made passive.',
-    'Reported-speech back-shift and time/place changes.',
-    'Commands → to-infinitive; questions → if/whether or wh- + statement order.',
-    'say + (to + person) / tell + person (directly).',
-    'Universal-truth exception: present tense may stay in reported speech.'
+    'must have / should have / could have / may have + past participle.',
+    'Passive = be + past participle; agent optional.',
+    'happen / occur / sleep — no passive.',
+    'Past reporting verb → tense, pronoun, time/place back-shift.',
+    'Commands → (not) to + infinitive; questions → if/whether or wh- + statement order.',
+    'tell + person; say (+ to + person).',
+    'Universal-truth exception: present may stay when still true.',
   ],
   commonMistakes: [
-    '"He can to swim" → "He can swim".',
-    '"He cans swim" → "He can swim".',
-    '"He said that where are you going?" → "He asked where I was going".',
-    '"The data is being showed" → "The data is being shown".',
-    '"The accident was happened" → "The accident happened" (happen is intransitive — no passive form exists).',
-    '"He said me that he would come" → "He told me that he would come".'
+    {
+      mistake: 'He can to swim / He cans swim',
+      correction: 'He can swim',
+      explanation: 'Modals take the bare infinitive and never add -s.',
+    },
+    {
+      mistake: 'The accident was happened',
+      correction: 'The accident happened',
+      explanation: 'happen is intransitive — there is no object to make passive.',
+    },
+    {
+      mistake: 'The data is being showed',
+      correction: 'The data is being shown',
+      explanation: 'Past participle of show is shown, not showed.',
+    },
+    {
+      mistake: 'He said me that he would come',
+      correction: 'He told me that he would come',
+      explanation: 'tell takes a person object; say does not take me directly.',
+    },
+    {
+      mistake: 'He asked that where are you going?',
+      correction: 'He asked where I was going',
+      explanation: 'Wh-word + statement order; back-shift; no question mark in the reported clause.',
+    },
+    {
+      mistake: 'He told to me that he was late',
+      correction: 'He told me that he was late',
+      explanation: 'tell + person — no to before the person object.',
+    },
   ],
-
-    subtopics: [
-      {
-        id: "english-modals-voice-narration-modal-perfects",
-        title: "Modal perfects",
-        summary: "must have left = I am sure he left. should have informed = you did not, but it was advisable. could have helped = it was possible but did…",
-        explanation: "must have left = I am sure he left. should have informed = you did not, but it was advisable. could have helped = it was possible but did not happen. may/might have missed = it is possible that he missed. These four patterns are tested repeatedly. Mnemonic: modal + HAVE + PAST PARTICIPLE = past situation viewed through the modal\'s meaning. The modal keeps its MEANING (advice, deduction, possibility); HAVE+PP moves the action to the past.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Modal perfects”.",
-            solution: "From the notes: must have left = I am sure he left. should have informed = you did not, but it was advisable. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "must have left = I am sure he left.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-passive-when-and-when-not",
-        title: "Passive — when and when not",
-        summary: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive…",
-        explanation: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive because they have no object: ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Passive — when and when not”.",
-            solution: "From the notes: Prefer passive when the doer is unknown, obvious or deliberately backgrounded. Pure intransitives and many stative verbs resist the passive because they have no object: Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Prefer passive when the doer is unknown, obvious or deliberately backgrounded.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-two-object-verbs-in-the-passive",
-        title: "Two-object verbs in the passive",
-        summary: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either…",
-        explanation: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either can become the passive subject. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Two-object verbs in the passive”.",
-            solution: "From the notes: Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO). Either can become the passive subject. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Verbs like give, show, send, lend, teach, tell, offer, pay, sell, write have BOTH a direct object (DO) and an indirect object (IO).",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-reported-speech-is-mechanical",
-        title: "Reported speech is mechanical",
-        summary: "Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for ",
-        explanation: "Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Reported speech is mechanical”.",
-            solution: "From the notes: Once the reporting verb is past, the back-shift is automatic. Do not try to preserve the original tense for Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Once the reporting verb is past, the back-shift is automatic.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-commands-questions-and-exclamations-in-r",
-        title: "Commands, questions and exclamations in reported form",
-        summary: "Commands (imperatives): ",
-        explanation: "Commands (imperatives): ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Commands, questions and exclamations in reported form”.",
-            solution: "From the notes: Commands (imperatives): Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Commands (imperatives):",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-say-vs-tell",
-        title: "say vs tell",
-        summary: "SAY + optional ",
-        explanation: "SAY + optional ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “say vs tell”.",
-            solution: "From the notes: SAY + optional Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "SAY + optional",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-modals-voice-narration-link-forward",
-        title: "Link forward",
-        summary: "Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there.…",
-        explanation: "Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there. Common-error questions (A5) frequently test modal mistakes (can + to, can + ing, must + -s) and passive mistakes (showed vs shown, was happened). B-section vocabulary often uses modal idioms (",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Link forward”.",
-            solution: "From the notes: Modals and passive forms rest on the verb knowledge from A1. Reported speech re-uses the tense-shift rule already introduced there. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Modals and passive forms rest on the verb knowledge from A1.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "Convert: She said, 'I will finish the report tomorrow.' (past reporting verb)",
+      answer: 'She said (that) she would finish the report the next day.',
+      why: 'will → would; tomorrow → the next day; pronoun shifts to she.',
+    },
+    {
+      scenario:
+        "Active → passive: 'Someone stole the files.'",
+      answer: 'The files were stolen (by someone).',
+      why: 'Object becomes subject; be + past participle; agent optional.',
+    },
+    {
+      scenario:
+        "Choose: 'He _____ left already — his bag is gone.' (must have / should have)",
+      answer: 'must have',
+      why: 'Strong deduction about a past event from present evidence.',
+    },
+  ],
+  comparisonTable: {
+    title: 'Modal perfects at a glance',
+    headers: ['Form', 'Core meaning', 'Typical exam sense'],
+    rows: [
+      ['must have + pp', 'Strong past deduction', 'I am almost sure it happened'],
+      ['should have + pp', 'Past duty / advice not followed', 'Regret or criticism'],
+      ['could have + pp', 'Past possibility not taken', 'Missed opportunity'],
+      ['may / might have + pp', 'Weaker past possibility', 'Perhaps it happened'],
     ],
+  },
+  subtopics: [
+    {
+      id: 'english-a4-modal-form-and-perfects',
+      title: 'Modal form and modal perfects',
+      summary: 'Bare infinitive; four past-oriented perfect patterns.',
+      explanation:
+        'Modals never take to or -s. Modal perfects view a past situation through ability, duty, deduction, or possibility. Match the stem’s force (certainty vs advice vs missed chance) to the right modal.',
+      examples: [
+        {
+          problem: "You _____ informed the supervisor before leaving. (duty not done)",
+          solution: 'should have informed',
+          answer: 'should have + past participle',
+        },
+        {
+          problem: 'She is not here; she _____ gone home. (strong deduction)',
+          solution: 'must have gone',
+          answer: 'must have gone',
+        },
+      ],
+      shortcuts: [
+        'modal + base verb',
+        'modal + have + pp = past colouring of the modal meaning',
+      ],
+      traps: [
+        'can to / must to',
+        'cans / musts',
+        'should of gone (spoken error for should have)',
+      ],
+    },
+    {
+      id: 'english-a4-passive-rules',
+      title: 'Passive voice — form and limits',
+      summary: 'be + past participle; no passive for pure intransitives.',
+      explanation:
+        'Promote the object, use the right participle, and omit the agent when it adds nothing. Reject was happened, was occurred, and wrong participles (showed for shown).',
+      examples: [
+        {
+          problem: "Passive of: 'They will announce the results tomorrow.'",
+          solution: 'The results will be announced tomorrow.',
+          answer: 'will be + past participle',
+        },
+        {
+          problem: "Which is impossible as a natural passive? happen / write / take",
+          solution: 'happen — no object.',
+          answer: 'happen',
+        },
+      ],
+      shortcuts: [
+        'object → subject; be + pp',
+        'no object → no passive',
+      ],
+      traps: [
+        'was happened / was occurred',
+        'is being showed',
+      ],
+    },
+    {
+      id: 'english-a4-two-object-passive',
+      title: 'Two-object verbs in the passive',
+      summary: 'Receiver or thing can become subject.',
+      explanation:
+        'With give, send, show, tell, teach, offer, either the person or the thing may be promoted. If the thing is subject, keep the person with to/for as needed.',
+      examples: [
+        {
+          problem: "Passive (person as subject): 'They offered her a post.'",
+          solution: 'She was offered a post.',
+          answer: 'She was offered a post',
+        },
+        {
+          problem: "Passive (thing as subject): same active sentence",
+          solution: 'A post was offered to her.',
+          answer: 'A post was offered to her',
+        },
+      ],
+      shortcuts: ['IO or DO can rise; DO-up often needs to + person'],
+      traps: ['Forgetting to after promoting the thing'],
+    },
+    {
+      id: 'english-a4-reported-speech-shift',
+      title: 'Reported speech — tense and time shifts',
+      summary: 'Past reporting verb triggers back-shift and deictic changes.',
+      explanation:
+        'Move tenses one step back and adjust now/today/tomorrow/here to the reporter’s perspective. Keep present for standing scientific or general truths when the exam signals that exception.',
+      examples: [
+        {
+          problem: "He said, 'I am busy now.'",
+          solution: 'He said (that) he was busy then.',
+          answer: 'was … then',
+        },
+        {
+          problem: "She said, 'I bought this yesterday.'",
+          solution: 'She said she had bought that the day before.',
+          answer: 'had bought … the day before',
+        },
+      ],
+      shortcuts: [
+        'present → past; past → past perfect; will → would',
+        'today → that day; tomorrow → the next day',
+      ],
+      traps: [
+        'Keeping present without a universal-truth reason',
+        'Leaving question word order in the reported clause',
+      ],
+    },
+    {
+      id: 'english-a4-commands-questions-say-tell',
+      title: 'Commands, questions, and say vs tell',
+      summary: 'to-infinitive for orders; if/wh- + statement order; tell needs a person.',
+      explanation:
+        'Imperatives become (not) to + verb. Questions lose the question mark and invert back to statement order. say vs tell is a high-frequency trap: tell me, not said me or told to me.',
+      examples: [
+        {
+          problem: "Report: 'Don't touch the samples,' she said to us.",
+          solution: 'She told us not to touch the samples.',
+          answer: 'told us not to touch',
+        },
+        {
+          problem: "Report: 'Where do you work?' he asked.",
+          solution: 'He asked where I worked.',
+          answer: 'where I worked',
+        },
+      ],
+      shortcuts: [
+        'command → (not) to + V',
+        'tell + person; say (+ to + person)',
+      ],
+      traps: [
+        'said me / told to me',
+        'He asked that where are you going?',
+      ],
+    },
+  ],
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-common-errors',
-    'english-sentence-types-errors-transformation'
+    'english-sentence-types-errors-transformation',
   ],
   content: true,
   examScope: ['bs17', 'bs16'],
   buildsOn: [
     'english-parts-of-speech-and-tenses',
-    'english-pronouns-prepositions-conjunctions'
+    'english-pronouns-prepositions-conjunctions',
   ],
   leadsTo: [
     'english-common-errors',
-    'english-sentence-types-errors-transformation'
+    'english-sentence-types-errors-transformation',
   ],
   usedIn: [
     'english-common-errors',
     'english-sentence-types-errors-transformation',
-    'ra-scientific-reporting'
-  ]
+    'ra-scientific-reporting',
+  ],
 },
 // --------------------------------------------------------------------------
 // A5 — Common Errors
