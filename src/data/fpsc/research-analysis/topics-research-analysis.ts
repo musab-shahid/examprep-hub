@@ -405,114 +405,220 @@ export const topics: Topic[] = [
   leadsTo: ["ra-data-types", "ra-research-quality"],
   usedIn: ["ra-data-types", "ra-inferential-stats", "ra-research-ethics", "earth-k1"],
 },
-
 // ═══════════════════════════════════════════════════════════════════
-// RA-3: Data Types
+// RA-3: Data Types & Measurement Scales
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-data-types",
   sectionId: "RA-03",
   order: 1,
   title: "Data Types & Measurement Scales",
-  definition: "Data can be classified as qualitative (categories) or quantitative (numbers), and further as categorical/numerical and discrete/continuous. Measurement scales (nominal, ordinal, interval, ratio) determine what statistical operations are valid.",
+  definition:
+    "Data are classified by kind (qualitative vs quantitative; categorical vs numerical; discrete vs continuous) and by measurement scale (nominal, ordinal, interval, ratio). The scale decides which comparisons and statistical operations are meaningful — not merely which formulas a calculator can run.",
   keyFacts: [
-    "QUALITATIVE: categories, descriptions, labels",
-    "QUANTITATIVE: numbers, measurements",
-    "CATEGORICAL: labels (species, gender, climate type, blood type)",
-    "NUMERICAL: numbers (temperature, pressure, count, distance)",
-    "DISCRETE: countable, whole numbers (number of students, days, count of species)",
-    "CONTINUOUS: measurable, can take any value including fractions (temperature, time, weight, length)",
-    "NOMINAL: categories only, NO order (climate type: tropical/temperate/arid). Operations: =, ≠",
-    "ORDINAL: ordered categories, but intervals not equal (severity: mild/moderate/severe). Operations: <, >, =, ≠",
-    "INTERVAL: ordered, equal intervals, NO true zero (Temperature in °C or °F). Operations: +, −, ×, ÷",
-    "RATIO: ordered, equal intervals, TRUE zero (Temperature in K, height, mass, time). All operations valid"
+    "Qualitative: categories, labels, descriptions (not primarily magnitudes)",
+    "Quantitative: numerical measurements or counts",
+    "Categorical: values are labels (species, gender, climate type, blood group)",
+    "Numerical: values are numbers (temperature, pressure, distance, counts)",
+    "Discrete: countable values, typically whole numbers (students, rainy days, species count)",
+    "Continuous: any value in a range, including fractions (temperature, time, mass, length)",
+    "Nominal: categories with no inherent order — only = and ≠",
+    "Ordinal: ordered categories; gaps between ranks are not assumed equal — order operations valid",
+    "Interval: ordered, equal intervals, no true zero (e.g. °C, °F) — differences meaningful; ratios of values are not",
+    "Ratio: ordered, equal intervals, true zero (e.g. kelvin, height, mass, duration) — differences and ratios meaningful",
   ],
   explanationSections: [
-    { heading: "The 4 measurement scales — most-testable in stats", body: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue > brown. ORDINAL: ordered categories but the gaps between them aren't equal (e.g., satisfaction: poor/fair/good/excellent — the 'gap' between poor and fair may differ from fair and good). INTERVAL: ordered, equal intervals, but NO true zero (°C: 0°C doesn't mean 'no temperature'). RATIO: ordered, equal intervals, TRUE zero (height: 0m means no height; Kelvin: 0K means absolute zero — no thermal energy). Ratio data supports ALL operations." },
-    { heading: "Why scale matters for statistical operations", body: "The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. ORDINAL: counts, mode, median, rank correlation. INTERVAL: + and − (means, standard deviations, Pearson correlation, t-tests). RATIO: all operations including × and ÷ (geometric mean, ratios, logarithms). Using the wrong operation is a common error — e.g., computing a 'mean climate type' is meaningless because nominal data has no numerical order." },
-    { heading: "Discrete vs Continuous — the real-world distinction", body: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data: any value within a range (e.g., temperature, pressure, wind speed, time). This distinction matters for choosing graphs: bar charts for discrete/categorical, line graphs for continuous over time, histograms for continuous distributions." }
+    {
+      heading: "Four measurement scales (highest-yield exam map)",
+      body:
+        "Nominal: pure labels with no ranked order (eye colour, province name, cloud genus as a label only). You can count and find a mode; you cannot sensibly say one category is ‘greater than’ another. Ordinal: ranked categories whose steps are not equal units (pain: mild / moderate / severe; Likert agreement). You can rank and use medians; treating ranks as precise distances is risky. Interval: equal intervals but an arbitrary zero (°C: 0 °C is not ‘no temperature’). Differences are meaningful (20 °C − 10 °C = 10 °C gap); ratios are not (20 °C is not ‘twice as hot’ as 10 °C). Ratio: equal intervals plus a true zero meaning absence of the quantity (0 K, 0 m, 0 kg, 0 s). Differences and ratios are both meaningful (20 kg is twice 10 kg).",
+    },
+    {
+      heading: "Why scale controls which statistics are valid",
+      body:
+        "Nominal → frequencies, proportions, mode. Ordinal → those plus median, percentiles, rank-based association. Interval → means, SDs, many parametric tests on differences (with assumptions). Ratio → all of the above plus meaningful ratios, geometric means, log transforms when appropriate. Computing a ‘mean climate type’ or a ‘mean blood group’ is nonsense: the symbols are labels, not magnitudes. Always ask: ‘Does this number encode order? equal spacing? a true zero?’ before choosing a summary or test.",
+    },
+    {
+      heading: "Discrete vs continuous (and graph choice)",
+      body:
+        "Discrete data arise from counting (0, 1, 2, … storms in a month). Continuous data arise from measuring on a continuum (wind speed 6.3 m/s). In practice instruments round continuous values, but the underlying variable is still continuous. Graphing: bar charts suit categories/discrete counts; histograms suit distributions of continuous (or finely binned) variables; line charts suit continuous change over time. Do not confuse ‘written as a whole number’ with ‘must be discrete’ — temperature reported as 30 °C is still continuous.",
+    },
+    {
+      heading: "Temperature: the classic interval vs ratio trap",
+      body:
+        "Celsius and Fahrenheit are interval scales: zero is conventional, not absolute absence of heat. Kelvin is ratio: 0 K is absolute zero. So ‘30 °C is twice 15 °C’ is false as a temperature-intensity claim; ‘300 K is twice 150 K’ is a valid ratio of thermodynamic temperature. Exam stems love this distinction.",
+    },
   ],
   examPoints: [
-    "Nominal: categories, no order; Ordinal: ordered, no equal intervals; Interval: equal intervals, no true zero; Ratio: equal intervals, TRUE zero",
-    "Discrete: countable; Continuous: any value",
-    "Scale determines valid statistical operations"
+    "Nominal = no order; ordinal = order only; interval = equal gaps, no true zero; ratio = equal gaps + true zero",
+    "°C / °F → interval; kelvin, mass, length, time duration → ratio",
+    "Discrete = countable; continuous = measurable continuum",
+    "Scale dictates valid operations: never average pure nominal labels",
+    "Differences OK on interval; ratios of values need ratio scale",
   ],
   commonMistakes: [
-    "Confusing interval with ratio — 0°C is NOT 'no temperature' (interval), but 0K IS 'no thermal energy' (ratio)",
-    "Trying to compute a mean of nominal data (e.g., average climate type) — meaningless because there's no numerical order",
-
-    "Confusing discrete (countable) with continuous (measurable) — number of species is discrete, temperature is continuous"
+    {
+      mistake: "Treating 0 °C as ‘no temperature’ (ratio thinking on an interval scale)",
+      correction: "0 °C is an arbitrary zero; 0 K is true zero for thermodynamic temperature.",
+      explanation: "Only kelvin (among common temperature scales) supports true ratio statements about thermal energy scale.",
+    },
+    {
+      mistake: "Computing means of nominal categories",
+      correction: "Use counts, proportions, or mode — not arithmetic means of label codes unless codes are justified as interval/ratio.",
+      explanation: "Coding tropical=1, arid=2 is arbitrary; the average ‘1.4’ has no climate meaning.",
+    },
+    {
+      mistake: "Calling any whole number ‘discrete’ and any decimal ‘continuous’",
+      correction: "Discrete vs continuous is about the variable’s nature, not the number of decimal places printed.",
+      explanation: "Counts are discrete; measured length is continuous even if rounded to integers.",
+    },
   ],
-  relatedTopics: ["ra-descriptive-statistics", "ra-data-visualization", "ra-research-design"],
-    subtopics: [
-      {
-        id: "ra-data-types-the-4-measurement-scales-most-testable-i",
-        title: "The 4 measurement scales — most-testable in stats",
-        summary: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue >…",
-        explanation: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue > brown. ORDINAL: ordered categories but the gaps between them aren't equal (e.g., satisfaction: poor/fair/good/excellent — the 'gap' between poor and fair may differ from fair and good). INTERVAL: ordered, equal intervals, but NO true zero (°C: 0°C doesn't mean 'no temperature'). RATIO: ordered, equal intervals, TRUE zero (height: 0m means no height; Kelvin: 0K means absolute zero — no thermal energy). Ratio data supports ALL operations.",
-                examples: [
-          {
-            problem: "Which statement best matches “The 4 measurement scales — most-testable in stats”?",
-            solution: "The accurate idea is: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The 4 measurement scales — most-testable in stats.",
-            solution: "Stay close to the text: NOMINAL: pure categories with NO inherent order (e.g., eye color: blue/brown/green). Only = and ≠ operations valid — you can't say blue > brown. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-data-types-why-scale-matters-for-statistical-operat",
-        title: "Why scale matters for statistical operations",
-        summary: "The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. ORDINAL: counts, mode, median,…",
-        explanation: "The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. ORDINAL: counts, mode, median, rank correlation. INTERVAL: + and − (means, standard deviations, Pearson correlation, t-tests). RATIO: all operations including × and ÷ (geometric mean, ratios, logarithms). Using the wrong operation is a common error — e.g., computing a 'mean climate type' is meaningless because nominal data has no numerical order.",
-                examples: [
-          {
-            problem: "Which statement best matches “Why scale matters for statistical operations”?",
-            solution: "The accurate idea is: The scale of measurement determines which statistical operations are valid. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The scale of measurement determines which statistical operations are valid.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Why scale matters for statistical operations.",
-            solution: "Stay close to the text: The scale of measurement determines which statistical operations are valid. NOMINAL: only counts and mode. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-data-types-discrete-vs-continuous-the-real-world-di",
-        title: "Discrete vs Continuous — the real-world distinction",
-        summary: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data:…",
-        explanation: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data: any value within a range (e.g., temperature, pressure, wind speed, time). This distinction matters for choosing graphs: bar charts for discrete/categorical, line graphs for continuous over time, histograms for continuous distributions.",
-                examples: [
-          {
-            problem: "Which statement best matches “Discrete vs Continuous — the real-world distinction”?",
-            solution: "The accurate idea is: DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Discrete vs Continuous — the real-world distinction.",
-            solution: "Stay close to the text: DISCRETE data: countable, whole numbers (e.g., number of species in a sample, days of rain per month, number of patients). CONTINUOUS data: any value within a range (e.g., temperature, pressure, wind speed, time). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A survey records (1) province of residence, (2) satisfaction on a 1–5 scale, (3) body mass in kg. Name the scale of each.",
+      answer: "Province: nominal; satisfaction: ordinal; mass: ratio.",
+      why: "Province has no order; satisfaction ranks without equal psychological intervals guaranteed; mass has equal units and a true zero.",
+    },
+    {
+      scenario:
+        "A report claims ‘Station A at 30 °C is twice as hot as Station B at 15 °C.’ Critique.",
+      answer: "Invalid ratio claim on Celsius (interval scale).",
+      why: "Equal intervals allow difference statements, not true ‘twice as hot’ ratios; use kelvin for thermodynamic ratios.",
+    },
+  ],
+  comparisonTable: {
+    title: "Measurement scales at a glance",
+    headers: ["Scale", "Order?", "Equal intervals?", "True zero?", "Typical summaries"],
+    rows: [
+      ["Nominal", "No", "No", "No", "Counts, mode, proportions"],
+      ["Ordinal", "Yes", "No", "No", "+ median, ranks"],
+      ["Interval", "Yes", "Yes", "No", "+ mean, SD on differences"],
+      ["Ratio", "Yes", "Yes", "Yes", "+ ratios, geometric mean, logs"],
     ],
-
+  },
+  relatedTopics: ["ra-descriptive-statistics", "ra-data-visualization", "ra-research-design"],
+  subtopics: [
+    {
+      id: "ra-data-types-four-scales",
+      title: "Four measurement scales",
+      summary:
+        "Nominal → ordinal → interval → ratio: each level adds structure and unlocks operations.",
+      explanation:
+        "Climb the ladder only when the data truly have the extra structure. Promoting ordinal Likert scores to interval means is common in practice but is an assumption — know when an exam wants the strict classification.",
+      examples: [
+        {
+          problem:
+            "Cloud type recorded as ‘cirrus / cumulus / stratus’ (as names only). Scale?",
+          solution:
+            "Labels with no inherent rank → nominal.",
+          answer: "Nominal",
+        },
+        {
+          problem:
+            "Storm damage coded as ‘low / medium / high’. Scale?",
+          solution:
+            "Ordered categories without equal-unit gaps → ordinal.",
+          answer: "Ordinal",
+        },
+        {
+          problem:
+            "Air temperature in °C. Scale?",
+          solution:
+            "Equal degree intervals; zero is not absolute → interval.",
+          answer: "Interval",
+        },
+        {
+          problem:
+            "Rainfall total in millimetres. Scale?",
+          solution:
+            "Equal units and true zero (no rain) → ratio.",
+          answer: "Ratio",
+        },
+      ],
+      shortcuts: [
+        "No order → nominal; order only → ordinal; equal gaps, fake zero → interval; equal gaps, real zero → ratio",
+      ],
+      traps: [
+        "Assuming any number stored in a spreadsheet is ratio",
+        "Ranking nominal labels alphabetically and treating that as ordinal structure",
+      ],
+    },
+    {
+      id: "ra-data-types-valid-operations",
+      title: "Valid statistical operations by scale",
+      summary:
+        "Match summaries and tests to the information the scale actually carries.",
+      explanation:
+        "Wrong operation = precise-looking nonsense. Mode for nominal is fine; mean for nominal is not. Median for ordinal is safer than mean. Means and SDs assume interval/ratio structure (or an accepted approximation).",
+      examples: [
+        {
+          problem:
+            "Which is appropriate for nominal data?\nA) Mean\nB) Median\nC) Mode\nD) Standard deviation",
+          solution:
+            "Only frequencies and mode are cleanly meaningful for pure categories.",
+          answer: "C",
+        },
+        {
+          problem:
+            "Why is ‘average Likert score = 3.7’ sometimes criticised?",
+          solution:
+            "Strictly, Likert items are ordinal; averaging assumes equal intervals between scale points.",
+          answer:
+            "It treats ordinal ranks as interval distances (assumption may be false).",
+        },
+      ],
+      shortcuts: [
+        "Nominal: mode; ordinal: median; interval/ratio: mean (if distribution allows)",
+      ],
+      traps: [
+        "Reporting means of arbitrary category codes",
+        "Interpreting interval ratios (‘twice as hot’) as if the scale were ratio",
+      ],
+    },
+    {
+      id: "ra-data-types-discrete-continuous",
+      title: "Discrete vs continuous",
+      summary:
+        "Counts vs measurements on a continuum — drives modelling and chart choice.",
+      explanation:
+        "Discrete variables jump in countable steps; continuous variables can in principle take any value in an interval. Measurement precision does not change the underlying type.",
+      examples: [
+        {
+          problem:
+            "Number of lightning strikes recorded in an hour. Discrete or continuous?",
+          solution:
+            "Count of events → discrete.",
+          answer: "Discrete",
+        },
+        {
+          problem:
+            "Time until the next lightning strike (in seconds). Discrete or continuous?",
+          solution:
+            "Duration on a continuum → continuous.",
+          answer: "Continuous",
+        },
+      ],
+      shortcuts: [
+        "Can you count it in whole events? → discrete; can it be any value in a range? → continuous",
+      ],
+      traps: [
+        "Calling temperature discrete because the station reports integers",
+        "Using a line chart for unordered nominal categories",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-research-design", "math-1-1", "math-8-1"],
   leadsTo: ["ra-descriptive-statistics", "ra-data-visualization"],
-  usedIn: ["ra-descriptive-statistics", "ra-correlation-regression", "meteo-radiosondes", "meteo-station-model", "earth-h2"]
+  usedIn: [
+    "ra-descriptive-statistics",
+    "ra-correlation-regression",
+    "meteo-radiosondes",
+    "meteo-station-model",
+    "earth-h2",
+  ],
 },
 
 // ═══════════════════════════════════════════════════════════════════
