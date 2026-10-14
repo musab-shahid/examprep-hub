@@ -1304,35 +1304,6 @@ export const questions: Question[] = [
 // Serial begins ENG-01-Q110
 // ═══════════════════════════════════════════════════════════════════
 
-type Difficulty = "easy" | "medium" | "hard";
-type QuestionType = "single" | "true_false" | "multi";
-
-type QuestionBase = {
-  id: string;
-  sectionId: string;
-  topicId: string;
-  difficulty: Difficulty;
-  type: QuestionType;
-  question: string;
-  options: string[];
-  explanation: string;
-  sourceCitation: string;
-  examScope: string[];
-};
-
-type SingleQuestion = QuestionBase & {
-  type: "single" | "true_false";
-  correctAnswer: number;
-};
-
-type MultiQuestion = QuestionBase & {
-  type: "multi";
-  correctAnswer: number[];
-};
-
-export type Question = SingleQuestion | MultiQuestion;
-
-export const questions: Question[] = [
 // Easy
 { id: "ENG-01-Q110", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "single",
   question: "Which sentence uses a modal correctly?",

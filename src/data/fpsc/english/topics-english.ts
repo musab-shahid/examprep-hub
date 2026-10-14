@@ -1828,8 +1828,8 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Confusables — the substitution test for each pair”.",
-            solution: "From the notes: For each confusable pair, run the same test â substitute one, then the other, into a sample sentence. AFFECT/EFFECT: Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "For each confusable pair, run the same test â substitute one, then the other, into a sample sentence.",
+            solution: "From the notes: For each confusable pair, run the same test — substitute one, then the other, into a sample sentence. AFFECT/EFFECT: Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "For each confusable pair, run the same test — substitute one, then the other, into a sample sentence.",
           },
         ],
         shortcuts: [],
@@ -1843,7 +1843,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Domain vocabulary — the BS-17 high-yield list”.",
-            solution: "From the notes: BS-17 papers disproportionately test weather, climate, and environmental vocabulary. Memorize these in pairs: ABATE (subside, decrease) / INTENSIFY (grow stronger); MITIGATE (make less severe) / AGGRAVATE (make worse) / EXACERBATE (formal: make worse); HUMID (moist air) / ARID (dry); EMPIRICAL (based on observation/evidence) / THEORETICAL (based on theory); CORRELATION (statistical association) / CAUSATION (A causes B â the much stronger claim). Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: BS-17 papers disproportionately test weather, climate, and environmental vocabulary. Memorize these in pairs: ABATE (subside, decrease) / INTENSIFY (grow stronger); MITIGATE (make less severe) / AGGRAVATE (make worse) / EXACERBATE (formal: make worse); HUMID (moist air) / ARID (dry); EMPIRICAL (based on observation/evidence) / THEORETICAL (based on theory); CORRELATION (statistical association) / CAUSATION (A causes B — the much stronger claim). Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "BS-17 papers disproportionately test weather, climate, and environmental vocabulary.",
           },
         ],
@@ -2019,7 +2019,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Near-synonym idioms — the confusion list”.",
-            solution: "From the notes: Some idioms look similar but have subtle differences. (a) Spill the beans vs let the cat out of the bag â both = reveal a secret. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Some idioms look similar but have subtle differences. (a) Spill the beans vs let the cat out of the bag — both = reveal a secret. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Some idioms look similar but have subtle differences.",
           },
         ],
@@ -2034,7 +2034,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Common idiom traps in FPSC papers”.",
-            solution: "From the notes: Three traps appear frequently. (1) Literal vs idiomatic â the test sometimes includes the literal meaning as an option. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Three traps appear frequently. (1) Literal vs idiomatic — the test sometimes includes the literal meaning as an option. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Three traps appear frequently.",
           },
         ],
@@ -2347,7 +2347,7 @@ export const topics: Topic[] = [
   workedExample: {
     problem: 'Classify each of the following and explain your reasoning. (a) "Meteorology fascinates him." (b) "Predicting the weather accurately." (c) "Because the storm intensified, the warning was issued." (d) "The scientist who discovered this finding, presented it at the conference."',
     solution: {
-      '(a) "Meteorology fascinates him."': 'SIMPLE sentence. One independent clause. Subject: "Meteorology"; finite verb: "fascines"; object: "him". No dependent clause present. Count: 1 IC + 0 DCs → SIMPLE.',
+      '(a) "Meteorology fascinates him."': 'SIMPLE sentence. One independent clause. Subject: "Meteorology"; finite verb: "fascinates"; object: "him". No dependent clause present. Count: 1 IC + 0 DCs → SIMPLE.',
       '(b) "Predicting the weather accurately."': 'PHRASE — specifically a GERUND phrase. Subject? None (no one is performing the action). Finite verb? "Predicting" is NOT a finite verb (it is an -ing form that cannot stand alone as the predicate of an IC). So this is a FRAGMENT. Fix: add a subject and a finite verb — "Predicting the weather accurately requires advanced instruments."',
       '(c) "Because the storm intensified, the warning was issued."': 'COMPLEX sentence. One independent clause ("the warning was issued") + one dependent clause ("Because the storm intensified"). The dependent clause opens with the subordinator "Because" and is ADVERBIAL — it answers WHY the warning was issued.',
       '(d) "The scientist who discovered this finding, presented it at the conference."': 'Error — MISPLACED COMMA inside a defining relative clause. "who discovered this finding" is a DEFINING relative clause (no commas) because it narrows down WHICH scientist (the one who discovered this finding → defines). The comma after "finding" is wrong. If the writer wanted NON-DEFINING (commas), it would read: "The scientist, who discovered this finding, presented it at the conference." — commas on BOTH sides. Choose one form deliberately.'
@@ -2517,7 +2517,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “The eight phrase types — what they look like and how to recognise each”.",
-            solution: "From the notes: Phrases are NOT all the same; they play different roles in sentences. (1) NOUN phrase: a noun + its modifiers â Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Phrases are NOT all the same; they play different roles in sentences. (1) NOUN phrase: a noun + its modifiers — Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Phrases are NOT all the same; they play different roles in sentences.",
           },
         ],
@@ -2532,7 +2532,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “The three subordinate-clause functions — how to tell which is which”.",
-            solution: "From the notes: A dependent clause can perform three distinct jobs. (1) ADVERBIAL clause â answers when, why, how, or under what condition. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: A dependent clause can perform three distinct jobs. (1) ADVERBIAL clause — answers when, why, how, or under what condition. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "A dependent clause can perform three distinct jobs.",
           },
         ],
@@ -2562,7 +2562,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Defining vs non-defining relative clauses — when to use commas”.",
-            solution: "From the notes: RELATIVE clauses split into two categories that look identical until you test them. (1) DEFINING (restrictive) â narrows down WHICH noun is meant; NO commas; the meaning is ESSENTIAL. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: RELATIVE clauses split into two categories that look identical until you test them. (1) DEFINING (restrictive) — narrows down WHICH noun is meant; NO commas; the meaning is ESSENTIAL. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "RELATIVE clauses split into two categories that look identical until you test them.",
           },
         ],
@@ -2960,7 +2960,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “The four classic construction errors and how to fix each”.",
-            solution: "From the notes: Each error has a defined diagnostic and a defined fix. FRAGMENT â phrase or dependent clause written as a sentence. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Each error has a defined diagnostic and a defined fix. FRAGMENT — phrase or dependent clause written as a sentence. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Each error has a defined diagnostic and a defined fix.",
           },
         ],
@@ -3306,7 +3306,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Completion — four filters in order”.",
-            solution: "From the notes: Apply filters in this sequence for speed and accuracy. (1) GRAMMAR / SLOT: read the whole sentence and identify what kind of word fills the blank â noun, verb, adjective, adverb, preposition, conjunction. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Apply filters in this sequence for speed and accuracy. (1) GRAMMAR / SLOT: read the whole sentence and identify what kind of word fills the blank — noun, verb, adjective, adverb, preposition, conjunction. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Apply filters in this sequence for speed and accuracy.",
           },
         ],
@@ -3351,7 +3351,7 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “Five common paragraph patterns to recognise”.",
-            solution: "From the notes: Five patterns appear repeatedly in FPSC papers. (1) CHRONOLOGICAL: events in time order â Firstâ¦ Thenâ¦ Finally. Prefer the option that matches standard formal usage and the rule stated above.",
+            solution: "From the notes: Five patterns appear repeatedly in FPSC papers. (1) CHRONOLOGICAL: events in time order — First… Then… Finally. Prefer the option that matches standard formal usage and the rule stated above.",
             answer: "Five patterns appear repeatedly in FPSC papers.",
           },
         ],
@@ -3381,8 +3381,8 @@ export const topics: Topic[] = [
                 examples: [
           {
             problem: "Choose the option that correctly applies the idea in “How C3 connects to the rest of the module and the exam”.",
-            solution: "From the notes: C3 is the integrative chapter â it pulls together everything from C1, C2, and even Module A. Completion requires the phrase / clause diagnostic from C1 to identify the slot, and the error-fixing rules from C2 to detect problems in jumbled paragraphs. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "C3 is the integrative chapter â it pulls together everything from C1, C2, and even Module A.",
+            solution: "From the notes: C3 is the integrative chapter — it pulls together everything from C1, C2, and even Module A. Completion requires the phrase / clause diagnostic from C1 to identify the slot, and the error-fixing rules from C2 to detect problems in jumbled paragraphs. Prefer the option that matches standard formal usage and the rule stated above.",
+            answer: "C3 is the integrative chapter — it pulls together everything from C1, C2, and even Module A.",
           },
         ],
         shortcuts: [],
