@@ -835,97 +835,208 @@ export const topics: Topic[] = [
     "earth-c2",
   ],
 },
-
 // ═══════════════════════════════════════════════════════════════════
 // RA-5: Probability
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-probability",
   sectionId: "RA-05",
   order: 1,
   title: "Probability",
-  definition: "Probability quantifies the likelihood of an event, ranging from 0 (impossible) to 1 (certain). It can be defined classically (theoretical), empirically (relative frequency), or subjectively (judgment).",
+  definition:
+    "A number between 0 and 1 that quantifies how likely an event is. It may be assigned by equally likely outcomes (classical), by long-run relative frequency in data (empirical), or by reasoned judgment when data are scarce (subjective). Probability rules then combine events with OR, AND, and NOT.",
   keyFacts: [
-    "0 ≤ P(E) ≤ 1 for any event E",
-    "P(sure event) = 1; P(impossible event) = 0",
-    "P(A or B) = P(A) + P(B) − P(A and B) (inclusion-exclusion for non-mutually-exclusive events)",
-    "P(A and B) = P(A) × P(B) if A and B are INDEPENDENT",
-    "P(not A) = 1 − P(A) (complement rule)",
-    "CLASSICAL probability: P(E) = favorable outcomes / total outcomes (assumes equally likely outcomes, e.g., dice, cards)",
-    "EMPIRICAL probability: P(E) = (times E occurred) / (total trials). Based on observed data.",
-    "SUBJECTIVE probability: based on judgment/expert opinion (used when data is scarce)",
-    "INDEPENDENT events: one does not affect the other (e.g., coin flips)",
-    "MUTUALLY EXCLUSIVE events: cannot both occur (e.g., rolling a 1 AND a 6 on a single die)",
-    "Sample space: all possible outcomes of an experiment",
-    "Event: a subset of the sample space"
+    "For any event E: 0 ≤ P(E) ≤ 1",
+    "P(impossible) = 0; P(certain) = 1",
+    "Complement: P(not A) = 1 − P(A)",
+    "Addition (OR): P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+    "If A and B are mutually exclusive (cannot both occur): P(A ∪ B) = P(A) + P(B)",
+    "If A and B are independent: P(A ∩ B) = P(A) × P(B)",
+    "General AND (not necessarily independent): P(A ∩ B) = P(A) × P(B|A)",
+    "Classical: favourable / equally likely total outcomes (fair die, coin, simple cards)",
+    "Empirical: (times event occurred) / (number of trials) from observed data",
+    "Subjective: expert or personal degree of belief when outcomes are not equally likely and data are limited",
+    "Sample space: set of all possible outcomes; event: a subset of the sample space",
+    "Independent ≠ mutually exclusive (they are different ideas — often confused)",
   ],
   explanationSections: [
-    { heading: "Classical vs Empirical vs Subjective probability", body: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. EMPIRICAL probability is based on OBSERVED DATA: P(event) = (times it happened) / (total trials). This is what we use in real research where outcomes aren't equally likely. SUBJECTIVE probability is based on EXPERT JUDGMENT when data is scarce (e.g., 'what's the probability of a major earthquake in the next 10 years?'). The three types correspond to different epistemic situations." },
-    { heading: "The two fundamental rules — addition and multiplication", body: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. For MUTUALLY EXCLUSIVE events (cannot both occur), this simplifies to P(A) + P(B). MULTIPLICATION RULE (AND): P(A and B) = P(A) × P(B) when A and B are INDEPENDENT. If they're not independent, you need conditional probability. The complement rule P(not A) = 1 − P(A) is often the easiest way to solve 'at least one' problems." }
+    {
+      heading: "Three ways to assign probability",
+      body:
+        "Classical probability assumes a finite set of equally likely outcomes and is computed before seeing data (fair die: P(4) = 1/6). Empirical (frequentist) probability estimates chance from observed relative frequency — the workhorse of measurement and monitoring (e.g. fraction of rainy days in 30 years of records). Subjective probability expresses reasoned belief when neither symmetry nor ample data exist (e.g. probability of a rare policy shock). Exam stems often ask which definition fits the situation, not only a formula.",
+    },
+    {
+      heading: "OR and AND rules — and when they simplify",
+      body:
+        "OR adds probabilities but subtracts the intersection so outcomes in both sets are not double-counted: P(A or B) = P(A) + P(B) − P(A and B). If events cannot happen together (mutually exclusive), the intersection is empty and the formula collapses to a plain sum. AND multiplies only when independence holds: knowledge that A occurred does not change P(B). If dependence is possible, use conditional probability: P(A and B) = P(A) × P(B|A). Always decide exclusive vs independent from the story, not from the words ‘and’/‘or’ alone.",
+    },
+    {
+      heading: "Independence vs mutual exclusivity",
+      body:
+        "Mutually exclusive: both cannot occur on the same trial (roll a single die: ‘1’ and ‘6’ are exclusive). Independent: occurrence of one does not change the probability of the other (two fair coins). Exclusive non-trivial events are dependent, because if A happened, B became impossible — so P(B|A) = 0 ≠ P(B). Treating exclusive events as independent is a common exam trap.",
+    },
+    {
+      heading: "Complement trick for ‘at least one’",
+      body:
+        "P(at least one success in n independent trials) = 1 − P(zero successes). Computing the complement is usually shorter than summing many overlapping cases. Example: probability that at least one of three independent sensors fails = 1 − P(all work).",
+    },
   ],
   examPoints: [
-    "P ranges from 0 to 1",
-    "Classical: theoretical (equally likely outcomes); Empirical: observed data; Subjective: judgment",
-    "Addition: P(A or B) = P(A) + P(B) − P(A and B)",
-    "Multiplication for independent events: P(A and B) = P(A) × P(B)",
-    "Complement: P(not A) = 1 − P(A)"
+    "0 ≤ P ≤ 1; complement P(not A) = 1 − P(A)",
+    "Classical = equally likely theory; empirical = data frequency; subjective = judgment",
+    "P(A or B) = P(A) + P(B) − P(A and B); drop the last term only if mutually exclusive",
+    "P(A and B) = P(A)×P(B) only if independent; otherwise use P(A)×P(B|A)",
+    "Mutually exclusive ≠ independent",
+    "‘At least one’ → often 1 − P(none)",
   ],
   commonMistakes: [
-    "Using the multiplication rule for DEPENDENT events (it only works for independent events)",
-
-    "Forgetting to subtract P(A and B) in the addition rule for non-mutually-exclusive events",
-    "Confusing 'P(A or B)' with 'P(A and B)' — they are very different"
+    {
+      mistake: "Multiplying probabilities for dependent events as if independent",
+      correction: "Use conditional probability when one event changes the odds of the other.",
+      explanation: "Drawing two cards without replacement is dependent; with replacement (and reshuffle) can be independent.",
+    },
+    {
+      mistake: "Adding P(A) + P(B) for overlapping events without subtracting the intersection",
+      correction: "Always subtract P(A and B) unless exclusivity is given.",
+      explanation: "Double-counting the overlap pushes probability above the true value (sometimes above 1).",
+    },
+    {
+      mistake: "Calling mutually exclusive events independent",
+      correction: "If both cannot occur, learning that A occurred forces P(B|A) = 0.",
+      explanation: "Independence requires P(B|A) = P(B).",
+    },
   ],
-  relatedTopics: ["ra-inferential-stats", "ra-data-types", "ra-descriptive-statistics"],
-    subtopics: [
-      {
-        id: "ra-probability-classical-vs-empirical-vs-subjective-pro",
-        title: "Classical vs Empirical vs Subjective probability",
-        summary: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) =…",
-        explanation: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. EMPIRICAL probability is based on OBSERVED DATA: P(event) = (times it happened) / (total trials). This is what we use in real research where outcomes aren't equally likely. SUBJECTIVE probability is based on EXPERT JUDGMENT when data is scarce (e.g., 'what's the probability of a major earthquake in the next 10 years?'). The three types correspond to different epistemic situations.",
-                examples: [
-          {
-            problem: "Which statement best matches “Classical vs Empirical vs Subjective probability”?",
-            solution: "The accurate idea is: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Classical vs Empirical vs Subjective probability.",
-            solution: "Stay close to the text: CLASSICAL probability assumes equally likely outcomes (dice, coins, cards) — calculated BEFORE the experiment. P(rolling a 4 on a die) = 1/6. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-probability-the-two-fundamental-rules-addition-and-m",
-        title: "The two fundamental rules — addition and multiplication",
-        summary: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. For…",
-        explanation: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. For MUTUALLY EXCLUSIVE events (cannot both occur), this simplifies to P(A) + P(B). MULTIPLICATION RULE (AND): P(A and B) = P(A) × P(B) when A and B are INDEPENDENT. If they're not independent, you need conditional probability. The complement rule P(not A) = 1 − P(A) is often the easiest way to solve 'at least one' problems.",
-                examples: [
-          {
-            problem: "Which statement best matches “The two fundamental rules — addition and multiplication”?",
-            solution: "The accurate idea is: ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The two fundamental rules — addition and multiplication.",
-            solution: "Stay close to the text: ADDITION RULE (OR): P(A or B) = P(A) + P(B) − P(A and B). The subtraction of P(A and B) prevents double-counting when events overlap. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A fair coin is flipped twice. Are ‘first flip heads’ and ‘second flip heads’ independent? Mutually exclusive?",
+      answer: "Independent: yes. Mutually exclusive: no (both can be heads).",
+      why: "One flip does not change the other; both heads is possible.",
+    },
+    {
+      scenario:
+        "From 20 years of station data, rain occurred on 1461 days. What kind of probability is 1461/(20×365.25 approx.)?",
+      answer: "Empirical (relative frequency from observations).",
+      why: "It is estimated from recorded trials, not from a symmetry argument alone.",
+    },
+  ],
+  comparisonTable: {
+    title: "Assigning probability",
+    headers: ["Type", "Basis", "Typical setting"],
+    rows: [
+      ["Classical", "Equally likely outcomes", "Fair games, simple symmetric models"],
+      ["Empirical", "Observed relative frequency", "Monitoring, experiments, historical records"],
+      ["Subjective", "Judgment / expert belief", "Rare events, sparse data, one-off decisions"],
     ],
-
+  },
+  relatedTopics: ["ra-inferential-stats", "ra-data-types", "ra-descriptive-statistics"],
+  subtopics: [
+    {
+      id: "ra-probability-three-definitions",
+      title: "Classical, empirical, subjective",
+      summary:
+        "Match the probability concept to the information you actually have.",
+      explanation:
+        "Classical needs a clear, symmetric sample space. Empirical needs repeated observations under similar conditions. Subjective fills gaps when neither is available — and should be stated as such, not dressed up as precise frequency.",
+      examples: [
+        {
+          problem:
+            "P(drawing an ace from a well-shuffled standard deck) = 4/52. Which type?",
+          solution:
+            "Equally likely cards by construction → classical.",
+          answer: "Classical",
+        },
+        {
+          problem:
+            "An engineer says ‘I judge there’s a 30% chance this prototype fails the first field trial.’ Type?",
+          solution:
+            "Personal/expert degree of belief without a long frequency record → subjective.",
+          answer: "Subjective",
+        },
+      ],
+      shortcuts: [
+        "Symmetry → classical; data counts → empirical; judgment under uncertainty → subjective",
+      ],
+      traps: [
+        "Using classical 1/n when outcomes are not equally likely",
+        "Treating a one-time expert guess as a long-run frequency without comment",
+      ],
+    },
+    {
+      id: "ra-probability-addition-multiplication",
+      title: "Addition and multiplication rules",
+      summary:
+        "OR combines with care about overlap; AND multiplies only under independence (or uses conditionals).",
+      explanation:
+        "Write the events in words first, then choose the rule. Check exclusivity before dropping the intersection term; check independence before multiplying bare probabilities.",
+      examples: [
+        {
+          problem:
+            "P(A) = 0.3, P(B) = 0.5, P(A and B) = 0.1. Find P(A or B).",
+          solution:
+            "0.3 + 0.5 − 0.1 = 0.7.",
+          answer: "0.7",
+        },
+        {
+          problem:
+            "Two independent alarms each fail with probability 0.02. Probability both fail?",
+          solution:
+            "0.02 × 0.02 = 0.0004 (independence used).",
+          answer: "0.0004",
+        },
+        {
+          problem:
+            "Probability at least one of two independent alarms fails, each with fail probability 0.02?",
+          solution:
+            "1 − P(neither fails) = 1 − (0.98 × 0.98) = 1 − 0.9604 = 0.0396.",
+          answer: "0.0396",
+        },
+      ],
+      shortcuts: [
+        "OR: add, subtract overlap; AND: multiply if independent; at least one: 1 − P(none)",
+      ],
+      traps: [
+        "Forgetting to subtract P(A and B)",
+        "Multiplying for sampling without replacement without adjusting",
+      ],
+    },
+    {
+      id: "ra-probability-exclusive-vs-independent",
+      title: "Mutually exclusive vs independent",
+      summary:
+        "Cannot both happen vs one does not change the other’s probability.",
+      explanation:
+        "Exclusive is about joint possibility; independence is about information. Non-trivial exclusive events fail independence because P(B|A) = 0.",
+      examples: [
+        {
+          problem:
+            "On one roll of a fair die, events ‘even’ and ‘multiple of 3’. Exclusive? Independent?",
+          solution:
+            "Both can occur (6) → not exclusive. P(multiple of 3) = 2/6; P(multiple of 3 | even) = 1/3 → same, so independent in this fair-die model.",
+          answer: "Not exclusive; independent (for a fair die)",
+        },
+        {
+          problem:
+            "On one roll, ‘result is 2’ and ‘result is 5’. Exclusive? Independent?",
+          solution:
+            "Cannot both occur → exclusive. Then P(5|2) = 0 ≠ P(5) → not independent.",
+          answer: "Exclusive; not independent",
+        },
+      ],
+      shortcuts: [
+        "Exclusive → intersection empty; independent → P(B|A) = P(B)",
+      ],
+      traps: [
+        "Assuming exclusive events can be multiplied as independent",
+        "Assuming any two named events on different trials are exclusive",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "math-8-2"],
   leadsTo: ["ra-inferential-stats"],
-  usedIn: ["ra-inferential-stats", "meteo-forecast-skill", "meteo-extreme-events"]
+  usedIn: ["ra-inferential-stats", "meteo-forecast-skill", "meteo-extreme-events"],
 },
 
 // ═══════════════════════════════════════════════════════════════════
