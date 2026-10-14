@@ -13,161 +13,543 @@ export const topics: Topic[] = [
 // A1 — Parts of Speech & Tenses
 // --------------------------------------------------------------------------
 {
-  id: 'english-parts-of-speech-and-tenses',
-  sectionId: 'ENG-01',
+  id: "english-parts-of-speech-and-tenses",
+  sectionId: "ENG-01",
   order: 1,
-  title: 'Parts of Speech & Tenses',
+  title: "Parts of Speech & Tenses",
   definition:
-    'Parts of speech classify every word by the job it does in a sentence. Tenses are the verb forms that locate an action or state in time and show its aspect (simple, continuous, perfect, or perfect continuous).',
+    "Parts of speech classify every word by the job it does in a sentence. Tenses are verb forms that locate an action or state in time and mark aspect (simple, continuous, perfect, perfect continuous). Master both maps before agreement, voice, narration, or error-spotting.",
+
   keyFacts: [
-    'Eight parts of speech: noun, pronoun, verb, adjective, adverb, preposition, conjunction, interjection. Determiner is often treated as a ninth.',
-    'Noun — names a person, place, thing or idea. Countable vs uncountable; common vs proper; singular vs plural.',
-    'Pronoun — stands in for a noun. Must match its antecedent in number, gender and case.',
-    'Verb — expresses action or state. Carries tense, voice and mood.',
-    'Adjective — modifies a noun. Usually before the noun or after a linking verb.',
-    'Adverb — modifies a verb, an adjective or another adverb. Position can change meaning.',
-    'Preposition — relates a noun/pronoun to another word (time, place, direction). Many form fixed phrases.',
-    'Conjunction — joins words, phrases or clauses (coordinating, subordinating, correlative).',
-    'Interjection — sudden emotion (oh, alas). Rarely tested in formal papers.',
-    'Twelve core tenses: three times (past, present, future) × four aspects (simple, continuous, perfect, perfect continuous).',
-    'Highest-yield pairs: present simple vs continuous; past simple vs past perfect; present perfect vs past simple.',
-    'Stative verbs (know, believe, want, like, own, seem, contain) almost never take continuous forms.',
-    'for + duration (for five years); since + starting point in the past (since 2010, since Monday).',
-    'Reported-speech back-shift (past reporting verb): present → past, past → past perfect, will → would.',
-    'Pronouns shift to third person in reported speech (I → he/she; we → they).',
-    'Time/place markers shift: here → there, now → then, today → that day, yesterday → the day before.'
-  ],
-  explanationSections: [
-    {
-      heading: 'Parts of speech as the diagnostic tool',
-      body: 'Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the diagnosis fails. The categories themselves are simple; the skill is applying them under pressure. The diagnostic: (1) Can you put "the" in front? → noun. (2) Can it be replaced by he/she/it? → pronoun. (3) Can you add -s for present? → verb. (4) Does it describe a noun? → adjective. (5) Does it answer how/when/where/how much? → adverb.'
-    },
-    {
-      heading: 'The three tense pairs that matter most',
-      body: 'Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus past perfect (earlier than another past action). Present perfect (past action with present relevance) versus past simple (finished past with no present link). Time markers help: since, for, yet, already, recently, so far → present perfect; yesterday, ago, last week, in 1995 → past simple. These three contrasts generate the large majority of tense questions.'
-    },
-    {
-      heading: 'Stative verbs',
-      body: 'Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain. "I am knowing the answer" is almost always wrong. The diagnostic: if the verb expresses a state you can substitute "have" or "understand" for, it is stative and cannot take -ing. Note: stative verbs CAN appear in other tenses (have known, knew, will know, knew) — they only refuse the continuous aspect.'
-    },
-    {
-      heading: 'for and since',
-      body: 'for measures duration (for five years). since marks the starting point (since 2010, since Monday). Both normally take present perfect or present perfect continuous when the situation continues to the present. The diagnostic: can you put a duration number in front? → for. Is it a calendar date or named event? → since. "I have lived here since 2010" (point in past); "I have lived here for fourteen years" (duration).'
-    },
-    {
-      heading: 'Link to the rest of the module',
-      body: 'Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries. Modals, voice and narration (A4) rest on verb forms. Common-error items (A5) recycle every preceding rule. A1 is therefore the foundation, not an optional first chapter — without secure identification of verb and tense, no later rule can be applied.'
-    }
-  ],
-  examPoints: [
-    'Label the part of speech of a highlighted word.',
-    'Choose the correct tense, especially the three high-yield pairs.',
-    'Reject continuous forms of stative verbs.',
-    'Use for / since correctly with present perfect.',
-    'Apply the mechanical tense shift in reported speech.'
-  ],
-  commonMistakes: [
-    '"Since 2010 Pakistan is facing floods" → "Since 2010 Pakistan has been facing floods".',
-    '"I am knowing the answer" → "I know the answer".',
-    '"He has went home" → "He has gone home".',
-    '"She is living here since 2015" → "She has been living here since 2015".'
+    "Eight classical classes: noun, pronoun, verb, adjective, adverb, preposition, conjunction, interjection (+ determiners as a practical ninth)",
+    "Noun types: common/proper, countable/uncountable, concrete/abstract, collective; number (singular/plural)",
+    "Pronoun types: personal, possessive, reflexive/emphatic, demonstrative, relative, interrogative, indefinite; case = subject vs object",
+    "Verb: main vs auxiliary; linking vs action; transitive vs intransitive; finite vs non-finite (infinitive, -ing, past participle)",
+    "Adjective: attributive vs predicative; order before nouns; comparative/superlative forms",
+    "Adverb: manner, time, place, frequency, degree; modifies verb/adjective/adverb — not nouns",
+    "Preposition: time, place, direction, agency, instrument; always needs a nominal object in standard use",
+    "Conjunction: coordinating (FANBOYS), subordinating, correlative pairs",
+    "Twelve tenses: 3 times × 4 aspects; form from auxiliaries + main-verb shape",
+    "Stative verbs resist continuous aspect",
+    "for = duration; since = starting point (usually + present perfect if still true now)",
+    "Reported speech: back-shift tenses, pronouns, and time/place words after a past reporting verb",
   ],
 
-    subtopics: [
-      {
-        id: "english-parts-of-speech-and-tenses-parts-of-speech-as-the-diagnostic-tool",
-        title: "Parts of speech as the diagnostic tool",
-        summary: "Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the…",
-        explanation: "Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the diagnosis fails. The categories themselves are simple; the skill is applying them under pressure. The diagnostic: (1) Can you put ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Parts of speech as the diagnostic tool”.",
-            solution: "From the notes: Every error-spotting or correction item begins with recognising what each word is doing. Mislabel an adverb as an adjective and the diagnosis fails. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Every error-spotting or correction item begins with recognising what each word is doing.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-parts-of-speech-and-tenses-the-three-tense-pairs-that-matter-most",
-        title: "The three tense pairs that matter most",
-        summary: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus…",
-        explanation: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus past perfect (earlier than another past action). Present perfect (past action with present relevance) versus past simple (finished past with no present link). Time markers help: since, for, yet, already, recently, so far → present perfect; yesterday, ago, last week, in 1995 → past simple. These three contrasts generate the large majority of tense questions.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “The three tense pairs that matter most”.",
-            solution: "From the notes: Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary). Past simple (finished action) versus past perfect (earlier than another past action). Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Present simple (habit, fact, permanent state) versus present continuous (happening now or temporary).",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-parts-of-speech-and-tenses-stative-verbs",
-        title: "Stative verbs",
-        summary: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own,…",
-        explanation: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Stative verbs”.",
-            solution: "From the notes: Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Verbs of mental state, emotion, possession and appearance resist the continuous: know, understand, believe, want, like, prefer, own, belong, seem, appear, consist, contain.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-parts-of-speech-and-tenses-for-and-since",
-        title: "for and since",
-        summary: "for measures duration (for five years). since marks the starting point (since 2010, since Monday). Both normally take present perfect or…",
-        explanation: "for measures duration (for five years). since marks the starting point (since 2010, since Monday). Both normally take present perfect or present perfect continuous when the situation continues to the present. The diagnostic: can you put a duration number in front? → for. Is it a calendar date or named event? → since. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “for and since”.",
-            solution: "From the notes: for measures duration (for five years). since marks the starting point (since 2010, since Monday). Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "for measures duration (for five years).",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-parts-of-speech-and-tenses-link-to-the-rest-of-the-module",
-        title: "Link to the rest of the module",
-        summary: "Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries.…",
-        explanation: "Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries. Modals, voice and narration (A4) rest on verb forms. Common-error items (A5) recycle every preceding rule. A1 is therefore the foundation, not an optional first chapter — without secure identification of verb and tense, no later rule can be applied.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Link to the rest of the module”.",
-            solution: "From the notes: Agreement (A2) needs accurate identification of subjects. Pronoun and conjunction work (A3) needs antecedents and clause boundaries. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Agreement (A2) needs accurate identification of subjects.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  explanationSections: [
+    {
+      heading: "The only diagnostic that matters",
+      body:
+        "Ask: what job is this word doing here? The same spelling can change class (light = noun/verb/adjective). Exam items punish labels taken from memory instead of from function in the sentence.",
+    },
+    {
+      heading: "How the twelve tenses are built",
+      body:
+        "Simple: base / -s / -ed (or irregular). Continuous: be + -ing. Perfect: have + past participle. Perfect continuous: have been + -ing. Future often uses will (or be going to). Learn the pattern once; then only the time meaning changes.",
+    },
+  ],
+
+  examPoints: [
+    "Name the part of speech from function, not from a word list alone",
+    "Noun countability and article consequences",
+    "Pronoun case after prepositions and in compounds (you and me)",
+    "Adjective vs adverb (good/well; careful/carefully; friendly ≠ adverb)",
+    "All twelve tense forms and the three highest-yield contrasts",
+    "Stative verbs; for/since; reported-speech shifts",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "She drives careful / She is knowing it / He has went / Since 2010 it is raining / She said she will come tomorrow",
+      correction:
+        "carefully / knows / has gone / has been raining / she would come the next day",
+      explanation:
+        "Adverb needed; stative ban on continuous; past participle after have; since needs perfect; past reporting verb triggers back-shift.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Word-class jobs",
+    headers: ["Class", "Core job", "Minimal example"],
+    rows: [
+      ["Noun", "Names", "officer, Lahore, honesty"],
+      ["Pronoun", "Replaces a noun phrase", "she, them, anyone"],
+      ["Verb", "Action or state", "writes, is, have finished"],
+      ["Adjective", "Modifies a noun", "young officer"],
+      ["Adverb", "Modifies verb/adj/adv", "answered clearly"],
+      ["Preposition", "Relates to a noun object", "in the room"],
+      ["Conjunction", "Joins units", "and, because, either…or"],
+      ["Interjection", "Emotion", "oh!, alas!"],
+      ["Determiner", "Limits a noun", "the, a, some, every"],
     ],
+  },
+
+  subtopics: [
+    // ─── PARTS OF SPEECH ───
+    {
+      id: "english-a1-nouns",
+      title: "Nouns — complete map",
+      summary:
+        "Types, countability, number, and the article traps that follow.",
+      explanation:
+        "A noun names a person, place, thing, or idea.\n\n" +
+        "Common vs proper: city vs Lahore; teacher vs Ali. Proper nouns take capitals.\n\n" +
+        "Countable vs uncountable: countable nouns allow a/an and plurals (a file, files). Uncountable nouns name masses or abstracts and do not take a/an or normal plurals in standard formal English: information, advice, furniture, luggage, equipment, research, news, progress, homework. Use some, much, a piece of, an item of.\n\n" +
+        "Concrete vs abstract: desk vs honesty; rainfall vs justice.\n\n" +
+        "Collective: team, committee, government, family — singular in form; verb agreement depends on whether the group acts as one unit or as individuals (full rule in A2).\n\n" +
+        "Number: regular plurals add -s/-es; learn high-frequency irregulars (child/children, phenomenon/phenomena, criterion/criteria, analysis/analyses). Some nouns look plural but are singular in agreement (news, mathematics, measles).",
+      examples: [
+        {
+          problem: "Correct: “She gave me an advice.”",
+          solution: "advice is uncountable → some advice / a piece of advice.",
+          answer: "some advice / a piece of advice",
+        },
+        {
+          problem: "Correct: “The news are good.”",
+          solution: "news is singular → The news is good.",
+          answer: "The news is good",
+        },
+        {
+          problem: "Countable or not? equipment / report",
+          solution: "equipment uncountable; report countable.",
+          answer: "uncountable / countable",
+        },
+      ],
+      shortcuts: [
+        "a/an only with singular countable nouns",
+        "advice, information, furniture, luggage, research, news → uncountable",
+      ],
+      traps: [
+        "an information; many furnitures; these news are…",
+      ],
+    },
+    {
+      id: "english-a1-pronouns",
+      title: "Pronouns — complete map",
+      summary:
+        "All major types, case, and antecedent matching (A3 adds advanced drills).",
+      explanation:
+        "A pronoun stands in for a noun phrase and must match its antecedent in number and, where relevant, gender and person.\n\n" +
+        "Personal: I/you/he/she/it/we/they (subject); me/you/him/her/it/us/them (object).\n" +
+        "Possessive determiners vs pronouns: my/your/his/her/its/our/their (before a noun) vs mine/yours/his/hers/ours/theirs (stand alone). its = possessive; it’s = it is.\n" +
+        "Reflexive/emphatic: myself, yourself, himself… — must refer back to the same subject (She blamed herself, not She blamed me myself).\n" +
+        "Demonstrative: this/that/these/those.\n" +
+        "Relative: who (people, subject), whom (object, formal), which (things), that (people or things in defining clauses), whose (possession).\n" +
+        "Interrogative: who, whom, whose, which, what.\n" +
+        "Indefinite: someone, anyone, everyone, no one, something, each, either, neither, both, few, many, all, none.\n\n" +
+        "Case rule that always appears: after a preposition use the object form (between you and me, not I). In compounds, test by dropping the other noun: “Ali and ___ went” → I; “They invited Ali and ___” → me.",
+      examples: [
+        {
+          problem: "Between you and ___ (I/me).",
+          solution: "Object of between → me.",
+          answer: "me",
+        },
+        {
+          problem: "its or it’s? “The committee published ___ report.”",
+          solution: "possessive → its.",
+          answer: "its",
+        },
+        {
+          problem: "who or whom (formal)? “The officer ___ we met.”",
+          solution: "object of met → whom (formal exams).",
+          answer: "whom",
+        },
+      ],
+      shortcuts: [
+        "After preposition → me/him/us/them",
+        "it’s = it is; its = belonging to it",
+        "Drop the other name to test I vs me",
+      ],
+      traps: [
+        "between you and I; it’s policy; who as object in formal keys without checking",
+      ],
+    },
+    {
+      id: "english-a1-verbs",
+      title: "Verbs — complete map",
+      summary:
+        "Main/auxiliary, linking, transitive/intransitive, finite/non-finite.",
+      explanation:
+        "Main verbs carry lexical meaning (write, exist, become).\n\n" +
+        "Auxiliary verbs help build structure: primary auxiliaries be, have, do; modal auxiliaries will, would, can, could, may, might, shall, should, must, ought to (modals in depth in A4).\n\n" +
+        "Linking verbs connect subject to a complement that describes the subject: be, seem, become, appear, feel, look, sound, taste, remain. After linking verbs use an adjective, not an adverb of manner: She seems happy (not happily).\n\n" +
+        "Transitive verbs take a direct object (She drafted the memo). Intransitive verbs do not (He arrived; They slept). Some verbs allow both patterns with different meanings (She runs every day / She runs a team).\n\n" +
+        "Finite verbs are marked for tense and agree with the subject. Non-finite forms do not carry full tense alone: to write (infinitive), writing (-ing/gerund/participle), written (past participle). Participles and infinitives feed voice and narration later.",
+      examples: [
+        {
+          problem: "Linking or action? “She looked tired.” / “She looked at the map.”",
+          solution: "tired describes subject → linking + adjective; at the map → action verb + prepositional phrase.",
+          answer: "linking / action",
+        },
+        {
+          problem: "Transitive or not? “They discussed.”",
+          solution: "discuss is transitive — needs an object: discussed the plan.",
+          answer: "transitive (needs object)",
+        },
+        {
+          problem: "Name the auxiliary: “Has the team been informed?”",
+          solution: "Has and been help build present perfect passive; informed is the main past participle.",
+          answer: "has, been (auxiliaries)",
+        },
+      ],
+      shortcuts: [
+        "be/seem/become/look/feel + description of subject → adjective, not -ly adverb",
+        "ask “verb what/whom?” — if needed, transitive",
+      ],
+      traps: [
+        "She looked happily when look is linking; omitting objects of transitive verbs",
+      ],
+    },
+    {
+      id: "english-a1-adjectives",
+      title: "Adjectives — complete map",
+      summary:
+        "Position, order, comparison, and quantifiers that behave like adjectives.",
+      explanation:
+        "Adjectives modify nouns or, after linking verbs, describe the subject.\n\n" +
+        "Attributive: before the noun (a careful analysis). Predicative: after linking verb (The analysis is careful).\n\n" +
+        "Typical order when several adjectives stack: opinion → size → age → shape → colour → origin → material → purpose + noun (a useful small old round brown Turkish wooden jewellery box) — exams rarely stack all, but unnatural order is tested.\n\n" +
+        "Comparison: short adjectives often take -er/-est (clearer, clearest); longer ones take more/most (more careful, most careful). Irregulars: good/better/best; bad/worse/worst; far/farther|further/farthest|furthest; little/less/least; many|much/more/most.\n\n" +
+        "Do not double-mark: more clearer is wrong. Use than in comparisons (clearer than), not then.\n\n" +
+        "Some -ed/-ing pairs change meaning: interested vs interesting; bored vs boring — the -ed form usually describes the experiencer’s feeling; -ing describes the cause.",
+      examples: [
+        {
+          problem: "Correct: “This is more better.”",
+          solution: "Irregular comparative is better — drop more.",
+          answer: "This is better",
+        },
+        {
+          problem: "Choose: “I am ___ in the topic; the lecture is ___.” (interested/interesting)",
+          solution: "interested (experiencer); interesting (cause).",
+          answer: "interested / interesting",
+        },
+      ],
+      shortcuts: [
+        "one-syllable → often -er/-est; long → more/most",
+        "never more + -er together",
+        "-ed = how someone feels; -ing = what causes the feeling",
+      ],
+      traps: [
+        "more clearer; gooder; I am interesting in…",
+      ],
+    },
+    {
+      id: "english-a1-adverbs",
+      title: "Adverbs — complete map",
+      summary:
+        "Types, position, adjective look-alikes, and intensifiers.",
+      explanation:
+        "Adverbs modify verbs, adjectives, or other adverbs — never nouns.\n\n" +
+        "Manner (how): carefully, well, fast. Time (when): yesterday, soon, already. Place (where): here, outside. Frequency (how often): always, often, never. Degree (how much): very, too, enough, almost, quite.\n\n" +
+        "Formation: many adjectives + -ly → adverb (quick → quickly). Exceptions and traps: good → well; hard → hard (hardly means almost not); late → late (lately means recently); high → high (highly means very); friendly, lively, lonely, lovely remain adjectives.\n\n" +
+        "Position: frequency adverbs often before the main verb but after be (She always arrives; She is always late). Degree adverbs sit before the word they intensify (very clear; almost finished). enough follows the adjective (clear enough).\n\n" +
+        "hard vs hardly, near vs nearly, late vs lately are high-yield exam pairs.",
+      examples: [
+        {
+          problem: "Choose: “She works ___.” (hard / hardly)",
+          solution: "hard = with effort; hardly = almost not.",
+          answer: "hard (if meaning ‘with effort’)",
+        },
+        {
+          problem: "Correct: “She drives careful.”",
+          solution: "Adverb needed → carefully.",
+          answer: "carefully",
+        },
+        {
+          problem: "Is friendly an adverb of manner?",
+          solution: "No — adjective (a friendly note).",
+          answer: "No — adjective",
+        },
+      ],
+      shortcuts: [
+        "modifies verb → adverb; modifies noun → adjective",
+        "good→well; hard≠hardly; late≠lately",
+      ],
+      traps: [
+        "drives careful; hardly worked meaning ‘worked hard’; a friendly spoke",
+      ],
+    },
+    {
+      id: "english-a1-prepositions",
+      title: "Prepositions — complete map",
+      summary:
+        "Core meanings, time/place grids, and fixed patterns (A3 expands lists).",
+      explanation:
+        "A preposition relates its object (noun, pronoun, gerund) to another word.\n\n" +
+        "Time grid: at + clock time / night / weekend (BrE often); on + day/date; in + month/year/period/morning. in 2020, on Monday, at 5 p.m.\n\n" +
+        "Place grid: at + point; on + surface; in + enclosure/area. at the station, on the table, in the room / in Pakistan.\n\n" +
+        "Direction/movement: to, into, onto, from, towards, through, across, along, up, down.\n\n" +
+        "Other frequent relations: by (agent/means), with (instrument/accompaniment), about (topic), of (possession/part), for (purpose/benefit/duration), over/under, between (two) / among (more than two).\n\n" +
+        "Never leave a preposition without an object in standard formal prose (*She is fond of.). Many verb+preposition and adjective+preposition pairs are fixed (depend on, interested in, good at, afraid of) — treat them as vocabulary units.",
+      examples: [
+        {
+          problem: "in / on / at: “___ Monday”, “___ 2024”, “___ 9 a.m.”",
+          solution: "on Monday; in 2024; at 9 a.m.",
+          answer: "on / in / at",
+        },
+        {
+          problem: "between or among? “the border ___ the two districts”",
+          solution: "two → between.",
+          answer: "between",
+        },
+        {
+          problem: "Correct: “She is interested on climate.”",
+          solution: "interested in.",
+          answer: "interested in",
+        },
+      ],
+      shortcuts: [
+        "at time-point; on day/date; in longer period",
+        "between two; among several",
+        "memorise verb+prep pairs as chunks",
+      ],
+      traps: [
+        "in Monday; discuss about (discuss already includes topic); interested on",
+      ],
+    },
+    {
+      id: "english-a1-conjunctions",
+      title: "Conjunctions — complete map",
+      summary:
+        "Coordinating, subordinating, correlative — and what each joins.",
+      explanation:
+        "Conjunctions join words, phrases, or clauses.\n\n" +
+        "Coordinating (FANBOYS): for, and, nor, but, or, yet, so — join equal units. Comma before the coordinator when joining independent clauses is standard in formal writing.\n\n" +
+        "Subordinating: introduce dependent clauses — because, although, though, since, if, unless, when, while, before, after, until, as, whereas, so that, in order that, whether. The dependent clause cannot stand alone as a full sentence.\n\n" +
+        "Correlative pairs must stay balanced: either…or, neither…nor, both…and, not only…but also, whether…or. Whatever structure follows the first member should match what follows the second (parallelism).\n\n" +
+        "Same word, two classes: after the meeting (preposition + noun) vs after she left (conjunction + clause).",
+      examples: [
+        {
+          problem: "Join correctly: “It rained. The match continued.” (contrast)",
+          solution: "It rained, but the match continued. / Although it rained, the match continued.",
+          answer: "but / although…",
+        },
+        {
+          problem: "Fix parallelism: “She is not only smart but also works hard.”",
+          solution: "not only smart but also hard-working — adjective || adjective.",
+          answer: "not only smart but also hard-working",
+        },
+      ],
+      shortcuts: [
+        "FANBOYS join equals",
+        "subordinator → dependent clause",
+        "correlatives demand parallel structure",
+      ],
+      traps: [
+        "comma splice with no coordinator; broken not only…but also balance",
+      ],
+    },
+    {
+      id: "english-a1-interjections-determiners",
+      title: "Interjections and determiners",
+      summary:
+        "Emotion words; noun-phrase limiters (articles fully in A2).",
+      explanation:
+        "Interjections express emotion or reaction and sit outside core clause structure: oh, ah, alas, wow, ouch. Rare in formal exam answers except as identification items.\n\n" +
+        "Determiners introduce and limit noun phrases: articles (a, an, the), demonstratives (this, that, these, those), possessives (my, her, their), quantifiers (some, any, no, every, each, either, neither, much, many, few, little, several, all, both). They are not adjectives: adjectives describe; determiners specify which/how many. Article choice (a/an/the/zero) is trained in depth in A2.",
+      examples: [
+        {
+          problem: "Class of each: “Alas, the two reports disagree.”",
+          solution: "Alas = interjection; the = determiner; two = determiner/numeral; reports = noun.",
+          answer: "interjection / determiner / determiner / noun",
+        },
+      ],
+      shortcuts: [
+        "interjection ≠ grammatical relation inside the clause",
+        "determiner limits; adjective describes",
+      ],
+      traps: [
+        "calling the an adjective",
+      ],
+    },
+
+    // ─── TENSES ───
+    {
+      id: "english-a1-tense-grid",
+      title: "All twelve tenses — forms and core meanings",
+      summary:
+        "Full time × aspect grid with formation and primary use.",
+      explanation:
+        "PRESENT\n" +
+        "• Simple (write/writes): habits, facts, permanent states, scheduled futures (The train leaves at 6).\n" +
+        "• Continuous (am/is/are writing): action in progress now; temporary situations; near-future plans.\n" +
+        "• Perfect (have/has written): past action with present relevance; experience; unfinished time periods (today, this year).\n" +
+        "• Perfect continuous (have/has been writing): duration up to now; recent ongoing activity with present effect.\n\n" +
+        "PAST\n" +
+        "• Simple (wrote): finished past time; sequence of past events; past habits (with used to / would in narrative).\n" +
+        "• Continuous (was/were writing): past action in progress; background to another past event.\n" +
+        "• Perfect (had written): earlier than another past moment — the “past of the past”.\n" +
+        "• Perfect continuous (had been writing): duration up to a past point.\n\n" +
+        "FUTURE\n" +
+        "• Simple (will write): prediction, promise, spontaneous decision; also shall in formal first person (rare in modern keys).\n" +
+        "• Continuous (will be writing): action in progress at a future time.\n" +
+        "• Perfect (will have written): completed before a future deadline.\n" +
+        "• Perfect continuous (will have been writing): duration up to a future point.\n\n" +
+        "be going to marks prior intention or evidence-based prediction (Look at those clouds — it’s going to rain).",
+      examples: [
+        {
+          problem: "By next June she ___ the course. (complete)",
+          solution: "will have completed — future perfect before a deadline.",
+          answer: "will have completed",
+        },
+        {
+          problem: "This time tomorrow we ___ to Karachi. (fly)",
+          solution: "will be flying — future continuous.",
+          answer: "will be flying",
+        },
+        {
+          problem: "I ___ letters all morning when you rang. (write)",
+          solution: "had been writing — duration before a past moment.",
+          answer: "had been writing",
+        },
+      ],
+      shortcuts: [
+        "have + V3 → perfect; be + V-ing → continuous; both → perfect continuous",
+        "will have + V3 → done before a future point",
+      ],
+      traps: [
+        "using present continuous for permanent facts; past simple where past perfect is required for sequence",
+      ],
+    },
+    {
+      id: "english-a1-tense-pairs",
+      title: "Highest-yield tense contrasts",
+      summary:
+        "The three pairs that dominate MCQs, plus marker lists.",
+      explanation:
+        "1) Present simple vs continuous: habits/facts vs now/temporary. She works in Islamabad (job) vs She is working from home this week (temporary).\n\n" +
+        "2) Past simple vs past perfect: finished past vs earlier past. When we arrived, the briefing had started.\n\n" +
+        "3) Present perfect vs past simple: present link vs closed past. She has submitted the form (relevance now) vs She submitted it yesterday (time finished).\n\n" +
+        "Marker lists\n" +
+        "→ past simple: yesterday, ago, last…, in 2019, when + past.\n" +
+        "→ present perfect: since, for (continuing), yet, already, just, ever, never, so far, recently, lately, this week (still open).\n" +
+        "→ past perfect: before, after, already, by the time + past anchor.",
+      examples: [
+        {
+          problem: "I ___ the email yesterday. (send)",
+          solution: "sent — past simple + yesterday.",
+          answer: "sent",
+        },
+        {
+          problem: "I ___ the email already. (send)",
+          solution: "have sent — present perfect + already.",
+          answer: "have sent",
+        },
+        {
+          problem: "The room was empty; everyone ___. (leave)",
+          solution: "had left — earlier past explaining the state.",
+          answer: "had left",
+        },
+      ],
+      shortcuts: [
+        "finished time word → past simple",
+        "since/for/yet/already/ever → present perfect family",
+        "two past times → earlier one often past perfect",
+      ],
+      traps: [
+        "Since 2018 she works…; I have seen him yesterday",
+      ],
+    },
+    {
+      id: "english-a1-stative-for-since",
+      title: "Stative verbs; for and since",
+      summary:
+        "Why some verbs reject -ing; duration vs starting point.",
+      explanation:
+        "Stative verbs describe states, not deliberate processes. Common set: know, understand, realise, believe, remember, forget, mean, doubt, want, need, prefer, like, love, hate, own, belong, possess, seem, appear, consist of, contain, include, owe, deserve, cost, weigh (in measurement sense).\n\n" +
+        "Prefer simple forms: I understand (not am understanding) in formal exam English. Some verbs are dual: think (opinion = stative; consider actively = continuous); have (possess = stative; take/experience = continuous: having lunch).\n\n" +
+        "for + length of time (for six months). since + starting point (since March, since she joined). If the situation still holds, use present perfect / present perfect continuous: has lived / has been living — not present simple with since.",
+      examples: [
+        {
+          problem: "I ___ what you mean. (understand)",
+          solution: "understand — stative.",
+          answer: "understand",
+        },
+        {
+          problem: "She has worked here ___ 2019 / ___ six years.",
+          solution: "since 2019; for six years.",
+          answer: "since / for",
+        },
+      ],
+      shortcuts: [
+        "state → simple aspect",
+        "period → for; point → since",
+      ],
+      traps: [
+        "I am knowing; since 2010 Pakistan is facing…",
+      ],
+    },
+    {
+      id: "english-a1-reported-speech",
+      title: "Reported speech — full shift table",
+      summary:
+        "Tense, modal, pronoun, and time/place conversions after past reporting verbs.",
+      explanation:
+        "When the reporting verb is past (said, told, asked), convert systematically:\n\n" +
+        "Tense: present simple → past simple; present continuous → past continuous; present perfect → past perfect; past simple → past perfect; will → would; can → could; may → might; must → had to (often).\n\n" +
+        "Pronouns: first/second person shift to match the new speaker/listener perspective (I → he/she; my → his/her; you → I/he/they as context requires).\n\n" +
+        "Adverbs: now → then; today → that day; tomorrow → the next day / the following day; yesterday → the day before / the previous day; here → there; this → that; these → those; last week → the week before; next year → the following year; ago → before.\n\n" +
+        "Commands: told + object + to-infinitive (He told me to wait). Yes/No questions: asked if/whether + clause. Wh- questions: asked + wh-word + clause (no auxiliary inversion).\n\n" +
+        "If the reporting verb is present (says), back-shift is often optional — exam keys usually use past said/told.",
+      examples: [
+        {
+          problem: "She said, “I am busy now.” →",
+          solution: "She said (that) she was busy then.",
+          answer: "she was busy then",
+        },
+        {
+          problem: "He said, “I will submit it tomorrow.” →",
+          solution: "He said (that) he would submit it the next day.",
+          answer: "he would submit it the next day",
+        },
+        {
+          problem: "She asked, “Where do you work?” →",
+          solution: "She asked where I worked (no do-inversion).",
+          answer: "where I worked",
+        },
+      ],
+      shortcuts: [
+        "one tense step back after said/told",
+        "will→would; today→that day; tomorrow→the next day",
+        "reported questions: statement word order",
+      ],
+      traps: [
+        "keeping will after said; retaining question inversion in reported questions",
+      ],
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Full parse: “Alas, the young officers have been working carefully since Monday.”",
+      answer:
+        "Alas interjection; the determiner; young adjective; officers noun; have been working present perfect continuous verb phrase; carefully adverb; since preposition; Monday noun/proper.",
+      why: "Every class appears in one exam-style sentence.",
+    },
+    {
+      scenario: "Transform: “I finished the draft yesterday,” she said.",
+      answer: "She said (that) she had finished the draft the day before.",
+      why: "Past simple → past perfect; yesterday → the day before; pronoun shift.",
+    },
+  ],
+
   relatedTopics: [
-    'english-agreement-and-articles',
-    'english-pronouns-prepositions-conjunctions',
-    'english-modals-voice-narration',
-    'english-common-errors'
+    "english-agreement-and-articles",
+    "english-pronouns-prepositions-conjunctions",
+    "english-modals-voice-narration",
+    "english-common-errors",
   ],
   content: true,
-  examScope: ['bs17', 'bs16'],
+  examScope: ["bs17", "bs16"],
   buildsOn: [],
   leadsTo: [
-    'english-agreement-and-articles',
-    'english-pronouns-prepositions-conjunctions'
+    "english-agreement-and-articles",
+    "english-pronouns-prepositions-conjunctions",
   ],
   usedIn: [
-    'english-common-errors',
-    'english-sentence-building-blocks',
-    'ra-scientific-reporting'
-  ]
+    "english-common-errors",
+    "english-sentence-building-blocks",
+    "ra-scientific-reporting",
+  ],
 },
 // --------------------------------------------------------------------------
 // A2 — Subject-Verb Agreement & Articles
