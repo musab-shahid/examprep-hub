@@ -3897,56 +3897,119 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 1,
   title: "Air Masses & Frontal Boundaries",
-  definition: "An air mass is a large body of air with relatively uniform temperature and moisture inherited from its source region (c/m × T/P/A coding). Fronts are sloping boundaries between air masses: cold fronts are typically steeper with narrower, more convective bands; warm fronts are gentler with broader stratiform shield ahead. The front type sets the passage sequence of wind, temperature, dew point, and pressure.",
+  definition:
+    "An air mass is a large body of air with fairly uniform temperature and moisture, stamped by the surface it sat over for a long time. Fronts are the sloping boundaries where two different air masses meet. Cold fronts are usually steeper and bring a narrower, sharper weather band; warm fronts are gentler and spread cloud and rain over a wider area ahead of the surface front.",
+
   keyFacts: [
-    "Coding: c/m = continental/maritime; T/P/A = tropical/polar/arctic",
-    "Cold front: cold air advances — often narrow band of sharper weather",
-    "Warm front: warm air advances — broader cloud/precip shield ahead",
-    "Stationary front: little movement; rain can persist",
-    "Occluded front: cold front catches warm front in cyclone maturation"
+    "Air-mass code: first letter moisture (c = continental/dry, m = maritime/moist); second letter temperature (T = tropical/warm, P = polar/cold, A = arctic/very cold)",
+    "Examples: cP = cold dry; mT = warm moist; mP = cool moist",
+    "Cold front: colder air advances and undercuts warmer air — often a narrow band of sharper weather",
+    "Warm front: warmer air advances and rides up over colder air — broader cloud/precip shield ahead",
+    "Stationary front: little movement; rain can linger",
+    "Occluded front: cold front catches the warm front as a mid-latitude cyclone matures",
+    "Diagnose fronts with several fields together: temperature, dew point, wind shift, pressure tendency — not temperature alone",
   ],
+
   explanationSections: [
-    { heading: "Source regions set the properties", body: "Long residence over snow-covered continents builds cP air; long residence over subtropical oceans builds mT air. Movement carries those properties into new regions until modification occurs." }
+    {
+      heading: "Where air masses come from",
+      body:
+        "Air that stagnates over a snowy continent in winter becomes cold and dry (cP). Air that sits over a warm subtropical ocean becomes warm and moist (mT). When that air moves, it carries those properties into new regions until the surface gradually modifies it. Coding is just a short label for that source-region story.",
+    },
+    {
+      heading: "Cold front vs warm front at a station",
+      body:
+        "Cold-front passage (typical NH textbook picture): temperature falls, dew point often falls, wind shifts (often toward a more northerly component), pressure rises after the trough, and a relatively narrow band of showers or storms is possible. Warm-front passage: temperature and moisture rise, wind shifts, and precipitation often begins well ahead of the surface front under a broad layered cloud shield. Always use more than one observation field.",
+    },
+    {
+      heading: "Why the weather bands differ in width",
+      body:
+        "A cold front slopes steeply, so forced ascent is concentrated in a narrow zone. A warm front slopes gently, so ascent is spread over a wide region ahead of the surface position — that is why warm-front cloud and rain often arrive earlier and cover more area.",
+    },
   ],
+
+  examPoints: [
+    "c/m = dry/moist; T/P/A = warm/cold/very cold",
+    "Cold front = sharper, narrower; warm front = broader shield ahead",
+    "Occlusion = cold front catches warm front",
+    "Front diagnosis needs multiple fields",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Diagnosing a front from one temperature reading only",
+      correction: "Use T, Td, wind shift, and pressure change together.",
+      explanation: "Diurnal temperature swings can mimic a weak ‘front’.",
+    },
+    {
+      mistake: "Reading air-mass letters backwards",
+      correction: "First letter = moisture; second = temperature type.",
+      explanation: "mT is moist-warm, not ‘tropical-maritime’ reversed.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Air mass formed over a cold, dry continent in winter. Code?",
+      answer: "cP (or cA if truly arctic).",
+      why: "Continental = dry; polar = cold.",
+    },
+    {
+      scenario: "Sharp temperature drop, gusty shift to NW, brief heavy band. Front type?",
+      answer: "Cold front.",
+      why: "Narrow, sharp passage signature.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Front types at a glance",
+    headers: ["Front", "Who advances", "Weather width"],
+    rows: [
+      ["Cold", "Cold air", "Narrower, often sharper"],
+      ["Warm", "Warm air", "Wider shield ahead"],
+      ["Stationary", "Neither much", "Can linger"],
+      ["Occluded", "Cold catches warm", "Mature cyclone stage"],
+    ],
+  },
+
   subtopics: [
     {
       id: "meteo-air-masses-fronts-codes",
-      title: "Air-mass codes in MCQs",
+      title: "Air-mass codes",
       summary: "Decode cP, mT, mP quickly.",
-      explanation: "First letter is moisture pathway (c dry, m moist); second is thermal type (T warm, P cool/cold). So mT is moist and warm; cP is dry and cold. Pakistan winter outbreaks and summer maritime monsoon air are interpreted with the same logic even when classic North American labels are used in textbooks.",
+      explanation: "Moisture letter first, thermal letter second. Same logic applies when interpreting monsoon maritime air or winter continental outbreaks.",
       examples: [
-        { problem: "Air mass formed over a cold dry continent in winter — code?", solution: "cP (or cA if arctic).", answer: "cP" }
+        {
+          problem: "Cold dry continental winter air — code?",
+          solution: "cP.",
+          answer: "cP",
+        },
       ],
       shortcuts: ["c = dry, m = moist", "T warm, P cold"],
-      traps: ["Reading letters right-to-left"]
+      traps: ["Reading letters right-to-left"],
     },
     {
       id: "meteo-air-masses-fronts-passage",
-      title: "What changes at frontal passage",
-      summary: "Cold vs warm front signatures at a station.",
-      explanation: "Cold-front passage: temperature drop, dew-point drop, wind shift (often to a more northerly component in NH examples), pressure rise, brief convective band possible. Warm-front passage: temperature rise, moistening, wind shift, and precipitation that often begins earlier ahead of the front. Use multiple fields — not temperature alone.",
+      title: "Frontal passage signatures",
+      summary: "What changes at a station for cold vs warm fronts.",
+      explanation: "Train the multi-field checklist: T, Td, wind, pressure, precip timing.",
       examples: [
-        { problem: "Sharp T drop, gusty shift to NW, brief heavy band — which front likely passed?", solution: "Cold front.", answer: "Cold front" }
+        {
+          problem: "Sharp T drop, NW gusts, brief heavy band — front?",
+          solution: "Cold front.",
+          answer: "Cold front",
+        },
       ],
-      shortcuts: ["Cold front = sharp & narrow", "Warm front = earlier, broader shield"],
-      traps: ["Diagnosing a front from one temperature report only"]
-    }
+      shortcuts: ["Cold = sharp & narrow", "Warm = earlier, broader shield"],
+      traps: ["One temperature report = a front"],
+    },
   ],
-  examPoints: [
-    "Air-mass source coding",
-    "Cold vs warm front weather",
-    "Multi-field front recognition"
-  ],
-  commonMistakes: [
-    "Single-variable front detection.",
-    "Swapping cold and warm front sequences.",
-    "Ignoring modification of air masses over long trajectories."
-  ],
+
   relatedTopics: ["meteo-cyclones-development", "meteo-airmass-front-id"],
   content: true,
   buildsOn: ["meteo-moisture-metrics", "meteo-static-stability", "meteo-forces-governing-wind"],
   leadsTo: ["meteo-cyclones-development", "meteo-airmass-front-id"],
-  usedIn: ["meteo-cyclones-development", "meteo-cyclones-structure", "meteo-western-disturbances"]
+  usedIn: ["meteo-cyclones-development", "meteo-cyclones-structure", "meteo-western-disturbances"],
 },
 
 {
@@ -3954,58 +4017,117 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 2,
   title: "Mid-Latitude Cyclones — Baroclinic Instability & Growth",
-  definition: "Mid-latitude cyclones grow by baroclinic instability: they extract energy from horizontal temperature gradients along fronts, typically under upper-level trough and jet support. Classic polar-front theory stages — wave → mature open wave with warm sector → occlusion → decay — organise the surface weather sequence. They are cold-core frontal systems, not tropical warm-core cyclones.",
+  definition:
+    "Mid-latitude (extratropical) cyclones grow by feeding on horizontal temperature contrasts along fronts — baroclinic instability. Upper-level troughs and jet patterns help by supporting ascent and removing mass from the column. They follow a classic life cycle from frontal wave to mature open wave to occlusion and decay. They are cold-core frontal systems, not warm-core tropical cyclones.",
+
   keyFacts: [
-    "Energy source: baroclinic temperature gradients / fronts",
-    "Upper trough and jet streaks favour development by enhancing ascent",
-    "Norwegian life cycle: wave → open wave → occlusion → decay",
-    "Cold-core structure aloft vs tropical cyclone warm core",
-    "Western disturbances are related mid-latitude/subtropical systems affecting Pakistan in winter"
+    "Energy source: horizontal temperature gradients / frontal baroclinicity",
+    "Upper trough and jet support favour deepening (ascent / divergence aloft)",
+    "Life cycle: wave on a front → open wave with warm sector → occlusion → decay",
+    "Cold-core structure aloft (unlike tropical cyclone warm core)",
+    "Western disturbances are related mid-latitude/subtropical systems that affect Pakistan in the cool season",
   ],
+
   explanationSections: [
-    { heading: "Surface and upper coupling", body: "A surface low deepens when upper-level divergence (often near a jet-streak favourable quadrant or ahead of an upper trough) removes mass from the column while cool air aloft keeps the core cold. Looking only at the surface chart misses the growth mechanism." },
-    { heading: "Polar-front lifecycle (exam skeleton)", body: "Incipient wave on a baroclinic front → open wave with distinct cold and warm fronts and a warm sector → occlusion as the cold front catches the warm front → decay as temperature contrasts weaken and the system fills. Weather is sharpest near the fronts; the warm sector is milder and often moister." }
+    {
+      heading: "Why these storms exist",
+      body:
+        "Where cold and warm air masses share a frontier, the atmosphere stores available potential energy. A wave on that front can grow by converting that contrast into kinetic energy of the circulating low. That is baroclinic growth — it needs fronts and temperature gradients, not a warm tropical ocean as the main engine.",
+    },
+    {
+      heading: "Surface and upper air must work together",
+      body:
+        "A surface low deepens when mass is removed from the column faster than it arrives. Upper-level divergence ahead of a trough or in favourable jet-streak regions helps that process, while cool air aloft keeps the core cold. Looking only at surface isobars misses the growth mechanism.",
+    },
+    {
+      heading: "Life-cycle skeleton for exams",
+      body:
+        "Incipient wave on a baroclinic front → mature open wave with distinct cold and warm fronts and an open warm sector → occlusion as the cold front catches the warm front and lifts warm air off the surface → decay as contrasts weaken and the low fills. Weather is sharpest near the fronts; the warm sector is milder and often moister.",
+    },
   ],
+
+  examPoints: [
+    "Baroclinic = grows from temperature gradients / fronts",
+    "Upper trough/jet support matters",
+    "Open warm sector = mature stage before occlusion",
+    "Not the same as a tropical cyclone",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Treating every circular low as a hurricane-type storm",
+      correction: "Mid-latitude cyclones are frontal and baroclinic; tropical cyclones are warm-core and oceanic.",
+      explanation: "Energy source and structure differ.",
+    },
+    {
+      mistake: "Ignoring upper-level support",
+      correction: "Deepening usually needs favourable upper divergence / trough–jet structure.",
+      explanation: "Surface chart alone is incomplete.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Warm sector still open at the surface between cold and warm fronts. Stage?",
+      answer: "Open-wave / mature stage (before occlusion).",
+      why: "Occlusion wraps and lifts the warm sector off the surface.",
+    },
+    {
+      scenario: "System has cold and warm fronts and grows from a temperature gradient. Tropical or mid-latitude?",
+      answer: "Mid-latitude baroclinic cyclone.",
+      why: "Fronts + baroclinic energy source.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Mid-latitude vs tropical cyclone (growth)",
+    headers: ["Feature", "Mid-latitude", "Tropical"],
+    rows: [
+      ["Main energy", "Baroclinic temperature contrast", "Latent heat over warm ocean"],
+      ["Fronts", "Yes", "No (not mid-latitude type)"],
+      ["Core", "Cold-core aloft", "Warm-core"],
+      ["Latitude", "Mid-latitudes", "Tropics (off equator)"],
+    ],
+  },
+
   subtopics: [
     {
       id: "meteo-cyclones-development-lifecycle",
-      title: "Life-cycle stages to recognise",
-      summary: "Wave, mature open wave, occlusion — what changes on the map.",
-      explanation: "Early on, a frontal wave forms on a baroclinic zone. Maturity shows a clear warm sector between cold and warm fronts. Occlusion wraps cooler air around the low and lifts the warm sector off the surface — the storm often begins to fill afterward. Exam diagrams test stage recognition more than memorising dates.",
+      title: "Life-cycle stages",
+      summary: "Wave → open wave → occlusion → decay.",
+      explanation: "Stage recognition on maps is the exam skill.",
       examples: [
-        { problem: "Warm sector still open at the surface between cold and warm fronts — which stage?", solution: "Open-wave / mature stage before occlusion.", answer: "Open-wave mature" }
+        {
+          problem: "Open warm sector between cold and warm fronts — stage?",
+          solution: "Mature open wave.",
+          answer: "Open-wave mature",
+        },
       ],
       shortcuts: ["Open warm sector → mature", "Occlusion → warm air lifted off surface"],
-      traps: ["Calling every closed low an occlusion"]
+      traps: ["Every closed low is an occlusion"],
     },
     {
       id: "meteo-cyclones-development-vs-tropical",
       title: "Baroclinic vs tropical growth",
-      summary: "Fronts and shear vs warm ocean heat engine.",
-      explanation: "Mid-latitude cyclones need horizontal temperature contrast and usually strong baroclinic shear. Tropical cyclones need warm deep SST, moist instability, and low shear, and they lack mid-latitude-type fronts. Mixing the energy sources is a frequent MCQ error.",
+      summary: "Fronts and shear vs warm-ocean heat engine.",
+      explanation: "Keep the energy-source contrast sharp for MCQs.",
       examples: [
-        { problem: "System has cold and warm fronts and grows from a temperature gradient — tropical or mid-latitude type?", solution: "Mid-latitude baroclinic cyclone.", answer: "Mid-latitude / baroclinic" }
+        {
+          problem: "Fronts + temperature gradient growth — type?",
+          solution: "Mid-latitude baroclinic.",
+          answer: "Mid-latitude / baroclinic",
+        },
       ],
-      shortcuts: ["Fronts + baroclinic = mid-latitude", "Warm core + ocean = tropical"],
-      traps: ["Assuming all circular lows are hurricanes"]
-    }
+      shortcuts: ["Fronts = mid-latitude", "Warm core + ocean = tropical"],
+      traps: ["All circular lows are hurricanes"],
+    },
   ],
-  examPoints: [
-    "Baroclinic energy source",
-    "Role of upper trough/jet",
-    "Life-cycle stages",
-    "Contrast with tropical cyclones"
-  ],
-  commonMistakes: [
-    "Tropical and extratropical growth mechanisms swapped.",
-    "Ignoring upper-level support.",
-    "Skipping occlusion as a stage."
-  ],
+
   relatedTopics: ["meteo-cyclones-structure", "meteo-air-masses-fronts", "meteo-rossby-waves"],
   content: true,
   buildsOn: ["meteo-air-masses-fronts", "meteo-rossby-waves", "meteo-jet-stream"],
   leadsTo: ["meteo-cyclones-structure"],
-  usedIn: ["meteo-cyclones-structure", "meteo-western-disturbances", "meteo-isobar-analysis"]
+  usedIn: ["meteo-cyclones-structure", "meteo-western-disturbances", "meteo-isobar-analysis"],
 },
 
 {
@@ -4013,56 +4135,100 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 3,
   title: "Mid-Latitude Cyclones — Vertical Structure & Conveyor Belts",
-  definition: "A mature mid-latitude cyclone has a sloping frontal structure and organised airstreams: the warm conveyor belt, cold conveyor belt, and dry intrusion. Cloud and precipitation patterns follow these airstreams more than a simple circle around the low.",
+  definition:
+    "A mature mid-latitude cyclone is three-dimensional: fronts slope with height, and organised airstreams (warm conveyor belt, cold conveyor belt, dry intrusion) control where the broad rain shield and the clear dry slot appear. Satellite ‘comma’ clouds reflect that structure — not a simple rain circle around the low.",
+
   keyFacts: [
-    "Warm conveyor belt: climbs over the warm front — broad precip shield",
-    "Cold conveyor belt: approaches from the cold side — contributes to comma cloud",
-    "Dry intrusion: dry upper air wraps toward the centre — clear slot / sharpening gradients",
-    "Fronts slope: cold fronts steeper than warm fronts typically",
-    "Satellite comma cloud is a structural fingerprint"
+    "Warm conveyor belt: moist air climbs over the warm-front surface — broad precip shield ahead",
+    "Cold conveyor belt: approaches from the cold side — helps build the comma-cloud head",
+    "Dry intrusion: dry upper air wraps toward the centre — dry slot on satellite; can sharpen the cold-front band",
+    "Cold fronts typically steeper; warm fronts gentler — weather width follows the slope",
+    "Comma cloud on satellite is a structural fingerprint of the mature system",
   ],
+
   explanationSections: [
-    { heading: "From pressure circle to 3D flow", body: "Surface isobars show the low; conveyor belts explain where the wide rain shield and clear dry slot sit." }
+    {
+      heading: "From a pressure circle to 3D flow",
+      body:
+        "Surface isobars only show where the low is. Conveyor belts explain why heavy layered rain often sits well ahead of the warm front, and why a clear dry slot may appear wrapping toward the centre. Think airstreams, not a symmetric rain doughnut.",
+    },
+    {
+      heading: "Slope controls weather width",
+      body:
+        "Steep cold front → narrower, sharper band. Gentle warm front → wide region of ascent and cloud ahead of the surface front. That geometry is why warm-front precipitation often starts earlier and covers more area.",
+    },
   ],
+
+  examPoints: [
+    "Warm conveyor belt → wide precip shield ahead of warm front",
+    "Dry intrusion → dry slot / sharper gradients",
+    "Cold front steep/narrow; warm front gentle/wide",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Assuming rain only exactly on the front line",
+      correction: "Warm-front shield can extend far ahead via the warm conveyor belt.",
+      explanation: "2D front-line thinking is incomplete.",
+    },
+    {
+      mistake: "Ignoring the dry intrusion",
+      correction: "Dry upper air creates the satellite dry slot and can focus the cold-front convective band.",
+      explanation: "Structure includes dry as well as moist airstreams.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Broad precipitation well ahead of a surface warm front. Which airstream?",
+      answer: "Warm conveyor belt.",
+      why: "Moist air ascending over the warm-front surface.",
+    },
+    {
+      scenario: "Which front typically has the wider pre-frontal cloud shield?",
+      answer: "Warm front.",
+      why: "Gentler slope spreads ascent over a wider zone.",
+    },
+  ],
+
   subtopics: [
     {
       id: "meteo-cyclones-structure-conveyors",
-      title: "Conveyor-belt weather map",
+      title: "Conveyor belts",
       summary: "Where rain is broad vs where dry air punches in.",
-      explanation: "Ahead of the warm front, the warm conveyor belt produces the extensive layered cloud and precip region. The dry intrusion can create a dry slot on satellite imagery and sharpen the cold front’s convective band. Matching satellite shape to these airstreams is an advanced but teachable skill.",
+      explanation: "Match satellite and precip patterns to airstreams.",
       examples: [
-        { problem: "Broad precipitation shield well ahead of a surface warm front — which airstream?", solution: "Warm conveyor belt.", answer: "Warm conveyor belt" }
+        {
+          problem: "Broad shield ahead of warm front — airstream?",
+          solution: "Warm conveyor belt.",
+          answer: "Warm conveyor belt",
+        },
       ],
       shortcuts: ["Warm CB → wide shield", "Dry intrusion → dry slot"],
-      traps: ["Assuming rain only at the exact front line"]
+      traps: ["Rain only at the front line"],
     },
     {
       id: "meteo-cyclones-structure-slopes",
-      title: "Why frontal slopes differ",
-      summary: "Cold fronts steeper; warm fronts gentler — weather width follows.",
-      explanation: "A steeper cold front forces a narrower, often sharper band of weather. A gentler warm-front slope spreads ascent over a wider zone, so rain and cloud often begin earlier and farther ahead. That geometric fact links structure to the familiar cold-vs-warm front sequences.",
+      title: "Frontal slopes",
+      summary: "Steep cold vs gentle warm — weather width.",
+      explanation: "Geometry links to the familiar passage sequences.",
       examples: [
-        { problem: "Which front typically has the wider pre-frontal cloud shield?", solution: "Warm front.", answer: "Warm front" }
+        {
+          problem: "Wider pre-frontal cloud shield — which front?",
+          solution: "Warm front.",
+          answer: "Warm front",
+        },
       ],
       shortcuts: ["Cold = steep/narrow", "Warm = gentle/wide"],
-      traps: ["Drawing both fronts with identical slopes"]
-    }
+      traps: ["Identical slopes for both fronts"],
+    },
   ],
-  examPoints: [
-    "Warm conveyor belt role",
-    "Dry intrusion / dry slot",
-    "Frontal slope vs weather width"
-  ],
-  commonMistakes: [
-    "2D circle-only mental model.",
-    "Ignoring dry intrusion.",
-    "Swapping warm/cold front widths."
-  ],
+
   relatedTopics: ["meteo-cyclones-development", "meteo-air-masses-fronts", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["meteo-cyclones-development", "meteo-air-masses-fronts"],
   leadsTo: ["meteo-western-disturbances"],
-  usedIn: ["meteo-western-disturbances", "meteo-remote-sensing"]
+  usedIn: ["meteo-western-disturbances", "meteo-remote-sensing"],
 },
 
 {
@@ -4070,57 +4236,112 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 4,
   title: "Thunderstorms",
-  definition: "Thunderstorms are deep moist convective storms that produce lightning (by definition), thunder, and often heavy rain, gusts, or hail. Ordinary cells are short-lived; organised systems and supercells last longer and cause more severe weather when shear organises the updraft.",
+  definition:
+    "A thunderstorm is a deep moist convective storm that produces lightning (and therefore thunder). Ordinary single cells are short-lived. When wind shear organises the storm, multicell systems and supercells last longer and can produce severe weather. CAPE is the fuel; CIN is the lid that may prevent storms from starting.",
+
   keyFacts: [
-    "Lightning defines a thunderstorm",
-    "Ingredients: moisture, instability (CAPE), and a lifting mechanism; shear organises severity",
-    "Ordinary cell stages: cumulus → mature → dissipating",
-    "Multicell and supercell organisation under stronger shear",
-    "CAPE = fuel; CIN = lid"
+    "Lightning is required for the thunderstorm label",
+    "Ingredients: moisture, instability (CAPE), and lift; shear organises severity and longevity",
+    "Ordinary cell: cumulus → mature → dissipating (often ~30–60 minutes)",
+    "Weak shear → pulse/single cells; stronger shear → multicell lines/clusters; strong shear → supercells",
+    "Supercell: long-lived storm with a rotating updraft (mesocyclone)",
+    "CAPE = buoyant fuel once a parcel is freely rising; CIN = inhibition / lid",
   ],
+
   explanationSections: [
-    { heading: "Fuel, lid, and shear", body: "Instability without lift or with a strong lid may produce nothing. Shear decides whether storms stay single-cell or become organised." }
+    {
+      heading: "Fuel, lid, and trigger",
+      body:
+        "Large CAPE means a lot of potential storm energy, but a strong CIN lid can prevent parcels from reaching that free-ascent region. Afternoon heating or large-scale lift may remove the lid. CAPE alone never guarantees storms.",
+    },
+    {
+      heading: "Shear organises the storm type",
+      body:
+        "In weak shear, rain falls back into the updraft and kills the cell quickly. Moderate shear allows new cells to form along the outflow — multicell systems and lines. Strong speed and directional shear can support a supercell whose updraft rotates and stays separated from the rain — the parent of most violent tornadoes.",
+    },
   ],
+
+  examPoints: [
+    "Lightning defines a thunderstorm",
+    "Cell life cycle: cumulus → mature → dissipating",
+    "More shear → more organisation (up to supercell)",
+    "CAPE = fuel; CIN = lid; CAPE alone ≠ guaranteed storms",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Calling a heavy shower without lightning a thunderstorm",
+      correction: "Lightning is part of the definition.",
+      explanation: "Charge separation in deep convection is required.",
+    },
+    {
+      mistake: "Assuming large CAPE guarantees storms this afternoon",
+      correction: "CIN or lack of lift can suppress initiation.",
+      explanation: "Fuel without ignition stays unused.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Large CAPE and large CIN — are storms guaranteed?",
+      answer: "No — the lid may hold until heating or lift removes CIN.",
+      why: "Inhibition can block parcel ascent.",
+    },
+    {
+      scenario: "Why can a squall line produce damaging winds far from any single cell core?",
+      answer: "Organised cold pools and line structures focus strong straight-line winds.",
+      why: "Organisation concentrates outflow.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Organisation vs shear",
+    headers: ["Shear", "Typical organisation"],
+    rows: [
+      ["Weak", "Short-lived single cells"],
+      ["Moderate", "Multicell clusters / lines"],
+      ["Strong", "Supercells possible"],
+    ],
+  },
+
   subtopics: [
     {
       id: "meteo-thunderstorms-organise",
-      title: "Shear organises storm type",
-      summary: "Weak shear → pulse storms; strong shear → supercells.",
-      explanation: "Weak shear yields short-lived single cells whose rain-cooled outflow cuts off the updraft. Moderate shear supports multicell lines and clusters. Strong speed and directional shear favour supercells with rotating updrafts — parent storms of most violent tornadoes.",
+      title: "Shear and storm organisation",
+      summary: "From pulse storms to supercells.",
+      explanation: "Shear separates updraft from downdraft and enables longevity and rotation.",
       examples: [
-        { problem: "Why can a squall line produce damaging winds far from any single cell core?", solution: "Organised cold pools and line-end structures focus strong straight-line winds.", answer: "Organised line / cold pool" }
+        {
+          problem: "Damaging winds along a line far from one core — idea?",
+          solution: "Organised line / cold pool.",
+          answer: "Organised line / cold pool",
+        },
       ],
       shortcuts: ["More shear → more organisation", "Supercell = rotating updraft"],
-      traps: ["Every thunderstorm is a supercell"]
+      traps: ["Every thunderstorm is a supercell"],
     },
     {
       id: "meteo-thunderstorms-lightning-cape",
-      title: "Lightning and CAPE / CIN",
-      summary: "Charge separation defines the storm; CAPE is fuel; CIN is the lid.",
-      explanation: "Lightning requires a thunderstorm by definition — charge separates in the mixed-phase cloud. CAPE measures buoyant energy available once a parcel freely rises; CIN is the barrier that may prevent initiation. Large CAPE with large CIN means stored energy without guaranteed storms.",
+      title: "Lightning, CAPE, and CIN",
+      summary: "Definition + fuel + lid.",
+      explanation: "Lightning defines the storm; CAPE/CIN control whether deep convection can use the instability.",
       examples: [
-        { problem: "Large CAPE and large CIN — are storms guaranteed this afternoon?", solution: "No — the lid may hold until heating or lift removes CIN.", answer: "No" }
+        {
+          problem: "Large CAPE + large CIN — storms guaranteed?",
+          solution: "No.",
+          answer: "No",
+        },
       ],
       shortcuts: ["Lightning ⇒ thunderstorm", "CAPE = fuel", "CIN = lid"],
-      traps: ["CAPE alone guarantees storms"]
-    }
+      traps: ["CAPE alone guarantees storms"],
+    },
   ],
-  examPoints: [
-    "Lightning definition",
-    "Cell life cycle",
-    "Shear vs organisation",
-    "CAPE vs CIN"
-  ],
-  commonMistakes: [
-    "No lightning needed for thunderstorm label.",
-    "CAPE = automatic storms.",
-    "Ignoring shear for severity."
-  ],
+
   relatedTopics: ["meteo-static-stability", "meteo-tornadoes", "meteo-thermodynamic-diagrams"],
   content: true,
   buildsOn: ["meteo-static-stability", "meteo-adiabatic-cloud-formation"],
   leadsTo: ["meteo-tornadoes"],
-  usedIn: ["meteo-tornadoes", "meteo-aviation-products"]
+  usedIn: ["meteo-tornadoes", "meteo-aviation-products"],
 },
 
 {
@@ -4128,115 +4349,223 @@ export const topics: Topic[] = [
   sectionId: "METEO-05",
   order: 5,
   title: "Tornadoes",
-  definition: "A tornado is a violently rotating column of air in contact with the ground, usually from a thunderstorm. Most strong tornadoes come from supercells with mesocyclones. Intensity is rated by damage on the Enhanced Fujita (EF) scale.",
+  definition:
+    "A tornado is a violently rotating column of air in contact with the ground, almost always under a thunderstorm. Most strong tornadoes come from supercells that already have a rotating updraft (mesocyclone). Intensity is rated by damage on the Enhanced Fujita (EF) scale. Tornadoes are mesoscale: intense, narrow, and relatively short-lived — not synoptic systems.",
+
   keyFacts: [
-    "Requires a parent thunderstorm — often a supercell",
-    "Mesocyclone: rotating updraft in a supercell",
-    "EF scale: EF0 (weakest) through EF5 (strongest)",
-    "EF5 corresponds to estimated winds greater than about 322 km/h (200 mph)",
-    "Mesoscale phenomenon — intense but narrow and short-lived",
-    "Radar may show a Tornado Vortex Signature (TVS) in Doppler velocity"
+    "Needs a parent thunderstorm — often a supercell",
+    "Mesocyclone: rotating updraft inside a supercell",
+    "EF scale: EF0 (weakest damage) through EF5 (strongest)",
+    "EF5: estimated winds greater than about 322 km/h (200 mph)",
+    "Mesoscale phenomenon — severity does not make it synoptic-scale",
+    "Doppler radar may show a Tornado Vortex Signature (TVS); ground survey confirms damage rating",
   ],
+
   explanationSections: [
-    { heading: "Organisation before the funnel", body: "Shear and instability build a rotating updraft; the tornado is a smaller vortex that may or may not touch down." }
+    {
+      heading: "Organisation before the funnel",
+      body:
+        "Strong shear and instability help build a mesocyclone. A tornado is a smaller vortex that may touch down from that parent storm. Not every supercell produces a tornado, and not every funnel cloud is confirmed as a tornado on the ground.",
+    },
+    {
+      heading: "EF scale is a damage scale",
+      body:
+        "EF ratings come from damage surveys after the event, not from flying an anemometer through the core as routine practice. EF5 is the top class, with estimated winds above about 322 km/h. Lower categories occupy weaker estimated wind bands used in teaching tables.",
+    },
   ],
+
+  examPoints: [
+    "Tornado requires ground contact under a parent storm",
+    "Most violent tornadoes ↔ supercell mesocyclones",
+    "EF0–EF5; EF5 > ~322 km/h",
+    "Mesoscale, not synoptic, despite extreme intensity",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Thinking severity automatically means synoptic scale",
+      correction: "Scale is size and lifetime; tornadoes are mesoscale.",
+      explanation: "A tiny feature can still be extremely violent.",
+    },
+    {
+      mistake: "Assuming every thunderstorm produces tornadoes",
+      correction: "Only a small fraction do; supercells are the main strong-tornado parents.",
+      explanation: "Organisation matters.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Commonly taught EF5 estimated wind threshold?",
+      answer: "Greater than about 322 km/h.",
+      why: "Top EF class damage indicator.",
+    },
+    {
+      scenario: "Why is ‘tornado = synoptic because it is severe’ wrong?",
+      answer: "Scale is size/lifetime, not severity.",
+      why: "Classification uses spatial/temporal scale.",
+    },
+  ],
+
   subtopics: [
     {
       id: "meteo-tornadoes-ef-and-radar",
-      title: "EF scale numbers and radar clues",
+      title: "EF scale and radar clues",
       summary: "Damage rating vs detection.",
-      explanation: "EF ratings are assigned from damage surveys. EF5 is the top class, with estimated winds above about 322 km/h. Lower EF categories occupy slower ranges (for example the 100–200+ km/h bands used in many teaching tables). Doppler radar can show a TVS velocity couplet, but confirmation still needs ground evidence.",
+      explanation: "EF from surveys; TVS is a radar clue, not automatic proof of EF class.",
       examples: [
-        { problem: "EF5 estimated wind threshold commonly taught?", solution: "Greater than about 322 km/h.", answer: ">322 km/h" }
+        {
+          problem: "EF5 wind threshold (taught)?",
+          solution: "> ~322 km/h.",
+          answer: ">322 km/h",
+        },
       ],
       shortcuts: ["EF5 > ~322 km/h", "EF = damage scale", "TVS = radar clue"],
-      traps: ["EF measured live by aircraft in the core as routine"]
+      traps: ["EF measured live in the core as routine"],
     },
     {
       id: "meteo-tornadoes-not-synoptic",
-      title: "Scale and geography traps",
+      title: "Scale traps",
       summary: "Mesoscale intensity ≠ synoptic cyclone.",
-      explanation: "Tornadoes are not classified as synoptic systems like mid-latitude cyclones despite high local intensity. South Asia can see tornadoes, but they are not the primary severe mode compared with heat, flood, and tropical cyclones.",
+      explanation: "Keep scale vocabulary precise for MCQs.",
       examples: [
-        { problem: "Why is 'tornado = synoptic because severe' wrong?", solution: "Scale is size/lifetime, not severity.", answer: "Severity ≠ scale" }
+        {
+          problem: "Severity implies synoptic — true?",
+          solution: "False.",
+          answer: "Severity ≠ scale",
+        },
       ],
       shortcuts: ["Tornado = mesoscale", "Supercell parent for most violent cases"],
-      traps: ["Every funnel cloud is a confirmed tornado"]
-    }
+      traps: ["Every funnel = confirmed tornado"],
+    },
   ],
-  examPoints: [
-    "Tornado vs parent storm",
-    "EF0–EF5 and EF5 threshold",
-    "Mesoscale classification"
-  ],
-  commonMistakes: [
-    "Severity implies synoptic scale.",
-    "Wrong EF5 wind band.",
-    "All thunderstorms produce tornadoes."
-  ],
+
   relatedTopics: ["meteo-thunderstorms", "meteo-jet-stream", "meteo-remote-sensing"],
   content: true,
   buildsOn: ["meteo-thunderstorms"],
   leadsTo: [],
-  usedIn: ["meteo-remote-sensing", "meteo-aviation-products"]
+  usedIn: ["meteo-remote-sensing", "meteo-aviation-products"],
 },
 
 {
   id: "meteo-tropical-cyclones",
   sectionId: "METEO-05",
   order: 6,
-  title: "Tropical Cyclones (Hurricanes/Typhoons)",
-  definition: "Tropical cyclones are warm-core, non-frontal storms that form over warm oceans, driven by latent-heat release in deep convection. They require rotation (non-zero Coriolis), so they do not form on the equator, and they weaken over cold water or land.",
+  title: "Tropical Cyclones (Hurricanes / Typhoons)",
+  definition:
+    "Tropical cyclones are warm-core, non-frontal storms that form over warm oceans and are powered mainly by latent-heat release in deep convection. They need enough Coriolis to organise spin, so they do not form on the equator. They weaken over cold water or land. Arabian Sea and Bay of Bengal are the North Indian Ocean basins that matter for South Asia / Pakistan risk.",
+
   keyFacts: [
     "Warm-core structure; no mid-latitude-type fronts",
     "Fuel: latent heat from warm, moist oceanic inflow",
     "Need sufficient Coriolis — not on the equator",
-    "Eye, eyewall, spiral bands in mature intense systems",
-    "Arabian Sea and Bay of Bengal are North Indian Ocean basins of concern for Pakistan/South Asia"
+    "Classic ingredients: warm SST (often ~≥26–27 °C through a depth), deep moisture, low vertical shear, pre-existing disturbance, off-equator latitude",
+    "Mature intense systems: eye, eyewall, spiral rainbands",
+    "Weaken with landfall, cold water, strong shear, or dry-air intrusion",
   ],
+
   explanationSections: [
-    { heading: "Not a baroclinic mid-latitude cyclone", body: "Different energy source, structure, and preferred latitudes. Compare explicitly with mid-latitude cyclone development when both appear in options." }
+    {
+      heading: "A different storm engine",
+      body:
+        "Mid-latitude cyclones feed on horizontal temperature contrasts and fronts. Tropical cyclones feed on heat and moisture fluxes from a warm ocean and organised deep convection. Mixing those mechanisms in an MCQ is a frequent error.",
+    },
+    {
+      heading: "Why not on the equator?",
+      body:
+        "The Coriolis parameter is essentially zero at the equator. Without that rotational effect, the storm cannot organise sustained spin around a centre. Formation is favoured several degrees of latitude away from the equator.",
+    },
+    {
+      heading: "What weakens them",
+      body:
+        "Land cuts off the oceanic moisture source and adds friction. Cooler water reduces energy fluxes. Strong vertical shear tilts and disrupts the warm core. Dry air entrainment can choke convection. Intensity is an environment problem as much as a ‘current strength’ problem.",
+    },
   ],
+
+  examPoints: [
+    "Warm-core oceanic storm; not frontal baroclinic",
+    "No formation on the equator (need Coriolis)",
+    "Warm SST, low shear, moisture, off-equator disturbance",
+    "Land / cold water / shear / dry air → weaken",
+  ],
+
+  commonMistakes: [
+    {
+      mistake: "Allowing tropical cyclone formation on the equator",
+      correction: "Coriolis ≈ 0 prevents organised spin-up.",
+      explanation: "Off-equator latitude is required.",
+    },
+    {
+      mistake: "Treating them as mid-latitude frontal cyclones",
+      correction: "Warm-core, latent-heat driven, non-frontal.",
+      explanation: "Different energy source and structure.",
+    },
+  ],
+
+  qualitativeScenarios: [
+    {
+      scenario: "Why do tropical cyclones not form on the equator?",
+      answer: "Coriolis ≈ 0 — cannot organise sustained rotation.",
+      why: "Spin-up needs planetary rotation effect.",
+    },
+    {
+      scenario: "Storm moves over a cold ocean current. Intensification or weakening tendency?",
+      answer: "Weakening — reduced heat and moisture fluxes.",
+      why: "Ocean fuel supply drops.",
+    },
+  ],
+
+  comparisonTable: {
+    title: "Tropical cyclone checklist",
+    headers: ["Helps formation", "Favours weakening"],
+    rows: [
+      ["Warm deep SST", "Cold water"],
+      ["Low vertical shear", "Strong shear"],
+      ["Deep moisture", "Dry-air intrusion"],
+      ["Off-equator vorticity", "Landfall / friction"],
+    ],
+  },
+
   subtopics: [
     {
       id: "meteo-tropical-cyclones-ingredients",
-      title: "Formation ingredient checklist",
+      title: "Formation ingredients",
       summary: "Warm SST, moisture, low shear, vorticity, off-equator.",
-      explanation: "Classic checklist: warm sea surface (often cited near ≥26–27 °C through a depth), deep moisture, weak vertical shear, pre-existing disturbance, and enough distance from the equator for Coriolis to organise spin. High shear tears convection away from the centre.",
+      explanation: "All must line up; shear is a common killer even over warm water.",
       examples: [
-        { problem: "Why do tropical cyclones not form on the equator?", solution: "Coriolis parameter ≈ 0 — cannot organise sustained rotation.", answer: "No Coriolis / no spin-up" }
+        {
+          problem: "No formation on equator — why?",
+          solution: "No Coriolis for spin-up.",
+          answer: "No Coriolis / no spin-up",
+        },
       ],
-      shortcuts: ["Warm ocean + low shear + off-equator", "Shear is a killer"],
-      traps: ["Listing fronts as a required tropical ingredient"]
+      shortcuts: ["Warm ocean + low shear + off-equator", "Shear kills"],
+      traps: ["Fronts required for tropical formation"],
     },
     {
       id: "meteo-tropical-cyclones-decay",
-      title: "What weakens them",
+      title: "Decay mechanisms",
       summary: "Land, cold water, shear, dry air.",
-      explanation: "Landfall cuts off oceanic moisture and increases friction. Moving over cooler water reduces enthalpy fluxes. Strong shear and entrainment of dry air disrupt the warm core. Intensification forecasts hinge on these environmental controls as much as on current intensity.",
+      explanation: "Environmental controls on intensity.",
       examples: [
-        { problem: "Storm moves over a cold ocean current — expect intensification or weakening?", solution: "Weakening tendency from reduced heat/moisture fluxes.", answer: "Weakening" }
+        {
+          problem: "Over a cold current — tendency?",
+          solution: "Weakening.",
+          answer: "Weakening",
+        },
       ],
       shortcuts: ["Land / cold SST / shear → weaken"],
-      traps: ["Assuming intensity always increases until landfall"]
-    }
+      traps: ["Intensity always rises until landfall"],
+    },
   ],
-  examPoints: [
-    "Warm-core oceanic storm",
-    "No formation on equator",
-    "Decay mechanisms"
-  ],
-  commonMistakes: [
-    "Equatorial formation.",
-    "Calling them baroclinic frontal cyclones.",
-    "Ignoring shear."
-  ],
+
   relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-precipitation-processes"],
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-precipitation-processes"],
   leadsTo: ["meteo-arabian-sea-cyclones-local"],
-  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"]
+  usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"],
 },
+  
 // ============================= SECTION F: Meteorological Instruments & Remote Sensing =============================
 
 {
