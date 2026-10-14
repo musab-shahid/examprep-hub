@@ -1367,7 +1367,7 @@ export const questions: Question[] = [
   question: "A company claims their product is 'TWICE AS EFFECTIVE' based on going from 50% to 100% success rate. What is misleading about this?",
   options: [
   "Nothing — it is genuinely twice as effective",
-  "The ABSOLUTE increase is only 50 percentage points, but in context of a small sample or rare event this could be misleading",
+  "The RELATIVE claim ('twice') can overstate impact unless the ABSOLUTE change (50 percentage points) and baseline are also shown",
   "Percentages cannot be compared",
   "100% is impossible"
   ],
