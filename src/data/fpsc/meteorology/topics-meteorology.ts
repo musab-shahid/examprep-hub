@@ -687,6 +687,26 @@ export const topics: Topic[] = [
       traps: ["Thinking absorbers cannot emit"]
     }
   ],
+  formula: [
+    {
+      name: "Wien's displacement law",
+      expression: "\\lambda_{\\max} = \\frac{b}{T}",
+      variables: [
+        { symbol: "\\lambda_{\\max}", meaning: "wavelength of peak emission (m)" },
+        { symbol: "T", meaning: "absolute temperature (K)" },
+        { symbol: "b", meaning: "Wien's constant ≈ 2.90 × 10⁻³ m·K" }
+      ]
+    },
+    {
+      name: "Stefan–Boltzmann law",
+      expression: "E = \\sigma T^{4}",
+      variables: [
+        { symbol: "E", meaning: "emitted radiant flux (W/m²)" },
+        { symbol: "\\sigma", meaning: "Stefan–Boltzmann constant ≈ 5.67 × 10⁻⁸ W/m²·K⁴" },
+        { symbol: "T", meaning: "absolute temperature (K)" }
+      ]
+    }
+  ],
   examPoints: [
     "Wien peak shift",
     "T⁴ power law",
@@ -812,6 +832,24 @@ export const topics: Topic[] = [
       ["Temperature ↑ with height", "Inversion — strongly stable"]
     ]
   },
+  formula: [
+    {
+      name: "Dry adiabatic lapse rate (DALR)",
+      expression: "\\Gamma_d \\approx 9.8\\,^{\\circ}\\mathrm{C\\,/\\,km}",
+      variables: [
+        { symbol: "\\Gamma_d", meaning: "rate a dry (unsaturated) parcel cools while rising" }
+      ]
+    },
+    {
+      name: "Environmental vs process rates",
+      expression: "\\text{compare ELR with } \\Gamma_d \\text{ and } \\Gamma_s",
+      variables: [
+        { symbol: "\\mathrm{ELR}", meaning: "environmental lapse rate (sounding)" },
+        { symbol: "\\Gamma_d", meaning: "DALR ≈ 9.8 °C/km" },
+        { symbol: "\\Gamma_s", meaning: "SALR ≈ 4–7 °C/km (latent heat slows cooling)" }
+      ]
+    }
+  ],
   examPoints: [
     "Name and approximate DALR",
     "SALR < DALR and why",
@@ -995,6 +1033,17 @@ export const topics: Topic[] = [
       traps: ["Coriolis starts wind from rest"]
     }
   ],
+  formula: [
+    {
+      name: "Coriolis parameter",
+      expression: "f = 2\\Omega \\sin\\phi",
+      variables: [
+        { symbol: "f", meaning: "Coriolis parameter (s⁻¹)" },
+        { symbol: "\\Omega", meaning: "Earth rotation rate ≈ 7.29 × 10⁻⁵ rad/s" },
+        { symbol: "\\phi", meaning: "latitude (0 at equator → f = 0)" }
+      ]
+    }
+  ],
   examPoints: [
     "NH/SH sense",
     "Latitude dependence",
@@ -1112,6 +1161,18 @@ export const topics: Topic[] = [
       traps: ["Plugging hPa directly into SI formula"]
     }
   ],
+  formula: [
+    {
+      name: "Ideal gas law (meteorology form)",
+      expression: "p = \\rho R T",
+      variables: [
+        { symbol: "p", meaning: "pressure (Pa)" },
+        { symbol: "\\rho", meaning: "density (kg/m³)" },
+        { symbol: "R", meaning: "specific gas constant for dry air ≈ 287 J/(kg·K)" },
+        { symbol: "T", meaning: "absolute temperature (K)" }
+      ]
+    }
+  ],
   examPoints: [
     "p = ρ R_d T",
     "Cold air denser at fixed p",
@@ -1167,6 +1228,18 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Large-scale → hydrostatic OK", "Violent updrafts → caution"],
       traps: ["Saying pressure does not change with height"]
+    }
+  ],
+  formula: [
+    {
+      name: "Hydrostatic balance",
+      expression: "\\frac{\\partial p}{\\partial z} = -\\rho g",
+      variables: [
+        { symbol: "p", meaning: "pressure (Pa)" },
+        { symbol: "z", meaning: "height (m)" },
+        { symbol: "\\rho", meaning: "density (kg/m³)" },
+        { symbol: "g", meaning: "gravitational acceleration (m/s²)" }
+      ]
     }
   ],
   examPoints: [
@@ -1285,6 +1358,18 @@ export const topics: Topic[] = [
       traps: ["Drawing surface winds parallel to isobars with no cross component"]
     }
   ],
+  formula: [
+    {
+      name: "Geostrophic balance (magnitude)",
+      expression: "V_g = \\frac{1}{f\\rho}\\,\\frac{\\partial p}{\\partial n}",
+      variables: [
+        { symbol: "V_g", meaning: "geostrophic wind speed (m/s)" },
+        { symbol: "f", meaning: "Coriolis parameter (s⁻¹)" },
+        { symbol: "\\rho", meaning: "density (kg/m³)" },
+        { symbol: "\\partial p/\\partial n", meaning: "pressure gradient normal to the flow (Pa/m)" }
+      ]
+    }
+  ],
   examPoints: [
     "Define geostrophic balance",
     "Parallel flow and NH sense",
@@ -1340,6 +1425,16 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Tight curves → gradient", "Straight → geostrophic OK"],
       traps: ["Using gradient-wind rules inside the friction layer without care"]
+    }
+  ],
+  formula: [
+    {
+      name: "Gradient vs geostrophic (curved flow)",
+      expression: "\\text{cyclonic: } V < V_g \\quad \\text{anticyclonic: } V > V_g",
+      variables: [
+        { symbol: "V", meaning: "gradient-wind speed on a curved path" },
+        { symbol: "V_g", meaning: "geostrophic speed for the same pressure gradient" }
+      ]
     }
   ],
   examPoints: [
@@ -1398,6 +1493,16 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Jet steers", "Tight upper contours → jet"],
       traps: ["Jet only a surface wind feature"]
+    }
+  ],
+  formula: [
+    {
+      name: "Thermal-wind idea (qualitative)",
+      expression: "\\text{stronger horizontal } \\nabla T \\Rightarrow \\text{stronger upper-level } V",
+      variables: [
+        { symbol: "\\nabla T", meaning: "horizontal temperature gradient (baroclinic zone)" },
+        { symbol: "V", meaning: "upper-level wind speed (jet core above strongest baroclinicity)" }
+      ]
     }
   ],
   examPoints: [
@@ -1742,6 +1847,17 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Small T−Td → near saturation", "Large spread → dry"],
       traps: ["Reading only temperature and ignoring dew point on a station model"]
+    }
+  ],
+  formula: [
+    {
+      name: "Relative humidity",
+      expression: "\\mathrm{RH} = \\frac{e}{e_s} \\times 100\\%",
+      variables: [
+        { symbol: "e", meaning: "actual vapour pressure" },
+        { symbol: "e_s", meaning: "saturation vapour pressure at the same temperature" },
+        { symbol: "\\mathrm{RH}", meaning: "relative humidity (%)" }
+      ]
     }
   ],
   examPoints: [
@@ -4767,6 +4883,25 @@ export const topics: Topic[] = [
       traps: ["Using SALR before saturation"]
     }
   ],
+  formula: [
+    {
+      name: "LCL height (exam approximation)",
+      expression: "z_{\\mathrm{LCL}}\\,(\\mathrm{km}) \\approx \\frac{T - T_d}{8}",
+      variables: [
+        { symbol: "T", meaning: "air temperature (°C)" },
+        { symbol: "T_d", meaning: "dew-point temperature (°C)" },
+        { symbol: "z_{\\mathrm{LCL}}", meaning: "approximate lifting condensation level height (km)" }
+      ]
+    },
+    {
+      name: "Dry ascent cooling",
+      expression: "\\Delta T \\approx -\\Gamma_d \\times \\Delta z",
+      variables: [
+        { symbol: "\\Gamma_d", meaning: "DALR ≈ 9.8 °C/km (often 10 in MCQs)" },
+        { symbol: "\\Delta z", meaning: "ascent distance (km)" }
+      ]
+    }
+  ],
   examPoints: [
     "Classify from numbers",
     "LCL approximation when given",
@@ -4836,6 +4971,31 @@ export const topics: Topic[] = [
       traps: ["Picking the warmer parcel as more saturated automatically"]
     }
   ],
+  formula: [
+    {
+      name: "Relative humidity from vapour pressures",
+      expression: "\\mathrm{RH} = 100 \\times \\frac{e}{e_s}",
+      variables: [
+        { symbol: "e", meaning: "actual vapour pressure" },
+        { symbol: "e_s", meaning: "saturation vapour pressure at air temperature" }
+      ]
+    },
+    {
+      name: "Relative humidity from mixing ratios",
+      expression: "\\mathrm{RH} = 100 \\times \\frac{w}{w_s}",
+      variables: [
+        { symbol: "w", meaning: "mixing ratio (mass vapour / mass dry air)" },
+        { symbol: "w_s", meaning: "saturation mixing ratio at the same T and p" }
+      ]
+    },
+    {
+      name: "RH rule of thumb (approximate)",
+      expression: "\\mathrm{RH} \\approx 100 - 5(T - T_d)",
+      variables: [
+        { symbol: "T, T_d", meaning: "temperature and dew point in °C" }
+      ]
+    }
+  ],
   examPoints: [
     "Compute RH from e and e_s or w and w_s",
     "Use 100−5(T−Td) when asked",
@@ -4891,6 +5051,17 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Δp ~ ρgΔz", "Sanity-check magnitude"],
       traps: ["Mixing hPa into SI ρgΔz without conversion"]
+    }
+  ],
+  formula: [
+    {
+      name: "Common pressure units",
+      expression: "1\\,\\mathrm{hPa} = 1\\,\\mathrm{mb} = 100\\,\\mathrm{Pa}",
+      variables: [
+        { symbol: "\\mathrm{hPa}", meaning: "hectopascal (standard on weather charts)" },
+        { symbol: "\\mathrm{mb}", meaning: "millibar (numerically equal to hPa)" },
+        { symbol: "\\mathrm{Pa}", meaning: "pascal (SI unit)" }
+      ]
     }
   ],
   examPoints: [
