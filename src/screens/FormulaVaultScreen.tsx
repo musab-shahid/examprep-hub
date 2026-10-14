@@ -14,10 +14,12 @@ import type { SubjectId } from '@/types';
 const FORMULA_PRIORITY: SubjectId[] = [
   'physics',
   'maths',
+  'hat-quantitative',
   'meteo-climatology',
   'earth-science',
   'env-studies',
 ];
+
 
 export function FormulaVaultScreen() {
   const { navigate } = useRouter();
