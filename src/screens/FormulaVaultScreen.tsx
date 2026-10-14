@@ -123,45 +123,59 @@ export function FormulaVaultScreen() {
               <div key={cat}>
                 <h2 className="font-semibold text-slate-900 mb-3 text-lg">{cat}</h2>
                 <div className="space-y-3">
-                  {formulas.map((f) => (
-                    <Card key={`${f.topicId}-${f.name}`} className="p-4">
+                  {formulas.map((f) => {
+                    const key = `${f.topicId}:${f.name}`;
+                    const isOpen = expanded === key;
+                    return (
+                    <Card key={key} className="p-4 border border-slate-200">
                       <button
-                        onClick={() => { const k = `${f.topicId}:${f.name}`; setExpanded(expanded === k ? null : k); }}
+                        onClick={() => setExpanded(isOpen ? null : key)}
                         className="w-full text-left"
                       >
-                        <div className="flex items-center justify-between gap-3">
-                          <div className="min-w-0">
-                            <p className="font-semibold text-slate-900 text-sm">{f.name}</p>
-                            <div className="text-sky-600 text-sm mt-1 overflow-x-auto">
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="min-w-0 flex-1">
+                            <div className="flex flex-wrap items-center gap-2 mb-1">
+                              <p className="font-semibold text-slate-900 text-sm">{f.name}</p>
+                              <span className="inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
+                                {cat}
+                              </span>
+                            </div>
+                            <div className="formula-display text-slate-900 text-base mt-2 overflow-x-auto py-2 px-2.5 bg-slate-50 border border-slate-100 rounded-lg">
                               <MathText text={`$$${f.expression}$$`} />
                             </div>
-                            <p className="text-slate-500 text-xs mt-1">From: {f.topicTitle}</p>
+                            <p className="text-slate-600 text-xs mt-2">
+                              <span className="font-medium text-slate-700">Topic:</span> {f.topicTitle}
+                            </p>
                           </div>
-                          <ChevronRight className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${expanded === `${f.topicId}:${f.name}` ? 'rotate-90' : ''}`} />
+                          <ChevronRight className={`w-5 h-5 text-slate-400 shrink-0 mt-1 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
                         </div>
                       </button>
-                      {expanded === `${f.topicId}:${f.name}` && (
+                      {isOpen && (
                         <div className="mt-4 pt-4 border-t border-slate-100">
-                          <div className="space-y-1.5 mb-4">
-                            {f.variables.map((v, i) => (
-                              <div key={i} className="flex items-baseline gap-3 text-sm">
-                                <span className="text-sky-600 font-bold shrink-0">
-                                  <MathText text={`$${v.symbol}$`} />
-                                </span>
-                                <span className="text-slate-600">= {v.meaning}</span>
-                              </div>
-                            ))}
-                          </div>
+                          {(f.variables?.length ?? 0) > 0 && (
+                            <div className="space-y-2 mb-4">
+                              <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Symbols</p>
+                              {f.variables.map((v, i) => (
+                                <div key={i} className="flex items-baseline gap-3 text-sm">
+                                  <span className="text-slate-900 font-semibold shrink-0 min-w-[3rem]">
+                                    <MathText text={`$${v.symbol}$`} />
+                                  </span>
+                                  <span className="text-slate-600">= {v.meaning}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                           <button
                             onClick={() => navigate({ screen: 'topic', topicId: f.topicId })}
-                            className="text-sky-600 text-sm font-medium hover:text-sky-700"
+                            className="text-sm font-semibold text-slate-800 hover:text-slate-950 underline-offset-2 hover:underline"
                           >
-                            Go to source topic →
+                            Open full topic — {f.topicTitle} →
                           </button>
                         </div>
                       )}
                     </Card>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

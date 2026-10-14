@@ -140,3 +140,15 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Formula / KaTeX display — high contrast, inherit parent color */
+.formula-display {
+  color: #0f172a; /* slate-900 */
+}
+.formula-display .katex,
+.formula-display .katex * {
+  color: inherit !important;
+}
+.formula-display .katex {
+  font-size: 1.2em;
+}

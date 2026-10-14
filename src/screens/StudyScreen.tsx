@@ -462,11 +462,32 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           <IdiomGroupsBlock groups={topic.idiomGroups} expandedGroups={expandedGroups} onToggleGroup={toggleSet(setExpandedGroups)} />
         )}
         {(() => { const raw = topic.formula ?? (topic as Topic & { formulas?: typeof topic.formula }).formulas; if (!raw) return null; const formulas = Array.isArray(raw) ? raw : [raw]; return formulas.map((f, fi) => (
-          <Card key={fi} className="p-5 bg-slate-900">
-            <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Formula — {f.name}</h3></div>
-            <div className="text-sky-300 text-lg mb-4 text-center py-3 bg-slate-800 rounded-xl overflow-x-auto"><MathText text={`$$${f.expression}$$`} /></div>
+          <Card key={fi} className="p-5 border border-slate-200 bg-white overflow-hidden">
+            <div className="flex items-start gap-2.5 mb-3">
+              <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+                <Calculator className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Formula{formulas.length > 1 ? ` ${fi + 1} of ${formulas.length}` : ''}</p>
+                <h3 className="font-semibold text-slate-900 text-sm leading-snug">{f.name}</h3>
+                <p className="text-xs text-slate-500 mt-0.5">From this topic · {topic.title}</p>
+              </div>
+            </div>
+            <div className="formula-display text-slate-900 text-lg mb-4 text-center py-4 px-3 bg-slate-50 border border-slate-200 rounded-xl overflow-x-auto">
+              <MathText text={`$$${f.expression}$$`} />
+            </div>
             {(f.variables?.length ?? 0) > 0 && (
-              <div className="space-y-1.5">{f.variables.map((v, i) => <div key={i} className="flex items-baseline gap-3 text-sm"><span className="text-sky-400 font-bold shrink-0"><MathText text={`$${v.symbol}$`} /></span><span className="text-slate-300">= {v.meaning}</span></div>)}</div>
+              <div className="space-y-2">
+                <p className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">Symbols</p>
+                {f.variables.map((v, i) => (
+                  <div key={i} className="flex items-baseline gap-3 text-sm">
+                    <span className="text-slate-900 font-semibold shrink-0 min-w-[3rem]">
+                      <MathText text={`$${v.symbol}$`} />
+                    </span>
+                    <span className="text-slate-600">= {v.meaning}</span>
+                  </div>
+                ))}
+              </div>
             )}
           </Card>
         )); })()}
@@ -1297,14 +1318,23 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
 // ---- Quant Formulas Block ----
 function QuantFormulasBlock({ formulas }: { formulas: QuantFormulaEntry[] }) {
   return (
-    <Card className="p-5 bg-slate-900">
-      <div className="flex items-center gap-2 mb-3"><Calculator className="w-4 h-4 text-sky-400" /><h3 className="font-semibold text-white text-sm uppercase tracking-wide">Key Formulas</h3></div>
-      <div className="space-y-3">
+    <Card className="p-5 border border-slate-200 bg-white">
+      <div className="flex items-center gap-2 mb-4">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
+          <Calculator className="w-4 h-4" />
+        </div>
+        <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Key Formulas</h3>
+      </div>
+      <div className="space-y-4">
         {formulas.map((f, fi) => (
-          <div key={fi} className="py-2">
-            <p className="text-sky-300 text-sm font-medium mb-1">{f.name}</p>
-            <p className="text-sky-200 text-lg font-mono text-center py-2 bg-slate-800 rounded-xl"><MathText text={`$${f.expression}$`} /></p>
-            {(f.note ?? (f as { notes?: string }).notes) && <p className="text-slate-400 text-xs mt-1">{f.note ?? (f as { notes?: string }).notes}</p>}
+          <div key={fi} className="pb-4 border-b border-slate-100 last:border-0 last:pb-0">
+            <p className="text-slate-900 text-sm font-semibold mb-2">{f.name}</p>
+            <div className="formula-display text-slate-900 text-lg text-center py-3 px-2 bg-slate-50 border border-slate-200 rounded-xl overflow-x-auto">
+              <MathText text={`$${f.expression}$`} />
+            </div>
+            {(f.note ?? (f as { notes?: string }).notes) && (
+              <p className="text-slate-600 text-xs mt-2 leading-relaxed">{f.note ?? (f as { notes?: string }).notes}</p>
+            )}
           </div>
         ))}
       </div>
