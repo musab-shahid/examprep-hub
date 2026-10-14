@@ -1864,115 +1864,215 @@ export const topics: Topic[] = [
   usedIn: ["ra-data-interpretation", "meteo-stevenson-screen", "meteo-forecast-skill", "earth-k2"],
 },
 // ═══════════════════════════════════════════════════════════════════
-// RA-11: Scientific Reporting
+// RA-10: Data Interpretation & Critical Thinking
 // ═══════════════════════════════════════════════════════════════════
-
 {
-  id: "ra-scientific-reporting",
-  sectionId: "RA-11",
+  id: "ra-data-interpretation",
+  sectionId: "RA-10",
   order: 1,
-  title: "Scientific Reporting (IMRaD)",
-  definition: "Scientific reports follow a standard IMRaD structure (Introduction, Methods, Results, Discussion). Effective reporting allows other researchers to evaluate, replicate, and build on the work.",
+  title: "Data Interpretation & Critical Thinking",
+  definition:
+    "Reading tables and graphs with discipline, then judging whether the claimed story is supported: check units and scales, describe trends honestly, watch for confounders and misleading presentation, and separate statistical significance from practical importance.",
   keyFacts: [
-    "IMRaD structure: Introduction (why) → Methods (how) → Results (what found) → Discussion (what it means)",
-    "INTRODUCTION: background, literature review, research question/hypothesis, objectives, significance",
-    "METHODS: detailed enough for REPLICATION — study design, participants, materials, procedure, data analysis, ethical approval",
-    "RESULTS: presents findings objectively, without interpretation (use tables, figures, statistics); follows logical order",
-    "DISCUSSION: interprets results, compares to literature, addresses limitations, suggests future directions",
-    "CONCLUSION: summarizes main findings and their implications (often in a separate section or at end of Discussion)",
-    "ABSTRACT: 150-300 words, summarizes entire paper (background, methods, results, conclusions), no citations",
-    "KEYWORDS: 3-6 terms for indexing/databases",
-    "TABLES & FIGURES: numbered (Table 1, Figure 1), titled, self-explanatory, referenced in text",
-    "REFERENCES: cited properly (APA, Harvard, Vancouver styles); include author, year, title, journal/source, DOI for digital",
-    "PEER REVIEW: independent expert evaluation BEFORE publication; quality control; can be slow or sometimes flawed",
-    "PLAGIARISM: presenting others' work as your own — serious ethical violation"
+    "Before interpreting: units, axis scales (linear/log, zero baseline?), time span, sample, and definitions of variables",
+    "Trend language: increasing, decreasing, linear vs curved, seasonal/cyclical, step changes, inflection points",
+    "Misleading moves: cherry-picked windows, truncated bar axes, dramatic % on tiny bases, correlation sold as causation, survivorship bias",
+    "Confounder: a third factor that drives both X and Y and can create a spurious association",
+    "Ways to address confounding: randomisation, restriction, matching, stratification, multivariable adjustment (as design allows)",
+    "Compare groups using effect size and context — not p-values alone",
+    "Outliers: investigate (error vs real extreme); do not delete by reflex",
+    "Base-rate neglect: ignoring prevalence when interpreting test accuracy or rare events",
+    "Multiple comparisons: many tests inflate the chance of at least one false positive",
   ],
   explanationSections: [
-    { heading: "The IMRaD structure — why it works", body: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Discussion). This structure makes papers easy to read and evaluate. The METHODS must be detailed enough for REPLICATION — another researcher should be able to repeat your study. The RESULTS present findings OBJECTIVELY (no interpretation — that goes in Discussion). The DISCUSSION interprets, compares to literature, and addresses limitations." },
-    { heading: "Citations and references — academic integrity", body: "REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association, common in social sciences), Harvard (similar, common in sciences), Vancouver (common in medical journals). Each style has specific rules for formatting. The KEY elements: author(s), year, title, journal/source, volume/issue/pages, DOI (for digital). In-text citations (Author, Year) link to the full reference. PLAGIARISM (using others' words, ideas, or data without attribution) is a serious ethical violation that can end careers. Paraphrase, quote, and cite properly." },
-    { heading: "Peer review — strengths and limitations", body: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates findings. Limitations: SLOW (months to years), reviewers can be biased or miss things, and 'publication bias' means positive results are over-represented (negative results often don't get published). The replication crisis in many fields shows peer review alone is not enough. PRE-PRINTS (online before peer review) and REGISTERED REPORTS (pre-registered study design) are modern solutions to some of these limitations." }
+    {
+      heading: "A fixed routine for any table or graph",
+      body:
+        "Read the title and footnotes. Name the variables and units. Check whether the vertical axis starts at zero (especially for bars). Note the time range and whether a log scale is used. Only then describe the pattern: direction, shape, exceptions. Many exam errors are unit-blind (mm vs cm, % vs percentage points) or scale-blind (a ‘steep’ rise that is tiny in absolute terms).",
+    },
+    {
+      heading: "Base-rate fallacy (worked intuition)",
+      body:
+        "A test can be ‘99% accurate’ and still yield many false positives when the condition is rare. Sketch a population of 10,000 with 1% prevalence (100 true cases). With 99% sensitivity and 99% specificity: about 99 true positives and about 99 false positives among those who test positive — so roughly half of positives are true cases in this toy setup. The background rate is not optional detail; it dominates posterior risk when events are uncommon.",
+    },
+    {
+      heading: "Misleading statistics checklist",
+      body:
+        "Ask: What time window was chosen? What was left out? Is the baseline tiny so a large % means one extra case? Does a truncated axis invent drama? Is a correlation explained by a seasonal or size confounder? Are only survivors shown? Critical reading is asking what is missing, not only what is plotted.",
+    },
+    {
+      heading: "Significance vs importance; many tests",
+      body:
+        "A tiny effect can be ‘statistically significant’ with huge n; a large effect can miss significance with small n. Report practical magnitude. If many hypotheses are tested without correction or a plan, some ‘significant’ results are expected by chance — the multiple-comparisons problem.",
+    },
   ],
   examPoints: [
-    "IMRaD: Introduction → Methods → Results → Discussion",
-    "Methods must be detailed enough for replication",
-    "Results present objectively; Discussion interprets",
-    "Plagiarism = serious ethical violation (no exceptions)"
+    "Always check units, scales, and context before interpreting",
+    "Base rate matters for rare events and diagnostic tests",
+    "Correlation + confounder ≠ proven causation",
+    "Cherry-picking and truncated axes are classic presentation tricks",
+    "p-value ≠ practical importance; many tests raise false-positive risk",
   ],
   commonMistakes: [
-    "Interpreting results in the Results section (interpretation belongs in Discussion)",
-
-    "Insufficient Methods detail (other researchers can't replicate)",
-    "Forgetting to cite sources — plagiarism is a serious violation"
+    {
+      mistake: "Equating test accuracy with the probability of having the condition after a positive result",
+      correction: "Combine accuracy with prevalence (base rate).",
+      explanation: "False positives swamp true positives when the condition is rare.",
+    },
+    {
+      mistake: "Treating a large percentage change on a tiny base as a major absolute event",
+      correction: "Report absolute counts alongside percentages.",
+      explanation: "1 → 2 is +100% but only one extra case.",
+    },
+    {
+      mistake: "Reading a graph without checking whether the axis is truncated or logarithmic",
+      correction: "Inspect the axis breaks and scale type first.",
+      explanation: "Visual slope is not the same as absolute change.",
+    },
   ],
-  relatedTopics: ["ra-scientific-method", "ra-research-ethics", "ra-data-interpretation"],
-    subtopics: [
-      {
-        id: "ra-scientific-reporting-the-imrad-structure-why-it-works",
-        title: "The IMRaD structure — why it works",
-        summary: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research…",
-        explanation: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Discussion). This structure makes papers easy to read and evaluate. The METHODS must be detailed enough for REPLICATION — another researcher should be able to repeat your study. The RESULTS present findings OBJECTIVELY (no interpretation — that goes in Discussion). The DISCUSSION interprets, compares to literature, and addresses limitations.",
-                examples: [
-          {
-            problem: "Which statement best matches “The IMRaD structure — why it works”?",
-            solution: "The accurate idea is: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Discussion). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Meth…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The IMRaD structure — why it works.",
-            solution: "Stay close to the text: IMRaD (Introduction, Methods, Results, Discussion) is the standard scientific paper structure because it follows the LOGIC of the research process: WHY (Introduction) → HOW (Methods) → WHAT (Results) → SO WHAT (Dis… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-scientific-reporting-citations-and-references-academic-integr",
-        title: "Citations and references — academic integrity",
-        summary: "REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association,…",
-        explanation: "REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association, common in social sciences), Harvard (similar, common in sciences), Vancouver (common in medical journals). Each style has specific rules for formatting. The KEY elements: author(s), year, title, journal/source, volume/issue/pages, DOI (for digital). In-text citations (Author, Year) link to the full reference. PLAGIARISM (using others' words, ideas, or data without attribution) is a serious ethical violation that can end careers. Paraphrase, quote, and cite properly.",
-                examples: [
-          {
-            problem: "Which statement best matches “Citations and references — academic integrity”?",
-            solution: "The accurate idea is: REFERENCES give credit to prior work and allow readers to verify your sources. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "REFERENCES give credit to prior work and allow readers to verify your sources.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Citations and references — academic integrity.",
-            solution: "Stay close to the text: REFERENCES give credit to prior work and allow readers to verify your sources. Common styles: APA (American Psychological Association, common in social sciences), Harvard (similar, common in sciences), Vancouver (common … Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-scientific-reporting-peer-review-strengths-and-limitations",
-        title: "Peer review — strengths and limitations",
-        summary: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates…",
-        explanation: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates findings. Limitations: SLOW (months to years), reviewers can be biased or miss things, and 'publication bias' means positive results are over-represented (negative results often don't get published). The replication crisis in many fields shows peer review alone is not enough. PRE-PRINTS (online before peer review) and REGISTERED REPORTS (pre-registered study design) are modern solutions to some of these limitations.",
-                examples: [
-          {
-            problem: "Which statement best matches “Peer review — strengths and limitations”?",
-            solution: "The accurate idea is: PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Peer review — strengths and limitations.",
-            solution: "Stay close to the text: PEER REVIEW is independent expert evaluation of a manuscript BEFORE publication. Strengths: catches errors, improves quality, validates findings. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A headline: ‘Errors doubled!’ from 1 mis-forecast to 2 in a month. Critique.",
+      answer:
+        "Technically +100%, but absolute change is one case; need base rate, longer record, and definitions.",
+      why: "Percentage drama on a tiny denominator misleads.",
+    },
+    {
+      scenario:
+        "Sales of air conditioners and heatstroke admissions rise together each year. Causal?",
+      answer:
+        "Not from the correlation alone — summer heat is a plausible confounder.",
+      why: "Shared driver can induce association without one variable causing the other.",
+    },
+  ],
+  comparisonTable: {
+    title: "Critical questions for a figure",
+    headers: ["Check", "Ask", "Red flag"],
+    rows: [
+      ["Units", "What is measured?", "Missing or mixed units"],
+      ["Scale", "Zero baseline? Log?", "Truncated bars; undeclared log"],
+      ["Window", "Which period/sample?", "Cherry-picked dates"],
+      ["Claim", "Association or causation?", "Causal language from r alone"],
+      ["Base rate", "How common is the event?", "Accuracy quoted without prevalence"],
     ],
-
+  },
+  relatedTopics: ["ra-correlation-regression", "ra-data-visualization", "ra-research-quality"],
+  subtopics: [
+    {
+      id: "ra-data-interpretation-reading-displays",
+      title: "Reading tables and graphs critically",
+      summary:
+        "Units, scales, context, trends, outliers, and inflection points — in that spirit of order.",
+      explanation:
+        "Describe what is actually shown before inventing a policy moral. Separate visual impression from absolute magnitude.",
+      examples: [
+        {
+          problem:
+            "A bar chart of two rates, 12.0% vs 12.4%, uses a vertical axis from 12.0 to 12.5. Main risk?",
+          solution:
+            "Truncation makes a 0.4 percentage-point gap look enormous.",
+          answer: "Exaggerated visual difference",
+        },
+        {
+          problem:
+            "First things to read on a climate time-series plot?",
+          solution:
+            "Variable, units, time span, and whether the vertical scale is linear or log.",
+          answer: "Units, scale, and time window",
+        },
+      ],
+      shortcuts: [
+        "Units → scale → context → pattern → exceptions",
+      ],
+      traps: [
+        "Ignoring footnotes that redefine the variable",
+        "Treating chart slope as effect size without reading the axis",
+      ],
+    },
+    {
+      id: "ra-data-interpretation-base-rate",
+      title: "Base-rate fallacy",
+      summary:
+        "Prevalence (or background frequency) must enter probability judgments.",
+      explanation:
+        "High sensitivity/specificity is not enough when the event is rare; count false positives in the large healthy group.",
+      examples: [
+        {
+          problem:
+            "In the 10,000-person toy example (1% prevalence, 99% accurate test both ways), about what fraction of positives are true cases?",
+          solution:
+            "≈ 99 true positives and ≈ 99 false positives → about half.",
+          answer: "About 50%",
+        },
+        {
+          problem:
+            "Why do rare severe weather ‘alarms’ generate many false alarms even with a ‘good’ detector?",
+          solution:
+            "Most days are non-events; small false-positive rates still produce many false alarms.",
+          answer: "Low base rate of true events",
+        },
+      ],
+      shortcuts: [
+        "Rare event + imperfect test → many false positives among positives",
+      ],
+      traps: [
+        "Answering with the test’s accuracy percentage as the post-test probability",
+      ],
+    },
+    {
+      id: "ra-data-interpretation-misleading-and-confounding",
+      title: "Misleading stats and confounding",
+      summary:
+        "Cherry-picks, scale tricks, % on tiny bases, spurious correlations, survivorship.",
+      explanation:
+        "For each claim, ask what is missing and what third variable could drive the pattern. Prefer absolute numbers with percentages and full time windows.",
+      examples: [
+        {
+          problem:
+            "A study of ‘successful startups’ interviews only firms still operating after 10 years. Bias?",
+          solution:
+            "Failed firms are invisible → survivorship bias.",
+          answer: "Survivorship bias",
+        },
+        {
+          problem:
+            "Testing 40 unplanned hypotheses at α = 0.05 without correction — main risk?",
+          solution:
+            "Elevated chance of at least one false positive → multiple-comparisons problem.",
+          answer: "Inflated Type I errors",
+        },
+      ],
+      shortcuts: [
+        "What’s missing? What’s the base? What’s the confounder? How many tests?",
+      ],
+      traps: [
+        "Causal headlines from seasonal co-movement",
+        "Celebrating huge % changes without absolute counts",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
-  buildsOn: ["ra-data-interpretation", "ra-scientific-method"],
-  leadsTo: ["ra-research-ethics"],
-  usedIn: ["english-parts-of-speech-and-tenses", "english-common-errors", "english-sentence-building-blocks", "english-sentence-types-errors-transformation", "english-sentence-completion-rearrangement", "meteo-pmd-operational", "env-climate-change-response", "env-international-climate-policy", "earth-h4", "earth-i2"]
+  buildsOn: [
+    "ra-data-visualization",
+    "ra-correlation-regression",
+    "ra-research-quality",
+    "ra-inferential-stats",
+  ],
+  leadsTo: ["ra-scientific-reporting"],
+  usedIn: [
+    "ra-scientific-reporting",
+    "env-climate-change-response",
+    "meteo-extreme-events",
+    "meteo-ipcc-rcps",
+    "earth-h3",
+    "earth-h4",
+    "earth-c2",
+    "earth-k2",
+    "earth-i2",
+    "english-sentence-building-blocks",
+  ],
 },
 
 // ═══════════════════════════════════════════════════════════════════
