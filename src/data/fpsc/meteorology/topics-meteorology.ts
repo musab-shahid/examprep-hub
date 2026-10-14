@@ -1104,6 +1104,17 @@ export const topics: Topic[] = [
       traps: ["Rewriting the entire DALR table here instead of applying it"]
     }
   ],
+  formula: [
+    {
+      name: "Stability classification (compare rates)",
+      expression: "\\text{ELR}>\\Gamma_d\\Rightarrow\\text{abs. unstable};\\quad \\Gamma_s<\\text{ELR}<\\Gamma_d\\Rightarrow\\text{conditional};\\quad \\text{ELR}<\\Gamma_s\\Rightarrow\\text{abs. stable}",
+      variables: [
+        { symbol: "\\mathrm{ELR}", meaning: "environmental lapse rate (°C/km)" },
+        { symbol: "\\Gamma_d", meaning: "DALR ≈ 9.8 °C/km" },
+        { symbol: "\\Gamma_s", meaning: "SALR ≈ 4–7 °C/km" }
+      ]
+    }
+  ],
   examPoints: [
     "Stable vs unstable parcel response",
     "Conditional instability as common storm setup",
@@ -1299,6 +1310,15 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["PGF starts", "Coriolis deflects", "Tight isobars → strong PGF"],
       traps: ["Coriolis as a force that pushes air from rest toward low"]
+    }
+  ],
+  formula: [
+    {
+      name: "Pressure-gradient force (magnitude idea)",
+      expression: "\\mathrm{PGF} \\propto \\frac{\\Delta p}{\\Delta n}",
+      variables: [
+        { symbol: "\\Delta p/\\Delta n", meaning: "pressure change over distance normal to isobars (tight packing → strong PGF)" }
+      ]
     }
   ],
   examPoints: [
@@ -2122,6 +2142,16 @@ export const topics: Topic[] = [
       traps: ["Assuming every grey cloud rains"]
     }
   ],
+  formula: [
+    {
+      name: "Volume growth with radius",
+      expression: "V \\propto r^{3}\\quad(\\text{radius}\\times 100 \\Rightarrow \\text{volume}\\times \\sim 10^{6})",
+      variables: [
+        { symbol: "r", meaning: "droplet radius (~10 µm cloud → ~1 mm rain)" },
+        { symbol: "V", meaning: "droplet volume" }
+      ]
+    }
+  ],
   examPoints: [
     "Curvature vs solute",
     "Million-fold volume growth",
@@ -2177,6 +2207,16 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Dry sub-cloud → virga risk"],
       traps: ["Radar echo always equals surface rain"]
+    }
+  ],
+  formula: [
+    {
+      name: "Bergeron vapour-pressure edge",
+      expression: "e_{s,\\mathrm{ice}} < e_{s,\\mathrm{liquid}}\\ \\text{at same }T\\Rightarrow\\text{ice grows, droplets may evaporate}",
+      variables: [
+        { symbol: "e_{s,\\mathrm{ice}}", meaning: "saturation vapour pressure over ice" },
+        { symbol: "e_{s,\\mathrm{liquid}}", meaning: "saturation vapour pressure over liquid water" }
+      ]
     }
   ],
   examPoints: [
@@ -2429,6 +2469,16 @@ export const topics: Topic[] = [
       ["Inversions on T curve", "Lids / stability"]
     ]
   },
+  formula: [
+    {
+      name: "Parcel path on a thermo diagram",
+      expression: "\\text{dry adiabat}\\to\\mathrm{LCL}\\to\\text{moist adiabat};\\ \\text{CAPE}\\sim\\int (T_{parcel}-T_{env})\\,dz",
+      variables: [
+        { symbol: "\\mathrm{LCL}", meaning: "lifting condensation level" },
+        { symbol: "\\mathrm{CAPE}", meaning: "positive buoyancy area (parcel warmer than environment)" }
+      ]
+    }
+  ],
   examPoints: [
     "Diagrams visualise soundings",
     "T–Td proximity indicates saturation",
@@ -3796,6 +3846,15 @@ export const topics: Topic[] = [
       ["Large volcanic sulfate peak", "Negative (temporary)"]
     ]
   },
+  formula: [
+    {
+      name: "Radiative forcing (conceptual)",
+      expression: "\\Delta F\\ [\\mathrm{W\\,m^{-2}}]\\quad(+\\Rightarrow\\text{warming tendency},\\ -\\Rightarrow\\text{cooling})",
+      variables: [
+        { symbol: "\\Delta F", meaning: "change in net downward radiative flux (often at tropopause/TOA)" }
+      ]
+    }
+  ],
   examPoints: [
     "RF in W/m²",
     "Positive vs negative meaning",
@@ -5119,6 +5178,16 @@ export const topics: Topic[] = [
       ],
       shortcuts: ["Upper smooth flow OK", "Surface/terrain caution"],
       traps: ["Geostrophy everywhere"]
+    }
+  ],
+  formula: [
+    {
+      name: "Geostrophic speed vs contour spacing",
+      expression: "V_g \\propto \\frac{1}{\\Delta n}\\quad(\\text{same latitude})",
+      variables: [
+        { symbol: "V_g", meaning: "geostrophic wind speed" },
+        { symbol: "\\Delta n", meaning: "spacing between consecutive isobars/height contours" }
+      ]
     }
   ],
   examPoints: [
