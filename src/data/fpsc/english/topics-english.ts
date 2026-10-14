@@ -7,7 +7,7 @@ import type { Topic } from '@/types';
 
 export const topics: Topic[] = [
 // ============================================================================
-// ENGLISH — MODULE A: Grammar & Usage (FIXED)
+// ENGLISH — MODULE A: Grammar & Usage
 // ============================================================================
 // --------------------------------------------------------------------------
 // A1 — Parts of Speech & Tenses
