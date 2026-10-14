@@ -949,161 +949,272 @@ export const topics: Topic[] = [
   order: 3,
   title: 'Pronouns, Prepositions & Conjunctions',
   definition:
-    'Pronouns replace nouns and must agree with their antecedents in number, gender and case. Prepositions express relations of time, place and direction and form many fixed phrases. Conjunctions join elements; the three families are coordinating, subordinating and correlative.',
+    'Pronouns stand in for nouns and must match their antecedents in number, person, and case. Prepositions mark relations of time, place, and direction and form many fixed collocations that exams love to twist. Conjunctions join words, phrases, or clauses; coordinating, subordinating, and correlative pairs each follow different rules—especially against double connectors and broken parallelism.',
   keyFacts: [
-    'Subject versus object case: I/me, he/him, she/her, we/us, they/them.',
-    'Possessive: my/mine, your/yours, her/hers, our/ours, their/theirs. its (possessive) ≠ it\'s (it is).',
-    'Reflexive: myself, yourself, himself, herself, itself, ourselves, yourselves, themselves — used when subject and object are the same.',
-    'Relative: who (subject, people), whom (object, people), which (things), that (defining), whose (possession).',
-    'who/whom test: substitute he/she or him/her; if him fits, use whom.',
-    'Time prepositions: at (exact time, night, weekend), in (months, years, seasons, parts of day), on (days and dates).',
-    'for = duration; since = starting point.',
-    'Place: at (point), in (area), on (surface).',
-    'Coordinating (FANBOYS): for, and, nor, but, or, yet, so.',
+    'Subject case: I, he, she, we, they, who. Object case: me, him, her, us, them, whom.',
+    'After a preposition, use object case: between you and me; with him and her (not I/he).',
+    'Possessive: my/mine, your/yours, her/hers, our/ours, their/theirs; its (belonging) ≠ it\'s (it is / it has).',
+    'Reflexive (myself, yourself, himself…): same person as subject and object — not a fancy substitute for me/I in formal writing.',
+    'Relative: who (subject, people), whom (object, people), which (things), that (defining clauses), whose (possession).',
+    'who/whom test: replace with he/she → who; him/her → whom. After a preposition → whom.',
+    'Time: at (clock time, night, weekend), in (months, years, seasons, parts of day), on (days and dates).',
+    'for = duration; since = starting point (for five years / since 2010).',
+    'Place: at (point), in (enclosed area), on (surface).',
+    'Coordinating FANBOYS: for, and, nor, but, or, yet, so.',
     'Subordinating: because, although, while, when, if, unless, since, after, before, until.',
-    'Correlative pairs: both…and, either…or, neither…nor, not only…but also — must stay parallel.',
-    'Do not pair although with but, or because with so.',
+    'Never stack although + but, or because + so (one relationship, one connector).',
+    'Correlatives: both…and, either…or, neither…nor, not only…but also — same grammatical shape on both sides.',
     'between = two; among = more than two.',
-    'Fixed phrases: good at, married to, different from, according to, senior/junior to.',
-    'Pronoun case after preposition: always object case — "between you and ME", "with HIM and HER".'
+    'Fixed phrases: good at, married to, different from, according to, senior/junior to (not than).',
   ],
   explanationSections: [
     {
+      heading: 'Pronoun case in the wild',
+      body:
+        'Case is the form of the pronoun: subject forms do the action of the verb; object forms receive the action or follow a preposition. Compound phrases are the trap: the pronoun after and/or must still take the form it would take alone. Strip the other name and test: “The teacher called Ali and me” (called me, not I). “Ali and I finished the report” (I finished). After every preposition, object case is compulsory: between you and me, for him and her, to whom it was given.',
+    },
+    {
       heading: 'who versus whom',
-      body: 'Replace the relative pronoun with he/she or him/her. Subject form → who; object form → whom. "The scientist who discovered this theory" — he discovered → who. "The scientist whom we met yesterday" — we met him → whom. "The person to whom I spoke" — I spoke to him → whom. Formal writing still observes the distinction; exams usually present clear cases. When in doubt: if the pronoun sits right after a preposition, it is whom.'
+      body:
+        'Treat the relative pronoun as if it were a personal pronoun in its own clause. If he/she fits, write who; if him/her fits, write whom. “The scientist who discovered the law” (he discovered). “The scientist whom we met” (we met him). “The official to whom I wrote” (I wrote to him). Exams usually give clear subject/object roles; when the pronoun follows a preposition, whom is the safe formal choice.',
     },
     {
-      heading: 'at / in / on for time',
-      body: 'at = precise point. in = larger blocks. on = specific days and dates. "in Monday" and "at June" are classic errors. Add since for starting point (since 2010) and for for length (for five years). AT = exact time (at 5 PM), night (at night), weekend (at the weekend). IN = months (in June), years (in 2024), seasons (in summer), parts of day (in the morning). ON = days (on Monday), dates (on June 15), specific mornings/afternoons (on Saturday morning).'
+      heading: 'at / in / on (time) and for / since',
+      body:
+        'at marks a precise point (at 5 p.m., at noon, at night, at the weekend). in marks larger spans (in June, in 2024, in summer, in the morning). on marks days and dates (on Monday, on 15 June, on Saturday morning). Classic errors: in Monday, at June. Pair duration with for (for three hours) and a starting point with since (since Monday, since 2019). Do not write since five years for a pure duration — use for five years.',
     },
     {
-      heading: 'Conjunction redundancy',
-      body: 'Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Use one connector, not both. The same rule applies to while + but, since + so, and other subordinate + coordinating pairs. The diagnostic: if the subordinate conjunction already establishes the relationship, do not add a coordinating conjunction that says the same thing.'
+      heading: 'One relationship, one connector',
+      body:
+        'Although and though already encode contrast; adding but repeats the same signal. Because and since already encode cause; adding so is redundant. Prefer a single clear link: “Although he is rich, he is unhappy” or “He is rich, but he is unhappy” — not both. The same discipline applies to while + but and similar stacks. If the subordinate word has already named the logical relation, do not add a coordinating conjunction that says it again.',
     },
     {
-      heading: 'Correlative parallelism',
-      body: 'Correlative conjunctions (both…and, either…or, neither…nor, not only…but also) come in PAIRS and demand PARALLEL structure on both sides. "She is BOTH intelligent AND hard-working" (adjective + adjective). "He is EITHER a doctor OR a lawyer" (noun + noun). "They NEITHER smoke NOR drink" (verb + verb). The error: "He is BOTH intelligent AND a good speaker" (adjective + noun phrase) — NOT parallel. Fix: "He is BOTH intelligent AND articulate" (both adjectives) or "He is intelligent AND a good speaker" (different structure but at least still parallel).'
+      heading: 'Correlative pairs and parallel form',
+      body:
+        'both…and, either…or, neither…nor, and not only…but also travel in pairs and demand matching structure. Adjective with adjective, noun with noun, verb with verb: “both careful and thorough”; “either a map or a compass”; “neither smokes nor drinks.” Broken parallelism (“both intelligent and a good speaker”) is a frequent error set; rewrite so both limbs match, or drop the correlative frame.',
     },
     {
-      heading: 'Link forward',
-      body: 'Pronoun case and agreement rest on subject/object identification from A1–A2. Prepositional phrases are the same distractors that appear in agreement. Conjunctions determine the clause boundaries that later sentence-structure topics will exploit. A4 (Modals, Voice, Narration) reuses the relative pronouns (who, which, that) for sentence combination. A5 (Common Errors) heavily tests fixed prepositions (discuss ABOUT, married WITH, different THAN, prefer X THAN) — most of these errors live in this chapter.'
-    }
+      heading: 'Fixed prepositions (exam favourites)',
+      body:
+        'Many adjectives and verbs lock to one preposition in standard exam English: good at, interested in, afraid of, married to, different from, according to, senior/junior/preferable to. Wrong partners (good in maths, married with, different than, senior than) are planted deliberately. Learn the phrase as a unit; do not translate prepositions word-for-word from another language.',
+    },
   ],
   examPoints: [
+    'After prepositions → object case (between you and me).',
     'who = subject; whom = object (he/him test).',
-    'since = point; for = duration.',
-    'at / in / on time rules.',
-    'Do not combine although + but or because + so.',
-    'between = two; among = more than two.',
+    'at / in / on for time; for = duration; since = start point.',
+    'No although + but; no because + so.',
+    'Correlatives need parallel structure on both sides.',
+    'between (two) vs among (more than two).',
     'good at; married to; different from; senior to.',
-    'After prepositions, always use object case (between you and me, with him).',
-    'Correlative conjunctions require parallel structure on both sides.'
+    'its ≠ it\'s; avoid reflexive myself as a polite stand-in for me in formal prose.',
   ],
   commonMistakes: [
-    '"Between you and I" → "Between you and me".',
-    '"He is good in mathematics" → "He is good at mathematics".',
-    '"Although he is rich, but he is unhappy" → "Although he is rich, he is unhappy".',
-    '"Because he was tired, so he slept" → "Because he was tired, he slept".',
-    '"She is senior than me" → "She is senior to me".',
-    '"She is both intelligent and a hard worker" → "She is both intelligent AND diligent" (parallel structure).'
+    {
+      mistake: 'Between you and I',
+      correction: 'Between you and me',
+      explanation: 'Between is a preposition; the pronoun must be object case.',
+    },
+    {
+      mistake: 'He is good in mathematics',
+      correction: 'He is good at mathematics',
+      explanation: 'Skill/ability takes good at in standard exam usage.',
+    },
+    {
+      mistake: 'Although he is rich, but he is unhappy',
+      correction: 'Although he is rich, he is unhappy',
+      explanation: 'Although already marks contrast; but is redundant.',
+    },
+    {
+      mistake: 'Because he was tired, so he slept early',
+      correction: 'Because he was tired, he slept early',
+      explanation: 'Because already marks cause; so is redundant.',
+    },
+    {
+      mistake: 'She is senior than me',
+      correction: 'She is senior to me',
+      explanation: 'senior / junior / preferable take to, not than.',
+    },
+    {
+      mistake: 'She is both intelligent and a hard worker',
+      correction: 'She is both intelligent and diligent',
+      explanation: 'Correlative both…and needs the same word class on each side.',
+    },
   ],
-
-    subtopics: [
-      {
-        id: "english-pronouns-prepositions-conjunctions-who-versus-whom",
-        title: "who versus whom",
-        summary: "Replace the relative pronoun with he/she or him/her. Subject form → who; object form → whom. ",
-        explanation: "Replace the relative pronoun with he/she or him/her. Subject form → who; object form → whom. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “who versus whom”.",
-            solution: "From the notes: Replace the relative pronoun with he/she or him/her. Subject form â who; object form â whom. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Replace the relative pronoun with he/she or him/her.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-pronouns-prepositions-conjunctions-at-in-on-for-time",
-        title: "at / in / on for time",
-        summary: "at = precise point. in = larger blocks. on = specific days and dates. ",
-        explanation: "at = precise point. in = larger blocks. on = specific days and dates. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “at / in / on for time”.",
-            solution: "From the notes: at = precise point. in = larger blocks. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "at = precise point.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-pronouns-prepositions-conjunctions-conjunction-redundancy",
-        title: "Conjunction redundancy",
-        summary: "Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Use one connector, not…",
-        explanation: "Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Use one connector, not both. The same rule applies to while + but, since + so, and other subordinate + coordinating pairs. The diagnostic: if the subordinate conjunction already establishes the relationship, do not add a coordinating conjunction that says the same thing.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Conjunction redundancy”.",
-            solution: "From the notes: Although already signals contrast; adding but is redundant. Because already signals cause; adding so is redundant. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Although already signals contrast; adding but is redundant.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-pronouns-prepositions-conjunctions-correlative-parallelism",
-        title: "Correlative parallelism",
-        summary: "Correlative conjunctions (both…and, either…or, neither…nor, not only…but also) come in PAIRS and demand PARALLEL structure on both sides. ",
-        explanation: "Correlative conjunctions (both…and, either…or, neither…nor, not only…but also) come in PAIRS and demand PARALLEL structure on both sides. ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Correlative parallelism”.",
-            solution: "From the notes: Correlative conjunctions (bothâ¦and, eitherâ¦or, neitherâ¦nor, not onlyâ¦but also) come in PAIRS and demand PARALLEL structure on both sides. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Correlative conjunctions (bothâ¦and, eitherâ¦or, neitherâ¦nor, not onlyâ¦but also) come in PAIRS and demand PARALLEL structure on both sides.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-pronouns-prepositions-conjunctions-link-forward",
-        title: "Link forward",
-        summary: "Pronoun case and agreement rest on subject/object identification from A1–A2. Prepositional phrases are the same distractors that appear in…",
-        explanation: "Pronoun case and agreement rest on subject/object identification from A1–A2. Prepositional phrases are the same distractors that appear in agreement. Conjunctions determine the clause boundaries that later sentence-structure topics will exploit. A4 (Modals, Voice, Narration) reuses the relative pronouns (who, which, that) for sentence combination. A5 (Common Errors) heavily tests fixed prepositions (discuss ABOUT, married WITH, different THAN, prefer X THAN) — most of these errors live in this chapter.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Link forward”.",
-            solution: "From the notes: Pronoun case and agreement rest on subject/object identification from A1âA2. Prepositional phrases are the same distractors that appear in agreement. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Pronoun case and agreement rest on subject/object identification from A1âA2.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        'Choose: “The officer ____ we met yesterday chairs the committee.” (who / whom)',
+      answer: 'whom',
+      why: 'We met him → object case → whom.',
+    },
+    {
+      scenario:
+        'Fix: “Although the forecast was severe, but the city ignored the warning.”',
+      answer: 'Although the forecast was severe, the city ignored the warning.',
+      why: 'Drop but; although already supplies the contrast.',
+    },
+    {
+      scenario:
+        'Pick the time prepositions: “The briefing is ___ Monday ___ 9 a.m. ___ June.”',
+      answer: 'on Monday; at 9 a.m.; in June',
+      why: 'Day → on; clock time → at; month → in.',
+    },
+  ],
+  comparisonTable: {
+    title: 'Quick contrasts',
+    headers: ['Item', 'Use', 'Avoid'],
+    rows: [
+      ['who / whom', 'subject / object (he vs him)', 'whom as casual subject in formal keys'],
+      ['for / since', 'duration / starting point', 'since five years (use for)'],
+      ['at / in / on (time)', 'point / span / day-date', 'in Monday; at June'],
+      ['between / among', 'two / more than two', 'among the two candidates'],
+      ['although… / because…', 'one connector only', 'although…but; because…so'],
     ],
+  },
+  subtopics: [
+    {
+      id: 'english-a3-pronoun-case',
+      title: 'Pronoun case (subject, object, after prepositions)',
+      summary: 'Match form to role; object case after every preposition.',
+      explanation:
+        'Subject forms pair with finite verbs; object forms follow verbs and prepositions. In compounds, test each pronoun alone. Reflexives are not formal substitutes for me or I.',
+      examples: [
+        {
+          problem: 'The manager praised (I / me) and Sara.',
+          solution: 'Praised me → object.',
+          answer: 'me',
+        },
+        {
+          problem: 'This secret is between you and (I / me).',
+          solution: 'Preposition between → object case.',
+          answer: 'me',
+        },
+      ],
+      shortcuts: [
+        'Drop the other name and test the pronoun alone',
+        'Preposition → object form',
+      ],
+      traps: [
+        'Between you and I',
+        'Using myself to sound formal instead of me',
+      ],
+    },
+    {
+      id: 'english-a3-who-whom',
+      title: 'who vs whom',
+      summary: 'he/she → who; him/her → whom.',
+      explanation:
+        'Rebuild the relative clause with a personal pronoun. Subject role selects who; object role selects whom. Preposition + relative almost always yields whom in exam keys.',
+      examples: [
+        {
+          problem: 'The analyst ___ prepared the chart left early. (who/whom)',
+          solution: 'She prepared → subject → who.',
+          answer: 'who',
+        },
+        {
+          problem: 'The guest to ___ the letter was addressed replied. (who/whom)',
+          solution: 'Addressed to him → whom.',
+          answer: 'whom',
+        },
+      ],
+      shortcuts: ['he/she = who; him/her = whom'],
+      traps: ['whom as subject because it “sounds formal”'],
+    },
+    {
+      id: 'english-a3-time-prepositions',
+      title: 'at / in / on and for / since',
+      summary: 'Point, span, day-date; duration vs starting point.',
+      explanation:
+        'Clock and named points take at; months, years, seasons, and parts of day take in; days and dates take on. for measures how long; since names when the period began.',
+      examples: [
+        {
+          problem: 'She has lived here ___ 2018. (for/since)',
+          solution: '2018 is a starting point → since.',
+          answer: 'since',
+        },
+        {
+          problem: 'The exam is ___ Friday ___ the morning. (at/in/on)',
+          solution: 'Day → on; part of day → in.',
+          answer: 'on Friday; in the morning',
+        },
+      ],
+      shortcuts: ['at = point; in = container of time; on = calendar day'],
+      traps: ['in Monday', 'since five years', 'at June'],
+    },
+    {
+      id: 'english-a3-conjunction-rules',
+      title: 'Coordinating, subordinating, and no double connectors',
+      summary: 'FANBOYS vs subordinators; one logical signal per link.',
+      explanation:
+        'Coordinating conjunctions join equals; subordinating conjunctions open dependent clauses. Do not reinforce although with but or because with so. Keep the clause structure clean so later sentence-structure items stay readable.',
+      examples: [
+        {
+          problem: 'Fix: Because the road was blocked, so traffic diverted.',
+          solution: 'Remove so (or remove because and keep so).',
+          answer: 'Because the road was blocked, traffic diverted.',
+        },
+      ],
+      shortcuts: ['One contrast/cause word is enough'],
+      traps: ['although…but', 'because…so', 'while…but'],
+    },
+    {
+      id: 'english-a3-correlatives-parallel',
+      title: 'Correlative pairs and parallelism',
+      summary: 'Matching limbs for both…and, either…or, neither…nor, not only…but also.',
+      explanation:
+        'Each pair expects the same grammatical pattern after each marker. Mismatched adjective + noun phrase is a standard distractor; rewrite until the two halves mirror each other.',
+      examples: [
+        {
+          problem: 'She is not only efficient but also (honesty / honest).',
+          solution: 'efficient is adjective → honest.',
+          answer: 'honest',
+        },
+      ],
+      shortcuts: ['Same form after each half of the pair'],
+      traps: ['both + adjective + and + noun phrase'],
+    },
+    {
+      id: 'english-a3-fixed-prepositions',
+      title: 'Fixed preposition phrases',
+      summary: 'good at, married to, different from, senior to, and related locks.',
+      explanation:
+        'Memorise high-frequency adjective/verb + preposition units. Exams recycle discuss (no about in formal keys), married to, different from, and comparative senior/junior to.',
+      examples: [
+        {
+          problem: 'He is married ___ a doctor. (with/to)',
+          solution: 'Standard collocation married to.',
+          answer: 'to',
+        },
+        {
+          problem: 'This result is different ___ the forecast. (than/from)',
+          solution: 'different from in formal exam English.',
+          answer: 'from',
+        },
+      ],
+      shortcuts: ['Learn phrase as a chunk, not word-by-word'],
+      traps: ['good in maths', 'married with', 'different than', 'senior than'],
+    },
+  ],
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-agreement-and-articles',
-    'english-common-errors'
+    'english-common-errors',
   ],
   content: true,
   examScope: ['bs17', 'bs16'],
   buildsOn: [
     'english-parts-of-speech-and-tenses',
-    'english-agreement-and-articles'
+    'english-agreement-and-articles',
   ],
   leadsTo: [
     'english-modals-voice-narration',
-    'english-common-errors'
+    'english-common-errors',
   ],
   usedIn: [
     'english-common-errors',
-    'english-sentence-building-blocks'
-  ]
+    'english-sentence-building-blocks',
+  ],
 },
 
 // --------------------------------------------------------------------------
