@@ -683,6 +683,12 @@ export const questions: Question[] = [
   correctAnswer: 1,
   explanation: "General abstract → zero; specific honesty restricted by of-phrase → the.",
   sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+{ id: "ENG-01-Q039", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "The effects of climate change _____ severe.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "Head subject is effects (plural). of climate change is only a prepositional phrase — agree with effects → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Pronouns, Prepositions & Conjunctions
