@@ -3238,19 +3238,6 @@ explanationSections: [
       { heading: "Why Pakistan is highly climate-vulnerable", body: "Pakistan combines exposure to heat, floods, drought, and glacial and snowmelt variability with large populations in agriculture and dense urban centres. A high share of people dependent on climate-sensitive livelihoods raises vulnerability even when historical emissions per person are modest compared with industrial pioneers.\n\nVulnerability is not only geography. It is also capacity: the ability to warn, move, insure, rebuild, and diversify livelihoods after shocks." },
       { heading: "From international goals to local action", body: "International temperature goals and national climate plans set direction, but outcomes depend on sectoral decisions in energy, water, agriculture, and cities. Local governments and communities implement many adaptation measures; national policy shapes finance and standards.\n\nReading climate response only as a diplomatic timeline understates the practical work of changing infrastructure and behaviour at home." },
     ],
-    examPoints: [
-      "Mitigation = reducing emissions (cause); Adaptation = adjusting to effects",
-      "Vulnerability = Exposure + Sensitivity − Adaptive Capacity",
-      "Pakistan in top 10 most climate-vulnerable countries",
-      "REDD+ = paying developing countries to protect forests",
-      "Adaptation preferred BEFORE change occurs (anticipatory vs reactive)"
-    ],
-    commonMistakes: [
-      "Treating mitigation and adaptation as alternatives — they are complementary, both needed",
-      "Confusing autonomous (natural) with planned (deliberate) adaptation — autonomous is unplanned, planned is policy-driven",
-      "Thinking carbon capture/storage is proven at scale — most CCS projects are small or have failed"
-    ],
-    
     comparisonTable: {
       title: "Mitigation vs adaptation",
       headers: ["Strategy", "Goal", "Examples"],
@@ -3259,13 +3246,12 @@ explanationSections: [
         ["Adaptation", "Live with residual change", "Flood defenses, drought-resistant crops, early warning"],
       ],
     },
-    
     subtopics: [
       {
         id: "env-cc-mitigation",
         title: "Mitigation",
         summary: "Cutting emissions and enhancing sinks to limit future warming.",
-        explanation: "Mitigation reduces the greenhouse gas emissions that drive climate change or enhances sinks that remove them — for example through cleaner energy, efficiency, afforestation, and carbon pricing. Without mitigation, adaptation must cope with ever-larger risks.",
+        explanation: "Mitigation reduces the greenhouse gas emissions that drive climate change or enhances sinks that remove them — for example through cleaner energy, efficiency, afforestation, and carbon pricing. Without mitigation, adaptation must cope with ever-larger risks. A tonne of CO₂ avoided anywhere helps the shared climate system.",
         examples: [
           {
             problem: "Define mitigation in climate policy.",
@@ -3273,14 +3259,14 @@ explanationSections: [
             answer: "Cut emissions / enhance sinks",
           },
           {
-            problem: "Give two mitigation examples.",
-            solution: "Renewables, efficiency, afforestation/REDD+, public transit, carbon pricing, etc.",
-            answer: "Renewables / efficiency / sinks",
+            problem: "Are seawalls primarily mitigation or adaptation?",
+            solution: "Adaptation — they manage impacts; they do not reduce emissions.",
+            answer: "Adaptation",
           }
         ],
         shortcuts: [
-          "Mitigation = reduce forcing",
-          "Not the same as adaptation"
+          "Mitigation = cut cause",
+          "Global effect of local emission cuts"
         ],
         traps: [
           "Mitigation = only building seawalls"
@@ -3289,18 +3275,18 @@ explanationSections: [
       {
         id: "env-cc-adaptation",
         title: "Adaptation",
-        summary: "Adjusting societies and ecosystems to climate impacts that cannot be avoided.",
-        explanation: "Adaptation adjusts human and natural systems to actual or expected impacts — drought-resistant crops, flood defences, early warning, heat action plans. Anticipatory adaptation is preferred to purely reactive responses. Adaptation without mitigation leaves the burden growing over time.",
+        summary: "Adjusting to impacts that are already unfolding.",
+        explanation: "Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains. Adaptation is local in delivery even when finance is international.",
         examples: [
+          {
+            problem: "Define adaptation in climate policy.",
+            solution: "Adjusting systems to actual or expected climate impacts.",
+            answer: "Adjust to impacts",
+          },
           {
             problem: "Drought-resistant crops and early warning systems are mainly mitigation or adaptation?",
             solution: "Adaptation.",
             answer: "Adaptation",
-          },
-          {
-            problem: "Autonomous vs planned adaptation?",
-            solution: "Autonomous = unplanned adjustments; planned = deliberate policy-driven measures.",
-            answer: "Unplanned vs policy-driven",
           }
         ],
         shortcuts: [
@@ -3313,24 +3299,19 @@ explanationSections: [
       },
       {
         id: "env-cc-vulnerability",
-        title: "Vulnerability, exposure, and adaptive capacity",
-        summary: "Why the same hazard harms some places more than others.",
-        explanation: "Vulnerability rises with exposure and sensitivity and falls with adaptive capacity. Two districts facing the same heatwave can differ sharply in outcomes if one has cooling centres, reliable power, and health surveillance while the other does not. Exam answers should separate the hazard from the social capacity to cope.",
+        title: "Vulnerability",
+        summary: "Exposure and sensitivity minus adaptive capacity.",
+        explanation: "Vulnerability rises when people and systems are more exposed and more sensitive to climate hazards, and falls when adaptive capacity is stronger (warnings, savings, insurance, alternative livelihoods, effective institutions). The teaching relation is: vulnerability ≈ exposure + sensitivity − adaptive capacity.",
         examples: [
           {
-            problem: "In teaching form, vulnerability increases with what and decreases with what?",
-            solution: "Increases with exposure and sensitivity; decreases with adaptive capacity.",
-            answer: "↑ exposure/sensitivity; ↓ adaptive capacity",
-          },
-          {
-            problem: "Why is Pakistan often ranked among highly climate-vulnerable countries?",
-            solution: "High exposure to floods, heat, and glacier-related risks combined with development constraints on adaptive capacity.",
-            answer: "High exposure + limited capacity",
+            problem: "Two towns face the same flood height; one has early warning and raised housing. Which is less vulnerable and why?",
+            solution: "The prepared town — higher adaptive capacity reduces vulnerability.",
+            answer: "Prepared town (higher capacity)",
           }
         ],
         shortcuts: [
-          "V ≈ exposure + sensitivity − capacity",
-          "Hazard ≠ impact"
+          "V ≈ E + S − capacity",
+          "Hazard alone is not vulnerability"
         ],
         traps: [
           "Treating vulnerability as only the weather event itself"
@@ -3374,68 +3355,7 @@ explanationSections: [
       "Confusing autonomous (natural) with planned (deliberate) adaptation — autonomous is unplanned, planned is policy-driven",
       "Thinking carbon capture/storage is proven at scale — most CCS projects are small or have failed"
     ],
-    
-    comparisonTable: {
-      title: "Mitigation vs adaptation",
-      headers: ["Strategy", "Goal", "Examples"],
-      rows: [
-        ["Mitigation", "Reduce emissions / enhance sinks", "Renewables, efficiency, afforestation"],
-        ["Adaptation", "Live with residual change", "Flood defenses, drought-resistant crops, early warning"],
-      ],
-    },
-    
-    subtopics: [
-      {
-        id: "env-cc-mitigation",
-        title: "Mitigation",
-        summary: "Reducing emissions and enhancing sinks.",
-        explanation: "Mitigation lowers the greenhouse gases that drive long-term warming or increases removal of those gases from the atmosphere. Examples include shifting electricity toward low-carbon sources, improving efficiency, reducing wasteful fuel use, and protecting or expanding forests that store carbon.\n\nMitigation is global in effect: a tonne of carbon dioxide avoided in one country helps the shared climate system. That is why international coordination and national energy policy both matter.",
-                examples: [
-          {
-            problem: "Define mitigation in climate policy.",
-            solution: "Reducing GHG emissions or enhancing sinks to limit future warming.",
-            answer: "Cut emissions / enhance sinks",
-          },
-          {
-            problem: "Give two mitigation examples.",
-            solution: "Renewables, efficiency, afforestation/REDD+, public transit, carbon pricing, etc.",
-            answer: "Renewables / efficiency / sinks",
-          }
-        ],
-        shortcuts: [
-          "Mitigation = reduce forcing",
-          "Not the same as adaptation"
-        ],
-        traps: [
-          "Mitigation = only building seawalls"
-        ],
-      },
-      {
-        id: "env-cc-adaptation",
-        title: "Adaptation",
-        summary: "Adjusting to impacts that are already unfolding.",
-        explanation: "Adaptation reduces harm from climate impacts that cannot be fully avoided. Flood management, drought planning, heat-health measures, climate-aware agriculture, and resilient infrastructure are typical domains.\n\nAdaptation is local in delivery even when finance is international. The same heatwave or flood hits different communities according to housing, services, and livelihoods.",
-                examples: [
-          {
-            problem: "Define adaptation in climate policy.",
-            solution: "Adjusting systems to actual or expected climate impacts.",
-            answer: "Adjust to impacts",
-          },
-          {
-            problem: "Drought-resistant crops and early warning systems are mainly mitigation or adaptation?",
-            solution: "Adaptation.",
-            answer: "Adaptation",
-          }
-        ],
-        shortcuts: [
-          "Adaptation = adjust",
-          "Anticipatory better than only reactive"
-        ],
-        traps: [
-          "Adaptation replaces the need for mitigation"
-        ],
-      },
-    ],
+
     pakistanExamFocus: [
       "Pakistan ranks among highly climate-vulnerable countries in widely cited risk indices (teaching anchor)",
       "Benchmark impacts: heatwaves, Indus-basin floods (e.g. 2010 and 2022), drought risk, glacier/GLOF-related hazards",
