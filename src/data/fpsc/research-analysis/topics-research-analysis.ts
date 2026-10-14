@@ -1669,229 +1669,200 @@ export const topics: Topic[] = [
   leadsTo: ["ra-data-interpretation"],
   usedIn: ["ra-data-interpretation", "meteo-forecast-skill"],
 },
-
 // ═══════════════════════════════════════════════════════════════════
-// RA-9: Research Quality
+// RA-9: Research Quality — Validity, Reliability & Error
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-research-quality",
   sectionId: "RA-09",
   order: 1,
   title: "Research Quality: Validity, Reliability & Error",
-  definition: "Research quality depends on validity (does the study measure what it claims to measure and establish cause-effect?), reliability (is the measurement consistent?), and error control (random, systematic, gross).",
+  definition:
+    "How well a study supports the conclusions it claims: whether causal links are credible (internal validity), findings travel to other settings (external validity), measures capture the intended concepts (construct validity), measurements are consistent (reliability), and errors are controlled (random noise vs systematic bias vs blunders).",
   keyFacts: [
-    "INTERNAL VALIDITY: does the study establish CAUSE-EFFECT? High = confounders controlled, randomization used",
-    "EXTERNAL VALIDITY: can results GENERALIZE to other populations, settings, times?",
-    "CONSTRUCT VALIDITY: does the measurement actually CAPTURE the concept being measured?",
-    "RELIABILITY: CONSISTENCY of measurement. Same result on repeated measurement.",
-    "TEST-RETEST reliability: same instrument on same subjects at different times → similar results",
-    "INTER-RATER reliability: different raters using same instrument → similar results",
-    "INTERNAL CONSISTENCY: different items measuring same construct → correlate highly (e.g., Cronbach's alpha)",
-    "RANDOM ERROR: noise, reduces PRECISION (scatter around true value). Reduced by larger samples.",
-    "SYSTEMATIC ERROR: BIAS, reduces ACCURACY (consistently off in one direction). NOT reduced by larger samples.",
-    "GROSS ERROR: blunders, mistakes (e.g., miscalibration, data entry error). Prevented by careful procedure.",
-
-    "ACCURACY vs PRECISION: accurate + precise = ideal; accurate but not precise = scattered around true; precise but not accurate = consistent but wrong; neither = useless"
+    "Internal validity: can changes in the DV be attributed to the IV rather than confounders?",
+    "External validity: can results generalise to other people, places, times, or operational setups?",
+    "Construct validity: does the instrument measure the intended theoretical construct?",
+    "Reliability: consistency / repeatability of measurement under similar conditions",
+    "Test–retest reliability: same tool, same targets, different times → similar scores",
+    "Inter-rater reliability: different observers/raters → similar scores",
+    "Internal consistency: items aiming at one construct move together (e.g. Cronbach’s α as one index)",
+    "Random error: unstructured noise → hurts precision; averages out as n grows (SE ∝ 1/√n)",
+    "Systematic error (bias): consistent shift in one direction → hurts accuracy; larger n does not fix it",
+    "Gross error: mistakes and blunders (misread instrument, coding error) — prevented by procedure and checks",
+    "Precision: low scatter; accuracy: close to the true value; ideal = both",
   ],
   explanationSections: [
-    { heading: "Three types of validity — what each means", body: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Random assignment to treatment/control groups maximizes internal validity. EXTERNAL VALIDITY is about GENERALIZATION: do these results apply to other people, places, times? A study on Pakistani university students may not generalize to rural farmers. CONSTRUCT VALIDITY is about MEASUREMENT: does the test/instrument actually measure the abstract concept it claims to (e.g., does an 'anxiety test' really measure anxiety, not just nervousness)? The three are often in tension: highly controlled lab experiments have great internal validity but poor external validity." },
-    { heading: "Reliability vs validity — they're different", body: "RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). A broken thermometer that always reads 100°C is RELIABLE (consistent) but NOT VALID (not measuring actual temperature correctly). You can have reliability without validity, but NOT validity without reliability (if measurements are inconsistent, they can't be accurate). Good research needs BOTH." },
-    { heading: "Error types — random vs systematic", body: "RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases with n). SYSTEMATIC ERROR is BIAS — measurements consistently skewed in one direction. NOT reduced by larger samples (a biased scale stays biased no matter how many times you weigh). Examples of systematic error: miscalibrated instrument, non-representative sampling, leading questions in surveys. GROSS ERROR is blunder/mistake — preventable by careful procedures. A study can be precise (low random error) but inaccurate (high systematic error)." }
+    {
+      heading: "Three validity questions",
+      body:
+        "Internal validity asks: is the causal story inside the study secure? Random assignment, controls, blinding, and good design raise it; confounders and selection effects lower it. External validity asks: will the same pattern hold elsewhere? Tight lab control can raise internal validity while narrowing external validity. Construct validity asks: is the operational measure faithful to the idea (does this ‘stress scale’ track stress, or mainly sleep loss?). Name which validity a stem is probing before answering.",
+    },
+    {
+      heading: "Reliability vs validity",
+      body:
+        "Reliability = consistency. Validity (here, especially construct validity) = measuring the right thing. A stuck thermometer always showing 100 °C is reliable but not valid. Reliable measures can still be invalid; unstable measures cannot be valid in a useful sense. Research needs both: consistent procedures that track the intended construct.",
+    },
+    {
+      heading: "Random vs systematic vs gross error",
+      body:
+        "Random error scatters readings around a centre; replicate and average to reduce its effect on estimates. Systematic error pushes results the same way every time (miscalibrated rain gauge, leading survey item, sampling only volunteers); fix the process, not the sample size alone. Gross errors are discrete mistakes — catch them with protocols, double entry, calibration logs, and range checks. A precise-but-biased instrument is consistently wrong.",
+    },
+    {
+      heading: "Accuracy–precision target metaphor",
+      body:
+        "Precise + inaccurate: tight cluster off-centre (bias). Accurate + imprecise: centred but wide scatter. Both: tight cluster on target. Neither: wide and off. Exam diagrams often use this metaphor; map it to bias vs variance.",
+    },
   ],
   examPoints: [
-    "Internal = causation; External = generalization; Construct = measures the concept",
-    "Reliability = consistency; Validity = accuracy",
-    "Random error reduces precision; Systematic error reduces accuracy (not fixed by larger n)",
-
-    "Accurate + precise = ideal"
+    "Internal = causal credibility inside the study; external = generalisability; construct = measure matches concept",
+    "Reliability = consistency; validity = correctness of inference/measurement claim",
+    "Random error → precision; systematic error → accuracy; larger n helps random, not bias",
+    "Reliable ≠ valid (consistent wrong answers possible)",
+    "Lab control can raise internal validity while lowering external validity",
   ],
   commonMistakes: [
-    "Confusing reliability with validity — a measure can be reliable but not valid (consistent but measuring the wrong thing)",
-
-    "Thinking larger samples fix systematic error — they only reduce random error",
-    "Confusing internal with external validity — high internal validity (controlled lab) often means LOW external validity (real-world generalizability)"
+    {
+      mistake: "Treating reliability and validity as synonyms",
+      correction: "Consistency vs measuring/ inferring the right thing.",
+      explanation: "Stuck instrument: reliable, invalid.",
+    },
+    {
+      mistake: "Assuming bigger samples cure biased instruments or biased sampling",
+      correction: "Larger n reduces random error’s impact on SE; systematic error remains.",
+      explanation: "A biased scale stays biased at n = 10 or n = 10,000.",
+    },
+    {
+      mistake: "Equating ‘highly controlled’ with ‘always better research’",
+      correction: "Control boosts internal validity; generalisation may suffer.",
+      explanation: "Trade-offs are normal; state the limits.",
+    },
   ],
-  relatedTopics: ["ra-scientific-method", "ra-research-design", "ra-data-interpretation"],
-    subtopics: [
-      {
-        id: "ra-research-quality-three-types-of-validity-what-each-means",
-        title: "Three types of validity — what each means",
-        summary: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something…",
-        explanation: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Random assignment to treatment/control groups maximizes internal validity. EXTERNAL VALIDITY is about GENERALIZATION: do these results apply to other people, places, times? A study on Pakistani university students may not generalize to rural farmers. CONSTRUCT VALIDITY is about MEASUREMENT: does the test/instrument actually measure the abstract concept it claims to (e.g., does an 'anxiety test' really measure anxiety, not just nervousness)? The three are often in tension: highly controlled lab experiments have great internal validity but poor external validity.",
-                examples: [
-          {
-            problem: "Which statement best matches “Three types of validity — what each means”?",
-            solution: "The accurate idea is: INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it?",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Three types of validity — what each means.",
-            solution: "Stay close to the text: INTERNAL VALIDITY is about CAUSATION: did the independent variable actually CAUSE the change in the dependent variable, or could something else (confounder) explain it? Random assignment to treatment/control groups maxim… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-research-quality-reliability-vs-validity-they-re-differen",
-        title: "Reliability vs validity — they're different",
-        summary: "RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). A broken…",
-        explanation: "RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). A broken thermometer that always reads 100°C is RELIABLE (consistent) but NOT VALID (not measuring actual temperature correctly). You can have reliability without validity, but NOT validity without reliability (if measurements are inconsistent, they can't be accurate). Good research needs BOTH.",
-                examples: [
-          {
-            problem: "Which statement best matches “Reliability vs validity — they're different”?",
-            solution: "The accurate idea is: RELIABILITY = consistency (same measurement gives same result). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "RELIABILITY = consistency (same measurement gives same result).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Reliability vs validity — they're different.",
-            solution: "Stay close to the text: RELIABILITY = consistency (same measurement gives same result). VALIDITY = accuracy (measures what it claims to measure). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-research-quality-error-types-random-vs-systematic",
-        title: "Error types — random vs systematic",
-        summary: "RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases…",
-        explanation: "RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases with n). SYSTEMATIC ERROR is BIAS — measurements consistently skewed in one direction. NOT reduced by larger samples (a biased scale stays biased no matter how many times you weigh). Examples of systematic error: miscalibrated instrument, non-representative sampling, leading questions in surveys. GROSS ERROR is blunder/mistake — preventable by careful procedures. A study can be precise (low random error) but inaccurate (high systematic error).",
-                examples: [
-          {
-            problem: "Which statement best matches “Error types — random vs systematic”?",
-            solution: "The accurate idea is: RANDOM ERROR is noise — measurements scatter around the true value. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "RANDOM ERROR is noise — measurements scatter around the true value.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Error types — random vs systematic.",
-            solution: "Stay close to the text: RANDOM ERROR is noise — measurements scatter around the true value. Reduced by LARGER SAMPLES (that's why the standard error s/√n decreases with n). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A laboratory drug trial uses random assignment and blinding but only healthy male students aged 18–22. Strength and weakness?",
+      answer:
+        "Strength: internal validity (causal attribution). Weakness: external validity to women, older adults, patients.",
+      why: "Design supports cause–effect inside the sample; population coverage is narrow.",
+    },
+    {
+      scenario:
+        "An anemometer is miscalibrated 2 m/s high for every reading. Random or systematic error? Does n = 500 fix it?",
+      answer: "Systematic; no — mean remains shifted.",
+      why: "Constant offset is bias; averaging does not remove a fixed shift.",
+    },
+  ],
+  comparisonTable: {
+    title: "Validity types (exam map)",
+    headers: ["Type", "Core question", "Threatened by"],
+    rows: [
+      ["Internal", "Is the causal link inside the study credible?", "Confounders, selection, poor controls"],
+      ["External", "Do results generalise?", "Narrow samples, artificial settings"],
+      ["Construct", "Does the measure capture the concept?", "Wrong operationalisation, proxy mismatch"],
     ],
-
+  },
+  relatedTopics: ["ra-scientific-method", "ra-research-design", "ra-data-interpretation"],
+  subtopics: [
+    {
+      id: "ra-research-quality-validity-types",
+      title: "Internal, external, construct validity",
+      summary:
+        "Causation inside the study, generalisation beyond it, and measurement of the intended idea.",
+      explanation:
+        "Decode the stem: if it stresses confounders → internal; other populations/settings → external; ‘does this test really measure X?’ → construct.",
+      examples: [
+        {
+          problem:
+            "Random assignment to tutoring vs control raises which validity most directly?",
+          solution:
+            "Balances confounders → internal validity for the tutoring effect.",
+          answer: "Internal validity",
+        },
+        {
+          problem:
+            "A reading test used as the sole measure of ‘intelligence’ is mainly a threat to…",
+          solution:
+            "Intelligence is broader than reading score → construct validity.",
+          answer: "Construct validity",
+        },
+      ],
+      shortcuts: [
+        "Internal = cause inside; external = travels outside; construct = measure = concept",
+      ],
+      traps: [
+        "Calling generalisation problems ‘internal validity’",
+        "Ignoring construct mismatch when instruments look ‘precise’",
+      ],
+    },
+    {
+      id: "ra-research-quality-reliability",
+      title: "Reliability forms",
+      summary:
+        "Test–retest, inter-rater, and internal consistency as consistency checks.",
+      explanation:
+        "Pick the form that matches the threat: time instability → test–retest; observer disagreement → inter-rater; noisy item set → internal consistency.",
+      examples: [
+        {
+          problem:
+            "Two meteorologists code the same cloud images differently. Reliability issue?",
+          solution:
+            "Disagreement between raters → inter-rater reliability.",
+          answer: "Inter-rater reliability",
+        },
+        {
+          problem:
+            "A questionnaire given two weeks apart yields very different scores without true change. Issue?",
+          solution:
+            "Unstable over time → weak test–retest reliability.",
+          answer: "Test–retest reliability",
+        },
+      ],
+      shortcuts: [
+        "Same tool over time → test–retest; different judges → inter-rater; items hang together → internal consistency",
+      ],
+      traps: [
+        "Assuming one high reliability coefficient covers all reliability types",
+      ],
+    },
+    {
+      id: "ra-research-quality-error-accuracy-precision",
+      title: "Error, accuracy, and precision",
+      summary:
+        "Noise vs bias vs blunder; what larger samples can and cannot fix.",
+      explanation:
+        "Classify the error mechanism first. Random → more data / better averaging. Systematic → recalibrate, redesign sample, fix wording. Gross → quality control.",
+      examples: [
+        {
+          problem:
+            "Precise but inaccurate measurements correspond to which error pattern?",
+          solution:
+            "Low scatter, wrong centre → systematic error dominates.",
+          answer: "Systematic bias with high precision",
+        },
+        {
+          problem:
+            "Why does increasing n reduce SE but not remove a constant calibration offset?",
+          solution:
+            "SE tracks random sampling noise; a fixed offset is bias in every observation.",
+          answer: "Bias is not averaged away by n",
+        },
+      ],
+      shortcuts: [
+        "Random → precision / SE; systematic → accuracy; gross → preventable mistakes",
+      ],
+      traps: [
+        "‘Large n guarantees accurate results’",
+        "Confusing precision with validity",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-scientific-method", "ra-research-design", "math-1-6"],
   leadsTo: ["ra-data-interpretation", "ra-research-ethics"],
-  usedIn: ["ra-data-interpretation", "meteo-stevenson-screen", "meteo-forecast-skill", "earth-k2"]
+  usedIn: ["ra-data-interpretation", "meteo-stevenson-screen", "meteo-forecast-skill", "earth-k2"],
 },
-
-// ═══════════════════════════════════════════════════════════════════
-// RA-10: Data Interpretation & Critical Thinking
-// ═══════════════════════════════════════════════════════════════════
-
-{
-  id: "ra-data-interpretation",
-  sectionId: "RA-10",
-  order: 1,
-  title: "Data Interpretation & Critical Thinking",
-  definition: "Data interpretation requires reading tables and graphs carefully, identifying trends, and applying critical thinking to spot misleading statistics, confounding variables, and other pitfalls. 'Lies, damn lies, and statistics' is a real warning.",
-  keyFacts: [
-    "READ tables and graphs carefully — note units, axes, context",
-    "IDENTIFY TRENDS: increasing, decreasing, linear, non-linear, cyclical/seasonal, inflection points",
-    "SPOTTING MISLEADING STATISTICS: cherry-picked data, manipulated scales, false correlations, outliers affecting the mean, mixing percentages",
-    "CONFOUNDING VARIABLE: third variable causes both X and Y, creating spurious correlation. Example: ice cream sales AND drowning both rise in summer (heat is the confounder)",
-    "Address confounding by: stratification, multivariate analysis, randomization, controlled experiments",
-    "COMPARING GROUPS: look for STATISTICALLY SIGNIFICANT differences, effect size, and practical significance",
-    "OUTLIERS: investigate — may be errors (correct/remove) or genuine (report separately)",
-    "BASE RATE fallacy: ignore background rate when assessing probability (e.g., 99% accurate test in low-incidence population gives many false positives)",
-    "MULTIPLE COMPARISONS: testing many hypotheses inflates Type I error rate"
-  ],
-  explanationSections: [
-    { heading: "How to read tables and graphs critically", body: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? — without units, the number is meaningless). (2) Check the SCALE (linear or log? truncated y-axis?). (3) Understand the CONTEXT (what was measured, when, where, how?). (4) Look for TRENDS — increasing, decreasing, cyclical, linear vs. non-linear. (5) Identify OUTLIERS and INFLECTION POINTS (where the trend changes). A common error is reading the number without checking the units, leading to misinterpretation by orders of magnitude." },
-    { heading: "The base rate fallacy — a classic trap", body: "The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. The disease affects 1% of the population. You test positive. What's the probability you have the disease? Most people say 99%. WRONG. The answer is ~50%. Why? Of 10,000 people: 100 have the disease (99 test positive, 1 false negative). 9,900 don't have it (9,900 × 0.01 = 99 false positives). So 99 true positives + 99 false positives = 198 positives, only 99 of which are real = 50%. The base rate (1% disease prevalence) matters enormously. Always consider base rates." },
-    { heading: "Spotting misleading statistics", body: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES: truncated y-axis exaggerates small differences. (3) MIXING PERCENTAGES: '100% increase from 1 to 2 cases' sounds dramatic but is just 1 additional case. (4) FALSE CORRELATIONS: two trends rising together don't prove causation. (5) SURVIVORSHIP BIAS: only the 'winners' are visible. The exam often tests whether you can spot these manipulations in presented data — the key is to ask 'what's missing? what was the baseline? could this be coincidence?'" }
-  ],
-  examPoints: [
-    "Always check UNITS and SCALE on data displays",
-    "Base rate fallacy: ignore background frequency at your peril",
-    "Confounding: third variable causes both X and Y",
-    "Cherry-picked data and truncated axes are common misleading techniques"
-  ],
-  commonMistakes: [
-    "Ignoring base rates when assessing probability (test accuracy fallacy)",
-
-    "Concluding causation from correlation alone (classic error)",
-    "Trusting percentages without checking the underlying numbers (e.g., '50% increase' from 2 to 3 is 1 extra case)"
-  ],
-  relatedTopics: ["ra-correlation-regression", "ra-data-visualization", "ra-research-quality"],
-    subtopics: [
-      {
-        id: "ra-data-interpretation-how-to-read-tables-and-graphs-critically",
-        title: "How to read tables and graphs critically",
-        summary: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? — without units, the number is meaningless). (2) Check the…",
-        explanation: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? — without units, the number is meaningless). (2) Check the SCALE (linear or log? truncated y-axis?). (3) Understand the CONTEXT (what was measured, when, where, how?). (4) Look for TRENDS — increasing, decreasing, cyclical, linear vs. non-linear. (5) Identify OUTLIERS and INFLECTION POINTS (where the trend changes). A common error is reading the number without checking the units, leading to misinterpretation by orders of magnitude.",
-                examples: [
-          {
-            problem: "Which statement best matches “How to read tables and graphs critically”?",
-            solution: "The accurate idea is: Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C?",
-          },
-          {
-            problem: "Give one exam trap students hit when studying How to read tables and graphs critically.",
-            solution: "Stay close to the text: Before interpreting any data: (1) Note the UNITS on axes (Temperature in °C? mm? Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-data-interpretation-the-base-rate-fallacy-a-classic-trap",
-        title: "The base rate fallacy — a classic trap",
-        summary: "The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. The disease affects 1% of the…",
-        explanation: "The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. The disease affects 1% of the population. You test positive. What's the probability you have the disease? Most people say 99%. WRONG. The answer is ~50%. Why? Of 10,000 people: 100 have the disease (99 test positive, 1 false negative). 9,900 don't have it (9,900 × 0.01 = 99 false positives). So 99 true positives + 99 false positives = 198 positives, only 99 of which are real = 50%. The base rate (1% disease prevalence) matters enormously. Always consider base rates.",
-                examples: [
-          {
-            problem: "Which statement best matches “The base rate fallacy — a classic trap”?",
-            solution: "The accurate idea is: The base rate fallacy: ignoring background frequency. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "The base rate fallacy: ignoring background frequency.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying The base rate fallacy — a classic trap.",
-            solution: "Stay close to the text: The base rate fallacy: ignoring background frequency. EXAMPLE: A medical test for a disease is 99% accurate. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-data-interpretation-spotting-misleading-statistics",
-        title: "Spotting misleading statistics",
-        summary: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES:…",
-        explanation: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES: truncated y-axis exaggerates small differences. (3) MIXING PERCENTAGES: '100% increase from 1 to 2 cases' sounds dramatic but is just 1 additional case. (4) FALSE CORRELATIONS: two trends rising together don't prove causation. (5) SURVIVORSHIP BIAS: only the 'winners' are visible. The exam often tests whether you can spot these manipulations in presented data — the key is to ask 'what's missing? what was the baseline? could this be coincidence?'",
-                examples: [
-          {
-            problem: "Which statement best matches “Spotting misleading statistics”?",
-            solution: "The accurate idea is: Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Spotting misleading statistics.",
-            solution: "Stay close to the text: Common ways data is presented misleadingly: (1) CHERRY-PICKED DATA: showing only a subset that supports a claim. (2) MANIPULATED SCALES: truncated y-axis exaggerates small differences. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-    ],
-
-  content: true,
-  postRestriction: "bs17",
-  buildsOn: ["ra-data-visualization", "ra-correlation-regression", "ra-research-quality", "ra-inferential-stats"],
-  leadsTo: ["ra-scientific-reporting"],
-  usedIn: ["ra-scientific-reporting", "env-climate-change-response", "meteo-extreme-events", "meteo-ipcc-rcps", "earth-h3", "earth-h4", "earth-c2", "earth-k2", "earth-i2", "english-sentence-building-blocks"]
-},
-
 // ═══════════════════════════════════════════════════════════════════
 // RA-11: Scientific Reporting
 // ═══════════════════════════════════════════════════════════════════
