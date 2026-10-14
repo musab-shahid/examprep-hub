@@ -1659,36 +1659,7 @@ export const questions: Question[] = [
 // TOPIC: Common Errors
 // Serial begins ENG-01-Q144
 // ═══════════════════════════════════════════════════════════════════
-
-type Difficulty = "easy" | "medium" | "hard";
-type QuestionType = "single" | "true_false" | "multi";
-
-type QuestionBase = {
-  id: string;
-  sectionId: string;
-  topicId: string;
-  difficulty: Difficulty;
-  type: QuestionType;
-  question: string;
-  options: string[];
-  explanation: string;
-  sourceCitation: string;
-  examScope: string[];
-};
-
-type SingleQuestion = QuestionBase & {
-  type: "single" | "true_false";
-  correctAnswer: number;
-};
-
-type MultiQuestion = QuestionBase & {
-  type: "multi";
-  correctAnswer: number[];
-};
-
-export type Question = SingleQuestion | MultiQuestion;
-
-export const questions: Question[] = [
+  
 // Easy
 { id: "ENG-01-Q144", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
