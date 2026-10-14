@@ -6,8 +6,8 @@ import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
 import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
-import { topicsBySection, getTopic } from '@/data/topics';
-import { sectionMap } from '@/data/sections';
+import { topicsBySection, getTopic, topicsBySubject } from '@/data/topics';
+import { sectionMap, sections } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSubjectColor } from '@/data/subject-colors';
 import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
@@ -734,9 +734,23 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         </div>
         {(() => {
           const sectionTopics = topicsBySection(topic.sectionId);
-          const currentIndex = sectionTopics.findIndex((t) => t.id === topicId);
-          const prevTopic = currentIndex > 0 ? sectionTopics[currentIndex - 1] : null;
-          const nextTopic = currentIndex >= 0 && currentIndex < sectionTopics.length - 1 ? sectionTopics[currentIndex + 1] : null;
+          const subjectId = sectionMap[topic.sectionId]?.subjectId;
+          // Research Analysis has one topic per section — chain Next/Previous across sections.
+          let ordered = sectionTopics;
+          if (subjectId === 'research-analysis') {
+            const sectionOrder = new Map(
+              sections.filter((s) => s.subjectId === subjectId).map((s, i) => [s.id, i]),
+            );
+            ordered = topicsBySubject(subjectId).slice().sort((a, b) => {
+              const sa = sectionOrder.get(a.sectionId) ?? 999;
+              const sb = sectionOrder.get(b.sectionId) ?? 999;
+              if (sa !== sb) return sa - sb;
+              return a.order - b.order;
+            });
+          }
+          const currentIndex = ordered.findIndex((t) => t.id === topicId);
+          const prevTopic = currentIndex > 0 ? ordered[currentIndex - 1] : null;
+          const nextTopic = currentIndex >= 0 && currentIndex < ordered.length - 1 ? ordered[currentIndex + 1] : null;
           if (!prevTopic && !nextTopic) return null;
           return (
             <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-200">

@@ -108,6 +108,69 @@ export const questions: Question[] = [
   explanation: "falsifiability is essential. law describes what; theory explains why. WRONG: replication is critical for verifying results — it's the cornerstone of reliable science. extraneous (confounding) variables can explain away the independent variable's effect, threatening internal validity.",
   sourceCitation: "Standard research methods curriculum" },
 
+
+// Added — aligned to upgraded topic (falsifiability, variables, reasoning, theory/law)
+{ id: "RA-01-Q013", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+  question: "A researcher claims: 'Invisible energies that no instrument can detect improve crop yield.' Why is this not a scientific hypothesis?",
+  options: ["It is too specific", "It is not falsifiable — no observation could count against it", "It uses the word energy", "It has not yet been published"],
+  correctAnswer: 1,
+  explanation: "Scientific hypotheses must be falsifiable: some possible evidence must be able to show them wrong. A claim that invokes only undetectable forces can absorb any result and therefore cannot be tested as science.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q014", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+  question: "In an experiment, temperature is varied by the researcher and reaction rate is recorded while pressure and concentration are held fixed. Which is the dependent variable?",
+  options: ["Temperature", "Reaction rate", "Pressure", "Concentration"],
+  correctAnswer: 1,
+  explanation: "The dependent variable is what is measured as the outcome — here, reaction rate. Temperature is the independent variable (manipulated). Pressure and concentration are controlled variables.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q015", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "single",
+  question: "From the general rule 'metals expand when heated,' a student predicts that a heated steel rail will lengthen. This is primarily:",
+  options: ["Inductive reasoning", "Deductive reasoning", "Abductive reasoning", "Circular reasoning"],
+  correctAnswer: 1,
+  explanation: "Deductive reasoning moves from a general principle to a specific prediction. Induction would build a general rule from many observations; abduction would propose the best explanation for puzzling facts.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q016", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "true_false",
+  question: "A scientific law is simply a theory that has been proven true.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Laws describe regular patterns (what happens under stated conditions). Theories explain why/how systems behave. Laws do not 'graduate' into theories; they answer different questions.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q017", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "hard", type: "single",
+  question: "Morning classes receive Method A and afternoon classes receive Method B; exam scores are compared. What is the main validity threat?",
+  options: ["The study has no dependent variable", "Time of day is confounded with teaching method", "The sample is automatically representative", "Replication is impossible in principle"],
+  correctAnswer: 1,
+  explanation: "Two factors change together (method and time of day), so score differences may reflect alertness or schedule, not only the method. That is confounding — an extraneous variable aligned with the IV.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q018", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "hard", type: "single",
+  question: "After many station records show the same pattern, a researcher proposes a regional climate rule. This step is best described as:",
+  options: ["Pure deduction with certainty", "Induction from specific observations to a broader claim", "A controlled experiment", "Falsifying a law"],
+  correctAnswer: 1,
+  explanation: "Moving from many particular observations to a broader generalisation is inductive reasoning. Such claims remain open to revision if new data conflict.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q019", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "easy", type: "single",
+  question: "What is the primary purpose of replication in the scientific method?",
+  options: ["To avoid publishing results", "To check whether findings hold when the work is repeated", "To replace the need for a hypothesis", "To prove a hypothesis is unfalsifiable"],
+  correctAnswer: 1,
+  explanation: "Replication tests whether results are reliable beyond a single study. One unreplicated finding is a starting point, not final proof.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-01-Q020", sectionId: "RA-01", topicId: "ra-scientific-method", difficulty: "medium", type: "multi",
+  question: "Which statements about variables are correct? (Select all that apply.)",
+  options: [
+    "The independent variable is manipulated by the researcher",
+    "The dependent variable is measured as the outcome",
+    "Controlled variables are intentionally varied with the IV",
+    "Confounders provide alternative explanations for the results"
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "IV is manipulated; DV is measured; confounders threaten clear causal attribution. Controlled variables are held constant — not intentionally varied with the IV.",
+  sourceCitation: "Standard research methods curriculum" },
+
 // ═══════════════════════════════════════════════════════════════════
 // RA-2: Research Design
 // ═══════════════════════════════════════════════════════════════════
@@ -217,6 +280,74 @@ export const questions: Question[] = [
   options: ["Selection bias", "Measurement bias", "Recall bias", "Observer bias"],
   correctAnswer: [0, 1, 2, 3],
   explanation: "All four are recognized types of bias in research. Selection (sample not representative), Measurement (instrument issues), Recall (subjects misremember), Observer (researcher's expectations influence observations). Each threatens validity differently. None can be fully eliminated, but good design minimizes them.",
+  sourceCitation: "Standard research methods curriculum" },
+
+
+// Added — aligned to upgraded topic (quant/qual, experimental vs observational, sampling, bias)
+{ id: "RA-02-Q013", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
+  question: "A study records rainfall totals and computes decade means. The primary approach is:",
+  options: ["Qualitative", "Quantitative", "Purely abductive", "Action research only"],
+  correctAnswer: 1,
+  explanation: "Measured magnitudes and statistical summary are quantitative. Qualitative work targets meanings and themes (e.g. interviews about risk perception).",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q014", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
+  question: "Researchers compare exam scores of students who already chose online vs campus courses, with no assignment by the team. The design is:",
+  options: ["Experimental", "Observational", "A census of all students worldwide", "Stratified random assignment"],
+  correctAnswer: 1,
+  explanation: "No manipulation of the independent variable — groups are self-selected. That is observational; causal claims are weaker because motivation and prior ability may differ between groups.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q015", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "single",
+  question: "A national board needs estimates for each province with adequate precision for small provinces. Which sampling idea fits best?",
+  options: ["Convenience sampling in the capital only", "Stratified sampling by province", "Snowball sampling of teachers", "Studying only the largest province"],
+  correctAnswer: 1,
+  explanation: "Stratified sampling draws from within each province (stratum) so small provinces are not drowned out by large ones. Convenience samples in one city cannot support provincial estimates.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q016", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "true_false",
+  question: "A single nationwide survey administered once is a longitudinal design because it asks about past events.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Cross-sectional designs take one snapshot in time. Asking retrospective questions does not make the design longitudinal; longitudinal studies follow the same units over multiple time points.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q017", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "hard", type: "single",
+  question: "A 'success habits' study interviews only CEOs of firms still operating after 20 years. The main bias risk is:",
+  options: ["Survivorship bias", "Perfect random sampling", "Absence of any population", "Too much randomisation"],
+  correctAnswer: 0,
+  explanation: "Failed firms are missing from the sample, so habits associated with failure are invisible. That is survivorship bias — a form of selection bias in the study frame.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q018", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "hard", type: "single",
+  question: "Researchers interview one person with a rare condition, who introduces others, who introduce more. This sampling method is:",
+  options: ["Simple random", "Stratified", "Snowball", "Systematic every k-th from a national list"],
+  correctAnswer: 2,
+  explanation: "Referral chains are snowball sampling — useful for hard-to-reach groups but not a random cross-section of all patients.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q019", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "easy", type: "single",
+  question: "Which statement correctly contrasts experimental and observational designs?",
+  options: [
+    "Only observational studies can ever support causal claims",
+    "Experimental designs manipulate an independent variable; observational designs do not",
+    "Observational designs always require random assignment",
+    "Experimental designs never measure a dependent variable"
+  ],
+  correctAnswer: 1,
+  explanation: "The defining fork is manipulation of the IV. Well-run experiments support stronger causal inference; observational studies are still valuable but association is not automatic proof of causation.",
+  sourceCitation: "Standard research methods curriculum" },
+
+{ id: "RA-02-Q020", sectionId: "RA-02", topicId: "ra-research-design", difficulty: "medium", type: "multi",
+  question: "Which of the following correctly describe bias threats? (Select all that apply.)",
+  options: [
+    "Selection bias: sample systematically differs from the population of interest",
+    "Survivorship bias: only those who 'remained visible' are studied",
+    "Large sample size always removes selection bias",
+    "Measurement bias: instrument or procedure distorts values"
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "Selection, survivorship, and measurement biases are real design threats. A large but biased sample does not fix a bad sampling frame — size is not a cure for systematic error.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════

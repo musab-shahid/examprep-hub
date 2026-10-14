@@ -66,8 +66,8 @@ export const sections: Section[] = [
   { id: 'ENV-06', subjectId: 'env-studies', title: 'Energy, Climate & Environmental Governance', topicCount: 6, questionCount: 106 },
 
   // ── Research & Analysis ──
-  { id: 'RA-01', subjectId: 'research-analysis', title: 'Scientific Method', topicCount: 1, questionCount: 12 },
-  { id: 'RA-02', subjectId: 'research-analysis', title: 'Research Design', topicCount: 1, questionCount: 12 },
+  { id: 'RA-01', subjectId: 'research-analysis', title: 'Scientific Method', topicCount: 1, questionCount: 20 },
+  { id: 'RA-02', subjectId: 'research-analysis', title: 'Research Design', topicCount: 1, questionCount: 20 },
   { id: 'RA-03', subjectId: 'research-analysis', title: 'Data Types', topicCount: 1, questionCount: 12 },
   { id: 'RA-04', subjectId: 'research-analysis', title: 'Descriptive Statistics', topicCount: 1, questionCount: 12 },
   { id: 'RA-05', subjectId: 'research-analysis', title: 'Probability', topicCount: 1, questionCount: 12 },
