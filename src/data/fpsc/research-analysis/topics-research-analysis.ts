@@ -1038,96 +1038,218 @@ export const topics: Topic[] = [
   leadsTo: ["ra-inferential-stats"],
   usedIn: ["ra-inferential-stats", "meteo-forecast-skill", "meteo-extreme-events"],
 },
-
 // ═══════════════════════════════════════════════════════════════════
 // RA-6: Data Visualization
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-data-visualization",
   sectionId: "RA-06",
   order: 1,
   title: "Data Visualization",
-  definition: "Data visualization is the graphical representation of data to communicate patterns, trends, and outliers. Choosing the right chart type and following good design practices is essential for honest, effective communication.",
+  definition:
+    "Graphical display of data chosen so patterns, comparisons, trends, and outliers are readable and honest. Chart type must match the data structure; design choices (scales, baselines, colour, annotation) must not invent a story the numbers do not support.",
   keyFacts: [
-    "BAR/COLUMN chart: comparing categories (e.g., rainfall by month, species counts)",
-    "LINE chart: time series or trends (e.g., temperature over years)",
-    "PIE chart: parts of a whole (max ~6 slices; otherwise hard to read)",
-    "AREA chart: cumulative or stacked data over time",
-    "SCATTER plot: two continuous variables, shows correlation and outliers",
-    "HISTOGRAM: distribution of ONE continuous variable (bars touch)",
-    "BOX PLOT: distribution, outliers, comparison between groups",
-    "HEATMAP: matrix data (correlation matrices, geographic data)",
-    "CHOROPLETH: geographic data with color-coded regions",
-    "GOOD PRACTICES: clear title, labeled axes with units, appropriate scale, legend, colorblind-friendly palette, no chartjunk",
-
-    "MISLEADING: truncated y-axis, inappropriate scale (log vs linear), cherry-picked data, 3D distortion"
+    "Bar/column: compare magnitudes across categories",
+    "Line: change over an ordered continuum — especially time",
+    "Pie/doughnut: parts of one whole (few slices; hard to compare similar angles)",
+    "Area/stacked area: composition or cumulative totals over an ordered axis (often time)",
+    "Scatter: relationship between two numerical variables; shows form, strength, outliers",
+    "Histogram: distribution of one numerical variable (bins; bars usually touch)",
+    "Box plot: five-number summary + outliers; strong for comparing groups",
+    "Heatmap: magnitude in a matrix (correlations, grids, intensity by cell)",
+    "Choropleth: values mapped to geographic regions via colour",
+    "Good practice: clear title, axis labels with units, readable legend, appropriate scale, accessible colour, minimal chartjunk",
+    "Misleading patterns: truncated bar baselines, 3D distortion, cherry-picked windows, dual axes without care, rainbow scales that invent order",
   ],
   explanationSections: [
-    { heading: "Choosing the right chart type", body: "CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. PARTS OF WHOLE (≤6 parts) → pie. TWO CONTINUOUS VARIABLES → scatter. DISTRIBUTION of one continuous variable → histogram. COMPARING DISTRIBUTIONS between groups → box plot. The wrong chart makes data misleading regardless of accuracy. A pie chart with 20 slices is unreadable; a line chart for categorical data implies false trends; a bar chart with a truncated y-axis exaggerates differences." },
-    { heading: "Good practices vs misleading graphs", body: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). MISLEADING PRACTICES: truncated y-axis (exaggerates differences), inappropriate scale (using log when linear is appropriate), cherry-picked data (showing only a subset that supports a claim), 3D pie charts that distort proportions, starting the y-axis at a non-zero value to amplify changes." }
+    {
+      heading: "Match chart type to the question",
+      body:
+        "Ask what the reader must do. Compare category totals → bars. Follow a series through time → lines. See part-to-whole with few parts → pie (otherwise prefer bars). Judge association of two measured variables → scatter. See shape of one distribution → histogram. Compare distributions across groups → box plots. Encode a table of intensities → heatmap. Show regional rates → choropleth. A wrong type can be numerically correct and still misleading (e.g. a line chart across unordered categories implies a false sequence).",
+    },
+    {
+      heading: "Histogram vs bar chart",
+      body:
+        "Bar charts display separate categories; gaps between bars are fine; order may be arbitrary or ranked by size. Histograms display binned values of one numerical variable; bin width is a design choice; bars typically touch because bins form a continuous axis. Mixing them up in exam language is common: ‘histogram of provinces’ is usually wrong wording for a categorical bar chart.",
+    },
+    {
+      heading: "Honest scales and baselines",
+      body:
+        "For bar charts of counts or amounts, starting the value axis at zero is the default honest baseline; truncating the axis magnifies small differences. Line charts may zoom a vertical range to show variation, but the caption should not claim dramatic change if the absolute shift is tiny. Log scales are appropriate for multiplicative growth or wide dynamic range — and inappropriate when readers will assume linear gaps. Dual vertical axes can smuggle false alignment between unrelated series; use only with explicit warning.",
+    },
+    {
+      heading: "Design hygiene",
+      body:
+        "Title states what is shown (and often where/when). Axes name the variable and unit (°C, mm, %). Legends identify series. Prefer colourblind-safe palettes; do not rely on red/green alone. Avoid heavy 3D, needless grid noise, and decorative junk that adds ink without information. Choropleths need a clear classification (breaks) and a note when raw counts are confused with rates.",
+    },
   ],
   examPoints: [
-    "Bar: categories; Line: time/trend; Pie: parts of whole; Scatter: 2 variables; Histogram: distribution; Box: comparison/distribution",
-
-    "Truncated y-axis exaggerates differences — common misleading technique",
-    "Pie charts should have ≤6 slices"
+    "Bars → categories; lines → ordered time/trend; scatter → two numerical variables; histogram → one distribution; box → compare spreads/centres",
+    "Pie only for few parts of a single whole; many categories → bars",
+    "Truncated bar axis exaggerates differences",
+    "Always label axes with units; state what the chart claims",
+    "Histogram ≠ bar chart (bins of a numerical variable vs categories)",
   ],
   commonMistakes: [
-    "Using a pie chart for 15 categories — unreadable; switch to bar chart",
-
-    "Using a line chart for categorical data — implies false trends over time",
-    "Forgetting units on axes — 'Temperature' vs 'Temperature (°C)' — the latter is correct"
+    {
+      mistake: "Pie chart with many thin slices",
+      correction: "Use a sorted bar chart; angles become unreadable beyond a handful of parts.",
+      explanation: "Human perception compares length better than angle.",
+    },
+    {
+      mistake: "Line chart over unordered categories",
+      correction: "Use bars; a connecting line implies sequence or continuity that does not exist.",
+      explanation: "Category order on the axis is often arbitrary.",
+    },
+    {
+      mistake: "Omitting units or truncating bars without note",
+      correction: "Label units; start amount bars at zero or clearly flag a zoomed axis.",
+      explanation: "These are classic ways graphs oversell weak effects.",
+    },
   ],
-  relatedTopics: ["ra-data-types", "ra-data-interpretation", "ra-descriptive-statistics"],
-    subtopics: [
-      {
-        id: "ra-data-visualization-choosing-the-right-chart-type",
-        title: "Choosing the right chart type",
-        summary: "CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. PARTS OF WHOLE (≤6 parts) → pie. TWO CONTINUOUS VARIABLES → scatter.…",
-        explanation: "CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. PARTS OF WHOLE (≤6 parts) → pie. TWO CONTINUOUS VARIABLES → scatter. DISTRIBUTION of one continuous variable → histogram. COMPARING DISTRIBUTIONS between groups → box plot. The wrong chart makes data misleading regardless of accuracy. A pie chart with 20 slices is unreadable; a line chart for categorical data implies false trends; a bar chart with a truncated y-axis exaggerates differences.",
-                examples: [
-          {
-            problem: "Which statement best matches “Choosing the right chart type”?",
-            solution: "The accurate idea is: CATEGORICAL comparison → bar/column. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "CATEGORICAL comparison → bar/column.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Choosing the right chart type.",
-            solution: "Stay close to the text: CATEGORICAL comparison → bar/column. TIME SERIES or TREND → line. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-data-visualization-good-practices-vs-misleading-graphs",
-        title: "Good practices vs misleading graphs",
-        summary: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis…",
-        explanation: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). MISLEADING PRACTICES: truncated y-axis (exaggerates differences), inappropriate scale (using log when linear is appropriate), cherry-picked data (showing only a subset that supports a claim), 3D pie charts that distort proportions, starting the y-axis at a non-zero value to amplify changes.",
-                examples: [
-          {
-            problem: "Which statement best matches “Good practices vs misleading graphs”?",
-            solution: "The accurate idea is: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series, colorblind-friendly colors, minimal chartjunk (3D, excessive gridlines, etc.). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clea…",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Good practices vs misleading graphs.",
-            solution: "Stay close to the text: GOOD PRACTICES: clear title (what is this showing?), labeled axes with units (e.g., 'Temperature (°C)' not just 'Temperature'), y-axis starting at zero for bar charts (unless clearly noted), legend when multiple series,… Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "You must compare mean monthly rainfall for 12 months at one station. Best default chart?",
+      answer: "Bar or column chart (or a line if emphasising seasonal cycle as ordered time).",
+      why: "Months are ordered time periods with comparable amounts; bars make magnitudes easy to compare; a line stresses continuity through the year.",
+    },
+    {
+      scenario:
+        "A figure shows two bars of height 100 and 104 but the vertical axis starts at 98. What is the visual effect?",
+      answer: "A small 4% difference looks like a huge gap.",
+      why: "Truncated baseline exaggerates relative bar lengths.",
+    },
+  ],
+  comparisonTable: {
+    title: "Chart type → primary job",
+    headers: ["Chart", "Best for", "Avoid when"],
+    rows: [
+      ["Bar/column", "Category comparisons", "Implying continuous time with a line"],
+      ["Line", "Trends on an ordered axis", "Unordered categories"],
+      ["Pie", "Few parts of one whole", "Many categories or precise comparison"],
+      ["Scatter", "Two numerical variables", "Pure category labels on both axes"],
+      ["Histogram", "Shape of one numerical variable", "Named categories"],
+      ["Box plot", "Group distribution comparison", "Tiny samples without care"],
     ],
-
+  },
+  relatedTopics: ["ra-data-types", "ra-data-interpretation", "ra-descriptive-statistics"],
+  subtopics: [
+    {
+      id: "ra-data-visualization-chart-choice",
+      title: "Choosing the right chart",
+      summary:
+        "Pick the geometry that matches the data roles and the reader’s task.",
+      explanation:
+        "List the variables (categorical vs numerical; one vs two; time or not), then pick the chart whose visual encoding matches that structure. When in doubt for category magnitudes, bars beat pies.",
+      examples: [
+        {
+          problem:
+            "Display relationship between station elevation (m) and mean annual temperature (°C). Chart?",
+          solution:
+            "Two numerical variables → scatter plot (optionally with a trend line).",
+          answer: "Scatter plot",
+        },
+        {
+          problem:
+            "Show share of energy from coal, gas, hydro, nuclear, other (5 sources). Chart?",
+          solution:
+            "Parts of one whole, few parts → pie acceptable; stacked bar also fine and easier to compare.",
+          answer: "Pie (or stacked bar)",
+        },
+        {
+          problem:
+            "Compare exam pass rates across 20 districts. Chart?",
+          solution:
+            "Many categories → sorted horizontal bars, not a 20-slice pie.",
+          answer: "Bar chart",
+        },
+      ],
+      shortcuts: [
+        "Categories → bars; time → line; two numbers → scatter; one distribution → histogram; groups’ spreads → boxes",
+      ],
+      traps: [
+        "Pie for long category lists",
+        "Line chart for unordered labels",
+      ],
+    },
+    {
+      id: "ra-data-visualization-honest-design",
+      title: "Honest design vs misleading graphs",
+      summary:
+        "Baselines, scales, windows, and decoration decide whether the figure informs or persuades unfairly.",
+      explanation:
+        "Check zero baselines for amount bars, justified use of log scales, full time windows vs cherry-picks, and whether 3D or dual axes distort perception. Honesty is part of research quality, not only aesthetics.",
+      examples: [
+        {
+          problem:
+            "Why are 3D pie charts discouraged?",
+          solution:
+            "Perspective warps slice areas; nearer slices look larger than their true share.",
+          answer: "Visual distortion of proportions",
+        },
+        {
+          problem:
+            "A climate chart uses a log vertical axis without saying so. Risk?",
+          solution:
+            "Readers may interpret equal vertical gaps as equal absolute changes when they are multiplicative.",
+          answer: "Misread magnitude of change",
+        },
+      ],
+      shortcuts: [
+        "Amount bars → zero baseline; declare log scales; avoid 3D junk; don’t cherry-pick axes to force a narrative",
+      ],
+      traps: [
+        "Truncated bar axis",
+        "Dual axes implying false causation",
+      ],
+    },
+    {
+      id: "ra-data-visualization-special-types",
+      title: "Histograms, boxes, maps, heatmaps",
+      summary:
+        "Distribution and spatial intensity tools beyond basic bars and lines.",
+      explanation:
+        "Histograms depend on bin width — too wide hides structure, too narrow looks noisy. Box plots compress distribution into comparable summaries. Choropleths need rates vs counts clarity. Heatmaps need a readable colour scale.",
+      examples: [
+        {
+          problem:
+            "You want to compare score distributions for three teaching methods. Useful chart?",
+          solution:
+            "Side-by-side box plots (or overlapping histograms / violin plots if available).",
+          answer: "Box plots",
+        },
+        {
+          problem:
+            "Colouring districts by raw case counts on a map can mislead because…",
+          solution:
+            "Larger-population districts dominate counts; rates (per 1000 people) are usually fairer.",
+          answer: "Counts confound population size; prefer rates",
+        },
+      ],
+      shortcuts: [
+        "Histogram = one numerical distribution; box = compare groups; choropleth = regional intensity with care",
+      ],
+      traps: [
+        "Calling any bar chart a histogram",
+        "Choropleth of counts without population context",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "math-5-4"],
   leadsTo: ["ra-correlation-regression", "ra-data-interpretation"],
-  usedIn: ["ra-data-interpretation", "meteo-isobar-analysis", "meteo-thermodynamic-diagrams", "meteo-upper-air-charts", "earth-h2", "earth-h3", "earth-k2", "earth-k3"]
+  usedIn: [
+    "ra-data-interpretation",
+    "meteo-isobar-analysis",
+    "meteo-thermodynamic-diagrams",
+    "meteo-upper-air-charts",
+    "earth-h2",
+    "earth-h3",
+    "earth-k2",
+    "earth-k3",
+  ],
 },
 
 // ═══════════════════════════════════════════════════════════════════
