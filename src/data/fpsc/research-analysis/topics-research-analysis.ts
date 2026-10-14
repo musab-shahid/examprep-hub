@@ -1251,240 +1251,423 @@ export const topics: Topic[] = [
     "earth-k3",
   ],
 },
-
 // ═══════════════════════════════════════════════════════════════════
 // RA-7: Correlation & Regression
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-correlation-regression",
   sectionId: "RA-07",
   order: 1,
   title: "Correlation & Regression",
-  definition: "Correlation measures the strength and direction of a LINEAR relationship between two variables (r ranges from −1 to +1). Regression fits a line to data for prediction. CRITICAL: correlation does NOT imply causation.",
+  definition:
+    "Correlation summarises the strength and direction of a linear association between two numerical variables (Pearson r between −1 and +1). Simple linear regression fits a least-squares line for describing how the mean of Y changes with X and for prediction within the data range. A large |r| never by itself proves that X causes Y.",
   keyFacts: [
-    "CORRELATION COEFFICIENT r: ranges from −1 to +1",
-    "POSITIVE r: as X increases, Y tends to increase (both rise together)",
-    "NEGATIVE r: as X increases, Y tends to decrease (one rises, other falls)",
-    "ZERO r: no LINEAR relationship (X and Y unrelated linearly)",
-    "|r| close to 1: STRONG relationship; |r| close to 0: WEAK relationship",
-    "LINEAR REGRESSION: y = a + bx (straight line best fit)",
-    "SLOPE b: average change in Y per unit change in X",
-    "INTERCEPT a: value of Y when X = 0",
-    "b = r × (s_y / s_x) where r is correlation, s_y and s_x are standard deviations of Y and X",
-    "PREDICTION: substitute X value into the equation to estimate Y (extrapolation beyond data range is risky)",
-
-    "RESIDUAL: observed Y − predicted Y. Best fit minimizes sum of squared residuals (least squares).",
-    "R² (coefficient of determination): proportion of variance in Y explained by X (0 to 1)",
-    "CRITICAL: CORRELATION ≠ CAUSATION. r = 0.9 does not mean X causes Y.",
-    "Confounding variable: third variable Z causes both X and Y, creating spurious correlation",
-    "Reverse causation: Y may cause X, not X cause Y",
-    "Coincidence: some correlations are purely random (especially with small samples)"
+    "Pearson r ∈ [−1, +1]: sign = direction of linear trend; |r| = strength of linear trend",
+    "r > 0: higher X tends to pair with higher Y; r < 0: higher X tends to pair with lower Y",
+    "r ≈ 0: little linear association (a curved pattern may still exist)",
+    "|r| near 1: points hug a straight line; |r| near 0: linear cloud is weak",
+    "Simple linear model: ŷ = a + bx (predicted Y)",
+    "Slope b: average change in Y per one-unit increase in X",
+    "Intercept a: predicted Y when X = 0 (only meaningful if X = 0 is in range and sensible)",
+    "Least squares: choose a and b to minimise Σ(residual)² where residual = y − ŷ",
+    "Relation: b = r × (s_y / s_x) for the usual least-squares slope",
+    "R² (coefficient of determination): fraction of sample variance in Y accounted for by the linear prediction from X (0 to 1)",
+    "For simple linear regression with Pearson r: R² = r²",
+    "Extrapolation (predicting far outside observed X) is risky — the line may not hold",
+    "Correlation ≠ causation: confounders, reverse causation, and chance can produce large |r|",
   ],
   explanationSections: [
-    { heading: "Reading the correlation coefficient r", body: "r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. MAGNITUDE indicates STRENGTH: |r| close to 1 = strong linear relationship; |r| close to 0 = weak or no linear relationship. r = 1 is perfect positive; r = −1 is perfect negative; r = 0 is no LINEAR relationship. NOTE: r = 0 doesn't mean NO relationship — just no LINEAR one. A U-shaped relationship could have r ≈ 0 but strong association." },
-    { heading: "Correlation ≠ causation — the most important concept", body: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH — more ice cream sales and more swimming/drowning in summer. This is the classic 'lurking variable' problem. Other reasons for high correlation without causation: REVERSE CAUSATION (Y causes X, not X causes Y), COINCIDENCE (especially in small samples or with many variables tested). Establishing causation requires a CONTROLLED EXPERIMENT (random assignment to treatment/control groups) or strong causal inference (Bradford Hill criteria)." },
-    { heading: "Regression for prediction", body: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. The INTERCEPT a is Y when X = 0 (often not meaningful if X = 0 is outside data range). The line is fit by LEAST SQUARES — minimizing the sum of squared RESIDUALS (observed Y − predicted Y). PREDICTION: substitute a new X to get estimated Y. Be cautious about EXTRAPOLATION (predicting far outside the data range) — relationships may not hold. R² (coefficient of determination) is the proportion of Y's variance explained by X: R² = 0.8 means 80% of Y's variation is explained by X." }
+    {
+      heading: "Reading r (direction, strength, linearity)",
+      body:
+        "Sign tells direction of the linear trend; magnitude tells how tightly points follow a straight line. r = 1 or −1 is a perfect linear fit; r = 0 means the best linear fit is flat — not that X and Y are unrelated in every possible way. A clear U-shape or other curve can yield r near 0 despite a strong nonlinear pattern. Always look at the scatterplot, not only the number.",
+    },
+    {
+      heading: "Correlation is not causation",
+      body:
+        "Ice cream sales and drowning can rise together because summer heat increases both — a confounder (lurking variable), not a causal effect of ice cream. Other non-causal stories: reverse causation (Y drives X), selection bias, and pure coincidence (especially with small n or many variables screened). Causal claims need design (e.g. randomised experiment) or a careful causal argument, not r alone.",
+    },
+    {
+      heading: "Regression line, residuals, R²",
+      body:
+        "The least-squares line minimises the sum of squared vertical residuals (observed y minus predicted ŷ). Slope answers ‘how much does Y change, on average, when X increases by one unit?’ Intercept is the line’s value at X = 0. R² is the proportion of Y’s variance ‘explained’ by the linear relation with X; R² = 0.64 means 64% in that descriptive sense — it is not a probability that the model is ‘true.’ In simple linear regression, R² equals r squared.",
+    },
+    {
+      heading: "Prediction vs extrapolation",
+      body:
+        "Interpolation (X inside the observed range) is the intended use of ŷ = a + bx. Extrapolation assumes the same linear rule continues outside that range — often false for natural and social systems. Also check outliers and influential points: one extreme X can tilt the slope dramatically.",
+    },
   ],
   examPoints: [
-    "r ranges from −1 to +1; sign = direction, |r| = strength",
-    "Correlation ≠ causation (most important concept!)",
-    "Confounding variable = third variable causes both X and Y",
-
-    "Regression: y = a + bx; slope b = r × (s_y / s_x)",
-    "Least squares minimizes sum of squared residuals"
+    "r from −1 to +1; sign = direction; |r| = linear strength",
+    "r ≈ 0 does not rule out a nonlinear relationship",
+    "Correlation ≠ causation (confounders, reverse causation, chance)",
+    "ŷ = a + bx; least squares minimises Σ(y − ŷ)²",
+    "R² = proportion of Y variance explained by the linear fit; for simple regression R² = r²",
+    "Do not extrapolate blindly beyond the data range",
   ],
   commonMistakes: [
-    "Concluding causation from a high r value — confounding variables or coincidence may be responsible",
-
-    "Extrapolating far beyond the data range — relationship may not hold",
-    "Confusing r (correlation) with R² (proportion of variance explained) — r² ≠ R² in general"
+    {
+      mistake: "Inferring ‘X causes Y’ from a large |r|",
+      correction: "State association only, unless design supports causation.",
+      explanation: "Confounders and reverse causation are standard alternative explanations.",
+    },
+    {
+      mistake: "Treating r = 0 as ‘no relationship of any kind’",
+      correction: "It means no linear association; curves can still exist.",
+      explanation: "Always inspect the scatterplot.",
+    },
+    {
+      mistake: "Extrapolating far beyond observed X",
+      correction: "Treat out-of-range predictions as speculative.",
+      explanation: "Linearity is a local description, not a universal law.",
+    },
   ],
-  relatedTopics: ["ra-descriptive-statistics", "ra-data-interpretation", "ra-scientific-method"],
-    subtopics: [
-      {
-        id: "ra-correlation-regression-reading-the-correlation-coefficient-r",
-        title: "Reading the correlation coefficient r",
-        summary: "r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. MAGNITUDE…",
-        explanation: "r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. MAGNITUDE indicates STRENGTH: |r| close to 1 = strong linear relationship; |r| close to 0 = weak or no linear relationship. r = 1 is perfect positive; r = −1 is perfect negative; r = 0 is no LINEAR relationship. NOTE: r = 0 doesn't mean NO relationship — just no LINEAR one. A U-shaped relationship could have r ≈ 0 but strong association.",
-                examples: [
-          {
-            problem: "Which statement best matches “Reading the correlation coefficient r”?",
-            solution: "The accurate idea is: r ranges from −1 to +1. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "r ranges from −1 to +1.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Reading the correlation coefficient r.",
-            solution: "Stay close to the text: r ranges from −1 to +1. SIGN indicates DIRECTION: positive r = both variables move together; negative r = they move oppositely. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-correlation-regression-correlation-causation-the-most-important",
-        title: "Correlation ≠ causation — the most important concept",
-        summary: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes…",
-        explanation: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH — more ice cream sales and more swimming/drowning in summer. This is the classic 'lurking variable' problem. Other reasons for high correlation without causation: REVERSE CAUSATION (Y causes X, not X causes Y), COINCIDENCE (especially in small samples or with many variables tested). Establishing causation requires a CONTROLLED EXPERIMENT (random assignment to treatment/control groups) or strong causal inference (Bradford Hill criteria).",
-                examples: [
-          {
-            problem: "Which statement best matches “Correlation ≠ causation — the most important concept”?",
-            solution: "The accurate idea is: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Correlation ≠ causation — the most important concept.",
-            solution: "Stay close to the text: r = 0.9 between ice cream sales and drowning deaths does NOT mean ice cream causes drowning. A CONFOUNDING VARIABLE (summer heat) causes BOTH — more ice cream sales and more swimming/drowning in summer. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-correlation-regression-regression-for-prediction",
-        title: "Regression for prediction",
-        summary: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. The…",
-        explanation: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. The INTERCEPT a is Y when X = 0 (often not meaningful if X = 0 is outside data range). The line is fit by LEAST SQUARES — minimizing the sum of squared RESIDUALS (observed Y − predicted Y). PREDICTION: substitute a new X to get estimated Y. Be cautious about EXTRAPOLATION (predicting far outside the data range) — relationships may not hold. R² (coefficient of determination) is the proportion of Y's variance explained by X: R² = 0.8 means 80% of Y's variation is explained by X.",
-                examples: [
-          {
-            problem: "Which statement best matches “Regression for prediction”?",
-            solution: "The accurate idea is: LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx.",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Regression for prediction.",
-            solution: "Stay close to the text: LINEAR REGRESSION fits the best line through a scatter of points: y = a + bx. The SLOPE b tells you the average change in Y per unit X. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "r = −0.85 between station elevation and mean annual temperature across many sites. Interpret carefully.",
+      answer:
+        "Strong negative linear association: higher elevation tends to pair with lower mean temperature — not automatic proof that elevation is the only cause at every site.",
+      why: "Large |r| describes the linear pattern; causation still needs physical/design reasoning (here the environmental lapse rate is a plausible mechanism, but the statistic alone is association).",
+    },
+    {
+      scenario:
+        "A fitted line is ŷ = 2 + 0.5x for x between 10 and 20. Why is predicting y at x = 100 dubious?",
+      answer: "Extrapolation far outside the fitted range.",
+      why: "The linear rule was only supported between 10 and 20.",
+    },
+  ],
+  comparisonTable: {
+    title: "Correlation vs regression (simple linear)",
+    headers: ["Idea", "Correlation (r)", "Regression (ŷ = a + bx)"],
+    rows: [
+      ["Main role", "Summarise linear association", "Describe/predict Y from X"],
+      ["Direction", "Sign of r", "Sign of slope b"],
+      ["Strength / fit", "|r| or R² = r²", "R²; residual size"],
+      ["Causation?", "Not implied", "Not implied by the fit alone"],
     ],
-
+  },
+  relatedTopics: ["ra-descriptive-statistics", "ra-data-interpretation", "ra-scientific-method"],
+  subtopics: [
+    {
+      id: "ra-correlation-regression-reading-r",
+      title: "Reading the correlation coefficient",
+      summary:
+        "Sign for direction, magnitude for linear strength, scatterplot for form.",
+      explanation:
+        "Report r with a plain-language direction statement and a caution that linearity is assumed. Compare |r| values only when the context is comparable.",
+      examples: [
+        {
+          problem:
+            "Which indicates the strongest linear association?\nA) r = −0.2\nB) r = 0.45\nC) r = −0.9\nD) r = 0.1",
+          solution:
+            "Strength is |r|; 0.9 is largest.",
+          answer: "C",
+        },
+        {
+          problem:
+            "Can a dataset have r ≈ 0 but still a clear pattern?",
+          solution:
+            "Yes — e.g. a U-shaped curve has little linear trend.",
+          answer: "Yes (nonlinear association)",
+        },
+      ],
+      shortcuts: [
+        "Strength = |r|; direction = sign; form = look at the plot",
+      ],
+      traps: [
+        "Ranking strength by signed r instead of |r|",
+        "Ignoring nonlinear structure when r is near 0",
+      ],
+    },
+    {
+      id: "ra-correlation-regression-causation",
+      title: "Correlation ≠ causation",
+      summary:
+        "Confounders, reverse causation, and chance break naive causal leaps.",
+      explanation:
+        "When a stem shows a high r and asks what follows, prefer ‘association’ language unless an experiment or strong causal design is described.",
+      examples: [
+        {
+          problem:
+            "Ice cream sales and drowning deaths correlate highly across months. Best explanation among common options?",
+          solution:
+            "Shared driver (heat/summer activity), not ice cream causing drowning.",
+          answer: "Confounding / lurking variable",
+        },
+        {
+          problem:
+            "What study design most directly supports a causal claim about a treatment?",
+          solution:
+            "Randomised controlled experiment with appropriate controls.",
+          answer: "Randomised experiment",
+        },
+      ],
+      shortcuts: [
+        "High r → association; causation needs design or strong causal argument",
+      ],
+      traps: [
+        "‘r is large so X causes Y’",
+        "Ignoring reverse causation in observational data",
+      ],
+    },
+    {
+      id: "ra-correlation-regression-line-and-r2",
+      title: "Regression line, residuals, R²",
+      summary:
+        "Least-squares fit, slope meaning, and variance explained.",
+      explanation:
+        "Interpret b as average change in Y per unit X. Use R² as descriptive fit, not as proof of theory. Stay inside the X-range for routine prediction.",
+      examples: [
+        {
+          problem:
+            "ŷ = 10 + 3x. What does the slope mean?",
+          solution:
+            "For each 1-unit rise in X, predicted Y rises by 3 on average.",
+          answer: "Predicted Y increases by 3 per unit X",
+        },
+        {
+          problem:
+            "If r = −0.8 in a simple linear regression, what is R²?",
+          solution:
+            "R² = (−0.8)² = 0.64 (64% of Y variance linearly associated with X).",
+          answer: "0.64",
+        },
+        {
+          problem:
+            "Observed y = 12, predicted ŷ = 9. Residual?",
+          solution:
+            "12 − 9 = 3.",
+          answer: "3",
+        },
+      ],
+      shortcuts: [
+        "Residual = y − ŷ; R² = r² in simple linear regression; slope = change in ŷ per unit X",
+      ],
+      traps: [
+        "Extrapolating far beyond sample X",
+        "Treating R² as the probability the model is correct",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-descriptive-statistics", "ra-data-visualization", "math-5-3"],
   leadsTo: ["ra-inferential-stats", "ra-data-interpretation"],
-  usedIn: ["ra-data-interpretation", "meteo-radiative-forcing", "meteo-climate-feedbacks", "meteo-temp-rainfall-distribution", "earth-h3", "earth-c2"]
+  usedIn: [
+    "ra-data-interpretation",
+    "meteo-radiative-forcing",
+    "meteo-climate-feedbacks",
+    "meteo-temp-rainfall-distribution",
+    "earth-h3",
+    "earth-c2",
+  ],
 },
-
 // ═══════════════════════════════════════════════════════════════════
-// RA-8: Inferential Statistics
+// RA-8: Inferential Statistics (Intro)
 // ═══════════════════════════════════════════════════════════════════
-
 {
   id: "ra-inferential-stats",
   sectionId: "RA-08",
   order: 1,
   title: "Inferential Statistics (Intro)",
-  definition: "Inferential statistics uses sample data to make inferences about a larger population. It includes standard error, confidence intervals, and hypothesis testing — the tools that let us generalize beyond our data.",
+  definition:
+    "Methods that use sample data to estimate population quantities and to test claims about populations. Core tools are standard errors, confidence intervals, and hypothesis tests (p-values, Type I/II errors, power). Inference is only as trustworthy as the sampling design and model assumptions.",
   keyFacts: [
-    "POPULATION: entire group of interest. PARAMETER describes population (μ, σ)",
-    "SAMPLE: subset studied. STATISTIC describes sample (x̄, s)",
-    "STANDARD ERROR: SE = s/√n. Measures how much the sample mean varies around the true population mean. Decreases as n increases.",
-    "CONFIDENCE INTERVAL: range likely to contain the true population parameter",
-    "95% CI: x̄ ± 1.96 × SE (for large samples, normal distribution)",
-    "Wider CI = more uncertainty; narrower CI = more precision (for fixed confidence level)",
-    "NULL HYPOTHESIS (H₀): no effect, no difference (e.g., 'the drug has no effect')",
-    "ALTERNATIVE HYPOTHESIS (H₁ or Hₐ): there IS an effect or difference",
-    "TEST STATISTIC: a number calculated from sample data that measures how far the data is from H₀",
-    "P-VALUE: probability of getting data as extreme as observed, ASSUMING H₀ is true. Small p = data unlikely under H₀",
-    "SIGNIFICANCE LEVEL (α): threshold, usually 0.05. REJECT H₀ if p < α",
-    "TYPE I ERROR: rejecting H₀ when it's TRUE (false positive). Probability = α",
-    "TYPE II ERROR: failing to reject H₀ when it's FALSE (false negative). Probability = β",
-    "POWER = 1 − β. Probability of correctly rejecting a false H₀",
-    "Common tests: t-test (compare means), chi-square (categorical), ANOVA (3+ means), correlation test (significance of r)"
+    "Population: full set of interest; parameter: numerical fact about the population (μ, σ, p)",
+    "Sample: observed subset; statistic: numerical summary of the sample (x̄, s, p̂)",
+    "Sampling variability: different samples yield different statistics",
+    "Standard error (SE): estimated SD of a statistic; for a mean, SE ≈ s/√n (larger n → smaller SE)",
+    "Confidence interval (CI): range of plausible values for a parameter, constructed from the sample",
+    "Approximate large-sample 95% CI for a mean: x̄ ± 1.96 × SE (when normal-based conditions hold)",
+    "Higher confidence → wider interval (for the same data); larger n → narrower interval",
+    "Null hypothesis H₀: baseline claim (often ‘no difference / no effect / no association’)",
+    "Alternative H₁ (Hₐ): the claim you entertain against H₀ (one-sided or two-sided)",
+    "p-value: probability, computed under H₀, of a result at least as extreme as observed",
+    "Significance level α: pre-chosen threshold (often 0.05); reject H₀ if p < α",
+    "Type I error: reject true H₀ (false positive); long-run rate controlled by α",
+    "Type II error: fail to reject false H₀ (false negative); probability β",
+    "Power = 1 − β: chance of detecting a real effect (rises with n, effect size, lower noise)",
+    "Common tests: t-test (means), χ² (categorical association/goodness-of-fit), ANOVA (3+ means), test of correlation",
   ],
   explanationSections: [
-    { heading: "From sample to population — the logic of inference", body: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure. A PARAMETER describes the population (μ, σ); a STATISTIC describes the sample (x̄, s). We use sample statistics to ESTIMATE population parameters. The STANDARD ERROR (SE = s/√n) measures the uncertainty in our estimate — it shrinks as sample size n grows. A CONFIDENCE INTERVAL (e.g., 95% CI) gives a range likely to contain the true parameter. '95% confidence' means: if we repeated this sampling process many times, 95% of the resulting intervals would contain the true parameter." },
-    { heading: "Hypothesis testing — the logic", body: "We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. If p is small (typically < 0.05), we REJECT H₀ — the data is too unlikely under H₀. We choose a SIGNIFICANCE LEVEL α (usually 0.05) as our threshold. The two types of error: TYPE I (α): rejecting true H₀ (false positive). TYPE II (β): failing to reject false H₀ (false negative). POWER (1 − β): probability of correctly rejecting a false H₀. More sample size = more power. The test STATISTIC depends on the test type (t, F, χ², z, etc.)." },
-    { heading: "Common tests — which to use when", body: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data (e.g., is there an association between climate type and species distribution?). ANOVA: compare means of THREE OR MORE groups (extension of t-test). CORRELATION TEST: test whether r is significantly different from zero. The choice depends on your data type (continuous vs categorical) and question (compare groups vs test association)." }
+    {
+      heading: "From sample to population",
+      body:
+        "You almost never observe the whole population. A statistic estimates a parameter; SE quantifies how much that statistic would bounce from sample to sample. A 95% CI is not ‘95% probability that this fixed interval covers μ’ in the everyday subjective sense; the frequentist reading is: the method produces intervals that cover the true parameter in about 95% of repeated random samples. Narrower intervals mean more precision, not automatically more ‘truth.’",
+    },
+    {
+      heading: "Hypothesis testing logic",
+      body:
+        "Assume H₀ for the sake of argument. Measure how unusual the data would be if H₀ were true → p-value. If that probability is smaller than α, the data are awkward for H₀, so you reject H₀. Failing to reject H₀ is not proof that H₀ is true — the study may simply lack power. Never say ‘p proves the alternative’ or ‘p is the probability H₀ is true’; p is P(data as extreme | H₀), not P(H₀ | data).",
+    },
+    {
+      heading: "Errors and power",
+      body:
+        "Type I: crying wolf (false positive). Type II: missing a real effect (false negative). Power is the chance of correctly rejecting a false H₀. You can raise power with larger samples, larger true effects, less measurement noise, and more efficient design — not by ‘wishing’ for significance. Lowering α reduces Type I risk but can increase Type II risk if nothing else changes.",
+    },
+    {
+      heading: "Which test? (intro map)",
+      body:
+        "Two group means on numerical data → t-test (or non-parametric analogue if assumptions fail). Three or more means → ANOVA. Categorical association in tables → chi-square. ‘Is r different from 0?’ → correlation/regression significance test. Match the test to the data type and the question; software output is meaningless if the test is the wrong one.",
+    },
   ],
   examPoints: [
-    "Parameter = population; Statistic = sample",
-    "Standard Error = s/√n (shrinks with larger n)",
-    "95% CI: x̄ ± 1.96 × SE for large samples",
-    "Reject H₀ if p < α (typically 0.05)",
-    "Type I error = false positive; Type II = false negative; Power = 1 − β"
+    "Parameter ↔ population; statistic ↔ sample",
+    "SE for a mean ≈ s/√n; larger n → smaller SE",
+    "Reject H₀ when p < α; failing to reject ≠ proving H₀",
+    "p-value ≠ P(H₀ is true)",
+    "Type I = false positive (α); Type II = false negative (β); power = 1 − β",
+    "95% CI method covers the parameter in ~95% of repeated samples (when assumptions hold)",
   ],
   commonMistakes: [
-    "Confusing p-value with probability that H₀ is true — p-value is P(data | H₀), not P(H₀ | data)",
-
-    "Saying 'we proved H₀ is false' — we can only reject or fail to reject H₀; never 'prove'",
-    "Confusing α (Type I error rate) with β (Type II error rate)"
+    {
+      mistake: "Interpreting p as P(H₀ is true)",
+      correction: "p = P(data as extreme as observed | H₀ true).",
+      explanation: "A small p means the data are surprising under H₀, not a direct posterior probability of H₀.",
+    },
+    {
+      mistake: "‘We proved there is no effect’ after p > 0.05",
+      correction: "Say ‘did not find significant evidence against H₀’ — possible no effect or low power.",
+      explanation: "Absence of evidence is not evidence of absence.",
+    },
+    {
+      mistake: "Confusing SE with SD of the raw data",
+      correction: "SD describes spread of observations; SE describes precision of a statistic (e.g. the mean).",
+      explanation: "SE shrinks with √n; the population SD need not.",
+    },
   ],
-  relatedTopics: ["ra-probability", "ra-descriptive-statistics", "ra-correlation-regression"],
-    subtopics: [
-      {
-        id: "ra-inferential-stats-from-sample-to-population-the-logic-of-i",
-        title: "From sample to population — the logic of inference",
-        summary: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure.…",
-        explanation: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure. A PARAMETER describes the population (μ, σ); a STATISTIC describes the sample (x̄, s). We use sample statistics to ESTIMATE population parameters. The STANDARD ERROR (SE = s/√n) measures the uncertainty in our estimate — it shrinks as sample size n grows. A CONFIDENCE INTERVAL (e.g., 95% CI) gives a range likely to contain the true parameter. '95% confidence' means: if we repeated this sampling process many times, 95% of the resulting intervals would contain the true parameter.",
-                examples: [
-          {
-            problem: "Which statement best matches “From sample to population — the logic of inference”?",
-            solution: "The accurate idea is: POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying From sample to population — the logic of inference.",
-            solution: "Stay close to the text: POPULATION: the entire group you want to understand (e.g., all meteorology students in Pakistan). SAMPLE: the subset you actually measure. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-inferential-stats-hypothesis-testing-the-logic",
-        title: "Hypothesis testing — the logic",
-        summary: "We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data…",
-        explanation: "We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. If p is small (typically < 0.05), we REJECT H₀ — the data is too unlikely under H₀. We choose a SIGNIFICANCE LEVEL α (usually 0.05) as our threshold. The two types of error: TYPE I (α): rejecting true H₀ (false positive). TYPE II (β): failing to reject false H₀ (false negative). POWER (1 − β): probability of correctly rejecting a false H₀. More sample size = more power. The test STATISTIC depends on the test type (t, F, χ², z, etc.).",
-                examples: [
-          {
-            problem: "Which statement best matches “Hypothesis testing — the logic”?",
-            solution: "The accurate idea is: We start by assuming H₀ (null hypothesis: no effect/difference). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "We start by assuming H₀ (null hypothesis: no effect/difference).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Hypothesis testing — the logic.",
-            solution: "Stay close to the text: We start by assuming H₀ (null hypothesis: no effect/difference). We then ask: 'If H₀ is truly true, what's the probability of getting data as extreme as ours?' That probability is the P-VALUE. Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "ra-inferential-stats-common-tests-which-to-use-when",
-        title: "Common tests — which to use when",
-        summary: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data…",
-        explanation: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data (e.g., is there an association between climate type and species distribution?). ANOVA: compare means of THREE OR MORE groups (extension of t-test). CORRELATION TEST: test whether r is significantly different from zero. The choice depends on your data type (continuous vs categorical) and question (compare groups vs test association).",
-                examples: [
-          {
-            problem: "Which statement best matches “Common tests — which to use when”?",
-            solution: "The accurate idea is: T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). Eliminate options that swap related terms or ignore the definition boundaries in the notes.",
-            answer: "T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?).",
-          },
-          {
-            problem: "Give one exam trap students hit when studying Common tests — which to use when.",
-            solution: "Stay close to the text: T-TEST: compare means of TWO groups (e.g., is mean rainfall different between two regions?). CHI-SQUARE TEST: analyze CATEGORICAL data (e.g., is there an association between climate type and species distribution?). Mis-reading a definition or swapping two technical terms is the usual error.",
-            answer: "Do not swap the paired technical terms; quote the definition precisely",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "Two studies estimate the same mean difference; study A has n = 25, study B has n = 400 (similar s). Which CI is usually narrower?",
+      answer: "Study B.",
+      why: "SE scales like 1/√n; larger n → tighter interval, all else equal.",
+    },
+    {
+      scenario:
+        "A test yields p = 0.03 with α = 0.05. What decision, and what error is still possible?",
+      answer: "Reject H₀; Type I error is still possible if H₀ is actually true.",
+      why: "Crossing α is a decision rule, not certainty.",
+    },
+  ],
+  comparisonTable: {
+    title: "Error types in hypothesis testing",
+    headers: ["Decision \\ Truth", "H₀ true", "H₀ false"],
+    rows: [
+      ["Reject H₀", "Type I error (false positive)", "Correct detection"],
+      ["Fail to reject H₀", "Correct non-rejection", "Type II error (false negative)"],
     ],
-
+  },
+  relatedTopics: ["ra-probability", "ra-descriptive-statistics", "ra-correlation-regression"],
+  subtopics: [
+    {
+      id: "ra-inferential-stats-estimation",
+      title: "Estimation: SE and confidence intervals",
+      summary:
+        "Statistics estimate parameters; SE and CIs express precision.",
+      explanation:
+        "Point estimate + uncertainty. Know the verbal meaning of a 95% CI method and that width depends on variability, n, and confidence level.",
+      examples: [
+        {
+          problem:
+            "s = 10, n = 25. Approximate SE of the mean?",
+          solution:
+            "SE = 10/√25 = 2.",
+          answer: "2",
+        },
+        {
+          problem:
+            "x̄ = 50, SE = 2. Approximate 95% CI using ±1.96 SE?",
+          solution:
+            "50 ± 1.96×2 → about 46.1 to 53.9.",
+          answer: "≈ (46.1, 53.9)",
+        },
+      ],
+      shortcuts: [
+        "SE_mean ≈ s/√n; larger n → narrower CI",
+      ],
+      traps: [
+        "Reading CI as ‘probability the parameter is random’",
+        "Treating SD and SE as interchangeable",
+      ],
+    },
+    {
+      id: "ra-inferential-stats-testing",
+      title: "Hypothesis testing and p-values",
+      summary:
+        "H₀ as baseline; p measures extremity of data under H₀; α is the reject threshold.",
+      explanation:
+        "State H₀/H₁, compute a test statistic, convert to p, compare with α. Interpret in context without overclaiming.",
+      examples: [
+        {
+          problem:
+            "p = 0.20, α = 0.05. Decision?",
+          solution:
+            "p > α → fail to reject H₀.",
+          answer: "Fail to reject H₀",
+        },
+        {
+          problem:
+            "True or false: p = 0.01 means there is a 1% chance H₀ is true.",
+          solution:
+            "False — that confuses P(data|H₀) with P(H₀|data).",
+          answer: "False",
+        },
+      ],
+      shortcuts: [
+        "p < α → reject H₀; p is not P(H₀ true)",
+      ],
+      traps: [
+        "‘Accept H₀’ as proven truth",
+        "Changing α after seeing p to force significance",
+      ],
+    },
+    {
+      id: "ra-inferential-stats-errors-power-tests",
+      title: "Type I/II errors, power, and test choice",
+      summary:
+        "False positives vs false negatives; power; matching tests to data.",
+      explanation:
+        "Name the error from the truth-vs-decision table. Power rises with n and effect size. Choose t / ANOVA / χ² / correlation tests by variable type and comparison structure.",
+      examples: [
+        {
+          problem:
+            "A screening test flags a healthy person as diseased. Which error type in H₀ = ‘healthy’ terms?",
+          solution:
+            "Rejecting a true null of health → Type I (false positive).",
+          answer: "Type I",
+        },
+        {
+          problem:
+            "Compare mean yields under three fertiliser formulas. Basic parametric test family?",
+          solution:
+            "Three+ means → ANOVA (then pairwise follow-ups if needed).",
+          answer: "ANOVA",
+        },
+        {
+          problem:
+            "Test association between blood group (categories) and disease status (yes/no). Common test?",
+          solution:
+            "Categorical table → chi-square test of association.",
+          answer: "Chi-square",
+        },
+      ],
+      shortcuts: [
+        "Type I = false positive; Type II = miss; power = 1 − β; 2 means → t; 3+ means → ANOVA; categories → χ²",
+      ],
+      traps: [
+        "Using a t-test for three groups without adjustment/ANOVA logic",
+        "Claiming high power with tiny n and tiny effects",
+      ],
+    },
+  ],
   content: true,
   postRestriction: "bs17",
   buildsOn: ["ra-probability", "ra-correlation-regression", "ra-descriptive-statistics"],
   leadsTo: ["ra-data-interpretation"],
-  usedIn: ["ra-data-interpretation", "meteo-forecast-skill"]
+  usedIn: ["ra-data-interpretation", "meteo-forecast-skill"],
 },
 
 // ═══════════════════════════════════════════════════════════════════
