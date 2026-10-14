@@ -1657,24 +1657,54 @@ export const questions: Question[] = [
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Common Errors
+// Serial begins ENG-01-Q144
 // ═══════════════════════════════════════════════════════════════════
 
+type Difficulty = "easy" | "medium" | "hard";
+type QuestionType = "single" | "true_false" | "multi";
+
+type QuestionBase = {
+  id: string;
+  sectionId: string;
+  topicId: string;
+  difficulty: Difficulty;
+  type: QuestionType;
+  question: string;
+  options: string[];
+  explanation: string;
+  sourceCitation: string;
+  examScope: string[];
+};
+
+type SingleQuestion = QuestionBase & {
+  type: "single" | "true_false";
+  correctAnswer: number;
+};
+
+type MultiQuestion = QuestionBase & {
+  type: "multi";
+  correctAnswer: number[];
+};
+
+export type Question = SingleQuestion | MultiQuestion;
+
+export const questions: Question[] = [
 // Easy
-{ id: "ENG-01-Q067", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+{ id: "ENG-01-Q144", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
   options: ["The weather is real bad today.", "The weather is really bad today.", "The weather is realily bad today.", "The weather is real bad todayly."],
   correctAnswer: 1,
   explanation: "'Really' (adverb) modifies the adjective 'bad'. The form 'real' is an adjective and can't modify another adjective directly. 'Really' is the correct form.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q068", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+{ id: "ENG-01-Q145", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
   options: ["It will effect you negatively.", "It will affect you negatively.", "It will affecting you negatively.", "It will effected you negatively."],
   correctAnswer: 1,
   explanation: "'Affect' (verb, to influence) is needed here. 'Effect' as a noun means 'result'; as a verb it means 'to bring about' (rare). The sentence is about influence, so 'affect' is correct.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q069", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
+{ id: "ENG-01-Q146", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
   question: "'I have less books than you' is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1682,70 +1712,70 @@ export const questions: Question[] = [
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Medium
-{ id: "ENG-01-Q070", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q147", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["He discussed about the issue with us.", "He discussed the issue with us.", "He discussed on the issue with us.", "He discussed regarding the issue with us."],
   correctAnswer: 1,
   explanation: "The verb 'discuss' takes a DIRECT OBJECT with NO preposition. 'Discuss the issue' is correct — 'discuss about/on/regarding' are all incorrect additions.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q071", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["He is senior than me.", "He is senior to me.", "He is senior from me.", "He is senior of me."],
   correctAnswer: 1,
   explanation: "The fixed comparison is 'senior TO' (not 'than', not 'from', not 'of'). Similarly: 'junior to', 'prefer X to Y', 'superior to'. The preposition 'to' is used for these comparison-of-status adjectives.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q072", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q149", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["Despite of the rain, we went out.", "Despite the rain, we went out.", "Despite from the rain, we went out.", "In despite the rain, we went out."],
   correctAnswer: 1,
   explanation: "'Despite' takes a noun directly — NO 'of'. The alternative 'in spite of' DOES take 'of'. So: 'despite the rain' OR 'in spite of the rain' — not 'despite of the rain'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q073", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q150", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["According with the report, sales increased.", "According to the report, sales increased.", "According from the report, sales increased.", "According the report, sales increased."],
   correctAnswer: 1,
   explanation: "The fixed phrase is 'according TO' (not 'with', not 'from', no preposition dropped). 'According to' means 'as stated by' or 'in accordance with'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q074", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q151", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["The team is comprised of 11 members.", "The team comprises 11 members.", "The team is comprising 11 members.", "The team has comprise 11 members."],
   correctAnswer: 1,
   explanation: "'Comprise' means 'consist of' or 'be composed of' — it takes no preposition in active voice. 'The team comprises 11 members' is correct. 'Is comprised of' is a common but nonstandard (passive misuse).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q075", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q152", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["He is married with her for 10 years.", "He is married to her for 10 years.", "He is married from her for 10 years.", "He is married of her for 10 years."],
   correctAnswer: 1,
   explanation: "The fixed phrase is 'married TO' (not 'with', not 'from', not 'of'). The preposition 'to' indicates the relationship bond, just like 'engaged to' or 'attached to'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q076", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q153", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["Hardly I had reached the station, the train left.", "Hardly had I reached the station, the train left.", "Hardly I have reached the station, the train left.", "Hardly I reached the station, the train left."],
   correctAnswer: 1,
   explanation: "The 'Hardly... when' inversion pattern requires the auxiliary ('had') to come BEFORE the subject ('I'): 'Hardly had I reached... when...'. This is a fixed grammatical structure that cannot be rearranged.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q077", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+{ id: "ENG-01-Q154", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'She returned back the book' is grammatically correct because 'return' and 'back' reinforce each other.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. 'Returned' already means 'came back' — adding 'back' is redundant. This is called a pleonasm. Correct: 'She returned the book' or 'She came back with the book' (NOT 'returned back').",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q078", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+{ id: "ENG-01-Q155", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'I could not be able to come' is grammatically correct because 'could' and 'be able to' both express ability.",
   options: ["True", "False"],
   correctAnswer: 1,
   explanation: "False. This is a redundancy error. 'Could' and 'was able to' both express past ability — using both is unnecessary. Correct: 'I could not come' OR 'I was not able to come' (not both).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q079", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+{ id: "ENG-01-Q156", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'I am agree with you' is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -1753,7 +1783,7 @@ export const questions: Question[] = [
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
-{ id: "ENG-01-Q080", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+{ id: "ENG-01-Q157", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
   question: "Which of the following sentences are CORRECT? (Select all that apply.)",
   options: [
     "He discussed the issue with us.",
@@ -1765,7 +1795,7 @@ export const questions: Question[] = [
   explanation: "'Discuss' takes a direct object (no 'about'). Avoid redundant 'returned back' — 'returned' already means came back. 'Married to' is the fixed phrase.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q081", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+{ id: "ENG-01-Q158", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
   question: "Which of the following preposition usages are CORRECT? (Select all that apply.)",
   options: [
     "He is good at math.",
@@ -1777,7 +1807,7 @@ export const questions: Question[] = [
   explanation: "Standard: 'good at', 'prefer X to Y', 'different from'. Wrong: 'despite of' — use 'despite the rain' or 'in spite of the rain'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q082", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+{ id: "ENG-01-Q159", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
   question: "Choose the best improvement: 'He discussed about the matter, returned back the file, and entered into the room.'",
   options: [
     "He discussed the matter, returned the file, and entered the room.",
