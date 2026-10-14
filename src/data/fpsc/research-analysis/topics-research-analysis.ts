@@ -2074,7 +2074,216 @@ export const topics: Topic[] = [
     "english-sentence-building-blocks",
   ],
 },
-
+// ═══════════════════════════════════════════════════════════════════
+// RA-11: Scientific Reporting (IMRaD)
+// ═══════════════════════════════════════════════════════════════════
+{
+  id: "ra-scientific-reporting",
+  sectionId: "RA-11",
+  order: 1,
+  title: "Scientific Reporting (IMRaD)",
+  definition:
+    "Structured communication of research so others can evaluate methods, trust results, and attempt replication. The dominant journal pattern is IMRaD — Introduction, Methods, Results, Discussion — supported by abstract, keywords, tables/figures, and accurate references.",
+  keyFacts: [
+    "IMRaD: Introduction (why) → Methods (how) → Results (what) → Discussion (so what)",
+    "Introduction: context, gap, question/hypothesis, objectives, significance",
+    "Methods: design, sample, instruments, procedure, analysis plan, ethics — detailed enough to replicate",
+    "Results: findings with tables/figures/statistics; minimal interpretation",
+    "Discussion: meaning, links to prior work, limitations, implications, future work",
+    "Conclusion: concise take-home message (separate section or end of Discussion)",
+    "Abstract: short standalone summary (often ~150–300 words); typically no citations",
+    "Keywords: a few indexing terms for search databases",
+    "Tables/figures: numbered, titled, self-contained, cited in the text",
+    "References: full bibliographic detail in a chosen style (APA, Harvard, Vancouver, etc.)",
+    "Peer review: independent expert critique before formal journal publication",
+    "Plagiarism: presenting others’ words, ideas, or results as your own — serious misconduct",
+  ],
+  explanationSections: [
+    {
+      heading: "Why IMRaD works",
+      body:
+        "The order mirrors the research logic: motivate the question, explain the procedure, report outcomes without spin, then interpret. Readers can jump to Methods to judge quality or to Results for the evidence. Blurring Results and Discussion — e.g. arguing policy inside the Results section — makes evaluation harder and is a common writing fault.",
+    },
+    {
+      heading: "Methods and replication",
+      body:
+        "If another competent researcher cannot reconstruct what was done, the report is incomplete. State design, eligibility, sample size logic if relevant, measurement definitions, quality control, and analysis choices (including software when material). Hidden steps are a reproducibility failure, not a minor omission.",
+    },
+    {
+      heading: "Citations and academic integrity",
+      body:
+        "Citations assign credit and let readers check sources. Styles differ in punctuation and order, but core elements recur: authors, year, title, outlet, pages/volume, DOI when available. Paraphrase with citation, or quote sparingly with citation; never paste text or ideas without attribution. Self-plagiarism (recycling your prior prose without disclosure) is also restricted in many venues.",
+    },
+    {
+      heading: "Peer review — value and limits",
+      body:
+        "Peer review catches errors and improves clarity, but it is slow, uneven, and not proof of truth. Publication bias favours ‘positive’ findings; replication problems show review is necessary but not sufficient. Preprints speed access before review; registered reports reduce outcome-dependent publication by reviewing design before results are known.",
+    },
+  ],
+  examPoints: [
+    "IMRaD = Introduction → Methods → Results → Discussion",
+    "Methods must support replication",
+    "Results report; Discussion interprets",
+    "Abstract summarises the whole study; usually no citations",
+    "Plagiarism is ethical misconduct, not a formatting issue",
+    "Peer review helps quality control but has limits (bias, speed, incompleteness)",
+  ],
+  commonMistakes: [
+    {
+      mistake: "Putting interpretation and literature argument inside Results",
+      correction: "Keep Results descriptive; move meaning and comparison to Discussion.",
+      explanation: "Separating evidence from commentary is core IMRaD discipline.",
+    },
+    {
+      mistake: "Vague Methods that block replication",
+      correction: "Specify procedures, measures, and analysis in usable detail.",
+      explanation: "‘Data were analysed appropriately’ is not a method.",
+    },
+    {
+      mistake: "Omitting citations for paraphrased ideas",
+      correction: "Cite the source whenever the idea or data are not yours.",
+      explanation: "Changing a few words does not remove the duty to attribute.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario:
+        "A paper’s Results section argues that the government ‘must immediately ban X’ based on one observational association. Structural problem?",
+      answer:
+        "Policy advocacy and strong causal claims belong in Discussion (if at all), with limitations — not as bare Results.",
+      why: "Results should present findings; interpretation and recommendations need separate, cautious framing.",
+    },
+    {
+      scenario:
+        "Why might registered reports reduce publication bias?",
+      answer:
+        "Journals accept the study based on importance of the question and methods before results are known, so null findings can still be published.",
+      why: "Acceptance is less dependent on getting a ‘significant’ outcome.",
+    },
+  ],
+  comparisonTable: {
+    title: "IMRaD section jobs",
+    headers: ["Section", "Answers", "Does not primarily…"],
+    rows: [
+      ["Introduction", "Why this study?", "Report final estimates"],
+      ["Methods", "How was it done?", "Sell the interpretation"],
+      ["Results", "What was found?", "Argue policy at length"],
+      ["Discussion", "What does it mean?", "Hide the raw findings"],
+    ],
+  },
+  relatedTopics: ["ra-scientific-method", "ra-research-ethics", "ra-data-interpretation"],
+  subtopics: [
+    {
+      id: "ra-scientific-reporting-imrad",
+      title: "IMRaD structure",
+      summary:
+        "Why / how / what / so what — kept in separate sections for clarity and evaluation.",
+      explanation:
+        "Memorise the four jobs and the rule: no heavy interpretation in Results; no missing detail in Methods.",
+      examples: [
+        {
+          problem:
+            "Where do limitations of design usually appear?",
+          solution:
+            "Discussion (sometimes also briefly in Methods if they constrain analysis).",
+          answer: "Discussion",
+        },
+        {
+          problem:
+            "Which section must be written so another team could repeat the study?",
+          solution:
+            "Methods.",
+          answer: "Methods",
+        },
+      ],
+      shortcuts: [
+        "Intro = why; Methods = how; Results = what; Discussion = so what",
+      ],
+      traps: [
+        "Mixing Results and Discussion",
+        "Introduction that never states a clear question",
+      ],
+    },
+    {
+      id: "ra-scientific-reporting-citations",
+      title: "Citations, references, plagiarism",
+      summary:
+        "Credit, verification, and integrity of the scholarly record.",
+      explanation:
+        "Know what a reference list must enable a reader to do: find the same source. Know that plagiarism covers ideas and structure, not only word-for-word theft.",
+      examples: [
+        {
+          problem:
+            "You rewrite a paragraph from a report in new words but keep the original sequence of arguments with no citation. Problem?",
+          solution:
+            "Still plagiarism of ideas/structure without attribution.",
+          answer: "Plagiarism (paraphrase without credit)",
+        },
+        {
+          problem:
+            "Name three elements almost every journal reference needs.",
+          solution:
+            "Author(s), title, outlet/year (plus pages/DOI as applicable).",
+          answer: "Author, title, source/year (etc.)",
+        },
+      ],
+      shortcuts: [
+        "If it is not yours, cite it; paraphrase still needs a citation",
+      ],
+      traps: [
+        "Assuming changing synonyms removes the need to cite",
+        "Inventing references or DOIs",
+      ],
+    },
+    {
+      id: "ra-scientific-reporting-peer-review",
+      title: "Peer review and modern variants",
+      summary:
+        "Pre-publication critique: strengths, delays, bias, preprints, registered reports.",
+      explanation:
+        "Peer review is quality control, not a guarantee. Publication bias and replication failures motivate transparency tools.",
+      examples: [
+        {
+          problem:
+            "Main strength of peer review before publication?",
+          solution:
+            "Independent experts can catch errors and demand clarity.",
+          answer: "External quality check",
+        },
+        {
+          problem:
+            "What is a preprint?",
+          solution:
+            "A manuscript shared publicly before or during peer review.",
+          answer: "Pre-review public draft",
+        },
+      ],
+      shortcuts: [
+        "Peer review helps but is slow and imperfect; preprints speed sharing; registered reports reduce outcome bias",
+      ],
+      traps: [
+        "‘Published therefore proven true’",
+        "Ignoring publication bias toward positive results",
+      ],
+    },
+  ],
+  content: true,
+  postRestriction: "bs17",
+  buildsOn: ["ra-data-interpretation", "ra-scientific-method"],
+  leadsTo: ["ra-research-ethics"],
+  usedIn: [
+    "english-parts-of-speech-and-tenses",
+    "english-common-errors",
+    "english-sentence-building-blocks",
+    "english-sentence-types-errors-transformation",
+    "english-sentence-completion-rearrangement",
+    "meteo-pmd-operational",
+    "env-climate-change-response",
+    "env-international-climate-policy",
+    "earth-h4",
+    "earth-i2",
+  ],
+},
 // ═══════════════════════════════════════════════════════════════════
 // RA-12: Research Ethics
 // ═══════════════════════════════════════════════════════════════════
