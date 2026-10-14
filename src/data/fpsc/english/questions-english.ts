@@ -381,105 +381,237 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Agreement & Articles
+// TOPIC: Subject-Verb Agreement & Articles
+// IDs continue after A1 (ENG-01-Q001–Q038) → start Q040
 // ═══════════════════════════════════════════════════════════════════
 
-// Easy
-{ id: "ENG-01-Q018", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+// ── Easy ──
+{ id: "ENG-01-Q040", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
-  options: ["The list of items are on the desk.", "The list of items is on the desk.", "The list of items were on the desk.", "The list of items be on the desk."],
+  options: [
+    "The list of items are on the desk.",
+    "The list of items is on the desk.",
+    "The list of items were on the desk.",
+    "The list of items be on the desk."
+  ],
   correctAnswer: 1,
-  explanation: "The subject is 'list' (singular), so the verb must be 'is'. The prepositional phrase 'of items' is a distractor — the verb agrees with the subject, not the nearest noun.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Head subject is list (singular). of items is a prepositional distractor — do not agree with items.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q019", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
-  question: "Choose the correct article: 'She is _____ honest woman.'",
+{ id: "ENG-01-Q041", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "She is _____ honest woman.",
   options: ["a", "an", "the", "no article"],
   correctAnswer: 1,
-  explanation: "'An' is used because 'honest' begins with a vowel SOUND (the 'h' is silent). Article choice is based on sound, not spelling — 'an university' would be wrong because 'yu' is a consonant sound.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "honest begins with a silent h → vowel sound → an. Choice follows sound, not spelling.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q020", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "true_false",
-  question: "'Many of the rivers have dried' is grammatically correct.",
+{ id: "ENG-01-Q042", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "true_false",
+  question: "True or False: “Many of the rivers have dried” is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. 'Many' is an indefinite pronoun that takes a PLURAL verb — so 'have dried' is correct. The subject 'rivers' is also plural, which agrees.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. many takes a plural verb; rivers is plural → have dried.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-// Medium
-{ id: "ENG-01-Q021", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["Each of the stations have sensors.", "Each of the stations has sensors.", "Each of the stations were having sensors.", "Each of the stations are having sensors."],
-  correctAnswer: 1,
-  explanation: "'Each' is an indefinite pronoun that takes a SINGULAR verb. Even though 'stations' is plural, the true subject 'each' requires 'has', not 'have'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q022", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Choose the correct article: '_____ Indus is one of Asia's major rivers.'",
+{ id: "ENG-01-Q043", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "_____ Indus is one of Asia’s major rivers.",
   options: ["A", "An", "The", "No article"],
   correctAnswer: 2,
-  explanation: "Rivers, mountain ranges, and seas take 'the' (the Indus, the Himalayas, the Arabian Sea). The rule: geographical features that are clearly defined and shared as known references use 'the'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Rivers take the (the Indus, the Ravi). Most country names take zero (Pakistan).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q023", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Choose the correct article: 'He is _____ university student.'",
-  options: ["a", "an", "the", "no article"],
-  correctAnswer: 0,
-  explanation: "'A' is used before 'university' because the first sound is 'yu' (a consonant sound), even though the letter is a vowel. Article choice is based on sound, not spelling.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q024", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["The team are winning the match.", "The team is winning the match.", "The team were winning the match.", "The team be winning the match."],
-  correctAnswer: 1,
-  explanation: "'Team' is a collective noun treated as singular in American English (and in British English when the team acts as a unit). So 'is' is correct, not 'are'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q025", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "The news _____ (be) shocking. Choose the correct verb form:",
+{ id: "ENG-01-Q044", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "The news _____ shocking.",
   options: ["is", "are", "were", "have been"],
   correctAnswer: 0,
-  explanation: "'News' is singular despite ending in -s (it's a contraction of 'newes' and takes singular verbs). 'The news IS shocking' is correct.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "news is singular despite the final -s → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q026", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Neither the teacher nor the students _____ (be) ready. Choose the correct form:",
-  options: ["is", "are", "was", "has been"],
+// ── Medium ──
+{ id: "ENG-01-Q045", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Each of the stations have sensors.",
+    "Each of the stations has sensors.",
+    "Each of the stations were having sensors.",
+    "Each of the stations are having sensors."
+  ],
   correctAnswer: 1,
-  explanation: "With 'neither...nor', the verb agrees with the NEAREST subject. 'Students' is plural and nearest, so the verb is 'are'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "each is always singular → has. stations inside the of-phrase does not control the verb.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q027", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
-  question: "Choose the correct article: 'I want to become _____ meteorologist.'",
+{ id: "ENG-01-Q046", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ university student.",
   options: ["a", "an", "the", "no article"],
   correctAnswer: 0,
-  explanation: "First mention of a profession (not specific which one) uses 'a'. 'An' is only for vowel SOUNDS. 'The' would imply a specific meteorologist already known or mentioned.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "university begins with /juː/ (consonant sound) → a, not an.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q028", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
-  question: "'Mathematics is my favorite subject' is grammatically correct.",
+{ id: "ENG-01-Q047", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The team _____ winning the match. (united group acting as one)",
+  options: ["are", "is", "were", "be"],
+  correctAnswer: 1,
+  explanation: "Collective team as a single unit → singular is (standard exam/AmE preference).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q048", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Neither the teacher nor the students _____ ready.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "neither…nor → agree with the nearer subject students (plural) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q049", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "I want to become _____ meteorologist.",
+  options: ["a", "an", "the", "no article"],
+  correctAnswer: 0,
+  explanation: "One non-specific member of a profession, first mention → a. the would mean a specific known person.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q050", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “Mathematics is my favourite subject” is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. 'Mathematics' is singular (despite ending in -s) and takes the singular verb 'is'. This is true for school subjects, sciences, and some other words ending in -ics (mathematics, physics, economics, news).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. mathematics (like physics, economics, news) takes a singular verb.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q029", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
-  question: "'A one-way street' is the correct article usage.",
+{ id: "ENG-01-Q051", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “A one-way street” uses the article correctly.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. 'One' begins with a 'w' sound (consonant), so 'a' is correct. The choice depends on the FIRST SOUND, not the first letter — 'one' sounds like 'wun', which is a consonant sound.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. one begins with /w/ → consonant sound → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q030", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
-  question: "'Either Ali or his friends _____ coming to the party' is correctly completed as 'are'.",
+{ id: "ENG-01-Q052", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “Either Ali or his friends are coming” is correctly agreed.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. With 'either...or', the verb agrees with the NEAREST subject ('friends' is plural and nearest), so 'are' is correct.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. either…or → nearer subject friends (plural) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-// Hard
-{ id: "ENG-01-Q031", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
-  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+{ id: "ENG-01-Q053", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The quality of these products _____ poor.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "Head subject quality is singular; of these products is a distractor → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q054", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The director, along with her deputies, _____ attending.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "along with does not pluralise the subject. director remains singular → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q055", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "There _____ several problems in the dataset.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "There is/are agrees with the real subject after the verb: several problems → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q056", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "A number of officers _____ present. / The number of officers _____ high.",
+  options: [
+    "was / were",
+    "were / was",
+    "was / was",
+    "were / were"
+  ],
+  correctAnswer: 1,
+  explanation: "a number of + plural → plural were; the number of → singular was.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q057", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Neither the sensors nor the gauge _____ working.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "Nearer subject gauge (singular) → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q058", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "These criteria _____ mandatory for the post.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "criteria is plural (singular criterion) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q059", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ information is reliable. / She offered _____ advice.",
+  options: [
+    "Many / an",
+    "Much / some",
+    "Many / a",
+    "Much / an"
+  ],
+  correctAnswer: 1,
+  explanation: "information and advice are uncountable → much / some (not many / an advice).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q060", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ Pakistan borders _____ Arabian Sea.",
+  options: [
+    "The / the",
+    "Ø / the",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "Most country names take zero article; seas take the → Pakistan / the Arabian Sea.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q061", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ Mount Everest / _____ Himalayas",
+  options: [
+    "The / The",
+    "Ø / The",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "Single mountain → zero; mountain range → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q062", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ MBA graduate and _____ European delegate.",
+  options: [
+    "a / an",
+    "an / a",
+    "a / a",
+    "an / an"
+  ],
+  correctAnswer: 1,
+  explanation: "MBA starts with vowel sound /em/ → an; European starts with /j/ → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q063", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ best analyst in _____ team.",
+  options: ["the / the", "a / the", "the / a", "an / the"],
+  correctAnswer: 0,
+  explanation: "Superlative best → the; specific team → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q064", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "We installed _____ sensor near the mast. _____ sensor failed within an hour.",
+  options: [
+    "the / A",
+    "a / The",
+    "a / A",
+    "the / The"
+  ],
+  correctAnswer: 1,
+  explanation: "First mention of one countable → a; second mention of the same item → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q065", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The police _____ investigating the incident.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "police is plural in agreement → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+// ── Hard ──
+{ id: "ENG-01-Q066", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
   options: [
     "The committee has reached a decision.",
     "Mathematics are my strongest subject.",
@@ -487,11 +619,11 @@ export const questions: Question[] = [
     "Each of the books have a red cover."
   ],
   correctAnswer: [0, 2],
-  explanation: "Collective 'committee' is treated as singular → 'has'. The subject 'a sum of money' is singular → 'was stolen'. Wrong: 'mathematics' takes singular 'is'; 'each' is singular and needs 'has', not a plural verb.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "committee as unit → has; sum → singular was. mathematics → is; each → has (not have).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
-  question: "Which of the following require the article 'an' (based on sound, not spelling)? (Select all that apply.)",
+{ id: "ENG-01-Q067", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which of the following correctly take an (sound rule)? (Select all that apply.)",
   options: [
     "a university",
     "an honest man",
@@ -499,15 +631,58 @@ export const questions: Question[] = [
     "an MBA graduate"
   ],
   correctAnswer: [1, 3],
-  explanation: "Article choice follows sound, not spelling: silent-h 'honest' and letter-name 'MBA' (em-…) take 'an'. 'University' begins with a /j/ consonant sound and 'one-time' with /w/, so both take 'a'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "honest (silent h) and MBA (/em/) → an. university (/j/) and one (/w/) → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q033", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
-  question: "Choose the correct article(s): 'He is _____ best player in _____ team.'",
-  options: ["the / the", "a / the", "the / a", "an / the"],
-  correctAnswer: 0,
-  explanation: "Both blank positions use 'the'. The first is 'the best' (superlative — use 'the'). The second is 'the team' (specific team being discussed). Article use must be evaluated per blank, not as a single choice.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+{ id: "ENG-01-Q068", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "Correct the line: “Many of the information available online are unreliable.”",
+  options: [
+    "Many of the information available online is unreliable.",
+    "Much of the information available online is unreliable.",
+    "Many of the informations available online are unreliable.",
+    "Much of the informations available online are unreliable."
+  ],
+  correctAnswer: 1,
+  explanation: "information is uncountable → much (not many); singular is; no plural informations.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q069", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "Not only the field notes but also the final report _____ missing.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "not only A but also B → agree with nearer subject report (singular) → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q070", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "An honest officer reported that the news was false.",
+    "A honest officer reported that the news were false.",
+    "The United Kingdom is a permanent Security Council member.",
+    "United Kingdom is a permanent Security Council member."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "an honest; news is; the United Kingdom (descriptive country name needs the).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q071", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "One of the criteria _____ not been met.",
+  options: ["have", "has", "are", "were"],
+  correctAnswer: 1,
+  explanation: "Head subject is one (singular), not criteria → has.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q072", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "_____ honesty matters in science; _____ honesty of the witness was questioned.",
+  options: [
+    "The / The",
+    "Ø / The",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "General abstract → zero; specific honesty restricted by of-phrase → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Pronouns, Prepositions & Conjunctions
