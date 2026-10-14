@@ -7,112 +7,266 @@ import type { Question } from '@/types';
 export const questions: Question[] = [
 
 // ═══════════════════════════════════════════════════════════════════
-// TOPIC: Parts of Speech & Tenses
+// TOPIC: Parts of Speech & Tenses — ENG-01 Questions
+// Aligned to full A1 map: all POS + twelve tenses + stative/for-since + reported speech
 // ═══════════════════════════════════════════════════════════════════
 
-// Easy
+// ── Easy: core identification ──
 { id: "ENG-01-Q001", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
   question: "Which part of speech names a person, place, thing, or idea?",
   options: ["Verb", "Noun", "Adjective", "Adverb"],
   correctAnswer: 1,
-  explanation: "A noun names a person, place, thing, or idea. Examples: meteorologist, Pakistan, weather, climate.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "A noun names a person, place, thing, or idea (officer, Lahore, rainfall, honesty).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q002", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
-  question: "In the sentence 'She quickly ran to the store,' what part of speech is 'quickly'?",
+  question: "In “She quickly ran to the store,” what is the part of speech of quickly?",
   options: ["Adjective", "Adverb", "Verb", "Preposition"],
   correctAnswer: 1,
-  explanation: "'Quickly' is an adverb — it modifies the verb 'ran' (describes HOW she ran). Adjectives modify nouns; adverbs modify verbs, adjectives, or other adverbs.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Quickly modifies the verb ran (how she ran) → adverb. Adjectives modify nouns.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q003", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "true_false",
-  question: "The word 'under' in 'The cat is under the table' is a preposition.",
+  question: "True or False: In “The cat is under the table,” under is a preposition.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. 'Under' shows the spatial relationship between 'cat' and 'table' — this is the definition of a preposition (a word showing relationship of position, direction, or time).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. Under relates cat to table (place). Prepositions take a nominal object (the table).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
-// Medium
-{ id: "ENG-01-Q004", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Which tense is used in: 'Meteorologists are analyzing data from the new satellite.'",
-  options: ["Simple Present", "Present Continuous", "Present Perfect", "Present Perfect Continuous"],
-  correctAnswer: 1,
-  explanation: "Present Continuous (are analyzing) is used for an action happening now or currently in progress. The 'are' + -ing form marks it as continuous.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q005", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["I am knowing the answer.", "I know the answer.", "I am know the answer.", "I knows the answer."],
-  correctAnswer: 1,
-  explanation: "Know is a stative verb (describing a state, not an action) and is not normally used in the -ing continuous form. 'I know' (simple present) is correct for expressing knowledge state.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q006", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "By the time we arrived, the storm _____ (pass). Choose the correct form:",
-  options: ["passed", "has passed", "had passed", "was passing"],
-  correctAnswer: 2,
-  explanation: "Past Perfect (had passed) is needed because the storm's passing happened BEFORE another past event (our arrival). Past Perfect shows the earlier of two past actions.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q007", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "He said, 'I am hungry.' Choose the correct reported speech:",
-  options: ["He said that I am hungry.", "He said that he is hungry.", "He said that he was hungry.", "He says he was hungry."],
-  correctAnswer: 2,
-  explanation: "In reported speech with a past reporting verb (said), tenses shift backward: present 'am' → past 'was'. Pronoun also shifts: 'I' → 'he'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q008", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Identify the part of speech of 'beautiful' in: 'The beautiful sunset faded quickly.'",
+{ id: "ENG-01-Q004", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "In “The beautiful sunset faded,” beautiful is a(n):",
   options: ["Adverb", "Adjective", "Noun", "Verb"],
   correctAnswer: 1,
-  explanation: "'Beautiful' describes the noun 'sunset' — that's the function of an adjective. 'Quickly' later in the sentence is the adverb (modifying the verb 'faded').",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Beautiful describes the noun sunset → adjective.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q005", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "Which word is a coordinating conjunction (FANBOYS)?",
+  options: ["Because", "Although", "But", "When"],
+  correctAnswer: 2,
+  explanation: "But is coordinating (FANBOYS). Because, although, when are subordinating.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q006", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "Meteorologists are analyzing new satellite data. Which tense is this?",
+  options: ["Simple present", "Present continuous", "Present perfect", "Past continuous"],
+  correctAnswer: 1,
+  explanation: "are + analyzing = present continuous (action in progress / current temporary activity).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+// ── Medium: rules under pressure ──
+{ id: "ENG-01-Q007", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I am knowing the answer.",
+    "I know the answer.",
+    "I am know the answer.",
+    "I knows the answer."
+  ],
+  correctAnswer: 1,
+  explanation: "Know is stative (mental state). Formal English uses simple present, not continuous: I know.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q008", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "By the time we arrived, the storm _____.",
+  options: ["passed", "has passed", "had passed", "was passing"],
+  correctAnswer: 2,
+  explanation: "Two past times: the storm finished before arrival → past perfect had passed.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q009", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Identify the conjunction type in: 'I wanted to go, but I was too tired.'",
-  options: ["Subordinating", "Coordinating", "Correlative", "Conjunctive adverb"],
-  correctAnswer: 1,
-  explanation: "'But' is a coordinating conjunction (in FANBOYS: For, And, Nor, But, Or, Yet, So) — it joins two INDEPENDENT clauses of equal grammatical status.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  question: "He said, “I am hungry.” Correct reported speech:",
+  options: [
+    "He said that I am hungry.",
+    "He said that he is hungry.",
+    "He said that he was hungry.",
+    "He says that he was hungry."
+  ],
+  correctAnswer: 2,
+  explanation: "Past reporting verb said → back-shift am → was; pronoun I → he.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q010", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
   question: "Which sentence uses the present perfect correctly?",
-  options: ["I have went to the store yesterday.", "I have gone to the store many times.", "I have going to the store.", "I am have gone to the store."],
+  options: [
+    "I have went to the store yesterday.",
+    "I have gone to the store many times.",
+    "I have going to the store.",
+    "I am have gone to the store."
+  ],
   correctAnswer: 1,
-  explanation: "Present perfect (have/has + past participle) is used for actions that happened at an unspecified time in the past but have present relevance. 'Many times' is unspecified, and the present relevance is implied. 'Gone' is the past participle of 'go', not 'went'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "have + past participle gone. yesterday forces past simple, not present perfect; went is not the participle.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q011", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Choose the correct form: 'By next June, the monsoon _____ (arrive).'",
+  question: "By next June, the monsoon _____.",
   options: ["will arrive", "will have arrived", "arrives", "is arriving"],
   correctAnswer: 1,
-  explanation: "Future Perfect (will have arrived) is used for an action that will be completed by a specific future point. 'By next June' marks that point.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "By + future deadline → future perfect will have arrived (completed before that point).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q012", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "He said, 'I will go tomorrow.' Choose the correct reported speech:",
-  options: ["He said he will go tomorrow.", "He said he would go the next day.", "He said he would go tomorrow.", "He says he would go tomorrow."],
+  question: "He said, “I will go tomorrow.” Correct reported speech:",
+  options: [
+    "He said he will go tomorrow.",
+    "He said he would go the next day.",
+    "He said he would go tomorrow.",
+    "He says he would go tomorrow."
+  ],
   correctAnswer: 1,
-  explanation: "Three changes: tense (will → would), pronoun (I → he), time marker (tomorrow → the next day). All three must shift together in reported speech.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "will → would; I → he; tomorrow → the next day. All three shifts are required.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q013", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "true_false",
-  question: "Present perfect continuous ('has been raining') is used for actions that started in the past and are still continuing.",
+  question: "True or False: Present perfect continuous (has been raining) often stresses an action that began in the past and is still relevant or ongoing now.",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. Present perfect continuous (have/has been + -ing) describes an action that began in the past and is still ongoing at the present moment, often emphasizing duration.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "True. have/has been + -ing highlights duration up to the present.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q014", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "true_false",
-  question: "The word 'and' in 'I like tea and coffee' is a subordinating conjunction.",
+  question: "True or False: In “I like tea and coffee,” and is a subordinating conjunction.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'And' is a COORDINATING conjunction (joins equal elements: two nouns, two verbs, two clauses of equal status). Subordinating conjunctions join a dependent clause to an independent clause (because, although, when, if).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "False. And is coordinating (joins equal elements). Subordinators include because, although, if, when.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
-// Hard
-{ id: "ENG-01-Q015", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
-  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+{ id: "ENG-01-Q015", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct option: “She gave me ___ advice.”",
+  options: ["an", "a", "some", "many"],
+  correctAnswer: 2,
+  explanation: "Advice is uncountable → some advice / a piece of advice — not an advice or many advice.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q016", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Between you and ___, the data look incomplete.",
+  options: ["I", "me", "myself", "mine"],
+  correctAnswer: 1,
+  explanation: "Object of the preposition between → me (not I).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q017", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She sings ___. / She is a ___ singer.",
+  options: [
+    "good / well",
+    "well / good",
+    "well / well",
+    "good / good"
+  ],
+  correctAnswer: 1,
+  explanation: "well modifies the verb sings (adverb); good modifies the noun singer (adjective).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q018", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Fill in: “___ Monday” / “___ 2024” / “___ 9 a.m.”",
+  options: [
+    "in / on / at",
+    "on / in / at",
+    "at / on / in",
+    "on / at / in"
+  ],
+  correctAnswer: 1,
+  explanation: "on + day/date; in + month/year; at + clock time → on Monday, in 2024, at 9 a.m.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q019", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She has worked here ___ 2019 and ___ six years.",
+  options: [
+    "for / since",
+    "since / for",
+    "since / since",
+    "for / for"
+  ],
+  correctAnswer: 1,
+  explanation: "since + starting point (2019); for + duration (six years).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q020", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "“She left after the meeting.” Here after is a:",
+  options: ["Coordinating conjunction", "Preposition", "Adverb only", "Interjection"],
+  correctAnswer: 1,
+  explanation: "after + noun phrase (the meeting) → preposition. after + full clause would be a subordinating conjunction.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q021", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which is correct?",
+  options: [
+    "The news are encouraging.",
+    "The news is encouraging.",
+    "The news were encouraging always as plural.",
+    "A news is encouraging."
+  ],
+  correctAnswer: 1,
+  explanation: "News is uncountable/singular in agreement → the news is…",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q022", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She seems ___.",
+  options: ["happily", "happy", "happiness", "more happily"],
+  correctAnswer: 1,
+  explanation: "Seem is a linking verb → adjective complement happy (describes the subject), not manner adverb happily.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q023", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose: “I am ___ in the topic; the lecture is ___.”",
+  options: [
+    "interesting / interested",
+    "interested / interesting",
+    "interested / interested",
+    "interesting / interesting"
+  ],
+  correctAnswer: 1,
+  explanation: "-ed describes the experiencer’s feeling (interested); -ing describes the cause (interesting lecture).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q024", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "This time tomorrow we ___ to Islamabad.",
+  options: ["fly", "will fly", "will be flying", "flew"],
+  correctAnswer: 2,
+  explanation: "Action in progress at a future time → future continuous will be flying.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q025", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She asked, “Where do you work?” Correct reported form:",
+  options: [
+    "She asked where do I work.",
+    "She asked where I worked.",
+    "She asked where did I work.",
+    "She asked where I do work."
+  ],
+  correctAnswer: 1,
+  explanation: "Reported questions use statement word order (no do-inversion) and back-shift: where I worked.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q026", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which sentence is correct?",
+  options: [
+    "She works hard; she hardly sleeps.",
+    "She works hardly; she hard sleeps.",
+    "She hardly works meaning she works with great effort.",
+    "Hardly always means the same as hard."
+  ],
+  correctAnswer: 0,
+  explanation: "hard = with effort; hardly = almost not. They are not interchangeable.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q027", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Identify the class of the in “the report”:",
+  options: ["Adjective", "Adverb", "Determiner (article)", "Conjunction"],
+  correctAnswer: 2,
+  explanation: "Articles are determiners: they limit the noun phrase; they do not describe quality the way adjectives do.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q028", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Neither the sensors nor the gauge ___ calibrated.",
+  options: ["were", "was", "are", "be"],
+  correctAnswer: 1,
+  explanation: "With neither…nor, formal agreement often follows the nearer subject (gauge → was). (Full agreement drills continue in A2.)",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+// ── Hard: multi-skill / traps ──
+{ id: "ENG-01-Q029", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
   options: [
     "Since 2010, Pakistan has been facing severe floods.",
     "I am knowing him for five years.",
@@ -120,27 +274,111 @@ export const questions: Question[] = [
     "By the time she arrived, he had left."
   ],
   correctAnswer: [0, 3],
-  explanation: "Correct forms: 'since 2010' with present perfect continuous for an action continuing from the past; past perfect 'had left' for an action completed before another past event. Wrong: progressive of stative 'know' (*knowing for years in that sense); 'went' cannot replace the past participle 'gone'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "since + continuing situation → present perfect continuous is fine; past perfect for earlier past is fine. Stative knowing and has went are wrong.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q016", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
-  question: "Which of the following words function as ADVERBS in their respective sentences? (Select all that apply.)",
+{ id: "ENG-01-Q030", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which words function as ADVERBS in their sentences? (Select all that apply.)",
   options: [
-    "She runs QUICKLY. (modifies 'runs')",
-    "He is a FAST runner. (modifies 'runner')",
-    "She sang BEAUTIFULLY. (modifies 'sang')",
-    "That is a HARD test. (modifies 'test')"
+    "She runs QUICKLY.",
+    "He is a FAST runner.",
+    "She sang BEAUTIFULLY.",
+    "That is a HARD test."
   ],
   correctAnswer: [0, 2],
-  explanation: "Adverbs modify verbs, adjectives, or other adverbs. 'Quickly' modifying 'runs' and 'beautifully' modifying 'sang' are adverbs. 'Fast' modifying 'runner' and 'hard' modifying 'test' are adjectives (they describe nouns).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Quickly and beautifully modify verbs → adverbs. Fast and hard here modify nouns → adjectives.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
-{ id: "ENG-01-Q017", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Hardly _____ (I / reach) the station when the train departed. Choose the correct form:",
+{ id: "ENG-01-Q031", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Hardly ___ the station when the train departed.",
   options: ["I had reached", "I have reached", "had I reached", "I did reach"],
   correctAnswer: 2,
-  explanation: "The standard 'Hardly... when' inversion pattern requires the past perfect BEFORE 'when': 'Hardly had I reached... when...'. The subject-auxiliary inversion is mandatory.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Negative adverbial fronting triggers inversion: Hardly had I reached… when… (past perfect + inversion).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Fix the correlative: “She is not only smart but also works hard.”",
+  options: [
+    "She is not only smart but also hard-working.",
+    "She not only is smart but also works hard. (already perfect as is)",
+    "She is not only smart but also work hard.",
+    "She is not only smart but works also hard."
+  ],
+  correctAnswer: 0,
+  explanation: "Correlatives need parallel structure: adjective || adjective → smart / hard-working.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q033", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Which is grammatically standard?",
+  options: [
+    "This design is more better than that one.",
+    "This design is better than that one.",
+    "This design is more betterer than that one.",
+    "This design is gooder than that one."
+  ],
+  correctAnswer: 1,
+  explanation: "Better is already comparative — do not add more. Good → better → best.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q034", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Is friendly correctly used as an adverb here? “She spoke friendly to the team.”",
+  options: [
+    "Yes — friendly is always an adverb",
+    "No — friendly is an adjective; use in a friendly way / cordially",
+    "Yes — all -ly words are adverbs",
+    "No — because friendly can only modify verbs of motion"
+  ],
+  correctAnswer: 1,
+  explanation: "Friendly, lovely, lonely, lively are adjectives, not manner adverbs, despite -ly.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q035", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Choose the best formal version: “The committee published it’s report.”",
+  options: [
+    "The committee published it’s report. (correct as written)",
+    "The committee published its report.",
+    "The committee published its’ report.",
+    "The committee published it is report."
+  ],
+  correctAnswer: 1,
+  explanation: "its = possessive; it’s = it is. No its’ form exists.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q036", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "I have seen him yesterday.",
+    "She submitted the form yesterday.",
+    "She has already submitted the form.",
+    "Since 2018 she works in Peshawar."
+  ],
+  correctAnswer: [1, 2],
+  explanation: "yesterday → past simple; already → present perfect OK. have seen + yesterday is wrong; since + present simple for a continuing job is wrong.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q037", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Label every major class: “Alas, the young officers have been working carefully since Monday.” Which list is accurate?",
+  options: [
+    "Alas noun; young verb; carefully adjective",
+    "Alas interjection; young adjective; officers noun; have been working verb phrase; carefully adverb; since preposition; Monday noun",
+    "Alas adverb; young noun; carefully preposition",
+    "Alas conjunction; carefully determiner"
+  ],
+  correctAnswer: 1,
+  explanation: "Full parse matches the A1 word-class map: interjection, adjective, noun, perfect continuous verb group, adverb, preposition, proper noun.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q038", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "She told me, “Wait here.” Correct reported command:",
+  options: [
+    "She told me wait here.",
+    "She told me to wait there.",
+    "She told me to wait here.",
+    "She said me to wait there."
+  ],
+  correctAnswer: 1,
+  explanation: "told + object + to-infinitive; here → there after past reporting.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Agreement & Articles
