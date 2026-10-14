@@ -710,8 +710,8 @@ export const questions: Question[] = [
 { id: "PHY-01-Q014", sectionId: "PHY-01", topicId: "phy-kinematics", difficulty: "medium", type: "single",
   question: "A car travels 60 km in 1 hour, then 90 km in 2 hours. What is the car's average speed for the entire trip?",
   options: ["75 km/h", "70 km/h", "50 km/h", "80 km/h"],
-  correctAnswer: 3,
-  explanation: "Average speed = total distance / total time = (60 + 90) / (1 + 2) = 150 / 3 = 50 km/h. Note: this is NOT the average of 60 and 45 (the two individual speeds), which would be 52.5 km/h.",
+  correctAnswer: 2,
+  explanation: "Average speed = total distance / total time = (60 + 90) / (1 + 2) = 150 / 3 = 50 km/h. Do not average the two leg speeds (60 km/h and 45 km/h); that would give 52.5 km/h and is not the trip average.",
   sourceCitation: "Standard physics curriculum" },
 
 { id: "PHY-01-Q015", sectionId: "PHY-01", topicId: "phy-kinematics", difficulty: "hard", type: "single",
