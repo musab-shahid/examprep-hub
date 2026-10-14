@@ -4,7 +4,7 @@
 
 import type { Topic, SubjectId } from '@/types';
 import { sectionMap } from './sections';
-import { subjectMap } from './subjects';
+import { subjects, subjectMap } from './subjects';
 import { getAllCachedTopics, getCachedTopics, activeSubjects } from './lazy-data';
 
 export interface FormulaEntry {
@@ -13,45 +13,91 @@ export interface FormulaEntry {
   name: string;
   expression: string;
   variables: { symbol: string; meaning: string }[];
+  /** Display group: "Subject · Section" so vault follows syllabus sequence */
   category: string;
+  subjectId?: SubjectId;
+  sectionId?: string;
+  topicOrder?: number;
 }
 
-const METEO_CATEGORY: Record<string, string> = {
-  'METEO-01': 'Atmospheric',
-  'METEO-02': 'Thermodynamics',
-  'METEO-03': 'Wind',
-  'METEO-04': 'Thermodynamics',
-  'METEO-05': 'Atmospheric',
-  'METEO-06': 'Atmospheric',
-  'METEO-08': 'Radiation',
-};
+const SUBJECT_ORDER: Record<string, number> = Object.fromEntries(
+  subjects.map((s, i) => [s.id, i])
+);
 
 function formulaCategory(topic: Topic): string {
-  const subjectId: SubjectId | undefined = sectionMap[topic.sectionId]?.subjectId;
-  if (subjectId === 'meteo-climatology') {
-    return METEO_CATEGORY[topic.sectionId] ?? 'Atmospheric';
-  }
-  if (subjectId && subjectMap[subjectId]) {
-    return subjectMap[subjectId].title;
-  }
+  const section = sectionMap[topic.sectionId];
+  const subjectId = section?.subjectId;
+  const subjectTitle = subjectId ? subjectMap[subjectId]?.title : undefined;
+  const sectionTitle = section?.title;
+  if (subjectTitle && sectionTitle) return `${subjectTitle} · ${sectionTitle}`;
+  if (subjectTitle) return subjectTitle;
   return 'General';
 }
 
-function buildVault(topics: Topic[]): FormulaEntry[] {
-  return topics
-    .filter((t) => t.formula)
-    .flatMap((t) => {
-      const f = t.formula!;
-      const formulas = Array.isArray(f) ? f : [f];
-      return formulas.map((formula) => ({
-        topicId: t.id,
-        topicTitle: t.title,
-        name: formula.name,
+type TopicWithQuant = Topic & {
+  quantFormulas?: Array<{ name: string; expression: string; note?: string }>;
+};
+
+function entriesFromTopic(t: TopicWithQuant): FormulaEntry[] {
+  const category = formulaCategory(t);
+  const subjectId = sectionMap[t.sectionId]?.subjectId as SubjectId | undefined;
+  const base = {
+    topicId: t.id,
+    topicTitle: t.title,
+    category,
+    subjectId,
+    sectionId: t.sectionId,
+    topicOrder: t.order ?? 0,
+  };
+
+  const out: FormulaEntry[] = [];
+
+  if (t.formula) {
+    const list = Array.isArray(t.formula) ? t.formula : [t.formula];
+    for (const formula of list) {
+      if (!formula?.expression) continue;
+      out.push({
+        ...base,
+        name: formula.name || 'Formula',
         expression: formula.expression,
-        variables: formula.variables,
-        category: formulaCategory(t),
-      }));
-    });
+        variables: formula.variables ?? [],
+      });
+    }
+  }
+
+  // HAT Quantitative (and any topic) stores extra formulas here — was previously ignored by the vault
+  if (t.quantFormulas?.length) {
+    for (const q of t.quantFormulas) {
+      if (!q?.expression) continue;
+      out.push({
+        ...base,
+        name: q.name || 'Formula',
+        expression: q.expression,
+        variables: q.note ? [{ symbol: '\\text{note}', meaning: q.note }] : [],
+      });
+    }
+  }
+
+  return out;
+}
+
+function sortEntries(entries: FormulaEntry[]): FormulaEntry[] {
+  return [...entries].sort((a, b) => {
+    const sa = SUBJECT_ORDER[a.subjectId ?? ''] ?? 999;
+    const sb = SUBJECT_ORDER[b.subjectId ?? ''] ?? 999;
+    if (sa !== sb) return sa - sb;
+    const sec = (a.sectionId ?? '').localeCompare(b.sectionId ?? '');
+    if (sec !== 0) return sec;
+    const oa = a.topicOrder ?? 0;
+    const ob = b.topicOrder ?? 0;
+    if (oa !== ob) return oa - ob;
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function buildVault(topics: Topic[]): FormulaEntry[] {
+  const entries = topics.flatMap((t) => entriesFromTopic(t as TopicWithQuant));
+  return sortEntries(entries);
 }
 
 export function getFormulasForSubject(subjectId: SubjectId | 'all'): FormulaEntry[] {
