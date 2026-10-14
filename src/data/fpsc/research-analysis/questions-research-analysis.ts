@@ -1372,7 +1372,7 @@ export const questions: Question[] = [
   "100% is impossible"
   ],
   correctAnswer: 1,
-  explanation: "While 'twice as effective' (50% → 100%) is technically true, it can be misleading when: (1) the BASELINE is small (e.g., 1 in 100 → 2 in 100 is a '100% increase' but only 1 extra case), (2) SAMPLE SIZE is small, (3) ABSOLUTE vs RELATIVE risk isn't clarified. Always look at the underlying numbers, not just the percentage. For example, a '50% reduction' from 2 to 1 case is just 1 less case.",
+  explanation: "'Twice as effective' (50% → 100%) is relatively true, but relative language can still mislead if the baseline, sample size, or absolute change is hidden. Always report both RELATIVE and ABSOLUTE change. Classic trap: a '100% increase' from 1 in 100 to 2 in 100 is only 1 extra case.",
   sourceCitation: "Standard research methods curriculum" },
   
 { id: "RA-10-Q015", sectionId: "RA-10", topicId: "ra-data-interpretation", difficulty: "hard", type: "multi",
