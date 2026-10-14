@@ -309,8 +309,7 @@ export const questions: Question[] = [
     question: "Which of the following expressions have the same value as 2 × (3 + 4)? (Select all that apply.)",
     options: ["2 × 3 + 4", "(2 × 3) + (2 × 4)", "14", "2 × 7"],
     correctAnswer: [1, 2, 3],
-    explanation:
-      "2 × (3 + 4) = 2 × 7 = 14. Option (b) is the distributive form: 2×3 + 2×4 = 6 + 8 = 14. Option (a) 2×3 + 4 = 10, which is wrong. So (b), (c) 14, and (d) 2×7 = 14 are all equal.",
+    explanation: "2 × (3 + 4) = 2 × 7 = 14. One form is the distributive form: 2×3 + 2×4 = 6 + 8 = 14. 2×3 + 4 = 10, which is wrong. So , 14, and 2×7 = 14 are all equal.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -540,8 +539,7 @@ export const questions: Question[] = [
       "A number is divisible by 5 if its last digit is 0 or 5",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four statements are correct divisibility rules. (a) For 3, digit sum rule. (b) For 9, digit sum rule. (c) For 6, must be divisible by 2 and 3 (since 6 = 2 × 3). (d) For 5, last digit 0 or 5.",
+    explanation: "All four statements are correct divisibility rules. For 3, digit sum rule. For 9, digit sum rule. For 6, must be divisible by 2 and 3 (since 6 = 2 × 3). For 5, last digit 0 or 5.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -783,8 +781,7 @@ export const questions: Question[] = [
       "HCF × LCM = a × b for any two positive integers a, b",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four statements are correct. (a) Co-prime = HCF 1. (b) LCM ≥ max(a,b). (c) HCF ≤ min(a,b). (d) The fundamental identity a × b = HCF × LCM always holds for positive integers.",
+    explanation: "All four statements are correct. Co-prime = HCF 1. LCM ≥ max(a,b). HCF ≤ min(a,b). The fundamental identity a × b = HCF × LCM always holds for positive integers.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -1278,8 +1275,7 @@ export const questions: Question[] = [
       "To reverse a 20% increase, multiply the new value by 1.20",
     ],
     correctAnswer: [0, 1],
-    explanation:
-      "(a) Correct: 25% of 80 = 0.25 × 80. (b) Correct: denominator is always the original. (c) False: successive changes MULTIPLY, not add. (d) False: to reverse a 20% increase, divide by 1.20 (or multiply by 1/1.20), not multiply by 1.20.",
+    explanation: "25% of 80 = 0.25 × 80. denominator is always the original. False: successive changes MULTIPLY, not add. False: to reverse a 20% increase, divide by 1.20 (or multiply by 1/1.20), not multiply by 1.20.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -1443,8 +1439,7 @@ export const questions: Question[] = [
       "Speed and time (for a fixed distance)",
     ],
     correctAnswer: [0, 2],
-    explanation:
-      "(a) Direct: faster = more distance in same time. (b) Inverse: more workers = less time. (c) Direct: more quantity = more cost. (d) Inverse: faster speed = less time for same distance.",
+    explanation: "Direct: faster = more distance in same time. Inverse: more workers = less time. Direct: more quantity = more cost. Inverse: faster speed = less time for same distance.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -1589,8 +1584,7 @@ export const questions: Question[] = [
       "The sum of deviations from the mean is zero",
     ],
     correctAnswer: [0, 1, 3],
-    explanation:
-      "(a) Correct: mean uses all values. (b) Correct: mean is influenced by extreme values. (c) False: the middle value when sorted is the median, not the mean. (d) Correct: a fundamental property is Σ(xᵢ − x̄) = 0.",
+    explanation: "mean uses all values. mean is influenced by extreme values. False: the middle value when sorted is the median, not the mean. a fundamental property is Σ(xᵢ − x̄) = 0.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -1739,8 +1733,7 @@ export const questions: Question[] = [
     question: "Which of the following conversion factors are correct? (Select all that apply.)",
     options: ["1 km/h = 5/18 m/s", "1 atm = 760 mmHg", "1 hPa = 1 mb", "1 kWh = 3.6 × 10⁶ J"],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are correct conversion factors. (a) 1 km/h = 1000/3600 = 5/18 m/s. (b) 1 atm = 760 mmHg. (c) 1 hPa = 100 Pa = 1 mb (numerically equal). (d) 1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ J.",
+    explanation: "All four are correct conversion factors. 1 km/h = 1000/3600 = 5/18 m/s. 1 atm = 760 mmHg. 1 hPa = 100 Pa = 1 mb (numerically equal). 1 kWh = 1000 W × 3600 s = 3.6 × 10⁶ J.",
     sourceCitation: "Standard science references",
   },
 
@@ -2027,8 +2020,7 @@ export const questions: Question[] = [
     question: "Which of the following are perfect square trinomials? (Select all that apply.)",
     options: ["x² + 6x + 9", "x² - 10x + 25", "x² + 4x + 4", "x² + 5x + 6"],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) x² + 6x + 9 = (x + 3)² — the middle term is 2·x·3. (b) x² − 10x + 25 = (x − 5)². (c) x² + 4x + 4 = (x + 2)². (d) x² + 5x + 6 = (x + 2)(x + 3) — not a perfect square.",
+    explanation: "x² + 6x + 9 = (x + 3)² — the middle term is 2·x·3. x² − 10x + 25 = (x − 5)². x² + 4x + 4 = (x + 2)². x² + 5x + 6 = (x + 2)(x + 3) — not a perfect square.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -2214,8 +2206,7 @@ export const questions: Question[] = [
       "(a + b)³ = a³ + 3a²b + 3ab² + b³",
     ],
     correctAnswer: [0, 2, 3],
-    explanation:
-      "(a) Correct. (b) False: (a − b)² = a² - 2ab + b², not a² − b² (the 2ab is missing). (c) Correct difference of squares. (d) Correct cube identity.",
+    explanation: "Correct. False: (a − b)² = a² - 2ab + b², not a² − b² (the 2ab is missing). Correct difference of squares. Correct cube identity.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -2370,8 +2361,7 @@ export const questions: Question[] = [
       "Add 6 to both sides to get 2x = 16",
     ],
     correctAnswer: [0, 1],
-    explanation:
-      "(a) Valid: dividing first works. (b) Valid: distributing first works. (c) Invalid: you cannot subtract 3 from a product; you must first divide or distribute. (d) Invalid: the 6 came from distribution, not addition to the other side.",
+    explanation: "Valid: dividing first works. Valid: distributing first works. Invalid: you cannot subtract 3 from a product; you must first divide or distribute. Invalid: the 6 came from distribution, not addition to the other side.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -2551,8 +2541,7 @@ export const questions: Question[] = [
       "All systems of two linear equations have exactly one solution",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: parallel lines never meet. (b) Correct: intersection gives one point. (c) Correct: same line = same solutions. (d) False: a system may have zero, one, or infinitely many solutions depending on the relationship between the lines.",
+    explanation: "parallel lines never meet. intersection gives one point. same line = same solutions. False: a system may have zero, one, or infinitely many solutions depending on the relationship between the lines.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -2693,8 +2682,7 @@ export const questions: Question[] = [
     question: "Which of the following are correct simplifications? (Select all that apply.)",
     options: ["(2x)³ = 8x³", "(x²)(x³) = x⁵", "(x/y)⁵ = x⁵/y⁵", "(x + y)² = x² + y²"],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: (2x)³ = 2³ · x³ = 8x³. (b) Correct: x² · x³ = x^(2+3) = x⁵. (c) Correct: power of a quotient. (d) False: (x + y)² = x² + 2xy + y², NOT x² + y² — the 2xy middle term is missing.",
+    explanation: "(2x)³ = 2³ · x³ = 8x³. x² · x³ = x^(2+3) = x⁵. power of a quotient. False: (x + y)² = x² + 2xy + y², NOT x² + y² — the 2xy middle term is missing.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -2858,8 +2846,7 @@ export const questions: Question[] = [
     question: "Which of the following are equal to 2√3? (Select all that apply.)",
     options: ["√12", "√48/√4", "√(4·3)", "4√3"],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) √12 = √(4·3) = √4·√3 = 2√3 ✓. (b) √48/√4 = √(48/4) = √12 = 2√3 ✓. (c) √(4·3) = √4·√3 = 2√3 ✓. (d) 4√3 ≠ 2√3 (4 ≠ 2). So (a), (b), and (c) are all correct.",
+    explanation: "√12 = √(4·3) = √4·√3 = 2√3 ✓. √48/√4 = √(48/4) = √12 = 2√3 ✓. √(4·3) = √4·√3 = 2√3 ✓. 4√3 ≠ 2√3 (4 ≠ 2). So , , and are all correct.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -3027,8 +3014,7 @@ export const questions: Question[] = [
       "Radioactive decay: N = N₀e^(-λt)",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: M = log₁₀(A/A₀). (b) Correct: pH = -log[H⁺]. (c) Correct: dB = 10 log(I/I₀). (d) This is the EXPONENTIAL form, not the logarithmic form — though it can be rewritten as ln(N/N₀) = -λt using logs. The decay itself uses the exponential function.",
+    explanation: "M = log₁₀(A/A₀). pH = -log[H⁺]. dB = 10 log(I/I₀). This is the EXPONENTIAL form, not the logarithmic form — though it can be rewritten as ln(N/N₀) = -λt using logs. The decay itself uses the exponential function.",
     sourceCitation: "Standard science references",
   },
 
@@ -3211,8 +3197,7 @@ export const questions: Question[] = [
       "(8 × 10⁴) ÷ (2 × 10⁻¹) = 4 × 10³",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) 20 × 10⁵ → 2.0 × 10⁶ after normalizing. (b) 18 × 10⁻¹ → 1.8 × 10⁰. (c) 10 × 10⁵ → 1.0 × 10⁶. (d) Coefficients 8÷2=4; exponents 4−(−1)=5 → 4 × 10⁵, not 4 × 10³.",
+    explanation: "20 × 10⁵ → 2.0 × 10⁶ after normalizing. 18 × 10⁻¹ → 1.8 × 10⁰. 10 × 10⁵ → 1.0 × 10⁶. Coefficients 8÷2=4; exponents 4−(−1)=5 → 4 × 10⁵, not 4 × 10³.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -3368,8 +3353,7 @@ export const questions: Question[] = [
       "Two straight lines always meet at exactly one point",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: supplementary. (b) Correct: angles on one side of a line sum to 180°. (c) Correct: a straight angle is 180°. (d) False: parallel straight lines never meet.",
+    explanation: "supplementary. angles on one side of a line sum to 180°. a straight angle is 180°. False: parallel straight lines never meet.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -3534,8 +3518,7 @@ export const questions: Question[] = [
     question: "Which of the following are Pythagorean triples? (Select all that apply.)",
     options: ["(3, 4, 5)", "(5, 12, 13)", "(6, 8, 10)", "(2, 3, 4)"],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) 9+16=25 ✓. (b) 25+144=169 ✓. (c) 36+64=100 ✓ (this is 2×(3,4,5)). (d) 4+9=13 ≠ 16, so NOT a Pythagorean triple.",
+    explanation: "9+16=25 ✓. 25+144=169 ✓. 36+64=100 ✓ (this is 2×(3,4,5)). 4+9=13 ≠ 16, so NOT a Pythagorean triple.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -3704,8 +3687,7 @@ export const questions: Question[] = [
       "All angles are right angles",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: defining property. (b) Correct. (c) Correct: diagonals bisect each other. (d) False: only in rectangles, not general parallelograms (a parallelogram has angles that are not necessarily 90°).",
+    explanation: "defining property. Correct. diagonals bisect each other. False: only in rectangles, not general parallelograms (a parallelogram has angles that are not necessarily 90°).",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -3867,8 +3849,7 @@ export const questions: Question[] = [
     question: "Which of the following are parts of a circle? (Select all that apply.)",
     options: ["Chord", "Sector", "Tangent", "Segment"],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are parts or associated elements of a circle. (a) Chord: line segment with both endpoints on the circle. (b) Sector: region bounded by two radii and an arc. (c) Tangent: line touching the circle at one point. (d) Segment: region bounded by a chord and an arc.",
+    explanation: "All four are parts or associated elements of a circle. Chord: line segment with both endpoints on the circle. Sector: region bounded by two radii and an arc. Tangent: line touching the circle at one point. Segment: region bounded by a chord and an arc.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -4036,8 +4017,7 @@ export const questions: Question[] = [
       "Rhombus: A = ½ × d₁ × d₂",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are correct. (a) Side squared. (b) Half base times height. (c) Half sum of parallel sides times height. (d) Half the product of the two diagonals — a special property of rhombuses.",
+    explanation: "All four are correct. Side squared. Half base times height. Half sum of parallel sides times height. Half the product of the two diagonals — a special property of rhombuses.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -4199,8 +4179,7 @@ export const questions: Question[] = [
     question: "Which of the following are correct volume formulas? (Select all that apply.)",
     options: ["Cube: V = s³", "Cylinder: V = πr²h", "Sphere: V = (4/3)πr³", "Cone: V = (1/3)πr²h"],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are correct. (a) Cube: side cubed. (b) Cylinder: π × radius² × height. (c) Sphere: (4/3) × π × radius cubed. (d) Cone: one-third of the cylinder with same base and height.",
+    explanation: "All four are correct. Cube: side cubed. Cylinder: π × radius² × height. Sphere: (4/3) × π × radius cubed. Cone: one-third of the cylinder with same base and height.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -4542,8 +4521,7 @@ export const questions: Question[] = [
       "The midpoint formula divides both coordinates by 2",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "(a) Correct: 3-4-5 triangle. (b) Correct: ((2+8)/2, (6+10)/2) = (5, 8). (c) Correct: applied to horizontal and vertical legs. (d) Correct: midpoint = (avg, avg), which is the same as dividing the sum by 2.",
+    explanation: "3-4-5 triangle. ((2+8)/2, (6+10)/2) = (5, 8). applied to horizontal and vertical legs. midpoint = (avg, avg), which is the same as dividing the sum by 2.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -4714,8 +4692,7 @@ export const questions: Question[] = [
       "y = ax² + bx + c (quadratic)",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Slope-intercept form. (b) Point-slope form. (c) Standard form. (d) False: y = ax² + bx + c is a QUADRATIC, not a line — its graph is a parabola.",
+    explanation: "Slope-intercept form. Point-slope form. Standard form. False: y = ax² + bx + c is a QUADRATIC, not a line — its graph is a parabola.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -4887,8 +4864,7 @@ export const questions: Question[] = [
       "Slope units: always abstract numbers, not real units",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct: y-intercept is the value when x = 0, often the starting amount. (b) Correct: x-intercept is where y = 0. (c) Correct: turning points mark local maxima or minima. (d) False: slope units are (y-axis units)/(x-axis units), such as km/h for a distance-time graph.",
+    explanation: "y-intercept is the value when x = 0, often the starting amount. x-intercept is where y = 0. turning points mark local maxima or minima. False: slope units are (y-axis units)/(x-axis units), such as km/h for a distance-time graph.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5060,8 +5036,7 @@ export const questions: Question[] = [
     question: "Which of the following are arithmetic sequences? (Select all that apply.)",
     options: ["3, 7, 11, 15, 19", "2, 4, 8, 16, 32", "10, 7, 4, 1, -2", "1, 1, 2, 3, 5, 8"],
     correctAnswer: [0, 2],
-    explanation:
-      "(a) Differences 4, 4, 4, 4 → arithmetic ✓. (b) Ratios 2, 2, 2, 2 → geometric, not arithmetic. (c) Differences -3, -3, -3, -3 → arithmetic with d = -3 ✓. (d) Fibonacci pattern (sum of previous two), not arithmetic.",
+    explanation: "Differences 4, 4, 4, 4 → arithmetic ✓. Ratios 2, 2, 2, 2 → geometric, not arithmetic. Differences -3, -3, -3, -3 → arithmetic with d = -3 ✓. Fibonacci pattern (sum of previous two), not arithmetic.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5226,8 +5201,7 @@ export const questions: Question[] = [
     question: "Which of the following geometric series converge (have a finite sum)? (Select all that apply.)",
     options: ["1 + 1/3 + 1/9 + 1/27 + ...", "2 + 4 + 8 + 16 + ...", "1 - 1/2 + 1/4 - 1/8 + ...", "5 + 5 + 5 + 5 + ..."],
     correctAnswer: [0, 2],
-    explanation:
-      "A geometric series converges to a finite sum only when |r| < 1. (a) r = 1/3, so |r| < 1 and the series converges. (b) r = 2, so |r| > 1 and the series diverges. (c) r = -1/2, so |r| < 1 and the series converges. (d) r = 1, so |r| = 1, not less than 1, and the series diverges. Its partial sums are 5, 10, 15, 20, ... and grow without bound. Therefore, only (a) and (c) converge.",
+    explanation: "A geometric series converges to a finite sum only when |r| < 1. r = 1/3, so |r| < 1 and the series converges. r = 2, so |r| > 1 and the series diverges. r = -1/2, so |r| < 1 and the series converges. r = 1, so |r| = 1, not less than 1, and the series diverges. Its partial sums are 5, 10, 15, 20, ... and grow without bound. Therefore, only and converge.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5392,8 +5366,7 @@ export const questions: Question[] = [
       "Fibonacci: 1, 1, 2, 3, 5, 8",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are well-known special sequences: (a) n², (b) n³, (c) n(n+1)/2, (d) sum of previous two terms.",
+    explanation: "All four are well-known special sequences: n², n³, n(n+1)/2, sum of previous two terms.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5564,8 +5537,7 @@ export const questions: Question[] = [
       "Vector magnitude is always positive or zero",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are correct properties. (a) Defining property. (b) Equality criterion. (c) Perpendicularity test. (d) Magnitude is non-negative, with zero only for the zero vector.",
+    explanation: "All four are correct properties. Defining property. Equality criterion. Perpendicularity test. Magnitude is non-negative, with zero only for the zero vector.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5735,8 +5707,7 @@ export const questions: Question[] = [
     question: "Which of the following are measures of dispersion? (Select all that apply.)",
     options: ["Range", "Mean", "Variance", "Standard deviation"],
     correctAnswer: [0, 2, 3],
-    explanation:
-      "(a) Range: max - min, a dispersion measure ✓. (b) Mean: measure of CENTRAL tendency, not dispersion. (c) Variance: average squared deviation ✓. (d) Standard deviation: square root of variance ✓.",
+    explanation: "Range: max - min, a dispersion measure ✓. Mean: measure of CENTRAL tendency, not dispersion. Variance: average squared deviation ✓. Standard deviation: square root of variance ✓.",
     sourceCitation: "Standard statistics curriculum",
   },
 
@@ -5872,8 +5843,7 @@ export const questions: Question[] = [
     question: "If P(A) = 0.7, then P(A's complement) = 0.3.",
     options: ["True", "False"],
     correctAnswer: 0,
-    explanation:
-      "True. P(A^c) = 1 - P(A) = 1 - 0.7 = 0.3. The probabilities of an event and its complement always sum to 1.",
+    explanation: "True. P(A^c) = 1 - P= 1 - 0.7 = 0.3. The probabilities of an event and its complement always sum to 1.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5904,8 +5874,7 @@ export const questions: Question[] = [
       "Mutually exclusive events P(A∩B) = P(A) + P(B)",
     ],
     correctAnswer: [0, 1, 2],
-    explanation:
-      "(a) Correct. (b) Correct. (c) Correct: independent events multiply. (d) False: for mutually exclusive events, P(A∩B) = 0 (not their sum). The sum rule for mutually exclusive is P(A∪B) = P(A) + P(B), not the intersection.",
+    explanation: "Correct. Correct. independent events multiply. False: for mutually exclusive events, P(A∩B) = 0 (not their sum). The sum rule for mutually exclusive is P(A∪B) = P+ P, not the intersection.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5947,8 +5916,7 @@ export const questions: Question[] = [
     question: "If P(A) = 0.6, P(B) = 0.5, and A and B are independent, what is P(A or B)?",
     options: ["0.3", "0.8", "1.1", "0.5"],
     correctAnswer: 1,
-    explanation:
-      "P(A or B) = P(A) + P(B) - P(A and B) = 0.6 + 0.5 - P(A)·P(B) (since independent) = 0.6 + 0.5 - 0.3 = 0.8. Alternatively, 1 - P(neither A nor B) = 1 - (1-0.6)(1-0.5) = 1 - 0.4 × 0.5 = 1 - 0.2 = 0.8.",
+    explanation: "P(A or B) = P+ P- P(A and B) = 0.6 + 0.5 - P·P(since independent) = 0.6 + 0.5 - 0.3 = 0.8. Alternatively, 1 - P(neither A nor B) = 1 - (1-0.6)(1-0.5) = 1 - 0.4 × 0.5 = 1 - 0.2 = 0.8.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -5961,8 +5929,7 @@ export const questions: Question[] = [
     question: "If two events are mutually exclusive, they must also be independent.",
     options: ["True", "False"],
     correctAnswer: 1,
-    explanation:
-      "False. Mutually exclusive events CANNOT be independent (except in trivial cases). If A and B are mutually exclusive, P(A∩B) = 0, but for independence, P(A∩B) = P(A)·P(B). These can only both be true if P(A) = 0 or P(B) = 0. Mutually exclusive means 'cannot both occur' — independent means 'occurrence of one doesn't affect the other'. They are opposite concepts.",
+    explanation: "False. Mutually exclusive events CANNOT be independent (except in trivial cases). If A and B are mutually exclusive, P(A∩B) = 0, but for independence, P(A∩B) = P·P. These can only both be true if P= 0 or P= 0. Mutually exclusive means 'cannot both occur' — independent means 'occurrence of one doesn't affect the other'. They are opposite concepts.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -6076,8 +6043,7 @@ export const questions: Question[] = [
       "Average speed is always less than the faster of two speeds",
     ],
     correctAnswer: [0, 2, 3],
-    explanation:
-      "(a) Correct by definition. (b) False: average speed is total distance / total time, not always the arithmetic mean of speeds. (c) Correct: for equal distances, average = 2v₁v₂/(v₁+v₂) (harmonic mean). (d) Correct: when combining two different positive speeds, the overall average lies strictly between them, so it is less than the faster speed.",
+    explanation: "Correct by definition. False: average speed is total distance / total time, not always the arithmetic mean of speeds. for equal distances, average = 2v₁v₂/(v₁+v₂) (harmonic mean). when combining two different positive speeds, the overall average lies strictly between them, so it is less than the faster speed.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -6120,8 +6086,7 @@ export const questions: Question[] = [
     question: "A train 200 m long passes a pole in 10 seconds. What is the speed of the train?",
     options: ["20 m/s", "60 km/h", "72 km/h", "All of the above"],
     correctAnswer: 3,
-    explanation:
-      "Speed = distance/time = 200/10 = 20 m/s. In km/h: 20 × 3.6 = 72 km/h. So 20 m/s = 72 km/h, and both options (b) and (c) are correct representations.",
+    explanation: "Speed = distance/time = 200/10 = 20 m/s. In km/h: 20 × 3.6 = 72 km/h. So 20 m/s = 72 km/h, and both options and are correct representations.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -6271,8 +6236,7 @@ export const questions: Question[] = [
       "Time = 1 / combined rate",
     ],
     correctAnswer: [0, 1, 3],
-    explanation:
-      "(a) Correct: rate is reciprocal of time. (b) Correct: rates add when working together. (c) WRONG: times do not add. (d) Correct: combined time is the reciprocal of the combined rate.",
+    explanation: "rate is reciprocal of time. rates add when working together. WRONG: times do not add. combined time is the reciprocal of the combined rate.",
     sourceCitation: "Standard mathematics curriculum",
   },
 
@@ -6443,8 +6407,7 @@ export const questions: Question[] = [
       "For annual compounding, A = P(1+r)^t",
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation:
-      "All four are correct. (a) Simple interest uses only the principal. (b) Compound interest grows exponentially (linear vs exponential growth). (c) Rule of 72: years to double ≈ 72/rate%. (d) Annual compounding formula A = P(1+r)^t.",
+    explanation: "All four are correct. Simple interest uses only the principal. Compound interest grows exponentially (linear vs exponential growth). Rule of 72: years to double ≈ 72/rate%. Annual compounding formula A = P(1+r)^t.",
     sourceCitation: "Standard mathematics curriculum",
   },
 

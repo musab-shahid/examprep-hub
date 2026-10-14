@@ -120,7 +120,7 @@ export const questions: Question[] = [
     "By the time she arrived, he had left."
   ],
   correctAnswer: [0, 3],
-  explanation: "(a) Correct: since 2010 + present perfect continuous = ongoing action from past. (d) Correct: past perfect 'had left' shows action completed before another past action. (b) Wrong: 'know' is stative, no -ing form. (c) Wrong: 'went' is past simple; past participle is 'gone'.",
+  explanation: "Correct forms: 'since 2010' with present perfect continuous for an action continuing from the past; past perfect 'had left' for an action completed before another past event. Wrong: progressive of stative 'know' (*knowing for years in that sense); 'went' cannot replace the past participle 'gone'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q016", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
@@ -132,7 +132,7 @@ export const questions: Question[] = [
     "That is a HARD test. (modifies 'test')"
   ],
   correctAnswer: [0, 2],
-  explanation: "Adverbs modify verbs, adjectives, or other adverbs. (a) 'quickly' modifies 'runs' (verb) → adverb. (c) 'beautifully' modifies 'sang' (verb) → adverb. (b) 'fast' here modifies 'runner' (noun) → adjective. (d) 'hard' modifies 'test' (noun) → adjective.",
+  explanation: "Adverbs modify verbs, adjectives, or other adverbs. 'Quickly' modifying 'runs' and 'beautifully' modifying 'sang' are adverbs. 'Fast' modifying 'runner' and 'hard' modifying 'test' are adjectives (they describe nouns).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q017", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
@@ -249,7 +249,7 @@ export const questions: Question[] = [
     "Each of the books have a red cover."
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Correct: 'committee' is a collective noun treated as singular → 'has'. (c) Correct: 'a sum of money' is a singular phrase (the subject is 'sum') → 'was stolen'. (b) Wrong: 'mathematics' is singular → 'is'. (d) Wrong: 'each' is singular → 'has'.",
+  explanation: "Collective 'committee' is treated as singular → 'has'. The subject 'a sum of money' is singular → 'was stolen'. Wrong: 'mathematics' takes singular 'is'; 'each' is singular and needs 'has', not a plural verb.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
@@ -261,7 +261,7 @@ export const questions: Question[] = [
     "an MBA graduate"
   ],
   correctAnswer: [1, 3],
-  explanation: "(b) 'honest' → silent h → vowel sound → 'an'. (d) 'MBA' pronounced 'em-bee-ay' → starts with vowel sound → 'an'. (a) 'university' starts with 'yu' (consonant sound) → 'a', not 'an'. (c) 'one-time' starts with 'w' sound → 'a', not 'an'.",
+  explanation: "Article choice follows sound, not spelling: silent-h 'honest' and letter-name 'MBA' (em-…) take 'an'. 'University' begins with a /j/ consonant sound and 'one-time' with /w/, so both take 'a'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q033", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
@@ -385,7 +385,7 @@ export const questions: Question[] = [
     "Despite of the rain, we stayed home."
   ],
   correctAnswer: [1, 2],
-  explanation: "(b) Correct: 'good at' is the fixed phrase. (c) Correct: 'although' alone (no 'but') properly introduces a concessive clause. (a) Wrong: 'senior TO' (not 'than'). (d) Wrong: 'despite' (no 'of'); correct is 'in spite of' or 'despite'.",
+  explanation: "Fixed phrase: 'good at'. Concessive 'although' stands alone (no 'but'). Wrong: 'senior than' (standard is 'senior to'); 'despite of' (use 'despite' or 'in spite of').",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q049", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "multi",
@@ -397,7 +397,7 @@ export const questions: Question[] = [
     "The book is different than yours."
   ],
   correctAnswer: [1, 2],
-  explanation: "(b) Correct: 'good at'. (c) Correct: 'married to'. (a) Wrong: 'discuss' takes no preposition (discuss the issue, not about). (d) Wrong: 'different from' is standard, not 'than'.",
+  explanation: "Fixed phrases: 'good at', 'married to'. Wrong: 'discuss about' (discuss takes a direct object); 'different than' in formal standard English is 'different from'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q050", sectionId: "ENG-01", topicId: "english-pronouns-prepositions-conjunctions", difficulty: "hard", type: "single",
@@ -409,7 +409,7 @@ export const questions: Question[] = [
     "He studied hard although, but he failed."
   ],
   correctAnswer: 1,
-  explanation: "(b) is correct: 'although' alone introduces a concessive clause properly. (a) Wrong: 'although' + 'but' = double conjunction. (c) Wrong: 'because' + 'so' = double conjunction. (d) Wrong: misplaced comma + double conjunction.",
+  explanation: "Correct: 'although' introduces the concessive clause without a second conjunction. Wrong patterns: 'although… but…', 'because… so…', and doubled conjunctions with a misplaced comma.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -519,7 +519,7 @@ export const questions: Question[] = [
     "He will finish the work. → The work will be finished."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct passive. (b) Correct present continuous passive. (c) Wrong: 'occur' is intransitive, cannot be passive. (d) Correct future passive with 'will be + past participle'.",
+  explanation: "Valid passives use a transitive verb: simple passive, present continuous passive, and future 'will be + past participle'. 'Occur' is intransitive, so it has no passive form.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q065", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
@@ -653,7 +653,7 @@ export const questions: Question[] = [
     "He is married to her."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: 'discuss' takes direct object, no preposition. (b) Correct: no redundancy. (d) Correct: 'married to' is the fixed phrase. (c) Wrong: 'returned back' is redundant — 'returned' alone means 'came back'.",
+  explanation: "'Discuss' takes a direct object (no 'about'). Avoid redundant 'returned back' — 'returned' already means came back. 'Married to' is the fixed phrase.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q081", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
@@ -665,7 +665,7 @@ export const questions: Question[] = [
     "Despite of the rain, we stayed home."
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: 'good at'. (b) Correct: 'prefer X to Y'. (c) Correct: 'different from'. (d) Wrong: 'despite' takes no 'of' — correct is 'despite the rain' or 'in spite of the rain'.",
+  explanation: "Standard: 'good at', 'prefer X to Y', 'different from'. Wrong: 'despite of' — use 'despite the rain' or 'in spite of the rain'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q082", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
@@ -801,7 +801,7 @@ export const questions: Question[] = [
     "He is senior to her in rank."
   ],
   correctAnswer: [0, 2, 3],
-  explanation: "(a) Correct: 'effect' as noun (result). (c) Correct: 'discuss' takes no preposition. (d) Correct: 'senior to' is the fixed phrase. (b) Wrong: 'effected' as verb means 'brought about' — it doesn't mean 'caused severe' naturally. 'The drought caused severe changes' would be clearer.",
+  explanation: "'Effect' as a noun means result; 'discuss' takes no preposition; 'senior to' is fixed. 'Effected' as a verb means 'brought about' and is awkward for 'caused severe…' — prefer 'caused'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q017", sectionId: "ENG-02", topicId: "english-synonyms-antonyms-confusables", difficulty: "hard", type: "single",
@@ -937,7 +937,7 @@ export const questions: Question[] = [
     "'Burn the midnight oil' = start a fire"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: 'costs an arm and a leg' = very expensive. (b) Correct: 'bite the bullet' = accept something unpleasant bravely. (c) Correct: 'once in a blue moon' = very rarely. (d) Wrong: 'burn the midnight oil' means work late into the night, NOT 'start a fire' (a common literal misreading).",
+  explanation: "'Costs an arm and a leg' = very expensive; 'bite the bullet' = face something unpleasant; 'once in a blue moon' = very rarely. 'Burn the midnight oil' means work late — not literally starting a fire.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q034", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "hard", type: "multi",
@@ -949,7 +949,7 @@ export const questions: Question[] = [
     "'To bite the dust' = to fail, break, or die"
   ],
   correctAnswer: [0, 2, 3],
-  explanation: "(a) Correct: 'let sleeping dogs lie' means avoid provoking a problem that is currently quiet. (c) Correct: 'on thin ice' means in a risky situation where one wrong move causes disaster. (d) Correct: 'bite the dust' means to fail, break down, or (informally) die. (b) Wrong: 'cut corners' means to do something CHEAPLY or by SKIPPING steps — the opposite of 'thoroughly'.",
+  explanation: "'let sleeping dogs lie' means avoid provoking a problem that is currently quiet. 'on thin ice' means in a risky situation where one wrong move causes disaster. 'bite the dust' means to fail, break down, or (informally) die. Wrong: 'cut corners' means to do something CHEAPLY or by SKIPPING steps — the opposite of 'thoroughly'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q035", sectionId: "ENG-02", topicId: "english-idioms-and-phrases", difficulty: "hard", type: "single",
@@ -1080,7 +1080,7 @@ export const questions: Question[] = [
     "Antibiotic = anti- (against) + bio- (life) + -tic (relating to)"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) Biology = bio + ology. (b) Hydroelectric = hydro + electric. (c) Predict = pre + dict. (d) Antibiotic = anti + bio + tic (a noun/adj suffix here). Mastering these patterns lets you decode hundreds of words.",
+  explanation: "All listed analyses are valid word-building patterns: bio+ology, hydro+electric, pre+dict, anti+bio+tic. Recognising roots and affixes helps decode unfamiliar vocabulary.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q052", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "multi",
@@ -1092,7 +1092,7 @@ export const questions: Question[] = [
     "'Heavy metal' = dense metal"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. 'Heavy' is a chameleon word — its meaning shifts with context. (a) heavy rain = intense. (b) heavy smoker = frequent. (c) heavy workload = large. (d) heavy metal = high density. The lesson: don't memorize 'heavy = [one definition]'. Read the CONTEXT and pick the meaning that fits.",
+  explanation: ""Heavy" is context-dependent: heavy rain (intense), heavy smoker (frequent), heavy workload (large amount), heavy metal (high density). Choose the sense that fits the sentence — not a single fixed definition.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q053", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "single",
@@ -1208,7 +1208,7 @@ export const questions: Question[] = [
     "In the morning"
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Noun phrase: 'The heavy rain' — no verb. (b) Participial phrase: 'Running through the field' — no subject. (d) Prepositional phrase: 'In the morning' — no verb. (c) Wrong: 'The dog barks loudly' = subject 'dog' + verb 'barks' + adverb 'loudly' = CLAUSE.",
+  explanation: "Phrases lack a finite clause: 'The heavy rain' (noun phrase), 'Running through the field' (participial phrase), 'In the morning' (prepositional phrase). 'The dog barks loudly' is a full clause (subject + finite verb).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
@@ -1221,7 +1221,7 @@ export const questions: Question[] = [
     "Running quickly through the park."
   ],
   correctAnswer: [0, 2, 3],
-  explanation: "(a) Fragment: dependent clause starting with 'because' — needs main clause to complete. (c) Fragment: prepositional phrase modifying 'scientist' — no verb for 'scientist'. (d) Fragment: participial phrase — no subject. (b) Complete sentence with subject + verb + modifier.",
+  explanation: "Fragments include a dependent clause starting with 'because', a prepositional phrase with no finite verb for the head noun, and a participial phrase without a subject. A complete sentence needs subject + finite verb (plus any modifiers).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q015", sectionId: "ENG-03", topicId: "english-sentence-building-blocks", difficulty: "hard", type: "single",
@@ -1240,7 +1240,7 @@ export const questions: Question[] = [
     "'To succeed takes effort.' → 'To succeed' is a participial phrase here."
   ],
   correctAnswer: 2,
-  explanation: "(c) is correct: 'swimming' is a gerund (verb-ing used as noun) — object of the preposition 'at'. (a) Wrong: 'In the morning' is a prepositional phrase, not noun. (b) Wrong: 'running' here is a PARTICIPLE (adjective modifying 'water'), not a gerund. (d) Wrong: 'To succeed' is an INFINITIVE phrase, not participial.",
+  explanation: "A gerund is a verb-ing form used as a noun (e.g. object of a preposition: good at swimming). A prepositional phrase is not a noun; 'running water' uses a participle (adjective); 'to succeed' is an infinitive phrase.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -1252,14 +1252,14 @@ export const questions: Question[] = [
   question: "Which of the following is a COMPOUND sentence?",
   options: ["The rain fell.", "Because the rain fell, the crops grew.", "The rain fell, and the crops grew.", "The rain that fell was heavy."],
   correctAnswer: 2,
-  explanation: "'The rain fell, and the crops grew' is COMPOUND — two INDEPENDENT clauses joined by the coordinating conjunction 'and'. (a) is simple (one clause). (b) is complex (independent + dependent). (d) is also complex (independent + relative clause).",
+  explanation: "'The rain fell, and the crops grew' is COMPOUND — two INDEPENDENT clauses joined by the coordinating conjunction 'and'. One choice is simple (one clause). One choice is complex (independent + dependent). One choice is also complex (independent + relative clause).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q018", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "easy", type: "single",
   question: "Which of the following is a COMPLEX sentence?",
   options: ["I came, I saw, I conquered.", "Because it rained, we stayed home.", "She sang and danced.", "He left."],
   correctAnswer: 1,
-  explanation: "'Because it rained, we stayed home' is COMPLEX — one INDEPENDENT clause ('we stayed home') + one DEPENDENT clause ('Because it rained'). (a) is compound (three independent clauses). (c) is simple. (d) is simple.",
+  explanation: "'Because it rained, we stayed home' is COMPLEX — one INDEPENDENT clause ('we stayed home') + one DEPENDENT clause ('Because it rained'). One choice is compound (three independent clauses). One choice is simple. One choice is simple.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q019", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "easy", type: "true_false",
@@ -1279,7 +1279,7 @@ export const questions: Question[] = [
     "All of the above are correct fixes."
   ],
   correctAnswer: 3,
-  explanation: "All three options fix the comma splice by replacing the comma with proper punctuation or a conjunction. (a) adds 'and'. (b) uses a semicolon. (c) uses a period (two sentences). All are valid; the original comma was wrong.",
+  explanation: "All three options fix the comma splice by replacing the comma with proper punctuation or a conjunction. One fix adds 'and'. One version uses a semicolon. One version uses a period (two sentences). All are valid; the original comma was wrong.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q021", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
@@ -1291,7 +1291,7 @@ export const questions: Question[] = [
     "He crossed quickly, running the finish line."
   ],
   correctAnswer: 1,
-  explanation: "The original (a) has a misplaced modifier: 'Running quickly' should modify the runner, but it appears next to 'finish line' (the thing crossed), creating ambiguity. (b) fixes it by placing 'he' (the runner) next to the modifier. (c) is awkward. (d) is confusing.",
+  explanation: "The original has a misplaced modifier: 'Running quickly' should modify the runner, but it appears next to 'finish line' (the thing crossed), creating ambiguity. The corrected version fixes it by placing 'he' (the runner) next to the modifier. One choice is awkward. One choice is confusing.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q022", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
@@ -1303,7 +1303,7 @@ export const questions: Question[] = [
     "Both B and C are parallel."
   ],
   correctAnswer: 3,
-  explanation: "Parallel structure requires the same grammatical form for list items. (b) 'swimming, running, biking' = all gerunds ✓ parallel. (c) 'to swim, to run, to bike' = all infinitives ✓ also parallel. (a) is NOT parallel: it mixes 2 gerunds ('swimming', 'biking') with 1 infinitive ('to run'). Since both (b) and (c) are parallel, option (d) 'Both B and C are parallel' is the correct answer.",
+  explanation: "Parallel structure requires the same grammatical form for list items. 'swimming, running, biking' = all gerunds ✓ parallel. 'to swim, to run, to bike' = all infinitives ✓ also parallel. One choice is NOT parallel: it mixes 2 gerunds ('swimming', 'biking') with 1 infinitive ('to run'). Since both and are parallel, one option 'Both B and C are parallel' is the correct answer.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q023", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
@@ -1322,7 +1322,7 @@ export const questions: Question[] = [
     "The rain fell."
   ],
   correctAnswer: 0,
-  explanation: "'When the rain fell, the crops grew, and the farmers smiled' is COMPOUND-COMPLEX: one DEPENDENT clause ('When the rain fell') + two INDEPENDENT clauses ('the crops grew', 'the farmers smiled') joined by a coordinating conjunction. (b) is compound. (c) is complex. (d) is simple.",
+  explanation: "'When the rain fell, the crops grew, and the farmers smiled' is COMPOUND-COMPLEX: one DEPENDENT clause ('When the rain fell') + two INDEPENDENT clauses ('the crops grew', 'the farmers smiled') joined by a coordinating conjunction. One choice is compound. One choice is complex. One choice is simple.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q025", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "medium", type: "single",
@@ -1379,7 +1379,7 @@ export const questions: Question[] = [
     "He is rich. He is unhappy. → Although he is rich, he is unhappy."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: simple to complex with infinitive 'to continue' (result clause). (b) Correct: two simple sentences combined via subordinate conjunction 'because'. (c) Wrong: this is a comma splice, not a complex sentence (no subordinator). (d) Correct: two simple sentences combined via concessive subordinator 'although'.",
+  explanation: "simple to complex with infinitive 'to continue' (result clause). two simple sentences combined via subordinate conjunction 'because'. Wrong: this is a comma splice, not a complex sentence (no subordinator). two simple sentences combined via concessive subordinator 'although'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
@@ -1392,7 +1392,7 @@ export const questions: Question[] = [
     "After he left, I called him."
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Error: comma splice — two independent clauses joined only by a comma. (c) Error: dangling modifier — 'Running through the park' appears to modify 'the dog', but the running subject isn't the dog (it's a person whose dog is happy). Fix: 'Running through the park, his dog was happy' or 'While he ran through the park, his dog was happy'. (b) Correct (parallel adjectives). (d) Correct (complex sentence with subordinating conjunction).",
+  explanation: "Error: comma splice — two independent clauses joined only by a comma. Error: dangling modifier — 'Running through the park' appears to modify 'the dog', but the running subject isn't the dog (it's a person whose dog is happy). Fix: 'Running through the park, his dog was happy' or 'While he ran through the park, his dog was happy'. Correct (parallel adjectives). Correct (complex sentence with subordinating conjunction).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q032", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
@@ -1404,7 +1404,7 @@ export const questions: Question[] = [
     "a, c, b (opened, called, smoke)"
   ],
   correctAnswer: 0,
-  explanation: "Logical sequence: (a) She opened the door → (b) The room was full of smoke (consequence of opening) → (c) She called the fire department immediately (response to seeing smoke). The actions must follow the discovery. (a)→(b)→(c) is the only natural causal/temporal order.",
+  explanation: "Logical sequence: open the door → see a room full of smoke → call the fire department. The response follows discovery; any other order breaks the causal chain.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q033", sectionId: "ENG-03", topicId: "english-sentence-types-errors-transformation", difficulty: "hard", type: "single",
@@ -1457,7 +1457,7 @@ export const questions: Question[] = [
   question: "Rearrange into correct order: (a) Finally, the experiment was completed. (b) The scientists worked for months. (c) They had hoped for success. (d) The results were promising.",
   options: ["c, b, a, d", "b, c, a, d", "a, b, c, d", "b, a, c, d"],
   correctAnswer: 0,
-  explanation: "Logical order: (c) They had hoped for success (background/expectation) → (b) The scientists worked for months (action) → (a) Finally, the experiment was completed (conclusion/result) → (d) The results were promising (follow-up detail). Time markers like 'finally' indicate it comes after other steps.",
+  explanation: "Logical order: They had hoped for success (background/expectation) → The scientists worked for months (action) → Finally, the experiment was completed (conclusion/result) → The results were promising (follow-up detail). Time markers like 'finally' indicate it comes after other steps.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q039", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
@@ -1469,7 +1469,7 @@ export const questions: Question[] = [
     "Both A and C are correct."
   ],
   correctAnswer: 0,
-  explanation: "Parallel structure with adjectives: 'intelligent, hardworking, successful' — three adjectives joined by commas and 'and'. (b) and (c) are wrong because they include 'is' which breaks the parallel list. The subject 'He' is shared and the verb 'is' is implied for all three adjectives.",
+  explanation: "Parallel structure with adjectives: 'intelligent, hardworking, successful' — three adjectives joined by commas and 'and'. and are wrong because they include 'is' which breaks the parallel list. The subject 'He' is shared and the verb 'is' is implied for all three adjectives.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q040", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "medium", type: "single",
@@ -1528,7 +1528,7 @@ export const questions: Question[] = [
     "I am hungry. I will eat. → I am hungry and I will eat."
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct combinations. (a) 'so' = cause-effect. (b) 'and' = equal actions. (c) ';' = compound sentence. (d) 'and' = simple combination. Each combines two short sentences into a smoother, more sophisticated single sentence.",
+  explanation: "All four are correct combinations. 'so' = cause-effect. 'and' = equal actions. ';' = compound sentence. 'and' = simple combination. Each combines two short sentences into a smoother, more sophisticated single sentence.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
@@ -1541,7 +1541,7 @@ export const questions: Question[] = [
     "d, b, a, c (trend → companies → policy → satisfaction)"
   ],
   correctAnswer: 0,
-  explanation: "Logical flow: (b) Many companies have adopted flexible work hours (general trend) → (a) This is because of the new policy (cause of trend) → (c) Employees report higher satisfaction (effect of trend) → (d) The trend is growing rapidly (current development). The pronoun 'This' in (a) refers to the trend in (b), so (a) must come after (b).",
+  explanation: "Logical flow: state the general trend (flexible hours) → give its cause (new policy — 'This' needs a prior antecedent) → report the effect (higher satisfaction) → note the trend is growing. Cause and pronoun reference must follow the trend statement.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q048", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "multi",
@@ -1553,7 +1553,7 @@ export const questions: Question[] = [
     "She is intelligent, kind, and beautiful."
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) 'good at' is the fixed phrase. (b) 'were' is the subjunctive for hypothetical conditions. (c) 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was'). (d) Three parallel adjectives joined by commas and 'and'.",
+  explanation: "All four are correct. 'good at' is the fixed phrase. 'were' is the subjunctive for hypothetical conditions. 'neither...nor' verb agrees with the NEAREST subject ('teacher' is singular, so 'was'). Three parallel adjectives joined by commas and 'and'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q049", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
@@ -1565,7 +1565,7 @@ export const questions: Question[] = [
     "c, b, a, d (consensus → accepted → some question → gaps)"
   ],
   correctAnswer: 0,
-  explanation: "Logical flow: (b) Climate change is accepted (main claim, general) → (c) Scientific consensus is strong (supporting detail) → (a) However, some studies question this (contrast — introduced by 'However') → (d) Critics point to gaps in data (specific criticism). The 'However' in (a) signals it follows the established consensus, and (d) expands on the criticism with specific detail.",
+  explanation: "Logical flow: Climate change is accepted (main claim, general) → Scientific consensus is strong (supporting detail) → However, some studies question this (contrast — introduced by 'However') → Critics point to gaps in data (specific criticism). The 'However' in signals it follows the established consensus, and expands on the criticism with specific detail.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-03-Q050", sectionId: "ENG-03", topicId: "english-sentence-completion-rearrangement", difficulty: "hard", type: "single",
@@ -1577,7 +1577,7 @@ export const questions: Question[] = [
     "All of the above are valid combinations."
   ],
   correctAnswer: 3,
-  explanation: "All three are valid. (a) Uses coordination with parallel verbs ('saw' and 'understood'). (b) Uses a present participle ('understanding') as adverbial modifier. (c) Uses a different participle placement ('Entering the room'). Each combines the three short sentences into a smoother single sentence. There are usually multiple correct combinations — pick the one that flows most naturally.",
+  explanation: "All three are valid. Uses coordination with parallel verbs ('saw' and 'understood'). Uses a present participle ('understanding') as adverbial modifier. Uses a different participle placement ('Entering the room'). Each combines the three short sentences into a smoother single sentence. There are usually multiple correct combinations — pick the one that flows most naturally.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -1609,7 +1609,7 @@ export const questions: Question[] = [
     "Both A and B can be correct depending on context."
   ],
   correctAnswer: 3,
-  explanation: "Collective nouns like 'jury' can be singular or plural depending on whether the group acts as a unit or as individuals. (a) 'The jury was divided in its opinion' — the jury as one body (singular, but 'divided' is awkward for a unit). (b) 'The jury were divided in their opinions' — the members disagree individually (plural, natural in British English). In American English, 'jury' is usually singular. In FPSC, both can be accepted if the pronoun agrees: 'its opinion' with singular, 'their opinions' with plural.",
+  explanation: "Collective nouns like 'jury' can be singular or plural depending on whether the group acts as a unit or as individuals. 'The jury was divided in its opinion' — the jury as one body (singular, but 'divided' is awkward for a unit). 'The jury were divided in their opinions' — the members disagree individually (plural, natural in British English). In American English, 'jury' is usually singular. In FPSC, both can be accepted if the pronoun agrees: 'its opinion' with singular, 'their opinions' with plural.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // --- Pronouns, Prepositions & Conjunctions: additional hard ---
@@ -1635,7 +1635,7 @@ export const questions: Question[] = [
     "Both A and C are correct."
   ],
   correctAnswer: 3,
-  explanation: "'Let's' suggestions can be reported two ways: (a) 'suggested that we SHOULD go' (with 'should') or (c) 'suggested that we go' (subjunctive without 'should'). Both are standard. Option (b) is wrong: 'suggest' does not take an object + infinitive structure ('suggested us to go' is incorrect — suggest takes a that-clause, not an infinitive).",
+  explanation: "'Let's' suggestions can be reported two ways: 'suggested that we SHOULD go' (with 'should') or 'suggested that we go' (subjunctive without 'should'). Both are standard. Wrong: 'suggest' does not take an object + infinitive structure ('suggested us to go' is incorrect — suggest takes a that-clause, not an infinitive).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // --- Common Errors: additional hard ---

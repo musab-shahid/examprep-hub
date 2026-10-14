@@ -100,7 +100,7 @@ export const questions: Question[] = [
       "Niche means only the place where the organism lives"
     ],
     correctAnswer: [0, 1],
-    explanation: "Population and community are correctly stated. Habitat is place; niche is role — options (c) and (d) swap those meanings and are incorrect.",
+    explanation: "Population and community are correctly stated. Habitat is place; niche is role — two of the choices swap those meanings and are incorrect.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-01-Q012", sectionId: "ENV-01", topicId: "env-fundamentals-and-sustainability", difficulty: "medium", type: "true_false",
     question: "The polluter-pays principle holds that those who cause pollution should bear the costs of prevention or remedy.",
@@ -431,7 +431,7 @@ export const questions: Question[] = [
       "The ~10% teaching rule refers to energy transfer, not to a law that only 10% of matter moves upward"
     ],
     correctAnswer: [0, 2, 3],
-    explanation: "Energy flows; sunlight powers most systems; the 10% idea is about energy. Decomposers process dead matter from many levels and are part of ecosystem energy and nutrient pathways. Option (b) is false.",
+    explanation: "Energy flows; sunlight powers most systems; the 10% idea is about energy. Decomposers process dead matter from many levels and are part of ecosystem energy and nutrient pathways. That statement is false.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-02-Q015", sectionId: "ENV-02", topicId: "env-ecosystem-structure-and-energy-flow", difficulty: "hard", type: "single",
     question: "Which sequence correctly shows energy flow (arrows from resource to consumer)?",
@@ -533,7 +533,7 @@ export const questions: Question[] = [
       "All three pyramid types are always upright"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "Only energy is guaranteed upright. Numbers and biomass can invert. Option (d) is false.",
+    explanation: "Only energy is guaranteed upright. Numbers and biomass can invert. That statement is false.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-02-Q026", sectionId: "ENV-02", topicId: "env-ecological-pyramids", difficulty: "medium", type: "true_false",
     question: "In a parasitic food chain, the pyramid of numbers can be inverted because one host may support many parasites.",
@@ -1570,7 +1570,7 @@ export const questions: Question[] = [
       "Photochemical smog needs sunlight and precursor gases"
     ],
     correctAnswer: [0, 1, 3],
-    explanation: "Option (c) reverses the roles of stratospheric and tropospheric ozone.",
+    explanation: "One choice reverses the roles of stratospheric and tropospheric ozone.",
     sourceCitation: "Standard environmental science curriculum" },
   { id: "ENV-05-Q012", sectionId: "ENV-05", topicId: "env-air-pollution", difficulty: "medium", type: "single",
     question: "In Pakistan, NEQS stands for:",
@@ -1741,7 +1741,7 @@ export const questions: Question[] = [
       "Tertiary treatment is biological (uses bacteria)"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: clean water = high DO, low BOD, low COD (inverse DO-BOD relationship). (b) Correct: COD > BOD always (chemical > biological oxidation). (c) Correct: primary is physical (screening, sedimentation). (d) WRONG: tertiary is the ADVANCED/CHEMICAL stage, NOT biological — SECONDARY is the biological stage. The order is: primary (physical) → secondary (biological) → tertiary (chemical/advanced).",
+    explanation: "clean water = high DO, low BOD, low COD (inverse DO-BOD relationship). COD > BOD always (chemical > biological oxidation). primary is physical (screening, sedimentation). WRONG: tertiary is the ADVANCED/CHEMICAL stage, NOT biological — SECONDARY is the biological stage. The order is: primary (physical) → secondary (biological) → tertiary (chemical/advanced).",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-05-Q027", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "medium", type: "true_false",
@@ -1773,7 +1773,7 @@ export const questions: Question[] = [
       "Primary treatment uses bacteria; Secondary uses physical processes"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: clean vs polluted water relationship. (b) Correct: BOD = biological; COD = chemical (total). (c) Correct: COD ≥ BOD always. (d) WRONG: it's the OPPOSITE — Primary is PHYSICAL (screening, sedimentation), Secondary is BIOLOGICAL (bacteria). The exam often tests this swap.",
+    explanation: "clean vs polluted water relationship. BOD = biological; COD = chemical (total). COD ≥ BOD always. WRONG: it's the OPPOSITE — Primary is PHYSICAL (screening, sedimentation), Secondary is BIOLOGICAL (bacteria). The exam often tests this swap.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-05-Q030", sectionId: "ENV-05", topicId: "env-water-pollution-and-quality", difficulty: "hard", type: "single",
@@ -1946,7 +1946,7 @@ export const questions: Question[] = [
       "Incineration is completely clean with no emissions"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: the 5Rs hierarchy. (b) Correct: treatment stages (this is water treatment but the same hierarchy concept applies). (c) Correct: sanitary vs open dump distinction. (d) WRONG: incineration produces air emissions (dioxins, furans, heavy metals) and toxic ash — it is NOT completely clean.",
+    explanation: "the 5Rs hierarchy. treatment stages (this is water treatment but the same hierarchy concept applies). sanitary vs open dump distinction. WRONG: incineration produces air emissions (dioxins, furans, heavy metals) and toxic ash — it is NOT completely clean.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-05-Q046", sectionId: "ENV-05", topicId: "env-soil-and-waste", difficulty: "hard", type: "single",
@@ -2074,7 +2074,7 @@ export const questions: Question[] = [
       "All renewables are completely impact-free"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: coal is the dirtiest fossil fuel per CO₂. (b) Correct: nuclear fission doesn't release CO₂. (c) Correct: hydro floods large valleys, highest land use. (d) WRONG: all renewables have some impact — hydro floods valleys, solar needs land for panels, wind has visual/noise/bird impacts, biomass needs land and can cause deforestation.",
+    explanation: "coal is the dirtiest fossil fuel per CO₂. nuclear fission doesn't release CO₂. hydro floods large valleys, highest land use. WRONG: all renewables have some impact — hydro floods valleys, solar needs land for panels, wind has visual/noise/bird impacts, biomass needs land and can cause deforestation.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q012", sectionId: "ENV-06", topicId: "env-energy-sources", difficulty: "medium", type: "single",
@@ -2123,7 +2123,7 @@ export const questions: Question[] = [
       "Natural gas has the lowest CO₂ among fossil fuels but still produces significant CO₂"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) Coal: highest CO₂, high air pollution, high water, high land, waste. (b) Nuclear: zero operational CO₂, but long-lived waste and safety concerns. (c) Hydro: high land use due to reservoirs. (d) Natural gas: lowest CO₂ among fossil fuels, but still significant (about half of coal). All are true tradeoffs — no source is perfect.",
+    explanation: "All four are correct. Coal: highest CO₂, high air pollution, high water, high land, waste. Nuclear: zero operational CO₂, but long-lived waste and safety concerns. Hydro: high land use due to reservoirs. Natural gas: lowest CO₂ among fossil fuels, but still significant (about half of coal). All are true tradeoffs — no source is perfect.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q016", sectionId: "ENV-06", topicId: "env-energy-sources", difficulty: "hard", type: "single",
@@ -2247,7 +2247,7 @@ export const questions: Question[] = [
       "Building a seawall against sea level rise"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Mitigation: switching to renewables reduces emissions. (b) Mitigation: carbon pricing incentivizes reduction. (c) Mitigation: REDD+ keeps forests intact, preserving their carbon storage. (d) WRONG: a seawall is ADAPTATION (coping with impacts), not mitigation (reducing cause).",
+    explanation: "Mitigation: switching to renewables reduces emissions. Mitigation: carbon pricing incentivizes reduction. Mitigation: REDD+ keeps forests intact, preserving their carbon storage. WRONG: a seawall is ADAPTATION (coping with impacts), not mitigation (reducing cause).",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q027", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "medium", type: "single",
@@ -2284,7 +2284,7 @@ export const questions: Question[] = [
       "REDD+ pays developing countries to protect forests"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) Mitigation vs adaptation distinction. (b) Vulnerability formula. (c) Pakistan in top 10 (Germanwatch). (d) REDD+ = Reducing Emissions from Deforestation — pays countries to protect forests.",
+    explanation: "All four are correct. Mitigation vs adaptation distinction. Vulnerability formula. Pakistan in top 10 (Germanwatch). REDD+ = Reducing Emissions from Deforestation — pays countries to protect forests.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q030", sectionId: "ENV-06", topicId: "env-climate-change-response", difficulty: "hard", type: "single",
@@ -2418,7 +2418,7 @@ export const questions: Question[] = [
       "It was signed in 2015"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) Temperature target. (b) NDCs. (c) 5-year stocktake. (d) 2015. These are the core features of the Paris Agreement, the current main climate framework.",
+    explanation: "All four are correct. Temperature target. NDCs. 5-year stocktake. 2015. These are the core features of the Paris Agreement, the current main climate framework.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q042", sectionId: "ENV-06", topicId: "env-international-climate-policy", difficulty: "medium", type: "true_false",
@@ -2462,7 +2462,7 @@ export const questions: Question[] = [
       "Developed countries pledged $100 billion/year in climate finance (mostly unfulfilled)"
     ],
     correctAnswer: [1, 2, 3],
-    explanation: "(a) WRONG: Paris Agreement is a protocol UNDER the UNFCCC, not a replacement. The UNFCCC (1992) is the parent treaty. (b) Correct: NDCs = Nationally Determined Contributions are each country's plan. (c) Correct: Global Stocktake every 5 years. (d) Correct: $100B/yr pledge from 2009, mostly unfulfilled until around 2022.",
+    explanation: "WRONG: Paris Agreement is a protocol UNDER the UNFCCC, not a replacement. The UNFCCC (1992) is the parent treaty. NDCs = Nationally Determined Contributions are each country's plan. Global Stocktake every 5 years. $100B/yr pledge from 2009, mostly unfulfilled until around 2022.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q046", sectionId: "ENV-06", topicId: "env-international-climate-policy", difficulty: "hard", type: "single",
@@ -2586,7 +2586,7 @@ export const questions: Question[] = [
       "The Montreal Protocol is the most successful international environmental agreement"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) CFCs release chlorine → catalytic ozone destruction. (b) Ozone hole worst over Antarctica (cold + polar vortex + PSCs). (c) One Cl atom destroys up to ~100,000 O₃ molecules. (d) Montreal Protocol = gold standard of international environmental cooperation (universal ratification, ozone layer recovering).",
+    explanation: "All four are correct. CFCs release chlorine → catalytic ozone destruction. Ozone hole worst over Antarctica (cold + polar vortex + PSCs). One Cl atom destroys up to ~100,000 O₃ molecules. Montreal Protocol = gold standard of international environmental cooperation (universal ratification, ozone layer recovering).",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q058", sectionId: "ENV-06", topicId: "env-ozone-depletion", difficulty: "medium", type: "single",
@@ -2623,7 +2623,7 @@ export const questions: Question[] = [
       "The ozone layer is recovering and expected to fully heal by mid-century"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) Stratospheric protects, tropospheric pollutes. (b) CFCs phased out under Montreal Protocol (1987). (c) HFCs (CFC replacements) are potent GHGs being phased down under Kigali Amendment (2016). (d) The ozone layer IS recovering — full recovery expected by ~2050-2066. This is a conservation success story.",
+    explanation: "All four are correct. Stratospheric protects, tropospheric pollutes. CFCs phased out under Montreal Protocol (1987). HFCs (CFC replacements) are potent GHGs being phased down under Kigali Amendment (2016). The ozone layer IS recovering — full recovery expected by ~2050-2066. This is a conservation success story.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q061", sectionId: "ENV-06", topicId: "env-ozone-depletion", difficulty: "hard", type: "single",
@@ -2744,7 +2744,7 @@ export const questions: Question[] = [
       "2022 floods affected ~33 million people"
     ],
     correctAnswer: [0, 1, 2, 3],
-    explanation: "All four are correct. (a) Per capita water ~1,000 m³ = at the water-scarce threshold. (b) Forest cover only ~5% (one of lowest in Asia). (c) Top 10 climate-vulnerable (Germanwatch). (d) 2022 super floods ~33 million affected. These are all frequently-tested Pakistan environment statistics.",
+    explanation: "All four are correct. Per capita water ~1,000 m³ = at the water-scarce threshold. Forest cover only ~5% (one of lowest in Asia). Top 10 climate-vulnerable (Germanwatch). 2022 super floods ~33 million affected. These are all frequently-tested Pakistan environment statistics.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q074", sectionId: "ENV-06", topicId: "env-pakistan-environmental-context", difficulty: "medium", type: "single",
@@ -2781,7 +2781,7 @@ export const questions: Question[] = [
       "Pakistan is the world's largest GHG emitter"
     ],
     correctAnswer: [0, 1, 2],
-    explanation: "(a) Correct: high exposure to multiple climate hazards. (b) Correct: agriculture = 21% of GDP, very climate-sensitive, and the Indus system is vulnerable. (c) Correct: limited financial/technical resources to adapt. (d) WRONG: Pakistan is NOT the world's largest GHG emitter — that's China, followed by USA, India, EU, Russia. Pakistan is a vulnerable developing country with relatively low per-capita emissions.",
+    explanation: "high exposure to multiple climate hazards. agriculture = 21% of GDP, very climate-sensitive, and the Indus system is vulnerable. limited financial/technical resources to adapt. WRONG: Pakistan is NOT the world's largest GHG emitter — that's China, followed by USA, India, EU, Russia. Pakistan is a vulnerable developing country with relatively low per-capita emissions.",
     sourceCitation: "Standard environmental science curriculum" },
 
   { id: "ENV-06-Q077", sectionId: "ENV-06", topicId: "env-pakistan-environmental-context", difficulty: "hard", type: "single",

@@ -51,8 +51,8 @@ export const questions: Question[] = [
 { id: "METEO-01-Q007", sectionId: "METEO-01", topicId: "meteo-composition-today", difficulty: "easy", type: "single",
   question: "About what percentage of dry air is argon — the third most abundant permanent gas?",
   options: ["About 0.93%", "About 21%", "About 78%", "About 10%"],
-  correctAnswer: 1,
-  explanation: "Dry air is roughly 78% nitrogen, 21% oxygen, and ~0.93% argon. Argon is often forgotten but is the third major permanent gas.",
+  correctAnswer: 0,
+  explanation: "Dry air is roughly 78% nitrogen, 21% oxygen, and ~0.93% argon. Argon is the third most abundant permanent gas by volume; 21% is oxygen, not argon.",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
 
 { id: "METEO-01-Q008", sectionId: "METEO-01", topicId: "meteo-vertical-structure", difficulty: "easy", type: "single",

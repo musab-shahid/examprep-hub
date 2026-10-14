@@ -505,7 +505,7 @@ export const questions: Question[] = [
   question: "Which of the following pairs correctly matches an intrusive igneous rock with its extrusive equivalent?",
   options: ["Granite — Rhyolite", "Basalt — Gabbro", "Gabbro — Granite", "Andesite — Diorite"],
   correctAnswer: 0,
-  explanation: "Granite (intrusive, coarse) and rhyolite (extrusive, fine) have the same felsic composition. Basalt–gabbro, andesite–diorite, and rhyolite–granite are the standard pairs. Note the order in option B is reversed.",
+  explanation: "Granite (intrusive, coarse) and rhyolite (extrusive, fine) share the same felsic composition — the correct intrusive–extrusive pair. Basalt pairs with gabbro (not the reverse order), andesite with diorite. Gabbro–granite mixes mafic intrusive with felsic intrusive and is not a pair.",
   sourceCitation: "Standard Earth science curriculum" },
 
 

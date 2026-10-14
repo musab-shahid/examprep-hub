@@ -730,7 +730,7 @@ export const questions: Question[] = [
     "The area under a velocity-time graph equals acceleration"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: slope of v-t = Δv/Δt = a. (b) Correct: slope of d-t = Δd/Δt = speed. (c) Correct: area under a-t = Δv (since a × t = Δv). (d) Incorrect: area under v-t = displacement, NOT acceleration.",
+  explanation: "slope of v-t = Δv/Δt = a. slope of d-t = Δd/Δt = speed. area under a-t = Δv (since a × t = Δv). Incorrect: area under v-t = displacement, NOT acceleration.",
   sourceCitation: "Standard physics curriculum" },
 
 { id: "PHY-01-Q017", sectionId: "PHY-01", topicId: "phy-kinematics", difficulty: "medium", type: "single",
@@ -793,7 +793,7 @@ export const questions: Question[] = [
     "Gravitational friction (between masses)"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a), (b), (c) are all real types of friction. (d) is not — 'gravitational friction' is a fictitious term; gravity is a separate force, not a type of friction. Friction specifically involves contact between surfaces.",
+  explanation: ",, are all real types of friction. is not — 'gravitational friction' is a fictitious term; gravity is a separate force, not a type of friction. Friction specifically involves contact between surfaces.",
   sourceCitation: "Standard physics curriculum" },
 
 { id: "PHY-01-Q025", sectionId: "PHY-01", topicId: "phy-gravity-weight-friction", difficulty: "medium", type: "true_false",

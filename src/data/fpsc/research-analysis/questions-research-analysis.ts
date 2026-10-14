@@ -105,7 +105,7 @@ export const questions: Question[] = [
     "Extraneous variables threaten internal validity"
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: falsifiability is essential. (b) Correct: law describes what; theory explains why. (c) WRONG: replication is critical for verifying results — it's the cornerstone of reliable science. (d) Correct: extraneous (confounding) variables can explain away the independent variable's effect, threatening internal validity.",
+  explanation: "falsifiability is essential. law describes what; theory explains why. WRONG: replication is critical for verifying results — it's the cornerstone of reliable science. extraneous (confounding) variables can explain away the independent variable's effect, threatening internal validity.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -332,7 +332,7 @@ export const questions: Question[] = [
     "All four scales allow all mathematical operations"
   ],
   correctAnswer: [0, 2],
-  explanation: "(a) Correct: nominal has no order (e.g., blood type), ordinal has order but unequal intervals (e.g., satisfaction ratings). (b) WRONG: it's the OPPOSITE — interval has an arbitrary zero (°C, °F), ratio has a true zero (K, kg, m). (c) Correct: ratio allows × and ÷ because it has a true zero; interval does not. (d) WRONG: nominal allows only counting and mode; ordinal allows median and rank tests; only ratio allows all operations.",
+  explanation: "nominal has no order (e.g., blood type), ordinal has order but unequal intervals (e.g., satisfaction ratings). WRONG: it's the OPPOSITE — interval has an arbitrary zero (°C, °F), ratio has a true zero (K, kg, m). ratio allows × and ÷ because it has a true zero; interval does not. WRONG: nominal allows only counting and mode; ordinal allows median and rank tests; only ratio allows all operations.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -411,7 +411,7 @@ export const questions: Question[] = [
     "Mean can be computed for any data type"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: mean is pulled by outliers; median is robust. (b) Correct: mode = most frequent. (c) Correct: symmetric distributions have all three roughly equal. (d) WRONG: mean can only be computed for NUMERICAL data (interval/ratio scales) — you cannot compute a mean of nominal data like climate type or blood type.",
+  explanation: "mean is pulled by outliers; median is robust. mode = most frequent. symmetric distributions have all three roughly equal. WRONG: mean can only be computed for NUMERICAL data (interval/ratio scales) — you cannot compute a mean of nominal data like climate type or blood type.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-04-Q010", sectionId: "RA-04", topicId: "ra-descriptive-statistics", difficulty: "medium", type: "single",
@@ -487,7 +487,7 @@ export const questions: Question[] = [
     "P(A) / P(B)"
   ],
   correctAnswer: 1,
-  explanation: "The MULTIPLICATION RULE for INDEPENDENT events: P(A and B) = P(A) × P(B). This only works when A and B are independent (one doesn't affect the other). For dependent events, you need conditional probability: P(A and B) = P(A) × P(B|A).",
+  explanation: "The MULTIPLICATION RULE for INDEPENDENT events: P(A and B) = P× P. This only works when A and B are independent (one doesn't affect the other). For dependent events, you need conditional probability: P(A and B) = P× P(B|A).",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-05-Q005", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
@@ -499,14 +499,14 @@ export const questions: Question[] = [
     "P(A) / P(B)"
   ],
   correctAnswer: 0,
-  explanation: "For MUTUALLY EXCLUSIVE events (cannot both occur): P(A or B) = P(A) + P(B). For NON-mutually-exclusive events, you must subtract the overlap: P(A or B) = P(A) + P(B) − P(A and B). This is the inclusion-exclusion principle. Coin flips, dice rolls are mutually exclusive examples.",
+  explanation: "For MUTUALLY EXCLUSIVE events (cannot both occur): P(A or B) = P+ P. For NON-mutually-exclusive events, you must subtract the overlap: P(A or B) = P+ P− P(A and B). This is the inclusion-exclusion principle. Coin flips, dice rolls are mutually exclusive examples.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-05-Q006", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "true_false",
   question: "The COMPLEMENT rule states that P(not A) = 1 − P(A).",
   options: ["True", "False"],
   correctAnswer: 0,
-  explanation: "True. The complement rule: P(not A) = 1 − P(A). This is the easiest way to solve 'at least one' problems. Example: P(at least one head in 3 coin flips) = 1 − P(no heads) = 1 − (1/2)³ = 1 − 1/8 = 7/8.",
+  explanation: "True. The complement rule: P(not A) = 1 − P. This is the easiest way to solve 'at least one' problems. Example: P(at least one head in 3 coin flips) = 1 − P(no heads) = 1 − (1/2)³ = 1 − 1/8 = 7/8.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-05-Q007", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
@@ -530,7 +530,7 @@ export const questions: Question[] = [
     "P(sure event) = 0"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: probability is bounded 0-1. (b) Correct: multiplication rule for independent events. (c) Correct: inclusion-exclusion. (d) WRONG: P(sure event) = 1 (not 0). P(impossible event) = 0.",
+  explanation: "probability is bounded 0-1. multiplication rule for independent events. inclusion-exclusion. WRONG: P(sure event) = 1 (not 0). P(impossible event) = 0.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-05-Q009", sectionId: "RA-05", topicId: "ra-probability", difficulty: "medium", type: "single",
@@ -690,7 +690,7 @@ export const questions: Question[] = [
     "Use 3D pie charts for visual appeal"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: start at 0 to avoid misleading truncation. (b) Correct: ~8% of men have red-green color blindness. (c) Correct: units are essential. (d) WRONG: 3D effects DISTORT proportions and should be avoided — they make pie slices look different sizes when they aren't.",
+  explanation: "start at 0 to avoid misleading truncation. ~8% of men have red-green color blindness. units are essential. WRONG: 3D effects DISTORT proportions and should be avoided — they make pie slices look different sizes when they aren't.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -784,7 +784,7 @@ export const questions: Question[] = [
     "Reverse causation is one possible explanation for a correlation"
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: correlation ≠ causation. (b) Correct: confounding is a common reason for spurious correlation. (c) WRONG: r = 0 means NO LINEAR relationship, but a strong NON-LINEAR (e.g., U-shaped) relationship can have r ≈ 0. (d) Correct: reverse causation (Y causes X) is one of three explanations for correlation besides confounding and coincidence.",
+  explanation: "correlation ≠ causation. confounding is a common reason for spurious correlation. WRONG: r = 0 means NO LINEAR relationship, but a strong NON-LINEAR (e.g., U-shaped) relationship can have r ≈ 0. reverse causation (Y causes X) is one of three explanations for correlation besides confounding and coincidence.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-07-Q010", sectionId: "RA-07", topicId: "ra-correlation-regression", difficulty: "medium", type: "single",
@@ -821,7 +821,7 @@ export const questions: Question[] = [
     "Observing the correlation in many different contexts"
   ],
   correctAnswer: [1, 2, 3],
-  explanation: "(a) WRONG: correlation alone NEVER establishes causation. (b) Correct: RCT is the gold standard — random assignment controls for confounders. (c) Correct: Bradford Hill criteria (temporality, consistency, plausibility, dose-response, etc.) provide strong evidence for causation in observational studies. (d) CORRECT: observing consistency across many contexts (replication) supports causation — but is not sufficient on its own. The strongest evidence combines experimental control with replicated observations.",
+  explanation: "WRONG: correlation alone NEVER establishes causation. RCT is the gold standard — random assignment controls for confounders. Bradford Hill criteria (temporality, consistency, plausibility, dose-response, etc.) provide strong evidence for causation in observational studies. CORRECT: observing consistency across many contexts (replication) supports causation — but is not sufficient on its own. The strongest evidence combines experimental control with replicated observations.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -915,7 +915,7 @@ export const questions: Question[] = [
     "Large sample size always guarantees a significant p-value"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: standard decision rule. (b) Correct: p-value = P(data | H₀). (c) Correct: Type I = false positive (reject true H₀). (d) WRONG: a large sample can give a significant p-value for even a TRIVIAL effect (statistical significance ≠ practical significance). The effect size matters too.",
+  explanation: "standard decision rule. p-value = P(data | H₀). Type I = false positive (reject true H₀). WRONG: a large sample can give a significant p-value for even a TRIVIAL effect (statistical significance ≠ practical significance). The effect size matters too.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-08-Q010", sectionId: "RA-08", topicId: "ra-inferential-stats", difficulty: "medium", type: "single",
@@ -952,7 +952,7 @@ export const questions: Question[] = [
     "Increase the true effect size (impossible without changing the underlying phenomenon)"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: larger n → smaller SE → more power. (b) Correct: higher α → larger rejection region → more power (but higher Type I error). (c) Correct: less variability → smaller SE → more power. (d) WRONG: the true effect size is a property of nature — you can't change it by study design. You can only design a study to detect it.",
+  explanation: "larger n → smaller SE → more power. higher α → larger rejection region → more power (but higher Type I error). less variability → smaller SE → more power. WRONG: the true effect size is a property of nature — you can't change it by study design. You can only design a study to detect it.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -1039,7 +1039,7 @@ export const questions: Question[] = [
     "Systematic error reduces accuracy; random error reduces precision"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct. (a) Yes: unreliable = inconsistent = can't be valid. (b) Yes: consistent but measuring the wrong thing = reliable but invalid. (c) Yes: that's the definition of validity. (d) Yes: systematic → bias → accuracy; random → noise → precision. These are the four foundational concepts of measurement quality.",
+  explanation: "All four are correct. Yes: unreliable = inconsistent = can't be valid. Yes: consistent but measuring the wrong thing = reliable but invalid. Yes: that's the definition of validity. Yes: systematic → bias → accuracy; random → noise → precision. These are the four foundational concepts of measurement quality.",
   sourceCitation: "Standard research methods curriculum" },
 
 { id: "RA-09-Q009", sectionId: "RA-09", topicId: "ra-research-quality", difficulty: "medium", type: "single",
@@ -1088,7 +1088,7 @@ export const questions: Question[] = [
     "All three types of error are equally easy to fix"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: random error = noise = reduced by larger n. (b) Correct: systematic error = bias = NOT reduced by larger samples — a biased scale stays biased. (c) Correct: gross errors (blunders like miscalibration, data entry errors) are preventable with good procedures and checks. (d) WRONG: systematic error is the hardest to fix — it often requires redesigning the measurement or study.",
+  explanation: "random error = noise = reduced by larger n. systematic error = bias = NOT reduced by larger samples — a biased scale stays biased. gross errors (blunders like miscalibration, data entry errors) are preventable with good procedures and checks. WRONG: systematic error is the hardest to fix — it often requires redesigning the measurement or study.",
   sourceCitation: "Standard research methods curriculum" },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -1169,7 +1169,7 @@ export const questions: Question[] = [
     "Consider confounding variables before concluding causation",
     "Statistical significance alone is sufficient — large effect is implied"],
    correctAnswer: [0, 1, 2],
-   explanation: "(a) Correct: always check UNITS and SCALE on axes before interpreting — a 'small' change can be large depending on the scale, and missing units make numbers meaningless. (b) Correct: be aware of cherry-picking — ask 'what data was NOT shown?' A study showing only supporting data is misleading. (c) Correct: consider confounding variables before concluding causation — correlation ≠ causation; third variables may explain the relationship. (d) WRONG: statistical significance (p < 0.05) only means the effect is unlikely to be ZERO, not that it is LARGE or important. With a large enough sample, even a tiny effect can be 'significant.' You also need EFFECT SIZE and PRACTICAL SIGNIFICANCE to judge importance.",
+   explanation: "always check UNITS and SCALE on axes before interpreting — a 'small' change can be large depending on the scale, and missing units make numbers meaningless. be aware of cherry-picking — ask 'what data was NOT shown?' A study showing only supporting data is misleading. consider confounding variables before concluding causation — correlation ≠ causation; third variables may explain the relationship. WRONG: statistical significance (p < 0.05) only means the effect is unlikely to be ZERO, not that it is LARGE or important. With a large enough sample, even a tiny effect can be 'significant.' You also need EFFECT SIZE and PRACTICAL SIGNIFICANCE to judge importance.",
    sourceCitation: "Standard research methods curriculum" }, 
 { id: "RA-10-Q009", sectionId: "RA-10", topicId: "ra-data-interpretation", difficulty: "medium", type: "single",
   question: "A truncated y-axis (starting at 50 instead of 0) on a bar chart has what effect?",
@@ -1192,7 +1192,7 @@ export const questions: Question[] = [
   "Coincidence with no explanation"
   ],
   correctAnswer: 2,
-  explanation: "HOT WEATHER is the confounding variable. Hot weather causes BOTH (a) more ice cream consumption and (b) more swimming (and thus more drowning). This creates a SPURIOUS CORRELATION between ice cream sales and drowning. Confounding is the classic explanation for misleading correlations.",
+  explanation: "HOT WEATHER is the confounding variable. Hot weather causes BOTH more ice cream consumption and more swimming (and thus more drowning). This creates a SPURIOUS CORRELATION between ice cream sales and drowning. Confounding is the classic explanation for misleading correlations.",
   sourceCitation: "Standard research methods curriculum" },
   
 { id: "RA-10-Q011", sectionId: "RA-10", topicId: "ra-data-interpretation", difficulty: "medium", type: "single",
@@ -1216,7 +1216,7 @@ export const questions: Question[] = [
   "Controlled experiments (hold the confounder constant)"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are valid methods to address confounding. (a) Randomization: randomly assigns confounders equally across groups. (b) Stratification: analyze within each stratum of the confounder. (c) Multivariate analysis: statistically adjust for the confounder. (d) Controlled experiments: hold the confounder constant. The best method depends on the study design and whether the confounder is known.",
+  explanation: "All four are valid methods to address confounding. Randomization: randomly assigns confounders equally across groups. Stratification: analyze within each stratum of the confounder. Multivariate analysis: statistically adjust for the confounder. Controlled experiments: hold the confounder constant. The best method depends on the study design and whether the confounder is known.",
   sourceCitation: "Standard research methods curriculum" },
   
   // Hard
@@ -1229,7 +1229,7 @@ export const questions: Question[] = [
   "This proves causation"
   ],
   correctAnswer: 1,
-  explanation: "WEALTH (or GDP) is the most likely confounder. Wealthier countries can afford (a) more chocolate consumption and (b) better research infrastructure → more Nobel prizes. This is a famous example (by Franz Messerli) used to illustrate spurious correlation. The lesson: correlations between country-level variables often have confounding explanations. Country-level correlations are especially prone to confounding because of the small number of data points (~200 countries).",
+  explanation: "WEALTH (or GDP) is the most likely confounder. Wealthier countries can afford more chocolate consumption and better research infrastructure → more Nobel prizes. This is a famous example (by Franz Messerli) used to illustrate spurious correlation. The lesson: correlations between country-level variables often have confounding explanations. Country-level correlations are especially prone to confounding because of the small number of data points (~200 countries).",
   sourceCitation: "Standard research methods curriculum" },
   
 { id: "RA-10-Q014", sectionId: "RA-10", topicId: "ra-data-interpretation", difficulty: "hard", type: "single",
@@ -1253,7 +1253,7 @@ export const questions: Question[] = [
   "It only applies to medical tests"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: base rate fallacy = ignoring background prevalence. (b) Correct: 99% accurate test in 1% disease = ~50% positive predictive value. (c) Correct: this is why positive screening tests are usually confirmed with a second, more specific test. (d) WRONG: the base rate fallacy applies to MANY contexts — security screenings, drug tests, spam filters, etc. — anywhere low base rates meet imperfect tests.",
+  explanation: "base rate fallacy = ignoring background prevalence. 99% accurate test in 1% disease = ~50% positive predictive value. this is why positive screening tests are usually confirmed with a second, more specific test. WRONG: the base rate fallacy applies to MANY contexts — security screenings, drug tests, spam filters, etc. — anywhere low base rates meet imperfect tests.",
   sourceCitation: "Standard research methods curriculum" },
   
 { id: "RA-10-Q016", sectionId: "RA-10", topicId: "ra-data-interpretation", difficulty: "hard", type: "single",
@@ -1345,7 +1345,7 @@ export const questions: Question[] = [
   "Discussion interprets findings and addresses limitations"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: "All four are correct descriptions of IMRaD sections. (a) Introduction = WHY (research question, hypothesis, significance). (b) Methods = HOW (detailed enough for replication). (c) Results = WHAT (objective findings, statistics, tables, figures — NO interpretation). (d) Discussion = SO WHAT (interpretation, comparison to literature, limitations, future directions). The structure mirrors the research process logically.",
+  explanation: "All four are correct descriptions of IMRaD sections. Introduction = WHY (research question, hypothesis, significance). Methods = HOW (detailed enough for replication). Results = WHAT (objective findings, statistics, tables, figures — NO interpretation). Discussion = SO WHAT (interpretation, comparison to literature, limitations, future directions). The structure mirrors the research process logically.",
   sourceCitation: "Standard research methods curriculum" },
   
 { id: "RA-11-Q008", sectionId: "RA-11", topicId: "ra-scientific-reporting", difficulty: "medium", type: "single",
@@ -1394,7 +1394,7 @@ export const questions: Question[] = [
   "It can suffer from reviewer bias and may miss flaws"
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "(a) Correct: peer review catches many errors and improves quality. (b) Correct: traditional peer review is SLOW, often taking 6-18 months. (c) WRONG: peer review is NOT the only quality control — replication, post-publication peer review, open data, pre-registration are other important mechanisms. The replication crisis in psychology and medicine showed peer review alone is insufficient. (d) Correct: reviewers can be biased (favoring famous authors, established theories) and miss flaws.",
+  explanation: "peer review catches many errors and improves quality. traditional peer review is SLOW, often taking 6-18 months. WRONG: peer review is NOT the only quality control — replication, post-publication peer review, open data, pre-registration are other important mechanisms. The replication crisis in psychology and medicine showed peer review alone is insufficient. reviewers can be biased (favoring famous authors, established theories) and miss flaws.",
 sourceCitation: "Standard research methods curriculum" },
   
   { id: "RA-11-Q012", sectionId: "RA-11", topicId: "ra-scientific-reporting", difficulty: "hard", type: "single",
@@ -1486,7 +1486,7 @@ sourceCitation: "Standard research methods curriculum" },
   "Ethics approval is required only for clinical drug trials"
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "(a) Correct: FFP (Fabrication, Falsification, Plagiarism) is the most serious category of research misconduct. (b) Correct: conflicts of interest (financial, personal, professional) that could bias research must be disclosed in publications and grants. (c) Correct: authorship should reflect actual substantial contributions (ICMJE criteria). (d) WRONG: ethics approval is required for ALMOST ALL research involving human subjects, not just drug trials — including surveys, interviews, observations, and use of existing data.",
+  explanation: "FFP (Fabrication, Falsification, Plagiarism) is the most serious category of research misconduct. conflicts of interest (financial, personal, professional) that could bias research must be disclosed in publications and grants. authorship should reflect actual substantial contributions (ICMJE criteria). WRONG: ethics approval is required for ALMOST ALL research involving human subjects, not just drug trials — including surveys, interviews, observations, and use of existing data.",
   sourceCitation: "Standard research methods curriculum" },
   
   { id: "RA-12-Q008", sectionId: "RA-12", topicId: "ra-research-ethics", difficulty: "medium", type: "single",
