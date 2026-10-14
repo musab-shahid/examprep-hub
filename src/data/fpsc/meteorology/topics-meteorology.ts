@@ -1369,7 +1369,7 @@ export const topics: Topic[] = [
   ],
   relatedTopics: ["meteo-hydrostatic-equation", "meteo-pressure-conversion"],
   content: true,
-  buildsOn: ["phy-gas-laws", "math-1-7"],
+  buildsOn: ["phy-kinetic-theory", "math-1-7"],
   leadsTo: ["meteo-hydrostatic-equation", "meteo-pressure-conversion"],
   usedIn: ["meteo-hydrostatic-equation", "meteo-pressure-instruments"]
 },
@@ -3011,7 +3011,7 @@ export const topics: Topic[] = [
     "Calling them baroclinic frontal cyclones.",
     "Ignoring shear."
   ],
-  relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-latent-heat"],
+  relatedTopics: ["meteo-cyclones-development", "meteo-arabian-sea-cyclones-local", "meteo-precipitation-processes"],
   content: true,
   buildsOn: ["meteo-coriolis-effect", "meteo-precipitation-processes"],
   leadsTo: ["meteo-arabian-sea-cyclones-local"],

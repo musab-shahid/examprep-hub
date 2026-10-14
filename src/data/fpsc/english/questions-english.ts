@@ -1092,7 +1092,7 @@ export const questions: Question[] = [
     "'Heavy metal' = dense metal"
   ],
   correctAnswer: [0, 1, 2, 3],
-  explanation: ""Heavy" is context-dependent: heavy rain (intense), heavy smoker (frequent), heavy workload (large amount), heavy metal (high density). Choose the sense that fits the sentence — not a single fixed definition.",
+  explanation: "\"Heavy\" is context-dependent: heavy rain (intense), heavy smoker (frequent), heavy workload (large amount), heavy metal (high density). Choose the sense that fits the sentence — not a single fixed definition.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17'] },
 
 { id: "ENG-02-Q053", sectionId: "ENG-02", topicId: "english-word-formation-and-context", difficulty: "hard", type: "single",

@@ -3,7 +3,7 @@ import type { Section } from '@/types';
 export const sections: Section[] = [
   // ── Meteorology & Climatology ──
   { id: 'METEO-01', subjectId: 'meteo-climatology', title: 'Atmosphere & Climate Foundations', topicCount: 6, questionCount: 28 },
-  { id: 'METEO-02', subjectId: 'meteo-climatology', title: 'Temperature, Heat & Energy', topicCount: 10, questionCount: 46 },
+  { id: 'METEO-02', subjectId: 'meteo-climatology', title: 'Temperature, Heat & Energy', topicCount: 10, questionCount: 49 },
   { id: 'METEO-03', subjectId: 'meteo-climatology', title: 'Pressure, Winds & Circulation', topicCount: 9, questionCount: 46 },
   { id: 'METEO-04', subjectId: 'meteo-climatology', title: 'Humidity, Clouds & Precipitation', topicCount: 10, questionCount: 48 },
   { id: 'METEO-05', subjectId: 'meteo-climatology', title: 'Weather Systems', topicCount: 6, questionCount: 31 },
@@ -43,7 +43,7 @@ export const sections: Section[] = [
   { id: 'PHY-11', subjectId: 'physics', title: 'Units, Measurement & Vectors', topicCount: 4, questionCount: 12 },
 
   // ── Mathematics ──
-  { id: 'MATH-01', subjectId: 'maths', title: 'Number Systems & Arithmetic', topicCount: 8, questionCount: 94 },
+  { id: 'MATH-01', subjectId: 'maths', title: 'Number Systems & Arithmetic', topicCount: 8, questionCount: 103 },
   { id: 'MATH-02', subjectId: 'maths', title: 'Algebra', topicCount: 7, questionCount: 80 },
   { id: 'MATH-03', subjectId: 'maths', title: 'Powers, Roots & Logarithms', topicCount: 4, questionCount: 48 },
   { id: 'MATH-04', subjectId: 'maths', title: 'Geometry & Mensuration', topicCount: 6, questionCount: 72 },
