@@ -5337,8 +5337,6 @@ export const questions: Question[] = [
   explanation: "True. Skill measures improvement over a baseline (climatology or persistence). Low error alone does not prove the forecast beat an easy reference.",
   sourceCitation: "Depth polish — forecast-skill type diversity" },
 
-  // ─── Density top-up: high-exam thin topics (aligned to study material) ───
-
   { id: "METEO-02-Q045", sectionId: "METEO-02", topicId: "meteo-greenhouse-effect", difficulty: "medium", type: "single",
     question: "The atmospheric window that lets surface longwave radiation escape to space most freely is mainly in which approximate IR band?",
     options: ["0.4–0.7 µm (visible)", "8–12 µm", "15 µm CO₂ band only", "Microwave 1–10 cm only"],
