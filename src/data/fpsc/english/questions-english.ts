@@ -1976,6 +1976,7 @@ export const questions: Question[] = [
   explanation: "Hardly requires had before the subject: Hardly had she entered when…",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
+// Module B
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Synonyms, Antonyms & Confusables
 // ═══════════════════════════════════════════════════════════════════
