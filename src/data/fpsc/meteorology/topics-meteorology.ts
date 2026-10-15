@@ -4566,54 +4566,6 @@ export const topics: Topic[] = [
   usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"],
 },
   
-export interface MeteoTopic {
-  id: string;
-  sectionId: string;
-  order: number;
-  title: string;
-  definition: string;
-  keyFacts: string[];
-  explanationSections: {
-    heading: string;
-    body: string;
-  }[];
-  examPoints: string[];
-  commonMistakes: {
-    mistake: string;
-    correction: string;
-    explanation: string;
-  }[];
-  qualitativeScenarios: {
-    scenario: string;
-    answer: string;
-    why: string;
-  }[];
-  comparisonTable?: {
-    title: string;
-    headers: string[];
-    rows: string[][];
-  };
-  subtopics: {
-    id: string;
-    title: string;
-    summary: string;
-    explanation: string;
-    examples: {
-      problem: string;
-      solution: string;
-      answer: string;
-    }[];
-    shortcuts: string[];
-    traps: string[];
-  }[];
-  relatedTopics: string[];
-  content: boolean;
-  buildsOn: string[];
-  leadsTo: string[];
-  usedIn: string[];
-}
-
-export const meteoSectionFTopics: MeteoTopic[] = [
 {
   id: "meteo-temperature-instruments",
   sectionId: "METEO-06",
