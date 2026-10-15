@@ -1927,10 +1927,15 @@ export const questions: Question[] = [
 // Medium
 { id: "ENG-01-Q147", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He discussed about the issue with us.", "He discussed the issue with us.", "He discussed on the issue with us.", "He discussed regarding the issue with us."],
+  options: [
+    "She is capable to lead the team.",
+    "She is capable of leading the team.",
+    "She is capable for leading the team.",
+    "She is capable leading the team."
+  ],
   correctAnswer: 1,
-  explanation: "The verb 'discuss' takes a DIRECT OBJECT with NO preposition. 'Discuss the issue' is correct — 'discuss about/on/regarding' are all incorrect additions.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Fixed pattern: capable of + -ing (not capable to).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
