@@ -1760,11 +1760,6 @@ export const questions: Question[] = [
   correctAnswer: 0,
   explanation: "All three errors fixed at once: (1) 'discussed' takes no preposition (drop 'about'), (2) 'returned' alone means came back (drop redundant 'back'), (3) 'enter' is intransitive and doesn't take 'into' (drop 'into'). One option fixes all three.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-// ═══════════════════════════════════════════════════════════════════
-// TOPIC: Common Errors — top-up from ENG-01-Q160
-// (Keep Q144–Q159; append these)
-// ═══════════════════════════════════════════════════════════════════
-
 // —— Easy ——
 { id: "ENG-01-Q160", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
