@@ -7,7 +7,7 @@ export const sections: Section[] = [
   { id: 'METEO-03', subjectId: 'meteo-climatology', title: 'Pressure, Winds & Circulation', topicCount: 9, questionCount: 46 },
   { id: 'METEO-04', subjectId: 'meteo-climatology', title: 'Humidity, Clouds & Precipitation', topicCount: 10, questionCount: 48 },
   { id: 'METEO-05', subjectId: 'meteo-climatology', title: 'Weather Systems', topicCount: 6, questionCount: 31 },
-  { id: 'METEO-06', subjectId: 'meteo-climatology', title: 'Instruments & Weather Observation', topicCount: 9, questionCount: 42 },
+  { id: 'METEO-06', subjectId: 'meteo-climatology', title: 'Instruments & Weather Observation', topicCount: 12, questionCount: 82 },
   { id: 'METEO-07', subjectId: 'meteo-climatology', title: 'Climate Classification', topicCount: 4, questionCount: 23 },
   { id: 'METEO-08', subjectId: 'meteo-climatology', title: 'Climate Variability & Change', topicCount: 7, questionCount: 29 },
   { id: 'METEO-09', subjectId: 'meteo-climatology', title: 'Pakistan Climate', topicCount: 7, questionCount: 30 },
