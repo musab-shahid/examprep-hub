@@ -4791,38 +4791,6 @@ meteo-13-q001
   explanation: "True. Geostrophic balance has wind parallel to isobars. Friction near the surface adds a cross-isobar component toward low pressure.",
   sourceCitation: "Aligned to geostrophic direction limits" },
 
-// ----- METEO-13 Oscillations -----
-{ id: "METEO-13-Q022", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "single",
-  question: "During a classic La Niña, the Walker circulation over the tropical Pacific tends to be?",
-  options: [
-    "Strengthened, with stronger trades and western Pacific convection",
-    "Completely absent at all times",
-    "Identical to a mid-latitude sea breeze",
-    "Replaced by the Beaufort scale"
-  ],
-  correctAnswer: 0,
-  explanation: "La Niña features a cooler eastern Pacific and stronger trade winds, reinforcing a vigorous Walker cell with ascent over the western Pacific.",
-  sourceCitation: "Aligned to ENSO Walker link" },
-
-{ id: "METEO-13-Q023", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "medium", type: "single",
-  question: "True or False: A positive NAO phase features?",
-  options: [
-    "A stronger-than-normal pressure contrast between the Icelandic low and Azores high",
-    "Always a tropical cyclone on the equator",
-    "Zero wind over the North Atlantic",
-    "Only Indian Ocean Dipole SST patterns"
-  ],
-  correctAnswer: 0,
-  explanation: "Positive NAO means an amplified Azores–Iceland dipole and typically stronger Atlantic westerlies in classic winter composites.",
-  sourceCitation: "Aligned to NAO dipole" },
-
-{ id: "METEO-13-Q024", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "easy", type: "true_false",
-  question: "True or False: The MJO is primarily an interannual mode with the same timescale as ENSO (many months to a year).",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. The MJO is intraseasonal — typically about 30–60 days — shorter than ENSO’s interannual timescale.",
-  sourceCitation: "Aligned to MJO timescale" },
-
 // ---------------------------------------------------------------------------
 // Optional depth polish — hard/application + type diversity on mild gaps
 // ---------------------------------------------------------------------------
@@ -4928,79 +4896,6 @@ meteo-13-q001
   correctAnswer: 0,
   explanation: "True. Skill measures improvement over a baseline (climatology or persistence). Low error alone does not prove the forecast beat an easy reference.",
   sourceCitation: "Depth polish — forecast-skill type diversity" },
-
-// METEO-13 — denser oscillation practice (+1 each)
-{ id: "METEO-13-Q025", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "hard", type: "single",
-  question: "During a strong El Niño, convection and rainfall anomalies in the tropical Pacific typically shift:",
-  options: [
-    "Eastward toward the central/eastern Pacific as the Walker cell weakens",
-    "Permanently only over Greenland",
-    "Only into the stratospheric polar vortex",
-    "Nowhere — convection never moves"
-  ],
-  correctAnswer: 0,
-  explanation: "El Niño warms the central/eastern equatorial Pacific and weakens the trades, so the main convective centre migrates east from its usual western Pacific home as the Walker circulation relaxes or shifts.",
-  sourceCitation: "Depth polish — ENSO application" },
-
-{ id: "METEO-13-Q026", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "hard", type: "true_false",
-  question: "True or False: Western boundary currents in subtropical gyres are typically narrow and strong compared with the broad, slower flow on the eastern side of the basin.",
-  options: ["True", "False"],
-  correctAnswer: 0,
-  explanation: "True. Western intensification produces swift, narrow currents such as the Gulf Stream and Kuroshio, while eastern boundary flows are broader and weaker.",
-  sourceCitation: "Depth polish — ocean currents" },
-
-{ id: "METEO-13-Q027", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "hard", type: "single",
-  question: "Why should an FPSC-style answer avoid saying “El Niño always causes drought in Pakistan”?",
-  options: [
-    "Teleconnections change odds, not certainties, and other modes can dominate a given year",
-    "Pakistan has no summer rainfall in any climate dataset",
-    "ENSO only affects the Southern Hemisphere",
-    "Drought is defined only by Beaufort force"
-  ],
-  correctAnswer: 0,
-  explanation: "ENSO shifts probabilities. IOD phase, monsoon internal variability, and regional dynamics can produce outcomes that break a simple El Niño → drought rule.",
-  sourceCitation: "Depth polish — ENSO impacts application" },
-
-{ id: "METEO-13-Q028", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "hard", type: "true_false",
-  question: "True or False: A positive IOD places cooler-than-normal SST in the eastern equatorial Indian Ocean and warmer SST toward the west.",
-  options: ["True", "False"],
-  correctAnswer: 0,
-  explanation: "True. That east-cool / west-warm dipole, with matching wind anomalies, defines the positive IOD phase.",
-  sourceCitation: "Depth polish — IOD" },
-
-{ id: "METEO-13-Q029", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "hard", type: "single",
-  question: "How is the Arctic Oscillation (AO) best distinguished from ENSO in exam answers?",
-  options: [
-    "AO is a high-latitude annular atmospheric mode; ENSO is a tropical Pacific coupled ocean–atmosphere mode",
-    "AO is identical to the Indian Ocean Dipole",
-    "AO only measures monsoon onset dates in Karachi",
-    "AO replaces the need for any pressure observations"
-  ],
-  correctAnswer: 0,
-  explanation: "Keep the basins and timescales straight: AO/NAO live in high-latitude pressure patterns; ENSO lives in tropical Pacific SST and Walker circulation coupling.",
-  sourceCitation: "Depth polish — NAO/AO" },
-
-{ id: "METEO-13-Q030", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "hard", type: "single",
-  question: "Why is the MJO especially useful for sub-seasonal monsoon forecasting?",
-  options: [
-    "It organises active and break spells on roughly 30–60 day timescales inside the season",
-    "It sets the 100,000-year eccentricity cycle",
-    "It replaces all NWP models permanently",
-    "It only forecasts tomorrow’s persistence"
-  ],
-  correctAnswer: 0,
-  explanation: "The MJO’s intraseasonal convective pulse modulates weekly-to-monthly rainfall bursts and breaks — the timescale between daily weather and seasonal ENSO.",
-  sourceCitation: "Depth polish — MJO application" },
-
-{ id: "METEO-13-Q031", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "hard", type: "true_false",
-  question: "True or False: AMOC slowdown research implies that global greenhouse warming stops being relevant to North Atlantic climate.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. AMOC changes redistribute heat regionally within a greenhouse-warmed climate system. They do not cancel the global CO₂ forcing story; both can matter together.",
-  sourceCitation: "Depth polish — AMOC" },
-
-
-
 
   // ─── Density top-up: high-exam thin topics (aligned to study material) ───
 
