@@ -1169,7 +1169,7 @@ export const questions: Question[] = [
 
 // ============================= SECTION F — QUESTIONS =============================
 
-// ============================= SECTION G =============================
+// ============================= SECTION G — QUESTIONS =============================
 
 { id: "METEO-07-Q001", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
   question: "In the Köppen system, Group A (Tropical) climates require the coldest month's average temperature to be at least?",
