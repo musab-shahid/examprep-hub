@@ -104,15 +104,10 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q012", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "He said, “I will go tomorrow.” Correct reported speech:",
-  options: [
-    "He said he will go tomorrow.",
-    "He said he would go the next day.",
-    "He said he would go tomorrow.",
-    "He says he would go tomorrow."
-  ],
+  question: "While I _____ the data, the power failed.",
+  options: ["analysed", "was analysing", "have analysed", "had been analyse"],
   correctAnswer: 1,
-  explanation: "will → would; I → he; tomorrow → the next day. All three shifts are required.",
+  explanation: "Past continuous marks the background action in progress when another past event interrupted it.",
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q013", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "true_false",
