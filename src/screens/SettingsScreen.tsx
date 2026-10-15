@@ -142,8 +142,8 @@ export function SettingsScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-6 animate-fade-in-up">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Settings</h1>
+      <div className="mb-3 sm:mb-6 animate-fade-in-up">
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Settings</h1>
         <p className="text-slate-500 mt-1">App information and data management</p>
       </div>
 
@@ -155,7 +155,7 @@ export function SettingsScreen() {
       )}
 
       {/* App info — global totals across both tracks */}
-      <Card className="p-5 mb-4 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+      <Card className="p-3.5 sm:p-5 mb-4 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 rounded-card bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">
             <Library className="w-7 h-7 text-white" />

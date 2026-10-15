@@ -105,11 +105,11 @@ export function ProgressScreen() {
 return (
     <PageContainer>
       <div className="mb-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Progress</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Progress</h1>
       </div>
       <PurposeLine>See your growth, find your gaps, stay motivated.</PurposeLine>
 
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
@@ -137,7 +137,7 @@ return (
           </div>
 
           {/* Accuracy chart */}
-          <Card className="p-5 mb-4">
+          <Card className="p-3.5 sm:p-5 mb-4">
             <div className="flex items-start justify-between mb-4 flex-wrap gap-2">
               <div>
                 <h3 className="font-semibold text-slate-900">Accuracy over time</h3>
@@ -170,7 +170,7 @@ return (
 
           {/* By subject (all) or section accuracy (single) */}
           {isAllSubjects ? (
-            <Card className="p-5 mb-4">
+            <Card className="p-3.5 sm:p-5 mb-4">
               <div className="mb-4">
                 <h3 className="font-semibold text-slate-900">By Subject</h3>
                 {practicedSubjectsNote(isAllSubjects) && (
@@ -200,7 +200,7 @@ return (
               </div>
             </Card>
           ) : (
-            <Card className="p-5 mb-4">
+            <Card className="p-3.5 sm:p-5 mb-4">
               <h3 className="font-semibold text-slate-900 mb-4">Section Accuracy</h3>
               <div className="space-y-3">
                 {currentStats.sections.map((section) => {
@@ -225,7 +225,7 @@ return (
           )}
 
           {/* Weakest topics */}
-          <Card className="p-5 mb-4">
+          <Card className="p-3.5 sm:p-5 mb-4">
             <div className="mb-3">
               <h3 className="font-semibold text-slate-900">Weakest Topics</h3>
               {practicedSubjectsNote(isAllSubjects) && (

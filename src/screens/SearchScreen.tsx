@@ -73,8 +73,8 @@ export function SearchScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Search</h1>
+      <div className="mb-3 sm:mb-6">
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Search</h1>
         <p className="text-slate-500 mt-1">Search across topic titles, definitions, key facts, and formulas</p>
       </div>
 
@@ -92,7 +92,7 @@ export function SearchScreen() {
         </Card>
       ) : (
         <>
-          <div className="relative mb-6">
+          <div className="relative mb-3 sm:mb-6">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             <input
               type="text"

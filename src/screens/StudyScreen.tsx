@@ -77,13 +77,13 @@ export function StudyScreen() {
     return (
       <PageContainer>
         <div className="mb-2">
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Learn</h1>
+          <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
         </div>
         <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
-        <div className="mb-6">
+        <div className="mb-3 sm:mb-6">
           <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {subjectsWithContent.map((subject) => {
             const topics = sd.topicsFor(subject.id as SubjectId);
             const studied = topics.filter((t) => data.studiedTopics.includes(t.id)).length;
@@ -116,11 +116,11 @@ export function StudyScreen() {
   return (
     <PageContainer>
       <div className="mb-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Learn</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
       </div>
       <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
 
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
@@ -134,7 +134,7 @@ export function StudyScreen() {
           {continueTopic && (() => {
             const contColor = getSubjectColor(subjectId as string);
             return (
-            <ActionCard className="mb-6" borderColorClass={contColor.borderLeft}>
+            <ActionCard className="mb-3 sm:mb-6" borderColorClass={contColor.borderLeft}>
               <p className={`text-xs font-semibold uppercase tracking-wide mb-1 ${contColor.text}`}>Continue Learning</p>
               <p className="text-lg font-bold text-slate-900 mb-1">{continueTopic.title}</p>
               <p className="text-slate-500 text-sm mb-1">Section: {sectionMap[continueTopic.sectionId]?.title ?? continueTopic.sectionId}</p>
@@ -143,7 +143,7 @@ export function StudyScreen() {
               </p>
               <button
                 onClick={() => navigate({ screen: 'topic', topicId: continueTopic.id })}
-                className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl ${contColor.bar} text-white text-sm font-semibold hover:opacity-90 transition-opacity`}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-xl ${contColor.bar} text-white text-sm font-semibold hover:opacity-90 transition-opacity`}
               >
                 Continue Reading <ArrowRight className="w-4 h-4" />
               </button>
@@ -166,7 +166,7 @@ export function StudyScreen() {
             </button>
           )}
 
-          <div className={`grid gap-3 mb-6 ${subjectId === 'meteo-climatology' ? 'grid-cols-2' : 'grid-cols-1'}`}>
+          <div className={`grid gap-2 sm:gap-3 mb-3 sm:mb-6 ${subjectId === 'meteo-climatology' ? 'grid-cols-2' : 'grid-cols-1'}`}>
             <button onClick={() => navigate({ screen: 'formulas' })} className="flex items-center gap-3 p-4 rounded-2xl bg-white border border-slate-200 hover:bg-slate-50 transition-colors text-left">
               <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center shrink-0"><Calculator className="w-5 h-5 text-slate-700" /></div>
               <div className="min-w-0"><p className="font-semibold text-slate-900 text-sm">Formula Vault</p><p className="text-slate-500 text-xs">All formulas in {subjectTitle}</p></div>
@@ -180,7 +180,7 @@ export function StudyScreen() {
           </div>
 
           {/* Sections accordion */}
-          <Card className="p-5 mb-6">
+          <Card className="p-3.5 sm:p-5 mb-3 sm:mb-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-slate-900">Sections</h3>
               <span className="text-slate-400 text-sm">{subjectSections.length}</span>
@@ -271,11 +271,11 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
   return (
     <PageContainer>
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <div className="flex items-center gap-2 mb-1">
           <SectionBadge section={section} />
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">{section.title}</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">{section.title}</h1>
         <p className="text-slate-500 mt-1">{section.topicCount} topics</p>
       </div>
       <div className="space-y-2">
@@ -401,7 +401,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
         <div className="mb-4">
           <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{topic.title}</h1>
+          <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight mt-2">{topic.title}</h1>
         </div>
         <Card className="p-8">
           <EmptyState title="Content Coming Soon" message="This topic hasn't been authored yet." icon={<BookOpen className="w-12 h-12" />} />
@@ -416,20 +416,20 @@ export function TopicScreen({ topicId }: { topicId: string }) {
   return (
     <PageContainer>
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">{topic.title}</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight mt-2">{topic.title}</h1>
         {isStudied && <span className="inline-flex items-center gap-1 text-success-600 text-sm font-medium mt-2"><BookOpen className="w-4 h-4" /> Studied</span>}
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {topic.definition && (
-          <Card className="p-5 border-l-4 border-l-sky-500">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-sky-500">
             <div className="flex items-center gap-2 mb-2"><BookOpen className="w-4 h-4 text-sky-500" /><h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Definition</h3></div>
             <p className="text-slate-700 text-base leading-relaxed"><MathText text={topic.definition} /></p>
           </Card>
         )}
         {topic.keyFacts && topic.keyFacts.length > 0 && (
-          <Card className="p-5">
+          <Card className="p-3.5 sm:p-5">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Key Facts</h3>
             <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" /><MathText text={fact} /></li>)}</ul>
           </Card>
@@ -495,7 +495,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           <QuantFormulasBlock formulas={(topic as Topic & { quantFormulas?: QuantFormulaEntry[] }).quantFormulas!} />
         )}
         {topic.examPoints && topic.examPoints.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/50">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-amber-500 bg-amber-50/50">
             <div className="flex items-center gap-2 mb-3"><span className="text-warning-600 font-semibold text-sm uppercase tracking-wide">Exam Points</span></div>
             <ul className="space-y-2">{topic.examPoints.map((point, i) => <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><Star className="w-3.5 h-3.5 text-warning-500 mt-0.5 shrink-0 fill-warning-500" /><MathText text={point} /></li>)}</ul>
           </Card>
@@ -508,7 +508,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
         {(() => { const rawEx = topic.workedExample ?? (topic as Topic & { workedExamples?: typeof topic.workedExample }).workedExamples; if (!rawEx) return null; const examples = Array.isArray(rawEx) ? rawEx : [rawEx]; return examples.map((ex, ei) => (
           <Card key={ei} className="p-5 border-l-4 border-l-emerald-500 bg-emerald-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-emerald-700 font-semibold text-sm uppercase tracking-wide">Worked Example{examples.length > 1 ? ` ${ei + 1}` : ''}</span></div>
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Problem</p><p className="text-slate-800 text-base leading-relaxed"><MathText text={ex.problem} /></p></div>
               {ex.solution && typeof ex.solution === 'string' && <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Solution</p><p className="text-slate-700 text-sm leading-relaxed"><MathText text={ex.solution} /></p></div>}
               {ex.solution && typeof ex.solution === 'object' && <div><p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Solution</p><div className="space-y-2">{Object.entries(ex.solution).map(([key, val]) => <div key={key}><p className="text-slate-900 text-sm font-medium"><MathText text={key} /></p><p className="text-slate-600 text-sm leading-relaxed"><MathText text={val} /></p></div>)}</div></div>}
@@ -519,9 +519,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           </Card>
         )); })()}
         {topic.commonMistakes && topic.commonMistakes.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-rose-500 bg-rose-50/40">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-rose-500 bg-rose-50/40">
             <div className="flex items-center gap-2 mb-3"><span className="text-rose-700 font-semibold text-sm uppercase tracking-wide">Common Mistakes</span></div>
-            <ul className="space-y-3">{topic.commonMistakes.map((mistake, i) => {
+            <ul className="space-y-2 sm:space-y-3">{topic.commonMistakes.map((mistake, i) => {
               if (typeof mistake === 'string') {
                 return <li key={i} className="flex items-start gap-2 text-slate-800 text-sm leading-relaxed"><XCircle className="w-3.5 h-3.5 text-danger-500 mt-0.5 shrink-0" /><MathText text={mistake} /></li>;
               }
@@ -545,7 +545,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             const intro = Array.isArray(chooser) ? undefined : (chooser as MethodChooser).intro;
             if (!steps?.length) return null;
             return (
-              <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+              <Card className="p-3.5 sm:p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
                 <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{title}</h3>
                 {intro && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={intro} /></p>}
                 <ul className="space-y-2">
@@ -577,7 +577,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
                 </li>
               ));
             return (
-              <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+              <Card className="p-3.5 sm:p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
                 <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">{tc.title ?? 'Which method / equation?'}</h3>
                 {tc.root && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={tc.root} /></p>}
                 <ul className="space-y-2">{renderBranches(tc.branches, 0)}</ul>
@@ -587,10 +587,10 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           const mc = chooser as MethodChooser;
           if (!mc.options?.length) return null;
           return (
-            <Card className="p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
+            <Card className="p-3.5 sm:p-5 border-l-4 border-l-sky-500 bg-sky-50/40">
               <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-2">Which method / equation?</h3>
               {mc.scenario && <p className="text-slate-600 text-sm mb-3 leading-relaxed"><MathText text={mc.scenario} /></p>}
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {mc.options.map((opt, i) => (
                   <div key={i} className="space-y-1">
                     {opt.name && <p className="text-sm font-semibold text-sky-800"><MathText text={opt.name} /></p>}
@@ -604,9 +604,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           );
         })()}
         {topic.limitCases && topic.limitCases.length > 0 && (
-          <Card className="p-5">
+          <Card className="p-3.5 sm:p-5">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Limit cases</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {topic.limitCases.map((lc, i) => {
                 if (lc.condition) {
                   return (
@@ -630,9 +630,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           </Card>
         )}
         {topic.misconceptionRemediation && topic.misconceptionRemediation.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-amber-500 bg-amber-50/40">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-amber-500 bg-amber-50/40">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Misconceptions</h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {topic.misconceptionRemediation.map((m, i) => (
                 <div key={i} className="space-y-1">
                   <p className="text-sm font-medium text-amber-900"><XCircle className="inline w-3.5 h-3.5 text-danger-500 -mt-0.5 mr-1" /><MathText text={m.misconception ?? (m as { name?: string }).name} /></p>
@@ -646,9 +646,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           </Card>
         )}
         {topic.qualitativeScenarios && topic.qualitativeScenarios.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-violet-500 bg-violet-50/30">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-violet-500 bg-violet-50/30">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Think it through</h3>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {topic.qualitativeScenarios.map((q, i) => (
                 <div key={i} className="space-y-1">
                   <p className="text-sm font-medium text-slate-900"><MathText text={q.scenario ?? (q as { question?: string }).question} /></p>
@@ -660,9 +660,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           </Card>
         )}
         {Array.isArray(topic.postRestriction) && topic.postRestriction.length > 0 && (
-          <Card className="p-5 border-l-4 border-l-rose-400 bg-rose-50/30">
+          <Card className="p-3.5 sm:p-5 border-l-4 border-l-rose-400 bg-rose-50/30">
             <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Post-Restriction Rules</h3>
-            <div className="space-y-3">
+            <div className="space-y-2 sm:space-y-3">
               {topic.postRestriction.map((r, i) => (
                 <div key={i} className="space-y-1">
                   <p className="text-sm font-medium text-rose-800"><MathText text={r.rule} /></p>
@@ -800,12 +800,12 @@ function IdiomGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.idioms.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <Library className="w-5 h-5 text-slate-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Idioms by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -854,12 +854,12 @@ function SubstitutionGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.entries.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <BookCopy className="w-5 h-5 text-violet-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">One-Word Substitutions by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -930,12 +930,12 @@ function VocabularyGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
     .filter((g) => g.words.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <BookA className="w-5 h-5 text-sky-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Vocabulary by Group</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -1004,12 +1004,12 @@ function PrefixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.prefixes.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <Type className="w-5 h-5 text-teal-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Prefixes by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -1065,12 +1065,12 @@ function SuffixGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.suffixes.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <PenLine className="w-5 h-5 text-indigo-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Suffixes by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -1126,12 +1126,12 @@ function RootGroupsBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.roots.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <Atom className="w-5 h-5 text-orange-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Roots by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -1184,12 +1184,12 @@ function GrammarRulesBlock({ groups, expandedGroups, onToggleGroup }: {
   const validGroups = groups.filter((g) => g.rules.length > 0);
 
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <Sparkles className="w-5 h-5 text-warning-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Grammar Rules by Category</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {validGroups.map((group, gi) => {
           const isExpanded = expandedGroups.has(gi);
           return (
@@ -1265,12 +1265,12 @@ function SubtopicsBlock({ subtopics, expandedGroups, onToggleGroup }: {
   onToggleGroup: (index: number) => void;
 }) {
   return (
-    <Card className="p-5">
+    <Card className="p-3.5 sm:p-5">
       <div className="flex items-center gap-2 mb-4">
         <GraduationCap className="w-5 h-5 text-warning-600" />
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Subtopics</h3>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {subtopics.map((sub, si) => {
           const isExpanded = expandedGroups.has(si);
           return (
@@ -1339,7 +1339,7 @@ function QuantFormulasBlock({ formulas }: { formulas: QuantFormulaEntry[] }) {
         </div>
         <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Key Formulas</h3>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {formulas.map((f, fi) => (
           <div key={fi} className="pb-4 border-b border-slate-100 last:border-0 last:pb-0">
             <p className="text-slate-900 text-sm font-semibold mb-2">{f.name}</p>

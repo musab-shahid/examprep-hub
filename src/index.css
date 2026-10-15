@@ -123,7 +123,7 @@
 
 /* Bottom padding so content clears the fixed mobile nav (+ iOS home indicator) */
 .pb-mobile-nav {
-  padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
 }
 @media (min-width: 1024px) {
   .pb-mobile-nav {

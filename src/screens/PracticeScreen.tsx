@@ -150,7 +150,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
           <button onClick={() => setView('modes')} className="flex items-center gap-1 text-slate-500 text-sm hover:text-slate-700 mb-2">
             <ArrowLeft className="w-4 h-4" /> Back
           </button>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Focus Practice</h1>
+          <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Focus Practice</h1>
           <p className="text-slate-500 mt-1">Select topics to drill — {selectedFocusTopics.size} selected</p>
         </div>
 
@@ -164,7 +164,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
           </Card>
         ) : (
           <>
-            <div className="space-y-4 mb-6">
+            <div className="space-y-4 mb-3 sm:mb-6">
               {focusSections.map((section) => {
                 const sectionTopics = topicsBySection(section.id);
                 return (
@@ -274,7 +274,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
   return (
     <PageContainer>
       <div className="mb-2">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Practice</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Practice</h1>
       </div>
       <PurposeLine>Test yourself deliberately. Five paths, one clear goal.</PurposeLine>
 
@@ -282,7 +282,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
-      <p className="text-slate-500 text-sm font-medium mb-6">
+      <p className="text-slate-500 text-sm font-medium mb-3 sm:mb-6">
         {totalAvailable} question{totalAvailable !== 1 ? 's' : ''} available
       </p>
 
@@ -292,7 +292,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
         </Card>
       ) : (
         <>
-          <div className="space-y-3 mb-6">
+          <div className="space-y-3 mb-3 sm:mb-6">
             {/* Quick Practice */}
             <SimpleModeCard
               icon={<Zap className="w-5 h-5" />}
@@ -523,7 +523,7 @@ function SimpleModeCard({ icon, iconBg, title, description, bestFor, onClick, di
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
+      className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
     >
       <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
         {icon}
@@ -557,7 +557,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
       <button
         onClick={onToggle}
         disabled={disabled}
-        className="w-full flex items-start gap-4 p-5 text-left disabled:cursor-not-allowed"
+        className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 text-left disabled:cursor-not-allowed"
       >
         <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
           {icon}

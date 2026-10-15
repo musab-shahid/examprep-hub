@@ -4,7 +4,7 @@ import { getSubjectColor } from '@/data/subject-colors';
 
 export function LoadingSpinner({ label = 'Loading…' }: { label?: string }) {
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-6 text-center" role="status" aria-live="polite">
+    <div className="flex flex-col items-center justify-center py-10 sm:py-20 px-4 sm:px-6 text-center" role="status" aria-live="polite">
       <div className="w-8 h-8 border-2 border-slate-200 border-t-brand-500 rounded-full animate-spin mb-3" />
       <p className="text-slate-500 text-sm">{label}</p>
     </div>
@@ -35,7 +35,7 @@ export function Skeleton({
 
 export function PageContainer({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`px-4 sm:px-6 py-5 sm:py-6 max-w-5xl mx-auto ${className}`}>
+    <div className={`px-3 sm:px-6 py-3 sm:py-6 max-w-5xl mx-auto ${className}`}>
       {children}
     </div>
   );
@@ -54,11 +54,11 @@ export function ScreenHeader({
   className?: string;
 }) {
   return (
-    <div className={`mb-5 sm:mb-6 ${className}`}>
-      <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">{title}</h1>
-      {subtitle && <p className="text-slate-500 mt-1 text-sm sm:text-base">{subtitle}</p>}
+    <div className={`mb-3 sm:mb-6 ${className}`}>
+      <h1 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">{title}</h1>
+      {subtitle && <p className="text-slate-500 mt-0.5 sm:mt-1 text-sm sm:text-base leading-snug">{subtitle}</p>}
       {purpose && (
-        <p className="text-sm text-slate-500 italic max-w-2xl mt-2 leading-relaxed">{purpose}</p>
+        <p className="text-sm text-slate-500 italic max-w-2xl mt-1.5 sm:mt-2 leading-snug sm:leading-relaxed">{purpose}</p>
       )}
     </div>
   );
@@ -332,7 +332,7 @@ export function ActionCard({
 }) {
   return (
     <div
-      className={`bg-white rounded-card border border-slate-200 border-l-4 ${borderColorClass} ${CARD_ELEVATION[elevation]} p-5 sm:p-6 ${className}`}
+      className={`bg-white rounded-card border border-slate-200 border-l-4 ${borderColorClass} ${CARD_ELEVATION[elevation]} p-3.5 sm:p-6 ${className}`}
       style={style}
     >
       {children}
@@ -342,7 +342,7 @@ export function ActionCard({
 
 export function PurposeLine({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <p className={`text-sm text-slate-500 italic max-w-2xl mb-5 sm:mb-6 leading-relaxed ${className}`}>{children}</p>
+    <p className={`text-sm text-slate-500 italic max-w-2xl mb-3 sm:mb-6 leading-snug sm:leading-relaxed ${className}`}>{children}</p>
   );
 }
 

@@ -128,7 +128,7 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
     <PageContainer>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 flex items-center gap-2">
+          <h1 className="text-xl sm:text-3xl font-bold text-slate-900 flex items-center gap-2">
             <Layers className="w-7 h-7 text-brand-500" />
             Flashcards
           </h1>
@@ -204,7 +204,7 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
           >
             <Card
               elevation="raised"
-              className={`p-6 sm:p-8 min-h-[220px] flex flex-col justify-center transition-colors ${
+              className={`p-4 sm:p-6 sm:p-8 min-h-[220px] flex flex-col justify-center transition-colors ${
                 flipped ? 'bg-sky-50/80 border-sky-200' : 'bg-white'
               }`}
             >

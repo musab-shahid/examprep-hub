@@ -311,7 +311,7 @@ export function MobileNav() {
                 type="button"
                 onClick={item.onClick}
                 aria-current={active ? 'page' : undefined}
-                className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-btn transition-colors duration-DEFAULT relative min-w-[56px] min-h-touch-lg touch-manipulation ${
+                className={`flex flex-col items-center gap-0.5 px-1.5 py-1 rounded-btn transition-colors duration-DEFAULT relative min-w-[48px] min-h-touch touch-manipulation ${
                   active ? activeColor : 'text-slate-500 hover:text-slate-300'
                 }`}
               >
@@ -324,7 +324,7 @@ export function MobileNav() {
                   />
                 )}
                 <Icon className="w-5 h-5" strokeWidth={active ? 2.25 : 2} />
-                <span className="text-[11px] font-medium leading-tight">{item.label}</span>
+                <span className="text-[10px] sm:text-[11px] font-medium leading-tight">{item.label}</span>
               </button>
             );
           })}
@@ -333,7 +333,7 @@ export function MobileNav() {
             onClick={() => setMoreOpen(true)}
             aria-expanded={moreOpen}
             aria-label={reviewDue > 0 ? `More, ${reviewDue} reviews due` : 'More'}
-            className={`flex flex-col items-center gap-0.5 px-2.5 py-1.5 rounded-btn transition-colors duration-DEFAULT relative min-w-[56px] min-h-touch-lg touch-manipulation ${
+            className={`flex flex-col items-center gap-0.5 px-1.5 py-1 rounded-btn transition-colors duration-DEFAULT relative min-w-[48px] min-h-touch touch-manipulation ${
               moreActive ? 'text-brand-400' : 'text-slate-500 hover:text-slate-300'
             }`}
           >
@@ -348,7 +348,7 @@ export function MobileNav() {
                 </span>
               )}
             </span>
-            <span className="text-[11px] font-medium leading-tight">More</span>
+            <span className="text-[10px] sm:text-[11px] font-medium leading-tight">More</span>
           </button>
         </div>
       </nav>

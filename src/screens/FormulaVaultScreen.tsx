@@ -97,14 +97,14 @@ export function FormulaVaultScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Formulas</h1>
+      <div className="mb-3 sm:mb-6">
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Formulas</h1>
         <p className="text-slate-500 mt-1">
           {isAllSubjects ? 'All formulas across all subjects' : `All formulas in ${subjectTitle}`}, grouped by category{loading ? ' · loading more…' : ''}
         </p>
       </div>
 
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
@@ -117,7 +117,7 @@ export function FormulaVaultScreen() {
           />
         </Card>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-3 sm:space-y-6">
           {categories.map((cat) => {
             const formulas = scopedFormulas.filter((f) => f.category === cat);
             if (formulas.length === 0) return null;

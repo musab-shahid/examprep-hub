@@ -164,7 +164,7 @@ export function DashboardScreen() {
   return (
     <PageContainer>
       <div className="mb-2 animate-fade-in-up">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Home</h1>
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Home</h1>
       </div>
       <PurposeLine className="animate-fade-in-up">Your study command center — see what to do and how you're doing.</PurposeLine>
 
@@ -183,7 +183,7 @@ export function DashboardScreen() {
               )}
             </div>
             <div className="text-right shrink-0">
-              <p className="text-2xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
+              <p className="text-xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
                 {formatCountdownShort(examCountdown)}
               </p>
               <p className="text-[11px] text-amber-600/80 mt-1">
@@ -247,7 +247,7 @@ export function DashboardScreen() {
       )}
 
       {/* Hero card */}
-      <Card elevation="hero" className="hero-glow p-5 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+      <Card elevation="hero" className="hero-glow p-5 sm:p-4 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="min-w-0">
             <p className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">{getGreeting()}!</p>

@@ -70,12 +70,12 @@ export function RevisionScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Review</h1>
+      <div className="mb-3 sm:mb-6">
+        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Review</h1>
         <p className="text-slate-500 mt-1">Spaced repetition — review topics before you forget them</p>
       </div>
 
-      <div className="mb-6">
+      <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
@@ -90,7 +90,7 @@ export function RevisionScreen() {
       ) : (
         <>
           {/* Schedule info */}
-          <Card className="p-4 mb-6 bg-slate-50/50">
+          <Card className="p-4 mb-3 sm:mb-6 bg-slate-50/50">
             <div className="flex items-center gap-2 mb-2">
               <Clock className="w-4 h-4 text-slate-600" />
               <p className="text-slate-700 text-sm font-medium">Adaptive schedule (ease-based intervals)</p>
@@ -112,7 +112,7 @@ export function RevisionScreen() {
             </Card>
           ) : (
             <>
-            <Card className="p-4 mb-6 bg-gradient-to-r from-brand-50 to-indigo-50 border border-brand-100">
+            <Card className="p-4 mb-3 sm:mb-6 bg-gradient-to-r from-brand-50 to-indigo-50 border border-brand-100">
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">{totalDue} topic{totalDue !== 1 ? 's' : ''} due for review</p>
@@ -126,7 +126,7 @@ export function RevisionScreen() {
                 </Button>
               </div>
             </Card>
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-6">
               {/* High Priority */}
               {groups.high.length > 0 && (
                 <RevisionGroup

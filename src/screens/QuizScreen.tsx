@@ -996,7 +996,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       )}
 
       {/* Question */}
-      <Card className="p-5 sm:p-6 mb-4">
+      <Card className="p-3.5 sm:p-5 sm:p-6 mb-4">
         <p className="text-slate-900 text-lg font-medium leading-relaxed mb-5">{currentQ.question}</p>
         {currentQ.type === 'matching' ? (
           <MatchingOptions question={currentQ} selectedIndices={state.selectedIndices} checked={state.checked} onSelect={toggleOption} />
@@ -1063,7 +1063,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       {/* After-answer feedback — live region + multi-correct + tap to advance */}
       {state.checked && (
         <div
-          className={`rounded-card border bg-white shadow-card p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-success-100 hover:border-success-100' : 'border-danger-100 hover:border-danger-100'}`}
+          className={`rounded-card border bg-white shadow-card p-3.5 sm:p-5 mb-4 cursor-pointer select-none ${correctAns ? 'border-success-100 hover:border-success-100' : 'border-danger-100 hover:border-danger-100'}`}
           role="button"
           tabIndex={0}
           aria-label="Tap or press Enter to continue to next question"
@@ -1302,7 +1302,7 @@ function QuizResults({
   return (
     <PageContainer>
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Quiz Complete!</h1>
+        <h1 className="text-xl sm:text-2xl sm:text-3xl font-bold text-slate-900">Quiz Complete!</h1>
         <HomeButton />
       </div>
 
@@ -1335,7 +1335,7 @@ function QuizResults({
       </Card>
 
       {/* Performance breakdown */}
-      <Card className="p-5 mb-4 bg-slate-50/50">
+      <Card className="p-3.5 sm:p-5 mb-4 bg-slate-50/50">
         <h3 className="font-semibold text-slate-900 mb-4">Performance Breakdown</h3>
         {sortedByAccuracy.length > 0 && (
           <div className="mb-4">
@@ -1464,7 +1464,7 @@ function QuizResults({
 
       {/* Per-question review with filter + jump */}
       {results.answers.length > 0 && results.questions.length > 0 && (
-        <Card className="p-5 mb-4">
+        <Card className="p-3.5 sm:p-5 mb-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
             <h3 className="font-semibold text-slate-900">Review Answers</h3>
             <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter reviewed answers">
