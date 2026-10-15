@@ -1897,471 +1897,7 @@ export const questions: Question[] = [
   explanation: "may/might have + pp = weaker past possibility; must have would be strong deduction.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-// ═══════════════════════════════════════════════════════════════════
-// TOPIC: Common Errors
-// Serial begins ENG-01-Q144
-// ═══════════════════════════════════════════════════════════════════
-  
-// Easy
-{ id: "ENG-01-Q144", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["The weather is real bad today.", "The weather is really bad today.", "The weather is realily bad today.", "The weather is real bad todayly."],
-  correctAnswer: 1,
-  explanation: "'Really' (adverb) modifies the adjective 'bad'. The form 'real' is an adjective and can't modify another adjective directly. 'Really' is the correct form.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q145", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["It will effect you negatively.", "It will affect you negatively.", "It will affecting you negatively.", "It will effected you negatively."],
-  correctAnswer: 1,
-  explanation: "'Affect' (verb, to influence) is needed here. 'Effect' as a noun means 'result'; as a verb it means 'to bring about' (rare). The sentence is about influence, so 'affect' is correct.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q146", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
-  question: "'I have less books than you' is grammatically correct.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. 'Books' is countable, so the correct form is 'fewer' (not 'less'). Rule: 'less' for uncountable nouns (less water), 'fewer' for countable nouns (fewer books).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// Medium
-{ id: "ENG-01-Q147", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "She is capable to lead the team.",
-    "She is capable of leading the team.",
-    "She is capable for leading the team.",
-    "She is capable leading the team."
-  ],
-  correctAnswer: 1,
-  explanation: "Fixed pattern: capable of + -ing (not capable to).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "This method is preferable than the old one.",
-    "This method is preferable to the old one.",
-    "This method is preferable from the old one.",
-    "This method is preferable of the old one."
-  ],
-  correctAnswer: 1,
-  explanation: "preferable to (same family as senior/junior/superior/inferior + to), not than.",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q149", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["Despite of the rain, we went out.", "Despite the rain, we went out.", "Despite from the rain, we went out.", "In despite the rain, we went out."],
-  correctAnswer: 1,
-  explanation: "'Despite' takes a noun directly — NO 'of'. The alternative 'in spite of' DOES take 'of'. So: 'despite the rain' OR 'in spite of the rain' — not 'despite of the rain'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q150", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["According with the report, sales increased.", "According to the report, sales increased.", "According from the report, sales increased.", "According the report, sales increased."],
-  correctAnswer: 1,
-  explanation: "The fixed phrase is 'according TO' (not 'with', not 'from', no preposition dropped). 'According to' means 'as stated by' or 'in accordance with'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q151", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["The team is comprised of 11 members.", "The team comprises 11 members.", "The team is comprising 11 members.", "The team has comprise 11 members."],
-  correctAnswer: 1,
-  explanation: "'Comprise' means 'consist of' or 'be composed of' — it takes no preposition in active voice. 'The team comprises 11 members' is correct. 'Is comprised of' is a common but nonstandard (passive misuse).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q152", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "She is interested for climate policy.",
-    "She is interested in climate policy.",
-    "She is interested on climate policy.",
-    "She is interested to climate policy."
-  ],
-  correctAnswer: 1,
-  explanation: "Fixed phrase: interested in (not for/on/to).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q153", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: ["Hardly I had reached the station, the train left.", "Hardly had I reached the station, the train left.", "Hardly I have reached the station, the train left.", "Hardly I reached the station, the train left."],
-  correctAnswer: 1,
-  explanation: "The 'Hardly... when' inversion pattern requires the auxiliary ('had') to come BEFORE the subject ('I'): 'Hardly had I reached... when...'. This is a fixed grammatical structure that cannot be rearranged.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q154", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
-  question: "'She returned back the book' is grammatically correct because 'return' and 'back' reinforce each other.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. 'Returned' already means 'came back' — adding 'back' is redundant. This is called a pleonasm. Correct: 'She returned the book' or 'She came back with the book' (NOT 'returned back').",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q155", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
-  question: "'I could not be able to come' is grammatically correct because 'could' and 'be able to' both express ability.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. This is a redundancy error. 'Could' and 'was able to' both express past ability — using both is unnecessary. Correct: 'I could not come' OR 'I was not able to come' (not both).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q156", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
-  question: "'I am agree with you' is grammatically correct.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. 'Agree' is a verb, not an adjective. 'I agree with you' is correct. Don't use 'be + agree' (which is a common Pakistani English error).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// Hard
-{ id: "ENG-01-Q157", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
-  options: [
-    "He discussed the issue with us.",
-    "I could not come to the party.",
-    "She returned back the book.",
-    "He is married to her."
-  ],
-  correctAnswer: [0, 1, 3],
-  explanation: "'Discuss' takes a direct object (no 'about'). Avoid redundant 'returned back' — 'returned' already means came back. 'Married to' is the fixed phrase.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q158", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which of the following preposition usages are CORRECT? (Select all that apply.)",
-  options: [
-    "He is good at math.",
-    "I prefer tea to coffee.",
-    "The book is different from mine.",
-    "Despite of the rain, we stayed home."
-  ],
-  correctAnswer: [0, 1, 2],
-  explanation: "Standard: 'good at', 'prefer X to Y', 'different from'. Wrong: 'despite of' — use 'despite the rain' or 'in spite of the rain'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q159", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Choose the best improvement: 'He discussed about the matter, returned back the file, and entered into the room.'",
-  options: [
-    "He discussed the matter, returned the file, and entered the room.",
-    "He discussed about the matter, returned the file, and entered the room.",
-    "He discussed the matter, returned back the file, and entered the room.",
-    "He discussed the matter, returned the file, and entered into the room."
-  ],
-  correctAnswer: 0,
-  explanation: "All three errors fixed at once: (1) 'discussed' takes no preposition (drop 'about'), (2) 'returned' alone means came back (drop redundant 'back'), (3) 'enter' is intransitive and doesn't take 'into' (drop 'into'). One option fixes all three.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-// —— Easy ——
-{ id: "ENG-01-Q160", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "Its raining heavily today.",
-    "It's raining heavily today.",
-    "Its' raining heavily today.",
-    "It raining heavily today."
-  ],
-  correctAnswer: 1,
-  explanation: "it's = it is / it has. its = possessive (belonging to it). Here the meaning is it is raining → it's.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q161", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "We need less chairs in the hall.",
-    "We need fewer chairs in the hall.",
-    "We need fewer furniture in the hall.",
-    "We need many less chairs in the hall."
-  ],
-  correctAnswer: 1,
-  explanation: "Chairs are countable → fewer. Furniture is uncountable → less furniture (not fewer furniture).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q162", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
-  question: "'I enjoy to read in the evening' is correct formal English.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. enjoy takes a gerund: enjoy reading (not to read).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// —— Medium ——
-{ id: "ENG-01-Q163", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "She suggested to leave early.",
-    "She suggested leaving early.",
-    "She suggested leave early.",
-    "She suggested to leaving early."
-  ],
-  correctAnswer: 1,
-  explanation: "suggest takes a gerund: suggested leaving. Not suggested to leave in standard formal usage.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q164", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "I want going home now.",
-    "I want to go home now.",
-    "I want go home now.",
-    "I want to going home now."
-  ],
-  correctAnswer: 1,
-  explanation: "want takes to + base form: want to go.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q165", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct form: 'Please _____ the book on the table.'",
-  options: ["lie", "lay", "lain", "lying"],
-  correctAnswer: 1,
-  explanation: "Object = the book → transitive lay (place). lie is intransitive (recline).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q166", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "He laid down to rest after the shift.",
-    "He lay down to rest after the shift.",
-    "He lied down to rest after the shift.",
-    "He lain down to rest after the shift."
-  ],
-  correctAnswer: 1,
-  explanation: "Intransitive recline in the past → lay (past of lie). laid is past of transitive lay; lied is past of lie = not tell the truth.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q167", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "Smoke raised from the chimney.",
-    "Smoke rose from the chimney.",
-    "Smoke raised up from the chimney.",
-    "Smoke has raise from the chimney."
-  ],
-  correctAnswer: 1,
-  explanation: "No object → rise / rose / risen. raise is transitive (raise your hand).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q168", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "No sooner I had left than it began to rain.",
-    "No sooner had I left than it began to rain.",
-    "No sooner I had left when it began to rain.",
-    "No sooner had I left when it began to rain."
-  ],
-  correctAnswer: 1,
-  explanation: "No sooner + had + subject + past participle + than (not when). Inversion is required.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q169", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "She is accustomed with night shifts.",
-    "She is accustomed to night shifts.",
-    "She is accustomed of night shifts.",
-    "She is accustomed for night shifts."
-  ],
-  correctAnswer: 1,
-  explanation: "accustomed to (fixed preposition), not with/of/for.",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "He is afraid from flying.",
-    "He is afraid of flying.",
-    "He is afraid to flying.",
-    "He is afraid at flying."
-  ],
-  correctAnswer: 1,
-  explanation: "afraid of + noun/-ing in this pattern (not from/at).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q171", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
-  question: "'Remember locking the door' and 'Remember to lock the door' mean the same thing.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. remember + -ing = recall a past action; remember + to = not forget a duty ahead. Meaning changes with the form.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q172", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct completion: 'She stopped _____ coffee for health reasons.' (ceased the habit)",
-  options: ["to drink", "drinking", "drink", "to drinking"],
-  correctAnswer: 1,
-  explanation: "stop + -ing = cease an activity. stop + to + verb = pause in order to do something else.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-// —— Hard ——
-{ id: "ENG-01-Q173", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which sentences are CORRECT in formal standard English? (Select all that apply.)",
-  options: [
-    "Hardly had we arrived when the lights failed.",
-    "She avoids to speak in public.",
-    "Please raise your hand if you agree.",
-    "He is inferior than his rival."
-  ],
-  correctAnswer: [0, 2],
-  explanation: "Hardly + inversion is correct; raise needs an object (your hand). Wrong: avoid takes -ing (avoid speaking); inferior takes to, not than.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q174", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which forms are CORRECT? (Select all that apply.)",
-  options: [
-    "I decided to apply for the post.",
-    "They finished to write the report.",
-    "He lay the keys on the counter yesterday.",
-    "He laid the keys on the counter yesterday."
-  ],
-  correctAnswer: [0, 3],
-  explanation: "decide + to-infinitive is fine; laid is past of transitive lay. Wrong: finish + gerund (finished writing); past of place is laid, not lay (lay as past = recline).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q175", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Choose the best correction: 'The heat will effect the samples, so set them careful.'",
-  options: [
-    "The heat will affect the samples, so set them carefully.",
-    "The heat will effect the samples, so set them carefully.",
-    "The heat will affect the samples, so set them careful.",
-    "The heat will effect the samples, so set them careful."
-  ],
-  correctAnswer: 0,
-  explanation: "influence → affect (verb); modify the verb set with the adverb carefully.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q176", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "Scarcely she had spoken when someone interrupted.",
-    "Scarcely had she spoken when someone interrupted.",
-    "Scarcely had she spoken than someone interrupted.",
-    "Scarcely she had spoken than someone interrupted."
-  ],
-  correctAnswer: 1,
-  explanation: "Scarcely + had + subject + pp + when (same family as hardly…when). than pairs with no sooner, not scarcely.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q177", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which are CORRECT? (Select all that apply.)",
-  options: [
-    "I hope to see you soon.",
-    "Would you mind opening the window?",
-    "She refused helping us.",
-    "They agreed to meet at noon."
-  ],
-  correctAnswer: [0, 1, 3],
-  explanation: "hope/agree + to-infinitive; mind + gerund. refuse takes to-infinitive (refused to help), not refused helping in standard keys.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-
-{ id: "ENG-01-Q178", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
-  question: "Choose the correct sentence:",
-  options: [
-    "They insisted to check the gauges again.",
-    "They insisted on checking the gauges again.",
-    "They insisted for checking the gauges again.",
-    "They insisted check the gauges again."
-  ],
-  correctAnswer: 1,
-  explanation: "insist on + -ing (not insist to + base in this formal pattern).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Choose the best correction: “Neither of the samples were labelled correctly.”",
-  options: [
-    "Neither of the samples was labelled correctly.",
-    "Neither of the samples were labelled correct.",
-    "Neither of the sample were labelled correctly.",
-    "Neither of the samples are being label correctly."
-  ],
-  correctAnswer: 0,
-  explanation: "Neither of + plural noun is treated as singular in formal keys → was (not were).",
-  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
-{ id: "ENG-01-Q161", ...
-  question: "Choose the correct sentence:",
-  options: [
-    "There is fewer traffic on Sunday.",
-    "There is less traffic on Sunday.",
-    "There are less traffic on Sunday.",
-    "There are fewer traffic on Sunday."],
-  correctAnswer: 1,
-  explanation: "Traffic is uncountable → less + singular is. fewer needs a plural countable noun.",
-},
-
-{ id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Fix the correlative: “She is not only smart but also works hard.”",
-  options: [
-    "She is not only smart but also hard-working.",
-    "She not only is smart but also works hard. (already perfect as is)",
-    "She is not only smart but also work hard.",
-    "She is not only smart but works also hard."
-  ],
-  correctAnswer: 0,
-  explanation: "Correlatives need parallel structure: adjective || adjective → smart / hard-working.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q033", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Which is grammatically standard?",
-  options: [
-    "This design is more better than that one.",
-    "This design is better than that one.",
-    "This design is more betterer than that one.",
-    "This design is gooder than that one."
-  ],
-  correctAnswer: 1,
-  explanation: "Better is already comparative — do not add more. Good → better → best.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q034", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Is friendly correctly used as an adverb here? “She spoke friendly to the team.”",
-  options: [
-    "Yes — friendly is always an adverb",
-    "No — friendly is an adjective; use in a friendly way / cordially",
-    "Yes — all -ly words are adverbs",
-    "No — because friendly can only modify verbs of motion"
-  ],
-  correctAnswer: 1,
-  explanation: "Friendly, lovely, lonely, lively are adjectives, not manner adverbs, despite -ly.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q035", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Choose the best formal version: “The committee published it’s report.”",
-  options: [
-    "The committee published it’s report. (correct as written)",
-    "The committee published its report.",
-    "The committee published its’ report.",
-    "The committee published it is report."
-  ],
-  correctAnswer: 1,
-  explanation: "its = possessive; it’s = it is. No its’ form exists.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q036", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
-  question: "Which sentences are CORRECT? (Select all that apply.)",
-  options: [
-    "I have seen him yesterday.",
-    "She submitted the form yesterday.",
-    "She has already submitted the form.",
-    "Since 2018 she works in Peshawar."
-  ],
-  correctAnswer: [1, 2],
-  explanation: "yesterday → past simple; already → present perfect OK. have seen + yesterday is wrong; since + present simple for a continuing job is wrong.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q037", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "Label every major class: “Alas, the young officers have been working carefully since Monday.” Which list is accurate?",
-  options: [
-    "Alas noun; young verb; carefully adjective",
-    "Alas interjection; young adjective; officers noun; have been working verb phrase; carefully adverb; since preposition; Monday noun",
-    "Alas adverb; young noun; carefully preposition",
-    "Alas conjunction; carefully determiner"
-  ],
-  correctAnswer: 1,
-  explanation: "Full parse matches the A1 word-class map: interjection, adjective, noun, perfect continuous verb group, adverb, preposition, proper noun.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
-
-{ id: "ENG-01-Q038", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
-  question: "She told me, “Wait here.” Correct reported command:",
-  options: [
-    "She told me wait here.",
-    "She told me to wait there.",
-    "She told me to wait here.",
-    "She said me to wait there."
-  ],
-  correctAnswer: 1,
-  explanation: "told + object + to-infinitive; here → there after past reporting.",
-  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+b
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Subject-Verb Agreement & Articles
@@ -2670,7 +2206,7 @@ export const questions: Question[] = [
   question: "The effects of climate change _____ severe.",
   options: ["is", "are", "was", "has been"],
   correctAnswer: 1,
-  explanation: "Head subject is effects (plural). of climate change is only a prepositional phrase — agree with effects → are.",
+  explanation: "Headroken subject is effects (plural). of climate change is only a prepositional phrase — agree with effects → are.",
   sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
 
 // ═══════════════════════════════════════════════════════════════════
@@ -3611,125 +3147,145 @@ export const questions: Question[] = [
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Common Errors
-// Serial begins ENG-01-Q144
+// Serial ENG-01-Q144 → Q179 (after A1–A4 in continuous bank)
 // ═══════════════════════════════════════════════════════════════════
-  
+
 // Easy
 { id: "ENG-01-Q144", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
   options: ["The weather is real bad today.", "The weather is really bad today.", "The weather is realily bad today.", "The weather is real bad todayly."],
   correctAnswer: 1,
-  explanation: "'Really' (adverb) modifies the adjective 'bad'. The form 'real' is an adjective and can't modify another adjective directly. 'Really' is the correct form.",
+  explanation: "'Really' (adverb) modifies the adjective 'bad'. 'Real' is an adjective and cannot modify another adjective in formal usage.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q145", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
   options: ["It will effect you negatively.", "It will affect you negatively.", "It will affecting you negatively.", "It will effected you negatively."],
   correctAnswer: 1,
-  explanation: "'Affect' (verb, to influence) is needed here. 'Effect' as a noun means 'result'; as a verb it means 'to bring about' (rare). The sentence is about influence, so 'affect' is correct.",
+  explanation: "Verb meaning influence → affect. Effect is usually the noun 'result'.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q146", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
   question: "'I have less books than you' is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'Books' is countable, so the correct form is 'fewer' (not 'less'). Rule: 'less' for uncountable nouns (less water), 'fewer' for countable nouns (fewer books).",
+  explanation: "False. Books are countable → fewer books. Less is for uncountables (less water).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Medium
 { id: "ENG-01-Q147", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He discussed about the issue with us.", "He discussed the issue with us.", "He discussed on the issue with us.", "He discussed regarding the issue with us."],
+  options: [
+    "She is capable to lead the team.",
+    "She is capable of leading the team.",
+    "She is capable for leading the team.",
+    "She is capable leading the team."
+  ],
   correctAnswer: 1,
-  explanation: "The verb 'discuss' takes a DIRECT OBJECT with NO preposition. 'Discuss the issue' is correct — 'discuss about/on/regarding' are all incorrect additions.",
+  explanation: "Fixed pattern: capable of + -ing (not capable to).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He is senior than me.", "He is senior to me.", "He is senior from me.", "He is senior of me."],
+  options: [
+    "This method is preferable than the old one.",
+    "This method is preferable to the old one.",
+    "This method is preferable from the old one.",
+    "This method is preferable of the old one."
+  ],
   correctAnswer: 1,
-  explanation: "The fixed comparison is 'senior TO' (not 'than', not 'from', not 'of'). Similarly: 'junior to', 'prefer X to Y', 'superior to'. The preposition 'to' is used for these comparison-of-status adjectives.",
+  explanation: "preferable to (same family as senior/junior/superior/inferior + to), not than.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q149", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["Despite of the rain, we went out.", "Despite the rain, we went out.", "Despite from the rain, we went out.", "In despite the rain, we went out."],
   correctAnswer: 1,
-  explanation: "'Despite' takes a noun directly — NO 'of'. The alternative 'in spite of' DOES take 'of'. So: 'despite the rain' OR 'in spite of the rain' — not 'despite of the rain'.",
+  explanation: "despite + noun (no of). Use in spite of if you need of.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q150", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["According with the report, sales increased.", "According to the report, sales increased.", "According from the report, sales increased.", "According the report, sales increased."],
   correctAnswer: 1,
-  explanation: "The fixed phrase is 'according TO' (not 'with', not 'from', no preposition dropped). 'According to' means 'as stated by' or 'in accordance with'.",
+  explanation: "Fixed phrase: according to.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q151", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["The team is comprised of 11 members.", "The team comprises 11 members.", "The team is comprising 11 members.", "The team has comprise 11 members."],
   correctAnswer: 1,
-  explanation: "'Comprise' means 'consist of' or 'be composed of' — it takes no preposition in active voice. 'The team comprises 11 members' is correct. 'Is comprised of' is a common but nonstandard (passive misuse).",
+  explanation: "Active comprise takes a direct object: comprises 11 members (no of).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q152", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He is married with her for 10 years.", "He is married to her for 10 years.", "He is married from her for 10 years.", "He is married of her for 10 years."],
+  options: [
+    "She is interested for climate policy.",
+    "She is interested in climate policy.",
+    "She is interested on climate policy.",
+    "She is interested to climate policy."
+  ],
   correctAnswer: 1,
-  explanation: "The fixed phrase is 'married TO' (not 'with', not 'from', not 'of'). The preposition 'to' indicates the relationship bond, just like 'engaged to' or 'attached to'.",
+  explanation: "Fixed phrase: interested in.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q153", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["Hardly I had reached the station, the train left.", "Hardly had I reached the station, the train left.", "Hardly I have reached the station, the train left.", "Hardly I reached the station, the train left."],
+  options: [
+    "Hardly I had reached the station when the train left.",
+    "Hardly had I reached the station when the train left.",
+    "Hardly I have reached the station when the train left.",
+    "Hardly I reached the station when the train left."
+  ],
   correctAnswer: 1,
-  explanation: "The 'Hardly... when' inversion pattern requires the auxiliary ('had') to come BEFORE the subject ('I'): 'Hardly had I reached... when...'. This is a fixed grammatical structure that cannot be rearranged.",
+  explanation: "Hardly + had + subject + past participle + when + past simple.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q154", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'She returned back the book' is grammatically correct because 'return' and 'back' reinforce each other.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'Returned' already means 'came back' — adding 'back' is redundant. This is called a pleonasm. Correct: 'She returned the book' or 'She came back with the book' (NOT 'returned back').",
+  explanation: "False. returned already includes the idea of back — drop the redundant back.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q155", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'I could not be able to come' is grammatically correct because 'could' and 'be able to' both express ability.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. This is a redundancy error. 'Could' and 'was able to' both express past ability — using both is unnecessary. Correct: 'I could not come' OR 'I was not able to come' (not both).",
+  explanation: "False. Use either could not or was not able to — not both stacked.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q156", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'I am agree with you' is grammatically correct.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. 'Agree' is a verb, not an adjective. 'I agree with you' is correct. Don't use 'be + agree' (which is a common Pakistani English error).",
+  explanation: "False. agree is a verb: I agree with you (not am agree).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Hard
 { id: "ENG-01-Q157", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+  question: "Which sentences are CORRECT in formal standard English? (Select all that apply.)",
   options: [
-    "He discussed the issue with us.",
-    "I could not come to the party.",
-    "She returned back the book.",
-    "He is married to her."
+    "I agree with the findings.",
+    "She returned the file yesterday.",
+    "He could not be able to attend.",
+    "Despite the delay, the briefing continued."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "'Discuss' takes a direct object (no 'about'). Avoid redundant 'returned back' — 'returned' already means came back. 'Married to' is the fixed phrase.",
+  explanation: "agree (verb), return without back, despite without of are fine. could not be able stacks two ability markers.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q158", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
-  question: "Which of the following preposition usages are CORRECT? (Select all that apply.)",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
   options: [
-    "He is good at math.",
-    "I prefer tea to coffee.",
-    "The book is different from mine.",
-    "Despite of the rain, we stayed home."
+    "The set comprises twelve instruments.",
+    "According to the bulletin, fog will clear.",
+    "She is capable of handling the shift alone.",
+    "I am agree with that assessment."
   ],
   correctAnswer: [0, 1, 2],
-  explanation: "Standard: 'good at', 'prefer X to Y', 'different from'. Wrong: 'despite of' — use 'despite the rain' or 'in spite of the rain'.",
+  explanation: "comprise, according to, and capable of are standard. am agree is wrong.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q159", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
@@ -3741,9 +3297,10 @@ export const questions: Question[] = [
     "He discussed the matter, returned the file, and entered into the room."
   ],
   correctAnswer: 0,
-  explanation: "All three errors fixed at once: (1) 'discussed' takes no preposition (drop 'about'), (2) 'returned' alone means came back (drop redundant 'back'), (3) 'enter' is intransitive and doesn't take 'into' (drop 'into'). One option fixes all three.",
+  explanation: "Drop about after discuss, back after returned, and into after entered.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
-// —— Easy ——
+
+// Easy continued
 { id: "ENG-01-Q160", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
   question: "Choose the correct sentence:",
   options: [
@@ -3753,24 +3310,29 @@ export const questions: Question[] = [
     "It raining heavily today."
   ],
   correctAnswer: 1,
-  explanation: "it's = it is / it has. its = possessive (belonging to it). Here the meaning is it is raining → it's.",
+  explanation: "it's = it is. its = possessive. No its' form.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q161", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct word: 'There were _____ mistakes in the draft.'",
-  options: ["less", "fewer", "least", "little"],
+  question: "Choose the correct sentence:",
+  options: [
+    "There is fewer traffic on Sunday.",
+    "There is less traffic on Sunday.",
+    "There are less traffic on Sunday.",
+    "There are fewer traffic on Sunday."
+  ],
   correctAnswer: 1,
-  explanation: "mistakes is countable → fewer. less is for uncountables (less time, less water).",
+  explanation: "Traffic is uncountable → less + singular is. fewer needs a plural countable noun.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q162", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
   question: "'I enjoy to read in the evening' is correct formal English.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. enjoy takes a gerund: enjoy reading (not to read).",
+  explanation: "False. enjoy + gerund: enjoy reading.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-// —— Medium ——
+// Medium continued
 { id: "ENG-01-Q163", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
@@ -3780,7 +3342,7 @@ export const questions: Question[] = [
     "She suggested to leaving early."
   ],
   correctAnswer: 1,
-  explanation: "suggest takes a gerund: suggested leaving. Not suggested to leave in standard formal usage.",
+  explanation: "suggest + gerund: suggested leaving.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q164", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
@@ -3792,14 +3354,14 @@ export const questions: Question[] = [
     "I want to going home now."
   ],
   correctAnswer: 1,
-  explanation: "want takes to + base form: want to go.",
+  explanation: "want + to + base: want to go.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q165", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct form: 'Please _____ the book on the table.'",
   options: ["lie", "lay", "lain", "lying"],
   correctAnswer: 1,
-  explanation: "Object = the book → transitive lay (place). lie is intransitive (recline).",
+  explanation: "Object the book → transitive lay.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q166", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
@@ -3811,7 +3373,7 @@ export const questions: Question[] = [
     "He lain down to rest after the shift."
   ],
   correctAnswer: 1,
-  explanation: "Intransitive recline in the past → lay (past of lie). laid is past of transitive lay; lied is past of lie = not tell the truth.",
+  explanation: "Past of intransitive lie (recline) is lay.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q167", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
@@ -3823,7 +3385,7 @@ export const questions: Question[] = [
     "Smoke has raise from the chimney."
   ],
   correctAnswer: 1,
-  explanation: "No object → rise / rose / risen. raise is transitive (raise your hand).",
+  explanation: "No object → rise / rose / risen.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q168", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
@@ -3835,48 +3397,48 @@ export const questions: Question[] = [
     "No sooner had I left when it began to rain."
   ],
   correctAnswer: 1,
-  explanation: "No sooner + had + subject + past participle + than (not when). Inversion is required.",
+  explanation: "No sooner + had + subject + pp + than (not when).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q169", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "I prefer tea than coffee.",
-    "I prefer tea to coffee.",
-    "I prefer tea from coffee.",
-    "I prefer tea against coffee."
+    "She is accustomed with night shifts.",
+    "She is accustomed to night shifts.",
+    "She is accustomed of night shifts.",
+    "She is accustomed for night shifts."
   ],
   correctAnswer: 1,
-  explanation: "prefer X to Y — not than. than is for comparative adjectives (taller than).",
+  explanation: "accustomed to.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "The results are different than last year's.",
-    "The results are different from last year's.",
-    "The results are different of last year's.",
-    "The results are different with last year's."
+    "He is afraid from flying.",
+    "He is afraid of flying.",
+    "He is afraid to flying.",
+    "He is afraid at flying."
   ],
   correctAnswer: 1,
-  explanation: "Formal standard: different from. different than is common in speech but usually marked wrong in exam keys.",
+  explanation: "afraid of + noun/-ing in this pattern.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q171", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'Remember locking the door' and 'Remember to lock the door' mean the same thing.",
   options: ["True", "False"],
   correctAnswer: 1,
-  explanation: "False. remember + -ing = recall a past action; remember + to = not forget a duty ahead. Meaning changes with the form.",
+  explanation: "False. -ing = past memory; to + base = duty ahead.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q172", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct completion: 'She stopped _____ coffee for health reasons.' (ceased the habit)",
   options: ["to drink", "drinking", "drink", "to drinking"],
   correctAnswer: 1,
-  explanation: "stop + -ing = cease an activity. stop + to + verb = pause in order to do something else.",
+  explanation: "stop + -ing = cease the activity.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-// —— Hard ——
+// Hard continued
 { id: "ENG-01-Q173", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
   question: "Which sentences are CORRECT in formal standard English? (Select all that apply.)",
   options: [
@@ -3886,7 +3448,7 @@ export const questions: Question[] = [
     "He is inferior than his rival."
   ],
   correctAnswer: [0, 2],
-  explanation: "Hardly + inversion is correct; raise needs an object (your hand). Wrong: avoid takes -ing (avoid speaking); inferior takes to, not than.",
+  explanation: "Hardly-inversion and raise + object are fine. avoid + -ing; inferior to (not than).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q174", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
@@ -3898,7 +3460,7 @@ export const questions: Question[] = [
     "He laid the keys on the counter yesterday."
   ],
   correctAnswer: [0, 3],
-  explanation: "decide + to-infinitive is fine; laid is past of transitive lay. Wrong: finish + gerund (finished writing); past of place is laid, not lay (lay as past = recline).",
+  explanation: "decide + to-infinitive; laid = past of transitive lay. finish + gerund; lay as past of place is wrong.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q175", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
@@ -3910,7 +3472,7 @@ export const questions: Question[] = [
     "The heat will effect the samples, so set them careful."
   ],
   correctAnswer: 0,
-  explanation: "influence → affect (verb); modify the verb set with the adverb carefully.",
+  explanation: "affect (verb) + carefully (adverb).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q176", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
@@ -3922,7 +3484,7 @@ export const questions: Question[] = [
     "Scarcely she had spoken than someone interrupted."
   ],
   correctAnswer: 1,
-  explanation: "Scarcely + had + subject + pp + when (same family as hardly…when). than pairs with no sooner, not scarcely.",
+  explanation: "Scarcely + had + subject + pp + when.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q177", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
@@ -3934,31 +3496,31 @@ export const questions: Question[] = [
     "They agreed to meet at noon."
   ],
   correctAnswer: [0, 1, 3],
-  explanation: "hope/agree + to-infinitive; mind + gerund. refuse takes to-infinitive (refused to help), not refused helping in standard keys.",
+  explanation: "hope/agree + to-infinitive; mind + gerund. refuse + to-infinitive (refused to help).",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q178", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "He is good in mathematics.",
-    "He is good at mathematics.",
-    "He is good on mathematics.",
-    "He is good with mathematics."
+    "They insisted to check the gauges again.",
+    "They insisted on checking the gauges again.",
+    "They insisted for checking the gauges again.",
+    "They insisted check the gauges again."
   ],
   correctAnswer: 1,
-  explanation: "Fixed skill phrase: good at (not in/on in formal exam usage).",
+  explanation: "insist on + -ing.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Identify the main error type: 'Hardly she had entered when the alarm sounded.'",
+  question: "Choose the best correction: “Neither of the samples were labelled correctly.”",
   options: [
-    "Wrong preposition after discuss",
-    "Failed inversion after a negative adverbial",
-    "Affect used instead of effect",
-    "Gerund required after want"
+    "Neither of the samples was labelled correctly.",
+    "Neither of the samples were labelled correct.",
+    "Neither of the sample were labelled correctly.",
+    "Neither of the samples are being label correctly."
   ],
-  correctAnswer: 1,
-  explanation: "Hardly requires had before the subject: Hardly had she entered when…",
+  correctAnswer: 0,
+  explanation: "Formal agreement: neither of + plural noun → singular verb was.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // Module B
