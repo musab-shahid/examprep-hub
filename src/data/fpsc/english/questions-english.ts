@@ -1939,10 +1939,15 @@ export const questions: Question[] = [
 
 { id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He is senior than me.", "He is senior to me.", "He is senior from me.", "He is senior of me."],
+  options: [
+    "This method is preferable than the old one.",
+    "This method is preferable to the old one.",
+    "This method is preferable from the old one.",
+    "This method is preferable of the old one."
+  ],
   correctAnswer: 1,
-  explanation: "The fixed comparison is 'senior TO' (not 'than', not 'from', not 'of'). Similarly: 'junior to', 'prefer X to Y', 'superior to'. The preposition 'to' is used for these comparison-of-status adjectives.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "preferable to (same family as senior/junior/superior/inferior + to), not than.",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q149", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
