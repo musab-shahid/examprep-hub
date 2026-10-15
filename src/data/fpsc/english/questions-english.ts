@@ -2060,11 +2060,16 @@ export const questions: Question[] = [
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q161", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
-  question: "Choose the correct word: 'There were _____ mistakes in the draft.'",
-  options: ["less", "fewer", "least", "little"],
+  question: "Choose the correct sentence:",
+  options: [
+    "We need less chairs in the hall.",
+    "We need fewer chairs in the hall.",
+    "We need fewer furniture in the hall.",
+    "We need many less chairs in the hall."
+  ],
   correctAnswer: 1,
-  explanation: "mistakes is countable → fewer. less is for uncountables (less time, less water).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Chairs are countable → fewer. Furniture is uncountable → less furniture (not fewer furniture).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q162", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
   question: "'I enjoy to read in the evening' is correct formal English.",
