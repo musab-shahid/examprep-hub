@@ -53,7 +53,7 @@ export const sections: Section[] = [
   { id: 'MATH-08', subjectId: 'maths', title: 'Word Problems & Applications', topicCount: 5, questionCount: 61 },
 
   // ── English ──
-  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 320 },
+  { id: 'ENG-01', subjectId: 'english', title: 'Grammar & Usage', topicCount: 5, questionCount: 185 },
   { id: 'ENG-02', subjectId: 'english', title: 'Vocabulary', topicCount: 3, questionCount: 59 },
   { id: 'ENG-03', subjectId: 'english', title: 'Sentence Structuring', topicCount: 3, questionCount: 53 },
 
