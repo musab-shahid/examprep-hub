@@ -5337,26 +5337,6 @@ export const questions: Question[] = [
   explanation: "True. Skill measures improvement over a baseline (climatology or persistence). Low error alone does not prove the forecast beat an easy reference.",
   sourceCitation: "Depth polish — forecast-skill type diversity" },
 
-  { id: "METEO-02-Q045", sectionId: "METEO-02", topicId: "meteo-greenhouse-effect", difficulty: "medium", type: "single",
-    question: "The atmospheric window that lets surface longwave radiation escape to space most freely is mainly in which approximate IR band?",
-    options: ["0.4–0.7 µm (visible)", "8–12 µm", "15 µm CO₂ band only", "Microwave 1–10 cm only"],
-    correctAnswer: 1,
-    explanation: "The 8–12 µm region is the classic clear-sky atmospheric window for terrestrial IR. Strong greenhouse bands (e.g. near 15 µm for CO₂) absorb in other parts of the spectrum; visible light is shortwave, not the surface’s thermal emission peak.",
-    variantGroupId: "meteo-greenhouse-window-skill",
-    sourceCitation: "Density top-up — greenhouse window" },
-  { id: "METEO-02-Q046", sectionId: "METEO-02", topicId: "meteo-greenhouse-effect", difficulty: "hard", type: "single",
-    question: "Why is calling the greenhouse effect a 'closed glass box that traps all outgoing radiation' a poor exam answer?",
-    options: [
-      "Because the real atmosphere is selective: gases absorb and re-emit in specific bands while a spectral window still allows some longwave escape",
-      "Because Earth has no infrared radiation at all",
-      "Because only ozone absorbs terrestrial radiation",
-      "Because greenhouse gases only reflect sunlight"
-    ],
-    correctAnswer: 0,
-    explanation: "Greenhouse warming is spectral and layered, not a perfect one-way trap. Molecules absorb/re-emit in bands; the atmospheric window and TOA balance still matter. Glass-box metaphors overstate trapping and understate wavelength dependence.",
-    variantGroupId: "meteo-greenhouse-window-skill",
-    sourceCitation: "Density top-up — greenhouse mechanism" },
-
   { id: "METEO-03-Q041", sectionId: "METEO-03", topicId: "meteo-geostrophic-wind", difficulty: "medium", type: "single",
     question: "In the Northern Hemisphere, geostrophic wind blows with lower pressure on which side of the flow?",
     options: ["To the right of the wind", "To the left of the wind", "Always directly toward the low", "Always directly toward the high"],
