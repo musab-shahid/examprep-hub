@@ -2271,10 +2271,10 @@ export const questions: Question[] = [
 { id: "ENG-01-Q161", ...
   question: "Choose the correct sentence:",
   options: [
-     "There is fewer traffic on Sunday.",
-     "There is less traffic on Sunday.",
-     "There are less traffic on Sunday.",
-     "There are fewer traffic on Sunday."],
+    "There is fewer traffic on Sunday.",
+    "There is less traffic on Sunday.",
+    "There are less traffic on Sunday.",
+    "There are fewer traffic on Sunday."],
   correctAnswer: 1,
   explanation: "Traffic is uncountable → less + singular is. fewer needs a plural countable noun.",
 },
