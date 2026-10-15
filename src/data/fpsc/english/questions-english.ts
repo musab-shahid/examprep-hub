@@ -151,15 +151,10 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q018", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "Fill in: “___ Monday” / “___ 2024” / “___ 9 a.m.”",
-  options: [
-    "in / on / at",
-    "on / in / at",
-    "at / on / in",
-    "on / at / in"
-  ],
+  question: "Which word is a determiner rather than a descriptive adjective?",
+  options: ["humid", "several", "rapid", "severe"],
   correctAnswer: 1,
-  explanation: "on + day/date; in + month/year; at + clock time → on Monday, in 2024, at 9 a.m.",
+  explanation: "Several quantifies the noun phrase (determiner). Humid/rapid/severe describe quality (adjectives).",
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q019", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
