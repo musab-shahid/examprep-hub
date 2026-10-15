@@ -158,15 +158,15 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q019", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
-  question: "She has worked here ___ 2019 and ___ six years.",
+  question: "Choose the sentence with a stative verb used in a standard formal pattern:",
   options: [
-    "for / since",
-    "since / for",
-    "since / since",
-    "for / for"
+    "I am owning two laptops.",
+    "I own two laptops.",
+    "I am own two laptops.",
+    "I owns two laptops."
   ],
   correctAnswer: 1,
-  explanation: "since + starting point (2019); for + duration (six years).",
+  explanation: "Own is stative; formal English prefers simple present (I own), not continuous.",
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q020", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
