@@ -3946,7 +3946,451 @@ export const questions: Question[] = [
 
 // ============================= SECTION METEO-M: Climate Variability =============================
 
-meteo-13-q001
+{ id: "METEO-13-Q001", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "easy", type: "single",
+  question: "During an El Niño event, the sea-surface temperature anomaly in the Niño-3.4 region is typically:",
+  options: ["Sustained below about −0.5 °C (cool)", "Sustained above about +0.5 °C (warm)", "Always exactly 0 °C", "Above +2.0 °C in every event by definition"],
+  correctAnswer: 1,
+  explanation: "El Niño: warm SST anomalies in the central/eastern equatorial Pacific. Niño-3.4 is the common index box; operational definitions use a sustained anomaly (not a single warm week), often beyond about +0.5 °C, plus duration rules. +2 °C is a strong event, not the classification threshold.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q002", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "easy", type: "single",
+  question: "La Niña is best described as:",
+  options: [
+    "Warm Niño-3.4 and collapsed trades",
+    "Enhanced cold tongue in the eastern/central equatorial Pacific and stronger trades",
+    "An Indian Ocean dipole by another name",
+    "A positive NAO winter"
+  ],
+  correctAnswer: 1,
+  explanation: "La Niña is the cool phase of ENSO: cooler equatorial Pacific SST, stronger Walker cell/trades. It is not IOD (Indian Ocean) and not NAO (Atlantic pressure).",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q003", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "single",
+  question: "Which description best fits the Bjerknes feedback that can grow ENSO events?",
+  options: [
+    "A negative feedback: warming always restores strong trades and cools the east",
+    "A positive ocean–atmosphere coupling: SST anomalies drive wind changes that amplify those SST anomalies",
+    "A coupling with no net amplification",
+    "A feedback that operates only in La Niña, never El Niño"
+  ],
+  correctAnswer: 1,
+  explanation: "El Niño sense: warmer eastern/central SST → weaker trades → less upwelling / warm water spreads → still warmer SST. La Niña can amplify in the opposite sense. Positive feedback helps events grow; it does not guarantee every year’s outcome.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q004", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "true_false",
+  question: "True or False: The Southern Oscillation Index (SOI) is typically positive during El Niño and negative during La Niña.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. SOI is typically negative in El Niño (higher pressure in the west relative to the east than usual) and positive in La Niña. Sign mix-ups are a favourite trap.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q005", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "single",
+  question: "During a classic La Niña, the Walker circulation over the tropical Pacific tends to be:",
+  options: [
+    "Strengthened, with stronger trades and convection concentrated over the western Pacific",
+    "Completely absent",
+    "Identical to a mid-latitude sea breeze",
+    "Replaced by the Beaufort scale"
+  ],
+  correctAnswer: 0,
+  explanation: "Cool east, strong west–east SST contrast, vigorous Walker cell, ascent over the warm west. El Niño flattens that contrast and shifts the rising branch east.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q006", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "hard", type: "single",
+  question: "During a strong El Niño, convection and rainfall anomalies in the tropical Pacific typically:",
+  options: [
+    "Shift east toward the central/eastern Pacific as the Walker cell weakens",
+    "Stay fixed only over Greenland",
+    "Move only into the stratospheric polar vortex",
+    "Never move — Walker never changes"
+  ],
+  correctAnswer: 0,
+  explanation: "Discuss SST and winds as a pair. Warm central/east Pacific, weaker trades, rising branch migrates east from its usual far-west home.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q007", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "hard", type: "true_false",
+  question: "True or False: One unusually warm week at a single Pacific coastal station is enough to declare El Niño.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Use a basin index (e.g. Niño-3.4) and a sustained anomaly (duration rules). Local anecdotes and IOD poles are not ENSO.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q008", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "hard", type: "multi",
+  question: "Which statements about ENSO basics are CORRECT? (Select all that apply.)",
+  options: [
+    "Niño-3.4 is a central equatorial Pacific SST box",
+    "Bjerknes feedback is a positive wind–SST coupling",
+    "El Niño and La Niña are coupled ocean–atmosphere phases, not ‘any local warming’",
+    "ENSO poles are the same boxes as the IOD"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Pacific vs Indian Ocean. Coupling (Walker + SST) is the heart of ENSO.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q009", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "easy", type: "single",
+  question: "During El Niño, a typical (composite) impact on Pakistan’s summer monsoon is:",
+  options: [
+    "Guaranteed nationwide flooding every event",
+    "Raised odds of below-normal rainfall / drought risk — not a certainty",
+    "No possible influence on any South Asian rainfall",
+    "Unusually early monsoon onset in every El Niño year"
+  ],
+  correctAnswer: 1,
+  explanation: "Teleconnections change probabilities. El Niño often raises weaker-monsoon odds; IOD, MJO, and internal variability can still produce near-normal or wet years. Never write ‘always’.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q010", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "medium", type: "single",
+  question: "The 2010 and 2022 Pakistan super floods are often discussed in teaching materials alongside which ENSO context?",
+  options: ["Peak El Niño as the only allowed phase", "La Niña or La Niña-transition conditions", "ENSO-neutral as a requirement", "NAO negative as the definition of those floods"],
+  correctAnswer: 1,
+  explanation: "Case studies: both seasons are widely linked to La Niña or transition-toward-La Niña, which can favour a stronger monsoon risk profile. That raises flood odds; it does not force every La Niña year to produce a super flood.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q011", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "medium", type: "true_false",
+  question: "True or False: An El Niño year guarantees that Pakistan will experience a drought-strength monsoon.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Raised odds ≠ commandment. IOD, local SSTs, and noise can break a simple El Niño → drought rule.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q012", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "hard", type: "single",
+  question: "Why should an FPSC-style answer avoid “El Niño always causes drought in Pakistan”?",
+  options: [
+    "Teleconnections change odds, not certainties, and other modes can dominate a given year",
+    "Pakistan has no summer rainfall in any dataset",
+    "ENSO only affects the Southern Hemisphere",
+    "Drought is defined only by Beaufort force"
+  ],
+  correctAnswer: 0,
+  explanation: "Composites, not commandments. Good answers use ‘tends to’ / ‘higher likelihood’.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q013", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "hard", type: "true_false",
+  question: "True or False: Every La Niña year produces an Indus super flood like 2010 or 2022.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Those years are teaching anchors for raised flood odds in some La Niña/transition seasons — not a mechanical law.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q014", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "hard", type: "multi",
+  question: "Which statements about ENSO impacts are CORRECT? (Select all that apply.)",
+  options: [
+    "A teleconnection is a statistically preferred remote response",
+    "IOD and MJO can modify monsoon outcomes even when ENSO is fixed",
+    "2010 and 2022 are useful flood case studies, still probabilistic",
+    "Local afternoon weather is identical to the global ENSO index"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Pacific phase is not the only control. Multi-mode awareness is the mature South Asia answer.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q015", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "easy", type: "single",
+  question: "A positive Indian Ocean Dipole (IOD) is characterized by:",
+  options: [
+    "Warm SST in the southeastern Indian Ocean and cool SST in the west",
+    "Warm SST in the western Indian Ocean and cool SST in the east/southeast",
+    "Uniform warming of the entire Indian Ocean",
+    "Niño-3.4 above +0.5 °C by definition"
+  ],
+  correctAnswer: 1,
+  explanation: "+IOD: west warm, east cool (equatorial Indian Ocean), often with anomalous easterlies along the equator. Poles live in the Indian Ocean — not the Pacific Niño boxes.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q016", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "easy", type: "true_false",
+  question: "True or False: A positive IOD places cooler-than-normal SST in the eastern equatorial Indian Ocean and warmer SST toward the west.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Reverse the SST poles for −IOD. If a map shows only Pacific Niño regions, it is not an IOD question.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q017", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "medium", type: "single",
+  question: "If an El Niño year also features a strong positive IOD, the monsoon outcome for Pakistan is best described as:",
+  options: [
+    "Certain drought — both modes always weaken the monsoon",
+    "Uncertain / composite — El Niño tends to weaken the monsoon while +IOD can support rainfall; relative strength and other modes matter",
+    "Certain flooding — both modes always strengthen the monsoon",
+    "Exactly zero impact because the two modes cancel by law"
+  ],
+  correctAnswer: 1,
+  explanation: "They are separate indices that may reinforce or oppose. +IOD can improve Indian monsoon composites even in some El Niño years. Do not invent a rigid FPSC ‘always drought’ or ‘always flood’ law from one pairing.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q018", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "medium", type: "true_false",
+  question: "True or False: The Dipole Mode Index (DMI) is the SST anomaly of a single Indian Ocean box (like a lone Niño-3.4).",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. DMI is a gradient: western minus southeastern equatorial Indian Ocean SST anomalies. That difference is the dipole.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q019", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "hard", type: "single",
+  question: "Can a strong IOD matter when ENSO is near neutral?",
+  options: ["No — IOD cannot exist without El Niño", "Yes — IOD can act with partial independence", "Only if NAO is undefined", "Only in the Atlantic"],
+  correctAnswer: 1,
+  explanation: "IOD is an Indian Ocean control, not a Pacific clone. Ignoring IOD whenever ENSO is mentioned is the monsoon-teleconnection trap.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q020", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "easy", type: "single",
+  question: "Large-scale surface currents such as the Gulf Stream are driven primarily by:",
+  options: [
+    "Wind stress on the ocean surface (Coriolis and continents shaping gyres)",
+    "Only tidal friction in deep trenches",
+    "Only volcanic heat at mid-ocean ridges",
+    "Only lunar eclipses"
+  ],
+  correctAnswer: 0,
+  explanation: "Surface gyres are largely wind-driven. Thermohaline (temperature + salinity → density) is the slower deep overturning — a second engine. Do not reduce all ocean motion to one ‘current’.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q021", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "easy", type: "single",
+  question: "The Gulf Stream is best classified as a:",
+  options: ["Western boundary current (narrow, strong)", "Eastern boundary current (broad, weak)", "Thermohaline deep western-boundary undercurrent only", "MJO convective envelope"],
+  correctAnswer: 0,
+  explanation: "Western intensification: subtropical gyres pile swift, narrow flow on the west (Gulf Stream, Kuroshio). Eastern sides are broader and weaker, often upwelling.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q022", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "medium", type: "single",
+  question: "Thermohaline circulation is driven mainly by differences in:",
+  options: ["Temperature and salinity (density)", "Only one-minute surface wind gusts", "Only cloud genus names", "Only Beaufort force at airports"],
+  correctAnswer: 0,
+  explanation: "Cooling and/or higher salinity densify water so it can sink and feed deep branches (AMOC context). It is not a fast surface wind drift.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q023", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "medium", type: "true_false",
+  question: "True or False: Western boundary currents in subtropical gyres are typically narrow and strong compared with broader, slower flow on the eastern side of the basin.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Symmetric gyre speeds are the map trap. Exam maps test this west–east asymmetry.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q024", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "hard", type: "true_false",
+  question: "True or False: The warm Gulf Stream / North Atlantic Drift helps keep northwest Europe milder than many east-coast locations at similar latitude.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True as a regional heat-transport point. Do not slogan it as ‘AMOC = Gulf Stream only’ or as a cancel button for global GHGs.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q025", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "easy", type: "single",
+  question: "The North Atlantic Oscillation is defined by the pressure difference between:",
+  options: [
+    "The Siberian High and the Icelandic Low",
+    "The Icelandic Low and the Azores High",
+    "Niño-3.4 and the IOD east pole",
+    "The Aleutian Low and the Hawaiian High"
+  ],
+  correctAnswer: 1,
+  explanation: "Azores–Iceland seesaw steers the Atlantic storm track. If the stem is Niño-3.4 SST, think ENSO, not NAO. Mixing basins is the main failure mode.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q026", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "easy", type: "single",
+  question: "A stronger-than-normal Azores high and a deeper Icelandic low indicate which NAO phase?",
+  options: ["Positive NAO", "Negative NAO", "El Niño", "Positive IOD"],
+  correctAnswer: 0,
+  explanation: "+NAO: stronger dipole, typically stronger westerlies; classic winter composites often milder/wetter northern Europe. Tendencies, not guarantees.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q027", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "medium", type: "single",
+  question: "During a strongly negative NAO, classic winter composites for northern Europe favour:",
+  options: [
+    "Mild and wet with a vigorous jet, always",
+    "Higher odds of blocking and cold outbreaks (weaker dipole)",
+    "Hot humid tropical air as the only allowed airmass",
+    "Perpetually clear trade-wind weather"
+  ],
+  correctAnswer: 1,
+  explanation: "−NAO: weaker Iceland–Azores contrast, more blocking, higher odds of cold spells. A weekly −NAO index does not guarantee an entire winter.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q028", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "medium", type: "true_false",
+  question: "True or False: The Arctic Oscillation (AO) and the North Atlantic Oscillation (NAO) are completely independent modes on unrelated timescales.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. They are closely related, not clones of ENSO. AO is the broader Northern Annular Mode (polar vs mid-latitude pressure); NAO is its strongest regional expression over the Atlantic. Winter-focused, days-to-seasons — still distinct from tropical Pacific ENSO.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q029", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "hard", type: "single",
+  question: "How is the AO best distinguished from ENSO in exam answers?",
+  options: [
+    "AO is a high-latitude annular atmospheric mode; ENSO is a tropical Pacific coupled ocean–atmosphere mode",
+    "AO is identical to the Indian Ocean Dipole",
+    "AO only measures monsoon onset in Karachi",
+    "AO replaces the need for any pressure observations"
+  ],
+  correctAnswer: 0,
+  explanation: "Keep basins straight. Western disturbances that affect Pakistan are westerly troughs — they may feel large-scale flow but are not the NAO index itself. Do not use NAO to explain monsoon SST.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q030", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "easy", type: "single",
+  question: "The typical period of the Madden–Julian Oscillation is about:",
+  options: ["2–7 years (ENSO-like)", "30–60 days", "100,000 years (eccentricity)", "11 years (solar cycle)"],
+  correctAnswer: 1,
+  explanation: "Intraseasonal: weeks, not years. Weather is day-to-day; ENSO is interannual; MJO fills the sub-seasonal window.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q031", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "easy", type: "true_false",
+  question: "True or False: The MJO is primarily an interannual mode with the same timescale as ENSO.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. ~30–60 days, eastward tropical convective pulse — not El Niño.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q032", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "medium", type: "single",
+  question: "When the MJO’s active convective phase is over the Indian Ocean in monsoon season, South Asian rainfall in that sector tends to:",
+  options: [
+    "Be suppressed (break) as the only allowed outcome",
+    "Be enhanced (active-spell risk up)",
+    "Be unrelated to convection by law",
+    "Delay monsoon onset by a full year"
+  ],
+  correctAnswer: 1,
+  explanation: "Active envelope → rain risk up; suppressed phase → break risk. Modulation of weekly spells, not a replacement for the whole seasonal monsoon total.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q033", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "medium", type: "true_false",
+  question: "True or False: The MJO, like ENSO, requires a long-lived El Niño-style SST anomaly and Bjerknes coupling to exist.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. MJO is an intraseasonal atmospheric (coupled, but not ENSO-like) convective wave. It does not need a sustained Niño-3.4 event.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q034", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "hard", type: "single",
+  question: "Why is the MJO especially useful for sub-seasonal monsoon forecasting?",
+  options: [
+    "It organises active and break spells on roughly 30–60 day timescales inside the season",
+    "It sets the 100,000-year eccentricity cycle",
+    "It replaces all NWP models permanently",
+    "It is only tomorrow’s persistence forecast"
+  ],
+  correctAnswer: 0,
+  explanation: "Bridge between weather and seasonal climate. Forecasters track MJO phase for weekly active/break timing — not as the sole control of the seasonal total.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q035", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "easy", type: "single",
+  question: "AMOC stands for:",
+  options: [
+    "Atlantic Meridional Overturning Circulation",
+    "Arctic Monsoon Oscillation Current",
+    "Annual Mesoscale Orographic Cloud",
+    "Automated METAR Observation Code"
+  ],
+  correctAnswer: 0,
+  explanation: "Atlantic overturning cell: warm upper water northward, colder deep water southward. A major Atlantic component of thermohaline circulation — not a weather-code acronym.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q036", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "medium", type: "single",
+  question: "A significant AMOC slowdown would most likely:",
+  options: [
+    "Alter North Atlantic heat transport and regional climate (not an instant global ice age)",
+    "Immediately freeze the entire tropical Pacific",
+    "Stop all weather on Earth within one day",
+    "Eliminate the need for forecasts"
+  ],
+  correctAnswer: 0,
+  explanation: "Regional redistribution of heat. The planet can still warm overall under GHGs. AMOC is a modifier inside a warming world, not a cancel button.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q037", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "medium", type: "true_false",
+  question: "True or False: Increased freshwater from Greenland ice melt could weaken AMOC by reducing the density of North Atlantic surface waters.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Sinking needs dense water. Fresh meltwater lightens the surface layer → less sinking → weaker overturning in standard arguments. Freshwater does not make seawater denser.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q038", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "hard", type: "true_false",
+  question: "True or False: AMOC slowdown research implies that global greenhouse warming stops being relevant to North Atlantic climate.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Both can matter together: GHGs set the global energy imbalance; AMOC changes move heat around regionally. ‘AMOC slowdown = new ice age / weather stops’ is a cartoon.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q039", sectionId: "METEO-13", topicId: "meteo-amoc-slowdown", difficulty: "hard", type: "single",
+  question: "How can ice-sheet meltwater tend to weaken AMOC in standard arguments?",
+  options: [
+    "Freshening reduces surface density and sinking",
+    "Freshwater is denser than seawater and sinks faster",
+    "It converts AMOC into ENSO",
+    "It doubles the solar constant"
+  ],
+  correctAnswer: 0,
+  explanation: "Dense water sinks. Extra freshwater → lighter surface → harder to sink. Active research/monitoring — not a completed global-cooling prophecy.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q040", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "easy", type: "true_false",
+  question: "True or False: SST pattern and tropical Pacific winds should be discussed as a coupled pair when defining ENSO.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. That coupling is ENSO and Bjerknes. Warm east + weak trades, or cool east + strong trades — not SST in isolation.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q041", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "easy", type: "single",
+  question: "IOD poles are located in:",
+  options: ["The tropical Indian Ocean (east–west dipole)", "Only Niño-3.4 in the Pacific", "Only the Icelandic Low", "Only the Azores High"],
+  correctAnswer: 0,
+  explanation: "Always locate the poles in the Indian Ocean. ENSO and IOD can co-occur but are separate indices.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q042", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "medium", type: "true_false",
+  question: "True or False: Thermohaline circulation is primarily a fast surface wind drift identical to a western-boundary current.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Wind gyre = surface; thermohaline = density-driven with deep branches, slower, long-term heat redistribution (AMOC context).",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q043", sectionId: "METEO-13", topicId: "meteo-mjo", difficulty: "medium", type: "single",
+  question: "The MJO’s convective envelope typically propagates:",
+  options: ["Westward only, like a trade-wind wave slogan", "Eastward through the tropics", "Only along the Gulf Stream", "Only as a standing Niño-3.4 SST dipole"],
+  correctAnswer: 1,
+  explanation: "Eastward-moving pulse of convection and circulation. Active vs suppressed phases. Not a standing Pacific SST mode.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q044", sectionId: "METEO-13", topicId: "meteo-nao-ao", difficulty: "easy", type: "true_false",
+  question: "True or False: If a question is about Azores and Iceland, think NAO; if it is about Niño-3.4 SST, think ENSO.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Basin literacy scores marks.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q045", sectionId: "METEO-13", topicId: "meteo-enso-global-impacts", difficulty: "easy", type: "single",
+  question: "A teleconnection is:",
+  options: [
+    "A statistically preferred climate anomaly in a region remote from the forcing centre",
+    "A guarantee that every event repeats 2010",
+    "The DMI by another name",
+    "A METAR SPECI"
+  ],
+  correctAnswer: 0,
+  explanation: "Remote correlated response. Phrase as raised or lowered odds.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q046", sectionId: "METEO-13", topicId: "meteo-enso-basics", difficulty: "medium", type: "true_false",
+  question: "True or False: Bjerknes feedback is a damping (negative) feedback that always restores ENSO to neutral within a week.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. It is a positive coupling that can amplify anomalies. Events still eventually terminate; the feedback is not a weekly reset button.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q047", sectionId: "METEO-13", topicId: "meteo-ocean-currents", difficulty: "hard", type: "multi",
+  question: "Which pairings are CORRECT? (Select all that apply.)",
+  options: [
+    "Western boundary current → narrow, strong (e.g. Gulf Stream, Kuroshio)",
+    "Eastern boundary current → broader, weaker, often upwelling",
+    "Wind-driven gyre → surface",
+    "Thermohaline → only airport Beaufort force"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Two engines: wind gyres vs density-driven deep overturning. AMOC is the Atlantic overturning piece.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-13-Q048", sectionId: "METEO-13", topicId: "meteo-iod", difficulty: "hard", type: "multi",
+  question: "Which statements are CORRECT? (Select all that apply.)",
+  options: [
+    "+IOD: east cool / west warm in the equatorial Indian Ocean",
+    "IOD ≠ ENSO, though they can co-occur",
+    "DMI is a two-box gradient, not a single SST box",
+    "IOD poles should be plotted on Niño-3.4"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Indian Ocean location, dipole index, probabilistic monsoon interaction — not a Pacific clone.",
+  sourceCitation: "Aligned to upgraded study material" },
 
 // ============================================================================
 // SECTION MC-B — TEMPERATURE, HEAT & ENERGY (new topics)
