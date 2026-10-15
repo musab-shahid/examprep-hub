@@ -1760,6 +1760,228 @@ export const questions: Question[] = [
   correctAnswer: 0,
   explanation: "All three errors fixed at once: (1) 'discussed' takes no preposition (drop 'about'), (2) 'returned' alone means came back (drop redundant 'back'), (3) 'enter' is intransitive and doesn't take 'into' (drop 'into'). One option fixes all three.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC: Common Errors — top-up from ENG-01-Q160
+// (Keep Q144–Q159; append these)
+// ═══════════════════════════════════════════════════════════════════
+
+// —— Easy ——
+{ id: "ENG-01-Q160", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Its raining heavily today.",
+    "It's raining heavily today.",
+    "Its' raining heavily today.",
+    "It raining heavily today."
+  ],
+  correctAnswer: 1,
+  explanation: "it's = it is / it has. its = possessive (belonging to it). Here the meaning is it is raining → it's.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q161", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct word: 'There were _____ mistakes in the draft.'",
+  options: ["less", "fewer", "least", "little"],
+  correctAnswer: 1,
+  explanation: "mistakes is countable → fewer. less is for uncountables (less time, less water).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q162", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
+  question: "'I enjoy to read in the evening' is correct formal English.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. enjoy takes a gerund: enjoy reading (not to read).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Medium ——
+{ id: "ENG-01-Q163", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "She suggested to leave early.",
+    "She suggested leaving early.",
+    "She suggested leave early.",
+    "She suggested to leaving early."
+  ],
+  correctAnswer: 1,
+  explanation: "suggest takes a gerund: suggested leaving. Not suggested to leave in standard formal usage.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q164", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I want going home now.",
+    "I want to go home now.",
+    "I want go home now.",
+    "I want to going home now."
+  ],
+  correctAnswer: 1,
+  explanation: "want takes to + base form: want to go.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q165", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct form: 'Please _____ the book on the table.'",
+  options: ["lie", "lay", "lain", "lying"],
+  correctAnswer: 1,
+  explanation: "Object = the book → transitive lay (place). lie is intransitive (recline).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q166", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He laid down to rest after the shift.",
+    "He lay down to rest after the shift.",
+    "He lied down to rest after the shift.",
+    "He lain down to rest after the shift."
+  ],
+  correctAnswer: 1,
+  explanation: "Intransitive recline in the past → lay (past of lie). laid is past of transitive lay; lied is past of lie = not tell the truth.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q167", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Smoke raised from the chimney.",
+    "Smoke rose from the chimney.",
+    "Smoke raised up from the chimney.",
+    "Smoke has raise from the chimney."
+  ],
+  correctAnswer: 1,
+  explanation: "No object → rise / rose / risen. raise is transitive (raise your hand).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q168", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "No sooner I had left than it began to rain.",
+    "No sooner had I left than it began to rain.",
+    "No sooner I had left when it began to rain.",
+    "No sooner had I left when it began to rain."
+  ],
+  correctAnswer: 1,
+  explanation: "No sooner + had + subject + past participle + than (not when). Inversion is required.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q169", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I prefer tea than coffee.",
+    "I prefer tea to coffee.",
+    "I prefer tea from coffee.",
+    "I prefer tea against coffee."
+  ],
+  correctAnswer: 1,
+  explanation: "prefer X to Y — not than. than is for comparative adjectives (taller than).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The results are different than last year's.",
+    "The results are different from last year's.",
+    "The results are different of last year's.",
+    "The results are different with last year's."
+  ],
+  correctAnswer: 1,
+  explanation: "Formal standard: different from. different than is common in speech but usually marked wrong in exam keys.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q171", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+  question: "'Remember locking the door' and 'Remember to lock the door' mean the same thing.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. remember + -ing = recall a past action; remember + to = not forget a duty ahead. Meaning changes with the form.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q172", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct completion: 'She stopped _____ coffee for health reasons.' (ceased the habit)",
+  options: ["to drink", "drinking", "drink", "to drinking"],
+  correctAnswer: 1,
+  explanation: "stop + -ing = cease an activity. stop + to + verb = pause in order to do something else.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Hard ——
+{ id: "ENG-01-Q173", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT in formal standard English? (Select all that apply.)",
+  options: [
+    "Hardly had we arrived when the lights failed.",
+    "She avoids to speak in public.",
+    "Please raise your hand if you agree.",
+    "He is inferior than his rival."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "Hardly + inversion is correct; raise needs an object (your hand). Wrong: avoid takes -ing (avoid speaking); inferior takes to, not than.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q174", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which forms are CORRECT? (Select all that apply.)",
+  options: [
+    "I decided to apply for the post.",
+    "They finished to write the report.",
+    "He lay the keys on the counter yesterday.",
+    "He laid the keys on the counter yesterday."
+  ],
+  correctAnswer: [0, 3],
+  explanation: "decide + to-infinitive is fine; laid is past of transitive lay. Wrong: finish + gerund (finished writing); past of place is laid, not lay (lay as past = recline).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q175", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Choose the best correction: 'The heat will effect the samples, so set them careful.'",
+  options: [
+    "The heat will affect the samples, so set them carefully.",
+    "The heat will effect the samples, so set them carefully.",
+    "The heat will affect the samples, so set them careful.",
+    "The heat will effect the samples, so set them careful."
+  ],
+  correctAnswer: 0,
+  explanation: "influence → affect (verb); modify the verb set with the adverb carefully.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q176", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Scarcely she had spoken when someone interrupted.",
+    "Scarcely had she spoken when someone interrupted.",
+    "Scarcely had she spoken than someone interrupted.",
+    "Scarcely she had spoken than someone interrupted."
+  ],
+  correctAnswer: 1,
+  explanation: "Scarcely + had + subject + pp + when (same family as hardly…when). than pairs with no sooner, not scarcely.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q177", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which are CORRECT? (Select all that apply.)",
+  options: [
+    "I hope to see you soon.",
+    "Would you mind opening the window?",
+    "She refused helping us.",
+    "They agreed to meet at noon."
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "hope/agree + to-infinitive; mind + gerund. refuse takes to-infinitive (refused to help), not refused helping in standard keys.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q178", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He is good in mathematics.",
+    "He is good at mathematics.",
+    "He is good on mathematics.",
+    "He is good with mathematics."
+  ],
+  correctAnswer: 1,
+  explanation: "Fixed skill phrase: good at (not in/on in formal exam usage).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Identify the main error type: 'Hardly she had entered when the alarm sounded.'",
+  options: [
+    "Wrong preposition after discuss",
+    "Failed inversion after a negative adverbial",
+    "Affect used instead of effect",
+    "Gerund required after want"
+  ],
+  correctAnswer: 1,
+  explanation: "Hardly requires had before the subject: Hardly had she entered when…",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Synonyms, Antonyms & Confusables
