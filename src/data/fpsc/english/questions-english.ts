@@ -2161,14 +2161,14 @@ export const questions: Question[] = [
 { id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "The results are different than last year's.",
-    "The results are different from last year's.",
-    "The results are different of last year's.",
-    "The results are different with last year's."
+    "He is afraid from flying.",
+    "He is afraid of flying.",
+    "He is afraid to flying.",
+    "He is afraid at flying."
   ],
   correctAnswer: 1,
-  explanation: "Formal standard: different from. different than is common in speech but usually marked wrong in exam keys.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "afraid of + noun/-ing in this pattern (not from/at).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q171", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
   question: "'Remember locking the door' and 'Remember to lock the door' mean the same thing.",
