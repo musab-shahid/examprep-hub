@@ -367,7 +367,6 @@ export const questions: Question[] = [
   correctAnswer: 1,
   explanation: "False. The hydrostatic equation assumes that vertical accelerations are negligible compared to gravity. This is excellent for large-scale, slowly varying flow (synoptic-scale weather), but it breaks down for strong convective motions (thunderstorm updrafts, tornadoes) where vertical accelerations are large.",
   sourceCitation: "Standard meteorology references" },
-// ----- METEO-02 Temperature, Heat & Energy -----
 { id: "METEO-02-Q036", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "medium", type: "single",
   question: "What term describes horizontal transport of heat by the wind?",
   options: ["Advection", "Conduction through still air only", "Only latent heat release in clouds", "Only molecular diffusion in solids"],
