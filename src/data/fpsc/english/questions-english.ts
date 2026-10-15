@@ -1,11 +1,8 @@
 // questions-english.ts — FPSC English question bank
-// Module A: Grammar & Usage (~84 questions for 5 topics)
-// Distribution: ~3 easy, ~12 medium, ~3 hard per topic
-
 import type { Question } from '@/types';
-
 export const questions: Question[] = [
 
+// Module A: Grammar & Usage
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Parts of Speech & Tenses — ENG-01 Questions
 // Aligned to full A1 map: all POS + twelve tenses + stative/for-since + reported speech
