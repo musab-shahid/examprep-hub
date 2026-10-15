@@ -4565,7 +4565,9 @@ export const topics: Topic[] = [
   leadsTo: ["meteo-arabian-sea-cyclones-local"],
   usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"],
 },
-  
+
+// ============================= SECTION F — Instruments & Observations =============================
+
 {
   id: "meteo-temperature-instruments",
   sectionId: "METEO-06",
