@@ -2258,16 +2258,16 @@ export const questions: Question[] = [
   sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
-  question: "Identify the main error type: 'Hardly she had entered when the alarm sounded.'",
+  question: "Choose the best correction: “Neither of the samples were labelled correctly.”",
   options: [
-    "Wrong preposition after discuss",
-    "Failed inversion after a negative adverbial",
-    "Affect used instead of effect",
-    "Gerund required after want"
+    "Neither of the samples was labelled correctly.",
+    "Neither of the samples were labelled correct.",
+    "Neither of the sample were labelled correctly.",
+    "Neither of the samples are being label correctly."
   ],
-  correctAnswer: 1,
-  explanation: "Hardly requires had before the subject: Hardly had she entered when…",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  correctAnswer: 0,
+  explanation: "Neither of + plural noun is treated as singular in formal keys → was (not were).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
   question: "Fix the correlative: “She is not only smart but also works hard.”",
