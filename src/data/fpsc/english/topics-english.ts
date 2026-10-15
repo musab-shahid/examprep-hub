@@ -1502,184 +1502,284 @@ export const topics: Topic[] = [
   order: 5,
   title: 'Common Errors in English',
   definition:
-    'The highest-frequency grammatical and lexical mistakes that appear in FPSC-style papers. They fall into four families: wrong word form, wrong or missing preposition, wrong word order, and wrong comparison or structure.',
+    'The highest-frequency grammatical and lexical mistakes in FPSC-style papers. Most items fall into four families: wrong word form, wrong or missing preposition, wrong word order (including inversion), and wrong comparison or structure. A5 is also a revision layer for rules already taught in A1–A4.',
   keyFacts: [
-    'Adjective versus adverb: real bad → really bad; she sings beautiful → beautifully; he did good → he did well.',
-    'Affect (verb = influence) versus Effect (noun = result; rare verb = bring about).',
-    'Less (uncountable) versus Fewer (countable).',
-    'Different from (not different than); prefer X to Y (not prefer X than Y); senior / junior / superior / inferior to (not than).',
-    'Discuss + object (no preposition); marry / be married to (not with); good at (not in); according to (not with).',
+    'Adjective vs adverb: real bad → really bad; sings beautiful → beautifully; did good → did well.',
+    'Affect (verb ≈ influence) vs effect (noun ≈ result; rare formal verb = bring about).',
+    'Less (uncountable) vs fewer (countable).',
+    'Different from (not than); prefer X to Y (not than); senior / junior / superior / inferior to (not than).',
+    'Discuss + object (no about); marry / married to (not with); good at (not in); according to.',
     'Despite / in spite of (despite does not take of); comprise (no of in active voice).',
     'Hardly / scarcely / no sooner + had + subject + past participle (inversion).',
-    'Its (possessive) ≠ it\'s (it is); your ≠ you\'re; their ≠ they\'re ≠ there.',
+    'its ≠ it\'s; your ≠ you\'re; their ≠ they\'re ≠ there.',
     'Double negatives are non-standard in formal writing.',
-    'Gerund verbs (enjoy, avoid, suggest, recommend, consider, finish, keep, miss, mind) take -ing, not to-infinitive.',
-    'To-infinitive verbs (want, hope, decide, plan, expect, promise, agree, refuse, learn) take to + base, not -ing.',
-    'Tricky pairs: lie (intransitive, lie/lay/lain) vs lay (transitive, lay/laid/laid); rise (intransitive) vs raise (transitive); sit (intransitive) vs set (transitive).'
+    'Gerund after enjoy, avoid, suggest, recommend, consider, finish, keep, mind, miss…',
+    'to-infinitive after want, hope, decide, plan, expect, promise, agree, refuse, learn…',
+    'lie (intransitive: lie/lay/lain) vs lay (transitive: lay/laid/laid); rise vs raise; sit vs set.',
   ],
   explanationSections: [
     {
       heading: 'Four families of error',
-      body: 'Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Order (hardly I had). Comparison or structure (prefer X than Y, senior than). Treating the errors as families makes revision efficient and reveals patterns that single lists hide.'
+      body:
+        'Form errors mix word classes or near-homophones (affect/effect, real/really). Preposition errors add a wrong particle or omit a required one (discuss about, married with, different than). Order errors include failed inversion after negative openers (Hardly I had…). Comparison/structure errors force than where to is required (prefer X than Y, senior than). Grouping by family makes revision faster than memorising an unstructured list.',
     },
     {
       heading: 'Affect / effect — substitution test',
-      body: 'If you can replace the word with "influence" or "change", use the verb affect. If you can replace it with "result" or "outcome", use the noun effect. Mnemonic: AFFECT = Action verb (both start with A); EFFECT = End result (noun). The verb "affect" is used in ~95% of cases; "effect" is almost always the noun. Exception: "to effect change" (formal verb = bring about), which appears rarely and is almost never tested.'
+      body:
+        'If influence or change fits, use the verb affect. If result or outcome fits, use the noun effect. Affect is the usual verb in exam stems; effect is almost always the noun. The formal verb to effect change (bring about) is rare and seldom the intended key.',
     },
     {
       heading: 'Fixed prepositions and no-preposition verbs',
-      body: 'Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from, according to, senior to are fixed phrases that must be memorised; logic does not reliably predict them. Other fixed prepositions: depend ON, insist ON, believe IN, succeed IN, angry WITH, similar TO, fond OF, afraid OF, interested IN, capable OF, aware OF, accustomed TO, devoted TO, prefer X TO Y.'
+      body:
+        'Discuss, enter, resemble, and approach take a direct object with no preposition. Fixed collocations must be learned as chunks: married to, good at, different from, according to, senior to, depend on, insist on, believe in, interested in, capable of, prefer X to Y. Logic from another language does not reliably predict the particle.',
     },
     {
       heading: 'Inversion after negative adverbials',
-      body: 'When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: "Hardly had I reached the station when the train left." Structure: HARDLY + HAD + SUBJECT + PAST PARTICIPLE + WHEN + PAST SIMPLE. For no sooner: NO SOONER + HAD + SUBJECT + PAST PARTICIPLE + THAN + PAST SIMPLE. The diagnostic: adverb followed by ordinary subject-verb order is wrong.'
+      body:
+        'When the sentence opens with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary precedes the subject: Hardly had I reached the station when the train left. Pattern: Hardly/Scarcely + had + subject + past participle + when + past simple. No sooner + had + subject + past participle + than + past simple. Ordinary subject–verb order after these openers is wrong in formal keys.',
     },
     {
-      heading: 'Gerund vs infinitive verb patterns',
-      body: 'GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): "I enjoy reading". TO-INFINITIVE verbs (want, would like, hope, decide, plan, expect, promise, agree, refuse, learn, seem, appear, offer): "I want to go". DUAL-MEANING pairs (REMEMBER + -ing = past memory; REMEMBER + to = future act; REGRET + to = formal present; REGRET + -ing = past action; STOP + -ing = cease; STOP + to = pause to do).'
+      heading: 'Gerund vs infinitive patterns',
+      body:
+        'Gerund (-ing) after enjoy, mind, avoid, suggest, recommend, consider, finish, keep, miss, practice, risk. to-infinitive after want, hope, decide, plan, expect, promise, agree, refuse, learn, offer. Dual pairs change meaning: remember + -ing (past memory) vs remember + to (duty ahead); stop + -ing (cease) vs stop + to (pause in order to); regret + -ing (past) vs regret + to (formal present announcement).',
     },
     {
-      heading: 'Tricky verb pairs — lie/lay, rise/raise, sit/set',
-      body: 'LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Past of LIE is "lay" (not "lied"); past of LAY is "laid". RISE (intransitive, goes up): rise, rose, risen, rising. RAISE (transitive, lifts something): raise, raised, raised, raising. SET (transitive, places): set, set, set, setting. SIT (intransitive): sit, sat, sat, sitting. The pattern: short-vowel forms (rise, sit, lie) are intransitive; long-vowel forms (raise, set, lay) are transitive.'
+      heading: 'Tricky pairs — lie/lay, rise/raise, sit/set',
+      body:
+        'lie (recline, no object): lie / lay / lain / lying. lay (place something): lay / laid / laid / laying. The past of lie is lay, not lied (lied is past of lie = not tell the truth). rise (go up, no object): rise / rose / risen. raise (lift something): raise / raised / raised. sit (no object) vs set (place something). Ask: is there a direct object? If yes, the transitive member of the pair is usually required.',
     },
-    {
-      heading: 'Consolidation role of A5',
-      body: 'Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4). A5 is therefore both a high-yield exam topic and a revision chapter for the whole module. The error list here should be reviewed as a reference sheet before exams — re-read it once and it passes.'
-    }
   ],
   examPoints: [
     'Affect (verb) / effect (noun) — substitution test.',
-    'Discuss (no preposition); different from; married to; good at; senior to.',
+    'Discuss (no about); different from; married to; good at; senior to; prefer X to Y.',
     'Less (uncountable) / fewer (countable).',
-    'Hardly had + subject + past participle (inversion).',
+    'Hardly had + subject + past participle…',
     'Despite (no of); comprise (no of in active).',
-    'Gerund verbs: enjoy, mind, avoid, suggest, recommend, consider, finish, keep.',
-    'To-infinitive verbs: want, hope, decide, plan, expect, promise, agree, refuse.',
-    'Tricky pairs: lie (intransitive) vs lay (transitive); rise vs raise; sit vs set.'
+    'Gerund vs to-infinitive verb lists; dual pairs remember/stop/regret.',
+    'lie vs lay; rise vs raise; sit vs set.',
+    'its / it\'s and related contractions.',
   ],
   commonMistakes: [
-    '"The weather is real bad" → "… is really bad".',
-    '"It will effect you" → "It will affect you".',
-    '"He discussed about the issue" → "He discussed the issue".',
-    '"He is senior than me" → "He is senior to me".',
-    '"Hardly I had reached …" → "Hardly had I reached …".',
-    '"Despite of the rain …" → "Despite the rain …".',
-    '"The team comprises of five members" → "The team comprises five members".',
-    '"He lay down on the bed to sleep" (correct intransitive, past) vs "He laid the book on the table" (correct transitive).'
+    {
+      mistake: 'The weather is real bad',
+      correction: 'The weather is really bad',
+      explanation: 'Modify an adjective with an adverb (really), not another adjective (real).',
+    },
+    {
+      mistake: 'It will effect you',
+      correction: 'It will affect you',
+      explanation: 'Verb meaning influence → affect; effect is usually the noun result.',
+    },
+    {
+      mistake: 'He discussed about the issue',
+      correction: 'He discussed the issue',
+      explanation: 'discuss takes a direct object — no about.',
+    },
+    {
+      mistake: 'He is senior than me',
+      correction: 'He is senior to me',
+      explanation: 'senior / junior / superior / inferior take to, not than.',
+    },
+    {
+      mistake: 'Hardly I had reached the station when…',
+      correction: 'Hardly had I reached the station when…',
+      explanation: 'Negative opener triggers inversion: had before the subject.',
+    },
+    {
+      mistake: 'Despite of the rain, we went out',
+      correction: 'Despite the rain, we went out',
+      explanation: 'despite takes no of; use in spite of if you need of.',
+    },
+    {
+      mistake: 'The team comprises of five members',
+      correction: 'The team comprises five members',
+      explanation: 'Active comprise does not take of (is comprised of is a different, often debated pattern).',
+    },
+    {
+      mistake: 'He laid down to sleep (no object, meaning recline)',
+      correction: 'He lay down to sleep',
+      explanation: 'Past of intransitive lie (recline) is lay; laid is past of transitive lay (place).',
+    },
   ],
-
-    subtopics: [
-      {
-        id: "english-common-errors-four-families-of-error",
-        title: "Four families of error",
-        summary: "Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Order (hardly I had). Comparison or structure…",
-        explanation: "Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Order (hardly I had). Comparison or structure (prefer X than Y, senior than). Treating the errors as families makes revision efficient and reveals patterns that single lists hide.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Four families of error”.",
-            solution: "From the notes: Form (affect/effect, real/really). Preposition (discuss about, married with, different than). Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Form (affect/effect, real/really).",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-affect-effect-substitution-test",
-        title: "Affect / effect — substitution test",
-        summary: "If you can replace the word with ",
-        explanation: "If you can replace the word with ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Affect / effect — substitution test”.",
-            solution: "From the notes: If you can replace the word with Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "If you can replace the word with",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-fixed-prepositions-and-no-preposition-ve",
-        title: "Fixed prepositions and no-preposition verbs",
-        summary: "Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from,…",
-        explanation: "Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from, according to, senior to are fixed phrases that must be memorised; logic does not reliably predict them. Other fixed prepositions: depend ON, insist ON, believe IN, succeed IN, angry WITH, similar TO, fond OF, afraid OF, interested IN, capable OF, aware OF, accustomed TO, devoted TO, prefer X TO Y.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Fixed prepositions and no-preposition verbs”.",
-            solution: "From the notes: Discuss, enter, resemble, approach and several others take a direct object with no preposition. Married to, good at, different from, according to, senior to are fixed phrases that must be memorised; logic does not reliably predict them. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Discuss, enter, resemble, approach and several others take a direct object with no preposition.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-inversion-after-negative-adverbials",
-        title: "Inversion after negative adverbials",
-        summary: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: ",
-        explanation: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Inversion after negative adverbials”.",
-            solution: "From the notes: When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject: Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "When a sentence begins with hardly, scarcely, no sooner, never, rarely, etc., the auxiliary comes before the subject:",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-gerund-vs-infinitive-verb-patterns",
-        title: "Gerund vs infinitive verb patterns",
-        summary: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): ",
-        explanation: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Gerund vs infinitive verb patterns”.",
-            solution: "From the notes: GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk): Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "GERUND verbs (enjoy, mind, avoid, suggest, recommend, consider, finish, keep, imagine, miss, practice, risk):",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-tricky-verb-pairs-lie-lay-rise-raise-sit",
-        title: "Tricky verb pairs — lie/lay, rise/raise, sit/set",
-        summary: "LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Past of LIE is ",
-        explanation: "LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Past of LIE is ",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Tricky verb pairs — lie/lay, rise/raise, sit/set”.",
-            solution: "From the notes: LIE (intransitive, to recline): lie, lay, lain, lying. LAY (transitive, to place): lay, laid, laid, laying. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "LIE (intransitive, to recline): lie, lay, lain, lying.",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
-      {
-        id: "english-common-errors-consolidation-role-of-a5",
-        title: "Consolidation role of A5",
-        summary: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and…",
-        explanation: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4). A5 is therefore both a high-yield exam topic and a revision chapter for the whole module. The error list here should be reviewed as a reference sheet before exams — re-read it once and it passes.",
-                examples: [
-          {
-            problem: "Choose the option that correctly applies the idea in “Consolidation role of A5”.",
-            solution: "From the notes: Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4). A5 is therefore both a high-yield exam topic and a revision chapter for the whole module. Prefer the option that matches standard formal usage and the rule stated above.",
-            answer: "Every common-error item is an application of earlier rules: adjective/adverb (A1), agreement and articles (A2), prepositions and conjunctions (A3), modals and passive (A4).",
-          },
-        ],
-        shortcuts: [],
-        traps: [],
-      },
+  qualitativeScenarios: [
+    {
+      scenario:
+        "Choose: 'The new policy will _____ sales next quarter.' (affect / effect)",
+      answer: 'affect',
+      why: 'Verb = influence → affect. effect would be the noun result.',
+    },
+    {
+      scenario:
+        "Fix: 'Hardly she had finished when the bell rang.'",
+      answer: 'Hardly had she finished when the bell rang.',
+      why: 'Hardly + had + subject + past participle.',
+    },
+    {
+      scenario:
+        "Choose: 'There were _____ applicants than last year.' (less / fewer)",
+      answer: 'fewer',
+      why: 'Applicants are countable → fewer.',
+    },
+  ],
+  comparisonTable: {
+    title: 'High-frequency contrasts',
+    headers: ['Item', 'Correct pattern', 'Common wrong form'],
+    rows: [
+      ['affect / effect', 'verb influence / noun result', 'effect as everyday verb'],
+      ['less / fewer', 'uncountable / countable', 'less people'],
+      ['different / prefer / senior', 'from / to / to', 'than in all three'],
+      ['discuss / marry', 'discuss X / married to', 'discuss about / married with'],
+      ['despite / comprise', 'despite X / comprises X', 'despite of / comprises of'],
+      ['hardly…', 'Hardly had + S + pp…', 'Hardly S + had…'],
     ],
+  },
+  subtopics: [
+    {
+      id: 'english-a5-four-families',
+      title: 'Four families of error',
+      summary: 'Form, preposition, order, comparison/structure — a revision map.',
+      explanation:
+        'Classify the stem before you answer. Form points to word class or near-homophones. Preposition points to fixed phrases. Order often means inversion. Comparison/structure often means to vs than or parallel frames.',
+      examples: [
+        {
+          problem: "Family of: 'She sings beautiful.'",
+          solution: 'Form — adverb needed (beautifully).',
+          answer: 'Form (adjective vs adverb)',
+        },
+        {
+          problem: "Family of: 'Prefer tea than coffee.'",
+          solution: 'Comparison structure — prefer X to Y.',
+          answer: 'Comparison / structure',
+        },
+      ],
+      shortcuts: ['Name the family first, then apply the rule'],
+      traps: ['Treating every item as a random vocabulary miss'],
+    },
+    {
+      id: 'english-a5-affect-effect-form',
+      title: 'Affect / effect and other form traps',
+      summary: 'Substitution test; adjective vs adverb; contractions.',
+      explanation:
+        'affect = influence (verb); effect = result (noun). Pair with real/really, good/well, and its/it’s, your/you’re, their/they’re/there for form-family drills.',
+      examples: [
+        {
+          problem: "'The _____ of the decision was clear.' (affect/effect)",
+          solution: 'Noun result → effect.',
+          answer: 'effect',
+        },
+        {
+          problem: "'_____ raining.' (Its / It's)",
+          solution: 'It is → it\'s.',
+          answer: "It's",
+        },
+      ],
+      shortcuts: ['AFFECT ≈ Action; EFFECT ≈ End result'],
+      traps: ['effect as default verb', 'its for it is'],
+    },
+    {
+      id: 'english-a5-fixed-prepositions',
+      title: 'Fixed prepositions and no-preposition verbs',
+      summary: 'discuss X; married to; different from; good at; senior to.',
+      explanation:
+        'Memorise high-yield chunks. Strip illegal particles (about after discuss; of after despite/comprise in the active patterns tested here).',
+      examples: [
+        {
+          problem: "'He is good _____ physics.' (at/in)",
+          solution: 'good at (skill).',
+          answer: 'at',
+        },
+        {
+          problem: "'They discussed _____ the budget.' (about / ∅)",
+          solution: 'No preposition — discussed the budget.',
+          answer: 'no preposition',
+        },
+      ],
+      shortcuts: ['Learn phrase as one unit'],
+      traps: [
+        'discuss about',
+        'married with',
+        'different than',
+        'senior than',
+        'despite of',
+        'comprises of',
+      ],
+    },
+    {
+      id: 'english-a5-inversion',
+      title: 'Inversion after negative adverbials',
+      summary: 'Hardly / scarcely / no sooner + had + subject + pp…',
+      explanation:
+        'Fronted negative or restrictive adverbial pulls the auxiliary before the subject. Pair hardly/scarcely with when; pair no sooner with than.',
+      examples: [
+        {
+          problem: "Rewrite: 'I had hardly sat down when the phone rang.' (start with Hardly)",
+          solution: 'Hardly had I sat down when the phone rang.',
+          answer: 'Hardly had I sat down when…',
+        },
+        {
+          problem: "'No sooner _____ the match started than it began to rain.' (had it / it had)",
+          solution: 'Inversion → had it.',
+          answer: 'had it',
+        },
+      ],
+      shortcuts: ['Opener + auxiliary + subject + past participle'],
+      traps: ['Hardly I had…', 'No sooner… when… (use than)'],
+    },
+    {
+      id: 'english-a5-gerund-infinitive',
+      title: 'Gerund vs infinitive patterns',
+      summary: 'Verb lists plus remember / stop / regret meaning shifts.',
+      explanation:
+        'Match the head verb to -ing or to + base. For dual pairs, decide whether the stem means past memory, future duty, cessation, or purpose.',
+      examples: [
+        {
+          problem: "'She suggested _____ early.' (leaving / to leave)",
+          solution: 'suggest + gerund.',
+          answer: 'leaving',
+        },
+        {
+          problem: "'Remember _____ the form.' (meaning: don’t forget the duty)",
+          solution: 'remember + to + base.',
+          answer: 'to submit / to post (to + base)',
+        },
+      ],
+      shortcuts: [
+        'enjoy/avoid/suggest → -ing',
+        'want/hope/decide → to + base',
+      ],
+      traps: ['suggest to go', 'enjoy to read', 'confusing stop + -ing with stop + to'],
+    },
+    {
+      id: 'english-a5-lie-lay-rise-raise',
+      title: 'lie/lay, rise/raise, sit/set',
+      summary: 'Object test: intransitive vs transitive members of each pair.',
+      explanation:
+        'No object → lie, rise, sit. Object present → lay, raise, set. Watch the past of lie (recline) = lay, which looks like the present of lay (place).',
+      examples: [
+        {
+          problem: "'Please _____ the book on the desk.' (lie/lay)",
+          solution: 'Object the book → lay.',
+          answer: 'lay',
+        },
+        {
+          problem: "'Smoke _____ from the chimney.' (rose/raised)",
+          solution: 'No object → rose (rise).',
+          answer: 'rose',
+        },
+      ],
+      shortcuts: ['Ask: what is the direct object?'],
+      traps: [
+        'laid down to sleep (for recline)',
+        'raise without an object',
+        'lied as past of recline',
+      ],
+    },
+  ],
   relatedTopics: [
     'english-parts-of-speech-and-tenses',
     'english-agreement-and-articles',
     'english-pronouns-prepositions-conjunctions',
-    'english-modals-voice-narration'
+    'english-modals-voice-narration',
   ],
   content: true,
   examScope: ['bs17', 'bs16'],
@@ -1687,18 +1787,17 @@ export const topics: Topic[] = [
     'english-parts-of-speech-and-tenses',
     'english-agreement-and-articles',
     'english-pronouns-prepositions-conjunctions',
-    'english-modals-voice-narration'
+    'english-modals-voice-narration',
   ],
-  leadsTo: [
-    'english-sentence-types-errors-transformation'
-  ],
+  leadsTo: ['english-sentence-types-errors-transformation'],
   usedIn: [
     'english-sentence-types-errors-transformation',
     'english-sentence-completion-rearrangement',
     'ra-scientific-reporting',
-    'meteo-aviation-products'
-  ]
+    'meteo-aviation-products',
+  ],
 },
+
 // ============================================================================
 // ENGLISH — MODULE B: Vocabulary (BS-17) — UPGRADED
 // ============================================================================
