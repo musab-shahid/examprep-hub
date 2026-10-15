@@ -2248,14 +2248,14 @@ export const questions: Question[] = [
 { id: "ENG-01-Q178", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "He is good in mathematics.",
-    "He is good at mathematics.",
-    "He is good on mathematics.",
-    "He is good with mathematics."
+    "They insisted to check the gauges again.",
+    "They insisted on checking the gauges again.",
+    "They insisted for checking the gauges again.",
+    "They insisted check the gauges again."
   ],
   correctAnswer: 1,
-  explanation: "Fixed skill phrase: good at (not in/on in formal exam usage).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "insist on + -ing (not insist to + base in this formal pattern).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
   question: "Identify the main error type: 'Hardly she had entered when the alarm sounded.'",
