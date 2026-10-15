@@ -287,12 +287,1977 @@ export const questions: Question[] = [
   explanation: "Quickly and beautifully modify verbs → adverbs. Fast and hard here modify nouns → adjectives.",
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
 
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC: Parts of Speech & Tenses — ENG-01 Questions
+// Aligned to full A1 map: all POS + twelve tenses + stative/for-since + reported speech
+// ═══════════════════════════════════════════════════════════════════
+
+// ── Easy: core identification ──
+{ id: "ENG-01-Q001", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "Which part of speech names a person, place, thing, or idea?",
+  options: ["Verb", "Noun", "Adjective", "Adverb"],
+  correctAnswer: 1,
+  explanation: "A noun names a person, place, thing, or idea (officer, Lahore, rainfall, honesty).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q002", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "In “She quickly ran to the store,” what is the part of speech of quickly?",
+  options: ["Adjective", "Adverb", "Verb", "Preposition"],
+  correctAnswer: 1,
+  explanation: "Quickly modifies the verb ran (how she ran) → adverb. Adjectives modify nouns.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q003", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "true_false",
+  question: "True or False: In “The cat is under the table,” under is a preposition.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Under relates cat to table (place). Prepositions take a nominal object (the table).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q004", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "In “The beautiful sunset faded,” beautiful is a(n):",
+  options: ["Adverb", "Adjective", "Noun", "Verb"],
+  correctAnswer: 1,
+  explanation: "Beautiful describes the noun sunset → adjective.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q005", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "Which word is a coordinating conjunction (FANBOYS)?",
+  options: ["Because", "Although", "But", "When"],
+  correctAnswer: 2,
+  explanation: "But is coordinating (FANBOYS). Because, although, when are subordinating.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q006", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "easy", type: "single",
+  question: "Meteorologists are analyzing new satellite data. Which tense is this?",
+  options: ["Simple present", "Present continuous", "Present perfect", "Past continuous"],
+  correctAnswer: 1,
+  explanation: "are + analyzing = present continuous (action in progress / current temporary activity).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+// ── Medium: rules under pressure ──
+{ id: "ENG-01-Q007", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I am knowing the answer.",
+    "I know the answer.",
+    "I am know the answer.",
+    "I knows the answer."
+  ],
+  correctAnswer: 1,
+  explanation: "Know is stative (mental state). Formal English uses simple present, not continuous: I know.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q008", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "By the time we arrived, the storm _____.",
+  options: ["passed", "has passed", "had passed", "was passing"],
+  correctAnswer: 2,
+  explanation: "Two past times: the storm finished before arrival → past perfect had passed.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q009", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "He said, “I am hungry.” Correct reported speech:",
+  options: [
+    "He said that I am hungry.",
+    "He said that he is hungry.",
+    "He said that he was hungry.",
+    "He says that he was hungry."
+  ],
+  correctAnswer: 2,
+  explanation: "Past reporting verb said → back-shift am → was; pronoun I → he.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q010", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which sentence uses the present perfect correctly?",
+  options: [
+    "I have went to the store yesterday.",
+    "I have gone to the store many times.",
+    "I have going to the store.",
+    "I am have gone to the store."
+  ],
+  correctAnswer: 1,
+  explanation: "have + past participle gone. yesterday forces past simple, not present perfect; went is not the participle.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q011", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "By next June, the monsoon _____.",
+  options: ["will arrive", "will have arrived", "arrives", "is arriving"],
+  correctAnswer: 1,
+  explanation: "By + future deadline → future perfect will have arrived (completed before that point).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q012", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "He said, “I will go tomorrow.” Correct reported speech:",
+  options: [
+    "He said he will go tomorrow.",
+    "He said he would go the next day.",
+    "He said he would go tomorrow.",
+    "He says he would go tomorrow."
+  ],
+  correctAnswer: 1,
+  explanation: "will → would; I → he; tomorrow → the next day. All three shifts are required.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q013", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "true_false",
+  question: "True or False: Present perfect continuous (has been raining) often stresses an action that began in the past and is still relevant or ongoing now.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. have/has been + -ing highlights duration up to the present.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q014", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "true_false",
+  question: "True or False: In “I like tea and coffee,” and is a subordinating conjunction.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. And is coordinating (joins equal elements). Subordinators include because, although, if, when.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q015", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose the correct option: “She gave me ___ advice.”",
+  options: ["an", "a", "some", "many"],
+  correctAnswer: 2,
+  explanation: "Advice is uncountable → some advice / a piece of advice — not an advice or many advice.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q016", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Between you and ___, the data look incomplete.",
+  options: ["I", "me", "myself", "mine"],
+  correctAnswer: 1,
+  explanation: "Object of the preposition between → me (not I).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q017", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She sings ___. / She is a ___ singer.",
+  options: [
+    "good / well",
+    "well / good",
+    "well / well",
+    "good / good"
+  ],
+  correctAnswer: 1,
+  explanation: "well modifies the verb sings (adverb); good modifies the noun singer (adjective).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q018", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Fill in: “___ Monday” / “___ 2024” / “___ 9 a.m.”",
+  options: [
+    "in / on / at",
+    "on / in / at",
+    "at / on / in",
+    "on / at / in"
+  ],
+  correctAnswer: 1,
+  explanation: "on + day/date; in + month/year; at + clock time → on Monday, in 2024, at 9 a.m.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q019", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She has worked here ___ 2019 and ___ six years.",
+  options: [
+    "for / since",
+    "since / for",
+    "since / since",
+    "for / for"
+  ],
+  correctAnswer: 1,
+  explanation: "since + starting point (2019); for + duration (six years).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q020", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "“She left after the meeting.” Here after is a:",
+  options: ["Coordinating conjunction", "Preposition", "Adverb only", "Interjection"],
+  correctAnswer: 1,
+  explanation: "after + noun phrase (the meeting) → preposition. after + full clause would be a subordinating conjunction.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q021", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which is correct?",
+  options: [
+    "The news are encouraging.",
+    "The news is encouraging.",
+    "The news were encouraging always as plural.",
+    "A news is encouraging."
+  ],
+  correctAnswer: 1,
+  explanation: "News is uncountable/singular in agreement → the news is…",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q022", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She seems ___.",
+  options: ["happily", "happy", "happiness", "more happily"],
+  correctAnswer: 1,
+  explanation: "Seem is a linking verb → adjective complement happy (describes the subject), not manner adverb happily.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q023", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Choose: “I am ___ in the topic; the lecture is ___.”",
+  options: [
+    "interesting / interested",
+    "interested / interesting",
+    "interested / interested",
+    "interesting / interesting"
+  ],
+  correctAnswer: 1,
+  explanation: "-ed describes the experiencer’s feeling (interested); -ing describes the cause (interesting lecture).",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q024", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "This time tomorrow we ___ to Islamabad.",
+  options: ["fly", "will fly", "will be flying", "flew"],
+  correctAnswer: 2,
+  explanation: "Action in progress at a future time → future continuous will be flying.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q025", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "She asked, “Where do you work?” Correct reported form:",
+  options: [
+    "She asked where do I work.",
+    "She asked where I worked.",
+    "She asked where did I work.",
+    "She asked where I do work."
+  ],
+  correctAnswer: 1,
+  explanation: "Reported questions use statement word order (no do-inversion) and back-shift: where I worked.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q026", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Which sentence is correct?",
+  options: [
+    "She works hard; she hardly sleeps.",
+    "She works hardly; she hard sleeps.",
+    "She hardly works meaning she works with great effort.",
+    "Hardly always means the same as hard."
+  ],
+  correctAnswer: 0,
+  explanation: "hard = with effort; hardly = almost not. They are not interchangeable.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q027", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Identify the class of the in “the report”:",
+  options: ["Adjective", "Adverb", "Determiner (article)", "Conjunction"],
+  correctAnswer: 2,
+  explanation: "Articles are determiners: they limit the noun phrase; they do not describe quality the way adjectives do.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q028", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "medium", type: "single",
+  question: "Neither the sensors nor the gauge ___ calibrated.",
+  options: ["were", "was", "are", "be"],
+  correctAnswer: 1,
+  explanation: "With neither…nor, formal agreement often follows the nearer subject (gauge → was). (Full agreement drills continue in A2.)",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+// ── Hard: multi-skill / traps ──
+{ id: "ENG-01-Q029", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "Since 2010, Pakistan has been facing severe floods.",
+    "I am knowing him for five years.",
+    "He has went to the market.",
+    "By the time she arrived, he had left."
+  ],
+  correctAnswer: [0, 3],
+  explanation: "since + continuing situation → present perfect continuous is fine; past perfect for earlier past is fine. Stative knowing and has went are wrong.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q030", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which words function as ADVERBS in their sentences? (Select all that apply.)",
+  options: [
+    "She runs QUICKLY.",
+    "He is a FAST runner.",
+    "She sang BEAUTIFULLY.",
+    "That is a HARD test."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "Quickly and beautifully modify verbs → adverbs. Fast and hard here modify nouns → adjectives.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
 { id: "ENG-01-Q031", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
   question: "Hardly ___ the station when the train departed.",
   options: ["I had reached", "I have reached", "had I reached", "I did reach"],
   correctAnswer: 2,
   explanation: "Negative adverbial fronting triggers inversion: Hardly had I reached… when… (past perfect + inversion).",
   sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Fix the correlative: “She is not only smart but also works hard.”",
+  options: [
+    "She is not only smart but also hard-working.",
+    "She not only is smart but also works hard. (already perfect as is)",
+    "She is not only smart but also work hard.",
+    "She is not only smart but works also hard."
+  ],
+  correctAnswer: 0,
+  explanation: "Correlatives need parallel structure: adjective || adjective → smart / hard-working.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q033", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Which is grammatically standard?",
+  options: [
+    "This design is more better than that one.",
+    "This design is better than that one.",
+    "This design is more betterer than that one.",
+    "This design is gooder than that one."
+  ],
+  correctAnswer: 1,
+  explanation: "Better is already comparative — do not add more. Good → better → best.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q034", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Is friendly correctly used as an adverb here? “She spoke friendly to the team.”",
+  options: [
+    "Yes — friendly is always an adverb",
+    "No — friendly is an adjective; use in a friendly way / cordially",
+    "Yes — all -ly words are adverbs",
+    "No — because friendly can only modify verbs of motion"
+  ],
+  correctAnswer: 1,
+  explanation: "Friendly, lovely, lonely, lively are adjectives, not manner adverbs, despite -ly.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q035", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Choose the best formal version: “The committee published it’s report.”",
+  options: [
+    "The committee published it’s report. (correct as written)",
+    "The committee published its report.",
+    "The committee published its’ report.",
+    "The committee published it is report."
+  ],
+  correctAnswer: 1,
+  explanation: "its = possessive; it’s = it is. No its’ form exists.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q036", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "I have seen him yesterday.",
+    "She submitted the form yesterday.",
+    "She has already submitted the form.",
+    "Since 2018 she works in Peshawar."
+  ],
+  correctAnswer: [1, 2],
+  explanation: "yesterday → past simple; already → present perfect OK. have seen + yesterday is wrong; since + present simple for a continuing job is wrong.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q037", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "Label every major class: “Alas, the young officers have been working carefully since Monday.” Which list is accurate?",
+  options: [
+    "Alas noun; young verb; carefully adjective",
+    "Alas interjection; young adjective; officers noun; have been working verb phrase; carefully adverb; since preposition; Monday noun",
+    "Alas adverb; young noun; carefully preposition",
+    "Alas conjunction; carefully determiner"
+  ],
+  correctAnswer: 1,
+  explanation: "Full parse matches the A1 word-class map: interjection, adjective, noun, perfect continuous verb group, adverb, preposition, proper noun.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q038", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+  question: "She told me, “Wait here.” Correct reported command:",
+  options: [
+    "She told me wait here.",
+    "She told me to wait there.",
+    "She told me to wait here.",
+    "She said me to wait there."
+  ],
+  correctAnswer: 1,
+  explanation: "told + object + to-infinitive; here → there after past reporting.",
+  sourceCitation: "Aligned to A1 study material", examScope: ["bs17", "bs16"] },
+
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC: Subject-Verb Agreement & Articles
+// IDs continue after A1 (ENG-01-Q001–Q038) → start Q040
+// ═══════════════════════════════════════════════════════════════════
+
+// ── Easy ──
+{ id: "ENG-01-Q040", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The list of items are on the desk.",
+    "The list of items is on the desk.",
+    "The list of items were on the desk.",
+    "The list of items be on the desk."
+  ],
+  correctAnswer: 1,
+  explanation: "Head subject is list (singular). of items is a prepositional distractor — do not agree with items.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q041", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "She is _____ honest woman.",
+  options: ["a", "an", "the", "no article"],
+  correctAnswer: 1,
+  explanation: "honest begins with a silent h → vowel sound → an. Choice follows sound, not spelling.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q042", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "true_false",
+  question: "True or False: “Many of the rivers have dried” is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. many takes a plural verb; rivers is plural → have dried.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q043", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "_____ Indus is one of Asia’s major rivers.",
+  options: ["A", "An", "The", "No article"],
+  correctAnswer: 2,
+  explanation: "Rivers take the (the Indus, the Ravi). Most country names take zero (Pakistan).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q044", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "The news _____ shocking.",
+  options: ["is", "are", "were", "have been"],
+  correctAnswer: 0,
+  explanation: "news is singular despite the final -s → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+// ── Medium ──
+{ id: "ENG-01-Q045", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Each of the stations have sensors.",
+    "Each of the stations has sensors.",
+    "Each of the stations were having sensors.",
+    "Each of the stations are having sensors."
+  ],
+  correctAnswer: 1,
+  explanation: "each is always singular → has. stations inside the of-phrase does not control the verb.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q046", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ university student.",
+  options: ["a", "an", "the", "no article"],
+  correctAnswer: 0,
+  explanation: "university begins with /juː/ (consonant sound) → a, not an.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q047", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The team _____ winning the match. (united group acting as one)",
+  options: ["are", "is", "were", "be"],
+  correctAnswer: 1,
+  explanation: "Collective team as a single unit → singular is (standard exam/AmE preference).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q048", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Neither the teacher nor the students _____ ready.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "neither…nor → agree with the nearer subject students (plural) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q049", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "I want to become _____ meteorologist.",
+  options: ["a", "an", "the", "no article"],
+  correctAnswer: 0,
+  explanation: "One non-specific member of a profession, first mention → a. the would mean a specific known person.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q050", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “Mathematics is my favourite subject” is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. mathematics (like physics, economics, news) takes a singular verb.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q051", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “A one-way street” uses the article correctly.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. one begins with /w/ → consonant sound → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q052", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "true_false",
+  question: "True or False: “Either Ali or his friends are coming” is correctly agreed.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. either…or → nearer subject friends (plural) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q053", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The quality of these products _____ poor.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "Head subject quality is singular; of these products is a distractor → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q054", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The director, along with her deputies, _____ attending.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "along with does not pluralise the subject. director remains singular → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q055", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "There _____ several problems in the dataset.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "There is/are agrees with the real subject after the verb: several problems → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q056", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "A number of officers _____ present. / The number of officers _____ high.",
+  options: [
+    "was / were",
+    "were / was",
+    "was / was",
+    "were / were"
+  ],
+  correctAnswer: 1,
+  explanation: "a number of + plural → plural were; the number of → singular was.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q057", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "Neither the sensors nor the gauge _____ working.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "Nearer subject gauge (singular) → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q058", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "These criteria _____ mandatory for the post.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "criteria is plural (singular criterion) → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q059", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ information is reliable. / She offered _____ advice.",
+  options: [
+    "Many / an",
+    "Much / some",
+    "Many / a",
+    "Much / an"
+  ],
+  correctAnswer: 1,
+  explanation: "information and advice are uncountable → much / some (not many / an advice).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q060", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ Pakistan borders _____ Arabian Sea.",
+  options: [
+    "The / the",
+    "Ø / the",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "Most country names take zero article; seas take the → Pakistan / the Arabian Sea.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q061", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "_____ Mount Everest / _____ Himalayas",
+  options: [
+    "The / The",
+    "Ø / The",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "Single mountain → zero; mountain range → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q062", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ MBA graduate and _____ European delegate.",
+  options: [
+    "a / an",
+    "an / a",
+    "a / a",
+    "an / an"
+  ],
+  correctAnswer: 1,
+  explanation: "MBA starts with vowel sound /em/ → an; European starts with /j/ → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q063", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "He is _____ best analyst in _____ team.",
+  options: ["the / the", "a / the", "the / a", "an / the"],
+  correctAnswer: 0,
+  explanation: "Superlative best → the; specific team → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q064", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "We installed _____ sensor near the mast. _____ sensor failed within an hour.",
+  options: [
+    "the / A",
+    "a / The",
+    "a / A",
+    "the / The"
+  ],
+  correctAnswer: 1,
+  explanation: "First mention of one countable → a; second mention of the same item → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q065", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+  question: "The police _____ investigating the incident.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "police is plural in agreement → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+// ── Hard ──
+{ id: "ENG-01-Q066", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "The committee has reached a decision.",
+    "Mathematics are my strongest subject.",
+    "A sum of money was stolen from the safe.",
+    "Each of the books have a red cover."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "committee as unit → has; sum → singular was. mathematics → is; each → has (not have).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q067", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which of the following correctly take an (sound rule)? (Select all that apply.)",
+  options: [
+    "a university",
+    "an honest man",
+    "a one-time offer",
+    "an MBA graduate"
+  ],
+  correctAnswer: [1, 3],
+  explanation: "honest (silent h) and MBA (/em/) → an. university (/j/) and one (/w/) → a.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q068", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "Correct the line: “Many of the information available online are unreliable.”",
+  options: [
+    "Many of the information available online is unreliable.",
+    "Much of the information available online is unreliable.",
+    "Many of the informations available online are unreliable.",
+    "Much of the informations available online are unreliable."
+  ],
+  correctAnswer: 1,
+  explanation: "information is uncountable → much (not many); singular is; no plural informations.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q069", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "Not only the field notes but also the final report _____ missing.",
+  options: ["are", "is", "were", "have been"],
+  correctAnswer: 1,
+  explanation: "not only A but also B → agree with nearer subject report (singular) → is.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q070", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "An honest officer reported that the news was false.",
+    "A honest officer reported that the news were false.",
+    "The United Kingdom is a permanent Security Council member.",
+    "United Kingdom is a permanent Security Council member."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "an honest; news is; the United Kingdom (descriptive country name needs the).",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q071", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "One of the criteria _____ not been met.",
+  options: ["have", "has", "are", "were"],
+  correctAnswer: 1,
+  explanation: "Head subject is one (singular), not criteria → has.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+{ id: "ENG-01-Q072", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "hard", type: "single",
+  question: "_____ honesty matters in science; _____ honesty of the witness was questioned.",
+  options: [
+    "The / The",
+    "Ø / The",
+    "The / Ø",
+    "Ø / Ø"
+  ],
+  correctAnswer: 1,
+  explanation: "General abstract → zero; specific honesty restricted by of-phrase → the.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+{ id: "ENG-01-Q039", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "easy", type: "single",
+  question: "The effects of climate change _____ severe.",
+  options: ["is", "are", "was", "has been"],
+  correctAnswer: 1,
+  explanation: "Head subject is effects (plural). of climate change is only a prepositional phrase — agree with effects → are.",
+  sourceCitation: "Aligned to A2 study material", examScope: ["bs17", "bs16"] },
+
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC A3: Pronouns, Prepositions & Conjunctions
+// IDs begin ENG-01-Q073 to 109
+// ═══════════════════════════════════════════════════════════════════
+// Easy
+{
+  id: "ENG-01-Q073",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Between you and I, this is secret.",
+    "Between you and me, this is secret.",
+    "Between you and myself, this is secret.",
+    "Between you and mine, this is secret.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "After a preposition (between), use the OBJECT case of the pronoun: 'me', not 'I'. The preposition 'between' governs the object form.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q074",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "single",
+  question: "I have known him _____ 2010. Choose the correct preposition:",
+  options: ["for", "since", "from", "during"],
+  correctAnswer: 1,
+  explanation:
+    "'Since' marks a POINT in the past (2010 is a specific year). 'For' would mark a duration (e.g., 'for 14 years'). 'Since 2010' is the standard form for actions continuing from that point.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q075",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "true_false",
+  question: "'Although he is rich, but he is unhappy' is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation:
+    "False. 'Although' already implies contrast — adding 'but' creates a double conjunction error. Correct: 'Although he is rich, he is unhappy' (no 'but') OR 'He is rich, but he is unhappy' (no 'although').",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+// Medium
+{
+  id: "ENG-01-Q076",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He is good in mathematics.",
+    "He is good at mathematics.",
+    "He is good on mathematics.",
+    "He is good with mathematics.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "The fixed phrase is 'good AT' (skilled at). 'Good in' is sometimes used informally for skills within a subject, but 'good at' is the standard correct form for abilities.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q077",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct relative pronoun: 'The scientist _____ work I admire is here.'",
+  options: ["who", "which", "whose", "that"],
+  correctAnswer: 2,
+  explanation:
+    "'Whose' is the possessive form — 'the scientist whose work' = the work BELONGS TO the scientist. 'Who' is the subject form (the scientist who works).",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q078",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "The book is on the table. Identify the prepositional phrase:",
+  options: ["The book", "is on", "on the table", "the table"],
+  correctAnswer: 2,
+  explanation:
+    "A prepositional phrase begins with a preposition and ends with its object (usually a noun phrase). 'On the table' = preposition 'on' + noun phrase 'the table'.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q079",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I prefer tea than coffee.",
+    "I prefer tea over coffee.",
+    "I prefer tea to coffee.",
+    "I prefer tea against coffee.",
+  ],
+  correctAnswer: 2,
+  explanation:
+    "The standard comparison structure with 'prefer' is 'prefer X TO Y', NOT 'prefer X than Y'. This is a common error — 'than' is used for adjectives/adverbs (I am taller than you), not for 'prefer'.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q080",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Identify the type of conjunction in: 'I was tired, so I went to bed early.'",
+  options: ["Subordinating", "Coordinating", "Correlative", "Conjunctive adverb"],
+  correctAnswer: 1,
+  explanation:
+    "'So' is a coordinating conjunction (part of FANBOYS: For, And, Nor, But, Or, Yet, So). It joins two INDEPENDENT clauses of equal status. Subordinating conjunctions (because, although) join a dependent clause to an independent one.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q081",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The book is different than mine.",
+    "The book is different from mine.",
+    "The book is different to mine.",
+    "The book is different of mine.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "The standard phrase is 'different FROM', not 'than' or 'to' (in American English) or 'of' (in any English). 'Different than' is common in speech but considered nonstandard in formal writing.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q082",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct preposition: 'He has been married _____ her for ten years.'",
+  options: ["with", "to", "from", "of"],
+  correctAnswer: 1,
+  explanation:
+    "The fixed phrase is 'married TO' (not 'with', 'from', or 'of'). The preposition 'to' indicates the relationship bond. Same pattern: 'engaged to', 'attached to', 'devoted to'. Note: 'for ten years' requires the present perfect 'has been married', not the simple present.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q083",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "The meeting starts _____ Monday. Choose the correct preposition:",
+  options: ["in", "on", "at", "by"],
+  correctAnswer: 1,
+  explanation:
+    "Days of the week and dates take 'on' (on Monday, on June 5). Months/years take 'in' (in June), exact times take 'at' (at 9 AM). 'By' would mean 'no later than' (by Monday = before Monday ends).",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q084",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "true_false",
+  question: "'She hurt herself' uses the reflexive pronoun correctly (subject = object).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation:
+    "True. Reflexive pronouns (myself, yourself, herself, etc.) are used when the subject and object of the verb are the same person/thing. 'She hurt herself' = she hurt (her) — same person.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q085",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "true_false",
+  question: "'Because he was tired, so he slept' is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation:
+    "False. This is a double-conjunction error. 'Because' already establishes cause. Use 'so' OR use 'because' — not both. Correct: 'Because he was tired, he slept' (drop the 'so') OR 'He was tired, so he slept' (drop the 'because').",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q086",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "true_false",
+  question: "In 'This is the scientist who discovered penicillin,' 'who' is the object of the verb.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation:
+    "False. 'Who' is the SUBJECT of 'discovered' (the scientist performed the action). Test: replace 'who' with 'she' (subject) — 'she discovered' makes sense. 'Whom' would be the object (test: 'her discovered' doesn't work).",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+// Hard
+{
+  id: "ENG-01-Q087",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "multi",
+  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "He is senior than me.",
+    "She is good at physics.",
+    "Although it rained, we went out.",
+    "Despite of the rain, we stayed home.",
+  ],
+  correctAnswer: [1, 2],
+  explanation:
+    "Fixed phrase: 'good at'. Concessive 'although' stands alone (no 'but'). Wrong: 'senior than' (standard is 'senior to'); 'despite of' (use 'despite' or 'in spite of').",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q088",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "multi",
+  question: "Which of the following contain CORRECT preposition usage? (Select all that apply.)",
+  options: [
+    "We discussed about the issue.",
+    "I am good at math.",
+    "He is married to her.",
+    "The book is different than yours.",
+  ],
+  correctAnswer: [1, 2],
+  explanation:
+    "Fixed phrases: 'good at', 'married to'. Wrong: 'discuss about' (discuss takes a direct object); 'different than' in formal standard English is 'different from'.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q089",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "single",
+  question: "Choose the correctly punctuated sentence:",
+  options: [
+    "Although he studied hard, but he failed.",
+    "He studied hard, although he failed.",
+    "Because he studied hard, so he passed.",
+    "He studied hard although, but he failed.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "Correct: 'although' introduces the concessive clause without a second conjunction. Wrong patterns: 'although… but…', 'because… so…', and doubled conjunctions with a misplaced comma.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+// Easy (top-up)
+{
+  id: "ENG-01-Q090",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "single",
+  question: "Choose the correct pronoun: 'The letter was addressed to Sara and _____.'",
+  options: ["I", "me", "myself", "mine"],
+  correctAnswer: 1,
+  explanation:
+    "To is a preposition, so the pronoun must be object case: me. Test without the other name: 'addressed to me' (not to I). Myself is reflexive, not a polite substitute for me here.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q091",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "single",
+  question: "The seminar is _____ June. Choose the correct preposition:",
+  options: ["at", "on", "in", "since"],
+  correctAnswer: 2,
+  explanation:
+    "Months take in (in June, in 2024). On is for days/dates; at is for clock times; since marks a starting point for a continuing period.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q092",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "true_false",
+  question: "In formal standard English, 'its' (no apostrophe) is the possessive form of it.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation:
+    "True. its = belonging to it. it's = it is / it has. Apostrophe marks the contraction, not possession, for this pair.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q093",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "easy",
+  type: "single",
+  question: "Choose the correct word: 'Divide the sweets _____ the two children.'",
+  options: ["among", "between", "across", "through"],
+  correctAnswer: 1,
+  explanation:
+    "Between is used for two; among for more than two. With exactly two children, between is the standard choice.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+// Medium
+{
+  id: "ENG-01-Q094",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct relative pronoun: 'The officer _____ we interviewed refused to comment.'",
+  options: ["who", "whom", "which", "whose"],
+  correctAnswer: 1,
+  explanation:
+    "We interviewed him → object role → whom. Who would be subject (he refused). Which is for things; whose marks possession.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q095",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct relative pronoun: 'The officer _____ refused to comment left the room.'",
+  options: ["who", "whom", "which", "whose"],
+  correctAnswer: 0,
+  explanation:
+    "He refused → subject role → who. Contrast with 'the officer whom we interviewed' (object).",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q096",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct form: 'She is not only efficient _____ also careful.'",
+  options: ["and", "but", "or", "nor"],
+  correctAnswer: 1,
+  explanation:
+    "The fixed correlative pair is not only…but also. And/or/nor break the standard pair used in exam keys.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q097",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Which sentence keeps parallel structure?",
+  options: [
+    "She is both intelligent and a good speaker.",
+    "She is both intelligent and articulate.",
+    "She is both intelligence and articulate.",
+    "She is both intelligent and speaks well.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "both…and requires matching forms. Intelligent and articulate are both adjectives. Adjective + noun phrase, or adjective + clause, breaks parallelism.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q098",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct prepositions: 'The briefing is _____ Friday _____ 9 a.m.'",
+  options: ["in / at", "on / at", "at / on", "on / in"],
+  correctAnswer: 1,
+  explanation:
+    "Days take on (on Friday); clock times take at (at 9 a.m.). in is for months/years/parts of day (in the morning), not for named weekdays in this pattern.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q099",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He has lived here since five years.",
+    "He has lived here for five years.",
+    "He has lived here during five years.",
+    "He has lived here from five years.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "for + duration (for five years). since + starting point (since 2019). since five years is a classic error.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q100",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct form: 'Neither the maps _____ the compass was missing.'",
+  options: ["or", "and", "nor", "but"],
+  correctAnswer: 2,
+  explanation:
+    "The correlative pair is neither…nor (not neither…or). Agreement with the nearer subject is a separate rule; the connector itself must be nor.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q101",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "true_false",
+  question: "'The person to who I spoke has left' is correct formal English.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation:
+    "False. After a preposition use whom: to whom I spoke (I spoke to him). who is the subject form.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q102",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "She is senior than her colleague.",
+    "She is senior to her colleague.",
+    "She is senior from her colleague.",
+    "She is senior of her colleague.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "senior / junior / preferable take to, not than. than is for comparative adjectives (taller than), not this fixed pattern.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+// Hard
+{
+  id: "ENG-01-Q103",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "single",
+  question: "Choose the best formal sentence:",
+  options: [
+    "Although the road was blocked, but traffic was diverted.",
+    "Although the road was blocked, traffic was diverted.",
+    "Because the road was blocked, so traffic was diverted.",
+    "Although the road was blocked so traffic was diverted.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "Although already marks contrast — do not add but. Because already marks cause — do not add so. One logical connector is enough.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q104",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "multi",
+  question: "Which sentences are correct in formal standard English? (Select all that apply.)",
+  options: [
+    "Between you and me, the plan is secret.",
+    "The scientist whom discovered the law is here.",
+    "She is both careful and thorough.",
+    "We discussed about the agenda for an hour.",
+  ],
+  correctAnswer: [0, 2],
+  explanation:
+    "Object case after between is correct; both…and with two adjectives is parallel. Wrong: whom as subject (use who discovered); discuss takes a direct object (no about).",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q105",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "single",
+  question: "Choose the sentence that uses a reflexive pronoun correctly:",
+  options: [
+    "Please contact myself if you have questions.",
+    "The director and myself will attend.",
+    "She prepared herself for the interview.",
+    "Give the files to myself tomorrow.",
+  ],
+  correctAnswer: 2,
+  explanation:
+    "Reflexives are correct when subject and object are the same (she…herself). They are not formal stand-ins for me/I in please contact me or the director and I.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q106",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "single",
+  question: "Choose the correct completion: 'Either the charts _____ the tables need revision.'",
+  options: ["nor", "or", "and", "but also"],
+  correctAnswer: 1,
+  explanation:
+    "either…or is the pair. neither…nor is the negative pair. Mixing either…nor is a common correlative error.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q107",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "multi",
+  question: "Which time expressions are correctly paired? (Select all that apply.)",
+  options: [
+    "at 5 p.m.",
+    "in Monday",
+    "on 15 June",
+    "since 2010 (continuing to now)",
+  ],
+  correctAnswer: [0, 2, 3],
+  explanation:
+    "at + clock time; on + date; since + starting point for a continuing situation. in Monday is wrong — weekdays take on.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q108",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "hard",
+  type: "single",
+  question: "Identify the error type: 'He is both a skilled analyst and writes clearly.'",
+  options: [
+    "Wrong relative pronoun",
+    "Broken correlative parallelism",
+    "Incorrect time preposition",
+    "Subject–verb disagreement only",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "both…and links a noun phrase (a skilled analyst) to a verb phrase (writes clearly). Parallel form would match two noun phrases or two verb phrases.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+{
+  id: "ENG-01-Q109",
+  sectionId: "ENG-01",
+  topicId: "english-pronouns-prepositions-conjunctions",
+  difficulty: "medium",
+  type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The results are different than the forecast.",
+    "The results are different from the forecast.",
+    "The results are different of the forecast.",
+    "The results are different with the forecast.",
+  ],
+  correctAnswer: 1,
+  explanation:
+    "Formal exam standard is different from. different than is common in speech but usually marked wrong in formal keys.",
+  sourceCitation: "Standard English curriculum",
+  examScope: ["bs17", "bs16"],
+},
+
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC A4: Modals, Voice & Narration
+// Serial begins ENG-01-Q110
+// ═══════════════════════════════════════════════════════════════════
+
+// Easy
+{ id: "ENG-01-Q110", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "single",
+  question: "Which sentence uses a modal correctly?",
+  options: ["He cans swim very fast.", "He can to swim very fast.", "He can swim very fast.", "He swimming can very fast."],
+  correctAnswer: 2,
+  explanation: "Modals (can, could, may, might, must, should, will, would) are followed by the BASE form of the verb with no 'to'. 'Can swim' is correct; 'cans' and 'can to swim' are both errors.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q111", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "single",
+  question: "The bridge was built in 1995. The voice is:",
+  options: ["Active", "Passive", "Neither (no verb)", "Stative"],
+  correctAnswer: 1,
+  explanation: "Passive voice: 'was built' (be + past participle). The subject 'bridge' is receiving the action of being built, not performing it. The agent (whoever built it) is unmentioned or unknown.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q112", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "true_false",
+  question: "'He said that where are you going' is a correct example of reported speech.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. In reported speech, questions become STATEMENTS, not embedded questions. Correct: 'He asked where I was going' (statement word order).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// Medium
+{ id: "ENG-01-Q113", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the correct active-to-passive transformation: 'The committee has approved the new policy.'",
+  options: ["The new policy has been approved by the committee.", "The new policy has approved by the committee.", "The new policy was approved by the committee.", "The new policy is being approved by the committee."],
+  correctAnswer: 0,
+  explanation: "Present perfect active ('has approved') → present perfect passive ('has been approved'). Object becomes subject + has been + past participle + by-agent. Tense stays present perfect.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q114", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the correct reported speech: 'Open the window,' he said to me.",
+  options: ["He said to me open the window.", "He told me to open the window.", "He told me open the window.", "He said me to open the window."],
+  correctAnswer: 1,
+  explanation: "Reported commands use told + object + to + infinitive. tell needs an object ('me'); said me is wrong.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q115", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "You must submit the report by Friday. The passive form is:",
+  options: ["The report must submit by you.", "The report must be submitted by you.", "The report must be submitted by Friday.", "The report is submitted by you."],
+  correctAnswer: 2,
+  explanation: "Passive with modal: object → subject + must be + past participle. Keep by Friday (deadline); agent may be omitted.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q116", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "He must have left early. The modal perfect expresses:",
+  options: ["Future possibility", "Past deduction (I'm sure he left)", "Present obligation", "Past habit"],
+  correctAnswer: 1,
+  explanation: "must have + past participle = strong past deduction. Compare should have (regret), could have (missed chance), may have (weaker possibility).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q117", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the correct passive: 'They are building a new bridge.'",
+  options: ["A new bridge is being built.", "A new bridge is being build.", "A new bridge was being built.", "A new bridge is built."],
+  correctAnswer: 0,
+  explanation: "Present continuous passive: is/are + being + past participle (built, not build).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q118", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "She said, 'I am reading a book.' Choose the correct reported speech:",
+  options: ["She said that she is reading a book.", "She said that she was reading a book.", "She said that she reads a book.", "She says she was reading a book."],
+  correctAnswer: 1,
+  explanation: "Past reporting verb: present continuous → past continuous (was reading); I → she.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q119", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the sentence where PASSIVE voice is correctly used:",
+  options: ["The storm occurred last night.", "The book contains 300 pages.", "The cake was eaten by the children.", "She runs every morning."],
+  correctAnswer: 2,
+  explanation: "was eaten = be + past participle. occur / contain / run here are not standard passives of that pattern.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q120", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "true_false",
+  question: "In reported speech, 'I will go tomorrow' becomes 'He said he will go tomorrow' (no changes needed).",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. will → would, I → he, tomorrow → the next day: He said he would go the next day.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q121", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "true_false",
+  question: "Modal perfects describe past events with the speaker's assessment (deduction, regret, possibility).",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. must/should/could/may have + pp combine a past situation with the speaker’s judgment.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q122", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "true_false",
+  question: "The verb 'happen' can be used in passive voice (e.g., 'The accident was happened').",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. happen is intransitive — no passive. Correct: The accident happened.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// Hard (from original block)
+{ id: "ENG-01-Q123", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
+  question: "Which of the following passive transformations are CORRECT? (Select all that apply.)",
+  options: [
+    "Someone stole my wallet. → My wallet was stolen.",
+    "They are building a new school. → A new school is being built.",
+    "The storm occurred last night. → Last night was occurred by the storm.",
+    "He will finish the work. → The work will be finished."
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "Transitive passives are fine. occur is intransitive — no was occurred.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q124", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
+  question: "Which of the following reported speech transformations are CORRECT? (Select all that apply.)",
+  options: [
+    "He said, 'I am happy.' → He said he was happy.",
+    "She said, 'I will go.' → She said she would go.",
+    "They said, 'We are here.' → They said they were here.",
+    "He asked, 'Where do you live?' → He asked where I lived."
+  ],
+  correctAnswer: [0, 1, 2, 3],
+  explanation: "All four apply correct back-shift and, for the question, statement word order.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q125", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "He said, 'Please help me with this work.' The correct reported speech is:",
+  options: [
+    "He said please help me with this work.",
+    "He requested me to help him with that work.",
+    "He told to help him with this work.",
+    "He said that please help me."
+  ],
+  correctAnswer: 1,
+  explanation: "Polite request → requested/asked + object + to + infinitive; me → him; this → that.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Former top-up (extended coverage) ——
+{ id: "ENG-01-Q126", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "single",
+  question: "Choose the correct form:",
+  options: ["She musts finish today.", "She must to finish today.", "She must finish today.", "She must finishing today."],
+  correctAnswer: 2,
+  explanation: "Modals take the bare infinitive: must finish — no -s, no to, no -ing after the modal here.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q127", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "single",
+  question: "Choose the correct reporting verb pattern:",
+  options: [
+    "He said me that he was late.",
+    "He told to me that he was late.",
+    "He told me that he was late.",
+    "He said that me he was late."
+  ],
+  correctAnswer: 2,
+  explanation: "tell + person: told me that… Not said me or told to me.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q128", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "easy", type: "true_false",
+  question: "'The accident was happened last night' is correct passive English.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. happen has no passive. Correct: The accident happened last night.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q129", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "You left without informing anyone. Which modal perfect best fits a critical tone?",
+  options: ["must have informed", "should have informed", "will have informed", "can informed"],
+  correctAnswer: 1,
+  explanation: "should have + pp = past duty/advice not followed. must have = past deduction, not criticism of a missed duty.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q130", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "The lights are off and the bag is gone. Which best fits a strong past deduction?",
+  options: ["She should have left.", "She must have left.", "She can to leave.", "She leaves must."],
+  correctAnswer: 1,
+  explanation: "must have left = strong past deduction from present evidence.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q131", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose an acceptable passive of: 'They gave her a prize.'",
+  options: [
+    "She was given a prize.",
+    "She was gave a prize.",
+    "A prize was gave her.",
+    "Her was given a prize."
+  ],
+  correctAnswer: 0,
+  explanation: "Two-object verb: She was given a prize (or A prize was given to her). was gave is wrong.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q132", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Choose the correct passive: 'They will announce the results tomorrow.'",
+  options: [
+    "The results will announce tomorrow.",
+    "The results will be announced tomorrow.",
+    "The results will been announced tomorrow.",
+    "The results are announce tomorrow."
+  ],
+  correctAnswer: 1,
+  explanation: "will be + past participle → will be announced.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q133", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Report: She said, 'I will finish this tomorrow.'",
+  options: [
+    "She said she will finish this tomorrow.",
+    "She said she would finish that the next day.",
+    "She said she would finish this tomorrow.",
+    "She says she will finish that the next day."
+  ],
+  correctAnswer: 1,
+  explanation: "will → would; this → that; tomorrow → the next day.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q134", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Report: 'Don't touch the samples,' the instructor said to us.",
+  options: [
+    "The instructor said us don't touch the samples.",
+    "The instructor told us not to touch the samples.",
+    "The instructor told to us not touch the samples.",
+    "The instructor asked that don't touch the samples."
+  ],
+  correctAnswer: 1,
+  explanation: "Negative command → told + object + not to + infinitive.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q135", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Report: He asked, 'Where do you live?'",
+  options: [
+    "He asked that where do you live?",
+    "He asked where did I live?",
+    "He asked where I lived.",
+    "He asked where are you living."
+  ],
+  correctAnswer: 2,
+  explanation: "Wh- + statement order + back-shift: where I lived.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q136", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "true_false",
+  question: "'The data is being showed on the screen' uses the correct past participle.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Past participle is shown: is being shown.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q137", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Which modal perfect best matches a missed opportunity?",
+  options: [
+    "You must have called earlier.",
+    "You should of called earlier.",
+    "You could have called earlier.",
+    "You can have called earlier."
+  ],
+  correctAnswer: 2,
+  explanation: "could have + pp = possible but not taken. should of is non-standard for should have.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q138", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "He said, 'The sun rises in the east.' Which reported form is acceptable because of a standing truth?",
+  options: [
+    "He said the sun rose in the east (only possible form).",
+    "He said the sun rises in the east.",
+    "He said the sun is rising in the east always.",
+    "He said the sun will rises in the east."
+  ],
+  correctAnswer: 1,
+  explanation: "Standing truths may keep present after a past reporting verb when still true.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q139", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
+  question: "Which transformations are correct? (Select all that apply.)",
+  options: [
+    "Someone stole the files. → The files were stolen.",
+    "They offered her a post. → She was offered a post.",
+    "The meeting occurred at noon. → The meeting was occurred at noon.",
+    "Open the window. → He told me to open the window."
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "Passives of transitives and reported command are fine. was occurred is impossible.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q140", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "Choose the best reported form: 'Are you coming with us?' she asked.",
+  options: [
+    "She asked are you coming with us?",
+    "She asked that are you coming with them.",
+    "She asked if I was coming with them.",
+    "She asked if was I coming with them."
+  ],
+  correctAnswer: 2,
+  explanation: "Yes/no → if/whether + statement order + back-shift.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q141", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "multi",
+  question: "Which sentences are grammatically correct? (Select all that apply.)",
+  options: [
+    "He might have missed the train.",
+    "She can to join us later.",
+    "The letter is being written now.",
+    "He said me that he was busy."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "might have + pp and continuous passive are fine. can to and said me are wrong.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q142", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "hard", type: "single",
+  question: "Active: 'They have sent us the documents.' Which passive is correct?",
+  options: [
+    "We have sent the documents.",
+    "We have been sent the documents.",
+    "The documents have send to us.",
+    "Us have been sent the documents."
+  ],
+  correctAnswer: 1,
+  explanation: "We have been sent the documents (or The documents have been sent to us).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q143", sectionId: "ENG-01", topicId: "english-modals-voice-narration", difficulty: "medium", type: "single",
+  question: "Match the meaning: 'She may have forgotten the meeting.'",
+  options: [
+    "Strong certainty she forgot",
+    "Past possibility (weaker than must have)",
+    "Present obligation to forget",
+    "Command to forget"
+  ],
+  correctAnswer: 1,
+  explanation: "may/might have + pp = weaker past possibility; must have would be strong deduction.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// ═══════════════════════════════════════════════════════════════════
+// TOPIC: Common Errors
+// Serial begins ENG-01-Q144
+// ═══════════════════════════════════════════════════════════════════
+  
+// Easy
+{ id: "ENG-01-Q144", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["The weather is real bad today.", "The weather is really bad today.", "The weather is realily bad today.", "The weather is real bad todayly."],
+  correctAnswer: 1,
+  explanation: "'Really' (adverb) modifies the adjective 'bad'. The form 'real' is an adjective and can't modify another adjective directly. 'Really' is the correct form.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q145", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["It will effect you negatively.", "It will affect you negatively.", "It will affecting you negatively.", "It will effected you negatively."],
+  correctAnswer: 1,
+  explanation: "'Affect' (verb, to influence) is needed here. 'Effect' as a noun means 'result'; as a verb it means 'to bring about' (rare). The sentence is about influence, so 'affect' is correct.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q146", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
+  question: "'I have less books than you' is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. 'Books' is countable, so the correct form is 'fewer' (not 'less'). Rule: 'less' for uncountable nouns (less water), 'fewer' for countable nouns (fewer books).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// Medium
+{ id: "ENG-01-Q147", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["He discussed about the issue with us.", "He discussed the issue with us.", "He discussed on the issue with us.", "He discussed regarding the issue with us."],
+  correctAnswer: 1,
+  explanation: "The verb 'discuss' takes a DIRECT OBJECT with NO preposition. 'Discuss the issue' is correct — 'discuss about/on/regarding' are all incorrect additions.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q148", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["He is senior than me.", "He is senior to me.", "He is senior from me.", "He is senior of me."],
+  correctAnswer: 1,
+  explanation: "The fixed comparison is 'senior TO' (not 'than', not 'from', not 'of'). Similarly: 'junior to', 'prefer X to Y', 'superior to'. The preposition 'to' is used for these comparison-of-status adjectives.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q149", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["Despite of the rain, we went out.", "Despite the rain, we went out.", "Despite from the rain, we went out.", "In despite the rain, we went out."],
+  correctAnswer: 1,
+  explanation: "'Despite' takes a noun directly — NO 'of'. The alternative 'in spite of' DOES take 'of'. So: 'despite the rain' OR 'in spite of the rain' — not 'despite of the rain'.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q150", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["According with the report, sales increased.", "According to the report, sales increased.", "According from the report, sales increased.", "According the report, sales increased."],
+  correctAnswer: 1,
+  explanation: "The fixed phrase is 'according TO' (not 'with', not 'from', no preposition dropped). 'According to' means 'as stated by' or 'in accordance with'.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q151", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["The team is comprised of 11 members.", "The team comprises 11 members.", "The team is comprising 11 members.", "The team has comprise 11 members."],
+  correctAnswer: 1,
+  explanation: "'Comprise' means 'consist of' or 'be composed of' — it takes no preposition in active voice. 'The team comprises 11 members' is correct. 'Is comprised of' is a common but nonstandard (passive misuse).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q152", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["He is married with her for 10 years.", "He is married to her for 10 years.", "He is married from her for 10 years.", "He is married of her for 10 years."],
+  correctAnswer: 1,
+  explanation: "The fixed phrase is 'married TO' (not 'with', not 'from', not 'of'). The preposition 'to' indicates the relationship bond, just like 'engaged to' or 'attached to'.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q153", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: ["Hardly I had reached the station, the train left.", "Hardly had I reached the station, the train left.", "Hardly I have reached the station, the train left.", "Hardly I reached the station, the train left."],
+  correctAnswer: 1,
+  explanation: "The 'Hardly... when' inversion pattern requires the auxiliary ('had') to come BEFORE the subject ('I'): 'Hardly had I reached... when...'. This is a fixed grammatical structure that cannot be rearranged.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q154", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+  question: "'She returned back the book' is grammatically correct because 'return' and 'back' reinforce each other.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. 'Returned' already means 'came back' — adding 'back' is redundant. This is called a pleonasm. Correct: 'She returned the book' or 'She came back with the book' (NOT 'returned back').",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q155", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+  question: "'I could not be able to come' is grammatically correct because 'could' and 'be able to' both express ability.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. This is a redundancy error. 'Could' and 'was able to' both express past ability — using both is unnecessary. Correct: 'I could not come' OR 'I was not able to come' (not both).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q156", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+  question: "'I am agree with you' is grammatically correct.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. 'Agree' is a verb, not an adjective. 'I agree with you' is correct. Don't use 'be + agree' (which is a common Pakistani English error).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// Hard
+{ id: "ENG-01-Q157", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which of the following sentences are CORRECT? (Select all that apply.)",
+  options: [
+    "He discussed the issue with us.",
+    "I could not come to the party.",
+    "She returned back the book.",
+    "He is married to her."
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "'Discuss' takes a direct object (no 'about'). Avoid redundant 'returned back' — 'returned' already means came back. 'Married to' is the fixed phrase.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q158", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which of the following preposition usages are CORRECT? (Select all that apply.)",
+  options: [
+    "He is good at math.",
+    "I prefer tea to coffee.",
+    "The book is different from mine.",
+    "Despite of the rain, we stayed home."
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Standard: 'good at', 'prefer X to Y', 'different from'. Wrong: 'despite of' — use 'despite the rain' or 'in spite of the rain'.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q159", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Choose the best improvement: 'He discussed about the matter, returned back the file, and entered into the room.'",
+  options: [
+    "He discussed the matter, returned the file, and entered the room.",
+    "He discussed about the matter, returned the file, and entered the room.",
+    "He discussed the matter, returned back the file, and entered the room.",
+    "He discussed the matter, returned the file, and entered into the room."
+  ],
+  correctAnswer: 0,
+  explanation: "All three errors fixed at once: (1) 'discussed' takes no preposition (drop 'about'), (2) 'returned' alone means came back (drop redundant 'back'), (3) 'enter' is intransitive and doesn't take 'into' (drop 'into'). One option fixes all three.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+// —— Easy ——
+{ id: "ENG-01-Q160", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Its raining heavily today.",
+    "It's raining heavily today.",
+    "Its' raining heavily today.",
+    "It raining heavily today."
+  ],
+  correctAnswer: 1,
+  explanation: "it's = it is / it has. its = possessive (belonging to it). Here the meaning is it is raining → it's.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q161", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "single",
+  question: "Choose the correct word: 'There were _____ mistakes in the draft.'",
+  options: ["less", "fewer", "least", "little"],
+  correctAnswer: 1,
+  explanation: "mistakes is countable → fewer. less is for uncountables (less time, less water).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q162", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "easy", type: "true_false",
+  question: "'I enjoy to read in the evening' is correct formal English.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. enjoy takes a gerund: enjoy reading (not to read).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Medium ——
+{ id: "ENG-01-Q163", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "She suggested to leave early.",
+    "She suggested leaving early.",
+    "She suggested leave early.",
+    "She suggested to leaving early."
+  ],
+  correctAnswer: 1,
+  explanation: "suggest takes a gerund: suggested leaving. Not suggested to leave in standard formal usage.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q164", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I want going home now.",
+    "I want to go home now.",
+    "I want go home now.",
+    "I want to going home now."
+  ],
+  correctAnswer: 1,
+  explanation: "want takes to + base form: want to go.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q165", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct form: 'Please _____ the book on the table.'",
+  options: ["lie", "lay", "lain", "lying"],
+  correctAnswer: 1,
+  explanation: "Object = the book → transitive lay (place). lie is intransitive (recline).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q166", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He laid down to rest after the shift.",
+    "He lay down to rest after the shift.",
+    "He lied down to rest after the shift.",
+    "He lain down to rest after the shift."
+  ],
+  correctAnswer: 1,
+  explanation: "Intransitive recline in the past → lay (past of lie). laid is past of transitive lay; lied is past of lie = not tell the truth.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q167", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Smoke raised from the chimney.",
+    "Smoke rose from the chimney.",
+    "Smoke raised up from the chimney.",
+    "Smoke has raise from the chimney."
+  ],
+  correctAnswer: 1,
+  explanation: "No object → rise / rose / risen. raise is transitive (raise your hand).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q168", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "No sooner I had left than it began to rain.",
+    "No sooner had I left than it began to rain.",
+    "No sooner I had left when it began to rain.",
+    "No sooner had I left when it began to rain."
+  ],
+  correctAnswer: 1,
+  explanation: "No sooner + had + subject + past participle + than (not when). Inversion is required.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q169", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "I prefer tea than coffee.",
+    "I prefer tea to coffee.",
+    "I prefer tea from coffee.",
+    "I prefer tea against coffee."
+  ],
+  correctAnswer: 1,
+  explanation: "prefer X to Y — not than. than is for comparative adjectives (taller than).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "The results are different than last year's.",
+    "The results are different from last year's.",
+    "The results are different of last year's.",
+    "The results are different with last year's."
+  ],
+  correctAnswer: 1,
+  explanation: "Formal standard: different from. different than is common in speech but usually marked wrong in exam keys.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q171", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "true_false",
+  question: "'Remember locking the door' and 'Remember to lock the door' mean the same thing.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. remember + -ing = recall a past action; remember + to = not forget a duty ahead. Meaning changes with the form.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q172", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct completion: 'She stopped _____ coffee for health reasons.' (ceased the habit)",
+  options: ["to drink", "drinking", "drink", "to drinking"],
+  correctAnswer: 1,
+  explanation: "stop + -ing = cease an activity. stop + to + verb = pause in order to do something else.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+// —— Hard ——
+{ id: "ENG-01-Q173", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which sentences are CORRECT in formal standard English? (Select all that apply.)",
+  options: [
+    "Hardly had we arrived when the lights failed.",
+    "She avoids to speak in public.",
+    "Please raise your hand if you agree.",
+    "He is inferior than his rival."
+  ],
+  correctAnswer: [0, 2],
+  explanation: "Hardly + inversion is correct; raise needs an object (your hand). Wrong: avoid takes -ing (avoid speaking); inferior takes to, not than.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q174", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which forms are CORRECT? (Select all that apply.)",
+  options: [
+    "I decided to apply for the post.",
+    "They finished to write the report.",
+    "He lay the keys on the counter yesterday.",
+    "He laid the keys on the counter yesterday."
+  ],
+  correctAnswer: [0, 3],
+  explanation: "decide + to-infinitive is fine; laid is past of transitive lay. Wrong: finish + gerund (finished writing); past of place is laid, not lay (lay as past = recline).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q175", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Choose the best correction: 'The heat will effect the samples, so set them careful.'",
+  options: [
+    "The heat will affect the samples, so set them carefully.",
+    "The heat will effect the samples, so set them carefully.",
+    "The heat will affect the samples, so set them careful.",
+    "The heat will effect the samples, so set them careful."
+  ],
+  correctAnswer: 0,
+  explanation: "influence → affect (verb); modify the verb set with the adverb carefully.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q176", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "Scarcely she had spoken when someone interrupted.",
+    "Scarcely had she spoken when someone interrupted.",
+    "Scarcely had she spoken than someone interrupted.",
+    "Scarcely she had spoken than someone interrupted."
+  ],
+  correctAnswer: 1,
+  explanation: "Scarcely + had + subject + pp + when (same family as hardly…when). than pairs with no sooner, not scarcely.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q177", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "multi",
+  question: "Which are CORRECT? (Select all that apply.)",
+  options: [
+    "I hope to see you soon.",
+    "Would you mind opening the window?",
+    "She refused helping us.",
+    "They agreed to meet at noon."
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "hope/agree + to-infinitive; mind + gerund. refuse takes to-infinitive (refused to help), not refused helping in standard keys.",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q178", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
+  question: "Choose the correct sentence:",
+  options: [
+    "He is good in mathematics.",
+    "He is good at mathematics.",
+    "He is good on mathematics.",
+    "He is good with mathematics."
+  ],
+  correctAnswer: 1,
+  explanation: "Fixed skill phrase: good at (not in/on in formal exam usage).",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+
+{ id: "ENG-01-Q179", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "hard", type: "single",
+  question: "Identify the main error type: 'Hardly she had entered when the alarm sounded.'",
+  options: [
+    "Wrong preposition after discuss",
+    "Failed inversion after a negative adverbial",
+    "Affect used instead of effect",
+    "Gerund required after want"
+  ],
+  correctAnswer: 1,
+  explanation: "Hardly requires had before the subject: Hardly had she entered when…",
+  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
 { id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
   question: "Fix the correlative: “She is not only smart but also works hard.”",
