@@ -3043,7 +3043,426 @@ export const questions: Question[] = [
 
 // ============================= SECTION I =============================
 
+{ id: "METEO-09-Q001", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "easy", type: "single",
+  question: "The South Asian summer monsoon, as it affects Pakistan, is best described as:",
+  options: [
+    "Uniform rain every day nationwide from January to March",
+    "Seasonal moist inflow and a monsoon trough, with uneven summer rains on Pakistan’s northwestern fringe",
+    "The same thing as a western disturbance",
+    "A tropical cyclone eye over Jacobabad"
+  ],
+  correctAnswer: 1,
+  explanation: "Summer: land–sea heating contrast, monsoon trough, moist maritime inflow. Pakistan sits on the northwestern fringe — totals are patchy, not a continuous national downpour. Winter WDs are a different moisture engine.",
+  sourceCitation: "Aligned to upgraded study material" },
 
+{ id: "METEO-09-Q002", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "easy", type: "true_false",
+  question: "True or False: Summer monsoon rainfall is spatially uniform across all of Pakistan.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Core monsoon belts lie southeast of much of the country. Northern/eastern districts may get meaningful summer totals while large arid zones stay dry. Orography modulates local rain. Do not use a slogan-based national flood every year.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q003", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
+  question: "Textbook summaries often state that the summer monsoon provides roughly what share of Pakistan’s annual rainfall?",
+  options: ["Over 30%", "Over 50%", "Over 70%", "Over 90%"],
+  correctAnswer: 2,
+  explanation: "A commonly cited figure is over ~70% of annual rainfall in the summer monsoon season — but that is a national-share memory hook, not proof that every district is wet. Fringe geography still means large spatial contrasts; always ask which region.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q004", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
+  question: "Which major reservoirs are especially associated with capturing Pakistan’s summer (monsoon / Indus) inflows?",
+  options: ["Tarbela and Mangla", "Only a single coastal lagoon", "The Nile reservoirs", "None — Pakistan has no storage"],
+  correctAnswer: 0,
+  explanation: "Tarbela (Indus) and Mangla (Jhelum) are the classic large storages filled by summer basin inflows. That does not make monsoon rain spatially uniform, and winter WD snowmelt is a separate timing of water in the north.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q005", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "true_false",
+  question: "True or False: The winter season over Pakistan is driven by the summer monsoon low and brings heavy monsoon-type rainfall nationwide.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Winter rain/snow in the north is mainly western disturbances in the westerlies. The summer monsoon trough is a warm-season feature. Two engines, two seasons — do not merge them.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q006", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "hard", type: "single",
+  question: "El Niño’s relationship to Pakistan’s summer monsoon is best treated as:",
+  options: [
+    "A guaranteed failed monsoon every El Niño year",
+    "A probabilistic teleconnection (can raise drought odds) — not a switch",
+    "Proof that WDs do not exist",
+    "Identical to a GLOF"
+  ],
+  correctAnswer: 1,
+  explanation: "ENSO and IOD shift odds; they do not determine the season. Intraseasonal MJO pulses further organise active and break spells inside the monsoon. Hard determinism from one index is a trap.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q007", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "hard", type: "multi",
+  question: "Which statements about the monsoon over Pakistan are CORRECT? (Select all that apply.)",
+  options: [
+    "Active and break spells — rain is not continuous all season",
+    "Orography can locally enhance rainfall",
+    "ENSO/IOD change probabilities, not certainties",
+    "Every district floods equally every July"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Fringe + breaks + terrain = uneven impacts. Planning and exam answers should be region-aware.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q008", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "easy", type: "single",
+  question: "January rainfall in Islamabad is usually associated with:",
+  options: ["The summer monsoon trough", "Western disturbances", "An Arabian Sea cyclone landfall as the default", "Köppen Group E ice cap"],
+  correctAnswer: 1,
+  explanation: "Cool-season, eastward troughs in the subtropical westerlies. If the stem is January Islamabad rain, think WD, not monsoon.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q009", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "easy", type: "single",
+  question: "February snowfall in the northern mountains after an eastward-moving trough is primarily a:",
+  options: ["Western disturbance", "Summer monsoon burst", "Heat low", "GLOF by definition"],
+  correctAnswer: 0,
+  explanation: "WDs appear as troughs or induced lows approaching from the west, with cloud and precip marching eastward across Iran–Afghanistan–Pakistan. Orography turns moisture into rain/snow.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q010", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
+  question: "Western disturbances are important for northern Pakistan because they:",
+  options: [
+    "Are the July monsoon current",
+    "Supply much of the winter rain/snow, rabi moisture, and glacier input",
+    "Only occur over the Bay of Bengal",
+    "Are identical to tropical cyclones"
+  ],
+  correctAnswer: 1,
+  explanation: "Separate moisture engine from the summer monsoon. Flood vs snowmelt planning treats WD and monsoon as distinct risk channels.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q011", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "true_false",
+  question: "True or False: A strong July monsoon current counts as a western disturbance.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Monsoon summer rains link to seasonal wind reversal and maritime inflow from the south. WDs are mid-latitude/subtropical waves in the westerlies in the cool season.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q012", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "hard", type: "multi",
+  question: "Which pairings are CORRECT? (Select all that apply.)",
+  options: [
+    "WD = winter/early-spring westerly trough, eastward",
+    "Monsoon = summer seasonal system, maritime inflow",
+    "January Islamabad rain → usually WD",
+    "All winter precipitation nationwide is monsoon"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Name the season and the jet. Labelling all winter rain as monsoon is a classic error.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q013", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "easy", type: "single",
+  question: "A June thermal low over central Pakistan with no oceanic warm core or eyewall is:",
+  options: ["A tropical cyclone", "A summer heat low (thermal low)", "A western disturbance", "Always a GLOF"],
+  correctAnswer: 1,
+  explanation: "The heat low is a sprawling thermal feature from intense desert/plain heating. It can help monsoon inflow but is not a cyclone. Cyclone = organised deep convection, warm core, coastal wind/surge/rain risk.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q014", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
+  question: "Arabian Sea tropical cyclones compared with the Bay of Bengal are:",
+  options: [
+    "More frequent, but never affect Pakistan",
+    "Fewer, yet high impact on Sindh coasts when tracks favour landfall",
+    "Identical to radiation fog",
+    "The same phenomenon as the heat low"
+  ],
+  correctAnswer: 1,
+  explanation: "Fewer storms than the Bay, but landfall on the Pakistan/Iran coast is a serious wind, surge, and rain hazard. Do not merge cyclones into “monsoon” or “heat low.”",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q015", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
+  question: "Calm, clear January night on the Indus plain with high RH — primary low-visibility risk?",
+  options: ["Dust storm", "Radiation fog", "Heat low dust always", "Tropical cyclone eyewall"],
+  correctAnswer: 1,
+  explanation: "Radiation fog: moisture + nocturnal cooling + light winds. Dust storms need dry loose soil and strong winds (often pre-monsoon). Opposite moisture needs — do not treat all low vis as fog.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q016", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "true_false",
+  question: "True or False: Dust storms and dense winter fog have the same ingredients (dry soil + strong wind).",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Dust = dry + wind. Fog = moist + cool + weak wind. Season and region decide which hazard dominates.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q017", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "hard", type: "multi",
+  question: "Which hazard → ingredient pairings are CORRECT? (Select all that apply.)",
+  options: [
+    "Arabian Sea cyclone → organised oceanic warm-core storm, coastal surge/wind/rain",
+    "Heat low → broad thermal low from land heating, not an eye/eyewall",
+    "Dust → dry surface + strong wind",
+    "Winter radiation fog → dry soil + gale-force wind as the necessary pair"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Four hazards, four ingredients. Cyclone ≠ heat low; dust ≠ fog. Do not dump everything into “monsoon bad weather.”",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q018", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "easy", type: "single",
+  question: "Summer temperatures in Jacobabad and Sibi frequently exceed:",
+  options: ["30 °C", "40 °C", "50 °C", "60 °C as a daily nationwide mean"],
+  correctAnswer: 2,
+  explanation: "Arid southern/interior lowlands can exceed 50 °C under strong insolation, dry soils, and continentality — among Pakistan’s hottest climates. That is not a national temperature for Skardu.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q019", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "easy", type: "single",
+  question: "Why is Skardu much cooler than Jacobabad in summer on average?",
+  options: ["Skardu is closer to the equator", "Altitude / mountain climate (temperature falls with height)", "Köppen requires all of Pakistan to be identical", "WDs heat the plains only"],
+  correctAnswer: 1,
+  explanation: "Tropospheric lapse rate: height → cooler. Interiors add summer heat extremes. One national temperature slogan is wrong.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q020", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "single",
+  question: "According to commonly cited PMD-style figures for 1901–2000, Pakistan’s area-weighted mean annual warming was approximately:",
+  options: ["+0.2 °C", "+0.6 °C", "+1.5 °C", "+2.0 °C"],
+  correctAnswer: 1,
+  explanation: "Memory anchor: about +0.6 °C over the twentieth century (area-weighted mean annual). Use it as magnitude, not as a substitute for regional extremes, and not as a single-year anomaly.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q021", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "true_false",
+  question: "True or False: The Balochistan Plateau receives most of its limited rainfall from the summer monsoon.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Much of the plateau is poorly coupled to the summer monsoon; limited precipitation is often winter/westerly-depression related. Maps over slogans — ask region and season.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q022", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "single",
+  question: "Winter temperatures in Pakistan’s high northern mountains can fall below about:",
+  options: ["0 °C only, never colder", "−5 °C as the extreme floor everywhere", "−20 °C", "−50 °C as a typical plains minimum"],
+  correctAnswer: 2,
+  explanation: "Highland winter cold (below −20 °C in places) contrasts sharply with southern-plain summer heat. Altitude and season, not one national number.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q023", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "hard", type: "multi",
+  question: "Which statements about Pakistan’s T and P fields are CORRECT? (Select all that apply.)",
+  options: [
+    "Lowland summers are extremely hot in many districts",
+    "Monsoon rainfall is uneven (fringe geography)",
+    "Northern winter precipitation often ties to western disturbances",
+    "National means erase regional contrast, so they are the only figure you need"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "National means hide contrasts. Always specify region and season before generalising.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q024", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "easy", type: "single",
+  question: "A GLOF is:",
+  options: [
+    "Any river flood on the Indus plains",
+    "A glacial lake outburst flood — sudden release from a mountain glacial lake",
+    "A dust storm",
+    "The 11-year solar cycle"
+  ],
+  correctAnswer: 1,
+  explanation: "GLOF = lake breach in glaciated mountains, localised catastrophic peak. Not interchangeable with basin-scale riverine floods. Do not label every flood a GLOF.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q025", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "easy", type: "single",
+  question: "GLOFs in Pakistan primarily occur in:",
+  options: ["The Balochistan Plateau lowlands", "The Karakoram–Hindu Kush–Himalaya mountain belt", "The southern Indus delta only", "The Sindh coast as storm surge"],
+  correctAnswer: 1,
+  explanation: "Glacial lakes sit in high ranges. Plains riverine floods and coastal cyclone surge are different hazards in different places.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q026", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "single",
+  question: "Which pair is commonly cited as Indus-basin super-flood benchmark years?",
+  options: ["1999 and 2002", "2010 and 2022", "1991 and 2001", "1971 and 1985"],
+  correctAnswer: 1,
+  explanation: "2010 and 2022: national-scale extreme rainfall and riverine inundation. 1999–2002 is the usual severe-drought window — do not swap flood years with drought years.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q027", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "true_false",
+  question: "True or False: The period 1999–2002 is cited as an example of severe drought in Pakistan.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Drought = cumulative moisture deficit over seasons/years — not a GLOF and not a 2010-style super flood. Named years are exam anchors, not the whole climate history.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q028", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "single",
+  question: "Peak heatwave risk on the plains is most associated with which broad season?",
+  options: ["Deep winter WD season only", "Pre-monsoon / summer heat period", "Only during radiation fog nights", "Only in GLOF valleys in January"],
+  correctAnswer: 1,
+  explanation: "Heat peaks before/during early summer. Monsoon and WD seasons shape flood risk differently. Winter fog is a separate visibility extreme. One season does not own all hazards.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q029", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "hard", type: "multi",
+  question: "Which hazard → mechanism pairings are CORRECT? (Select all that apply.)",
+  options: [
+    "Riverine flood → channel overflow from intense/prolonged basin rain and/or snowmelt",
+    "GLOF → sudden glacial-lake failure in mountains",
+    "Drought → cumulative moisture deficit",
+    "Every disaster in Pakistan = summer monsoon only"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Match hazard to mechanism. Exposure and vulnerability shape impact severity. Monsoon-only narratives fail winter WD, GLOF, heat, and drought questions.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q030", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
+  question: "The primary national source of official meteorological forecasts and warnings in Pakistan is:",
+  options: ["PMD (Pakistan Meteorological Department)", "IPCC as a daily forecast office", "NCCP as a weather model", "Köppen letter codes"],
+  correctAnswer: 0,
+  explanation: "PMD is the national meteorological service: observe, forecast, warn. NCCP is policy; IPCC is international assessment; Köppen is classification.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q031", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "medium", type: "single",
+  question: "Why must a flood warning involve more than a rainfall map alone?",
+  options: [
+    "Rainfall maps are illegal",
+    "River response depends on basin wetness, upstream flows, and channels — hydrology plus meteorology",
+    "PMD only measures wind",
+    "Floods are always GLOFs"
+  ],
+  correctAnswer: 1,
+  explanation: "Warning ≠ observation only. Flood products couple rain with hydrologic response. Cyclone, fog, and heat alerts serve different users (coast, transport, health).",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q032", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "medium", type: "true_false",
+  question: "True or False: Early-warning effectiveness depends only on forecast skill, not on dissemination or user action.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. A perfect forecast that does not reach or is not acted on by flood managers, aviation, or the public fails as a warning. Regional centres matter because the climate is diverse.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q033", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "hard", type: "multi",
+  question: "Which are core PMD operational functions? (Select all that apply.)",
+  options: [
+    "Observation (stations, radar, satellite use)",
+    "Public and specialised forecasting (including aviation)",
+    "Hazard warnings (flood, cyclone, heat, dense fog, etc.)",
+    "Replacing the NCCP as a concentration pathway (RCP)"
+  ],
+  correctAnswer: [0, 1, 2],
+  explanation: "Observe → analyse → forecast → warn; serve aviation, agriculture, water. PMD is not an IPCC scenario and not “research only.”",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q034", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "easy", type: "single",
+  question: "Building flood resilience (embankments, warnings, land-use) is primarily which NCCP-style objective?",
+  options: ["Adaptation", "A pure GHG-accounting-only objective with no resilience content", "An RCP8.5 forecast", "A METAR group"],
+  correctAnswer: 0,
+  explanation: "Resilience to impacts already facing the country = adaptation. Mitigation is GHG management. Both appear in NCCP objectives; adaptation is urgent for Pakistan’s risk profile.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q035", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "easy", type: "single",
+  question: "The Billion Tree Tsunami is cited in Pakistan’s climate-policy context mainly as:",
+  options: ["GLOF early warning hardware", "Large-scale afforestation / ecosystem measure", "A heat-resistant crop variety", "An RCP number"],
+  correctAnswer: 1,
+  explanation: "Afforestation links to ecosystem, land, and resilience themes. Do not confuse it with GLOF EWS or crop breeding — those are other objective examples.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q036", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "medium", type: "multi",
+  question: "Which items match stated NCCP-style objectives? (Select all that apply.)",
+  options: [
+    "GLOF early-warning systems",
+    "Heat-resistant crop varieties",
+    "Banning all fossil-fuel use immediately as a listed clause",
+    "Improving energy efficiency and shifting toward renewables"
+  ],
+  correctAnswer: [0, 1, 3],
+  explanation: "Objectives include adaptation (GLOF EWS, resilient agriculture) and mitigation aligned with development (efficiency/renewables). An immediate total fossil ban is not a stated NCCP clause. Do not drop mitigation when a stem asks for the full set, and do not pretend adaptation is optional.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q037", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "medium", type: "single",
+  question: "Managing the seasonal flow of which river system is a stated NCCP priority?",
+  options: ["The Nile", "The Indus River System", "The Amazon", "The Danube"],
+  correctAnswer: 1,
+  explanation: "Glaciers + Indus seasonal flow = water security. Complementary to hazard science (floods, drought, GLOFs), not a substitute for it.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q038", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "hard", type: "single",
+  question: "Integrating climate risk into national water planning illustrates which objective theme?",
+  options: ["Mainstreaming / integration into sectoral plans", "A one-off project that ends the policy", "Replacing PMD", "A western disturbance"],
+  correctAnswer: 0,
+  explanation: "Mainstreaming = climate into water, energy, urban plans — institutions and capacity, not only isolated projects. Capacity building and awareness sit alongside.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q039", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "hard", type: "true_false",
+  question: "True or False: NCCP objectives are the same thing as the physical hazard list (GLOF, heatwave, flood).",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Objectives are policy goals (adapt, mitigate, capacity, mainstream). GLOFs and heatwaves are physical hazards those goals respond to. Keep the lenses separate.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q040", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
+  question: "Active and break spells inside the monsoon mean:",
+  options: [
+    "Rain is continuous every day from June to September everywhere",
+    "Intraseasonal pulses (e.g. MJO-related) organise wet and dry periods within the season",
+    "Winter WDs have stopped",
+    "ENSO is a daily weather code"
+  ],
+  correctAnswer: 1,
+  explanation: "The season is not a steady hose. Breaks are part of the system; ENSO/IOD still only shift seasonal odds.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q041", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "easy", type: "true_false",
+  question: "True or False: Western disturbances are embedded in subtropical westerly / mid-latitude flow and typically progress eastward.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Upper-air charts show the wave in the westerlies; surface rain/snow depends on moisture and orography.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q042", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "easy", type: "true_false",
+  question: "True or False: Drought and heatwave are interchangeable names for the same hazard.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. Heatwave = prolonged extreme temperature. Drought = prolonged moisture deficit. They can coincide but are not the same mechanism or the same benchmark years.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q043", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
+  question: "PMD specialised users include:",
+  options: [
+    "Aviation, agriculture, and water/flood managers, as well as the public",
+    "Only international IPCC authors",
+    "Only Köppen mappers",
+    "Nobody — PMD does not issue warnings"
+  ],
+  correctAnswer: 0,
+  explanation: "Multi-hazard, multi-user service. A single national forecast text does not cover all hazards equally — regional structure matches climatic diversity.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q044", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "easy", type: "true_false",
+  question: "True or False: You should ask which region and which season before generalising “Pakistan’s climate” from a national mean.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Maps over slogans. Hot interiors, cool highlands, patchy monsoon, WD winter rains in the north.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q045", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "easy", type: "true_false",
+  question: "True or False: Every summer low-pressure area over Pakistan is a tropical cyclone.",
+  options: ["True", "False"],
+  correctAnswer: 1,
+  explanation: "False. The summer heat low is thermal, land-based, and broad. Tropical cyclones are organised oceanic storms. Coastal warnings track cyclone path and surge; heat-low talk is temperature and monsoon dynamics.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q046", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "medium", type: "true_false",
+  question: "True or False: For Pakistan’s risk profile, NCCP-style objectives include both adaptation (urgent) and mitigation aligned with development — not slogans without adaptation.",
+  options: ["True", "False"],
+  correctAnswer: 0,
+  explanation: "True. Do not drop either pillar on a “fully stated objectives” stem; still recognise adaptation’s prominence.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q047", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "hard", type: "single",
+  question: "Memorising 2010 and 2022 without knowing the hazard type is weak because:",
+  options: [
+    "Those years were droughts, not floods",
+    "Exams still expect riverine/extreme-rainfall inundation — years are anchors, not a substitute for mechanism",
+    "GLOFs occurred only on the Sindh coast those years",
+    "PMD did not exist"
+  ],
+  correctAnswer: 1,
+  explanation: "Benchmark years help FPSC recall; the answer should still say riverine flood from extreme basin rain, distinct from GLOF or 1999–2002 drought.",
+  sourceCitation: "Aligned to upgraded study material" },
+
+{ id: "METEO-09-Q048", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "easy", type: "single",
+  question: "Pakistan’s position relative to the core South Asian monsoon rainfall belt is:",
+  options: [
+    "The equatorial ever-wet core (Af rainforest)",
+    "The northwestern fringe — treat national totals carefully and regionally",
+    "Permanent ITCZ overhead all year",
+    "Poleward of all moisture sources"
+  ],
+  correctAnswer: 1,
+  explanation: "Fringe geography is the first monsoon fact for Pakistan. Combined with WD winter rains in the north, it explains why one rainy-season narrative fails.",
+  sourceCitation: "Aligned to upgraded study material" },
 
 // ============================= SECTION METEO-J: Weather Forecasting Basics =============================
 
