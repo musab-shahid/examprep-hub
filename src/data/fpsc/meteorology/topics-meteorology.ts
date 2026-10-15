@@ -4566,86 +4566,175 @@ export const topics: Topic[] = [
   usedIn: ["meteo-arabian-sea-cyclones-local", "meteo-aviation-products"],
 },
   
-// ============================= SECTION F =============================
+export interface MeteoTopic {
+  id: string;
+  sectionId: string;
+  order: number;
+  title: string;
+  definition: string;
+  keyFacts: string[];
+  explanationSections: {
+    heading: string;
+    body: string;
+  }[];
+  examPoints: string[];
+  commonMistakes: {
+    mistake: string;
+    correction: string;
+    explanation: string;
+  }[];
+  qualitativeScenarios: {
+    scenario: string;
+    answer: string;
+    why: string;
+  }[];
+  comparisonTable?: {
+    title: string;
+    headers: string[];
+    rows: string[][];
+  };
+  subtopics: {
+    id: string;
+    title: string;
+    summary: string;
+    explanation: string;
+    examples: {
+      problem: string;
+      solution: string;
+      answer: string;
+    }[];
+    shortcuts: string[];
+    traps: string[];
+  }[];
+  relatedTopics: string[];
+  content: boolean;
+  buildsOn: string[];
+  leadsTo: string[];
+  usedIn: string[];
+}
 
+export const meteoSectionFTopics: MeteoTopic[] = [
 {
   id: "meteo-temperature-instruments",
   sectionId: "METEO-06",
   order: 1,
-  title: "Temperature — Thermometers, Thermographs & Thermocouples",
+  title: "Temperature — Thermometers, Thermographs & Electrical Sensors",
   definition:
-    "Air temperature is measured with liquid-in-glass, bimetallic, resistance, and thermocouple sensors. The sensor type matters less than exposure: a sunlit thermometer measures a hot instrument, not the true air temperature. Standard readings need shade and ventilation (Stevenson screen).",
-
+    "Standard air temperature is the temperature of the free air in the shade, at a fixed height (classically ~1.25 m), not the temperature of sun-baked metal, asphalt, or a sensor sitting in a radiation trap. We measure it with liquid-in-glass, bimetallic, resistance, thermistor, and thermocouple sensors. The sensor type matters less than exposure: sunlight on the instrument makes the reading the temperature of a hot object, not of the air. That is why weather temperature is taken in a ventilated white shelter (Stevenson screen or equivalent).",
   keyFacts: [
-    "Liquid-in-glass: mercury or alcohol expands with temperature",
-    "Maximum / minimum thermometers record daily extremes without continuous power",
-    "Thermograph or logger: continuous time series",
-    "Electrical sensors (resistance, thermocouple): automated stations, fast response when housed correctly",
-    "Radiation error: direct sun on the sensor biases readings high",
-    "Shield + ventilate = mandatory for representative air temperature",
+    "What we want: shaded, ventilated air temperature at a standard height — comparable across stations and years",
+    "Units: Celsius (°C) in meteorology; Kelvin (K) in physics (T_K = T_°C + 273.15); Fahrenheit still appears in some US products",
+    "Liquid-in-glass: mercury or coloured alcohol expands up a capillary as temperature rises",
+    "Mercury: sharp, accurate, but freezes at −38.8 °C and is toxic — not for extreme cold",
+    "Alcohol (spirit): used for minimum thermometers and very cold climates; can be dyed for visibility",
+    "Maximum thermometer: constriction near the bulb; mercury stays at the day’s high until shaken down",
+    "Minimum thermometer: alcohol plus a small index that is dragged back to the lowest point; reset by tilting",
+    "Thermograph / logger: continuous time series (bimetallic strip or electrical sensor + chart/memory)",
+    "Electrical: RTD/Pt100 (resistance rises with T), thermistor (semiconductor, sensitive), thermocouple (voltage from two metals)",
+    "Radiation error: direct sun (and sometimes sky IR) biases the sensor high by day; calm + sun is worst",
+    "Lag: every sensor takes time to catch up; a fast electrical sensor in a bad housing is still a bad air-temperature measurement",
+    "Specials: grass-minimum (night frost near the ground), soil thermometers (depths, e.g. 5–100 cm)",
   ],
-
   explanationSections: [
     {
-      heading: "Sensor vs exposure",
+      heading: "What we are actually trying to measure",
       body:
-        "Choosing an expensive thermocouple does not fix radiation error if the housing is wrong. Metrology includes the shelter and the ground cover, not only the sensor certificate. Exam stems about ‘thermometer in open sun’ test exposure, not mercury chemistry.",
+        "Meteorologists want the temperature of the air that would be felt by a shaded, ventilated thermometer at a standard height over short vegetation. That number feeds forecasts, climate series, and aviation. A thermometer lying in midday sun on asphalt is measuring a different physical situation: solar heating of the instrument and the surface. First lesson: not “which brand of sensor,” but “is the exposure fair?” Without shade and airflow, even a laboratory-certified sensor reports the wrong quantity.",
     },
     {
-      heading: "Match tool to job",
+      heading: "Liquid-in-glass — including max and min",
       body:
-        "Need yesterday’s maximum without a logger → maximum thermometer. Need a continuous record → thermograph/logger. Need automation → electrical sensors in a proper screen. Liquid-in-glass remains the teaching standard inside Stevenson screens.",
+        "A liquid-in-glass thermometer is a bulb of mercury or alcohol connected to a narrow capillary. Heat expands the liquid; the column length is read against a scale. A maximum thermometer has a narrow constriction: as temperature falls, the mercury thread breaks and the column is left at the highest point since the last reset. The observer reads that high, then shakes the mercury back into the bulb. A minimum thermometer uses alcohol (which does not freeze as readily as mercury) and a dumbbell-shaped index inside the column. As temperature falls, surface tension drags the index down; when temperature rises, alcohol flows past the index and leaves it at the lowest point. Reset by tilting until the index returns to the meniscus. These two instruments still matter in exams because they record yesterday’s extremes without electricity.",
+    },
+    {
+      heading: "Continuous and electrical sensors",
+      body:
+        "A thermograph uses a bimetallic strip (two metals that expand differently, so the strip bends) to move a pen on a rotating chart — or, today, a logger stores digital samples. Automatic stations use electrical sensors: a platinum resistance thermometer (resistance increases smoothly with temperature), a thermistor (cheap, sensitive, needs careful calibration), or a thermocouple (voltage from a junction of two dissimilar metals; good for differences and fast response). All of these can be accurate only if they sit in a proper screen with the same exposure rules as the glass thermometers they replaced.",
+    },
+    {
+      heading: "Radiation error, lag, and special thermometers",
+      body:
+        "Visible and near-infrared sunlight heat glass, metal, and trapped air. The sensor then reads warmer than the free air — sometimes by several degrees on a calm, sunny day. A white, louvered, ventilated shelter blocks the beam, reflects much of the load, and lets air wash the bulbs. Night-time, a sensor can also cool by radiating to a clear sky if it “sees” the sky — another reason for a screen. Sensors have thermal lag: a massive mercury thermometer is slower than a fine thermocouple. Grass-minimum thermometers sit just above short grass to catch radiative night cooling (frost). Soil thermometers are buried at fixed depths for agriculture and energy-balance work. Exam stems that mention “open sun” are testing radiation error, not the chemistry of mercury.",
     },
   ],
-
   examPoints: [
-    "Main sensor types and jobs",
-    "Max/min for daily extremes",
-    "Sun on sensor → warm bias; screen required",
+    "Air temperature ≠ sunlit-object temperature; shield + ventilate",
+    "Max thermometer holds the high (constriction); min holds the low (index in alcohol)",
+    "Mercury freezes ~−39 °C → alcohol for minima and polar use",
+    "Electrical sensors automate; they do not remove the need for a Stevenson screen",
+    "Match the tool: daily extreme without power → max/min; time series → thermograph/logger; network → electrical in a standard shelter",
   ],
-
   commonMistakes: [
     {
-      mistake: "Trusting a sunlit thermometer as air temperature",
+      mistake: "Treating a sunlit thermometer reading as true air temperature",
       correction: "Expect a high bias; use a shielded, ventilated exposure.",
-      explanation: "The instrument absorbs solar radiation.",
+      explanation: "The instrument absorbs solar radiation and warms above the air.",
+    },
+    {
+      mistake: "Assuming an expensive thermocouple is automatically correct outdoors",
+      correction: "Housing and siting still decide whether the number is air temperature.",
+      explanation: "Metrology includes the shelter, not only the sensor certificate.",
+    },
+    {
+      mistake: "Confusing maximum and minimum thermometer mechanisms",
+      correction:
+        "Max = mercury + constriction, reset by shaking. Min = alcohol + index, reset by tilting.",
+      explanation: "Favourite pairing question.",
     },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Unshielded thermometer in midday sun — bias direction?",
+      scenario: "Unshielded thermometer in strong midday sun — bias direction for “air temperature”?",
       answer: "Reads too high.",
-      why: "Solar heating of the sensor.",
+      why: "Solar heating of the sensor and housing.",
     },
     {
-      scenario: "Need yesterday’s maximum without a continuous logger — classic tool?",
+      scenario: "Need yesterday’s maximum with no continuous logger — classic tool?",
       answer: "Maximum thermometer (or max/min set).",
       why: "Designed to hold the extreme until reset.",
     },
+    {
+      scenario: "Why is alcohol preferred in a minimum thermometer?",
+      answer: "It remains liquid at temperatures where mercury would freeze (~−39 °C).",
+      why: "Minima are the cold readings; the liquid must still flow.",
+    },
   ],
-
   subtopics: [
     {
       id: "meteo-temperature-instruments-sensor-match",
       title: "Match sensor to job",
-      summary: "Spot reading vs continuous vs electrical automation.",
-      explanation: "Pick the instrument from the operational need, not from prestige of the technology.",
+      summary: "Spot extremes, continuous record, or automated network.",
+      explanation:
+        "Choose from the operational need. Maximum/minimum instruments capture daily extremes without power. Continuous loggers capture the whole time series. Electrical sensors suit automation but do not remove the need for a proper screen. Grass-min and soil probes answer different questions (night frost, ground heat) than screen air temperature.",
       examples: [
         {
           problem: "Yesterday’s max without a logger?",
           solution: "Maximum thermometer.",
           answer: "Max thermometer",
         },
+        {
+          problem: "Need a continuous overnight curve at a field site?",
+          solution: "Thermograph or data logger.",
+          answer: "Thermograph / logger",
+        },
       ],
-      shortcuts: ["Max/min = extremes", "Thermograph = continuous", "Electrical = automation"],
-      traps: ["Any sensor accurate in full sun"],
+      shortcuts: [
+        "Max/min → extremes (no power needed)",
+        "Thermograph / logger → continuous",
+        "Electrical → automation (still needs housing)",
+        "Grass-min → night frost near ground",
+      ],
+      traps: [
+        "Any sensor is accurate in full sun",
+        "Thermocouple outdoor = automatically true air T",
+      ],
     },
     {
       id: "meteo-temperature-instruments-radiation-error",
-      title: "Radiation error",
-      summary: "Sunshine on the sensor biases high.",
-      explanation: "Why Stevenson screens and aspirated shields exist.",
+      title: "Radiation error and why we screen",
+      summary: "Sunshine on the sensor biases high; shade + airflow fix it.",
+      explanation:
+        "Sunlight can heat the glass, metal, and trapped air around a sensor. The reading then drifts above true air temperature. A white, louvered, ventilated shelter (Stevenson screen) blocks direct beam, reflects much of the solar load, and lets air flow past the bulbs so they stay in equilibrium with the free air. Calm, clear, sunny midday is the worst case for unshielded bias.",
       examples: [
         {
           problem: "Unshielded midday sun — bias?",
@@ -4653,12 +4742,21 @@ export const topics: Topic[] = [
           answer: "Too high",
         },
       ],
-      shortcuts: ["Sun on sensor → high bias", "Screen = shade + ventilation"],
-      traps: ["Blaming only mercury purity for large daytime errors"],
+      shortcuts: [
+        "Sun on sensor → high bias",
+        "Screen = shade + ventilation",
+        "Worst: calm + strong sun",
+      ],
+      traps: [
+        "Blaming only mercury purity for large daytime outdoor errors",
+      ],
     },
   ],
-
-  relatedTopics: ["meteo-stevenson-screen", "meteo-heat-transfer"],
+  relatedTopics: [
+    "meteo-stevenson-screen",
+    "meteo-heat-transfer",
+    "meteo-humidity-instruments",
+  ],
   content: true,
   buildsOn: ["meteo-heat-transfer"],
   leadsTo: ["meteo-stevenson-screen", "meteo-humidity-instruments"],
@@ -4671,58 +4769,92 @@ export const topics: Topic[] = [
   order: 2,
   title: "Humidity — Hygrometers & Psychrometers",
   definition:
-    "Humidity is measured by wet-bulb cooling (psychrometer), hygroscopic materials (e.g. hair hygrometer), or electronic sensors. The aspirated psychrometer is the teaching standard: dry-bulb and wet-bulb temperatures give vapour pressure and RH via tables or formulae.",
-
+    "Humidity instruments estimate how much water vapour is in the air. The teaching standard is the psychrometer: two matched thermometers, one dry (dry bulb) and one with a wet muslin sleeve (wet bulb). Evaporation cools the wet bulb; the temperature difference (wet-bulb depression) tells how dry the air is. Hair hygrometers, electronic polymer sensors, and chilled-mirror dew-point hygrometers are other methods. Readings are usually taken in the same screened, ventilated exposure as air temperature.",
   keyFacts: [
-    "Psychrometer: dry bulb + wet bulb",
-    "Wet-bulb depression = dry-bulb − wet-bulb; grows as air gets drier",
-    "Zero depression → air is saturated (RH ≈ 100%)",
-    "Aspiration (fan or sling) keeps fresh air on the bulbs",
-    "Hair hygrometer: length changes with RH — simple but can drift",
-    "Electronic sensors: capacitance/resistance of polymers — need calibration",
+    "Relative humidity (RH): how close the air is to saturation at the current temperature (vapour pressure / saturation vapour pressure × 100%)",
+    "Dew point: temperature to which air must be cooled (at constant pressure) to reach saturation — a direct moisture amount cue",
+    "Psychrometer: dry-bulb temperature + wet-bulb temperature",
+    "Wet-bulb depression = dry-bulb − wet-bulb; larger when air is drier",
+    "Zero depression → air is saturated (RH ≈ 100% for a correct liquid-water psychrometer)",
+    "In ordinary liquid psychrometry, wet bulb ≤ dry bulb (evaporation cannot heat the wet bulb above the dry bulb)",
+    "Aspiration (sling or fan) keeps fresh air on the bulbs; stagnant air under-cools and makes RH look too high",
+    "Hair hygrometer: hair lengthens as RH rises — simple, lags and drifts, not a climate primary without care",
+    "Electronic sensors: often capacitance/resistance of a polymer film — fast, need calibration and clean housing",
+    "Chilled-mirror dew-point hygrometer: cools a mirror until dew/frost forms — reference-quality when maintained",
   ],
-
   explanationSections: [
     {
-      heading: "Depression is the signal",
+      heading: "What “humidity” means (so the instrument makes sense)",
       body:
-        "Evaporation cools the wet bulb until equilibrium. In dry air, evaporation is strong → large depression → low RH. In saturated air, no net evaporation → wet bulb equals dry bulb. A wet bulb reading higher than the dry bulb is not normal for a correctly wetted liquid-water psychrometer.",
+        "Air can hold more water vapour when it is warmer. Relative humidity is a percentage of saturation at the current temperature — so the same actual vapour can be 50% RH in warm air and nearly 100% RH if that air cools. Dew point tracks how much vapour is actually there: a high dew point means a lot of moisture, regardless of the dry-bulb temperature. Wet-bulb temperature sits between dew point and dry bulb: it is the lowest temperature you can reach by evaporating water into the air (as on skin or a wet-bulb thermometer). Instruments either sense that evaporative cooling (psychrometer), a material that stretches or changes electrically with RH, or the temperature at which dew forms (chilled mirror).",
     },
     {
-      heading: "Why ventilate",
+      heading: "Wet-bulb depression is the signal",
       body:
-        "Without airflow, the wet bulb sits in its own moist envelope and under-cools. Sling or aspirated psychrometers force ventilation so the depression reflects the true environment.",
+        "On the wet bulb, liquid water evaporates into the air. Evaporation needs latent heat, so the wet bulb cools until a balance is reached between cooling and heat flowing in from the air. In dry air, evaporation is strong, cooling is large, and depression is large — RH is low. In saturated air, net evaporation stops, so wet bulb and dry bulb read nearly the same — RH is about 100%. Tables or formulae then convert the pair (dry bulb, wet bulb) plus pressure into vapour pressure, dew point, or RH. For a correctly wetted liquid-water psychrometer, the wet bulb should not read higher than the dry bulb. (An ice-coated bulb in very cold air is a special case taught separately as the ice-bulb temperature.)",
+    },
+    {
+      heading: "Why we ventilate (sling or aspirated psychrometer)",
+      body:
+        "If air around the wet bulb is stagnant, a moist bubble forms and further evaporation slows. The wet bulb then does not cool enough, depression is too small, and humidity looks higher than it really is. Whirling a sling psychrometer or running a fan (aspirated psychrometer) brings a steady stream of ambient air past both bulbs so the depression reflects the true environment. The wick must be clean, distilled water is preferred, and the sleeve must stay wet. A dry “wet bulb” is just a second dry bulb — depression collapses and RH is reported near 100% by mistake.",
+    },
+    {
+      heading: "Other humidity instruments",
+      body:
+        "A hair hygrometer uses the lengthening of human or horse hair as humidity rises; it is a clear classroom demo but can lag, hysteresis, and drift with dirt or age. Electronic sensors (capacitive polymer films) suit automatic weather stations when calibrated and kept out of rain and dust. A chilled-mirror dew-point hygrometer is a laboratory/reference method: a mirror is cooled until condensate appears, and that temperature is the dew point. Whatever the sensor, poor housing (sun, rain on the element) ruins the reading — humidity sensors usually share the Stevenson screen with thermometers.",
     },
   ],
-
   examPoints: [
-    "Psychrometer principle",
-    "Large depression → dry; zero → saturated",
-    "Ventilation improves accuracy",
+    "Psychrometer: dry bulb, wet bulb, depression; large depression → dry; zero → saturated",
+    "Ventilate (sling/fan) or RH is biased high",
+    "Wet bulb ≯ dry bulb in standard liquid psychrometry",
+    "RH is relative to temperature; dew point better tracks actual moisture",
+    "Hair = simple/drift; electronic = automate/calibrate; chilled mirror = reference",
   ],
-
   commonMistakes: [
     {
-      mistake: "Treating wet bulb > dry bulb as a normal state",
+      mistake: "Treating wet bulb > dry bulb as a normal psychrometer state",
       correction: "In standard liquid psychrometry, wet bulb ≤ dry bulb.",
-      explanation: "Evaporation cannot warm the wet bulb above the dry bulb.",
+      explanation:
+        "Evaporative cooling cannot raise the wet bulb above the dry bulb.",
+    },
+    {
+      mistake: "Ignoring aspiration",
+      correction:
+        "Stagnant air under-cools the wet bulb and biases humidity high.",
+      explanation: "Ventilation is part of the method, not an optional extra.",
+    },
+    {
+      mistake: "Confusing RH with the amount of vapour",
+      correction:
+        "Cold air at 100% RH can hold less vapour than warm air at 50% RH. Use dew point or mixing ratio for “how much.”",
+      explanation: "RH depends on temperature as well as vapour content.",
     },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Dry bulb 30 °C, wet bulb 30 °C — RH?",
+      scenario: "Dry bulb 30 °C, wet bulb 30 °C — approximate RH?",
       answer: "About 100% (saturated).",
       why: "Zero wet-bulb depression.",
     },
+    {
+      scenario: "Dry bulb much higher than wet bulb — air is…?",
+      answer: "Relatively dry (large depression).",
+      why: "Strong evaporation from the wet sleeve.",
+    },
+    {
+      scenario: "Sling psychrometer not whirled — typical humidity bias?",
+      answer: "RH too high.",
+      why: "Wet bulb does not cool enough.",
+    },
   ],
-
   subtopics: [
     {
       id: "meteo-humidity-instruments-psychrometer-skill",
       title: "Psychrometer reading skill",
-      summary: "Interpret wet-bulb depression.",
-      explanation: "Depression size tracks dryness; aspiration is part of correct technique.",
+      summary: "Read dryness from wet-bulb depression; aspirate the bulbs.",
+      explanation:
+        "Depression size tracks how readily water can evaporate. Aspiration keeps the measurement honest. Keep the wick wet and clean. Then tables convert the pair of temperatures into vapour pressure or RH.",
       examples: [
         {
           problem: "Dry = wet = 30 °C — RH?",
@@ -4730,14 +4862,21 @@ export const topics: Topic[] = [
           answer: "~100%",
         },
       ],
-      shortcuts: ["Zero depression → saturated", "Large depression → dry", "Aspire the bulbs"],
-      traps: ["Wet bulb higher than dry as normal"],
+      shortcuts: [
+        "Zero depression → saturated",
+        "Large depression → dry",
+        "Aspire the bulbs",
+        "Dry wick → fake 100% RH",
+      ],
+      traps: ["Wet bulb higher than dry as a normal state"],
     },
     {
       id: "meteo-humidity-instruments-sensor-choice",
-      title: "Hair vs electronic vs psychrometer",
-      summary: "Accuracy, speed, and maintenance trade-offs.",
-      explanation: "Psychrometer teaches physics and remains a reference method; electronic sensors suit networks if calibrated.",
+      title: "Hair vs electronic vs psychrometer vs chilled mirror",
+      summary:
+        "Trade-offs among teaching clarity, automation, and reference quality.",
+      explanation:
+        "The psychrometer teaches the physics and remains a field reference-style method. Electronic sensors suit networks if calibrated. Hair instruments are simple but not climate-grade primary standards without care. Chilled-mirror dew point is the metrology reference.",
       examples: [
         {
           problem: "Classroom demo of wet-bulb depression — classic tool?",
@@ -4745,12 +4884,19 @@ export const topics: Topic[] = [
           answer: "Psychrometer",
         },
       ],
-      shortcuts: ["Psychrometer = teaching + reference", "Electronic = automated networks"],
-      traps: ["Uncalibrated hair hygrometer as climate-grade primary"],
+      shortcuts: [
+        "Psychrometer = teaching + field method",
+        "Electronic = automated networks (calibrate)",
+        "Chilled mirror = dew-point reference",
+      ],
+      traps: ["Uncalibrated hair hygrometer as climate primary"],
     },
   ],
-
-  relatedTopics: ["meteo-moisture-metrics", "meteo-temperature-instruments", "meteo-stevenson-screen"],
+  relatedTopics: [
+    "meteo-moisture-metrics",
+    "meteo-temperature-instruments",
+    "meteo-stevenson-screen",
+  ],
   content: true,
   buildsOn: ["meteo-moisture-metrics", "meteo-temperature-instruments"],
   leadsTo: ["meteo-stevenson-screen"],
@@ -4763,58 +4909,92 @@ export const topics: Topic[] = [
   order: 3,
   title: "Atmospheric Pressure — Barometers",
   definition:
-    "Pressure is measured with mercury, aneroid, and electronic barometers. Weather maps use sea-level reduced pressure (SLP) so stations at different elevations can be compared. Station pressure alone would make every mountain look like a permanent low.",
-
+    "Atmospheric pressure is the weight of the air column above a point, spread over unit area. Barometers measure it with a mercury column, an aneroid capsule, or an electronic transducer. Weather maps almost always use sea-level reduced pressure (SLP) so stations at different elevations can be compared fairly. Aviation uses related but distinct settings (QNH, QFE).",
   keyFacts: [
-    "Mercury barometer: height of mercury column proportional to pressure",
-    "Aneroid: evacuated capsule flexes as pressure changes — portable, no liquid",
+    "Mean sea-level pressure ≈ 1013.25 hPa (hectopascal). 1 hPa = 1 millibar (mb)",
+    "Other units you will see: mmHg (torr), inHg (US aviation altimeters often use inches of mercury)",
+    "Mercury barometer: height of a mercury column proportional to pressure (Torricelli)",
+    "Aneroid barometer: evacuated capsule flexes as pressure changes — portable, no liquid",
+    "Barograph: aneroid (or electronic) drawing a continuous pressure trace — shows tendency",
     "Electronic transducers: modern automated networks",
-    "Station pressure ≠ sea-level pressure",
-    "SLP reduction removes elevation bias so isobars show weather systems",
-    "Pressure tendency (rising/falling) is a forecasting clue",
+    "Station pressure = pressure at the instrument’s actual height",
+    "Sea-level pressure (SLP / QFF-type reduction) = station pressure adjusted to a common level for mapping",
+    "Without SLP reduction, high stations look like permanent “lows” on a map",
+    "QNH: altimeter setting so the altimeter reads airfield elevation on the ground (aviation)",
+    "QFE: setting so the altimeter reads ~zero on the runway",
+    "Pressure tendency (rising or falling over ~3 hours) is a useful short-term forecast clue",
   ],
-
   explanationSections: [
     {
-      heading: "Measure, then reduce",
+      heading: "What pressure is, in one picture",
       body:
-        "Always know whether a quoted number is station pressure or SLP. Station pressure falls with height. Without reduction to a common level, elevation dominates the map and real cyclones/anticyclones are masked.",
+        "Imagine a column of air from the ground to space. Its weight presses on every surface. Near sea level the pressure is about 1013 hPa on average. Climb a mountain and there is less air above you, so pressure falls — roughly 1 hPa per 8 m in the lower troposphere (order of magnitude; it depends on density). That height effect is large — often bigger than the pressure change of a passing weather system — so raw station pressures cannot be plotted together without correction. Units: meteorology standardised on hPa (numerically equal to millibars). Older mercury columns were read in millimetres of mercury.",
     },
     {
       heading: "Instrument types",
       body:
-        "Mercury barometers are classical absolute references but bulky and toxic. Aneroids use a sealed capsule and suit portable and aircraft-heritage use. Electronic sensors dominate operational networks. Stems often ask which uses a liquid column — answer: mercury barometer.",
+        "A mercury barometer balances air pressure against the weight of a mercury column in a glass tube closed at the top with a vacuum (Torricelli’s experiment). Column height is the classic reading; careful work applies small corrections for temperature (mercury and brass scale expand), gravity/latitude, and index error. An aneroid uses a sealed, partially evacuated metal capsule that flexes as outside pressure changes — no toxic liquid, good for portable and many operational uses. A barograph records the aneroid motion on a drum so you can see whether pressure is rising or falling. Electronic sensors convert pressure to an electrical signal and dominate automatic networks. Exam cue: “liquid column” → mercury barometer; “capsule / no liquid” → aneroid.",
+    },
+    {
+      heading: "Station pressure versus sea-level pressure versus aviation settings",
+      body:
+        "Station pressure is what the barometer measures where it sits. SLP is that value reduced (adjusted) to sea level using the station elevation and a temperature assumption so that weather maps of highs and lows show systems, not topography. Always ask: is this number station pressure or SLP? Aviation uses QNH so that when the aircraft is on the runway, the altimeter shows field elevation, and QFE so that it shows height above that runway. Those are operational settings derived from pressure, not extra weather variables. Pressure tendency (e.g. +3 hPa in 3 hours) often appears on station models and helps short-range outlook: falling pressure can mean an approaching cyclone or trough; rising pressure the opposite — always with other evidence.",
     },
   ],
-
   examPoints: [
-    "Mercury vs aneroid vs electronic",
-    "Station pressure vs SLP — why reduce",
-    "Tendency is useful",
+    "1013 hPa ≈ standard SLP; hPa = mb",
+    "Mercury = liquid column; aneroid = capsule; electronic = networks",
+    "Station pressure ≠ SLP; reduction removes elevation bias for isobar maps",
+    "QNH / QFE are aviation altimeter settings, not extra meteorological fields",
+    "Tendency (up/down) is a short-range clue",
   ],
-
   commonMistakes: [
     {
       mistake: "Treating station pressure as SLP always",
-      correction: "Only equal near sea level; elevation requires reduction for maps.",
-      explanation: "Height effect is large.",
+      correction:
+        "They match only near sea level; elevation requires reduction for maps.",
+      explanation:
+        "Height effect is large compared with many weather signals.",
+    },
+    {
+      mistake: "Thinking an aneroid contains a mercury column",
+      correction: "Aneroid = capsule; mercury barometer = liquid column.",
+      explanation: "Different mechanisms.",
+    },
+    {
+      mistake:
+        "Plotting mountain station pressures on the same isobar map as coasts without reduction",
+      correction: "Reduce to sea level first.",
+      explanation: "Otherwise every plateau looks like a low.",
     },
   ],
-
   qualitativeScenarios: [
     {
       scenario: "Why not plot raw station pressure for a national isobar map?",
-      answer: "Elevation differences would mask weather gradients — need SLP reduction.",
+      answer:
+        "Elevation differences would mask weather gradients — need SLP reduction.",
       why: "Mountains would all look like lows.",
     },
+    {
+      scenario: "Classical instrument whose reading is a mercury column height?",
+      answer: "Mercury barometer.",
+      why: "Liquid column proportional to pressure.",
+    },
+    {
+      scenario:
+        "Altimeter should read airfield elevation on the ground — which setting?",
+      answer: "QNH.",
+      why: "QNH is the aerodrome altimeter setting for elevation AMSL.",
+    },
   ],
-
   subtopics: [
     {
       id: "meteo-pressure-instruments-type-match",
       title: "Instrument type matching",
-      summary: "Mercury vs aneroid vs electronic.",
-      explanation: "Liquid column = mercury; capsule = aneroid; network default = electronic.",
+      summary:
+        "Mercury = liquid column; aneroid = capsule; electronic = networks.",
+      explanation:
+        "Match the stem’s wording to the mechanism. “Column of mercury” is never the aneroid. Barograph = continuous trace of pressure (tendency visible).",
       examples: [
         {
           problem: "Classical instrument using mercury column height?",
@@ -4822,14 +5002,21 @@ export const topics: Topic[] = [
           answer: "Mercury barometer",
         },
       ],
-      shortcuts: ["Mercury = liquid column", "Aneroid = capsule", "Electronic = network default"],
+      shortcuts: [
+        "Mercury = liquid column",
+        "Aneroid = capsule",
+        "Barograph = pressure time series",
+        "Electronic = network default",
+      ],
       traps: ["Aneroid contains a mercury column"],
     },
     {
       id: "meteo-pressure-instruments-slp-skill",
-      title: "Why reduce to sea level",
-      summary: "Elevation would otherwise dominate the map.",
-      explanation: "SLP makes gradients reflect weather, not topography.",
+      title: "Why reduce to sea level (and QNH/QFE)",
+      summary:
+        "Elevation would otherwise dominate the map; aviation uses related settings.",
+      explanation:
+        "SLP makes pressure gradients reflect weather systems. Station pressure still matters locally (reduction formulae, some aviation). QNH/QFE convert pressure into altimeter behaviour. Do not mix the three names.",
       examples: [
         {
           problem: "Why not raw station pressure on national maps?",
@@ -4837,12 +5024,20 @@ export const topics: Topic[] = [
           answer: "Need SLP reduction",
         },
       ],
-      shortcuts: ["SLP for maps", "Station p includes height effect"],
-      traps: ["Station pressure = SLP always"],
+      shortcuts: [
+        "SLP for maps",
+        "Station p includes height effect",
+        "QNH = altimeter shows elevation on ground",
+        "QFE = altimeter ~0 on runway",
+      ],
+      traps: ["Station pressure = SLP always", "QNH is a humidity code"],
     },
   ],
-
-  relatedTopics: ["meteo-pressure-conversion", "meteo-hydrostatic-equation", "meteo-station-model"],
+  relatedTopics: [
+    "meteo-pressure-conversion",
+    "meteo-hydrostatic-equation",
+    "meteo-station-model",
+  ],
   content: true,
   buildsOn: ["meteo-hydrostatic-equation"],
   leadsTo: ["meteo-station-model", "meteo-pressure-conversion"],
@@ -4850,262 +5045,210 @@ export const topics: Topic[] = [
 },
 
 {
-  id: "meteo-stevenson-screen",
+  id: "meteo-precipitation-instruments",
   sectionId: "METEO-06",
   order: 4,
-  title: "Siting Standards — The Stevenson Screen (Instrument Shelter)",
+  title: "Precipitation — Rain Gauges, Snow Measurement & Intensity",
   definition:
-    "The Stevenson screen is a white, louvered, ventilated shelter that houses thermometers and humidity instruments at a standard height so readings represent shaded air temperature — not sunlit instrument temperature or ground extremes.",
-
+    "Precipitation instruments measure how much water (liquid equivalent) falls, and sometimes how fast it falls. A rain gauge is a collector of known area; depth is volume divided by that area. Wind, splash, evaporation, and the phase (rain vs snow) all bias the catch. Radar and satellites estimate precipitation remotely; gauges remain the ground truth for amounts at a point.",
   keyFacts: [
-    "White exterior reflects sunlight and reduces solar heating of the box",
-    "Louvers allow airflow but block direct sun and precipitation on the sensors",
-    "Standard height often about 1.25 m above short grass",
-    "Door faces away from strong sun in many practices",
-    "Poor siting (rooftop, asphalt, walls) ruins good sensors",
+    "Reported as depth of liquid water (mm) — 1 mm = 1 litre per square metre",
+    "Standard daily gauge: funnel + collector, read once or twice a day (storage / ordinary rain gauge)",
+    "Tipping-bucket: small seesaw tips at a fixed amount (often 0.2 mm) — good time resolution for rain; poor for unheated snow",
+    "Weighing gauge: records mass of the catch — works for rain, snow, and mixed precipitation",
+    "Optical / disdrometer: infers drops from beams; useful for type and intensity, still calibrated against gauges",
+    "Snow: measure fresh depth (cm) and/or water equivalent (melt or weigh); snow is easily blown past the gauge (undercatch)",
+    "Wind shield (e.g. Alter shield) reduces undercatch, especially for snow",
+    "Siting: open but not a wind tunnel; away from buildings and trees (rule of thumb: distance ≥ 2× obstacle height, preferably more)",
+    "Intensity (mm/h) ≠ daily total; a short cloudburst can be severe with a modest daily sum",
   ],
-
   explanationSections: [
     {
-      heading: "Shelter is part of the measurement",
+      heading: "What a millimetre of rain means",
       body:
-        "A certified thermometer in a black box on a hot roof is still a bad air-temperature measurement. The screen’s job is shade + ventilation at a standard height above a representative surface.",
+        "If 1 mm falls uniformly, every square metre received 1 litre of water. Gauges do not measure “how hard it feels”; they measure catch in a known orifice. A funnel concentrates rain into a narrow measuring cylinder so small amounts can be read. Always ask whether the number is a daily total, a storm total, or an intensity (rate).",
     },
     {
-      heading: "Why each design feature exists",
+      heading: "Gauge types and precipitation phase",
       body:
-        "White paint → less absorbed solar heat. Louvers → air exchange without direct beam or rain on bulbs. Height above short grass → avoids extreme ground heating and snow burial. Remove any feature and bias grows.",
+        "A storage gauge is simple and robust for climate totals. A tipping-bucket gauge is the automatic-network workhorse for rain: each tip is a known increment, so you get timing and intensity. Snow and ice can block the funnel, stick, or melt slowly — without heating, tipping buckets under-measure frozen precipitation. A weighing gauge sits on a load cell and records mass regardless of whether the catch is liquid or solid, so it is preferred for snow and mixed events. Optical sensors and disdrometers classify drop size and type; they complement, rather than replace, a well-sited gauge.",
+    },
+    {
+      heading: "Errors first-timers miss",
+      body:
+        "Wind is the main enemy: accelerating flow over the gauge orifice makes drops and especially snowflakes miss the funnel (undercatch). Splash-out in heavy rain, evaporation from an open can in heat, and a funnel clogged with leaves all distort totals. Trees and buildings both shelter and drip. For snow, a board or snow stake measures depth; water equivalent (what would be left after melting) is what hydrology and climate series usually want. Radar-derived rainfall is an area estimate with known biases (see remote sensing) — never assume it equals the gauge under the beam.",
     },
   ],
-
   examPoints: [
-    "Purpose: representative shaded air temperature",
-    "White + louvers + standard height",
-    "Open grass good; rooftop/asphalt bad for standard series",
+    "mm of rain = litres per square metre",
+    "Tipping-bucket → rain timing; weighing → frozen/mixed catch",
+    "Snow: undercatch in wind; shields help; water equivalent ≠ snow depth",
+    "Intensity (mm/h) is not the same as daily total",
   ],
-
   commonMistakes: [
     {
-      mistake: "Treating the screen as optional decoration",
-      correction: "Without it, radiation error dominates daytime readings.",
-      explanation: "Exposure is metrology.",
+      mistake: "Assuming a tipping-bucket gauge measures snow as well as rain",
+      correction:
+        "Without heat/treatment it under-performs; use a weighing gauge or melt/weigh snow.",
+      explanation: "Phase of precipitation matters.",
+    },
+    {
+      mistake: "Equating 10 cm of snow with 10 mm of rain",
+      correction:
+        "Snow depth ≠ liquid equivalent. A rough climate rule is ~10:1 but density varies widely.",
+      explanation: "Fluffy snow is mostly air; wet snow is denser.",
     },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Why is the screen painted white?",
-      answer: "To reflect sunlight and reduce solar heating of the shelter.",
-      why: "Absorbed heat would bias internal air and sensors.",
+      scenario:
+        "Which automatic gauge is most effective for frozen precipitation?",
+      answer: "Weighing gauge.",
+      why: "Mass of catch, independent of phase.",
     },
     {
-      scenario: "Screen on a black rooftop at midday — likely bias vs standard grass site?",
-      answer: "Warm bias.",
-      why: "Hot surface and poor representative exposure.",
+      scenario:
+        "Windy snowstorm, unshielded small-orifice gauge — typical error?",
+      answer: "Undercatch (too little snow).",
+      why: "Flow over the orifice carries flakes past the funnel.",
     },
   ],
-
   subtopics: [
     {
-      id: "meteo-stevenson-screen-design-skill",
-      title: "Design features",
-      summary: "White, louvers, height — not decoration.",
-      explanation: "Each feature fights a specific bias.",
+      id: "meteo-precipitation-instruments-gauge-types",
+      title: "Choose the gauge by phase and purpose",
+      summary:
+        "Storage for totals; tipping bucket for rain timing; weighing for all phases.",
+      explanation:
+        "Match the stem to liquid vs frozen and to whether you need intensity or only a daily sum.",
       examples: [
         {
-          problem: "Why white paint?",
-          solution: "Reflect sunlight / reduce heating.",
-          answer: "Reflect sunlight / reduce heating",
+          problem: "Best for frozen precip at an automatic station?",
+          solution: "Weighing gauge.",
+          answer: "Weighing gauge",
         },
       ],
-      shortcuts: ["White = reflect", "Louvers = ventilate + shade", "Height = standard exposure"],
-      traps: ["Black screen for better absorption"],
+      shortcuts: [
+        "Tipping bucket → liquid-friendly, timed tips",
+        "Weighing → any phase",
+        "Storage → simple daily total",
+      ],
+      traps: ["All gauges equally good for snow"],
     },
     {
-      id: "meteo-stevenson-screen-siting-traps",
-      title: "Siting mistakes",
-      summary: "Concrete, walls, rooftops bias readings.",
-      explanation: "Ideal: open level ground, short vegetation, free airflow.",
+      id: "meteo-precipitation-instruments-errors",
+      title: "Wind, siting, and snow water equivalent",
+      summary: "Undercatch, splash, evaporation; depth vs meltwater.",
+      explanation:
+        "Open exposure with a wind shield beats a rooftop or a tree drip line. Report snow as depth and/or water equivalent — they are different quantities.",
       examples: [
         {
-          problem: "Rooftop screen midday bias?",
-          solution: "Warm bias.",
-          answer: "Warm bias",
+          problem: "Unshielded gauge in blowing snow — bias?",
+          solution: "Too low (undercatch).",
+          answer: "Undercatch",
         },
       ],
-      shortcuts: ["Open grass good", "Rooftop/asphalt bad for standard climate series"],
-      traps: ["Any outdoor placement is standard"],
+      shortcuts: [
+        "Wind → undercatch (especially snow)",
+        "Water equivalent = melted depth",
+        "mm/h = intensity, mm = total",
+      ],
+      traps: ["Snow depth = rain millimetres"],
     },
   ],
-
-  relatedTopics: ["meteo-temperature-instruments", "meteo-humidity-instruments", "meteo-weather-vs-climate"],
+  relatedTopics: [
+    "meteo-ground-aviation-instruments",
+    "meteo-remote-sensing",
+    "meteo-stevenson-screen",
+  ],
   content: true,
-  buildsOn: ["meteo-temperature-instruments"],
-  leadsTo: ["meteo-weather-vs-climate"],
-  usedIn: ["meteo-temperature-instruments", "meteo-humidity-instruments"],
-},
-
-{
-  id: "meteo-radiosondes",
-  sectionId: "METEO-06",
-  order: 5,
-  title: "Upper-Air Soundings — Radiosondes & Rawinsondes",
-  definition:
-    "A radiosonde is a balloon-borne package that measures temperature, humidity, and pressure while ascending. Winds are obtained by tracking the balloon’s horizontal motion (rawinsonde). The result is a vertical profile at one place and time — the backbone of stability analysis and a key input to numerical weather prediction.",
-
-  keyFacts: [
-    "Measures T, humidity, and pressure versus height",
-    "Winds from successive positions of the balloon — not from a cup anemometer on the sonde as the standard method",
-    "Common nominal launch times: 00 and 12 UTC",
-    "Plotted on thermodynamic diagrams (skew-T, tephigram)",
-    "Critical for aviation (icing, freezing level, winds aloft) and model assimilation",
+  buildsOn: ["meteo-moisture-metrics"],
+  leadsTo: [
+    "meteo-ground-aviation-instruments",
+    "meteo-remote-sensing",
   ],
-
-  explanationSections: [
-    {
-      heading: "A profile, not a map",
-      body:
-        "A sounding is a vertical sample above the launch site. It does not replace a horizontal surface analysis. Satellite and radar complement soundings but do not fully replace in-situ profiles of T, humidity, and wind.",
-    },
-    {
-      heading: "What is measured how",
-      body:
-        "Thermometers and humidity sensors sample the environment as pressure falls. Wind comes from tracking. MCQs often try to claim the thermometer ‘measures wind’ — it does not.",
-    },
-  ],
-
-  examPoints: [
-    "T, humidity, pressure from sensors; wind from tracking",
-    "Vertical profile at one time/place",
-    "Used for stability, aviation, NWP",
-  ],
-
-  commonMistakes: [
-    {
-      mistake: "Saying the radiosonde thermometer measures wind speed",
-      correction: "Winds come from tracking the balloon.",
-      explanation: "Different measurement chain.",
-    },
-  ],
-
-  qualitativeScenarios: [
-    {
-      scenario: "Does the radiosonde thermometer directly measure wind speed?",
-      answer: "No — winds come from tracking.",
-      why: "Position changes with time give wind.",
-    },
-    {
-      scenario: "Best routine tool for a vertical temperature inversion profile at a station?",
-      answer: "Radiosonde sounding.",
-      why: "In-situ vertical profile.",
-    },
-  ],
-
-  subtopics: [
-    {
-      id: "meteo-radiosondes-what-it-measures",
-      title: "What the package returns",
-      summary: "T, humidity, p; winds from tracking.",
-      explanation: "Keep sensor quantities separate from tracking-derived wind.",
-      examples: [
-        {
-          problem: "Thermometer measures wind?",
-          solution: "No.",
-          answer: "No",
-        },
-      ],
-      shortcuts: ["Sensors → T, RH, p", "Tracking → wind"],
-      traps: ["Wind by cup on sonde as standard"],
-    },
-    {
-      id: "meteo-radiosondes-use",
-      title: "Why soundings matter",
-      summary: "Stability, icing, NWP, aviation.",
-      explanation: "CAPE/CIN, freezing level, jet-level winds — all sounding products.",
-      examples: [
-        {
-          problem: "Vertical inversion profile — tool?",
-          solution: "Radiosonde.",
-          answer: "Radiosonde",
-        },
-      ],
-      shortcuts: ["Sounding → profile truth", "Diagrams plot sondes"],
-      traps: ["Surface METAR replaces upper-air soundings"],
-    },
-  ],
-
-  relatedTopics: ["meteo-thermodynamic-diagrams", "meteo-static-stability", "meteo-nwp-models"],
-  content: true,
-  buildsOn: ["meteo-temperature-instruments", "meteo-humidity-instruments"],
-  leadsTo: ["meteo-thermodynamic-diagrams", "meteo-nwp-models"],
-  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc"],
+  usedIn: ["meteo-ground-aviation-instruments", "meteo-hydrology"],
 },
 
 {
   id: "meteo-wind-instruments",
   sectionId: "METEO-06",
-  order: 6,
+  order: 5,
   title: "Wind Speed & Direction — Anemometers & Wind Vanes",
   definition:
-    "Wind direction is the direction from which the wind blows. Speed is measured by cup, propeller, or sonic anemometers. Exposure height, obstacles, and averaging time decide whether the number is a useful mean or a local gusty artefact.",
-
+    "Wind is air in motion. Direction is reported as the direction from which the wind blows. Speed is measured by cup, propeller, or sonic anemometers. Height above ground, nearby obstacles, and averaging time decide whether the number is a useful mean wind or only a local, gusty artefact. Synoptic and aviation winds are usually in knots; SI teaching often uses m/s (1 kt ≈ 0.51 m/s).",
   keyFacts: [
-    "Direction convention: FROM (a west wind comes from the west and moves air toward the east)",
-    "Cup anemometer: rotation rate increases with speed",
-    "Wind vane: points into the oncoming wind",
-    "Sonic anemometers: no moving parts; research and some airports",
+    "Direction convention: FROM (a west wind comes from the west; air moves toward the east)",
+    "Compass: 360° = north, 090° = east, 180° = south, 270° = west; 000° often means calm in METAR wind groups when speed is 00",
+    "Cup anemometer: rotation rate increases with wind speed",
+    "Wind vane: points into the oncoming wind (into the FROM direction)",
+    "Propeller anemometer: often combines speed and direction on one vane-aligned shaft",
+    "Sonic anemometers: no moving parts; time of flight of sound; common in research and some airports",
+    "Windsock: visual aviation aid — points downwind (opposite to a vane’s nose)",
     "Synoptic standard exposure often 10 m above open ground",
-    "Gust = short-period peak; mean wind = average over a defined period",
-    "Beaufort scale: visual/sea-state estimate — not a calibrated anemometer reading",
+    "Gust = short-period peak (often 3 s); mean wind = average over a defined period (often 2 or 10 min)",
+    "Beaufort scale: visual or sea-state estimate — not a calibrated anemometer reading",
+    "True vs magnetic: meteorological winds are true direction; some runway headings are magnetic — do not mix them blindly",
   ],
-
   explanationSections: [
     {
-      heading: "FROM convention first",
+      heading: "The FROM convention (learn this once)",
       body:
-        "If wind is reported as 270°, the air is coming from the west and moving toward the east. Station-model wind barbs use the same FROM convention. Inverting direction is one of the most common exam errors.",
+        "If the wind is reported as 270°, the air is coming from the west and moving toward the east. Station-model wind barbs use the same FROM convention: the barb is on the side the wind comes from. Naming the direction as “where the air is going” is one of the most common exam errors. The vane’s arrow or nose points into the wind — toward the source direction. A windsock, by contrast, fills and points toward where the air is going (downwind) — useful at airfields, different from the vane.",
     },
     {
-      heading: "Exposure and averaging",
+      heading: "How speed is measured",
       body:
-        "Wind usually increases with height in the surface layer. Trees and buildings create eddies; a courtyard sensor under-reads or fluctuates wildly compared with open 10 m exposure. Gusts are peaks; means average over minutes. Compare like with like.",
+        "Cup anemometers spin faster as the wind strengthens; calibration converts rotation rate to speed. They are slightly better at starting in light winds than some older designs but still have mechanical inertia (overestimate in gusty flow a little). Propeller types combine speed and direction on one shaft. Sonic anemometers time sound pulses between transducers and need no cups — fast enough for turbulence research. All of them report the wind at their mounting height and site — not automatically the free open-terrain wind. Units: m/s in SI; knots in aviation and many operational products; km/h in some public forecasts. Convert before comparing.",
+    },
+    {
+      heading: "Exposure, height, gusts, and Beaufort",
+      body:
+        "Wind usually increases with height in the surface layer. Trees and buildings create slow patches and turbulent eddies. A courtyard or roof-edge sensor is not equivalent to a 10 m mast in open terrain. Gusts are peaks over a few seconds; means average over minutes — never mix a gust with a mean in the same comparison. The Beaufort scale estimates force from visual signs (smoke, twigs, sea state) when no anemometer is available — useful, but not a substitute for a calibrated speed in precise work.",
     },
   ],
-
   examPoints: [
-    "Direction = FROM",
-    "Cups/vane/sonic roles",
-    "Standard height ~10 m; obstacles bias",
+    "Direction = FROM; 270° → air moves east",
+    "Cups / vane / sonic / windsock roles",
+    "Standard height ~10 m; obstacles bias the reading",
     "Gust ≠ mean; Beaufort = estimate",
+    "kt vs m/s: know they are different units",
   ],
-
   commonMistakes: [
     {
-      mistake: "Treating named wind direction as where the air is going",
+      mistake:
+        "Treating the named wind direction as where the air is going",
       correction: "Named direction is where the wind comes FROM.",
       explanation: "West wind → air moves eastward.",
     },
+    {
+      mistake:
+        "Comparing a roof-corner gust to a 10-minute mean at 10 m",
+      correction: "Match height, exposure, and averaging time.",
+      explanation: "Otherwise you are comparing different quantities.",
+    },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Wind reported as 270°. Air is moving toward which general direction?",
+      scenario:
+        "Wind reported as 270°. Air is moving toward which general direction?",
       answer: "Toward the east (wind from the west).",
       why: "FROM convention.",
     },
     {
-      scenario: "Anemometer in a courtyard among buildings — representative of open 10 m wind?",
-      answer: "Usually no — sheltered/turbulent site.",
+      scenario:
+        "Anemometer in a courtyard among buildings — representative of open 10 m wind?",
+      answer: "Usually no — sheltered or turbulent site.",
       why: "Obstacles bias speed and variability.",
     },
   ],
-
   subtopics: [
     {
       id: "meteo-wind-instruments-from-convention",
-      title: "FROM convention + sensor types",
-      summary: "Vane points into the wind; cups measure speed.",
-      explanation: "Match instrument to stem; never invert direction.",
+      title: "FROM convention and sensor types",
+      summary: "Vane into the wind; cups for speed; sock downwind.",
+      explanation:
+        "Never invert direction. Match cups to speed and vane to direction in stems. Remember the windsock points the opposite way to a vane nose.",
       examples: [
         {
           problem: "270° wind — air moving toward?",
@@ -5113,29 +5256,41 @@ export const topics: Topic[] = [
           answer: "Toward east",
         },
       ],
-      shortcuts: ["Direction = FROM", "Cups = speed", "Vane = direction"],
-      traps: ["Direction = where air is going as the named wind"],
+      shortcuts: [
+        "Direction = FROM",
+        "Cups = speed",
+        "Vane = direction (into wind)",
+        "Sock = downwind",
+      ],
+      traps: ["Named direction = where air is going"],
     },
     {
       id: "meteo-wind-instruments-exposure-gust",
-      title: "Height, obstacles, gusts",
+      title: "Height, obstacles, and gusts",
       summary: "10 m standard vs roof-edge turbulence.",
-      explanation: "Site and averaging define the number’s meaning.",
+      explanation:
+        "Site and averaging define what the number means. Compare mean with mean and gust with gust.",
       examples: [
         {
-          problem: "Courtyard anemometer representative of open 10 m?",
+          problem:
+            "Courtyard anemometer representative of open 10 m?",
           solution: "No.",
           answer: "No",
         },
       ],
-      shortcuts: ["Standard height ~10 m", "Gust ≠ mean", "Obstacles bias"],
+      shortcuts: [
+        "Standard height ~10 m",
+        "Gust ≠ mean",
+        "Obstacles bias",
+      ],
       traps: ["Any height is equivalent"],
     },
     {
       id: "meteo-wind-instruments-beaufort-skill",
       title: "Beaufort scale",
       summary: "Visual estimate, not an anemometer.",
-      explanation: "Useful without instruments; not a substitute for calibrated speed in precise work.",
+      explanation:
+        "Beaufort is valuable without instruments. It is not a precision substitute for calibrated cup or sonic speed.",
       examples: [
         {
           problem: "Beaufort = direct cup reading?",
@@ -5143,80 +5298,542 @@ export const topics: Topic[] = [
           answer: "No",
         },
       ],
-      shortcuts: ["Beaufort = estimated force", "Anemometer = measured speed"],
+      shortcuts: [
+        "Beaufort = estimated force",
+        "Anemometer = measured speed",
+      ],
       traps: ["Beaufort = exact m/s instrument"],
     },
   ],
-
-  relatedTopics: ["meteo-station-model", "meteo-forces-governing-wind"],
+  relatedTopics: [
+    "meteo-station-model",
+    "meteo-forces-governing-wind",
+    "meteo-aviation-products",
+  ],
   content: true,
   buildsOn: ["meteo-forces-governing-wind"],
   leadsTo: ["meteo-station-model", "meteo-aviation-products"],
-  usedIn: ["meteo-station-model", "meteo-ground-aviation-instruments"],
+  usedIn: [
+    "meteo-station-model",
+    "meteo-ground-aviation-instruments",
+  ],
+},
+
+{
+  id: "meteo-stevenson-screen",
+  sectionId: "METEO-06",
+  order: 6,
+  title: "Siting Standards — The Stevenson Screen (Instrument Shelter)",
+  definition:
+    "The Stevenson screen is a white, louvered, ventilated wooden (or similar) shelter that houses thermometers and often humidity instruments at a standard height. Its job is to let air flow past the sensors while blocking direct sun and rain, so the reading represents shaded air temperature — not sunlit instrument temperature or ground extremes. A good sensor in a bad site is still a bad measurement. The same siting philosophy (open exposure, representative surface, documented height) applies to wind, rain gauges, and pressure reduction.",
+  keyFacts: [
+    "White exterior reflects sunlight and reduces solar heating of the box",
+    "Double roof on many designs: air gap so the inner chamber is not an oven",
+    "Louvers allow airflow but block direct sun and precipitation on the sensors",
+    "Standard height often about 1.25–2 m above short grass (know your syllabus figure; 1.25 m is the classic exam value)",
+    "Door often faces away from the strongest sun (poleward: north-facing door in the Northern Hemisphere) so opening it does not sun-bake the bulbs",
+    "Open level ground with short vegetation is preferred; rooftops, asphalt, and walls bias readings",
+    "Rule of thumb vs obstacles: well away from buildings and trees so the screen samples free air",
+    "Moving a station from a rural field to a car park can create a fake climate “trend” — metadata matters",
+  ],
+  explanationSections: [
+    {
+      heading: "The shelter is part of the instrument",
+      body:
+        "Temperature and humidity “measurements” are only as good as their exposure. A certified thermometer in a black box on a hot roof is still a poor estimate of standard air temperature. The screen provides shade, reflection of solar load, ventilation, and a standard height above a representative surface so that stations can be compared across time and place. Climate series are especially sensitive: a siting change can look like global warming or cooling if nobody records it.",
+    },
+    {
+      heading: "Why each design feature exists",
+      body:
+        "White paint reflects much of the incoming sunlight so the box does not become an oven. A double roof adds an insulating air space. Louvers let air exchange freely while stopping direct beams and raindrops from hitting the bulbs. Height above short grass avoids the extreme heat of bare soil at midday and the extreme cold of a radiating ground surface at night, and it reduces burial risk in snow. The door is opened for reading; facing it away from the sun stops a blast of radiation onto the thermometers at observation time. Remove any of these and systematic bias grows — especially on sunny, calm days.",
+    },
+    {
+      heading: "Siting mistakes",
+      body:
+        "Concrete yards, car parks, building walls, and rooftops store and re-radiate heat. They can raise daytime temperatures, cut night cooling, and change the microclimate around the screen. Ideal siting is open, level ground with free airflow and natural short vegetation — the classic “climate station” exposure. Nearby trees drip and shade; nearby exhausts and air-conditioning units add heat. Document height, surface, and moves. The same logic applies to rain gauges (undercatch, drip) and anemometers (shelter, speed-up around corners).",
+    },
+  ],
+  examPoints: [
+    "Purpose: representative shaded air temperature (and protected humidity sensors)",
+    "White + louvers + standard height (~1.25 m classically) + poleward-facing door",
+    "Open grass good; rooftop / asphalt / wall bad for a standard series",
+    "Exposure is part of metrology — sensor certificate ≠ correct climate value",
+  ],
+  commonMistakes: [
+    {
+      mistake: "Treating the screen as optional decoration",
+      correction:
+        "Without proper exposure control, radiation error dominates daytime readings.",
+      explanation: "Exposure is part of metrology.",
+    },
+    {
+      mistake: "Painting the screen black “to absorb better”",
+      correction: "White is deliberate: reflect solar load.",
+      explanation: "We want air temperature, not a solar collector.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario: "Why is the screen painted white?",
+      answer: "To reflect sunlight and reduce solar heating of the shelter.",
+      why: "Absorbed heat would warm the internal air and sensors.",
+    },
+    {
+      scenario:
+        "Screen on a black rooftop at midday — likely bias versus a standard grass site?",
+      answer: "Warm bias.",
+      why: "Hot surface and non-standard exposure.",
+    },
+  ],
+  subtopics: [
+    {
+      id: "meteo-stevenson-screen-design-skill",
+      title: "Design features",
+      summary: "White, louvers, height, door — each fights a bias.",
+      explanation:
+        "Link each feature to a physical problem: solar heating, stagnation, rain on sensors, ground extremes, sun through an open door.",
+      examples: [
+        {
+          problem: "Why white paint?",
+          solution: "Reflect sunlight / reduce heating.",
+          answer: "Reflect sunlight / reduce heating",
+        },
+      ],
+      shortcuts: [
+        "White = reflect",
+        "Louvers = ventilate + shade",
+        "Height = standard exposure",
+        "Door away from sun",
+      ],
+      traps: ["Black screen for “better absorption”"],
+    },
+    {
+      id: "meteo-stevenson-screen-siting-traps",
+      title: "Siting mistakes",
+      summary: "Concrete, walls, and rooftops bias readings.",
+      explanation:
+        "Ideal: open level ground, short vegetation, free airflow. Poor sites produce a local climate, not the regional air temperature the network wants. Station moves need metadata.",
+      examples: [
+        {
+          problem: "Rooftop screen midday bias?",
+          solution: "Warm bias.",
+          answer: "Warm bias",
+        },
+      ],
+      shortcuts: [
+        "Open grass good",
+        "Rooftop / asphalt bad for standard climate series",
+      ],
+      traps: ["Any outdoor placement counts as standard"],
+    },
+  ],
+  relatedTopics: [
+    "meteo-temperature-instruments",
+    "meteo-humidity-instruments",
+    "meteo-weather-vs-climate",
+  ],
+  content: true,
+  buildsOn: ["meteo-temperature-instruments"],
+  leadsTo: ["meteo-weather-vs-climate"],
+  usedIn: [
+    "meteo-temperature-instruments",
+    "meteo-humidity-instruments",
+  ],
+},
+
+{
+  id: "meteo-cloud-visibility-weather",
+  sectionId: "METEO-06",
+  order: 7,
+  title: "Cloud, Visibility & Present Weather — What Observers Still Report",
+  definition:
+    "Not every observation is a sensor voltage. Cloud amount and type, visibility, and present weather (rain, fog, thunderstorm) are still reported by trained observers and by automatic present-weather sensors. These groups appear in METAR/SPECI and on station models. Instruments (ceilometer, visibility sensor) help, but the concepts — oktas, cloud base, prevailing visibility — must be understood first.",
+  keyFacts: [
+    "Cloud amount in oktas: eighths of sky covered (0 = clear, 8 = overcast; 9 sometimes = sky obscured, e.g. fog)",
+    "Layers: FEW / SCT / BKN / OVC in METAR ≈ 1–2, 3–4, 5–7, 8 oktas (know the mapping your syllabus uses)",
+    "Cloud base (ceiling): height of the lowest broken or overcast layer — critical for aviation; ceilometer estimates it",
+    "Visibility: how far an object can be seen; RVR is visibility along the runway from instruments",
+    "Present weather: what is happening now (RA rain, SN snow, FG fog, BR mist, TS thunderstorm, DZ drizzle, HZ haze, etc.)",
+    "Automatic present-weather sensors infer type from scatter/size; they can mis-classify mixed or very light events",
+    "Obscuration: fog, heavy snow, or thick haze can make cloud amount “sky obscured” rather than a true okta count",
+  ],
+  explanationSections: [
+    {
+      heading: "Cloud amount and height",
+      body:
+        "Imagine the sky divided into eight slices. Cover of 4 oktas is half covered. METAR encodes layers from the surface up: a scattered layer at 2000 ft and broken at 5000 ft is not the same as overcast at 2000 ft. Ceiling is the height where the sky becomes more than half covered (broken/overcast) — that is what a pilot cares about for seeing the runway. A ceilometer gives an automated cloud-base estimate; a human still judges type (cumulus vs stratus vs cirrus) better than most sensors.",
+    },
+    {
+      heading: "Visibility versus RVR",
+      body:
+        "Prevailing visibility is the greatest distance to which objects can be seen around at least half the horizon. It can drop in fog, heavy rain, snow, dust, or smoke. Runway visual range (RVR) is a specialised, instrumented visibility along a runway, used for landing minima. Do not treat a single forward-scatter meter as a full human 360° observation, but it is fast and consistent for operations.",
+    },
+    {
+      heading: "Present weather codes (enough to read a METAR)",
+      body:
+        "Intensity prefix: − light, (none) moderate, + heavy. Then the phenomenon: RA, SN, DZ, FG, BR (mist, vis ≥ 1000 m in many codes), HZ, TS, SH (showers). Combinations exist (TSRA = thunderstorm with rain). Fog is a cloud on the ground (vis typically < 1000 m); mist is the thinner cousin. You do not need every WMO code on day one; you do need to know that these groups are observations of now, not forecasts.",
+    },
+  ],
+  examPoints: [
+    "Oktas = eighths of sky; 8 = overcast",
+    "Ceiling ≈ base of BKN/OVC — aviation critical",
+    "Visibility vs RVR (runway)",
+    "METAR weather groups describe now (RA, FG, TS…)",
+  ],
+  commonMistakes: [
+    {
+      mistake: "Calling 4 oktas “overcast”",
+      correction:
+        "4 oktas is half covered (scattered/broken border depending on layering); overcast is 8.",
+      explanation: "Okta scale is linear in eighths.",
+    },
+    {
+      mistake: "Treating fog and cloud as unrelated",
+      correction: "Fog is cloud at ground level — same physics, different height.",
+      explanation: "Useful for both instruments and fog-type topics.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario: "Sky completely covered — oktas?",
+      answer: "8 (overcast).",
+      why: "Eight eighths.",
+    },
+    {
+      scenario: "Need cloud-base height for an approach — primary automated tool?",
+      answer: "Ceilometer.",
+      why: "Estimates ceiling.",
+    },
+  ],
+  subtopics: [
+    {
+      id: "meteo-cloud-visibility-weather-oktas",
+      title: "Oktas, layers, ceiling",
+      summary: "Amount vs height vs type.",
+      explanation:
+        "Amount (oktas/METAR cover), base (ceilometer), and type (human) are three different facts.",
+      examples: [
+        {
+          problem: "Overcast in oktas?",
+          solution: "8.",
+          answer: "8 oktas",
+        },
+      ],
+      shortcuts: ["8 oktas = OVC", "Ceiling = BKN/OVC base"],
+      traps: ["4 oktas = overcast"],
+    },
+    {
+      id: "meteo-cloud-visibility-weather-vis",
+      title: "Visibility, RVR, present weather",
+      summary: "How far you can see; what is falling or obscuring.",
+      explanation:
+        "Visibility is a distance; present weather is a type. RVR is runway-specific. Fog vs mist is largely a visibility threshold plus condensation at the surface.",
+      examples: [
+        {
+          problem: "FG vs BR in many codes?",
+          solution: "Fog is thicker (lower vis) than mist.",
+          answer: "Fog: lower visibility",
+        },
+      ],
+      shortcuts: [
+        "VIS = distance",
+        "RVR = runway vis",
+        "RA/SN/FG/TS = present weather",
+      ],
+      traps: ["RVR = cloud height"],
+    },
+  ],
+  relatedTopics: [
+    "meteo-ground-aviation-instruments",
+    "meteo-aviation-products",
+    "meteo-fog-types",
+  ],
+  content: true,
+  buildsOn: ["meteo-stevenson-screen"],
+  leadsTo: ["meteo-aviation-products", "meteo-fog-types"],
+  usedIn: ["meteo-aviation-products", "meteo-station-model"],
+},
+
+{
+  id: "meteo-sunshine-radiation-instruments",
+  sectionId: "METEO-06",
+  order: 8,
+  title: "Sunshine & Solar Radiation Instruments",
+  definition:
+    "Sunshine recorders and radiometers measure how much solar energy arrives, not air temperature. The classic teaching instrument is the Campbell–Stokes sunshine recorder (a glass sphere burning a card). Modern networks use pyranometers (global solar irradiance) and related sensors. These are radiation instruments: they must see the sky; they do not belong inside a Stevenson screen.",
+  keyFacts: [
+    "Campbell–Stokes: glass sphere focuses the sun onto a treated card; burn length ≈ duration of bright sunshine",
+    "Threshold: needs a strong enough beam — thin cirrus or weak low sun may not burn even if you can see the disc",
+    "Pyranometer: measures global solar radiation on a horizontal surface (W m⁻²) — climate and solar-energy standard",
+    "Pyrheliometer: direct beam only, aimed at the sun (with a tracker)",
+    "Do not house these in a Stevenson screen — they must be exposed to the sky, kept clean, and levelled",
+    "Sunshine duration ≠ temperature; a sunny winter day can still be cold",
+  ],
+  explanationSections: [
+    {
+      heading: "Campbell–Stokes (exam favourite)",
+      body:
+        "A solid glass sphere acts as a lens. When the sun is strong enough, it burns a trace on a card marked with hours. The length of the burn is the traditional “hours of bright sunshine.” Cards are swapped daily. Limitations: the burn threshold misses weak sun; rain and dirt matter; the method is not a full energy measurement. It remains in syllabi because it is simple and historical climate series used it.",
+    },
+    {
+      heading: "Energy, not hours: pyranometers",
+      body:
+        "A pyranometer uses a thermopile or photodiode under a glass dome to report watts per square metre of incoming short-wave radiation (sun plus diffuse sky) on the horizontal. That is what energy-balance and climate work need. A pyrheliometer looks only at the solar disc. Keep domes clean; a dirty dome is a low bias. These sensors sit on masts or roofs with a clear horizon — the opposite siting logic from a screened thermometer.",
+    },
+  ],
+  examPoints: [
+    "Campbell–Stokes = focused burn → sunshine duration",
+    "Pyranometer = global solar irradiance (W m⁻²)",
+    "Not inside the Stevenson screen",
+  ],
+  commonMistakes: [
+    {
+      mistake: "Putting a sunshine recorder inside the screen “for protection”",
+      correction:
+        "It must see the sun; protect with a proper radiation-stand exposure instead.",
+      explanation: "Wrong quantity if shaded.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario:
+        "Classic instrument that burns a daily card to record bright sunshine?",
+      answer: "Campbell–Stokes recorder.",
+      why: "Sphere focuses the solar beam onto the card.",
+    },
+  ],
+  subtopics: [
+    {
+      id: "meteo-sunshine-radiation-instruments-campbell-stokes",
+      title: "Campbell–Stokes vs pyranometer",
+      summary: "Hours of bright sun vs energy flux.",
+      explanation:
+        "Duration and watts per square metre answer different questions. Know which stem wants which.",
+      examples: [
+        {
+          problem: "Hours of bright sunshine — classic tool?",
+          solution: "Campbell–Stokes.",
+          answer: "Campbell–Stokes",
+        },
+      ],
+      shortcuts: [
+        "Burn card → sunshine hours",
+        "Pyranometer → W m⁻²",
+      ],
+      traps: ["Sunshine recorder inside Stevenson screen"],
+    },
+  ],
+  relatedTopics: [
+    "meteo-radiation-laws",
+    "meteo-temperature-instruments",
+    "meteo-stevenson-screen",
+  ],
+  content: true,
+  buildsOn: ["meteo-radiation-laws"],
+  leadsTo: ["meteo-energy-balance"],
+  usedIn: ["meteo-climate-statistics"],
+},
+
+{
+  id: "meteo-radiosondes",
+  sectionId: "METEO-06",
+  order: 9,
+  title: "Upper-Air Soundings — Radiosondes & Rawinsondes",
+  definition:
+    "A radiosonde is a balloon-borne instrument package that measures temperature, humidity, and pressure (the PTU: pressure, temperature, humidity) as it rises through the atmosphere. Wind is obtained by tracking how the balloon drifts horizontally (a rawinsonde is the sounding when winds are included that way; modern packages use GPS). The product is a vertical profile at one place and time — essential for stability analysis, aviation, and numerical weather prediction. It is not a weather map.",
+  keyFacts: [
+    "Sensors measure temperature, humidity, and pressure versus height (or pressure level)",
+    "Winds come from successive positions of the balloon (radio theodolite historically; GPS now) — not from a cup anemometer on the package as the standard method",
+    "Balloon filled with helium or hydrogen; it expands and usually bursts in the stratosphere (~20–35 km typical)",
+    "Common global launch times: 00 and 12 UTC (some sites also 06/18)",
+    "Profiles are plotted on thermodynamic diagrams (skew-T, tephigram, etc.)",
+    "Used for CAPE/CIN and stability, freezing level, inversions, dry layers, winds aloft, and model data assimilation",
+    "Related: dropsonde (released from aircraft downward), ozonesonde (ozone added), wind profilers/lidar (ground-based complements)",
+    "Limitation: one column, twice a day at many sites — satellites and aircraft fill space/time gaps but do not fully replace in-situ profiles",
+  ],
+  explanationSections: [
+    {
+      heading: "A vertical profile, not a weather map",
+      body:
+        "A surface map shows horizontal patterns at one level. A sounding shows how temperature, humidity, and wind change with height above one station. That vertical structure decides whether air is stable or unstable, where clouds and icing may form, and how the jet stream is layered. Satellites and radar complement soundings but do not fully replace in-situ profiles — especially humidity and fine inversions.",
+    },
+    {
+      heading: "How the measurements are made",
+      body:
+        "The balloon lifts a small package that radios data to the ground. As it rises, pressure falls and the package samples cooler or warmer layers and changing humidity. Pressure (or GPS height) locates each sample on the vertical axis. Ground equipment or GPS tracks the balloon’s path; the horizontal displacement with time gives wind speed and direction at each level. A common exam trap is to claim that the thermometer “measures wind” — it does not. After burst, a parachute may return the wreckage; the scientific product is the ascent profile.",
+    },
+    {
+      heading: "Why operational centres still launch balloons",
+      body:
+        "Models need accurate vertical structure to start from (data assimilation). Aviation needs freezing level and winds aloft. Forecasters need to see inversions, capping lids, and dry layers that radar cannot smell. The twice-daily radiosonde network remains a backbone observation even in the satellite era. When you see 00 UTC and 12 UTC on a skew-T, that is this network.",
+    },
+  ],
+  examPoints: [
+    "T, humidity, pressure from sensors; wind from tracking/GPS",
+    "Result = vertical profile at one time and place (not a map)",
+    "00/12 UTC launches; plotted on skew-T / tephigram",
+    "Used for stability, aviation, and NWP",
+  ],
+  commonMistakes: [
+    {
+      mistake: "Saying the radiosonde thermometer measures wind speed",
+      correction:
+        "Winds come from tracking the balloon’s motion (now often GPS).",
+      explanation: "Different measurement chain from temperature sensing.",
+    },
+    {
+      mistake: "Treating a sounding as a horizontal weather map",
+      correction: "It is one vertical column at one time.",
+      explanation: "Maps vs profiles are different products.",
+    },
+  ],
+  qualitativeScenarios: [
+    {
+      scenario: "Does the radiosonde thermometer directly measure wind speed?",
+      answer: "No — winds come from tracking.",
+      why: "Position change with time gives wind.",
+    },
+    {
+      scenario:
+        "Best routine tool for a vertical temperature inversion profile at a station?",
+      answer: "Radiosonde sounding.",
+      why: "In-situ vertical profile.",
+    },
+  ],
+  subtopics: [
+    {
+      id: "meteo-radiosondes-what-it-measures",
+      title: "What the package returns",
+      summary: "T, humidity, p from sensors; wind from tracking.",
+      explanation:
+        "Keep sensor quantities (PTU) separate from tracking-derived wind. That distinction is a favourite MCQ.",
+      examples: [
+        {
+          problem: "Thermometer measures wind?",
+          solution: "No.",
+          answer: "No",
+        },
+      ],
+      shortcuts: [
+        "Sensors → T, RH, p",
+        "Tracking / GPS → wind",
+        "PTU = pressure, temperature, humidity",
+      ],
+      traps: ["Wind by cup on the sonde as the standard method"],
+    },
+    {
+      id: "meteo-radiosondes-use",
+      title: "Why soundings matter",
+      summary: "Stability, icing, winds aloft, NWP.",
+      explanation:
+        "CAPE/CIN, freezing level, jet-level winds, and model initial conditions all draw on sounding information plotted on thermodynamic diagrams.",
+      examples: [
+        {
+          problem: "Vertical inversion profile — tool?",
+          solution: "Radiosonde.",
+          answer: "Radiosonde",
+        },
+      ],
+      shortcuts: [
+        "Sounding → profile truth",
+        "Diagrams plot sondes",
+        "00/12 UTC → standard times",
+      ],
+      traps: ["Surface METAR replaces upper-air soundings"],
+    },
+  ],
+  relatedTopics: [
+    "meteo-thermodynamic-diagrams",
+    "meteo-static-stability",
+    "meteo-nwp-models",
+  ],
+  content: true,
+  buildsOn: [
+    "meteo-temperature-instruments",
+    "meteo-humidity-instruments",
+  ],
+  leadsTo: ["meteo-thermodynamic-diagrams", "meteo-nwp-models"],
+  usedIn: ["meteo-thermodynamic-diagrams", "meteo-lapse-calc"],
 },
 
 {
   id: "meteo-remote-sensing",
   sectionId: "METEO-06",
-  order: 7,
+  order: 10,
   title: "Remote Sensing — Weather Radar & Satellite Imaging",
   definition:
-    "Radar and satellites observe weather at a distance. Radar is active microwave sensing of precipitation-sized targets; satellites provide visible, infrared, and other channels. They complement surface and upper-air in-situ data — they do not erase the need for gauges and soundings.",
-
+    "Remote sensing observes the atmosphere from a distance. Weather radar is active microwave sensing of precipitation-sized targets. Satellites provide visible, infrared, water-vapour, and other channels. These tools complement surface stations and radiosondes; they do not remove the need for gauges and soundings.",
   keyFacts: [
-    "Radar: transmits a pulse and listens — reflectivity relates to precipitation intensity; Doppler adds velocity",
-    "Visible satellite: reflected sunlight — excellent texture by day; useless at night",
-    "Infrared: emitted thermal radiation — works day and night; cold high cloud tops appear distinctive",
-    "Geostationary platforms watch continuously; polar orbiters fly closer with different coverage patterns",
-    "Strong reflectivity is a proxy, not a perfect rain-gauge reading under the beam",
+    "Active vs passive: radar sends a pulse and listens; many satellite channels only receive (sunlight or Earth/cloud emission)",
+    "Radar reflectivity (dBZ) relates to precipitation intensity; it is a proxy, not a rain gauge",
+    "Doppler radar adds radial velocity (toward/away from the radar) — motion and some severe-storm signatures",
+    "Dual-polarisation (many modern radars): extra clues on drop shape, rain vs hail vs snow",
+    "Visible satellite: reflected sunlight — excellent cloud texture by day; not useful at night",
+    "Infrared: emitted thermal radiation — works day and night; cold high cloud tops stand out (bright in typical displays)",
+    "Water-vapour channels: sense mid/upper-tropospheric moisture — useful even in “clear” IR windows",
+    "Geostationary: park over one longitude, continuous loops (e.g. every 5–15 min) — animation of systems",
+    "Polar-orbiting (LEO): closer, different resolution/spectra, global coverage in swaths — not a continuous stare at one country",
+    "Radar limits: beam height grows with range (misses low rain far away), attenuation in heavy rain, bright band (melting snow looks strong), anomalous propagation",
   ],
-
   explanationSections: [
     {
-      heading: "Active vs passive",
+      heading: "Active versus passive sensing",
       body:
-        "Radar is active: it sends energy and measures the return. Many satellite channels are passive: they sense reflected sunlight or emitted infrared. That is why visible imagery dies at night while IR continues.",
+        "Radar is active: it sends energy and listens for echoes from raindrops, snow, and hail. Many satellite channels are passive: they record reflected sunlight (visible) or radiation emitted by Earth and clouds (infrared). That is why visible imagery fails at night while infrared continues to show cloud patterns. Water-vapour imagery is also passive but tuned to absorption bands of vapour, so it can show dry slots and moist plumes where ordinary IR looks clear.",
     },
     {
-      heading: "Radar limits",
+      heading: "What radar is good at — and where it lies",
       body:
-        "Reflectivity depends on drop size, phase (rain vs hail), and beam geometry. The beam is higher above the ground far from the radar, so low-level rain can be missed. Doppler velocity reveals motion and severe-storm signatures (including TVS) but still needs context.",
+        "Reflectivity generally increases as precipitation becomes heavier, so radar is excellent for storm structure and warnings. Echo strength also depends on drop size (a few large drops can out-echo many small ones), whether particles are liquid or ice, and the height of the beam above the ground. Far from the radar the beam is high, so low-level rain and shallow snow can be under-detected. In the melting layer, wet snowflakes can produce a “bright band” that looks like heavier rain than is reaching the ground. Heavy rain can attenuate the beam (especially at higher frequencies), hiding what is behind the core. Doppler velocity shows motion toward or away from the radar and can reveal rotation or divergent outflow, but it still needs context. Dual-pol helps tell rain from hail. None of this replaces a gauge for storm-total rainfall at a point.",
+    },
+    {
+      heading: "Choosing a satellite channel and orbit",
+      body:
+        "By day, visible imagery gives sharp texture of cloud tops and shadows. At night, switch to infrared (or other night-capable channels). Infrared brightness temperature helps distinguish high cold clouds from warmer low clouds. Geostationary loops are ideal for watching development hour by hour. Polar orbiters fly lower, see more detail or extra wavelengths on each pass, and cover high latitudes well, but they do not hover. Rule: pick the channel from time of day and the property you need (texture vs thermal contrast vs moisture); pick the orbit from whether you need a movie or a snapshot.",
     },
   ],
-
   examPoints: [
     "Visible needs sunlight; IR works day and night",
-    "Radar reflectivity ≈ precip intensity proxy",
-    "Doppler → motion; not a perfect gauge substitute",
+    "Radar reflectivity ≈ precipitation intensity proxy; Doppler → radial motion",
+    "GEO = continuous watch; polar orbiter = swath snapshots",
+    "Radar is not a perfect gauge: range, bright band, attenuation",
   ],
-
   commonMistakes: [
     {
-      mistake: "Expecting useful visible satellite imagery at night",
-      correction: "Use infrared (or other night-capable channels).",
-      explanation: "Visible needs sunlight.",
+      mistake: "Expecting useful standard visible imagery at night",
+      correction: "Use infrared or another night-capable channel.",
+      explanation: "Visible channels need sunlight.",
+    },
+    {
+      mistake: "Treating dBZ as exact millimetres at the gauge",
+      correction:
+        "It is a useful proxy with drop-size, phase, and beam-height errors.",
+      explanation: "Remote ≠ in situ.",
     },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Which channel remains useful at 02:00 local for cloud monitoring?",
+      scenario:
+        "Which channel remains useful at 02:00 local for cloud monitoring?",
       answer: "Infrared.",
-      why: "Emitted radiation, no sunlight required.",
+      why: "Emitted radiation; no sunlight required.",
     },
     {
-      scenario: "Does strong reflectivity always equal heavy rain at the gauge under the beam?",
-      answer: "Not always — drop size, hail, and beam height matter.",
+      scenario:
+        "Does strong reflectivity always equal heavy rain at a gauge under the beam?",
+      answer:
+        "Not always — drop size, hail, melting-layer bright band, and beam height matter.",
       why: "Proxy with known limitations.",
     },
   ],
-
   subtopics: [
     {
       id: "meteo-remote-sensing-vis-ir",
-      title: "Visible vs infrared",
-      summary: "Night → IR; daytime texture → visible.",
-      explanation: "Channel choice follows time of day and the property needed.",
+      title: "Visible versus infrared versus water vapour",
+      summary:
+        "Night → IR; daytime texture → visible; moisture aloft → WV.",
+      explanation:
+        "Pick the channel from time of day and the property you need (texture vs thermal contrast vs mid-level moisture).",
       examples: [
         {
           problem: "02:00 cloud monitoring — channel?",
@@ -5224,14 +5841,19 @@ export const topics: Topic[] = [
           answer: "Infrared",
         },
       ],
-      shortcuts: ["Night → IR", "Day texture → visible"],
+      shortcuts: [
+        "Night → IR",
+        "Day texture → visible",
+        "Dry slot / plume → water-vapour channel",
+      ],
       traps: ["Visible imagery at night"],
     },
     {
       id: "meteo-remote-sensing-radar-limits",
       title: "Radar strengths and limits",
-      summary: "Great for structure; not a universal gauge.",
-      explanation: "Interpret reflectivity and Doppler with physics in mind.",
+      summary: "Great for structure; not a universal rain gauge.",
+      explanation:
+        "Interpret reflectivity and Doppler with drop size, phase, beam geometry, bright band, and attenuation in mind. Dual-pol adds particle-type clues.",
       examples: [
         {
           problem: "Strong reflectivity = heavy gauge rain always?",
@@ -5239,12 +5861,39 @@ export const topics: Topic[] = [
           answer: "Not always",
         },
       ],
-      shortcuts: ["Radar = structure + intensity proxy", "Doppler = motion"],
-      traps: ["Radar replaces all gauges permanently"],
+      shortcuts: [
+        "Radar = structure + intensity proxy",
+        "Doppler = radial motion",
+        "Far range → beam too high",
+      ],
+      traps: ["Radar permanently replaces all gauges"],
+    },
+    {
+      id: "meteo-remote-sensing-orbits",
+      title: "Geostationary vs polar orbit",
+      summary: "Movie of one disk vs detailed swaths.",
+      explanation:
+        "GEO: continuous animation, slightly coarser, poor over poles. LEO polar: global, including poles, extra sensors, not a live loop of your country.",
+      examples: [
+        {
+          problem: "Best for looping a cyclone all afternoon?",
+          solution: "Geostationary imagery.",
+          answer: "Geostationary",
+        },
+      ],
+      shortcuts: [
+        "GEO = continuous loop",
+        "Polar = snapshot swaths",
+      ],
+      traps: ["Polar orbiter stares at one country 24 h"],
     },
   ],
-
-  relatedTopics: ["meteo-radiosondes", "meteo-aviation-products", "meteo-tornadoes"],
+  relatedTopics: [
+    "meteo-radiosondes",
+    "meteo-aviation-products",
+    "meteo-tornadoes",
+    "meteo-precipitation-instruments",
+  ],
   content: true,
   buildsOn: ["meteo-radiation-laws"],
   leadsTo: ["meteo-aviation-products", "meteo-forecasting-methods"],
@@ -5254,65 +5903,89 @@ export const topics: Topic[] = [
 {
   id: "meteo-ground-aviation-instruments",
   sectionId: "METEO-06",
-  order: 8,
+  order: 11,
   title: "Ground-Based & Aviation Observation Instruments",
   definition:
-    "Airfields combine standard meteorological sensors with aviation-focused systems: ceilometers for cloud base, precipitation gauges suited to rain or snow, visibility sensors, and wind-shear/microburst detection (LLWAS, terminal Doppler). The goal is rapid hazard detection for take-off and landing.",
-
+    "Airports combine ordinary meteorological sensors with aviation-focused systems: ceilometers for cloud-base height, precipitation gauges suited to rain or snow, visibility / RVR sensors, and networks that detect low-level wind shear and microbursts. Automated weather observing systems (AWOS/ASOS-type) package these into METAR-like reports. The aim is fast, honest detection of hazards for take-off and landing.",
   keyFacts: [
-    "Ceilometer: estimates cloud-base height",
-    "Tipping-bucket gauge: good for liquid rain; struggles with unheated snow/ice",
-    "Weighing gauge: records mass of catch — better for frozen precipitation",
-    "LLWAS / terminal Doppler: low-level wind shear and microburst alerts",
-    "Visibility sensors support RVR-related operations",
+    "Ceilometer: estimates cloud-base (ceiling) height, often with a laser (lidar-like) beam",
+    "Visibility sensors / transmissometers: support prevailing vis and runway visual range (RVR)",
+    "Tipping-bucket gauge: works well for liquid rain; struggles with unheated snow and ice",
+    "Weighing gauge: records mass of precipitation — better for frozen precipitation",
+    "LLWAS: Low Level Wind Shear Alert System — anemometer network around the field",
+    "Terminal Doppler weather radar: detects microburst / shear signatures on approach paths",
+    "Microburst: strong, short-lived divergent outflow near the ground — lethal on short final",
+    "AWOS/ASOS: automated station suites that feed routine reports; still have sensor limits (e.g. present weather)",
   ],
-
   explanationSections: [
     {
-      heading: "Hazard-focused sensing",
+      heading: "Why airports need more than a garden weather station",
       body:
-        "Aviation cares about sudden shear, low cloud, and visibility drops as much as about mean wind. Instruments are chosen for speed of detection and for honest measurement across precipitation phases.",
+        "Aviation decisions hang on sudden shear, low cloud, and visibility drops as much as on mean wind or daily maximum temperature. Instruments are chosen for rapid detection and for performance across rain, snow, and mixed precipitation. A climate Stevenson screen still matters for temperature, but ceiling, RVR, and shear are the extra aviation layer.",
     },
     {
-      heading: "Liquid vs frozen gauges",
+      heading: "Ceilometer and visibility / RVR",
       body:
-        "Tipping buckets count tips of meltwater — fine for rain. Snow and ice can block or under-measure without heating. Weighing gauges track mass regardless of phase, so they handle frozen precipitation more reliably.",
+        "A ceilometer sends a beam (often laser) upward and estimates the height of the cloud base from the return — the automated ceiling. Visibility sensors estimate how far a pilot or observer can see through haze, fog, or precipitation. Transmissometers look across a known path beside the runway to support RVR. Together they support approach minima and SPECI when conditions cross thresholds.",
+    },
+    {
+      heading: "Liquid versus frozen precipitation gauges",
+      body:
+        "A tipping-bucket gauge counts tips of a small seesaw filled by meltwater — excellent for rain. Snow and ice can block the funnel or under-measure without heating. A weighing gauge tracks the mass of the catch regardless of phase, so it handles snow and mixed precipitation more reliably. Airports that see winter weather need the latter (or heated, well-maintained special rain gauges).",
+    },
+    {
+      heading: "Shear and microbursts",
+      body:
+        "A microburst produces strong divergent outflow near the ground — increasing headwind then a sudden tailwind and downdraft, deadly for aircraft on approach. A single cup anemometer is not enough. LLWAS compares several anemometers around the field; terminal Doppler radars look for the velocity signature of divergence. These systems exist because mean wind from one mast can look harmless while a microburst sits on the runway.",
     },
   ],
-
   examPoints: [
     "Ceilometer = cloud base",
-    "Weighing gauge preferred for frozen precip",
-    "LLWAS / terminal Doppler for shear and microbursts",
+    "RVR / visibility sensors ≠ ceilometer",
+    "Weighing gauge preferred for frozen precipitation",
+    "LLWAS / terminal Doppler for shear and microbursts — not a single cup",
   ],
-
   commonMistakes: [
     {
-      mistake: "Assuming tipping-bucket gauges measure snow as well as rain",
-      correction: "Without special treatment they under-perform for frozen precip; weighing gauges are better.",
-      explanation: "Phase matters.",
+      mistake:
+        "Assuming tipping-bucket gauges measure snow as well as rain",
+      correction:
+        "Without special treatment they under-perform for frozen precip; weighing gauges are better.",
+      explanation: "Phase of precipitation matters.",
+    },
+    {
+      mistake: "Saying a ceilometer measures wind shear",
+      correction: "Ceilometer → cloud base. Shear → LLWAS / Doppler.",
+      explanation: "Different hazards, different instruments.",
     },
   ],
-
   qualitativeScenarios: [
     {
-      scenario: "Primary automated tool for cloud-base height at an airport?",
+      scenario:
+        "Primary automated tool for cloud-base height at an airport?",
       answer: "Ceilometer.",
       why: "Designed to estimate ceiling.",
     },
     {
-      scenario: "Which gauge type is most effective for frozen precipitation?",
+      scenario:
+        "Which gauge type is most effective for frozen precipitation?",
       answer: "Weighing gauge.",
       why: "Mass of catch, independent of phase.",
     },
+    {
+      scenario:
+        "Divergent wind-shear alert on short final — typical detection systems?",
+      answer: "LLWAS and/or terminal Doppler radar.",
+      why: "Need spatial wind pattern, not one cup.",
+    },
   ],
-
   subtopics: [
     {
       id: "meteo-ground-aviation-instruments-ceiling-vis",
       title: "Ceiling and visibility",
-      summary: "Ceilometer + visibility sensors.",
-      explanation: "Drive approach minima and SPECI triggers.",
+      summary: "Ceilometer + visibility / RVR sensors.",
+      explanation:
+        "These drive approach decisions and SPECI triggers when conditions change rapidly. Ceiling is height; visibility is distance.",
       examples: [
         {
           problem: "Cloud-base height tool?",
@@ -5320,14 +5993,18 @@ export const topics: Topic[] = [
           answer: "Ceilometer",
         },
       ],
-      shortcuts: ["Ceilometer = cloud base", "VIS sensors = visibility"],
-      traps: ["Ceilometer measures wind shear"],
+      shortcuts: [
+        "Ceilometer = cloud base",
+        "VIS / RVR sensors = how far you can see",
+      ],
+      traps: ["Ceilometer measures wind shear", "RVR = cloud height"],
     },
     {
       id: "meteo-ground-aviation-instruments-precip-gauges",
-      title: "Liquid vs frozen gauges",
+      title: "Liquid versus frozen gauges",
       summary: "Tipping bucket vs weighing.",
-      explanation: "Choose by precipitation phase.",
+      explanation:
+        "Choose the gauge by precipitation phase and operational need. Same physics as the precipitation-instruments topic, applied to airports.",
       examples: [
         {
           problem: "Best for frozen precip?",
@@ -5335,14 +6012,18 @@ export const topics: Topic[] = [
           answer: "Weighing gauge",
         },
       ],
-      shortcuts: ["Weighing → any phase", "Tipping bucket → liquid-friendly"],
+      shortcuts: [
+        "Weighing → any phase",
+        "Tipping bucket → liquid-friendly",
+      ],
       traps: ["All gauges equally good for snow"],
     },
     {
       id: "meteo-ground-aviation-instruments-shear",
       title: "Microburst and shear detection",
       summary: "LLWAS / terminal Doppler.",
-      explanation: "Microbursts produce divergent near-surface outflow — mean cup anemometer alone is not enough.",
+      explanation:
+        "Microbursts produce divergent near-surface outflow. Mean wind from one cup is not a complete warning system.",
       examples: [
         {
           problem: "Airport low-level shear alert network?",
@@ -5350,14 +6031,25 @@ export const topics: Topic[] = [
           answer: "LLWAS / terminal Doppler",
         },
       ],
-      shortcuts: ["Microburst = divergent outflow hazard", "LLWAS = shear alert"],
+      shortcuts: [
+        "Microburst = divergent outflow hazard",
+        "LLWAS = shear alert network",
+      ],
       traps: ["Single cup anemometer enough for microburst warning"],
     },
   ],
-
-  relatedTopics: ["meteo-aviation-products", "meteo-remote-sensing", "meteo-wind-instruments"],
+  relatedTopics: [
+    "meteo-aviation-products",
+    "meteo-remote-sensing",
+    "meteo-wind-instruments",
+    "meteo-precipitation-instruments",
+  ],
   content: true,
-  buildsOn: ["meteo-wind-instruments", "meteo-remote-sensing"],
+  buildsOn: [
+    "meteo-wind-instruments",
+    "meteo-remote-sensing",
+    "meteo-precipitation-instruments",
+  ],
   leadsTo: ["meteo-aviation-products"],
   usedIn: ["meteo-aviation-products"],
 },
@@ -5365,47 +6057,60 @@ export const topics: Topic[] = [
 {
   id: "meteo-aviation-products",
   sectionId: "METEO-06",
-  order: 9,
+  order: 12,
   title: "Aviation Weather Products (METAR, SPECI, TAF, SIGMET, AIRMET)",
   definition:
-    "Aviation uses coded observations and forecasts. METAR and SPECI report current conditions; TAF is the aerodrome forecast; SIGMET (and AIRMET) warn of significant hazards. The first skill is knowing which product you are reading — observation vs forecast vs hazard warning.",
-
+    "Aviation uses standard coded messages. METAR and SPECI report what is happening now at an aerodrome. TAF forecasts conditions at that aerodrome for a period ahead. SIGMET (and AIRMET) warn of significant hazards for flight. The first skill is knowing which product you are reading before you decode any group. Then learn the core observation groups: wind, visibility, weather, cloud, temperature/dew point, pressure (QNH).",
   keyFacts: [
-    "METAR: routine aerodrome observation",
-    "SPECI: special observation when operational thresholds are crossed between routine times",
-    "TAF: terminal aerodrome forecast for a period ahead",
-    "SIGMET: significant en-route hazards (e.g. severe storms, turbulence, volcanic ash)",
-    "AIRMET: selected hazards for mainly smaller aircraft (regional practices vary)",
-    "Core elements: wind, visibility, weather, cloud, temperature, pressure",
+    "METAR: routine aerodrome observation (current conditions) — typically hourly",
+    "SPECI: special observation when operational thresholds are crossed between routine METARs",
+    "TAF: terminal aerodrome forecast for a stated validity period (often 24–30 h)",
+    "SIGMET: significant en-route hazards (severe storms, severe turbulence, severe icing, volcanic ash, tropical cyclone, etc.)",
+    "AIRMET: selected hazards mainly for smaller aircraft (details vary by region) — generally less severe than SIGMET criteria",
+    "PIREP: pilot report — in-flight observation, not a forecast",
+    "Core observed elements: wind, visibility, weather, cloud, temperature / dew point, pressure (QNH)",
+    "TAF change groups: BECMG (becoming), TEMPO (temporary), PROB30/40 (probability) — still a forecast",
   ],
-
   explanationSections: [
     {
-      heading: "Product before decoding groups",
+      heading: "Product before code groups",
       body:
-        "Decide first: is this what is happening now (METAR/SPECI), what is expected at the aerodrome (TAF), or a hazard warning for flight (SIGMET)? Confusing TAF with METAR is a classic exam error.",
+        "Always ask: is this an observation of now (METAR/SPECI), a forecast for the aerodrome (TAF), or a hazard warning for aircraft in flight (SIGMET/AIRMET)? Confusing TAF with METAR is a classic exam error — one is expected future weather, the other is measured present weather. A PIREP is what a pilot actually encountered. Decode only after you know the product.",
+    },
+    {
+      heading: "METAR anatomy (enough to start)",
+      body:
+        "A typical METAR names the station and time (UTC), then wind (direction in tens of degrees true + speed, gusts with G), visibility, RVR if needed, present weather, cloud layers (FEW/SCT/BKN/OVC + height in hundreds of feet), temperature and dew point (M prefix for minus), and QNH (Q in hPa, or A in inches of mercury in US-style). Example meaning, not a full decoder: wind from 270° at 12 kt, vis 9999 (10 km or more in many codes), light rain, scattered at 2000 ft, 18/12 °C, Q1015. You can grow into every abbreviation; first lock wind = FROM, T/Td, and QNH.",
     },
     {
       heading: "Why SPECI exists",
       body:
-        "When visibility, weather, or wind crosses operational thresholds, a SPECI is issued instead of waiting for the next routine METAR. Rapid fog onset is a typical trigger.",
+        "Routine METARs are issued on a schedule. When visibility, weather, wind, or cloud crosses important operational thresholds between those times, a SPECI is issued so users do not wait for the next routine report. Sudden fog, a rapid wind shift, or a thunderstorm onset are typical triggers. Same code language as METAR; different reason for issue.",
+    },
+    {
+      heading: "TAF versus hazard products",
+      body:
+        "A TAF is a forecast for the aerodrome: expected wind, vis, weather, cloud, and how those will change (BECMG, TEMPO). It is not a report of now. SIGMET warns of significant en-route phenomena that may affect any aircraft (e.g. severe turbulence, volcanic ash). AIRMET covers selected hazards (icing, turbulence, mountain obscuration, IFR) often aimed at lighter aircraft, at lower severity thresholds. Do not use a TAF as proof of current weather, and do not use a METAR as a 24-hour forecast.",
     },
   ],
-
   examPoints: [
-    "METAR = now; TAF = forecast; SIGMET = hazard",
-    "SPECI = threshold-crossing special observation",
-    "Do not treat TAF as an observation",
+    "METAR = now; SPECI = threshold-crossing now; TAF = forecast; SIGMET = significant hazard",
+    "Never treat a TAF as a current observation",
+    "METAR wind direction is FROM; Q-group is QNH in hPa in ICAO style",
+    "TEMPO/BECMG live inside TAFs — they do not turn a TAF into a METAR",
   ],
-
   commonMistakes: [
     {
       mistake: "Reading a TAF as a current observation",
       correction: "TAF is a forecast; METAR/SPECI are observations.",
       explanation: "Time meaning differs completely.",
     },
+    {
+      mistake: "Reading METAR wind as the direction the air is going",
+      correction: "Still the FROM convention.",
+      explanation: "Same as the wind-instruments topic.",
+    },
   ],
-
   qualitativeScenarios: [
     {
       scenario: "Coded current weather at an airport — METAR or TAF?",
@@ -5413,44 +6118,59 @@ export const topics: Topic[] = [
       why: "Observations report now; TAF forecasts ahead.",
     },
     {
-      scenario: "Visibility suddenly falls below a threshold between METARs — product?",
+      scenario:
+        "Visibility suddenly falls below a threshold between METARs — product?",
       answer: "SPECI.",
       why: "Special observation for rapid operational change.",
     },
+    {
+      scenario:
+        "Severe turbulence warning for en-route aircraft — product family?",
+      answer: "SIGMET.",
+      why: "Significant hazard, not a routine hourly observation.",
+    },
   ],
-
   comparisonTable: {
     title: "Aviation products",
-    headers: ["Product", "Role"],
+    headers: ["Product", "Role", "Time meaning"],
     rows: [
-      ["METAR", "Routine observation"],
-      ["SPECI", "Special observation (thresholds)"],
-      ["TAF", "Aerodrome forecast"],
-      ["SIGMET", "Significant hazard warning"],
+      ["METAR", "Routine aerodrome observation", "Now (scheduled)"],
+      ["SPECI", "Special observation (thresholds)", "Now (when triggered)"],
+      ["TAF", "Aerodrome forecast", "Future validity period"],
+      ["SIGMET", "Significant en-route hazard warning", "Valid period for the hazard"],
+      ["AIRMET", "Selected hazards (often lighter aircraft)", "Valid period for the hazard"],
+      ["PIREP", "Pilot report", "What was encountered"],
     ],
   },
-
   subtopics: [
     {
       id: "meteo-aviation-products-types",
       title: "Match product to purpose",
-      summary: "Obs vs forecast vs hazard.",
-      explanation: "Name the product before decoding the groups.",
+      summary: "Observation vs forecast vs hazard.",
+      explanation:
+        "Name the product first; decoding groups comes second.",
       examples: [
         {
           problem: "Current airport weather code — ?",
-          solution: "METAR/SPECI.",
+          solution: "METAR or SPECI.",
           answer: "METAR/SPECI",
         },
       ],
-      shortcuts: ["METAR = now", "TAF = forecast", "SIGMET = hazard"],
+      shortcuts: [
+        "METAR = now",
+        "TAF = forecast",
+        "SIGMET = significant hazard",
+        "PIREP = pilot saw it",
+      ],
       traps: ["TAF as an observation"],
     },
     {
       id: "meteo-aviation-products-thresholds",
       title: "Why SPECI exists",
-      summary: "Threshold crossings trigger specials.",
-      explanation: "Keeps users updated between routine METARs.",
+      summary:
+        "Threshold crossings trigger specials between routine METARs.",
+      explanation:
+        "Keeps pilots and ATC updated when conditions change faster than the routine schedule.",
       examples: [
         {
           problem: "Sudden visibility drop between METARs — product?",
@@ -5458,14 +6178,46 @@ export const topics: Topic[] = [
           answer: "SPECI",
         },
       ],
-      shortcuts: ["Rapid change → SPECI"],
+      shortcuts: ["Rapid operational change → SPECI"],
       traps: ["Only one METAR per day ever"],
     },
+    {
+      id: "meteo-aviation-products-metar-groups",
+      title: "METAR groups you must not mix up",
+      summary: "Wind FROM, vis, weather, clouds, T/Td, QNH.",
+      explanation:
+        "Learn the order and the meaning of Q (hPa QNH) vs T/Td. Cloud height in METAR is hundreds of feet AGL in the coded group.",
+      examples: [
+        {
+          problem: "Q1013 in an ICAO METAR is…?",
+          solution: "QNH 1013 hPa.",
+          answer: "QNH 1013 hPa",
+        },
+      ],
+      shortcuts: [
+        "Wind group = FROM + speed",
+        "18/12 = T / dew point",
+        "Qxxxx = QNH hPa",
+      ],
+      traps: [
+        "Q-group is millimetres of rain",
+        "Wind group is where air is going",
+      ],
+    },
   ],
-
-  relatedTopics: ["meteo-station-model", "meteo-remote-sensing", "meteo-fog-types"],
+  relatedTopics: [
+    "meteo-station-model",
+    "meteo-remote-sensing",
+    "meteo-fog-types",
+    "meteo-cloud-visibility-weather",
+  ],
   content: true,
-  buildsOn: ["meteo-station-model", "meteo-wind-instruments"],
+  buildsOn: [
+    "meteo-station-model",
+    "meteo-wind-instruments",
+    "meteo-cloud-visibility-weather",
+    "meteo-ground-aviation-instruments",
+  ],
   leadsTo: [],
   usedIn: ["meteo-fog-types", "meteo-thunderstorms"],
 },
