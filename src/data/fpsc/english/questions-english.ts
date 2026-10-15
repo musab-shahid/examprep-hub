@@ -3036,7 +3036,4 @@ export const questions: Question[] = [
   explanation: "This is a third-conditional variant with inverted 'if': 'Had the government invested' = 'If the government had invested'. The structure is: 'Had + S + past participle' (condition, past) → 'would + base verb' (result, present). The result clause refers to the PRESENT ('today'), so we use 'would be' (not 'would have been', which would refer to a past result). The mixed conditional (past condition + present result) is a hallmark of advanced FPSC questions.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] }
 
-
-
-
 ];
