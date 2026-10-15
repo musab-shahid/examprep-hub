@@ -367,6 +367,51 @@ export const questions: Question[] = [
   correctAnswer: 1,
   explanation: "False. The hydrostatic equation assumes that vertical accelerations are negligible compared to gravity. This is excellent for large-scale, slowly varying flow (synoptic-scale weather), but it breaks down for strong convective motions (thunderstorm updrafts, tornadoes) where vertical accelerations are large.",
   sourceCitation: "Standard meteorology references" },
+// ----- METEO-02 Temperature, Heat & Energy -----
+{ id: "METEO-02-Q036", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "medium", type: "single",
+  question: "What term describes horizontal transport of heat by the wind?",
+  options: ["Advection", "Conduction through still air only", "Only latent heat release in clouds", "Only molecular diffusion in solids"],
+  correctAnswer: 0,
+  explanation: "Advection is heat (or moisture) transport by bulk horizontal airflow. Conduction is molecule-to-molecule; convection is vertical buoyant motion; radiation needs no medium.",
+  sourceCitation: "Aligned to meteo-heat-transfer advection/radiation" },
+
+{ id: "METEO-02-Q037", sectionId: "METEO-02", topicId: "meteo-radiation-laws", difficulty: "medium", type: "single",
+  question: "Wien's displacement law implies that as an object gets hotter, the wavelength of maximum emission?",
+  options: ["Shifts toward shorter wavelengths", "Shifts toward longer wavelengths only", "Becomes independent of temperature", "Applies only to greenhouse gases"],
+  correctAnswer: 0,
+  explanation: "λ_max T ≈ constant. Higher temperature → peak emission at shorter wavelengths (e.g. Sun peaks in visible; Earth in infrared).",
+  sourceCitation: "Aligned to Wien's displacement law subtopic" },
+
+{ id: "METEO-02-Q038", sectionId: "METEO-02", topicId: "meteo-lapse-rates", difficulty: "medium", type: "single",
+  question: "The environmental lapse rate (ELR) is?",
+  options: [
+    "The actual observed rate of temperature change with height in the atmosphere",
+    "Always exactly 9.8 °C/km by definition",
+    "Only the cooling rate of a saturated parcel",
+    "The same as the Beaufort force number"
+  ],
+  correctAnswer: 0,
+  explanation: "ELR describes the real sounding. DALR/SALR describe parcel process rates. Stability compares ELR with those process rates.",
+  sourceCitation: "Aligned to ELR and stability link" },
+
+{ id: "METEO-02-Q039", sectionId: "METEO-02", topicId: "meteo-inversion-mechanics", difficulty: "easy", type: "single",
+  question: "A temperature inversion means that in a layer?",
+  options: [
+    "Temperature increases with height",
+    "Temperature always falls at the DALR",
+    "Pressure increases upward",
+    "Wind must be calm everywhere on Earth"
+  ],
+  correctAnswer: 0,
+  explanation: "In an inversion, temperature rises with altitude — the opposite of the usual tropospheric decrease. Inversions are very stable and trap pollutants near the surface.",
+  sourceCitation: "Aligned to inversion mechanics" },
+
+{ id: "METEO-02-Q040", sectionId: "METEO-02", topicId: "meteo-gas-law", difficulty: "medium", type: "single",
+  question: "At constant pressure, if air temperature increases, density of the air parcel generally?",
+  options: ["Decreases", "Increases", "Must stay exactly the same forever", "Becomes undefined"],
+  correctAnswer: 0,
+  explanation: "From the ideal gas law, warmer air at the same pressure is less dense — the basis for buoyancy and many circulation arguments.",
+  sourceCitation: "Aligned to gas law topic" },
 { id: "METEO-02-Q049", sectionId: "METEO-02", topicId: "meteo-inversion-types", difficulty: "medium", type: "single",
   question: "Warm air flowing over a snow-covered surface and being cooled from below is the formation path for which inversion family?",
   options: ["Advective inversion", "Subsidence inversion only", "Frontal inversion only", "No inversion can form over snow"],
@@ -4871,52 +4916,6 @@ export const questions: Question[] = [
   correctAnswer: 0,
   explanation: "A multi-decadal normal smooths interannual noise so the average reflects a stable climate baseline, not one unusual season.",
   sourceCitation: "Aligned to meteo-weather-vs-climate-why-thirty-years" },
-
-// ----- METEO-02 Temperature, Heat & Energy -----
-{ id: "METEO-02-Q036", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "medium", type: "single",
-  question: "What term describes horizontal transport of heat by the wind?",
-  options: ["Advection", "Conduction through still air only", "Only latent heat release in clouds", "Only molecular diffusion in solids"],
-  correctAnswer: 0,
-  explanation: "Advection is heat (or moisture) transport by bulk horizontal airflow. Conduction is molecule-to-molecule; convection is vertical buoyant motion; radiation needs no medium.",
-  sourceCitation: "Aligned to meteo-heat-transfer advection/radiation" },
-
-{ id: "METEO-02-Q037", sectionId: "METEO-02", topicId: "meteo-radiation-laws", difficulty: "medium", type: "single",
-  question: "Wien's displacement law implies that as an object gets hotter, the wavelength of maximum emission?",
-  options: ["Shifts toward shorter wavelengths", "Shifts toward longer wavelengths only", "Becomes independent of temperature", "Applies only to greenhouse gases"],
-  correctAnswer: 0,
-  explanation: "λ_max T ≈ constant. Higher temperature → peak emission at shorter wavelengths (e.g. Sun peaks in visible; Earth in infrared).",
-  sourceCitation: "Aligned to Wien's displacement law subtopic" },
-
-{ id: "METEO-02-Q038", sectionId: "METEO-02", topicId: "meteo-lapse-rates", difficulty: "medium", type: "single",
-  question: "The environmental lapse rate (ELR) is?",
-  options: [
-    "The actual observed rate of temperature change with height in the atmosphere",
-    "Always exactly 9.8 °C/km by definition",
-    "Only the cooling rate of a saturated parcel",
-    "The same as the Beaufort force number"
-  ],
-  correctAnswer: 0,
-  explanation: "ELR describes the real sounding. DALR/SALR describe parcel process rates. Stability compares ELR with those process rates.",
-  sourceCitation: "Aligned to ELR and stability link" },
-
-{ id: "METEO-02-Q039", sectionId: "METEO-02", topicId: "meteo-inversion-mechanics", difficulty: "easy", type: "single",
-  question: "A temperature inversion means that in a layer?",
-  options: [
-    "Temperature increases with height",
-    "Temperature always falls at the DALR",
-    "Pressure increases upward",
-    "Wind must be calm everywhere on Earth"
-  ],
-  correctAnswer: 0,
-  explanation: "In an inversion, temperature rises with altitude — the opposite of the usual tropospheric decrease. Inversions are very stable and trap pollutants near the surface.",
-  sourceCitation: "Aligned to inversion mechanics" },
-
-{ id: "METEO-02-Q040", sectionId: "METEO-02", topicId: "meteo-gas-law", difficulty: "medium", type: "single",
-  question: "At constant pressure, if air temperature increases, density of the air parcel generally?",
-  options: ["Decreases", "Increases", "Must stay exactly the same forever", "Becomes undefined"],
-  correctAnswer: 0,
-  explanation: "From the ideal gas law, warmer air at the same pressure is less dense — the basis for buoyancy and many circulation arguments.",
-  sourceCitation: "Aligned to gas law topic" },
 
 // ----- METEO-03 Pressure, Winds & Circulation -----
 { id: "METEO-03-Q034", sectionId: "METEO-03", topicId: "meteo-forces-governing-wind", difficulty: "medium", type: "single",
