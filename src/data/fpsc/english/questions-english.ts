@@ -1897,8 +1897,6 @@ export const questions: Question[] = [
   explanation: "may/might have + pp = weaker past possibility; must have would be strong deduction.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-b
-
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Subject-Verb Agreement & Articles
 // IDs continue after A1 (ENG-01-Q001–Q038) → start Q040
