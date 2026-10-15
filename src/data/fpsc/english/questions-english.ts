@@ -2269,14 +2269,14 @@ export const questions: Question[] = [
   explanation: "Neither of + plural noun is treated as singular in formal keys → was (not were).",
   sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 { id: "ENG-01-Q161", ...
-   question: "Choose the correct sentence:",
-   options: [
+  question: "Choose the correct sentence:",
+  options: [
      "There is fewer traffic on Sunday.",
      "There is less traffic on Sunday.",
      "There are less traffic on Sunday.",
      "There are fewer traffic on Sunday."],
-   correctAnswer: 1,
-   explanation: "Traffic is uncountable → less + singular is. fewer needs a plural countable noun.",
+  correctAnswer: 1,
+  explanation: "Traffic is uncountable → less + singular is. fewer needs a plural countable noun.",
 },
 
 { id: "ENG-01-Q032", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
