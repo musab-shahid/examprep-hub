@@ -410,6 +410,8 @@ export const questions: Question[] = [
   options: ["Decreases", "Increases", "Must stay exactly the same forever", "Becomes undefined"],
   correctAnswer: 0,
   explanation: "From the ideal gas law, warmer air at the same pressure is less dense — the basis for buoyancy and many circulation arguments.",
+  sourceCitation: "Aligned to gas law topic" },
+
 // METEO-02 — hard items + type diversity
 { id: "METEO-02-Q041", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "hard", type: "single",
   question: "On a clear night over land, the surface cools mainly by which process, often helping form a radiation inversion?",
@@ -467,7 +469,7 @@ export const questions: Question[] = [
     explanation: "Greenhouse warming is spectral and layered, not a perfect one-way trap. Molecules absorb/re-emit in bands; the atmospheric window and TOA balance still matter. Glass-box metaphors overstate trapping and understate wavelength dependence.",
     variantGroupId: "meteo-greenhouse-window-skill",
     sourceCitation: "Density top-up — greenhouse mechanism" },
-  sourceCitation: "Aligned to gas law topic" },
+
 { id: "METEO-02-Q049", sectionId: "METEO-02", topicId: "meteo-inversion-types", difficulty: "medium", type: "single",
   question: "Warm air flowing over a snow-covered surface and being cooled from below is the formation path for which inversion family?",
   options: ["Advective inversion", "Subsidence inversion only", "Frontal inversion only", "No inversion can form over snow"],
