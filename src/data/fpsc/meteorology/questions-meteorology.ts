@@ -5256,45 +5256,6 @@ export const questions: Question[] = [
   explanation: "False. Severity is not scale. Tornadoes are mesoscale (or even smaller in path width) and short-lived compared with synoptic cyclones that span hundreds of kilometres and last days.",
   sourceCitation: "Depth polish — scales trap" },
 
-// METEO-02 — hard items + type diversity
-{ id: "METEO-02-Q041", sectionId: "METEO-02", topicId: "meteo-heat-transfer", difficulty: "hard", type: "single",
-  question: "On a clear night over land, the surface cools mainly by which process, often helping form a radiation inversion?",
-  options: [
-    "Net longwave radiation loss to space",
-    "Strong daytime solar absorption only",
-    "Only horizontal advection of tropical air",
-    "Only latent heating from condensation at the ground"
-  ],
-  correctAnswer: 0,
-  explanation: "After sunset the ground emits infrared and, under clear skies, receives little downward longwave from clouds. Net radiative loss chills the surface and the air in contact with it — the classic path to a nocturnal radiation inversion.",
-  sourceCitation: "Depth polish — heat-transfer hard" },
-
-{ id: "METEO-02-Q042", sectionId: "METEO-02", topicId: "meteo-radiation-laws", difficulty: "medium", type: "true_false",
-  question: "True or False: A perfect blackbody absorbs all incident radiation at a wavelength and, when warm, is also the strongest possible emitter at that wavelength (Kirchhoff).",
-  options: ["True", "False"],
-  correctAnswer: 0,
-  explanation: "True. Kirchhoff’s law links absorptivity and emissivity at a given wavelength. A blackbody is both a perfect absorber and the ideal emitter for its temperature.",
-  sourceCitation: "Depth polish — radiation-laws type diversity" },
-
-{ id: "METEO-02-Q043", sectionId: "METEO-02", topicId: "meteo-inversion-mechanics", difficulty: "hard", type: "single",
-  question: "Why do surface-based inversions often worsen urban air quality more than a steep daytime lapse rate would?",
-  options: [
-    "They suppress vertical mixing, trapping pollutants near the breathing level",
-    "They force all pollutants into the stratosphere within minutes",
-    "They increase wind speed until every pollutant is diluted globally",
-    "They reverse the meaning of the Beaufort scale"
-  ],
-  correctAnswer: 0,
-  explanation: "Surface inversions are stable lids: emissions stay in a shallow layer near the breathing level. A steep daytime lapse rate supports mixing through a deeper boundary layer and dilutes concentrations.",
-  sourceCitation: "Upgraded inversion mechanics" },
-
-{ id: "METEO-02-Q044", sectionId: "METEO-02", topicId: "meteo-inversion-types", difficulty: "medium", type: "true_false",
-  question: "True or False: A subsidence inversion is produced by rising unsaturated air cooling at the dry adiabatic rate all the way from the surface.",
-  options: ["True", "False"],
-  correctAnswer: 1,
-  explanation: "False. Subsidence inversions form when air sinks and warms by compression, typically building a warm lid aloft under high pressure — the opposite of rising dry-adiabatic cooling.",
-  sourceCitation: "Upgraded inversion types" },
-
 // METEO-03
 { id: "METEO-03-Q038", sectionId: "METEO-03", topicId: "meteo-local-seasonal-winds", difficulty: "hard", type: "single",
   question: "After moist air is stripped of water on a mountain’s windward side, descent on the lee often produces which combination?",
