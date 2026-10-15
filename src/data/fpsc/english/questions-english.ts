@@ -380,7 +380,7 @@ export const questions: Question[] = [
 
 // ═══════════════════════════════════════════════════════════════════
 // TOPIC: Subject-Verb Agreement & Articles
-// IDs continue after A1 (ENG-01-Q001–Q038) → start Q040
+// IDs start Q039
 // ═══════════════════════════════════════════════════════════════════
 
 // ── Easy ──
