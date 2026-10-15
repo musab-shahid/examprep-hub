@@ -1972,10 +1972,15 @@ export const questions: Question[] = [
 
 { id: "ENG-01-Q152", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
-  options: ["He is married with her for 10 years.", "He is married to her for 10 years.", "He is married from her for 10 years.", "He is married of her for 10 years."],
+  options: [
+    "She is interested for climate policy.",
+    "She is interested in climate policy.",
+    "She is interested on climate policy.",
+    "She is interested to climate policy."
+  ],
   correctAnswer: 1,
-  explanation: "The fixed phrase is 'married TO' (not 'with', not 'from', not 'of'). The preposition 'to' indicates the relationship bond, just like 'engaged to' or 'attached to'.",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "Fixed phrase: interested in (not for/on/to).",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q153", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
