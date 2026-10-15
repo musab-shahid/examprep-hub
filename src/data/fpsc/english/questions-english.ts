@@ -2149,14 +2149,14 @@ export const questions: Question[] = [
 { id: "ENG-01-Q169", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: [
-    "I prefer tea than coffee.",
-    "I prefer tea to coffee.",
-    "I prefer tea from coffee.",
-    "I prefer tea against coffee."
+    "She is accustomed with night shifts.",
+    "She is accustomed to night shifts.",
+    "She is accustomed of night shifts.",
+    "She is accustomed for night shifts."
   ],
   correctAnswer: 1,
-  explanation: "prefer X to Y — not than. than is for comparative adjectives (taller than).",
-  sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
+  explanation: "accustomed to (fixed preposition), not with/of/for.",
+  sourceCitation: "Standard English curriculum", examScope: ["bs17", "bs16"] },
 
 { id: "ENG-01-Q170", sectionId: "ENG-01", topicId: "english-common-errors", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
