@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { subjectsForScope, subjectIdsForScope } from '../track-scope.ts';
+import { subjectsForScope, subjectIdsForScope, contentEligibleForScope } from '../track-scope.ts';
 import { assertCanStudy } from '../track-access.ts';
 import type { AppData } from '../../types.ts';
 
@@ -52,5 +52,28 @@ describe('assertCanStudy', () => {
     assert.equal(assertCanStudy(data).ok, true);
     assert.equal(assertCanStudy(data, 'fpsc').ok, true);
     assert.equal(assertCanStudy(data, 'hat').ok, false);
+  });
+});
+
+describe('contentEligibleForScope', () => {
+  it('allows untagged content under profile scale', () => {
+    assert.equal(
+      contentEligibleForScope({}, { trackId: 'fpsc', examId: 'fpsc-met-bs17' }),
+      true,
+    );
+  });
+
+  it('keeps bs17-tagged research under met profile', () => {
+    assert.equal(
+      contentEligibleForScope({ postRestriction: 'bs17' }, { trackId: 'fpsc', examId: 'fpsc-met-bs17' }),
+      true,
+    );
+  });
+
+  it('drops bs16-only restriction under bs17 profile', () => {
+    assert.equal(
+      contentEligibleForScope({ postRestriction: 'bs16' }, { trackId: 'fpsc', examId: 'fpsc-met-bs17' }),
+      false,
+    );
   });
 });

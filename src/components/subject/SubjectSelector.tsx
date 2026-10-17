@@ -1,6 +1,9 @@
 import { ChevronDown, Check } from 'lucide-react';
 import { useRef, useEffect, useCallback, useId } from 'react';
-import { subjects, subjectsByTrack } from '@/data/subjects';
+import { subjects } from '@/data/subjects';
+import { subjectsForScope } from '@/lib/track-scope';
+import { useData } from '@/hooks/useData';
+import { isTrackId } from '@/data/tracks';
 import { getSubjectStyle } from '@/data/subject-colors';
 import { topicsBySubject } from '@/data/topics';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -19,9 +22,15 @@ interface SubjectSelectorProps {
 
 export function SubjectSelector({ value, onChange, showAllOption = true, compact = false, label }: SubjectSelectorProps) {
   const { activeTrack } = useSubjectSelection();
+  const { trackMembership } = useData();
+  const examId = isTrackId(activeTrack)
+    ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null)
+    : null;
   const ref = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const trackSubjects = subjectsByTrack(activeTrack);
+  const trackSubjects = isTrackId(activeTrack)
+    ? subjectsForScope({ trackId: activeTrack, examId })
+    : [];
   const allOptions = [
     ...(showAllOption ? [{ value: 'all' as SubjectFilterValue, label: 'All Subjects' }] : []),
     ...trackSubjects.map((s) => ({ value: s.id as SubjectFilterValue, label: s.title })),

@@ -5,7 +5,9 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { useData } from '@/hooks/useData';
-import { subjects, subjectMap, subjectsByTrack } from '@/data/subjects';
+import { subjects, subjectMap } from '@/data/subjects';
+import { subjectsForScope } from '@/lib/track-scope';
+import { isTrackId } from '@/data/tracks';
 import { topicsBySection, getTopic, topicsBySubject } from '@/data/topics';
 import { sectionMap, sections } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
@@ -26,7 +28,7 @@ export function StudyScreen() {
   const { navigate } = useRouter();
   const sd = useSubjectData();
   const { getActiveSubject, setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
-  const { data } = useData();
+  const { data, trackMembership } = useData();
 
   const activeSubject = getActiveSubject('learn');
   const isAllSubjects = activeSubject === 'all';
@@ -72,7 +74,8 @@ export function StudyScreen() {
 
   // All subjects view
   if (isAllSubjects) {
-    const trackSubjects = subjectsByTrack(activeTrack);
+    const examId = isTrackId(activeTrack) ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null) : null;
+    const trackSubjects = isTrackId(activeTrack) ? subjectsForScope({ trackId: activeTrack, examId }) : [];
     const subjectsWithContent = trackSubjects.filter((s) => sd.topicsFor(s.id as SubjectId).length > 0);
     return (
       <PageContainer>

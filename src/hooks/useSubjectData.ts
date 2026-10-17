@@ -1,5 +1,7 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useData } from '@/hooks/useData';
+import { subjectsForScope, contentEligibleForScope } from '@/lib/track-scope';
+import { isTrackId } from '@/data/tracks';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { sectionMap, sectionsBySubject, sections } from '@/data/sections';
 import { topics, topicsBySubject, getTopic } from '@/data/topics';
@@ -65,14 +67,19 @@ export interface SubjectDataLayer {
 }
 
 export function useSubjectData(): SubjectDataLayer {
-  const { data } = useData();
+  const { data, trackMembership } = useData();
   const { activeTrack } = useSubjectSelection();
   const [loadedSubjects, setLoadedSubjects] = useState<Set<string>>(new Set());
   const [loadedQuestionSubjects, setLoadedQuestionSubjects] = useState<Set<string>>(new Set());
 
+  const activeExamId = isTrackId(activeTrack)
+    ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null)
+    : null;
+
   const trackSubjectIds = useMemo(() => {
-    return new Set(subjectsByTrack(activeTrack).map((s) => s.id));
-  }, [activeTrack]);
+    if (!isTrackId(activeTrack)) return new Set<string>();
+    return new Set(subjectsForScope({ trackId: activeTrack, examId: activeExamId }).map((s) => s.id));
+  }, [activeTrack, activeExamId]);
 
   const trackSections = useMemo(() => {
     return sections.filter((s) => trackSubjectIds.has(s.subjectId));
@@ -80,8 +87,13 @@ export function useSubjectData(): SubjectDataLayer {
 
   const trackTopics = useMemo(() => {
     const trackSectionIds = new Set(trackSections.map((s) => s.id));
-    return topics.filter((t) => trackSectionIds.has(t.sectionId));
-  }, [trackSections]);
+    if (!isTrackId(activeTrack)) return [];
+    const scope = { trackId: activeTrack, examId: activeExamId };
+    return topics.filter((t) => {
+      if (!trackSectionIds.has(t.sectionId)) return false;
+      return contentEligibleForScope(t, scope);
+    });
+  }, [trackSections, activeTrack, activeExamId]);
 
   const trackSubjectIdList = useMemo(
     () => Array.from(trackSubjectIds) as SubjectId[],

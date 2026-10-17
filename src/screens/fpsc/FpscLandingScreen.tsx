@@ -14,6 +14,7 @@ import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
 import { TrackEnrollmentBanner } from '@/components/track/TrackEnrollmentBanner';
+import { ExamProfilePicker } from '@/components/track/ExamProfilePicker';
 
 const SUBJECT_DESCRIPTIONS: Record<string, string> = {
   'meteo-climatology': 'Atmospheric science, weather systems, climate classification, and Pakistan-specific meteorology — the most content-rich subject.',
@@ -111,6 +112,7 @@ export function FpscLandingScreen() {
       {enrollError && (
         <p className="text-sm text-red-600 mb-3" role="alert">{enrollError}</p>
       )}
+      <ExamProfilePicker trackId="fpsc" enrolled={enrolled} />
 
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">

@@ -3,8 +3,8 @@
  * and exam-profile slots. Subject ownership remains on subject records in
  * subjects.ts (validated against this registry).
  *
- * Adding a conventional track: extend TRACK_IDS + TRACK_DEFINITIONS, tag
- * subjects, add content. Do not fork enrollment or routing for each track.
+ * Exam profiles use post/paper identity (id + title). BS-16/BS-17 is metadata
+ * (scale), not the sole scope key.
  */
 
 /** Canonical track ids — derive ExamTrack / ExamTrackId from this. */
@@ -22,11 +22,6 @@ export type TrackCapabilities = {
   formulas: boolean;
 };
 
-/**
- * Exam / post profile within a track (e.g. a named FPSC paper).
- * Primary identity is the profile id + title (post/paper name).
- * Pay scale (bs16/bs17) is metadata, not the sole scope key.
- */
 export type ExamScale = 'bs16' | 'bs17';
 
 export type ExamProfileDefinition = {
@@ -37,11 +32,13 @@ export type ExamProfileDefinition = {
   status: 'available' | 'coming-soon';
   /** Official level label when relevant — not a substitute for profile id */
   scale?: ExamScale;
+  shortLabel?: string;
+  description?: string;
   requiredSubjectIds: readonly string[];
   optionalSubjectIds?: readonly string[];
   /**
-   * Optional content filters layered on subject policy.
-   * Reuses existing content tags until profiles are fully authored.
+   * Content filters layered on subject policy.
+   * scales: when set, hide content tagged exclusively for other scales.
    */
   contentScope?: {
     scales?: ExamScale[];
@@ -54,13 +51,10 @@ export type TrackDefinition = {
   shortTitle: string;
   description: string;
   status: TrackStatus;
-  /** Lucide icon key name used by UI (string to avoid coupling data to React) */
   iconKey: 'FileText' | 'GraduationCap';
   accent: 'sky' | 'indigo';
   capabilities: TrackCapabilities;
-  /** Optional specialized landing; default shared overview when omitted / future */
   landingVariant?: 'fpsc' | 'hat' | 'default';
-  /** Verified exam profiles only — empty until Phase 4 registers real posts */
   examProfiles: readonly ExamProfileDefinition[];
 };
 
@@ -72,9 +66,22 @@ const DEFAULT_CAPS: TrackCapabilities = {
   formulas: true,
 };
 
+/** All current FPSC subject ids in registry order */
+const FPSC_SUBJECT_IDS = [
+  'meteo-climatology',
+  'earth-science',
+  'physics',
+  'maths',
+  'env-studies',
+  'research-analysis',
+  'english',
+] as const;
+
 /**
- * Authoritative track list. Exam profiles stay empty until verified against
- * real post syllabi (do not invent profiles from bs16/bs17 tags alone).
+ * Verified profiles only.
+ * - FPSC Meteorologist (BS-17 oriented): full subject set in this app; Research & Analysis
+ *   content is authored as postRestriction bs17 — profile scale tags that emphasis.
+ * - HAT: no separate paper profiles (whole track = one exam).
  */
 export const TRACK_DEFINITIONS: readonly TrackDefinition[] = [
   {
@@ -82,15 +89,25 @@ export const TRACK_DEFINITIONS: readonly TrackDefinition[] = [
     title: 'FPSC Exam',
     shortTitle: 'FPSC',
     description:
-      'Subject-based Federal Public Service Commission preparation. Multiple posts and papers can share this track with different subject combinations.',
+      'Subject-based Federal Public Service Commission preparation. Choose a paper profile to focus subjects and content tags.',
     status: 'available',
     iconKey: 'FileText',
     accent: 'sky',
     capabilities: { ...DEFAULT_CAPS },
     landingVariant: 'fpsc',
     examProfiles: [
-      // Profiles registered in a later phase with real post names + subject sets.
-      // Example shape (not active): Meteorologist BS-17 under id "fpsc-met-bs17".
+      {
+        id: 'fpsc-met-bs17',
+        trackId: 'fpsc',
+        title: 'Meteorologist (BS-17 oriented)',
+        shortLabel: 'Met BS-17',
+        description:
+          'Full FPSC subject set used in this hub, with BS-17-oriented content (e.g. Research & Analysis) preferred when topics are tagged.',
+        status: 'available',
+        scale: 'bs17',
+        requiredSubjectIds: FPSC_SUBJECT_IDS,
+        contentScope: { scales: ['bs17'] },
+      },
     ],
   },
   {
@@ -136,7 +153,6 @@ export function getExamProfile(
   return listExamProfiles(trackId).find((p) => p.id === profileId) ?? null;
 }
 
-/** Whether a track accepts new enrollments */
 export function isTrackEnrollable(id: TrackId): boolean {
   return TRACK_BY_ID[id]?.status === 'available';
 }

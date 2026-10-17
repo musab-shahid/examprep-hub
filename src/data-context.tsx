@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId, TrackMembershipState } from '@/types';
-import { emptyTrackMembership, normalizeTrackMembership } from '@/lib/track-membership';
+import { emptyTrackMembership, normalizeTrackMembership, setActiveExamProfile as setActiveExamProfilePure } from '@/lib/track-membership';
 import { withEnrollAndFocus, withFocusTrack } from '@/lib/track-focus';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
@@ -18,6 +18,8 @@ export interface DataContextValue {
   enrollInTrack: (trackId: TrackId) => { ok: boolean; reason?: string };
   /** Switch active focus among enrolled tracks only */
   setActiveEnrolledTrack: (trackId: TrackId | null) => { ok: boolean; reason?: string };
+  /** Set exam/post profile within an enrolled track (null = general track scope) */
+  setExamProfile: (trackId: TrackId, examId: string | null) => void;
   trackMembership: TrackMembershipState;
 }
 
@@ -81,7 +83,16 @@ export function DataProvider({ children }: { children: ReactNode }) {
     return result;
   }, []);
 
+  const setExamProfile = useCallback((trackId: TrackId, examId: string | null) => {
+    setData((prev) => {
+      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
+      if (!mem.enrollments[trackId]) return prev;
+      return { ...prev, trackMembership: setActiveExamProfilePure(mem, trackId, examId) };
+    });
+  }, []);
+
   const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());
+
 
   const resetSubjects = useCallback((subjectIds: SubjectId[]) => {
     setData((prev) => {
@@ -119,7 +130,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects, enrollInTrack, setActiveEnrolledTrack, trackMembership }}>
+    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects, enrollInTrack, setActiveEnrolledTrack, setExamProfile, trackMembership }}>
       {children}
     </DataContext.Provider>
   );
