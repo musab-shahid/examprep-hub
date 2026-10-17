@@ -2,6 +2,7 @@ import { useData } from '@/hooks/useData';
 import { useRouter } from '@/router';
 import { assertCanStudy } from '@/lib/track-access';
 import { openTrackOptions } from '@/router/openTrack';
+import { listTrackDefinitions } from '@/data/tracks';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { PageContainer, Button, Card } from '@/components/ui';
 

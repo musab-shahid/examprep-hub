@@ -9,7 +9,7 @@ import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
-import { subjects, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { subjects, type ExamTrack } from '@/data/subjects';
 import { listTrackDefinitions, getExamProfile, getTrackDefinition, type TrackId } from '@/data/tracks';
 import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
 import type { SubjectId } from '@/types';
@@ -129,18 +129,10 @@ export function DashboardScreen() {
     }
   };
 
-  // Track-scoped topic ids for daily adaptive session
-  const trackTopicIdSet = useMemo(() => {
-    const ids = new Set<string>();
-    for (const top of topics) {
-      const sid = sectionMap[top.sectionId]?.subjectId;
-      if (sid && subjectsByTrack(activeTrack).some((s) => s.id === sid)) ids.add(top.id);
-    }
-    return ids;
-  }, [activeTrack]);
+  // Workspace-scoped topic ids for daily adaptive session (membership focus)
   const dailyTopicIds = useMemo(
-    () => buildDailyReviewTopicIds(data, trackTopicIdSet, 6),
-    [data, trackTopicIdSet],
+    () => buildDailyReviewTopicIds(data, workspaceTopicIds, 6),
+    [data, workspaceTopicIds],
   );
   const startDailyReview = () => {
     if (dailyTopicIds.length === 0) {

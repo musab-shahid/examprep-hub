@@ -7,7 +7,3 @@ export function openTrackOptions(trackId: TrackId): { screen: "track"; trackId: 
   return { screen: "track", trackId, parent: null };
 }
 
-/** Legacy landing screen name — use only when a ScreenName is required without track payload. */
-export function legacyTrackScreen(trackId: TrackId): "fpsc" | "hat" {
-  return trackId === "hat" ? "hat" : "fpsc";
-}
