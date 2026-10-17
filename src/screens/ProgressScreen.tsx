@@ -4,7 +4,9 @@ import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
-import { subjectMap, subjects, subjectsByTrack } from '@/data/subjects';
+import { subjectMap, subjects } from '@/data/subjects';
+import { subjectsForScope } from '@/lib/track-scope';
+import { isTrackId } from '@/data/tracks';
 import { getTopic } from '@/data/topics';
 import { getStickyMisses, getFragileWins, getTeachWithoutTestTopics } from '@/lib/item-analytics';
 import { useRouter } from '@/router';
@@ -21,12 +23,12 @@ import type { SubjectId } from '@/types';
 /** Honesty label when filter is All Subjects — stats are not bank-wide. */
 function practicedSubjectsNote(isAll: boolean): string {
   return isAll
-    ? 'Accuracy and weak areas reflect subjects you\'ve practiced.'
-    : '';
+    ? 'Figures are limited to your active track (and exam profile). Accuracy and weak areas only include subjects you\'ve practiced in that scope.'
+    : 'Figures are limited to this subject within your active workspace.';
 }
 
 export function ProgressScreen() {
-  const { data } = useData();
+  const { data, trackMembership } = useData();
   const { navigate } = useRouter();
   const sd = useSubjectData();
   const { getActiveSubject, setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
@@ -42,9 +44,14 @@ export function ProgressScreen() {
     setActiveSubjectForScreen('progress', value);
   };
 
-  const scopedSubjectIds = new Set(subjectsByTrack(activeTrack).map((s) => s.id));
+  const examId = isTrackId(activeTrack)
+    ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null)
+    : null;
+  const scopedSubjectIds = new Set(
+    (isTrackId(activeTrack) ? subjectsForScope({ trackId: activeTrack, examId }) : []).map((s) => s.id),
+  );
   const scopedTopicIdsForStreak = new Set(sd.topicsFor('all').map((t) => t.id));
-  const streakInfo = computeStreak(data, scopedTopicIdsForStreak);
+  const streakInfo = computeStreak(data, scopedTopicIdsForStreak, scopedSubjectIds);
   const allStats = sd.allSubjectsStats();
   const currentStats = isAllSubjects ? sd.statsFor('all') : sd.statsFor(activeSubject as SubjectId);
   const hasContent = isAllSubjects ? sd.totalTopics > 0 : currentStats.hasContent;
@@ -62,7 +69,7 @@ export function ProgressScreen() {
   const totalQuestionsAll = allStats.reduce((s, st) => s + st.questionsAnswered, 0);
   const subjectTopicIds = isAllSubjects ? null : new Set(sd.topicsFor(activeSubject as SubjectId).map((t) => t.id));
   const masteredTopics = countMasteredTopics(data, isAllSubjects ? null : subjectTopicIds);
-  const perfectQuizzes = data.quizHistory.filter((q) => q.total >= 5 && q.score === q.total).length;
+  const perfectQuizzes = data.quizHistory.filter((q) => q.total >= 5 && q.score === q.total && (!q.subjectId || scopedSubjectIds.has(q.subjectId))).length;
   const subjectsTouched = allStats.filter((s) => s.questionsAnswered > 0).length;
   const subjectsWithContent = allStats.filter((s) => s.hasContent).length;
 
@@ -106,6 +113,9 @@ return (
     <PageContainer>
       <div className="mb-2">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Progress</h1>
+        <p className="text-xs text-slate-500 mt-1">
+          Totals, weak areas, and streaks use your active track{examId ? ' and exam profile' : ''} only — not other tracks.
+        </p>
       </div>
       <PurposeLine>See your growth, find your gaps, stay motivated.</PurposeLine>
 

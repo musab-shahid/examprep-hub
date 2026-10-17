@@ -72,7 +72,7 @@ export function RevisionScreen() {
     <PageContainer>
       <div className="mb-3 sm:mb-6">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Review</h1>
-        <p className="text-slate-500 mt-1">Spaced repetition — review topics before you forget them</p>
+        <p className="text-slate-500 mt-1">Spaced repetition for your active workspace — due topics outside other tracks stay hidden.</p>
       </div>
 
       <div className="mb-3 sm:mb-6">

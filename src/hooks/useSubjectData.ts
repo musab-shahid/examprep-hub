@@ -187,8 +187,9 @@ export function useSubjectData(): SubjectDataLayer {
   }, [data, topicsFor, questionsFor, sectionsFor, questionCountFor]);
 
   const allSubjectsStats = useCallback((): SubjectStats[] => {
-    return subjectsByTrack(activeTrack).map((s) => statsFor(s.id as SubjectId));
-  }, [statsFor, activeTrack]);
+    // Active track + exam profile subjects only (same set as topicsFor('all'))
+    return trackSubjectIdList.map((id) => statsFor(id));
+  }, [statsFor, trackSubjectIdList]);
 
   const totalTopics = useMemo(() => trackTopics.length, [trackTopics]);
   const totalQuestions = useMemo(() => {

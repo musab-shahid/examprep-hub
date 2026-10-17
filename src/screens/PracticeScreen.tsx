@@ -155,7 +155,10 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
         </div>
 
         <div className="mb-4">
-          <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption={false} compact />
+          <p className="text-xs text-slate-500 mb-2">
+          &quot;All subjects&quot; means every subject in your active track (and exam profile), not other tracks.
+        </p>
+        <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption={false} compact />
         </div>
 
         {focusSections.length === 0 ? (

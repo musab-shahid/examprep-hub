@@ -48,29 +48,27 @@ export function DashboardScreen() {
   const enrolledTracks = enrolledTrackIds(trackMembership.enrollments);
   const hasEnrollment = enrolledTracks.length > 0;
 
-  const streakInfo = computeStreak(data);
-  const todayActivity = getTodayActivity(data);
-  const weekActivity = getWeekActivity(data);
+  // Active workspace denominators (track + profile via useSubjectData)
+  const workspaceTopicIds = useMemo(() => new Set(sd.topicsFor('all').map((t) => t.id)), [sd]);
+  const workspaceSubjectIds = useMemo(
+    () => new Set(sd.allSubjectsStats().map((s) => s.subjectId as string)),
+    [sd],
+  );
+  const streakInfo = computeStreak(data, workspaceTopicIds, workspaceSubjectIds);
+  const todayActivity = getTodayActivity(data, workspaceSubjectIds, workspaceTopicIds);
+  const weekActivity = getWeekActivity(data, workspaceSubjectIds);
 
-  const globalTopicIds = useMemo(() => new Set(topics.map((t) => t.id)), []);
   const stats = sd.statsFor('all');
-  const globalStats = useMemo(() => ({
-    ...stats,
-    totalTopics: topics.length,
-    studiedTopics: data.studiedTopics.filter((id) => globalTopicIds.has(id)).length,
-  }), [stats, data.studiedTopics, globalTopicIds]);
-  const allStats = useMemo(() => subjects.map((s) => sd.statsFor(s.id as SubjectId)), [sd, subjects]);
+  const globalStats = stats;
+  const allStats = useMemo(() => sd.allSubjectsStats(), [sd]);
 
   const reviewDue = sd.revisionQueueAll();
-  const trackTopicsList = topics.filter((t) => {
-    const subjId = sectionMap[t.sectionId]?.subjectId;
-    return subjId ? subjectsByTrack(activeTrack).some((s) => s.id === subjId) : false;
-  });
-  const trackTopicIds = new Set(trackTopicsList.map((t) => t.id));
+  const trackTopicIds = workspaceTopicIds;
   const weakTopics = getWeakTopics(data, trackTopicIds);
 
-
-  const overallProgress = globalStats.totalTopics > 0 ? Math.round((globalStats.studiedTopics / globalStats.totalTopics) * 100) : 0;
+  const overallProgress = globalStats.totalTopics > 0
+    ? Math.round((globalStats.studiedTopics / globalStats.totalTopics) * 100)
+    : 0;
 
   // Live clock for exam countdown (1s tick; cheap)
   const [now, setNow] = useState(() => new Date());

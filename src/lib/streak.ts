@@ -11,7 +11,11 @@ function isSameDay(a: Date, b: Date): boolean {
 function dateKey(d: Date): string {
   return `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`;
 }
-export function computeStreak(data: AppData, scopedTopicIds?: Set<string>): StreakInfo {
+export function computeStreak(
+  data: AppData,
+  scopedTopicIds?: Set<string>,
+  scopedSubjectIds?: Set<string>,
+): StreakInfo {
   const studyDays = new Set<string>();
   // Reading a topic counts
   for (const [topicId, prog] of Object.entries(data.topicProgress)) {
@@ -22,8 +26,9 @@ export function computeStreak(data: AppData, scopedTopicIds?: Set<string>): Stre
       studyDays.add(dateKey(d));
     }
   }
-  // Quiz activity also counts (streak should not require reading-only)
+  // Quiz activity also counts (optional subject scope for active workspace)
   for (const q of data.quizHistory ?? []) {
+    if (scopedSubjectIds && (!q.subjectId || !scopedSubjectIds.has(q.subjectId))) continue;
     const d = new Date(q.date);
     d.setHours(0, 0, 0, 0);
     studyDays.add(dateKey(d));

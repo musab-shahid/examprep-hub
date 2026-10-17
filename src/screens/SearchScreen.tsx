@@ -75,6 +75,7 @@ export function SearchScreen() {
     <PageContainer>
       <div className="mb-3 sm:mb-6">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Search</h1>
+        <p className="text-xs text-slate-500 mt-1">Results stay inside your active track and exam profile.</p>
         <p className="text-slate-500 mt-1">Search across topic titles, definitions, key facts, and formulas</p>
       </div>
 
