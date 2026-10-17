@@ -1,7 +1,6 @@
-import type { Subject } from '@/types';
-import type { TrackId } from '@/data/tracks';
-import { listTrackDefinitions } from '@/data/tracks';
-import { trackIcon } from '@/lib/track-chrome';
+import type { Subject } from '../types.ts';
+import type { TrackId } from './tracks.ts';
+import { listTrackDefinitions } from './tracks.ts';
 import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, Trophy, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
