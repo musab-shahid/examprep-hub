@@ -10,7 +10,7 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { subjects, subjectsByTrack, type ExamTrack } from '@/data/subjects';
-import { listTrackDefinitions } from '@/data/tracks';
+import { listTrackDefinitions, getExamProfile, getTrackDefinition, type TrackId } from '@/data/tracks';
 import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
 import type { SubjectId } from '@/types';
 import { getTopic } from '@/data/topics';
@@ -166,12 +166,141 @@ export function DashboardScreen() {
     return map;
   }, [allStats]);
 
+  const activeId = trackMembership.activeTrackId;
+  const activeDef = activeId ? getTrackDefinition(activeId as TrackId) : null;
+  const activeExamId = activeId
+    ? (trackMembership.enrollments[activeId as TrackId]?.activeExamId ?? null)
+    : null;
+  const activeProfile = activeId && activeExamId
+    ? getExamProfile(activeId as TrackId, activeExamId)
+    : null;
+
+  // ── Zero enrollments: membership shell only (no study dashboard) ──
+  if (!hasEnrollment) {
+    return (
+      <PageContainer>
+        <div className="mb-2 animate-fade-in-up">
+          <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Welcome</h1>
+        </div>
+        <PurposeLine className="animate-fade-in-up">
+          Choose a track to begin. Preview freely — study and practice unlock only after you begin.
+        </PurposeLine>
+        <div className="space-y-3 mt-4">
+          {listTrackDefinitions()
+            .filter((tr) => tr.status === 'available')
+            .map((track) => {
+              const Icon = trackIcon(track.id);
+              const accent = trackAccentClasses(track.id);
+              return (
+                <Card key={track.id} elevation="interactive" className="p-4 sm:p-5">
+                  <div className="flex items-start gap-3">
+                    <div className={`w-11 h-11 rounded-btn bg-gradient-to-br ${accent.gradient} flex items-center justify-center shrink-0`}>
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h2 className="font-semibold text-slate-900">{track.title}</h2>
+                      <p className="text-sm text-slate-600 mt-0.5 leading-relaxed">{track.description}</p>
+                      <button
+                        type="button"
+                        onClick={() => navigate({ ...openTrackOptions(track.id) })}
+                        className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-sky-700 hover:text-sky-900"
+                      >
+                        Explore & Begin
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
+        </div>
+        <p className="text-xs text-slate-500 mt-6 leading-relaxed">
+          Beginning a track adds it to My Tracks and sets your active workspace. You can begin more than one track later and switch between them.
+        </p>
+      </PageContainer>
+    );
+  }
+
   return (
     <PageContainer>
       <div className="mb-2 animate-fade-in-up">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Home</h1>
       </div>
-      <PurposeLine className="animate-fade-in-up">Your study command center — see what to do and how you're doing.</PurposeLine>
+      <PurposeLine className="animate-fade-in-up">
+        {activeDef
+          ? `Active workspace: ${activeDef.shortTitle}${activeProfile ? ` · ${activeProfile.shortLabel ?? activeProfile.title}` : ''}`
+          : 'Select an enrolled track as your active workspace to focus study and practice.'}
+      </PurposeLine>
+
+      {/* Workspace strip — membership, not browse */}
+      <Card className="p-3.5 sm:p-4 mb-4 border-slate-200">
+        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">My Tracks</p>
+        <div className="flex flex-col gap-2">
+          {enrolledTracks.map((id) => {
+            const def = getTrackDefinition(id);
+            const Icon = trackIcon(id);
+            const accent = trackAccentClasses(id);
+            const isActive = trackMembership.activeTrackId === id;
+            const examId = trackMembership.enrollments[id]?.activeExamId;
+            const profile = examId ? getExamProfile(id, examId) : null;
+            return (
+              <div
+                key={id}
+                className={`flex items-center gap-3 rounded-btn px-3 py-2.5 border ${
+                  isActive ? 'border-emerald-300 bg-emerald-50' : 'border-slate-100 bg-slate-50'
+                }`}
+              >
+                <div className={`w-9 h-9 rounded-btn bg-gradient-to-br ${accent.gradient} flex items-center justify-center shrink-0`}>
+                  <Icon className="w-4 h-4 text-white" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold text-slate-900">
+                    {def.shortTitle}
+                    {isActive && <span className="ml-2 text-[10px] font-bold uppercase text-emerald-700">Active</span>}
+                  </p>
+                  <p className="text-xs text-slate-500 truncate">
+                    {profile ? profile.title : 'General preparation'}
+                  </p>
+                </div>
+                {isActive ? (
+                  <button
+                    type="button"
+                    className="text-xs font-semibold text-sky-700 shrink-0"
+                    onClick={() => navigate({ ...openTrackOptions(id) })}
+                  >
+                    Open
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="text-xs font-semibold text-white bg-slate-800 px-2.5 py-1.5 rounded-btn shrink-0"
+                    onClick={() => {
+                      setActiveEnrolledTrack(id);
+                      setActiveTrack(id);
+                    }}
+                  >
+                    Switch
+                  </button>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        {listTrackDefinitions().some((tr) => tr.status === 'available' && !trackMembership.enrollments[tr.id]) && (
+          <button
+            type="button"
+            className="mt-3 text-xs font-semibold text-slate-600 hover:text-slate-900"
+            onClick={() => {
+              const next = listTrackDefinitions().find(
+                (tr) => tr.status === 'available' && !trackMembership.enrollments[tr.id],
+              );
+              if (next) navigate({ ...openTrackOptions(next.id) });
+            }}
+          >
+            Explore another track →
+          </button>
+        )}
+      </Card>
 
       {/* FPSC Oct 16 countdown + readiness (skill score; urgency is separate) */}
       {examCountdown && nextExam && examTarget && examTarget.phase !== 'started' && (

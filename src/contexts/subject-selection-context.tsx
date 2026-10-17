@@ -192,15 +192,19 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
    * Does not clear the previous track's preferences (stored under byTrack).
    */
   const setActiveTrack = useCallback((track: ExamTrackId) => {
+    // UI track follows membership. Do not adopt an unenrolled track while another is enrolled.
+    const enrolled = trackMembership.enrollments[track];
+    const hasAny = Object.keys(trackMembership.enrollments).length > 0;
+    if (hasAny && !enrolled) return;
     setState((prev) => {
       if (prev.activeTrack === track) return prev;
-      // Ensure bucket exists
       const byTrack = prev.byTrack[track]
         ? prev.byTrack
         : { ...prev.byTrack, [track]: defaultPrefs(track) };
       return { ...prev, byTrack, activeTrack: track };
     });
-  }, []);
+  }, [trackMembership.enrollments]);
+
 
   return (
     <SubjectSelectionContext.Provider

@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { RouterProvider, useRouter, routeLabel, type Route } from '@/router';
 import { DataProvider } from '@/data-context';
+import { useData } from '@/hooks/useData';
 import { SubjectSelectionProvider, useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
 import { Sidebar, MobileNav } from '@/components/layout/Navigation';
 import { Header } from '@/components/layout/Header';
@@ -20,7 +21,7 @@ import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
 import { TrackOverviewScreen } from '@/screens/TrackOverviewScreen';
 import { EnrollmentRequired } from '@/components/track/EnrollmentRequired';
 import { TopicAccessGate, SectionAccessGate } from '@/components/track/ResourceAccessGate';
-import { isTrackId, getTrackDefinition } from '@/data/tracks';
+import { isTrackId, getTrackDefinition, getExamProfile } from '@/data/tracks';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { UpdatePrompt } from '@/components/UpdatePrompt';
 import { OfflineIndicator } from '@/components/OfflineIndicator';
@@ -141,14 +142,33 @@ function getHeaderTitle(route: Route): { title: string; subtitle?: string } {
 function AppContent() {
   const { route } = useRouter();
   const { getActiveSubject } = useSubjectSelection();
+  const { trackMembership } = useData();
   const { title, subtitle } = getHeaderTitle(route);
   const showHeader = route.screen !== 'quiz';
 
-  // Subject context on stage screens
+  // Workspace chrome: active track (+ exam profile) for enrolled learners
+  const focusId = trackMembership.activeTrackId;
+  const focusDef = focusId && isTrackId(focusId) ? getTrackDefinition(focusId) : null;
+  const focusExam = focusId && isTrackId(focusId)
+    ? (trackMembership.enrollments[focusId]?.activeExamId ?? null)
+    : null;
+  const focusProfile = focusId && isTrackId(focusId) && focusExam
+    ? getExamProfile(focusId, focusExam)
+    : null;
+  const workspaceLabel = focusDef
+    ? `${focusDef.shortTitle}${focusProfile ? ` · ${focusProfile.shortLabel ?? focusProfile.title}` : ''}`
+    : null;
+
+  // Subject context on stage screens; always prefix with workspace when enrolled
   let finalSubtitle = subtitle;
   if ((STAGE_SCREENS as readonly string[]).includes(route.screen)) {
     const subj = getActiveSubject(route.screen as StageScreen);
-    finalSubtitle = subj === 'all' ? 'All Subjects' : subjectMap[subj]?.title ?? 'All Subjects';
+    const subjLabel = subj === 'all' ? 'All Subjects' : subjectMap[subj]?.title ?? 'All Subjects';
+    finalSubtitle = workspaceLabel ? `${workspaceLabel} · ${subjLabel}` : subjLabel;
+  } else if (workspaceLabel && route.screen === 'home') {
+    finalSubtitle = workspaceLabel;
+  } else if (workspaceLabel && (route.screen === 'progress' || route.screen === 'review' || route.screen === 'search')) {
+    finalSubtitle = workspaceLabel;
   }
 
   // Keep browser tab title in sync

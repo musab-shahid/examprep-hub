@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useRouter, type ScreenName } from '@/router';
 import { subjectsByTrack, type ExamTrack } from '@/data/subjects';
-import { listTrackDefinitions } from '@/data/tracks';
+import { listTrackDefinitions, isTrackId } from '@/data/tracks';
 import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
@@ -130,6 +130,7 @@ export function Sidebar() {
               <button
                 type="button"
                 onClick={() => {
+                  setActiveEnrolledTrack(trackId);
                   setActiveTrack(trackId);
                   navigate({ ...openTrackOptions(trackId) });
                 }}
@@ -145,7 +146,7 @@ export function Sidebar() {
                   <span className="text-[10px] text-emerald-400 font-semibold">Active</span>
                 )}
               </button>
-              {isTrackActive && (
+              {trackMembership.activeTrackId === trackId && (
                 <div className="ml-2 mt-0.5 space-y-0.5">
                   {trackSubs.map((sub) => {
                     const subjectId = sub.id as SubjectId;
@@ -214,7 +215,7 @@ export function Sidebar() {
         {/* Explore Tracks — not yet enrolled */}
         {exploreIds.length > 0 && (
           <p className="px-4 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
-            Explore Tracks
+            Explore · not started
           </p>
         )}
         {exploreIds.map((trackId) => {
@@ -307,15 +308,20 @@ export function MobileNav() {
   const { trackMembership } = useData();
   const activeEnrolled = trackMembership.activeTrackId;
   const tracksClick = () => {
-    if (activeEnrolled === 'hat' || activeEnrolled === 'fpsc') {
+    if (activeEnrolled && isTrackId(activeEnrolled)) {
       navigate({ ...openTrackOptions(activeEnrolled) });
     } else {
+      // No active workspace → Home membership shell / explore
       navigate({ screen: 'home', parent: null });
     }
   };
+  const tracksActive =
+    currentScreen === 'track' ||
+    currentScreen === 'fpsc' ||
+    currentScreen === 'hat';
   const navItems = [
     { icon: Home, label: 'Home', screen: 'home' as ScreenName, onClick: () => navigate({ screen: 'home', parent: null }) },
-    { icon: Library, label: 'Tracks', screen: 'fpsc' as ScreenName, onClick: tracksClick },
+    { icon: Library, label: 'Tracks', screen: 'track' as ScreenName, onClick: tracksClick },
     { icon: Dumbbell, label: 'Practice', screen: 'practice' as ScreenName, onClick: () => goToStage('practice') },
     { icon: BookCopy, label: 'Learn', screen: 'learn' as ScreenName, onClick: () => goToStage('learn') },
   ];
@@ -342,7 +348,7 @@ export function MobileNav() {
       >
         <div className="flex items-center justify-around px-1 pt-1.5 pb-1">
           {navItems.map((item) => {
-            const active = currentScreen === item.screen;
+            const active = item.screen === 'track' ? tracksActive : currentScreen === item.screen;
             const Icon = item.icon;
             const isHat = item.screen === 'hat';
             const isFpsc = item.screen === 'fpsc';
