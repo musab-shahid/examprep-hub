@@ -76,7 +76,7 @@ function ScreenRouter() {
     case 'review':
       return <EnrollmentRequired><RevisionScreen /></EnrollmentRequired>;
     case 'progress':
-      return <ProgressScreen />;
+      return <EnrollmentRequired><ProgressScreen /></EnrollmentRequired>;
     case 'search':
       return <EnrollmentRequired><SearchScreen /></EnrollmentRequired>;
     case 'settings':
