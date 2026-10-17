@@ -6,19 +6,22 @@ import { subjectsByTrack } from '@/data/subjects';
 import { STAGE_SCREENS } from '@/lib/constants';
 
 export type StageScreen = (typeof STAGE_SCREENS)[number];
-
 export type SubjectSelection = SubjectId | 'all';
 
-interface SubjectSelectionState {
+interface TrackPrefs {
   perScreen: Record<string, SubjectSelection>;
   /** Last concrete subject chosen (never 'all') */
   lastSelected: SubjectId;
-  /**
-   * When true, screens without an explicit perScreen value fall back to 'all'
-   * instead of lastSelected. Set when user picks "All Subjects"; cleared when
-   * they pick a concrete subject.
-   */
   prefersAll: boolean;
+}
+
+interface SubjectSelectionState {
+  /** Preferences keyed by track — switching restores the other track's picks */
+  byTrack: Partial<Record<ExamTrackId, TrackPrefs>>;
+  /**
+   * UI focus track for subject selectors (kept in sync with membership when possible).
+   * Canonical enrollment focus remains AppData.trackMembership.activeTrackId.
+   */
   activeTrack: ExamTrackId;
 }
 
@@ -37,25 +40,71 @@ const STORAGE_KEY = 'examprep-subject-selection';
 
 const SubjectSelectionContext = createContext<SubjectSelectionContextValue | null>(null);
 
-function loadPersisted(): SubjectSelectionState {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      return {
-        perScreen: parsed.perScreen ?? {},
-        lastSelected: parsed.lastSelected ?? 'meteo-climatology',
-        prefersAll: Boolean(parsed.prefersAll),
-        activeTrack: (parsed.activeTrack === 'hat' || parsed.activeTrack === 'fpsc') ? parsed.activeTrack : 'fpsc',
-      };
-    }
-  } catch { /* ignore */ }
-  return { perScreen: {}, lastSelected: 'meteo-climatology', prefersAll: false, activeTrack: 'fpsc' };
+function defaultLastSelected(track: ExamTrackId): SubjectId {
+  return (subjectsByTrack(track)[0]?.id ?? 'meteo-climatology') as SubjectId;
+}
+
+function defaultPrefs(track: ExamTrackId): TrackPrefs {
+  return {
+    perScreen: {},
+    lastSelected: defaultLastSelected(track),
+    prefersAll: false,
+  };
 }
 
 function isValidForTrack(selection: SubjectSelection, track: ExamTrackId): boolean {
   if (selection === 'all') return true;
   return getTrackForSubject(selection as string) === track;
+}
+
+function loadPersisted(): SubjectSelectionState {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw) as Record<string, unknown>;
+      const activeTrack: ExamTrackId =
+        parsed.activeTrack === 'hat' || parsed.activeTrack === 'fpsc' ? parsed.activeTrack : 'fpsc';
+
+      // New shape
+      if (parsed.byTrack && typeof parsed.byTrack === 'object') {
+        const byTrack: SubjectSelectionState['byTrack'] = {};
+        for (const key of ['fpsc', 'hat'] as ExamTrackId[]) {
+          const bucket = (parsed.byTrack as Record<string, unknown>)[key];
+          if (bucket && typeof bucket === 'object') {
+            const b = bucket as Record<string, unknown>;
+            byTrack[key] = {
+              perScreen: (b.perScreen as Record<string, SubjectSelection>) ?? {},
+              lastSelected: (typeof b.lastSelected === 'string'
+                ? b.lastSelected
+                : defaultLastSelected(key)) as SubjectId,
+              prefersAll: Boolean(b.prefersAll),
+            };
+          }
+        }
+        return { byTrack, activeTrack };
+      }
+
+      // Legacy flat shape → migrate into active track bucket
+      const legacyPrefs: TrackPrefs = {
+        perScreen: (parsed.perScreen as Record<string, SubjectSelection>) ?? {},
+        lastSelected: (typeof parsed.lastSelected === 'string'
+          ? parsed.lastSelected
+          : defaultLastSelected(activeTrack)) as SubjectId,
+        prefersAll: Boolean(parsed.prefersAll),
+      };
+      return {
+        byTrack: { [activeTrack]: legacyPrefs },
+        activeTrack,
+      };
+    }
+  } catch {
+    /* ignore */
+  }
+  return { byTrack: {}, activeTrack: 'fpsc' };
+}
+
+function prefsFor(state: SubjectSelectionState, track: ExamTrackId): TrackPrefs {
+  return state.byTrack[track] ?? defaultPrefs(track);
 }
 
 export function SubjectSelectionProvider({ children }: { children: ReactNode }) {
@@ -64,95 +113,92 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   }, [state]);
 
-  const getActiveSubject = useCallback((screen: StageScreen): SubjectSelection => {
-    const explicit = state.perScreen[screen];
-    const selection =
-      explicit ??
-      (state.prefersAll ? 'all' : state.lastSelected);
+  const activePrefs = prefsFor(state, state.activeTrack);
 
-    if (selection !== 'all') {
-      const track = getTrackForSubject(selection as string);
-      if (track !== state.activeTrack) {
-        // Subject belongs to other track — use lastSelected if it matches active track
-        if (state.lastSelected) {
-          const lastTrack = getTrackForSubject(state.lastSelected as string);
-          if (lastTrack === state.activeTrack) return state.lastSelected;
-        }
+  const getActiveSubject = useCallback(
+    (screen: StageScreen): SubjectSelection => {
+      const prefs = prefsFor(state, state.activeTrack);
+      const explicit = prefs.perScreen[screen];
+      if (explicit !== undefined) {
+        if (isValidForTrack(explicit, state.activeTrack)) return explicit;
         return 'all';
       }
-    }
-    return selection;
-  }, [state]);
+      return prefs.prefersAll ? 'all' : prefs.lastSelected;
+    },
+    [state],
+  );
 
   const setActiveSubjectForScreen = useCallback((screen: StageScreen, value: SubjectSelection) => {
-    setState((prev) => ({
-      ...prev,
-      perScreen: { ...prev.perScreen, [screen]: value },
-      lastSelected: value !== 'all' ? (value as SubjectId) : prev.lastSelected,
-      prefersAll: value === 'all' ? true : false,
-    }));
-  }, []);
-
-  const setGlobalSubject = useCallback((value: SubjectSelection) => {
-    const newPerScreen: Record<string, SubjectSelection> = {};
-    for (const s of STAGE_SCREENS) newPerScreen[s] = value;
-    setState((prev) => ({
-      ...prev,
-      perScreen: newPerScreen,
-      lastSelected: value !== 'all' ? (value as SubjectId) : prev.lastSelected,
-      prefersAll: value === 'all',
-    }));
-  }, []);
-
-  /**
-   * Soft track switch: keep per-screen selections that are still valid
-   * ('all' or a subject in the new track). Invalidate the rest to 'all'.
-   * lastSelected becomes a subject in the new track when the old one is not.
-   */
-  const setActiveTrack = useCallback((track: ExamTrackId) => {
     setState((prev) => {
-      if (prev.activeTrack === track) return prev;
-
-      const trackSubjectIds = new Set(subjectsByTrack(track).map((s) => s.id));
-      const firstSubject = (subjectsByTrack(track)[0]?.id ?? prev.lastSelected) as SubjectId;
-
-      const newPerScreen: Record<string, SubjectSelection> = {};
-      for (const [screen, sel] of Object.entries(prev.perScreen)) {
-        if (isValidForTrack(sel as SubjectSelection, track)) {
-          newPerScreen[screen] = sel as SubjectSelection;
-        } else {
-          // Soft-clear: prefer 'all' over inventing a subject the user didn't pick
-          newPerScreen[screen] = 'all';
-        }
-      }
-
-      const lastStillValid =
-        trackSubjectIds.has(prev.lastSelected) ? prev.lastSelected : firstSubject;
-
+      const track = prev.activeTrack;
+      const cur = prefsFor(prev, track);
       return {
-        perScreen: newPerScreen,
-        lastSelected: lastStillValid,
-        // Crossing tracks with prefersAll keeps "all" semantics for screens without explicit picks
-        prefersAll: prev.prefersAll || Object.values(newPerScreen).every((v) => v === 'all'),
-        activeTrack: track,
+        ...prev,
+        byTrack: {
+          ...prev.byTrack,
+          [track]: {
+            perScreen: { ...cur.perScreen, [screen]: value },
+            lastSelected: value !== 'all' ? (value as SubjectId) : cur.lastSelected,
+            prefersAll: value === 'all' ? true : false,
+          },
+        },
       };
     });
   }, []);
 
+  const setGlobalSubject = useCallback((value: SubjectSelection) => {
+    setState((prev) => {
+      const track = prev.activeTrack;
+      const cur = prefsFor(prev, track);
+      const newPerScreen: Record<string, SubjectSelection> = {};
+      for (const s of STAGE_SCREENS) newPerScreen[s] = value;
+      return {
+        ...prev,
+        byTrack: {
+          ...prev.byTrack,
+          [track]: {
+            perScreen: newPerScreen,
+            lastSelected: value !== 'all' ? (value as SubjectId) : cur.lastSelected,
+            prefersAll: value === 'all',
+          },
+        },
+      };
+    });
+  }, []);
+
+  /**
+   * Switch UI subject context to another track.
+   * Does not clear the previous track's preferences (stored under byTrack).
+   */
+  const setActiveTrack = useCallback((track: ExamTrackId) => {
+    setState((prev) => {
+      if (prev.activeTrack === track) return prev;
+      // Ensure bucket exists
+      const byTrack = prev.byTrack[track]
+        ? prev.byTrack
+        : { ...prev.byTrack, [track]: defaultPrefs(track) };
+      return { ...prev, byTrack, activeTrack: track };
+    });
+  }, []);
+
   return (
-    <SubjectSelectionContext.Provider value={{
-      perScreen: state.perScreen,
-      lastSelected: state.lastSelected,
-      prefersAll: state.prefersAll,
-      activeTrack: state.activeTrack,
-      getActiveSubject,
-      setActiveSubjectForScreen,
-      setGlobalSubject,
-      setActiveTrack,
-    }}>
+    <SubjectSelectionContext.Provider
+      value={{
+        perScreen: activePrefs.perScreen,
+        lastSelected: activePrefs.lastSelected,
+        prefersAll: activePrefs.prefersAll,
+        activeTrack: state.activeTrack,
+        getActiveSubject,
+        setActiveSubjectForScreen,
+        setGlobalSubject,
+        setActiveTrack,
+      }}
+    >
       {children}
     </SubjectSelectionContext.Provider>
   );

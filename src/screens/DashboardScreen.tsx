@@ -40,8 +40,10 @@ function getGreeting(): string {
 export function DashboardScreen() {
   const { navigate } = useRouter();
   const sd = useSubjectData();
-  const { setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
-  const { data } = useData();
+  const { setActiveSubjectForScreen, activeTrack, setActiveTrack } = useSubjectSelection();
+  const { data, trackMembership, setActiveEnrolledTrack } = useData();
+  const enrolledTracks = (['fpsc', 'hat'] as ExamTrack[]).filter((id) => trackMembership.enrollments[id]);
+  const hasEnrollment = enrolledTracks.length > 0;
 
   const streakInfo = computeStreak(data);
   const todayActivity = getTodayActivity(data);
@@ -314,8 +316,83 @@ export function DashboardScreen() {
         </div>
       </Card>
 
+
+      {/* Enrollment-aware home */}
+      {!hasEnrollment && (
+        <Card className="p-3.5 sm:p-5 mb-4 border-dashed border-2 border-slate-200">
+          <h2 className="text-lg font-semibold text-slate-900">Begin a track to start studying</h2>
+          <p className="text-sm text-slate-600 mt-1.5 leading-relaxed">
+            Nothing is enrolled yet. Preview a track, then use <span className="font-medium">Begin</span> when you are ready.
+            Opening a preview does not start a track for you.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {examTracks.map((track) => (
+              <button
+                key={track.id}
+                type="button"
+                onClick={() => navigate({ screen: getLandingScreenForTrack(track.id) })}
+                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-btn text-sm font-semibold text-white bg-gradient-to-r ${getTrackStyle(track.id).gradient}`}
+              >
+                Explore {track.shortTitle}
+              </button>
+            ))}
+          </div>
+        </Card>
+      )}
+
+      {hasEnrollment && (
+        <Card className="p-3.5 sm:p-5 mb-4">
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <h2 className="text-sm font-semibold text-slate-900 uppercase tracking-wide">My Tracks</h2>
+            <button
+              type="button"
+              className="text-xs font-medium text-brand-600 hover:underline"
+              onClick={() => {
+                const unstarted = examTracks.find((t) => !trackMembership.enrollments[t.id]);
+                if (unstarted) navigate({ screen: getLandingScreenForTrack(unstarted.id) });
+              }}
+            >
+              {examTracks.some((t) => !trackMembership.enrollments[t.id]) ? 'Explore another track' : ''}
+            </button>
+          </div>
+          <div className="space-y-2">
+            {enrolledTracks.map((id) => {
+              const track = examTracks.find((t) => t.id === id);
+              if (!track) return null;
+              const ts = getTrackStyle(id);
+              const isActive = trackMembership.activeTrackId === id;
+              return (
+                <div
+                  key={id}
+                  className={`flex items-center gap-3 p-3 rounded-card border ${isActive ? 'border-brand-200 bg-brand-50/50' : 'border-slate-100 bg-slate-50'}`}
+                >
+                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${ts.gradient} flex items-center justify-center shrink-0`}>
+                    {id === 'fpsc' ? <FileText className="w-4 h-4 text-white" /> : <Trophy className="w-4 h-4 text-white" />}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold text-slate-900">{track.title}</p>
+                    <p className="text-xs text-slate-500">{isActive ? 'Active study context' : 'Enrolled'}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveEnrolledTrack(id);
+                      setActiveTrack(id);
+                      navigate({ screen: getLandingScreenForTrack(id) });
+                    }}
+                    className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-btn ${isActive ? 'bg-brand-500 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'}`}
+                  >
+                    {isActive ? 'Continue' : 'Switch'}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </Card>
+      )}
+
       {/* Exam Track Sections */}
-      {examTracks.map((track, trackIdx) => {
+      {(hasEnrollment ? examTracks.filter((t) => trackMembership.enrollments[t.id]) : examTracks).map((track, trackIdx) => {
         const trackStats = statsByTrack[track.id];
         const trackTs = getTrackStyle(track.id);
         const TrackIcon = track.id === 'fpsc' ? FileText : Trophy;

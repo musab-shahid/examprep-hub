@@ -10,6 +10,7 @@ import { examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
 import { useSubjectData } from '@/hooks/useSubjectData';
+import { useData } from '@/hooks/useData';
 import { ToolsTray } from '@/components/layout/ToolsTray';
 import {
   getLandingScreenForTrack,
@@ -47,8 +48,11 @@ const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string
 
 export function Sidebar() {
   const { route, navigate } = useRouter();
-  const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
+  const { getActiveSubject, setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
+  const { trackMembership } = useData();
   const sd = useSubjectData();
+  const enrolledIds = (['fpsc', 'hat'] as ExamTrackId[]).filter((id) => trackMembership.enrollments[id]);
+  const exploreIds = (['fpsc', 'hat'] as ExamTrackId[]).filter((id) => !trackMembership.enrollments[id]);
   const [expandedSubject, setExpandedSubject] = useState<string | null>(() => {
     try { return localStorage.getItem(SIDEBAR_EXPANDED_KEY); } catch { return null; }
   });
@@ -108,20 +112,28 @@ export function Sidebar() {
           <Home className="w-5 h-5 shrink-0" />
           Home
         </button>
-        {/* Exam Track Groups */}
-        {examTracks.map((track) => {
-          const trackId = track.id as ExamTrackId;
-          // Full subject objects from data (color, icon) — both FPSC and HAT are multi-subject
+        {/* My Tracks — enrolled only */}
+        {enrolledIds.length > 0 && (
+          <p className="px-4 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+            My Tracks
+          </p>
+        )}
+        {enrolledIds.map((trackId) => {
+          const track = examTracks.find((t) => t.id === trackId);
+          if (!track) return null;
           const trackSubs = subjectsByTrack(trackId);
           const styles = trackNavStyles[trackId] ?? trackNavStyles.fpsc;
           const TrackIcon = track.icon;
           const landing = getLandingScreenForTrack(trackId);
-          const isTrackActive = isTrackLandingActive(trackId);
+          const isTrackActive = isTrackLandingActive(trackId) || trackMembership.activeTrackId === trackId;
           return (
             <div key={trackId} className="mb-1">
-              {/* Track header — navigates to track landing page */}
               <button
-                onClick={() => navigate({ screen: landing, parent: null })}
+                type="button"
+                onClick={() => {
+                  setActiveTrack(trackId);
+                  navigate({ screen: landing, parent: null });
+                }}
                 className={`w-full flex items-center gap-3 px-4 py-2 rounded-btn text-sm font-medium transition-all duration-DEFAULT border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                   isTrackActive
                     ? `${styles.activeBorder} text-white bg-slate-800`
@@ -130,80 +142,102 @@ export function Sidebar() {
               >
                 <TrackIcon className={`w-5 h-5 shrink-0 ${isTrackActive ? styles.iconColor : ''}`} />
                 <span className="flex-1 text-left">{track.title}</span>
-                <span className="text-slate-600 text-xs">{trackSubs.length}</span>
+                {trackMembership.activeTrackId === trackId && (
+                  <span className="text-[10px] text-emerald-400 font-semibold">Active</span>
+                )}
               </button>
-              {/* Subject list under every track */}
-              <div className="ml-3 mt-0.5 space-y-0.5 border-l border-slate-700 pl-2">
-                {trackSubs.map((subject) => {
-                  const colors = getSubjectStyle(subject.id);
-                  const expanded = expandedSubject === subject.id;
-                  const active = isSubjectActive(subject.id);
-                  const topicCount = sd.topicsFor(subject.id as SubjectId).length;
-                  const reviewDue = getReviewDueCount(subject.id as SubjectId);
-                  return (
-                    <div key={subject.id}>
-                      <button
-                        onClick={() => toggleSubject(subject.id)}
-                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-DEFAULT border-l-2 ${
-                          active
-                            ? `${colors.borderActive.replace('border-', 'border-l-')} text-white bg-slate-800`
-                            : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
-                        }`}
-                      >
-                        <span className={`w-2 h-2 rounded-full ${colors.dotBg} shrink-0`} />
-                        <span className="flex-1 text-left truncate text-[13px]">{subject.title}</span>
-                        {topicCount === 0 && <span className="text-slate-600 text-xs">·</span>}
-                        {expanded
-                          ? <ChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                          : <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />}
-                      </button>
-                      {expanded && (
-                        <div className="ml-3 mt-0.5 mb-1 space-y-0.5 border-l border-slate-700 pl-2">
-                          {(['learn', 'practice', 'review', 'formulas', 'progress'] as StageScreen[]).map((stage) => {
-                            const StageIcon = stageIcons[stage];
-                            const stageActive = isStageActive(stage, subject.id);
-                            return (
+              {isTrackActive && (
+                <div className="ml-2 mt-0.5 space-y-0.5">
+                  {trackSubs.map((sub) => {
+                    const subjectId = sub.id as SubjectId;
+                    const colors = getSubjectStyle(subjectId);
+                    const Icon = sub.lucideIcon;
+                    const expanded = expandedSubject === subjectId;
+                    return (
+                      <div key={subjectId}>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setActiveSubjectForScreen('learn', subjectId);
+                            setExpandedSubject((prev) => (prev === subjectId ? null : subjectId));
+                          }}
+                          className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
+                            expanded ? 'text-white bg-slate-800' : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
+                          }`}
+                        >
+                          <Icon className={`w-3.5 h-3.5 shrink-0 ${colors.text}`} />
+                          <span className="flex-1 text-left truncate">{sub.title}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+                        </button>
+                        {expanded && (
+                          <div className="ml-2 mb-1 space-y-0.5">
+                            {STAGE_SCREENS.filter((s) => s !== 'search').map((stage) => {
+                              const StageIcon = stageIcons[stage];
+                              const active = currentScreen === stage && getActiveSubject(stage) === subjectId;
+                              return (
+                                <button
+                                  key={stage}
+                                  type="button"
+                                  onClick={() => {
+                                    setActiveSubjectForScreen(stage, subjectId);
+                                    navigate({ screen: stage, parent: null });
+                                  }}
+                                  className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs capitalize ${
+                                    active ? styles.stageActive : 'text-slate-500 hover:text-slate-300 hover:bg-slate-800/60'
+                                  }`}
+                                >
+                                  <StageIcon className="w-3.5 h-3.5 shrink-0" />
+                                  {stage}
+                                </button>
+                              );
+                            })}
+                            {subjectId === 'meteo-climatology' && (
                               <button
-                                key={stage}
-                                onClick={() => goToStage(stage, subject.id as SubjectId)}
-                                className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-DEFAULT ${
-                                  stageActive
-                                    ? styles.stageActive
-                                    : 'text-slate-500 hover:text-white hover:bg-slate-800'
-                                }`}
+                                type="button"
+                                onClick={() => navigate({ screen: 'cloud-atlas', parent: null })}
+                                className="w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs text-slate-500 hover:text-slate-300 hover:bg-slate-800/60"
                               >
-                                <StageIcon className="w-3.5 h-3.5 shrink-0" />
-                                <span className="flex-1 text-left capitalize">{stage}</span>
-                                {stage === 'review' && reviewDue > 0 && (
-                                  <span className="px-1.5 py-0.5 rounded-full bg-amber-500 text-white text-[10px] font-bold leading-none">
-                                    {reviewDue}
-                                  </span>
-                                )}
+                                <Cloud className="w-3.5 h-3.5 shrink-0" />
+                                Cloud Atlas
                               </button>
-                            );
-                          })}
-                          {subject.id === 'meteo-climatology' && (
-                            <button
-                              onClick={() => navigate({ screen: 'cloud-atlas', parent: null })}
-                              className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                                currentScreen === 'cloud-atlas'
-                                  ? styles.stageActive
-                                  : 'text-slate-500 hover:text-white hover:bg-slate-800'
-                              }`}
-                            >
-                              <Cloud className="w-3.5 h-3.5 shrink-0" />
-                              <span className="flex-1 text-left">Cloud Atlas</span>
-                            </button>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           );
         })}
+
+        {/* Explore Tracks — not yet enrolled */}
+        {exploreIds.length > 0 && (
+          <p className="px-4 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+            Explore Tracks
+          </p>
+        )}
+        {exploreIds.map((trackId) => {
+          const track = examTracks.find((t) => t.id === trackId);
+          if (!track) return null;
+          const styles = trackNavStyles[trackId] ?? trackNavStyles.fpsc;
+          const TrackIcon = track.icon;
+          const landing = getLandingScreenForTrack(trackId);
+          return (
+            <button
+              key={`explore-${trackId}`}
+              type="button"
+              onClick={() => navigate({ screen: landing, parent: null })}
+              className="w-full flex items-center gap-3 px-4 py-2 rounded-btn text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 border-l-2 border-transparent mb-0.5"
+            >
+              <TrackIcon className="w-5 h-5 shrink-0" />
+              <span className="flex-1 text-left">{track.title}</span>
+              <span className="text-[10px] text-slate-500">Preview</span>
+            </button>
+          );
+        })}
+
         {/* Tools header */}
         <p className="text-slate-500 text-xs font-medium uppercase tracking-wide px-4 py-2 mt-3">Tools</p>
         <div className="space-y-0.5">
@@ -271,11 +305,20 @@ export function MobileNav() {
     setActiveSubjectForScreen(stage, subject);
     navigate({ screen: stage, parent: null });
   };
+  const { trackMembership } = useData();
+  const activeEnrolled = trackMembership.activeTrackId;
+  const tracksClick = () => {
+    if (activeEnrolled === 'hat' || activeEnrolled === 'fpsc') {
+      navigate({ screen: activeEnrolled, parent: null });
+    } else {
+      navigate({ screen: 'home', parent: null });
+    }
+  };
   const navItems = [
     { icon: Home, label: 'Home', screen: 'home' as ScreenName, onClick: () => navigate({ screen: 'home', parent: null }) },
-    { icon: FileText, label: 'FPSC', screen: 'fpsc' as ScreenName, onClick: () => navigate({ screen: 'fpsc', parent: null }) },
-    { icon: Trophy, label: 'HAT', screen: 'hat' as ScreenName, onClick: () => navigate({ screen: 'hat', parent: null }) },
+    { icon: Library, label: 'Tracks', screen: 'fpsc' as ScreenName, onClick: tracksClick },
     { icon: Dumbbell, label: 'Practice', screen: 'practice' as ScreenName, onClick: () => goToStage('practice') },
+    { icon: BookCopy, label: 'Learn', screen: 'learn' as ScreenName, onClick: () => goToStage('learn') },
   ];
   const reviewDue = (() => {
     try {
