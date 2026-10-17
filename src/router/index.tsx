@@ -281,6 +281,7 @@ export function screenDisplayName(screen: ScreenName | string): string {
     'settings': 'Settings',
     'hat': 'HAT Prep',
     'fpsc': 'FPSC Exam',
+    'track': 'Track',
   };
   return names[resolved] ?? resolved;
 }

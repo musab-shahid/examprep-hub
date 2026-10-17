@@ -1,6 +1,7 @@
 import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId, TrackMembershipState } from '@/types';
-import { enrollTrack as enrollTrackPure, setActiveTrack as setActiveTrackPure, emptyTrackMembership, normalizeTrackMembership } from '@/lib/track-membership';
+import { emptyTrackMembership, normalizeTrackMembership } from '@/lib/track-membership';
+import { withEnrollAndFocus, withFocusTrack } from '@/lib/track-focus';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
 import { sections } from '@/data/sections';
@@ -55,14 +56,13 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const enrollInTrack = useCallback((trackId: TrackId) => {
     let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
     setData((prev) => {
-      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
-      const r = enrollTrackPure(mem, trackId);
+      const r = withEnrollAndFocus(prev, trackId);
       if (!r.ok) {
         result = { ok: false, reason: r.reason };
         return prev;
       }
       result = { ok: true };
-      return { ...prev, trackMembership: r.state };
+      return r.data;
     });
     return result;
   }, []);
@@ -70,14 +70,13 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const setActiveEnrolledTrack = useCallback((trackId: TrackId | null) => {
     let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
     setData((prev) => {
-      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
-      const r = setActiveTrackPure(mem, trackId);
+      const r = withFocusTrack(prev, trackId);
       if (!r.ok) {
         result = { ok: false, reason: r.reason };
         return prev;
       }
       result = { ok: true };
-      return { ...prev, trackMembership: r.state };
+      return r.data;
     });
     return result;
   }, []);

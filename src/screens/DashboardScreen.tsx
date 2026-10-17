@@ -18,6 +18,7 @@ import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, 
 import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics, getWeeklyAccuracy } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
+import { openTrackOptions } from '@/router/openTrack';
 import {
   FPSC_OCT_2026_SESSIONS,
   EXAM_DAY_CHECKLIST,
@@ -330,7 +331,7 @@ export function DashboardScreen() {
               <button
                 key={track.id}
                 type="button"
-                onClick={() => navigate({ screen: getLandingScreenForTrack(track.id) })}
+                onClick={() => navigate({ ...openTrackOptions(track.id as ExamTrack) })}
                 className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-btn text-sm font-semibold text-white bg-gradient-to-r ${getTrackStyle(track.id).gradient}`}
               >
                 Explore {track.shortTitle}
@@ -349,7 +350,7 @@ export function DashboardScreen() {
               className="text-xs font-medium text-brand-600 hover:underline"
               onClick={() => {
                 const unstarted = examTracks.find((t) => !trackMembership.enrollments[t.id]);
-                if (unstarted) navigate({ screen: getLandingScreenForTrack(unstarted.id) });
+                if (unstarted) navigate({ ...openTrackOptions(unstarted.id as ExamTrack) });
               }}
             >
               {examTracks.some((t) => !trackMembership.enrollments[t.id]) ? 'Explore another track' : ''}
@@ -378,7 +379,7 @@ export function DashboardScreen() {
                     onClick={() => {
                       setActiveEnrolledTrack(id);
                       setActiveTrack(id);
-                      navigate({ screen: getLandingScreenForTrack(id) });
+                      navigate({ ...openTrackOptions(id) });
                     }}
                     className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-btn ${isActive ? 'bg-brand-500 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'}`}
                   >
@@ -407,7 +408,7 @@ export function DashboardScreen() {
                 <h3 className="font-semibold text-slate-900">{trackTs.label}</h3>
               </div>
               <button
-                onClick={() => navigate({ screen: getLandingScreenForTrack(track.id) })}
+                onClick={() => navigate({ ...openTrackOptions(track.id as ExamTrack) })}
                 className={`text-sm font-medium hover:underline ${trackTs.accent}`}
               >
                 Open {track.shortTitle}

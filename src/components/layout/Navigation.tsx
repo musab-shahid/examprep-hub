@@ -16,6 +16,7 @@ import {
   getLandingScreenForTrack,
   type ExamTrackId,
 } from '@/lib/exam-track';
+import { openTrackOptions } from '@/router/openTrack';
 import { STAGE_SCREENS, STORAGE_KEYS } from '@/lib/constants';
 import type { SubjectId } from '@/types';
 
@@ -132,7 +133,7 @@ export function Sidebar() {
                 type="button"
                 onClick={() => {
                   setActiveTrack(trackId);
-                  navigate({ screen: landing, parent: null });
+                  navigate({ ...openTrackOptions(trackId) });
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-2 rounded-btn text-sm font-medium transition-all duration-DEFAULT border-l-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                   isTrackActive
@@ -228,7 +229,7 @@ export function Sidebar() {
             <button
               key={`explore-${trackId}`}
               type="button"
-              onClick={() => navigate({ screen: landing, parent: null })}
+              onClick={() => navigate({ ...openTrackOptions(trackId) })}
               className="w-full flex items-center gap-3 px-4 py-2 rounded-btn text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 border-l-2 border-transparent mb-0.5"
             >
               <TrackIcon className="w-5 h-5 shrink-0" />
@@ -309,7 +310,7 @@ export function MobileNav() {
   const activeEnrolled = trackMembership.activeTrackId;
   const tracksClick = () => {
     if (activeEnrolled === 'hat' || activeEnrolled === 'fpsc') {
-      navigate({ screen: activeEnrolled, parent: null });
+      navigate({ ...openTrackOptions(activeEnrolled) });
     } else {
       navigate({ screen: 'home', parent: null });
     }

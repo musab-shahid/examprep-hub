@@ -1,6 +1,7 @@
 import { useData } from '@/hooks/useData';
 import { useRouter } from '@/router';
-import { hasAnyEnrollment } from '@/lib/track-access';
+import { assertCanStudy } from '@/lib/track-access';
+import { openTrackOptions } from '@/router/openTrack';
 import { PageContainer, Button, Card } from '@/components/ui';
 
 /** Blocks learning screens when the user has not begun any track. */
@@ -8,7 +9,7 @@ export function EnrollmentRequired({ children }: { children: React.ReactNode }) 
   const { data } = useData();
   const { navigate } = useRouter();
 
-  if (hasAnyEnrollment(data)) {
+  if (assertCanStudy(data).ok) {
     return <>{children}</>;
   }
 
@@ -21,10 +22,10 @@ export function EnrollmentRequired({ children }: { children: React.ReactNode }) 
           beginning is an explicit step and does not happen just by opening a page.
         </p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <Button type="button" onClick={() => navigate({ screen: 'fpsc' })}>
+          <Button type="button" onClick={() => navigate({ ...openTrackOptions('fpsc') })}>
             Explore FPSC
           </Button>
-          <Button type="button" variant="secondary" onClick={() => navigate({ screen: 'hat' })}>
+          <Button type="button" variant="secondary" onClick={() => navigate({ ...openTrackOptions('hat') })}>
             Explore HAT
           </Button>
         </div>
