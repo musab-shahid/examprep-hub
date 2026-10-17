@@ -6,7 +6,9 @@ import {
   Dumbbell,
 } from 'lucide-react';
 import { useRouter, type ScreenName } from '@/router';
-import { examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { listTrackDefinitions } from '@/data/tracks';
+import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { useSubjectSelection, type StageScreen } from '@/contexts/subject-selection-context';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -31,29 +33,25 @@ const stageIcons: Record<StageScreen, typeof BookCopy> = {
   search: Search,
 };
 
-/** Nav accents aligned with getTrackStyle (sky vs indigo metal) */
-const trackNavStyles: Record<ExamTrack, { activeBorder: string; activeBg: string; iconColor: string; stageActive: string }> = {
-  fpsc: {
-    activeBorder: 'border-l-sky-500',
-    activeBg: 'bg-sky-500/10',
-    iconColor: getTrackStyle('fpsc').accent, // text-sky-400
-    stageActive: `${getTrackStyle('fpsc').accent} bg-slate-800`,
-  },
-  hat: {
-    activeBorder: 'border-l-indigo-600',
-    activeBg: 'bg-indigo-600/10',
-    iconColor: getTrackStyle('hat').accent, // text-indigo-400
-    stageActive: `${getTrackStyle('hat').accent} bg-slate-800`,
-  },
-};
+function trackNavStyles(trackId: ExamTrack) {
+  const a = trackAccentClasses(trackId);
+  const border = a.text.includes('indigo') ? 'border-l-indigo-600' : 'border-l-sky-500';
+  const bg = a.text.includes('indigo') ? 'bg-indigo-600/10' : 'bg-sky-500/10';
+  return {
+    activeBorder: border,
+    activeBg: bg,
+    iconColor: a.text,
+    stageActive: `${a.text} bg-slate-800`,
+  };
+}
 
 export function Sidebar() {
   const { route, navigate } = useRouter();
   const { getActiveSubject, setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
   const { trackMembership } = useData();
   const sd = useSubjectData();
-  const enrolledIds = (['fpsc', 'hat'] as ExamTrackId[]).filter((id) => trackMembership.enrollments[id]);
-  const exploreIds = (['fpsc', 'hat'] as ExamTrackId[]).filter((id) => !trackMembership.enrollments[id]);
+  const enrolledIds = enrolledTrackIds(trackMembership.enrollments);
+  const exploreIds = allTrackIds().filter((id) => !trackMembership.enrollments[id]);
   const [expandedSubject, setExpandedSubject] = useState<string | null>(() => {
     try { return localStorage.getItem(SIDEBAR_EXPANDED_KEY); } catch { return null; }
   });
@@ -120,11 +118,11 @@ export function Sidebar() {
           </p>
         )}
         {enrolledIds.map((trackId) => {
-          const track = examTracks.find((t) => t.id === trackId);
+          const track = listTrackDefinitions().find((t) => t.id === trackId);
           if (!track) return null;
           const trackSubs = subjectsByTrack(trackId);
-          const styles = trackNavStyles[trackId] ?? trackNavStyles.fpsc;
-          const TrackIcon = track.icon;
+          const styles = trackNavStyles(trackId);
+          const TrackIcon = trackIcon(trackId);
           const landing = getLandingScreenForTrack(trackId);
           const isTrackActive = isTrackLandingActive(trackId) || trackMembership.activeTrackId === trackId;
           return (
@@ -220,10 +218,10 @@ export function Sidebar() {
           </p>
         )}
         {exploreIds.map((trackId) => {
-          const track = examTracks.find((t) => t.id === trackId);
+          const track = listTrackDefinitions().find((t) => t.id === trackId);
           if (!track) return null;
-          const styles = trackNavStyles[trackId] ?? trackNavStyles.fpsc;
-          const TrackIcon = track.icon;
+          const styles = trackNavStyles(trackId);
+          const TrackIcon = trackIcon(trackId);
           const landing = getLandingScreenForTrack(trackId);
           return (
             <button

@@ -9,7 +9,9 @@ import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
-import { subjects, examTracks, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { subjects, subjectsByTrack, type ExamTrack } from '@/data/subjects';
+import { listTrackDefinitions } from '@/data/tracks';
+import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
 import type { SubjectId } from '@/types';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
@@ -43,7 +45,7 @@ export function DashboardScreen() {
   const sd = useSubjectData();
   const { setActiveSubjectForScreen, activeTrack, setActiveTrack } = useSubjectSelection();
   const { data, trackMembership, setActiveEnrolledTrack } = useData();
-  const enrolledTracks = (['fpsc', 'hat'] as ExamTrack[]).filter((id) => trackMembership.enrollments[id]);
+  const enrolledTracks = enrolledTrackIds(trackMembership.enrollments);
   const hasEnrollment = enrolledTracks.length > 0;
 
   const streakInfo = computeStreak(data);
@@ -156,7 +158,7 @@ export function DashboardScreen() {
   };
 
   const statsByTrack = useMemo(() => {
-    const map: Record<ExamTrack, typeof allStats> = { fpsc: [], hat: [] };
+    const map = Object.fromEntries(allTrackIds().map((id) => [id, [] as typeof allStats])) as Record<ExamTrack, typeof allStats>;
     for (const s of allStats) {
       const sub = subjects.find((sub) => sub.id === s.subjectId);
       if (sub) map[sub.track].push(s);
@@ -327,7 +329,7 @@ export function DashboardScreen() {
             Opening a preview does not start a track for you.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {examTracks.map((track) => (
+            {listTrackDefinitions().map((track) => (
               <button
                 key={track.id}
                 type="button"
@@ -349,16 +351,16 @@ export function DashboardScreen() {
               type="button"
               className="text-xs font-medium text-brand-600 hover:underline"
               onClick={() => {
-                const unstarted = examTracks.find((t) => !trackMembership.enrollments[t.id]);
+                const unstarted = listTrackDefinitions().find((t) => !trackMembership.enrollments[t.id]);
                 if (unstarted) navigate({ ...openTrackOptions(unstarted.id as ExamTrack) });
               }}
             >
-              {examTracks.some((t) => !trackMembership.enrollments[t.id]) ? 'Explore another track' : ''}
+              {listTrackDefinitions().some((t) => !trackMembership.enrollments[t.id]) ? 'Explore another track' : ''}
             </button>
           </div>
           <div className="space-y-2">
             {enrolledTracks.map((id) => {
-              const track = examTracks.find((t) => t.id === id);
+              const track = listTrackDefinitions().find((t) => t.id === id);
               if (!track) return null;
               const ts = getTrackStyle(id);
               const isActive = trackMembership.activeTrackId === id;
@@ -368,7 +370,7 @@ export function DashboardScreen() {
                   className={`flex items-center gap-3 p-3 rounded-card border ${isActive ? 'border-brand-200 bg-brand-50/50' : 'border-slate-100 bg-slate-50'}`}
                 >
                   <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${ts.gradient} flex items-center justify-center shrink-0`}>
-                    {id === 'fpsc' ? <FileText className="w-4 h-4 text-white" /> : <Trophy className="w-4 h-4 text-white" />}
+                    {(() => { const Ic = trackIcon(id as ExamTrack); return <Ic className="w-4 h-4 text-white" />; })()}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold text-slate-900">{track.title}</p>
@@ -393,10 +395,10 @@ export function DashboardScreen() {
       )}
 
       {/* Exam Track Sections */}
-      {(hasEnrollment ? examTracks.filter((t) => trackMembership.enrollments[t.id]) : examTracks).map((track, trackIdx) => {
+      {(hasEnrollment ? listTrackDefinitions().filter((t) => trackMembership.enrollments[t.id]) : listTrackDefinitions()).map((track, trackIdx) => {
         const trackStats = statsByTrack[track.id];
         const trackTs = getTrackStyle(track.id);
-        const TrackIcon = track.id === 'fpsc' ? FileText : Trophy;
+        const TrackIcon = trackIcon(track.id as ExamTrack);
 
         return (
           <Card key={track.id} className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: `${0.15 + trackIdx * 0.05}s` }}>
@@ -542,14 +544,14 @@ export function DashboardScreen() {
               iconBg="bg-sky-50 border border-sky-200"
               title="FPSC Exam"
               subtitle="7 subjects"
-              onClick={() => navigate({ screen: 'fpsc' })}
+              onClick={() => navigate({ ...openTrackOptions('fpsc') })}
             />
             <QuickActionTile
               icon={<Trophy className="w-5 h-5 text-indigo-600" />}
               iconBg="bg-indigo-50 border border-indigo-200"
               title="HAT Prep"
               subtitle="3 modules"
-              onClick={() => navigate({ screen: 'hat' })}
+              onClick={() => navigate({ ...openTrackOptions('hat') })}
             />
             <QuickActionTile
               icon={<RotateCcw className="w-5 h-5 text-success-600" />}

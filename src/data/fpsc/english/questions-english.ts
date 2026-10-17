@@ -2908,14 +2908,14 @@ export const questions: Question[] = [
 // ═══════════════════════════════════════════════════════════════════
 
 // --- Parts of Speech & Tenses: additional medium/hard ---
-{ id: "ENG-01-Q083", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
+{ id: "ENG-01-Q180", sectionId: "ENG-01", topicId: "english-agreement-and-articles", difficulty: "medium", type: "single",
   question: "Choose the correct sentence:",
   options: ["The number of students are increasing.", "The number of students is increasing.", "A number of students is increasing.", "The number of students were increasing."],
   correctAnswer: 1,
   explanation: "'The number of' takes a SINGULAR verb (the number IS). 'A number of' takes a PLURAL verb (a number of students ARE). The subject is 'number' — singular when preceded by 'the', plural when preceded by 'a'. The plural noun 'students' is part of the prepositional phrase and does not control the verb.",
   sourceCitation: "Standard English curriculum", examScope: ['bs17', 'bs16'] },
 
-{ id: "ENG-01-Q084", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
+{ id: "ENG-01-Q181", sectionId: "ENG-01", topicId: "english-parts-of-speech-and-tenses", difficulty: "hard", type: "single",
   question: "Identify the error in: 'No sooner I had reached the station than the train left.'",
   options: ["'than' should be 'when'", "'had' should come before 'I' (inversion)", "'reached' should be 'reach'", "'left' should be 'had left'"],
   correctAnswer: 1,

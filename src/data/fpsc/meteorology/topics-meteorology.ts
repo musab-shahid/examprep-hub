@@ -5121,7 +5121,7 @@ export const topics: Topic[] = [
     "meteo-ground-aviation-instruments",
     "meteo-remote-sensing",
   ],
-  usedIn: ["meteo-ground-aviation-instruments", "meteo-hydrology"],
+  usedIn: ["meteo-ground-aviation-instruments", "meteo-precipitation-processes"],
 },
 
 {
@@ -5584,8 +5584,8 @@ export const topics: Topic[] = [
   ],
   content: true,
   buildsOn: ["meteo-radiation-laws"],
-  leadsTo: ["meteo-energy-balance"],
-  usedIn: ["meteo-climate-statistics"],
+  leadsTo: ["meteo-radiation-laws"],
+  usedIn: ["meteo-weather-vs-climate"],
 },
 
 {
