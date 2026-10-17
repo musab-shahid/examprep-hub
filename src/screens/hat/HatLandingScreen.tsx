@@ -36,12 +36,6 @@ export function HatLandingScreen() {
   const [enrolling, setEnrolling] = useState(false);
   const [enrollError, setEnrollError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!enrolled) return;
-    setActiveEnrolledTrack('hat');
-    setActiveTrack('hat');
-  }, [enrolled, setActiveEnrolledTrack, setActiveTrack]);
-
 
   const handleBegin = () => {
     setEnrollError(null);
@@ -107,8 +101,13 @@ export function HatLandingScreen() {
       <TrackEnrollmentBanner
         trackTitle="HAT Preparation"
         enrolled={enrolled}
+        isActiveFocus={trackMembership.activeTrackId === 'hat'}
         enrolling={enrolling}
         onBegin={handleBegin}
+        onContinue={() => {
+          setActiveEnrolledTrack('hat');
+          setActiveTrack('hat');
+        }}
         accentClass="from-indigo-500 to-violet-600"
       />
       {enrollError && (

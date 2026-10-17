@@ -3,8 +3,12 @@ import { Button } from '@/components/ui';
 type Props = {
   trackTitle: string;
   enrolled: boolean;
+  /** True when this track is the membership active focus */
+  isActiveFocus?: boolean;
   enrolling?: boolean;
   onBegin: () => void;
+  /** Explicit switch/continue — not triggered by merely viewing the page */
+  onContinue?: () => void;
   accentClass?: string;
 };
 
@@ -12,17 +16,30 @@ type Props = {
 export function TrackEnrollmentBanner({
   trackTitle,
   enrolled,
+  isActiveFocus,
   enrolling,
   onBegin,
+  onContinue,
   accentClass = 'from-sky-500 to-cyan-600',
 }: Props) {
   if (enrolled) {
     return (
       <div className="rounded-card border border-emerald-200 bg-emerald-50 px-3.5 py-3 sm:px-5 sm:py-4 mb-4 sm:mb-6">
-        <p className="text-sm font-semibold text-emerald-900">Enrolled · Active workspace</p>
-        <p className="text-xs text-emerald-800 mt-0.5">
-          {trackTitle} is in My Tracks. Study, practice, and review use this track&apos;s subjects.
+        <p className="text-sm font-semibold text-emerald-900">
+          {isActiveFocus ? 'Enrolled · Active workspace' : 'Enrolled'}
         </p>
+        <p className="text-xs text-emerald-800 mt-0.5">
+          {isActiveFocus
+            ? `${trackTitle} is your active study context. Study, practice, and review use this track's subjects.`
+            : `${trackTitle} is in My Tracks but not the active focus. Use Continue to switch here without losing the other track.`}
+        </p>
+        {!isActiveFocus && onContinue && (
+          <div className="mt-3">
+            <Button type="button" className={`bg-gradient-to-r ${accentClass} text-white border-0`} onClick={onContinue}>
+              Continue {trackTitle}
+            </Button>
+          </div>
+        )}
       </div>
     );
   }

@@ -341,21 +341,23 @@ export function ensureTrackMembership(
   data: AppData,
   options?: MigrateMembershipOptions,
 ): { data: AppData; changed: boolean } {
-  const existing = data.trackMembership
-    ? normalizeTrackMembership(data.trackMembership)
-    : null;
-
-  if (existing && Object.keys(existing.enrollments).length > 0) {
+  // Valid current schema present (including empty enrollments) — normalize only, never re-migrate.
+  if (
+    data.trackMembership &&
+    typeof data.trackMembership === 'object' &&
+    data.trackMembership.schemaVersion === TRACK_MEMBERSHIP_SCHEMA_VERSION
+  ) {
+    const existing = normalizeTrackMembership(data.trackMembership);
     const same =
-      data.trackMembership &&
       JSON.stringify(data.trackMembership) === JSON.stringify(existing);
     if (same) return { data, changed: false };
     return { data: { ...data, trackMembership: existing }, changed: true };
   }
 
+  // Absent / legacy / unknown shape → evidence migration once
   const migrated = migrateTrackMembership(data, {
     ...options,
-    existing,
+    existing: data.trackMembership ? normalizeTrackMembership(data.trackMembership) : null,
   });
   return { data: { ...data, trackMembership: migrated }, changed: true };
 }

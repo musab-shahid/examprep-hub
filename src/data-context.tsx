@@ -1,4 +1,4 @@
-import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId, TrackMembershipState } from '@/types';
 import { emptyTrackMembership, normalizeTrackMembership, setActiveExamProfile as setActiveExamProfilePure } from '@/lib/track-membership';
 import { withEnrollAndFocus, withFocusTrack } from '@/lib/track-focus';
@@ -39,11 +39,12 @@ export function DataProvider({ children }: { children: ReactNode }) {
     saveData(data);
   }, [data, isFirst]);
 
-  // Multi-tab: another tab wrote AppData (including trackMembership) — reload
+  // Multi-tab: another tab wrote or cleared AppData — converge
   useEffect(() => {
     const onStorage = (e: StorageEvent) => {
-      if (e.key !== STORAGE_KEYS.appData || e.newValue == null) return;
+      if (e.key !== STORAGE_KEYS.appData) return;
       try {
+        // null newValue = reset/cleared in another tab
         setData(loadData());
       } catch {
         /* ignore */
@@ -70,32 +71,34 @@ export function DataProvider({ children }: { children: ReactNode }) {
     setData(loadData());
   }, []);
 
+  const actionResultRef = useRef<{ ok: boolean; reason?: string }>({ ok: false, reason: 'unknown' });
+
   const enrollInTrack = useCallback((trackId: TrackId) => {
-    let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
+    actionResultRef.current = { ok: false, reason: 'unknown' };
     setData((prev) => {
       const r = withEnrollAndFocus(prev, trackId);
       if (!r.ok) {
-        result = { ok: false, reason: r.reason };
+        actionResultRef.current = { ok: false, reason: r.reason };
         return prev;
       }
-      result = { ok: true };
+      actionResultRef.current = { ok: true };
       return r.data;
     });
-    return result;
+    return actionResultRef.current;
   }, []);
 
   const setActiveEnrolledTrack = useCallback((trackId: TrackId | null) => {
-    let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
+    actionResultRef.current = { ok: false, reason: 'unknown' };
     setData((prev) => {
       const r = withFocusTrack(prev, trackId);
       if (!r.ok) {
-        result = { ok: false, reason: r.reason };
+        actionResultRef.current = { ok: false, reason: r.reason };
         return prev;
       }
-      result = { ok: true };
+      actionResultRef.current = { ok: true };
       return r.data;
     });
-    return result;
+    return actionResultRef.current;
   }, []);
 
   const setExamProfile = useCallback((trackId: TrackId, examId: string | null) => {

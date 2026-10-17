@@ -35,13 +35,6 @@ export function FpscLandingScreen() {
   const [enrolling, setEnrolling] = useState(false);
   const [enrollError, setEnrollError] = useState<string | null>(null);
 
-  // Enrolled workspace: sync focus when user opens this track (does not create enrollment)
-  useEffect(() => {
-    if (!enrolled) return;
-    setActiveEnrolledTrack('fpsc');
-    setActiveTrack('fpsc');
-  }, [enrolled, setActiveEnrolledTrack, setActiveTrack]);
-
 
   const fpscSubjects = subjectsByTrack('fpsc');
   const ts = getTrackStyle('fpsc');
@@ -105,8 +98,13 @@ export function FpscLandingScreen() {
       <TrackEnrollmentBanner
         trackTitle="FPSC Exam"
         enrolled={enrolled}
+        isActiveFocus={trackMembership.activeTrackId === 'fpsc'}
         enrolling={enrolling}
         onBegin={handleBegin}
+        onContinue={() => {
+          setActiveEnrolledTrack('fpsc');
+          setActiveTrack('fpsc');
+        }}
         accentClass="from-sky-500 to-cyan-600"
       />
       {enrollError && (

@@ -4,6 +4,8 @@ import type { ExamTrackId } from '@/lib/exam-track';
 import { getTrackForSubject } from '@/lib/exam-track';
 import { subjectsByTrack } from '@/data/subjects';
 import { STAGE_SCREENS } from '@/lib/constants';
+import { useData } from '@/hooks/useData';
+import { isTrackId } from '@/data/tracks';
 
 export type StageScreen = (typeof STAGE_SCREENS)[number];
 export type SubjectSelection = SubjectId | 'all';
@@ -109,6 +111,7 @@ function prefsFor(state: SubjectSelectionState, track: ExamTrackId): TrackPrefs 
 
 export function SubjectSelectionProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState(() => loadPersisted());
+  const { trackMembership } = useData();
 
   useEffect(() => {
     try {
@@ -117,6 +120,19 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
       /* ignore */
     }
   }, [state]);
+
+  // Canonical focus is membership.activeTrackId — mirror into UI prefs context only
+  useEffect(() => {
+    const focus = trackMembership.activeTrackId;
+    if (!focus || !isTrackId(focus)) return;
+    setState((prev) => {
+      if (prev.activeTrack === focus) return prev;
+      const byTrack = prev.byTrack[focus]
+        ? prev.byTrack
+        : { ...prev.byTrack, [focus]: defaultPrefs(focus) };
+      return { ...prev, byTrack, activeTrack: focus };
+    });
+  }, [trackMembership.activeTrackId]);
 
   const activePrefs = prefsFor(state, state.activeTrack);
 

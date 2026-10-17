@@ -4690,19 +4690,19 @@ export const questions: Question[] = [
 // SECTION MC-G — CLIMATE CLASSIFICATION (new topic)
 // ============================================================================
 
-{ id: "METEO-07-Q016", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "easy", type: "single",
+{ id: "METEO-07-Q043", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "easy", type: "single",
   question: "Year-round monthly mean temperatures above 18 °C and no dry month (all months wet in the classic rule) indicate which Köppen type?",
   options: ["Af (tropical rainforest)", "ET (tundra)", "BW (desert)", "Dfc (subarctic)"],
   correctAnswer: 0,
   explanation: "Af (tropical rainforest) is defined by every month having ≥60 mm of precipitation and the coldest month mean temperature ≥18°C. The consistent rainfall reflects the year-round influence of the ITCZ and daily convection. Examples include the Amazon, Congo, and maritime SE Asia.",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
-{ id: "METEO-07-Q017", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "medium", type: "single",
+{ id: "METEO-07-Q044", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "medium", type: "single",
   question: "A station with only ~200 mm mean annual precipitation and a warm mean annual temperature is most likely which Köppen group?",
   options: ["B (dry)", "Af (tropical wet)", "ET (tundra)", "Cfb (marine west coast wet)"],
   correctAnswer: 0,
   explanation: "In Köppen, BW (desert) is defined as P/PE < 0.5. With 200 mm/yr at 20°C, the aridity index is well below the desert threshold, so the climate is BW. (BS would be a transition zone; the BS/BW boundary depends on the specific Köppen formula but 200 mm at 20°C is firmly in the desert category.)",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
-{ id: "METEO-07-Q018", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "medium", type: "true_false",
+{ id: "METEO-07-Q045", sectionId: "METEO-07", topicId: "meteo-global-climate-regions", difficulty: "medium", type: "true_false",
   question: "True or False: The Köppen Csa (Mediterranean) climate has its wettest months in summer and driest months in winter.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -4713,57 +4713,57 @@ export const questions: Question[] = [
 // SECTION MC-I — PAKISTAN CLIMATE (new topics)
 // ============================================================================
 
-{ id: "METEO-09-Q014", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "easy", type: "single",
+{ id: "METEO-09-Q049", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "easy", type: "single",
   question: "Winter rainfall in Lahore in January is most often linked to?",
   options: ["Western disturbances", "Peak summer monsoon trough only", "Only Arabian Sea tropical cyclones in August", "Only the Beaufort scale"],
   correctAnswer: 0,
   explanation: "Western Disturbances (WDs) are extra-tropical weather systems that originate over the Mediterranean Sea and travel eastward along the subtropical jet, bringing winter precipitation (rain in plains, snow in mountains) to Pakistan and northern India. They are the primary source of winter rainfall for northern and central Pakistan.",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
-{ id: "METEO-09-Q015", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q050", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
   question: "Western Disturbances primarily affect which regions of Pakistan and during which season?",
   options: ["Sindh and Balochistan in summer", "Karachi in July", "Northern and central Pakistan (KP, Punjab, Kashmir, GB) during winter (Dec–Mar)", "All of Pakistan year-round with equal frequency"],
   correctAnswer: 2,
   explanation: "Western disturbances mainly affect northern and northwestern Pakistan (and adjoining mountain regions) in winter and early spring, bringing rain and snow embedded in the westerlies — not the summer monsoon season.",
   sourceCitation: "Standard meteorology references" },
-{ id: "METEO-09-Q016", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "hard", type: "true_false",
+{ id: "METEO-09-Q051", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "hard", type: "true_false",
   question: "True or False: Western Disturbances can interact with the monsoon trough during transition seasons (spring and autumn) to enhance rainfall.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Late-season western disturbances can interact with advancing monsoon moisture or the monsoon trough edge, sometimes enhancing rainfall. They remain dynamically distinct from the core summer monsoon system.",
   sourceCitation: "Standard meteorology references" },
 
-{ id: "METEO-09-Q017", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "easy", type: "single",
+{ id: "METEO-09-Q052", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "easy", type: "single",
   question: "Which coastal area of Pakistan is most at risk from Arabian Sea tropical cyclones?",
   options: ["Islamabad, because it is inland", "Lahore, because of dense population", "Karachi and the Makran coast (Balochistan)", "Multan, in southern Punjab"],
   correctAnswer: 2,
   explanation: "Karachi and the Makran coast of Balochistan are most vulnerable to Arabian Sea cyclone impacts, including damaging winds, storm surge, and torrential rainfall. Recent examples include Cyclone Biparjoy (2023), which made landfall in Sindh, and Cyclone Gonu (2007), which affected the Makran coast.",
   sourceCitation: "Standard meteorology references" },
-{ id: "METEO-09-Q018", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q053", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
   question: "Very high June surface temperatures over central Pakistan with a broad surface low are best identified as?",
   options: ["The summer heat low (thermal low)", "A polar front jet streak only", "A glacial lake outburst", "An urban heat island in Antarctica"],
   correctAnswer: 0,
   explanation: "The Pakistan (or 'Sind') heat low is a thermal low-pressure system that forms in late spring and summer (May–July) over central/southern Pakistan due to intense solar heating of the land surface. It is the southern end of the larger South Asian thermal low and helps anchor the monsoon circulation.",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
-{ id: "METEO-09-Q019", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "true_false",
+{ id: "METEO-09-Q054", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "true_false",
   question: "True or False: Dense radiation fog frequently forms over the Indus Valley plains (Punjab and Sindh) during winter mornings under clear, calm conditions.",
   options: ["True", "False"],
   correctAnswer: 0,
   explanation: "True. Radiation fog is very common in winter over the Punjab and Sindh plains, especially in December and January, under clear skies (allowing strong radiative cooling at night), calm winds (preventing mixing), and high humidity from the Indus River and irrigation. This fog can persist for days, disrupting road, rail, and air transport.",
   sourceCitation: "Standard meteorology references" },
 
-{ id: "METEO-09-Q020", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
+{ id: "METEO-09-Q055", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
   question: "Which organization is the national authority for issuing official weather forecasts and warnings in Pakistan?",
   options: ["National Disaster Management Authority (NDMA)", "Water and Power Development Authority (WAPDA)", "Pakistan Meteorological Department (PMD)", "Pakistan Space and Upper Atmosphere Research Commission (SUPARCO)"],
   correctAnswer: 2,
   explanation: "The Pakistan Meteorological Department (PMD) is the national authority responsible for weather forecasting, warnings, climate monitoring, aviation meteorology, and seismology. It is headquartered in Islamabad and operates regional meteorological centres in each provincial capital.",
   sourceCitation: "Standard meteorology references" },
-{ id: "METEO-09-Q021", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q056", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "medium", type: "single",
   question: "Flood forecasting support in Pakistan is primarily the operational responsibility of?",
   options: ["PMD (with linked hydrological partners as relevant)", "Only the IPCC Working Group II", "Only airline METAR offices abroad", "Only the WMO climate atlas team"],
   correctAnswer: 0,
   explanation: "PMD operates the Flood Forecasting Division in Lahore, which uses river gauge data, rainfall observations, weather radar, and NWP model output to issue flood warnings. The Division works in coordination with WAPDA (which manages reservoirs) and the Indus River System Authority (IRSA) to provide integrated flood warnings.",
   sourceCitation: "Rewritten stem — aligned to upgraded study material" },
-{ id: "METEO-09-Q022", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "hard", type: "true_false",
+{ id: "METEO-09-Q057", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "hard", type: "true_false",
   question: "True or False: PMD has Regional Meteorological Centres in each provincial capital (Karachi, Lahore, Peshawar, Quetta), each responsible for weather services in its province.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -4887,14 +4887,14 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to meteo-thunderstorms-lightning-cape" },
 
 // METEO-07 — climograph
-{ id: "METEO-07-Q019", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "medium", type: "single",
+{ id: "METEO-07-Q046", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "medium", type: "single",
   question: "A climograph shows high temperatures every month and a clear dry season in winter with a wet summer. Which Köppen seasonal letter is most appropriate?",
   options: ["w (dry winter)", "s (dry summer)", "f (no dry season)", "E (polar)"],
   correctAnswer: 0,
   explanation: "When the dry season falls in winter, the seasonal precipitation letter is typically 'w' (as in Aw). Dry summer uses 's' (Mediterranean-type). Always read the seasonal shape of the precip bars, not only the annual total.",
   sourceCitation: "Aligned to meteo-koppen-system-climograph" },
 
-{ id: "METEO-07-Q020", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
+{ id: "METEO-07-Q047", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
   question: "What two monthly climate elements does a standard climograph display for classification clues?",
   options: [
     "Temperature and precipitation",
@@ -4907,7 +4907,7 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to meteo-koppen-system-climograph" },
 
 // Extra alignment: monsoon vs WD (Pakistan) + RH trap (moisture)
-{ id: "METEO-09-Q023", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q058", sectionId: "METEO-09", topicId: "meteo-western-disturbances", difficulty: "medium", type: "single",
   question: "Winter rainfall and snowfall in northern Pakistan are primarily associated with?",
   options: [
     "Western disturbances",
@@ -5103,14 +5103,14 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to tropical cyclone formation requirements" },
 
 // ----- METEO-07 Climate Classification -----
-{ id: "METEO-07-Q021", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
+{ id: "METEO-07-Q048", sectionId: "METEO-07", topicId: "meteo-koppen-system", difficulty: "easy", type: "single",
   question: "In the Köppen system, which main group is defined primarily by dryness rather than temperature alone?",
   options: ["B (dry)", "A (tropical)", "E (polar)", "C (temperate) only by dryness"],
   correctAnswer: 0,
   explanation: "B climates are classified by precipitation relative to evaporative demand (temperature-linked thresholds), not by temperature category alone.",
   sourceCitation: "Aligned to Köppen main groups" },
 
-{ id: "METEO-07-Q022", sectionId: "METEO-07", topicId: "meteo-thornthwaite-system", difficulty: "medium", type: "single",
+{ id: "METEO-07-Q049", sectionId: "METEO-07", topicId: "meteo-thornthwaite-system", difficulty: "medium", type: "single",
   question: "Thornthwaite’s classification emphasises which comparison more than classical Köppen letter codes?",
   options: [
     "Precipitation versus potential evapotranspiration (water balance)",
@@ -5122,7 +5122,7 @@ export const questions: Question[] = [
   explanation: "Thornthwaite centres on precipitation versus potential evapotranspiration. Köppen instead uses empirical monthly temperature and precipitation rules historically linked to vegetation zones.",
   sourceCitation: "Aligned to Thornthwaite vs Köppen" },
 
-{ id: "METEO-07-Q023", sectionId: "METEO-07", topicId: "meteo-pakistan-macroclimate", difficulty: "medium", type: "true_false",
+{ id: "METEO-07-Q050", sectionId: "METEO-07", topicId: "meteo-pakistan-macroclimate", difficulty: "medium", type: "true_false",
   question: "True or False: All of Pakistan can be accurately described as a single humid tropical monsoon climate type.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -5130,7 +5130,7 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to Pakistan macroclimate" },
 
 // ----- METEO-08 Climate Variability & Change -----
-{ id: "METEO-08-Q024", sectionId: "METEO-08", topicId: "meteo-milankovitch-cycles", difficulty: "medium", type: "single",
+{ id: "METEO-08-Q046", sectionId: "METEO-08", topicId: "meteo-milankovitch-cycles", difficulty: "medium", type: "single",
   question: "Milankovitch cycles primarily change climate by?",
   options: [
     "Redistributing insolation by season and latitude over tens of thousands of years",
@@ -5142,7 +5142,7 @@ export const questions: Question[] = [
   explanation: "Eccentricity, obliquity, and precession alter when and where sunlight falls on long ice-age timescales. They are not a full explanation of rapid industrial-era warming.",
   sourceCitation: "Aligned to Milankovitch" },
 
-{ id: "METEO-08-Q025", sectionId: "METEO-08", topicId: "meteo-climate-feedbacks", difficulty: "medium", type: "single",
+{ id: "METEO-08-Q047", sectionId: "METEO-08", topicId: "meteo-climate-feedbacks", difficulty: "medium", type: "single",
   question: "Ice–albedo feedback is called a positive feedback because melting ice?",
   options: [
     "Darkens the surface, increases absorption, and can cause further warming",
@@ -5154,14 +5154,14 @@ export const questions: Question[] = [
   explanation: "Positive feedback amplifies the initial change: less ice → lower albedo → more absorption → more warming.",
   sourceCitation: "Aligned to climate feedbacks" },
 
-{ id: "METEO-08-Q026", sectionId: "METEO-08", topicId: "meteo-radiative-forcing", difficulty: "easy", type: "single",
+{ id: "METEO-08-Q048", sectionId: "METEO-08", topicId: "meteo-radiative-forcing", difficulty: "easy", type: "single",
   question: "True or False: Radiative forcing is commonly expressed in units of?",
   options: ["W/m²", "Beaufort force only", "Köppen letters only", "hPa per knot"],
   correctAnswer: 0,
   explanation: "Radiative forcing is a flux perturbation measured in watts per square metre. Positive forcing tends to warm; negative tends to cool.",
   sourceCitation: "Aligned to radiative forcing" },
 
-{ id: "METEO-08-Q027", sectionId: "METEO-08", topicId: "meteo-ipcc-rcps", difficulty: "medium", type: "true_false",
+{ id: "METEO-08-Q049", sectionId: "METEO-08", topicId: "meteo-ipcc-rcps", difficulty: "medium", type: "true_false",
   question: "True or False: RCP8.5 is a guaranteed forecast of the exact climate in 2100, not a scenario pathway.",
   options: ["True", "False"],
   correctAnswer: 1,
@@ -5169,7 +5169,7 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to IPCC RCPs" },
 
 // ----- METEO-09 Pakistan Climate -----
-{ id: "METEO-09-Q024", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q059", sectionId: "METEO-09", topicId: "meteo-indian-ocean-monsoon", difficulty: "medium", type: "single",
   question: "How is Pakistan’s position relative to the South Asian monsoon best described?",
   options: [
     "On the northwestern fringe, with uneven and variable summer rainfall",
@@ -5181,7 +5181,7 @@ export const questions: Question[] = [
   explanation: "Pakistan sits on the fringe of the monsoon domain: some areas get substantial summer rain, many remain arid/semi-arid, and totals vary strongly year to year.",
   sourceCitation: "Aligned to monsoon fringe" },
 
-{ id: "METEO-09-Q025", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "single",
+{ id: "METEO-09-Q060", sectionId: "METEO-09", topicId: "meteo-extreme-events", difficulty: "medium", type: "single",
   question: "A GLOF is?",
   options: [
     "A glacial lake outburst flood",
@@ -5193,7 +5193,7 @@ export const questions: Question[] = [
   explanation: "Glacial lake outburst floods occur when natural dams of ice or debris fail in mountain valleys — a distinct hazard in northern Pakistan’s cryosphere landscape.",
   sourceCitation: "Aligned to extreme events GLOF" },
 
-{ id: "METEO-09-Q026", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
+{ id: "METEO-09-Q061", sectionId: "METEO-09", topicId: "meteo-pmd-operational", difficulty: "easy", type: "single",
   question: "The national meteorological service responsible for official weather forecasts and warnings in Pakistan is?",
   options: ["PMD (Pakistan Meteorological Department)", "Only the IPCC", "Only the WMO headquarters issuing city forecasts", "Only airline companies"],
   correctAnswer: 0,
@@ -5201,14 +5201,14 @@ export const questions: Question[] = [
   sourceCitation: "Aligned to PMD operational" },
 
 // ----- METEO-10 Forecasting -----
-{ id: "METEO-10-Q010", sectionId: "METEO-10", topicId: "meteo-forecasting-methods", difficulty: "easy", type: "single",
+{ id: "METEO-10-Q037", sectionId: "METEO-10", topicId: "meteo-forecasting-methods", difficulty: "easy", type: "single",
   question: "A forecast that simply says tomorrow’s weather will equal today’s observation is using?",
   options: ["Persistence", "Only RCP8.5", "Only Thornthwaite PE", "Only the Bergeron process"],
   correctAnswer: 0,
   explanation: "Persistence uses the present as the forecast. Climatology uses the long-term normal; analogs use past lookalikes; trends extrapolate recent change.",
   sourceCitation: "Aligned to classical forecasting methods" },
 
-{ id: "METEO-10-Q011", sectionId: "METEO-10", topicId: "meteo-nwp-models", difficulty: "medium", type: "single",
+{ id: "METEO-10-Q038", sectionId: "METEO-10", topicId: "meteo-nwp-models", difficulty: "medium", type: "single",
   question: "In NWP, data assimilation is the step that?",
   options: [
     "Combines observations with a model background to produce the analysis (initial state)",
@@ -5220,7 +5220,7 @@ export const questions: Question[] = [
   explanation: "Assimilation blends observations and model prior into the best estimate of the current atmosphere — the starting point for the forecast.",
   sourceCitation: "Aligned to NWP assimilation" },
 
-{ id: "METEO-10-Q012", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "medium", type: "single",
+{ id: "METEO-10-Q039", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "medium", type: "single",
   question: "Forecast skill differs from raw accuracy because skill measures?",
   options: [
     "Improvement relative to a baseline such as climatology or persistence",
@@ -5351,7 +5351,7 @@ export const questions: Question[] = [
   sourceCitation: "Depth polish — tornadoes type diversity" },
 
 // METEO-10
-{ id: "METEO-10-Q013", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "hard", type: "true_false",
+{ id: "METEO-10-Q040", sectionId: "METEO-10", topicId: "meteo-forecast-skill", difficulty: "hard", type: "true_false",
   question: "True or False: A forecast can have a small RMSE yet still show little skill if a simple climatology forecast would have performed almost as well.",
   options: ["True", "False"],
   correctAnswer: 0,
@@ -5541,7 +5541,7 @@ export const questions: Question[] = [
     explanation: "The white, louvered screen shades sensors from direct solar radiation while allowing airflow, so the reading represents air temperature rather than instrument heating.",
     sourceCitation: "Density top-up — screen purpose" },
 
-  { id: "METEO-09-Q027", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
+  { id: "METEO-09-Q062", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "medium", type: "single",
     question: "Arabian Sea tropical cyclones that affect Pakistan’s coast are most favoured when which ingredients align?",
     options: [
       "Warm sea-surface temperatures, sufficient Coriolis effect offshore, and low vertical wind shear",
@@ -5552,14 +5552,14 @@ export const questions: Question[] = [
     correctAnswer: 0,
     explanation: "Tropical cyclone genesis needs a warm ocean energy source, enough planetary vorticity (away from the equator), and an environment not shredded by strong shear — the same physics as other basins, applied to the Arabian Sea.",
     sourceCitation: "Density top-up — AS cyclones" },
-  { id: "METEO-09-Q028", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "hard", type: "true_false",
+  { id: "METEO-09-Q063", sectionId: "METEO-09", topicId: "meteo-arabian-sea-cyclones-local", difficulty: "hard", type: "true_false",
     question: "True or False: Summer heat lows over Pakistan’s interior can sharpen the monsoon trough and influence regional wind and dust-storm patterns even when a full tropical cyclone is not present.",
     options: ["True", "False"],
     correctAnswer: 0,
     explanation: "True. The seasonal heat low organises pressure gradients, monsoon surge, and dusty boundary-layer winds independent of any single named cyclone.",
     sourceCitation: "Density top-up — heat low" },
 
-  { id: "METEO-09-Q029", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "hard", type: "single",
+  { id: "METEO-09-Q064", sectionId: "METEO-09", topicId: "meteo-nccp-objectives", difficulty: "hard", type: "single",
     question: "Which framing best matches Pakistan’s National Climate Change Policy themes in exam answers?",
     options: [
       "Water, food, and energy security plus adaptation needs under a changing climate",
@@ -5571,7 +5571,7 @@ export const questions: Question[] = [
     explanation: "NCCP-style objectives emphasise sectoral security (water, food, energy) and adaptation/resilience — not denial of meteorology or pure technology fantasies.",
     sourceCitation: "Density top-up — NCCP themes" },
 
-  { id: "METEO-09-Q030", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "single",
+  { id: "METEO-09-Q065", sectionId: "METEO-09", topicId: "meteo-temp-rainfall-distribution", difficulty: "medium", type: "single",
     question: "Which broad pattern best describes rainfall across Pakistan for exam-level geography?",
     options: [
       "Generally higher in northern/monsoon-influenced belts and much lower on hyper-arid plateaus such as much of Balochistan",
@@ -5583,7 +5583,7 @@ export const questions: Question[] = [
     explanation: "Pakistan’s rainfall is highly uneven: monsoon and orographic effects wetter north/east belts contrast with arid Balochistan and rain-shadow interiors.",
     sourceCitation: "Density top-up — PK rainfall pattern" },
 
-  { id: "METEO-08-Q028", sectionId: "METEO-08", topicId: "meteo-solar-volcanic-forcing", difficulty: "medium", type: "single",
+  { id: "METEO-08-Q050", sectionId: "METEO-08", topicId: "meteo-solar-volcanic-forcing", difficulty: "medium", type: "single",
     question: "Large explosive volcanic eruptions can cool global climate for a year or two mainly by:",
     options: [
       "Injecting sulfate aerosols into the stratosphere that reflect sunlight",
@@ -5594,7 +5594,7 @@ export const questions: Question[] = [
     correctAnswer: 0,
     explanation: "Stratospheric sulfate aerosols increase planetary albedo and reduce shortwave absorption at the surface — the Pinatubo-type mechanism — distinct from long-lived CO₂ forcing.",
     sourceCitation: "Density top-up — volcanic aerosols" },
-  { id: "METEO-08-Q029", sectionId: "METEO-08", topicId: "meteo-past-climate-reconstruction", difficulty: "medium", type: "single",
+  { id: "METEO-08-Q051", sectionId: "METEO-08", topicId: "meteo-past-climate-reconstruction", difficulty: "medium", type: "single",
     question: "Ice cores are valuable climate proxies primarily because they can preserve:",
     options: [
       "Trapped air bubbles and chemical signals that record past atmosphere and temperature-related indicators",
