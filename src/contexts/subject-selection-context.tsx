@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useCallback, useEffect, type React
 import type { SubjectId } from '@/types';
 import type { ExamTrackId } from '@/lib/exam-track';
 import { getTrackForSubject } from '@/lib/exam-track';
+import { subjectsForScope } from '@/lib/track-scope';
 import { subjectsByTrack } from '@/data/subjects';
 import { STAGE_SCREENS } from '@/lib/constants';
 import { useData } from '@/hooks/useData';
@@ -54,9 +55,15 @@ function defaultPrefs(track: ExamTrackId): TrackPrefs {
   };
 }
 
-function isValidForTrack(selection: SubjectSelection, track: ExamTrackId): boolean {
+function isValidForTrack(
+  selection: SubjectSelection,
+  track: ExamTrackId,
+  examId?: string | null,
+): boolean {
   if (selection === 'all') return true;
-  return getTrackForSubject(selection as string) === track;
+  // Must belong to track AND current exam profile subject policy
+  const allowed = subjectsForScope({ trackId: track, examId: examId ?? null });
+  return allowed.some((s) => s.id === selection);
 }
 
 function loadPersisted(): SubjectSelectionState {
@@ -134,6 +141,38 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
     });
   }, [trackMembership.activeTrackId]);
 
+  // When exam profile changes, drop subject picks that are no longer in scope
+  useEffect(() => {
+    const focus = trackMembership.activeTrackId;
+    if (!focus || !isTrackId(focus)) return;
+    const examId = trackMembership.enrollments[focus]?.activeExamId ?? null;
+    setState((prev) => {
+      const cur = prefsFor(prev, focus);
+      let changed = false;
+      const perScreen = { ...cur.perScreen };
+      for (const [screen, sel] of Object.entries(perScreen)) {
+        if (!isValidForTrack(sel as SubjectSelection, focus, examId)) {
+          delete perScreen[screen];
+          changed = true;
+        }
+      }
+      let lastSelected = cur.lastSelected;
+      if (!isValidForTrack(lastSelected, focus, examId)) {
+        lastSelected = defaultLastSelected(focus);
+        // If default also invalid under tight profiles, keep id; getActiveSubject falls back to 'all'
+        changed = true;
+      }
+      if (!changed) return prev;
+      return {
+        ...prev,
+        byTrack: {
+          ...prev.byTrack,
+          [focus]: { ...cur, perScreen, lastSelected },
+        },
+      };
+    });
+  }, [trackMembership.activeTrackId, trackMembership.enrollments]);
+
   // Full reset / multi-tab clear — wipe in-memory prefs so they cannot re-persist
   useEffect(() => {
     const onReset = () => {
@@ -161,17 +200,26 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
 
   const activePrefs = prefsFor(state, derivedActiveTrack);
 
+  const focusExamId =
+    trackMembership.activeTrackId && isTrackId(trackMembership.activeTrackId)
+      ? (trackMembership.enrollments[trackMembership.activeTrackId]?.activeExamId ?? null)
+      : null;
+
   const getActiveSubject = useCallback(
     (screen: StageScreen): SubjectSelection => {
       const prefs = prefsFor(state, derivedActiveTrack);
       const explicit = prefs.perScreen[screen];
       if (explicit !== undefined) {
-        if (isValidForTrack(explicit, derivedActiveTrack)) return explicit;
+        if (isValidForTrack(explicit, derivedActiveTrack, focusExamId)) return explicit;
         return 'all';
       }
-      return prefs.prefersAll ? 'all' : prefs.lastSelected;
+      if (prefs.prefersAll) return 'all';
+      if (isValidForTrack(prefs.lastSelected, derivedActiveTrack, focusExamId)) {
+        return prefs.lastSelected;
+      }
+      return 'all';
     },
-    [state, derivedActiveTrack],
+    [state, derivedActiveTrack, focusExamId],
   );
 
   const setActiveSubjectForScreen = useCallback((screen: StageScreen, value: SubjectSelection) => {

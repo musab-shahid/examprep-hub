@@ -1,6 +1,12 @@
 /**
  * Authoritative learner scope: enrollment + focus track + exam profile.
  * Screens should prefer this over ad-hoc subjectsByTrack / activeTrack reads.
+ *
+ * Catalog vs learning:
+ * - **Learning APIs** (`useSubjectData`, `resolveLearningScope`, gates) never return
+ *   content outside the active enrolled focus + profile.
+ * - **Catalog / preview** (track landing before Begin, Explore cards) may list
+ *   registry metadata only — do not reuse learning helpers for unscoped dumps.
  */
 import { isTrackId, type TrackId } from '../data/tracks.ts';
 import { getFocusTrackId, getMembershipState } from './track-focus.ts';
