@@ -277,7 +277,7 @@ export function DashboardScreen() {
                       setActiveTrack(id);
                     }}
                   >
-                    Switch
+                    Switch workspace
                   </button>
                 )}
               </div>

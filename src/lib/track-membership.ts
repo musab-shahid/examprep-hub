@@ -168,6 +168,38 @@ export function setActiveTrack(
   };
 }
 
+
+/**
+ * Remove enrollment for a track. Does not delete topic/quiz progress.
+ * If the left track was active, focus moves to another enrollment or null.
+ */
+export function leaveTrack(
+  state: TrackMembershipState,
+  trackId: string,
+): { ok: true; state: TrackMembershipState } | { ok: false; reason: 'not-enrolled' | 'unknown-track'; state: TrackMembershipState } {
+  if (!isTrackId(trackId)) {
+    return { ok: false, reason: 'unknown-track', state };
+  }
+  if (!state.enrollments[trackId]) {
+    return { ok: false, reason: 'not-enrolled', state };
+  }
+  const enrollments = { ...state.enrollments };
+  delete enrollments[trackId];
+  let activeTrackId = state.activeTrackId;
+  if (activeTrackId === trackId) {
+    const remaining = (Object.keys(enrollments) as TrackId[]).filter((id) => isTrackId(id));
+    activeTrackId = remaining[0] ?? null;
+  }
+  return {
+    ok: true,
+    state: {
+      schemaVersion: state.schemaVersion,
+      enrollments,
+      activeTrackId,
+    },
+  };
+}
+
 export function setActiveExamProfile(
   state: TrackMembershipState,
   trackId: string,

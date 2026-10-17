@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   emptyTrackMembership,
   enrollTrack,
+  leaveTrack,
   migrateTrackMembership,
   normalizeTrackMembership,
   setActiveExamProfile,
@@ -166,5 +167,23 @@ describe('resource access', () => {
       },
     };
     assert.equal(canAccessSubject(data, 'meteo-climatology').ok, true);
+  });
+});
+
+describe('leaveTrack', () => {
+  it('unenrolls without requiring progress wipe and clears focus if needed', () => {
+    let s = emptyTrackMembership();
+    const a = enrollTrack(s, 'fpsc');
+    assert.ok(a.ok);
+    if (!a.ok) return;
+    const b = enrollTrack(a.state, 'hat');
+    assert.ok(b.ok);
+    if (!b.ok) return;
+    const left = leaveTrack(b.state, 'fpsc');
+    assert.ok(left.ok);
+    if (!left.ok) return;
+    assert.equal(left.state.enrollments.fpsc, undefined);
+    assert.ok(left.state.enrollments.hat);
+    assert.equal(left.state.activeTrackId, 'hat');
   });
 });

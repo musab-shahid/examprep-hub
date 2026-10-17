@@ -13,6 +13,7 @@ import {
 } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { PageContainer, Card, Button } from '@/components/ui';
+import { WorkspaceSettingsCard } from '@/components/track/WorkspaceSettingsCard';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
 import { downloadBackupFile } from '@/lib/storage';
 import { sections } from '@/data/sections';
@@ -154,7 +155,9 @@ export function SettingsScreen() {
         </div>
       )}
 
-      {/* App info — global totals across both tracks */}
+      <WorkspaceSettingsCard />
+
+      {/* App info — global inventory (catalog size, not workspace progress) */}
       <Card className="p-3.5 sm:p-5 mb-4 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 rounded-card bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-sm shadow-brand-500/20">

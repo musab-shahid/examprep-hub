@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId, TrackMembershipState } from '@/types';
-import { emptyTrackMembership, normalizeTrackMembership, setActiveExamProfile as setActiveExamProfilePure } from '@/lib/track-membership';
+import { emptyTrackMembership, normalizeTrackMembership, setActiveExamProfile as setActiveExamProfilePure, leaveTrack as leaveTrackPure } from '@/lib/track-membership';
 import { withEnrollAndFocus, withFocusTrack } from '@/lib/track-focus';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
@@ -21,6 +21,8 @@ export interface DataContextValue {
   setActiveEnrolledTrack: (trackId: TrackId | null) => { ok: boolean; reason?: string };
   /** Set exam/post profile within an enrolled track (null = general track scope) */
   setExamProfile: (trackId: TrackId, examId: string | null) => void;
+  /** Leave a track (unenroll). Progress is kept. */
+  leaveEnrolledTrack: (trackId: TrackId) => { ok: boolean; reason?: string };
   trackMembership: TrackMembershipState;
 }
 
@@ -101,6 +103,21 @@ export function DataProvider({ children }: { children: ReactNode }) {
     return actionResultRef.current;
   }, []);
 
+  const leaveEnrolledTrack = useCallback((trackId: TrackId) => {
+    actionResultRef.current = { ok: false, reason: 'unknown' };
+    setData((prev) => {
+      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
+      const r = leaveTrackPure(mem, trackId);
+      if (!r.ok) {
+        actionResultRef.current = { ok: false, reason: r.reason };
+        return prev;
+      }
+      actionResultRef.current = { ok: true };
+      return { ...prev, trackMembership: r.state };
+    });
+    return actionResultRef.current;
+  }, []);
+
   const setExamProfile = useCallback((trackId: TrackId, examId: string | null) => {
     setData((prev) => {
       const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
@@ -148,7 +165,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects, enrollInTrack, setActiveEnrolledTrack, setExamProfile, trackMembership }}>
+    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects, enrollInTrack, setActiveEnrolledTrack, setExamProfile, leaveEnrolledTrack, trackMembership }}>
       {children}
     </DataContext.Provider>
   );
