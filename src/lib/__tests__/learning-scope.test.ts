@@ -6,6 +6,7 @@ import {
   scopeInputFromData,
 } from '../learning-scope.ts';
 import { withEnrollAndFocus } from '../track-focus.ts';
+import { subjectsForScope } from '../track-scope.ts';
 import { emptyTrackMembership, setActiveExamProfile } from '../track-membership.ts';
 import type { AppData } from '../../types.ts';
 
@@ -35,9 +36,8 @@ describe('resolveLearningScope', () => {
     assert.ok(scope!.subjects.length > 0);
   });
 
-  it('invalid profile on enrollment yields empty subject set via subjectsForScope', () => {
+  it('stored invalid activeExamId is repaired to null (general track), not empty scope', () => {
     let d = withEnrollAndFocus(base(), 'fpsc').data;
-    // Force invalid exam id on record (bypass setActiveExamProfile validation)
     d = {
       ...d,
       trackMembership: {
@@ -52,7 +52,9 @@ describe('resolveLearningScope', () => {
     };
     const scope = resolveLearningScope(d);
     assert.ok(scope);
-    assert.equal(scope!.subjects.length, 0);
+    // normalizeTrackMembership drops unknown profile ids → general preparation
+    assert.equal(scope!.examId, null);
+    assert.ok(scope!.subjects.length > 0);
   });
 });
 
@@ -75,5 +77,11 @@ describe('scopeInputFromData', () => {
     const d = withEnrollAndFocus(base(), 'hat').data;
     const input = scopeInputFromData(d);
     assert.deepEqual(input, { trackId: 'hat', examId: null });
+  });
+});
+
+describe('subjectsForScope invalid id', () => {
+  it('returns empty list for unknown examId (callers must not treat as general)', () => {
+    assert.equal(subjectsForScope({ trackId: 'fpsc', examId: 'not-real' }).length, 0);
   });
 });
