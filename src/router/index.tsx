@@ -13,7 +13,7 @@ import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
 export type ScreenName =
   | 'home' | 'learn' | 'section' | 'topic' | 'formulas' | 'flashcards' | 'cloud-atlas'
-  | 'practice' | 'quiz' | 'review' | 'progress' | 'search' | 'settings' | 'hat' | 'fpsc';
+  | 'practice' | 'quiz' | 'review' | 'progress' | 'search' | 'settings' | 'hat' | 'fpsc' | 'track';
 
 export type Route =
   | { screen: 'home' }
@@ -30,7 +30,8 @@ export type Route =
   | { screen: 'search' }
   | { screen: 'settings' }
   | { screen: 'hat' }
-  | { screen: 'fpsc' };
+  | { screen: 'fpsc' }
+  | { screen: 'track'; trackId: string };
 
 export interface BreadcrumbItem {
   label: string;
@@ -57,6 +58,7 @@ interface NavigateOptions {
   timeLimit?: TimeLimitSetting;
   topicIds?: string[];
   wrongPool?: boolean;
+  trackId?: string;
 }
 
 interface RouterContext {
@@ -92,6 +94,12 @@ function buildRoute(options: NavigateOptions): Route {
     case 'settings': return { screen: 'settings' };
     case 'hat': return { screen: 'hat' };
     case 'fpsc': return { screen: 'fpsc' };
+    case 'track':
+      if (options.trackId === 'hat' || options.trackId === 'fpsc') {
+        return { screen: 'track', trackId: options.trackId };
+      }
+      // Unknown id → home (catalog comes later); never silent FPSC
+      return { screen: 'home' };
     default: return { screen: 'home' };
   }
 }
@@ -116,6 +124,8 @@ export function routeLabel(route: Route): string {
     case 'settings': return 'Settings';
     case 'hat': return 'HAT Prep';
     case 'fpsc': return 'FPSC Exam';
+    case 'track':
+      return route.trackId === 'hat' ? 'HAT Prep' : route.trackId === 'fpsc' ? 'FPSC Exam' : 'Track';
     default: return 'Exam Prep';
   }
 }

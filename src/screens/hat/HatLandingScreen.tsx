@@ -9,6 +9,7 @@ import { useData } from '@/hooks/useData';
 import { getSubjectsForTrack } from '@/lib/exam-track';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import type { Topic, Question, SubjectId } from '@/types';
+import { TrackEnrollmentBanner } from '@/components/track/TrackEnrollmentBanner';
 
 const SECTION_ICONS = {
   verbal: BookOpen,
@@ -30,8 +31,38 @@ function subjectIdForHatSection(sectionCode: string): SubjectId {
 export function HatLandingScreen() {
   const { navigate, currentRoute } = useRouter();
   const { setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
-  useEffect(() => { setActiveTrack('hat'); }, [setActiveTrack]);
-  const { data } = useData();
+  const { data, enrollInTrack, setActiveEnrolledTrack, trackMembership } = useData();
+  const enrolled = Boolean(trackMembership.enrollments.hat);
+  const [enrolling, setEnrolling] = useState(false);
+  const [enrollError, setEnrollError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!enrolled) return;
+    setActiveEnrolledTrack('hat');
+    setActiveTrack('hat');
+  }, [enrolled, setActiveEnrolledTrack, setActiveTrack]);
+
+
+  const handleBegin = () => {
+    setEnrollError(null);
+    setEnrolling(true);
+    try {
+      const r = enrollInTrack('hat');
+      if (!r.ok) {
+        setEnrollError(r.reason === 'not-enrollable' ? 'This track is not available to begin yet.' : 'Could not start this track. Try again.');
+        return;
+      }
+      setActiveTrack('hat');
+    } finally {
+      setEnrolling(false);
+    }
+  };
+
+  const guard = (fn: () => void) => {
+    if (!enrolled) return;
+    fn();
+  };
+
   const ts = getTrackStyle('hat');
 
   const [hatTopics, setHatTopics] = useState<Topic[]>([]);
@@ -50,10 +81,12 @@ export function HatLandingScreen() {
     return () => { active = false; };
   }, []);
   const handleStudySection = (sectionCode: string) => {
+    if (!enrolled) return;
     setActiveSubjectForScreen('learn', subjectIdForHatSection(sectionCode));
     navigate({ screen: 'learn', parent: currentRoute });
   };
   const handlePracticeSection = (sectionCode: string) => {
+    if (!enrolled) return;
     setActiveSubjectForScreen('practice', subjectIdForHatSection(sectionCode));
     navigate({ screen: 'practice', parent: currentRoute });
   };
@@ -71,6 +104,17 @@ export function HatLandingScreen() {
   ];
   return (
     <PageContainer>
+      <TrackEnrollmentBanner
+        trackTitle="HAT Preparation"
+        enrolled={enrolled}
+        enrolling={enrolling}
+        onBegin={handleBegin}
+        accentClass="from-indigo-500 to-violet-600"
+      />
+      {enrollError && (
+        <p className="text-sm text-red-600 mb-3" role="alert">{enrollError}</p>
+      )}
+
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">
         <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-4 sm:p-8`}>

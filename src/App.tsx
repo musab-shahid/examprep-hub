@@ -17,6 +17,7 @@ import { SearchScreen } from '@/screens/SearchScreen';
 import { SettingsScreen } from '@/screens/SettingsScreen';
 import { HatLandingScreen } from '@/screens/hat/HatLandingScreen';
 import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
+import { EnrollmentRequired } from '@/components/track/EnrollmentRequired';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { UpdatePrompt } from '@/components/UpdatePrompt';
 import { OfflineIndicator } from '@/components/OfflineIndicator';
@@ -33,22 +34,22 @@ function ScreenRouter() {
     case 'home':
       return <DashboardScreen />;
     case 'learn':
-      return <StudyScreen />;
+      return <EnrollmentRequired><StudyScreen /></EnrollmentRequired>;
     case 'section':
-      return <SectionScreen sectionId={route.sectionId} />;
+      return <EnrollmentRequired><SectionScreen sectionId={route.sectionId} /></EnrollmentRequired>;
     case 'topic':
-      return <TopicScreen topicId={route.topicId} />;
+      return <EnrollmentRequired><TopicScreen topicId={route.topicId} /></EnrollmentRequired>;
     case 'formulas':
-      return <FormulaVaultScreen />;
+      return <EnrollmentRequired><FormulaVaultScreen /></EnrollmentRequired>;
     case 'flashcards':
       return <FlashcardsScreen topicId={route.topicId} />;
     case 'cloud-atlas':
       return <CloudAtlasScreen />;
     case 'practice':
-      return <PracticeScreen mode={route.mode} />;
+      return <EnrollmentRequired><PracticeScreen mode={route.mode} /></EnrollmentRequired>;
     case 'quiz':
       return (
-        <QuizScreen
+        <EnrollmentRequired><QuizScreen
           mode={route.mode}
           topicId={route.topicId}
           topicIds={route.topicIds}
@@ -58,10 +59,10 @@ function ScreenRouter() {
           difficulty={route.difficulty}
           timeLimit={route.timeLimit}
           wrongPool={route.wrongPool}
-        />
+        /></EnrollmentRequired>
       );
     case 'review':
-      return <RevisionScreen />;
+      return <EnrollmentRequired><RevisionScreen /></EnrollmentRequired>;
     case 'progress':
       return <ProgressScreen />;
     case 'search':
@@ -72,6 +73,8 @@ function ScreenRouter() {
       return <HatLandingScreen />;
     case 'fpsc':
       return <FpscLandingScreen />;
+    case 'track':
+      return route.trackId === 'hat' ? <HatLandingScreen /> : route.trackId === 'fpsc' ? <FpscLandingScreen /> : <DashboardScreen />;
     default:
       return <DashboardScreen />;
   }

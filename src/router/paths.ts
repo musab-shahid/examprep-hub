@@ -33,7 +33,8 @@ export type PathRoute =
   | { screen: 'search' }
   | { screen: 'settings' }
   | { screen: 'hat' }
-  | { screen: 'fpsc' };
+  | { screen: 'fpsc' }
+  | { screen: 'track'; trackId: string };
 
 export function routeToPath(route: PathRoute): string {
   switch (route.screen) {
@@ -70,6 +71,8 @@ export function routeToPath(route: PathRoute): string {
       return '/hat';
     case 'fpsc':
       return '/fpsc';
+    case 'track':
+      return `/track/${encodeURIComponent(route.trackId)}`;
     default:
       return '/';
   }
@@ -127,6 +130,9 @@ export function pathToRoute(pathname: string): PathRoute {
       return { screen: 'hat' };
     case 'fpsc':
       return { screen: 'fpsc' };
+    case 'track':
+      if (a === 'hat' || a === 'fpsc') return { screen: 'track', trackId: a };
+      return { screen: 'home' };
     default:
       return { screen: 'home' };
   }

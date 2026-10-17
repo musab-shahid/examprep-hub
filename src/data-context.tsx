@@ -1,5 +1,7 @@
 import { createContext, useState, useCallback, useEffect, type ReactNode } from 'react';
-import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId } from '@/types';
+import type { AppData, Question, DifficultyFilter, PracticeMode, SubjectId, TrackMembershipState } from '@/types';
+import { enrollTrack as enrollTrackPure, setActiveTrack as setActiveTrackPure, emptyTrackMembership, normalizeTrackMembership } from '@/lib/track-membership';
+import { isTrackId, type TrackId } from '@/data/tracks';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
 import { sections } from '@/data/sections';
 import { topics } from '@/data/topics';
@@ -11,6 +13,11 @@ export interface DataContextValue {
   setLastTopic: (topicId: string) => void;
   reset: () => void;
   resetSubjects: (subjectIds: SubjectId[]) => void;
+  /** Explicit track enrollment; sets track active on success */
+  enrollInTrack: (trackId: TrackId) => { ok: boolean; reason?: string };
+  /** Switch active focus among enrolled tracks only */
+  setActiveEnrolledTrack: (trackId: TrackId | null) => { ok: boolean; reason?: string };
+  trackMembership: TrackMembershipState;
 }
 
 export const DataContext = createContext<DataContextValue | null>(null);
@@ -45,6 +52,38 @@ export function DataProvider({ children }: { children: ReactNode }) {
     setData(loadData());
   }, []);
 
+  const enrollInTrack = useCallback((trackId: TrackId) => {
+    let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
+    setData((prev) => {
+      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
+      const r = enrollTrackPure(mem, trackId);
+      if (!r.ok) {
+        result = { ok: false, reason: r.reason };
+        return prev;
+      }
+      result = { ok: true };
+      return { ...prev, trackMembership: r.state };
+    });
+    return result;
+  }, []);
+
+  const setActiveEnrolledTrack = useCallback((trackId: TrackId | null) => {
+    let result: { ok: boolean; reason?: string } = { ok: false, reason: 'unknown' };
+    setData((prev) => {
+      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
+      const r = setActiveTrackPure(mem, trackId);
+      if (!r.ok) {
+        result = { ok: false, reason: r.reason };
+        return prev;
+      }
+      result = { ok: true };
+      return { ...prev, trackMembership: r.state };
+    });
+    return result;
+  }, []);
+
+  const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());
+
   const resetSubjects = useCallback((subjectIds: SubjectId[]) => {
     setData((prev) => {
       const subjectIdSet = new Set(subjectIds);
@@ -75,12 +114,13 @@ export function DataProvider({ children }: { children: ReactNode }) {
           Object.entries(prev.revisionDates).filter(([tid]) => !subjectTopicIds.has(tid))
         ),
         lastOpenedTopic: subjectTopicIds.has(prev.lastOpenedTopic) ? '' : prev.lastOpenedTopic,
+        trackMembership: prev.trackMembership,
       };
     });
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects }}>
+    <DataContext.Provider value={{ data, markStudied, recordQuiz, setLastTopic, reset, resetSubjects, enrollInTrack, setActiveEnrolledTrack, trackMembership }}>
       {children}
     </DataContext.Provider>
   );

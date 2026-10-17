@@ -3,7 +3,7 @@ import {
   Target, TrendingUp, Layers,
   Zap, RotateCcw,
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from '@/router';
 import { PageContainer, Card, Button } from '@/components/ui';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -13,6 +13,7 @@ import { subjectsByTrack } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
+import { TrackEnrollmentBanner } from '@/components/track/TrackEnrollmentBanner';
 
 const SUBJECT_DESCRIPTIONS: Record<string, string> = {
   'meteo-climatology': 'Atmospheric science, weather systems, climate classification, and Pakistan-specific meteorology — the most content-rich subject.',
@@ -28,8 +29,18 @@ export function FpscLandingScreen() {
   const { navigate, currentRoute } = useRouter();
   const sd = useSubjectData();
   const { setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
-  useEffect(() => { setActiveTrack('fpsc'); }, [setActiveTrack]);
-  const { data } = useData();
+  const { data, enrollInTrack, setActiveEnrolledTrack, trackMembership } = useData();
+  const enrolled = Boolean(trackMembership.enrollments.fpsc);
+  const [enrolling, setEnrolling] = useState(false);
+  const [enrollError, setEnrollError] = useState<string | null>(null);
+
+  // Enrolled workspace: sync focus when user opens this track (does not create enrollment)
+  useEffect(() => {
+    if (!enrolled) return;
+    setActiveEnrolledTrack('fpsc');
+    setActiveTrack('fpsc');
+  }, [enrolled, setActiveEnrolledTrack, setActiveTrack]);
+
 
   const fpscSubjects = subjectsByTrack('fpsc');
   const ts = getTrackStyle('fpsc');
@@ -56,18 +67,51 @@ export function FpscLandingScreen() {
     { icon: FileText, label: 'Sections', value: String(totalSections), color: ts.statIconColors[3] },
   ];
 
+  const handleBegin = () => {
+    setEnrollError(null);
+    setEnrolling(true);
+    try {
+      const r = enrollInTrack('fpsc');
+      if (!r.ok) {
+        setEnrollError(r.reason === 'not-enrollable' ? 'This track is not available to begin yet.' : 'Could not start this track. Try again.');
+        return;
+      }
+      setActiveTrack('fpsc');
+    } finally {
+      setEnrolling(false);
+    }
+  };
+
   const handleStudySubject = (subjectId: SubjectId) => {
+    if (!enrolled) return;
     setActiveSubjectForScreen('learn', subjectId);
     navigate({ screen: 'learn', parent: currentRoute });
   };
 
   const handlePracticeSubject = (subjectId: SubjectId) => {
+    if (!enrolled) return;
     setActiveSubjectForScreen('practice', subjectId);
     navigate({ screen: 'practice', parent: currentRoute });
   };
 
+  const guard = (fn: () => void) => {
+    if (!enrolled) return;
+    fn();
+  };
+
   return (
     <PageContainer>
+      <TrackEnrollmentBanner
+        trackTitle="FPSC Exam"
+        enrolled={enrolled}
+        enrolling={enrolling}
+        onBegin={handleBegin}
+        accentClass="from-sky-500 to-cyan-600"
+      />
+      {enrollError && (
+        <p className="text-sm text-red-600 mb-3" role="alert">{enrollError}</p>
+      )}
+
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">
         <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-4 sm:p-8`}>
@@ -142,7 +186,7 @@ export function FpscLandingScreen() {
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <button
-            onClick={() => navigate({ screen: 'practice', mode: 'quick' })}
+            onClick={() => guard(() => navigate({ screen: 'practice', mode: 'quick' }))}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-amber-50 border border-amber-200 hover:bg-amber-100 transition-colors"
           >
             <Zap className="w-5 h-5 text-warning-600" />
@@ -150,7 +194,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">10 Qs · 5 min</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'review' })}
+            onClick={() => guard(() => navigate({ screen: 'review' }))}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-colors"
           >
             <RotateCcw className="w-5 h-5 text-success-600" />
@@ -158,7 +202,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">Spaced repetition</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'search' })}
+            onClick={() => guard(() => navigate({ screen: 'search' }))}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-brand-50 border border-brand-200 hover:bg-brand-100 transition-colors"
           >
             <BookOpen className="w-5 h-5 text-brand-600" />
@@ -166,7 +210,7 @@ export function FpscLandingScreen() {
             <span className="text-slate-500 text-xs">Find any topic</span>
           </button>
           <button
-            onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
+            onClick={() => guard(() => navigate({ screen: 'practice', mode: 'mock' }))}
             disabled={totalQuestions < 10}
             className="flex flex-col items-center gap-2 p-4 rounded-card bg-slate-900 text-white hover:bg-slate-800 transition-colors disabled:opacity-50"
           >
@@ -295,7 +339,7 @@ export function FpscLandingScreen() {
               </p>
             </div>
             <Button
-              onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
+              onClick={() => guard(() => navigate({ screen: 'practice', mode: 'mock' }))}
               disabled={totalQuestions < 10}
               className="shrink-0 bg-white/10 text-slate-300 border-white/20 hover:bg-white/10"
             >
