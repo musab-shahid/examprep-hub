@@ -4,6 +4,7 @@ import { emptyTrackMembership, normalizeTrackMembership, setActiveExamProfile as
 import { withEnrollAndFocus, withFocusTrack } from '@/lib/track-focus';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { loadData, saveData, markTopicStudied, recordQuizResult, setLastOpenedTopic, resetData } from '@/lib/storage';
+import { STORAGE_KEYS } from '@/lib/constants';
 import { sections } from '@/data/sections';
 import { topics } from '@/data/topics';
 
@@ -37,6 +38,20 @@ export function DataProvider({ children }: { children: ReactNode }) {
     }
     saveData(data);
   }, [data, isFirst]);
+
+  // Multi-tab: another tab wrote AppData (including trackMembership) — reload
+  useEffect(() => {
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== STORAGE_KEYS.appData || e.newValue == null) return;
+      try {
+        setData(loadData());
+      } catch {
+        /* ignore */
+      }
+    };
+    window.addEventListener('storage', onStorage);
+    return () => window.removeEventListener('storage', onStorage);
+  }, []);
 
   const markStudied = useCallback((topicId: string) => {
     setData((prev) => markTopicStudied(prev, topicId));

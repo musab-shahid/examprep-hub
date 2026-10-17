@@ -209,6 +209,7 @@ export function useSubjectData(): SubjectDataLayer {
   const revisionQueueAll = useCallback(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
     return Object.entries(data.topicProgress)
       .filter(([topicId, p]) => {
         if (!p.nextReview) return false;
@@ -216,7 +217,9 @@ export function useSubjectData(): SubjectDataLayer {
         const topic = getTopic(topicId);
         if (!topic) return false;
         const subjId = sectionMap[topic.sectionId]?.subjectId;
-        return subjId && trackSubjectIds.has(subjId);
+        if (!subjId || !trackSubjectIds.has(subjId)) return false;
+        if (scope && !contentEligibleForScope(topic, scope)) return false;
+        return true;
       })
       .map(([topicId, p]) => {
         const topic = getTopic(topicId);
@@ -229,17 +232,25 @@ export function useSubjectData(): SubjectDataLayer {
         } : null;
       })
       .filter((item): item is { topicId: string; subjectId: SubjectId; accuracy: number; dateStr: string } => item !== null);
-  }, [data, trackSubjectIds]);
+  }, [data, trackSubjectIds, activeTrack, activeExamId]);
 
   const searchAll = useCallback((query: string) => {
     // Always index metadata so unloaded subjects remain searchable by title;
     // overlay full cached topics when available for deeper matches.
+    // Scoped to enrolled track + exam profile (subjects + content tags).
+    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
     const byId = new Map<string, (typeof topics)[number]>();
+    const allow = (topic: (typeof topics)[number]) => {
+      const subjId = sectionMap[topic.sectionId]?.subjectId;
+      if (!subjId || !trackSubjectIds.has(subjId)) return false;
+      if (scope && !contentEligibleForScope(topic, scope)) return false;
+      return true;
+    };
     for (const t of topics) {
-      if (trackSubjectIds.has(sectionMap[t.sectionId]?.subjectId)) byId.set(t.id, t);
+      if (allow(t)) byId.set(t.id, t);
     }
     for (const t of getAllCachedTopics()) {
-      if (trackSubjectIds.has(sectionMap[t.sectionId]?.subjectId)) byId.set(t.id, t);
+      if (allow(t)) byId.set(t.id, t);
     }
     const searchScope = Array.from(byId.values());
     const results = searchTopics(query, searchScope);
@@ -248,7 +259,7 @@ export function useSubjectData(): SubjectDataLayer {
       if (!subjectId) return [];
       return [{ topic: r.topic, subjectId, match: r.match, type: r.type }];
     });
-  }, [trackSubjectIds, loadedSubjects]);
+  }, [trackSubjectIds, loadedSubjects, activeTrack, activeExamId]);
 
   const getTopicById = useCallback((topicId: string): Topic | undefined => {
     // Prefer cached full topic, fall back to metadata

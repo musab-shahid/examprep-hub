@@ -42,7 +42,7 @@ function ScreenRouter() {
     case 'formulas':
       return <EnrollmentRequired><FormulaVaultScreen /></EnrollmentRequired>;
     case 'flashcards':
-      return <FlashcardsScreen topicId={route.topicId} />;
+      return <EnrollmentRequired><FlashcardsScreen topicId={route.topicId} /></EnrollmentRequired>;
     case 'cloud-atlas':
       return <CloudAtlasScreen />;
     case 'practice':

@@ -1,5 +1,7 @@
 import { listExamProfiles, type TrackId } from "@/data/tracks";
 import { useData } from "@/hooks/useData";
+import { useSubjectSelection } from "@/contexts/subject-selection-context";
+import { subjectInScope } from "@/lib/track-scope";
 
 type Props = {
   trackId: TrackId;
@@ -12,6 +14,7 @@ type Props = {
  */
 export function ExamProfilePicker({ trackId, enrolled }: Props) {
   const { trackMembership, setExamProfile } = useData();
+  const { lastSelected, setGlobalSubject } = useSubjectSelection();
   const profiles = listExamProfiles(trackId).filter((p) => p.status === "available");
   if (!enrolled || profiles.length === 0) return null;
 
@@ -31,7 +34,12 @@ export function ExamProfilePicker({ trackId, enrolled }: Props) {
         value={current ?? ""}
         onChange={(e) => {
           const v = e.target.value;
-          setExamProfile(trackId, v === "" ? null : v);
+          const examId = v === "" ? null : v;
+          setExamProfile(trackId, examId);
+          // Soft-clear subject picks that fall outside the new profile
+          if (lastSelected && lastSelected !== "all" && !subjectInScope(lastSelected, { trackId, examId })) {
+            setGlobalSubject("all");
+          }
         }}
       >
         <option value="">General track (all subjects)</option>
