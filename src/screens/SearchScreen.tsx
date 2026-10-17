@@ -1,18 +1,17 @@
 import { useState, useMemo, useDeferredValue, useEffect } from 'react';
-import { Search, BookOpen, Calculator, ChevronRight, GraduationCap, AlertTriangle } from 'lucide-react';
+import { Search, BookOpen, Calculator, ChevronRight, AlertTriangle } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
+import { useSubjectData } from '@/hooks/useSubjectData';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
-import { searchTopics } from '@/lib/search';
 import { sectionMap } from '@/data/sections';
 import { subjectMap } from '@/data/subjects';
-import { topics } from '@/data/topics';
 import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
-import { ensureTopicsLoaded, getAllCachedTopics } from '@/data/lazy-data';
 import type { SubjectId } from '@/types';
 
 export function SearchScreen() {
   const { navigate } = useRouter();
+  const sd = useSubjectData();
   const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
   const [query, setQuery] = useState('');
   const deferredQuery = useDeferredValue(query);
@@ -21,7 +20,9 @@ export function SearchScreen() {
 
   const activeSubject = getActiveSubject('search');
   const isAllSubjects = activeSubject === 'all';
-  const subjectTitle = isAllSubjects ? 'All Subjects' : (subjectMap[activeSubject as string]?.title ?? 'Subject');
+  const subjectTitle = isAllSubjects
+    ? 'All subjects in your active workspace'
+    : (subjectMap[activeSubject as string]?.title ?? 'Subject');
 
   const handleSubjectChange = (value: SubjectFilterValue) => {
     setActiveSubjectForScreen('search', value);
@@ -31,85 +32,114 @@ export function SearchScreen() {
     let cancelled = false;
     setLoading(true);
     setLoadError(false);
-    ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
-      .then(() => { if (!cancelled) setLoading(false); })
-      .catch(() => { if (!cancelled) { setLoading(false); setLoadError(true); } });
-    return () => { cancelled = true; };
-  }, [isAllSubjects, activeSubject]);
+    // Scoped loader — only active track/profile subjects
+    sd.ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
+      .then(() => {
+        if (!cancelled) setLoading(false);
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setLoading(false);
+          setLoadError(true);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [isAllSubjects, activeSubject, sd.ensureTopicsLoaded]);
 
-  // Merge metadata (always) with cached full topics; include loading so scope refreshes after load
-  const searchScope = useMemo(() => {
-    const byId = new Map(topics.map((t) => [t.id, t]));
-    for (const t of getAllCachedTopics()) {
-      byId.set(t.id, t);
-    }
-    const merged = Array.from(byId.values());
-    if (isAllSubjects) return merged;
-    return merged.filter((t) => sectionMap[t.sectionId]?.subjectId === activeSubject);
-    // loading in deps forces recompute after ensureTopicsLoaded completes
-  }, [isAllSubjects, activeSubject, loading]);
-
-  const hasContent = isAllSubjects || searchScope.length > 0 || topics.some(
-    (t) => sectionMap[t.sectionId]?.subjectId === activeSubject,
-  );
-
+  // Shared learning-scope search (metadata + cache, track + profile filtered)
   const results = useMemo(() => {
-    if (loading) return [];
-    return searchTopics(deferredQuery, searchScope);
-  }, [deferredQuery, searchScope, loading]);
+    if (loading || !deferredQuery.trim()) return [];
+    const all = sd.searchAll(deferredQuery);
+    if (isAllSubjects) return all;
+    return all.filter((r) => r.subjectId === activeSubject);
+  }, [deferredQuery, loading, isAllSubjects, activeSubject, sd]);
 
-  if (loadError) return (
-    <PageContainer>
-      <Card className="p-8">
-        <EmptyState title="Failed to load" message="Something went wrong while loading topics. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
-        <div className="flex justify-center mt-4">
-          <Button onClick={() => { setLoadError(false); setLoading(true); ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId)).then(() => setLoading(false)).catch(() => { setLoading(false); setLoadError(true); }); }}>Retry</Button>
-        </div>
-      </Card>
-    </PageContainer>
-  );
+  const hasContent = isAllSubjects
+    ? sd.totalTopics > 0
+    : sd.topicsFor(activeSubject as SubjectId).length > 0 || sd.totalTopics > 0;
 
-  if (loading) return <PageContainer><LoadingSpinner label="Loading topics…" /></PageContainer>;
+  if (loadError) {
+    return (
+      <PageContainer>
+        <Card className="p-8">
+          <EmptyState
+            title="Failed to load"
+            message="Something went wrong while loading topics. Please try again."
+            icon={<AlertTriangle className="w-12 h-12" />}
+          />
+          <div className="flex justify-center mt-4">
+            <Button
+              onClick={() => {
+                setLoadError(false);
+                setLoading(true);
+                sd
+                  .ensureTopicsLoaded(isAllSubjects ? 'all' : (activeSubject as SubjectId))
+                  .then(() => setLoading(false))
+                  .catch(() => {
+                    setLoading(false);
+                    setLoadError(true);
+                  });
+              }}
+            >
+              Retry
+            </Button>
+          </div>
+        </Card>
+      </PageContainer>
+    );
+  }
+
+  if (loading) {
+    return (
+      <PageContainer>
+        <LoadingSpinner label="Loading topics…" />
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer>
       <div className="mb-3 sm:mb-6">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Search</h1>
-        <p className="text-xs text-slate-500 mt-1">Results stay inside your active track and exam profile.</p>
-        <p className="text-slate-500 mt-1">Search across topic titles, definitions, key facts, and formulas</p>
+        <p className="text-xs text-slate-500 mt-1">
+          Results stay inside your active track and exam profile — not other tracks.
+        </p>
+        <p className="text-slate-500 mt-1">Search topic titles, definitions, key facts, and formulas</p>
       </div>
 
       <div className="mb-4">
-        <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption compact />
+        <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
       </div>
 
       {!hasContent ? (
         <Card className="p-8">
           <EmptyState
-            title={`No content for ${subjectTitle} yet`}
-            message="This subject hasn't been authored yet. Try selecting a different subject or use All Subjects."
-            icon={<GraduationCap className="w-12 h-12" />}
+            title="No topics in this workspace"
+            message="Begin a track or switch workspace to search study material."
+            icon={<Search className="w-12 h-12" />}
           />
         </Card>
       ) : (
         <>
-          <div className="relative mb-3 sm:mb-6">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+          <div className="relative mb-4">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
             <input
-              type="text"
+              type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              aria-label="Search topics, facts, and formulas"
-              placeholder="Search topics, facts, formulas..."
-              className="w-full pl-12 pr-4 py-3.5 rounded-btn border border-slate-200 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-2 focus:ring-brand-100 transition-colors duration-DEFAULT"
+              placeholder={`Search ${subjectTitle}…`}
+              className="w-full pl-10 pr-4 py-3 rounded-btn border border-slate-200 bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/30 focus:border-sky-400"
+              autoComplete="off"
             />
           </div>
 
-          {query.trim() === '' ? (
+          {!deferredQuery.trim() ? (
             <Card className="p-8">
               <EmptyState
                 title="Start typing to search"
-                message="Find topics by title, definition, key facts, or formula names."
+                message="Find topics by title, definition, key facts, or formula names within your active workspace."
                 icon={<Search className="w-12 h-12" />}
               />
             </Card>
@@ -123,24 +153,32 @@ export function SearchScreen() {
             </Card>
           ) : (
             <div>
-              <p className="text-slate-500 text-sm mb-3">{results.length} result{results.length !== 1 ? 's' : ''}</p>
+              <p className="text-slate-500 text-sm mb-3">
+                {results.length} result{results.length !== 1 ? 's' : ''} · {subjectTitle}
+              </p>
               <div className="space-y-2">
                 {results.map((result, i) => {
-                  const section = sectionMap[result.sectionId];
+                  const section = sectionMap[result.topic.sectionId];
                   return (
-                    <Card key={`${i}-${result.type}-${result.topicId}`} className="p-0">
+                    <Card key={`${i}-${result.type}-${result.topic.id}`} className="p-0">
                       <button
-                        onClick={() => navigate({ screen: 'topic', topicId: result.topicId })}
+                        type="button"
+                        onClick={() => navigate({ screen: 'topic', topicId: result.topic.id })}
                         className="w-full flex items-start gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl"
                       >
                         <div className="w-9 h-9 rounded-btn bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
-                          {result.type === 'formula'
-                            ? <Calculator className="w-4 h-4 text-slate-600" />
-                            : <BookOpen className="w-4 h-4 text-slate-600" />}
+                          {result.type === 'formula' ? (
+                            <Calculator className="w-4 h-4 text-slate-600" />
+                          ) : (
+                            <BookOpen className="w-4 h-4 text-slate-600" />
+                          )}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-medium text-slate-900 text-sm">{result.title}</p>
-                          <p className="text-slate-500 text-xs mt-0.5">Section {section?.id ?? result.topicId} — {section?.title ?? "Unknown section"}</p>
+                          <p className="font-medium text-slate-900 text-sm">{result.topic.title}</p>
+                          <p className="text-slate-500 text-xs mt-0.5">
+                            {subjectMap[result.subjectId]?.title ?? result.subjectId}
+                            {section ? ` · ${section.title}` : ''}
+                          </p>
                           <p className="text-slate-600 text-sm mt-2 line-clamp-2 bg-slate-50 px-3 py-2 rounded-lg">
                             {result.match}
                           </p>

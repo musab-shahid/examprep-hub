@@ -105,3 +105,24 @@ describe('track-scope content tags', () => {
     assert.ok(list.length > 0);
   });
 });
+
+describe('contentEligible examScope', () => {
+  it('excludes content tagged only for scales outside the profile', () => {
+    assert.equal(
+      contentEligibleForScope(
+        { examScope: ['bs16'] },
+        { trackId: 'fpsc', examId: 'fpsc-met-bs17' },
+      ),
+      false,
+    );
+  });
+  it('includes content tagged bs17 under Met profile', () => {
+    assert.equal(
+      contentEligibleForScope(
+        { examScope: ['bs17'] },
+        { trackId: 'fpsc', examId: 'fpsc-met-bs17' },
+      ),
+      true,
+    );
+  });
+});

@@ -127,11 +127,16 @@ export function useSubjectData(): SubjectDataLayer {
 
   const questionsFor = useCallback((id: SubjectId | 'all'): Question[] => {
     if (id !== 'all' && !trackSubjectIds.has(id)) return [];
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
+    const filterQ = (q: Question) => {
+      if (scope && !contentEligibleForScope(q, scope)) return false;
+      return true;
+    };
     if (id === 'all') {
       const result: Question[] = [];
       for (const sid of trackSubjectIdList) {
         const cached = getCachedQuestions(sid);
-        if (cached) result.push(...cached);
+        if (cached) result.push(...cached.filter(filterQ));
       }
       return result;
     }
@@ -139,13 +144,14 @@ export function useSubjectData(): SubjectDataLayer {
     if (!cached) return [];
     const sSections = sectionsBySubject(id);
     const sSectionIds = new Set(sSections.map((s) => s.id));
-    return cached.filter((q) => sSectionIds.has(q.sectionId));
-  }, [trackSubjectIdList, trackSubjectIds]);
+    return cached.filter((q) => sSectionIds.has(q.sectionId) && filterQ(q));
+  }, [trackSubjectIdList, trackSubjectIds, activeTrack, activeExamId]);
 
   const questionCountFor = useCallback((id: SubjectId | 'all'): number => {
+    if (id !== 'all' && !trackSubjectIds.has(id)) return 0;
     if (id === 'all') return trackSections.reduce((sum, s) => sum + s.questionCount, 0);
     return sectionsBySubject(id).reduce((sum, s) => sum + s.questionCount, 0);
-  }, [trackSections]);
+  }, [trackSections, trackSubjectIds]);
 
   const sectionsFor = useCallback((id: SubjectId | 'all'): Section[] => {
     if (id === 'all') return trackSections;
@@ -286,8 +292,11 @@ export function useSubjectData(): SubjectDataLayer {
   const questionsByTopicId = useCallback((topicId: string): Question[] => {
     const topic = getTopicById(topicId);
     if (!topic) return [];
-    return questionsByTopic(topicId);
-  }, [getTopicById]);
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
+    const list = questionsByTopic(topicId);
+    if (!scope) return list;
+    return list.filter((q) => contentEligibleForScope(q, scope));
+  }, [getTopicById, activeTrack, activeExamId]);
 
   const ensureTopicsLoaded = useCallback(async (id: SubjectId | 'all') => {
     if (id === 'all') {
@@ -304,9 +313,10 @@ export function useSubjectData(): SubjectDataLayer {
       }
       return next;
     });
-  }, [trackSubjectIdList]);
+  }, [trackSubjectIdList, trackSubjectIds]);
 
   const ensureQuestionsLoaded = useCallback(async (id: SubjectId | 'all') => {
+    if (id !== 'all' && !trackSubjectIds.has(id)) return;
     if (id === 'all') {
       await Promise.all(trackSubjectIdList.map((sid) => loadSubjectQuestions(sid)));
     } else {
@@ -321,7 +331,7 @@ export function useSubjectData(): SubjectDataLayer {
       }
       return next;
     });
-  }, [trackSubjectIdList]);
+  }, [trackSubjectIdList, trackSubjectIds]);
 
   const isLoaded = useCallback((id: SubjectId | 'all') => {
     if (id === 'all') {
