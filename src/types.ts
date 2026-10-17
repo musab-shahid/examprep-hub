@@ -445,6 +445,35 @@ export interface QuizHistoryEntry {
   difficultyFilter?: DifficultyFilter;
 }
 
+
+/** How an enrollment was created */
+export type TrackEnrollmentSource = 'explicit' | 'legacy-progress';
+
+/** Per-track membership record inside AppData.trackMembership */
+export interface TrackEnrollmentRecord {
+  /** ISO timestamp for explicit enroll; null when unknown (legacy migration) */
+  enrolledAt: string | null;
+  source: TrackEnrollmentSource;
+  /** Last meaningful open of this enrolled track */
+  lastOpenedAt: string | null;
+  /**
+   * Selected exam/post profile within this track, or null for general track scope.
+   * Profile ids come from the track registry (not free-form bs16/bs17 alone).
+   */
+  activeExamId: string | null;
+}
+
+/**
+ * Versioned track membership — enrollments + single active focus.
+ * Canonical focus lives here only (not in subject-selection context).
+ */
+export interface TrackMembershipState {
+  schemaVersion: 1;
+  enrollments: Partial<Record<string, TrackEnrollmentRecord>>;
+  /** Must be an enrolled track id, or null */
+  activeTrackId: string | null;
+}
+
 export interface AppData {
   studiedTopics: string[];
   topicProgress: Record<string, TopicProgress>;
@@ -453,4 +482,6 @@ export interface AppData {
   /** @deprecated Prefer topicProgress.nextReview. Kept for load migration / rare orphans. */
   revisionDates: Record<string, string>;
   lastOpenedTopic: string;
+  /** Track enrollments + active focus (schema v1). Optional until migrated. */
+  trackMembership?: TrackMembershipState;
 }

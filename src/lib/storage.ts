@@ -1,4 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
+import { ensureTrackMembership, normalizeTrackMembership, emptyTrackMembership } from '@/lib/track-membership';
 import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { updateTopicAbility, getTopicAbility, updateQuestionStrength } from '@/lib/adaptive-select';
 import { resolveReviewStage, reviewDateForStage, scheduleAfterReview } from '@/lib/spaced-repetition';
@@ -52,6 +53,7 @@ const emptyData: AppData = {
   quizHistory: [],
   revisionDates: {},
   lastOpenedTopic: '',
+  trackMembership: emptyTrackMembership(),
 };
 
 /** Debounced write so rapid markStudied/recordQuiz bursts don't thrash localStorage */
@@ -92,8 +94,9 @@ function sanitizeForSave(data: AppData): AppData {
   for (const [id, prog] of Object.entries(data.topicProgress ?? {})) {
     topicProgress[id] = sanitizeTopicProgress(prog);
   }
+  const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());
   // revisionDates is legacy read-only; never persist a live mirror
-  return { ...data, topicProgress, revisionDates: {} };
+  return { ...data, topicProgress, revisionDates: {}, trackMembership };
 }
 
 function flushSave(): void {
@@ -275,6 +278,21 @@ function normalizeLoaded(parsed: AppData): AppData {
   const qMig = migrateQuestionResults(merged);
   merged = qMig.data;
   if (qMig.changed) migrated = true;
+
+  // Track membership: normalize existing or migrate from evidence (never default-enroll FPSC)
+  let legacyActive: string | null = null;
+  try {
+    const rawSel = localStorage.getItem('examprep-subject-selection');
+    if (rawSel) {
+      const parsed = JSON.parse(rawSel) as { activeTrack?: string };
+      if (parsed?.activeTrack === 'fpsc' || parsed?.activeTrack === 'hat') {
+        legacyActive = parsed.activeTrack;
+      }
+    }
+  } catch { /* ignore */ }
+  const mem = ensureTrackMembership(merged, { legacyActiveTrack: legacyActive });
+  merged = mem.data;
+  if (mem.changed) migrated = true;
 
   if (migrated) {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(merged))); } catch { /* ignore */ }

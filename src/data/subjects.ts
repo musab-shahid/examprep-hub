@@ -1,8 +1,9 @@
 import type { Subject } from '@/types';
+import type { TrackId } from '@/data/tracks';
 import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, Trophy, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
-export type ExamTrack = 'fpsc' | 'hat';
+export type ExamTrack = TrackId;
 
 export interface ExamTrackMeta {
   id: ExamTrack;
