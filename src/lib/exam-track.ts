@@ -19,8 +19,8 @@ import {
   examTracks as dataExamTracks,
   subjectsByTrack as dataSubjectsByTrack,
   type ExamTrack as DataExamTrack,
-} from '@/data/subjects';
-import type { SubjectId } from '@/types';
+} from '../data/subjects.ts';
+import type { SubjectId } from '../types.ts';
 
 // ── Public types ──
 

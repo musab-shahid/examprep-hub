@@ -1,5 +1,7 @@
 import type { Subject } from '@/types';
 import type { TrackId } from '@/data/tracks';
+import { listTrackDefinitions } from '@/data/tracks';
+import { trackIcon } from '@/lib/track-chrome';
 import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, Trophy, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
@@ -17,26 +19,16 @@ export interface ExamTrackMeta {
   accent: string;
 }
 
-export const examTracks: ExamTrackMeta[] = [
-  {
-    id: 'fpsc',
-    title: 'FPSC Exam',
-    shortTitle: 'FPSC',
-    description: 'Federal Public Service Commission — subject-based examination',
-    icon: FileText,
-    color: 'sky',
-    accent: 'from-sky-500 to-cyan-600', // matches getTrackStyle('fpsc').gradient
-  },
-  {
-    id: 'hat',
-    title: 'HAT Exam',
-    shortTitle: 'HAT',
-    description: 'Higher Education Aptitude Test — reasoning-based examination',
-    icon: Trophy,
-    color: 'indigo',
-    accent: 'from-indigo-500 to-blue-600', // matches getTrackStyle('hat').gradient
-  },
-];
+/** Derived from tracks.ts registry — do not hard-code a parallel list. */
+export const examTracks: ExamTrackMeta[] = listTrackDefinitions().map((d) => ({
+  id: d.id,
+  title: d.title,
+  shortTitle: d.shortTitle,
+  description: d.description,
+  icon: d.iconKey === 'GraduationCap' ? Trophy : FileText,
+  color: d.accent,
+  accent: d.accent === 'indigo' ? 'from-indigo-500 to-blue-600' : 'from-sky-500 to-cyan-600',
+}));
 
 export const examTrackMap: Record<ExamTrack, ExamTrackMeta> = Object.fromEntries(
   examTracks.map((t) => [t.id, t])

@@ -17,6 +17,7 @@ import { SearchScreen } from '@/screens/SearchScreen';
 import { SettingsScreen } from '@/screens/SettingsScreen';
 import { HatLandingScreen } from '@/screens/hat/HatLandingScreen';
 import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
+import { TrackOverviewScreen } from '@/screens/TrackOverviewScreen';
 import { EnrollmentRequired } from '@/components/track/EnrollmentRequired';
 import { TopicAccessGate, SectionAccessGate } from '@/components/track/ResourceAccessGate';
 import { isTrackId, getTrackDefinition } from '@/data/tracks';
@@ -88,8 +89,7 @@ function ScreenRouter() {
       const def = getTrackDefinition(route.trackId);
       if (def.landingVariant === 'hat') return <HatLandingScreen />;
       if (def.landingVariant === 'fpsc') return <FpscLandingScreen />;
-      // Generic future tracks → dashboard until a shared overview exists
-      return <DashboardScreen />;
+      return <TrackOverviewScreen trackId={route.trackId} />;
     }
     default:
       return <DashboardScreen />;
