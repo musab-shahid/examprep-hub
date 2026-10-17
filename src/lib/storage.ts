@@ -1,5 +1,5 @@
 import type { AppData, TopicProgress, Question, DifficultyFilter, PracticeMode } from '@/types';
-import { ensureTrackMembership, normalizeTrackMembership, emptyTrackMembership } from '@/lib/track-membership';
+import { ensureTrackMembership, normalizeTrackMembership, emptyTrackMembership, TRACK_MEMBERSHIP_SCHEMA_VERSION } from '@/lib/track-membership';
 import { STORAGE_KEYS, getEffectiveQuizStats, parseLocalDate, RECENT_QUIZ_SESSION_WINDOW } from '@/lib/constants';
 import { updateTopicAbility, getTopicAbility, updateQuestionStrength } from '@/lib/adaptive-select';
 import { resolveReviewStage, reviewDateForStage, scheduleAfterReview } from '@/lib/spaced-repetition';
@@ -94,27 +94,37 @@ function sanitizeForSave(data: AppData): AppData {
   for (const [id, prog] of Object.entries(data.topicProgress ?? {})) {
     topicProgress[id] = sanitizeTopicProgress(prog);
   }
-  const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());
+  // Never silently downgrade an unsupported future membership schema
+  const rawMem = data.trackMembership;
+  const trackMembership =
+    rawMem &&
+    typeof rawMem === 'object' &&
+    typeof (rawMem as { schemaVersion?: unknown }).schemaVersion === 'number' &&
+    (rawMem as { schemaVersion: number }).schemaVersion > TRACK_MEMBERSHIP_SCHEMA_VERSION
+      ? rawMem
+      : normalizeTrackMembership(rawMem ?? emptyTrackMembership());
   // revisionDates is legacy read-only; never persist a live mirror
   return { ...data, topicProgress, revisionDates: {}, trackMembership };
 }
 
-function flushSave(): void {
-  if (pendingData === null) return;
+/** @returns false if write failed (storage full/denied) */
+function flushSave(): boolean {
+  if (pendingData === null) return true;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
     pendingData = null;
     saveTimer = null;
+    return true;
   } catch {
     lastStorageWarning =
       'Could not save progress (browser storage may be full). Free space or export a backup — your latest changes may be lost on reload.';
-    // Keep pendingData and re-arm a delayed retry; next saveData() still merges on top
     saveTimer = null;
     if (typeof window !== 'undefined') {
       saveTimer = window.setTimeout(() => {
         flushSave();
       }, 2000);
     }
+    return false;
   }
 }
 
@@ -367,12 +377,13 @@ export function saveData(data: AppData): void {
 }
 
 /** Force any pending debounced write immediately (e.g. before unload). */
-export function flushPendingSave(): void {
+/** Force any pending debounced write immediately. @returns false if storage write failed. */
+export function flushPendingSave(): boolean {
   if (saveTimer !== null) {
     clearTimeout(saveTimer);
     saveTimer = null;
   }
-  flushSave();
+  return flushSave();
 }
 
 export function resetData(): void {

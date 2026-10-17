@@ -233,3 +233,19 @@ describe('membership schema stability', () => {
     assert.equal((r.data.trackMembership as { schemaVersion: number }).schemaVersion, 99);
   });
 });
+
+describe('enrollTrack profile stability', () => {
+  it('focusing an already-enrolled track does not reset activeExamId', () => {
+    let s = emptyTrackMembership();
+    const a = enrollTrack(s, 'fpsc');
+    assert.ok(a.ok);
+    if (!a.ok) return;
+    s = setActiveExamProfile(a.state, 'fpsc', 'fpsc-met-bs17');
+    assert.equal(s.enrollments.fpsc?.activeExamId, 'fpsc-met-bs17');
+    const again = enrollTrack(s, 'fpsc', { setActive: true });
+    assert.ok(again.ok);
+    if (!again.ok) return;
+    assert.equal(again.state.enrollments.fpsc?.activeExamId, 'fpsc-met-bs17');
+    assert.equal(again.created, false);
+  });
+});

@@ -88,12 +88,17 @@ export function DataProvider({ children }: { children: ReactNode }) {
     } catch { /* ignore */ }
   }, []);
 
-  /** Compute next state from latest dataRef, then setState with the concrete value (no updater side effects). */
+  /**
+   * Membership mutations: compute pure next state from dataRef, apply, then flush persistence.
+   * Success means accepted in memory AND write succeeded (or nothing pending).
+   */
   const enrollInTrack = useCallback((trackId: TrackId) => {
     const r = withEnrollAndFocus(dataRef.current, trackId);
     if (!r.ok) return { ok: false as const, reason: r.reason };
     setData(r.data);
     dataRef.current = r.data;
+    saveData(r.data);
+    if (!flushPendingSave()) return { ok: false as const, reason: 'persist-failed' };
     return { ok: true as const };
   }, []);
 
@@ -102,6 +107,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
     if (!r.ok) return { ok: false as const, reason: r.reason };
     setData(r.data);
     dataRef.current = r.data;
+    saveData(r.data);
+    if (!flushPendingSave()) return { ok: false as const, reason: 'persist-failed' };
     return { ok: true as const };
   }, []);
 
@@ -112,6 +119,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
     const next = { ...dataRef.current, trackMembership: r.state };
     setData(next);
     dataRef.current = next;
+    saveData(next);
+    if (!flushPendingSave()) return { ok: false as const, reason: 'persist-failed' };
     return { ok: true as const };
   }, []);
 
@@ -121,6 +130,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
     const next = { ...dataRef.current, trackMembership: setActiveExamProfilePure(mem, trackId, examId) };
     setData(next);
     dataRef.current = next;
+    saveData(next);
+    flushPendingSave();
   }, []);
 
   const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());

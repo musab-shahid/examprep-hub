@@ -2,7 +2,6 @@ import { useMemo, useState, useEffect, useCallback } from 'react';
 import { useData } from '@/hooks/useData';
 import { subjectsForScope, contentEligibleForScope } from '@/lib/track-scope';
 import { isTrackId } from '@/data/tracks';
-import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { sectionMap, sectionsBySubject, sections } from '@/data/sections';
 import { topics, topicsBySubject, getTopic } from '@/data/topics';
 import { questionsByTopic } from '@/data/questions';
@@ -68,16 +67,17 @@ export interface SubjectDataLayer {
 
 export function useSubjectData(): SubjectDataLayer {
   const { data, trackMembership } = useData();
-  const { activeTrack } = useSubjectSelection();
+  // Canonical learning focus — never subject-selection.activeTrack
+  const focusId = trackMembership.activeTrackId;
+  const activeTrack = focusId && isTrackId(focusId) ? focusId : null;
+  const activeExamId = activeTrack
+    ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null)
+    : null;
   const [loadedSubjects, setLoadedSubjects] = useState<Set<string>>(new Set());
   const [loadedQuestionSubjects, setLoadedQuestionSubjects] = useState<Set<string>>(new Set());
 
-  const activeExamId = isTrackId(activeTrack)
-    ? (trackMembership.enrollments[activeTrack]?.activeExamId ?? null)
-    : null;
-
   const trackSubjectIds = useMemo(() => {
-    if (!isTrackId(activeTrack)) return new Set<string>();
+    if (!activeTrack) return new Set<string>();
     return new Set(subjectsForScope({ trackId: activeTrack, examId: activeExamId }).map((s) => s.id));
   }, [activeTrack, activeExamId]);
 
@@ -87,7 +87,7 @@ export function useSubjectData(): SubjectDataLayer {
 
   const trackTopics = useMemo(() => {
     const trackSectionIds = new Set(trackSections.map((s) => s.id));
-    if (!isTrackId(activeTrack)) return [];
+    if (!activeTrack) return [];
     const scope = { trackId: activeTrack, examId: activeExamId };
     return topics.filter((t) => {
       if (!trackSectionIds.has(t.sectionId)) return false;
@@ -119,7 +119,7 @@ export function useSubjectData(): SubjectDataLayer {
   const topicsFor = useCallback((id: SubjectId | 'all'): Topic[] => {
     if (id === 'all') return trackTopics;
     if (!trackSubjectIds.has(id)) return [];
-    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
     const list = topicsBySubject(id);
     if (!scope) return list;
     return list.filter((topic) => contentEligibleForScope(topic, scope));
@@ -220,7 +220,7 @@ export function useSubjectData(): SubjectDataLayer {
   const revisionQueueAll = useCallback(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
     return Object.entries(data.topicProgress)
       .filter(([topicId, p]) => {
         if (!p.nextReview) return false;
@@ -249,7 +249,7 @@ export function useSubjectData(): SubjectDataLayer {
     // Always index metadata so unloaded subjects remain searchable by title;
     // overlay full cached topics when available for deeper matches.
     // Scoped to enrolled track + exam profile (subjects + content tags).
-    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
     const byId = new Map<string, (typeof topics)[number]>();
     const allow = (topic: (typeof topics)[number]) => {
       const subjId = sectionMap[topic.sectionId]?.subjectId;
@@ -278,7 +278,7 @@ export function useSubjectData(): SubjectDataLayer {
     if (!topic) return undefined;
     const subjId = sectionMap[topic.sectionId]?.subjectId;
     if (!subjId || !trackSubjectIds.has(subjId)) return undefined;
-    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    const scope = activeTrack ? { trackId: activeTrack, examId: activeExamId } : null;
     if (scope && !contentEligibleForScope(topic, scope)) return undefined;
     return topic;
   }, [trackSubjectIds, activeTrack, activeExamId]);

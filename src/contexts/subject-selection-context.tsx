@@ -153,24 +153,33 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
     };
   }, []);
 
-  const activePrefs = prefsFor(state, state.activeTrack);
+  // UI track label follows membership when enrolled; otherwise local state (not enrollment).
+  const derivedActiveTrack: ExamTrackId =
+    trackMembership.activeTrackId && isTrackId(trackMembership.activeTrackId)
+      ? trackMembership.activeTrackId
+      : state.activeTrack;
+
+  const activePrefs = prefsFor(state, derivedActiveTrack);
 
   const getActiveSubject = useCallback(
     (screen: StageScreen): SubjectSelection => {
-      const prefs = prefsFor(state, state.activeTrack);
+      const prefs = prefsFor(state, derivedActiveTrack);
       const explicit = prefs.perScreen[screen];
       if (explicit !== undefined) {
-        if (isValidForTrack(explicit, state.activeTrack)) return explicit;
+        if (isValidForTrack(explicit, derivedActiveTrack)) return explicit;
         return 'all';
       }
       return prefs.prefersAll ? 'all' : prefs.lastSelected;
     },
-    [state],
+    [state, derivedActiveTrack],
   );
 
   const setActiveSubjectForScreen = useCallback((screen: StageScreen, value: SubjectSelection) => {
     setState((prev) => {
-      const track = prev.activeTrack;
+      const track =
+        trackMembership.activeTrackId && isTrackId(trackMembership.activeTrackId)
+          ? trackMembership.activeTrackId
+          : prev.activeTrack;
       const cur = prefsFor(prev, track);
       return {
         ...prev,
@@ -184,11 +193,14 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
         },
       };
     });
-  }, []);
+  }, [trackMembership.activeTrackId]);
 
   const setGlobalSubject = useCallback((value: SubjectSelection) => {
     setState((prev) => {
-      const track = prev.activeTrack;
+      const track =
+        trackMembership.activeTrackId && isTrackId(trackMembership.activeTrackId)
+          ? trackMembership.activeTrackId
+          : prev.activeTrack;
       const cur = prefsFor(prev, track);
       const newPerScreen: Record<string, SubjectSelection> = {};
       for (const s of STAGE_SCREENS) newPerScreen[s] = value;
@@ -204,7 +216,7 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
         },
       };
     });
-  }, []);
+  }, [trackMembership.activeTrackId]);
 
   /**
    * Switch UI subject context to another track.
