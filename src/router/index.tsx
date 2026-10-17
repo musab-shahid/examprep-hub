@@ -8,6 +8,7 @@ import { createContext, useContext, useState, useCallback, useRef, useEffect, ty
 import { getTopic } from '@/data/topics';
 import { resolveScreen } from './resolveScreen';
 import { routeToPath, pathToRoute, breadcrumbForRoute } from './paths';
+import { isTrackId } from '@/data/tracks';
 
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
@@ -95,10 +96,10 @@ function buildRoute(options: NavigateOptions): Route {
     case 'hat': return { screen: 'hat' };
     case 'fpsc': return { screen: 'fpsc' };
     case 'track':
-      if (options.trackId === 'hat' || options.trackId === 'fpsc') {
+      if (options.trackId && isTrackId(options.trackId)) {
         return { screen: 'track', trackId: options.trackId };
       }
-      // Unknown id → home (catalog comes later); never silent FPSC
+      // Unknown id → home; never silent FPSC
       return { screen: 'home' };
     default: return { screen: 'home' };
   }

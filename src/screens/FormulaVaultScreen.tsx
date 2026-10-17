@@ -7,6 +7,7 @@ import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { getFormulasForSubject, refreshFormulaVault } from '@/data/formulas';
 import { subjectMap } from '@/data/subjects';
+import { getTrackForSubject } from '@/lib/exam-track';
 import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
@@ -24,7 +25,7 @@ const FORMULA_PRIORITY: SubjectId[] = [
 export function FormulaVaultScreen() {
   const { navigate } = useRouter();
   const sd = useSubjectData();
-  const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
+  const { getActiveSubject, setActiveSubjectForScreen, activeTrack } = useSubjectSelection();
   const [expanded, setExpanded] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
@@ -47,8 +48,9 @@ export function FormulaVaultScreen() {
     async function load() {
       try {
         if (isAllSubjects) {
-          // Show useful content ASAP; one slow subject must not brick the whole vault
-          await Promise.allSettled(FORMULA_PRIORITY.map((id) => ensureTopicsLoaded(id)));
+          // Priority subjects limited to the active track (no cross-track HAT/FPSC leak)
+          const priority = FORMULA_PRIORITY.filter((id) => getTrackForSubject(id) === activeTrack);
+          await Promise.allSettled(priority.map((id) => ensureTopicsLoaded(id)));
           if (cancelled) return;
           setVaultTick((n) => n + 1);
           setLoading(false);
@@ -71,12 +73,13 @@ export function FormulaVaultScreen() {
 
     void load();
     return () => { cancelled = true; };
-  }, [isAllSubjects, activeSubject, ensureTopicsLoaded]);
+  }, [isAllSubjects, activeSubject, ensureTopicsLoaded, activeTrack]);
 
   const scopedFormulas = useMemo(() => {
-    if (isAllSubjects) return refreshFormulaVault();
-    return getFormulasForSubject(activeSubject as SubjectId);
-  }, [isAllSubjects, activeSubject, vaultTick]);
+    // Always respect active track / exam profile subject set (never global vault dump)
+    void vaultTick;
+    return sd.formulasFor(isAllSubjects ? 'all' : (activeSubject as SubjectId));
+  }, [isAllSubjects, activeSubject, vaultTick, sd]);
 
   if (loadError && scopedFormulas.length === 0) return (
     <PageContainer>

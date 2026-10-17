@@ -114,3 +114,57 @@ describe('Phase 5 membership invariants', () => {
     );
   });
 });
+
+import { canAccessSubject } from '../learning-scope.ts';
+
+describe('resource access', () => {
+  it('HAT-only enrollment cannot access fpsc subject', () => {
+    const data: AppData = {
+      studiedTopics: [],
+      topicProgress: {},
+      questionResults: {},
+      quizHistory: [],
+      revisionDates: {},
+      lastOpenedTopic: '',
+      trackMembership: {
+        schemaVersion: 1,
+        enrollments: {
+          hat: {
+            enrolledAt: '2026-01-01T00:00:00.000Z',
+            source: 'explicit',
+            lastOpenedAt: null,
+            activeExamId: null,
+          },
+        },
+        activeTrackId: 'hat',
+      },
+    };
+    const r = canAccessSubject(data, 'meteo-climatology');
+    assert.equal(r.ok, false);
+    if (!r.ok) assert.equal(r.reason, 'track-not-enrolled');
+  });
+
+  it('FPSC enrollment can access meteo', () => {
+    const data: AppData = {
+      studiedTopics: [],
+      topicProgress: {},
+      questionResults: {},
+      quizHistory: [],
+      revisionDates: {},
+      lastOpenedTopic: '',
+      trackMembership: {
+        schemaVersion: 1,
+        enrollments: {
+          fpsc: {
+            enrolledAt: '2026-01-01T00:00:00.000Z',
+            source: 'explicit',
+            lastOpenedAt: null,
+            activeExamId: null,
+          },
+        },
+        activeTrackId: 'fpsc',
+      },
+    };
+    assert.equal(canAccessSubject(data, 'meteo-climatology').ok, true);
+  });
+});

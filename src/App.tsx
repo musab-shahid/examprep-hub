@@ -18,6 +18,8 @@ import { SettingsScreen } from '@/screens/SettingsScreen';
 import { HatLandingScreen } from '@/screens/hat/HatLandingScreen';
 import { FpscLandingScreen } from '@/screens/fpsc/FpscLandingScreen';
 import { EnrollmentRequired } from '@/components/track/EnrollmentRequired';
+import { TopicAccessGate, SectionAccessGate } from '@/components/track/ResourceAccessGate';
+import { isTrackId, getTrackDefinition } from '@/data/tracks';
 import { InstallPrompt } from '@/components/InstallPrompt';
 import { UpdatePrompt } from '@/components/UpdatePrompt';
 import { OfflineIndicator } from '@/components/OfflineIndicator';
@@ -36,9 +38,17 @@ function ScreenRouter() {
     case 'learn':
       return <EnrollmentRequired><StudyScreen /></EnrollmentRequired>;
     case 'section':
-      return <EnrollmentRequired><SectionScreen sectionId={route.sectionId} /></EnrollmentRequired>;
+      return (
+        <SectionAccessGate sectionId={route.sectionId}>
+          <SectionScreen sectionId={route.sectionId} />
+        </SectionAccessGate>
+      );
     case 'topic':
-      return <EnrollmentRequired><TopicScreen topicId={route.topicId} /></EnrollmentRequired>;
+      return (
+        <TopicAccessGate topicId={route.topicId}>
+          <TopicScreen topicId={route.topicId} />
+        </TopicAccessGate>
+      );
     case 'formulas':
       return <EnrollmentRequired><FormulaVaultScreen /></EnrollmentRequired>;
     case 'flashcards':
@@ -73,8 +83,14 @@ function ScreenRouter() {
       return <HatLandingScreen />;
     case 'fpsc':
       return <FpscLandingScreen />;
-    case 'track':
-      return route.trackId === 'hat' ? <HatLandingScreen /> : route.trackId === 'fpsc' ? <FpscLandingScreen /> : <DashboardScreen />;
+    case 'track': {
+      if (!isTrackId(route.trackId)) return <DashboardScreen />;
+      const def = getTrackDefinition(route.trackId);
+      if (def.landingVariant === 'hat') return <HatLandingScreen />;
+      if (def.landingVariant === 'fpsc') return <FpscLandingScreen />;
+      // Generic future tracks → dashboard until a shared overview exists
+      return <DashboardScreen />;
+    }
     default:
       return <DashboardScreen />;
   }

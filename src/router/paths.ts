@@ -3,6 +3,7 @@
  * Live quiz parameters stay out of the URL (storage-backed resume).
  */
 import { getTopic } from '../data/topics';
+import { isTrackId } from '../data/tracks';
 import { sectionMap } from '../data/sections';
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
@@ -131,7 +132,7 @@ export function pathToRoute(pathname: string): PathRoute {
     case 'fpsc':
       return { screen: 'fpsc' };
     case 'track':
-      if (a === 'hat' || a === 'fpsc') return { screen: 'track', trackId: a };
+      if (a && isTrackId(a)) return { screen: 'track', trackId: a };
       return { screen: 'home' };
     default:
       return { screen: 'home' };

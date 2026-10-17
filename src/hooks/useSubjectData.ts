@@ -118,10 +118,15 @@ export function useSubjectData(): SubjectDataLayer {
 
   const topicsFor = useCallback((id: SubjectId | 'all'): Topic[] => {
     if (id === 'all') return trackTopics;
-    return topicsBySubject(id);
-  }, [trackTopics]);
+    if (!trackSubjectIds.has(id)) return [];
+    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    const list = topicsBySubject(id);
+    if (!scope) return list;
+    return list.filter((topic) => contentEligibleForScope(topic, scope));
+  }, [trackTopics, trackSubjectIds, activeTrack, activeExamId]);
 
   const questionsFor = useCallback((id: SubjectId | 'all'): Question[] => {
+    if (id !== 'all' && !trackSubjectIds.has(id)) return [];
     if (id === 'all') {
       const result: Question[] = [];
       for (const sid of trackSubjectIdList) {
@@ -135,7 +140,7 @@ export function useSubjectData(): SubjectDataLayer {
     const sSections = sectionsBySubject(id);
     const sSectionIds = new Set(sSections.map((s) => s.id));
     return cached.filter((q) => sSectionIds.has(q.sectionId));
-  }, [trackSubjectIdList]);
+  }, [trackSubjectIdList, trackSubjectIds]);
 
   const questionCountFor = useCallback((id: SubjectId | 'all'): number => {
     if (id === 'all') return trackSections.reduce((sum, s) => sum + s.questionCount, 0);
@@ -203,8 +208,12 @@ export function useSubjectData(): SubjectDataLayer {
   }, [trackSubjectIdList]);
 
   const formulasFor = useCallback((id: SubjectId | 'all') => {
+    if (id === 'all') {
+      return trackSubjectIdList.flatMap((sid) => getFormulasForSubject(sid));
+    }
+    if (!trackSubjectIds.has(id)) return [];
     return getFormulasForSubject(id);
-  }, []);
+  }, [trackSubjectIdList, trackSubjectIds]);
 
   const revisionQueueAll = useCallback(() => {
     const today = new Date();

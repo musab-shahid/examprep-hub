@@ -81,7 +81,15 @@ export function getExamTracks(): TrackChromeMeta[] {
 }
 
 export function getTrackMeta(track: ExamTrackId): TrackChromeMeta {
-  return TRACK_META[track] ?? TRACK_META.fpsc;
+  if (TRACK_META[track]) return TRACK_META[track];
+  // Unknown id — neutral chrome, never pretend to be FPSC
+  return {
+    id: track,
+    label: String(track).toUpperCase(),
+    productName: String(track).toUpperCase(),
+    landingScreen: 'fpsc',
+    accent: 'sky',
+  };
 }
 
 // ── Subject ↔ track resolution ──
@@ -92,11 +100,13 @@ export function getTrackMeta(track: ExamTrackId): TrackChromeMeta {
  */
 export function getTrackForSubject(subjectId: SubjectId | string): ExamTrackId {
   const sub = subjects.find((s) => s.id === subjectId);
-  if (sub && 'track' in sub && (sub.track === 'hat' || sub.track === 'fpsc')) {
+  if (sub?.track === 'hat' || sub?.track === 'fpsc') {
     return sub.track as ExamTrackId;
   }
-  // Legacy fallback only — data should already tag every subject with track
+  // Legacy id patterns only — do not invent FPSC for arbitrary strings
   if (subjectId === 'hat' || String(subjectId).startsWith('hat-')) return 'hat';
+  if (sub) return 'fpsc';
+  // Unknown subject: still return fpsc for type compatibility, callers should verify subject exists
   return 'fpsc';
 }
 
