@@ -20,10 +20,12 @@ export function subjectsForScope(input: ScopeInput): Subject[] {
   const { trackId, examId = null } = input;
   if (!isTrackId(trackId)) return [];
   const all = subjectsByTrack(trackId);
-  if (!examId) return all;
+  // null / undefined examId = general preparation across the whole track
+  if (examId == null || examId === '') return all;
 
   const profile = getExamProfile(trackId, examId);
-  if (!profile) return all;
+  // Invalid profile id must never broaden to the full track
+  if (!profile) return [];
 
   const required = new Set(profile.requiredSubjectIds);
   const optional = new Set(profile.optionalSubjectIds ?? []);
@@ -54,6 +56,10 @@ export function contentEligibleForScope(
   tags: ContentTag | null | undefined,
   input: ScopeInput,
 ): boolean {
+  if (input.examId != null && input.examId !== '') {
+    const profile = getExamProfile(input.trackId, input.examId);
+    if (!profile) return false;
+  }
   const profile = input.examId ? getExamProfile(input.trackId, input.examId) : null;
   const scales = profile?.contentScope?.scales;
   if (!scales || scales.length === 0) return true;

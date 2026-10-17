@@ -7,6 +7,8 @@ import {
   migrateTrackMembership,
   normalizeTrackMembership,
   setActiveExamProfile,
+  ensureTrackMembership,
+  TRACK_MEMBERSHIP_SCHEMA_VERSION,
 } from '../track-membership.ts';
 import { subjectsForScope, contentEligibleForScope } from '../track-scope.ts';
 import { assertCanStudy } from '../track-access.ts';
@@ -185,5 +187,49 @@ describe('leaveTrack', () => {
     assert.equal(left.state.enrollments.fpsc, undefined);
     assert.ok(left.state.enrollments.hat);
     assert.equal(left.state.activeTrackId, 'hat');
+  });
+});
+
+describe('membership schema stability', () => {
+  it('keeps valid empty v1 membership empty across ensureTrackMembership', () => {
+    const data: AppData = {
+      studiedTopics: ['meteo-origin-evolution'],
+      topicProgress: {},
+      questionResults: {},
+      quizHistory: [],
+      revisionDates: {},
+      lastOpenedTopic: '',
+      trackMembership: {
+        schemaVersion: TRACK_MEMBERSHIP_SCHEMA_VERSION,
+        enrollments: {},
+        activeTrackId: null,
+      },
+    };
+    const once = ensureTrackMembership(data);
+    const twice = ensureTrackMembership(once.data);
+    assert.equal(Object.keys(twice.data.trackMembership!.enrollments).length, 0);
+    assert.equal(twice.data.trackMembership!.activeTrackId, null);
+    assert.equal(twice.changed, false);
+  });
+
+  it('does not downgrade unsupported future schema', () => {
+    const future = {
+      schemaVersion: 99,
+      enrollments: { fpsc: { enrolledAt: 'x', source: 'explicit', lastOpenedAt: null, activeExamId: null } },
+      activeTrackId: 'fpsc',
+      extraFutureField: true,
+    };
+    const data: AppData = {
+      studiedTopics: [],
+      topicProgress: {},
+      questionResults: {},
+      quizHistory: [],
+      revisionDates: {},
+      lastOpenedTopic: '',
+      trackMembership: future as AppData['trackMembership'],
+    };
+    const r = ensureTrackMembership(data);
+    assert.equal(r.changed, false);
+    assert.equal((r.data.trackMembership as { schemaVersion: number }).schemaVersion, 99);
   });
 });

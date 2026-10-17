@@ -149,8 +149,9 @@ export function useSubjectData(): SubjectDataLayer {
 
   const sectionsFor = useCallback((id: SubjectId | 'all'): Section[] => {
     if (id === 'all') return trackSections;
+    if (!trackSubjectIds.has(id)) return [];
     return sectionsBySubject(id);
-  }, [trackSections]);
+  }, [trackSections, trackSubjectIds]);
 
   const statsFor = useCallback((id: SubjectId | 'all'): SubjectStats => {
     const sTopics = topicsFor(id);
@@ -272,12 +273,21 @@ export function useSubjectData(): SubjectDataLayer {
   }, [trackSubjectIds, loadedSubjects, activeTrack, activeExamId]);
 
   const getTopicById = useCallback((topicId: string): Topic | undefined => {
-    // Prefer cached full topic, fall back to metadata
     const cached = getTopicFromCache(topicId);
-    return cached ?? getTopic(topicId);
-  }, []);
+    const topic = cached ?? getTopic(topicId);
+    if (!topic) return undefined;
+    const subjId = sectionMap[topic.sectionId]?.subjectId;
+    if (!subjId || !trackSubjectIds.has(subjId)) return undefined;
+    const scope = isTrackId(activeTrack) ? { trackId: activeTrack, examId: activeExamId } : null;
+    if (scope && !contentEligibleForScope(topic, scope)) return undefined;
+    return topic;
+  }, [trackSubjectIds, activeTrack, activeExamId]);
 
-  const questionsByTopicId = useCallback((topicId: string): Question[] => questionsByTopic(topicId), []);
+  const questionsByTopicId = useCallback((topicId: string): Question[] => {
+    const topic = getTopicById(topicId);
+    if (!topic) return [];
+    return questionsByTopic(topicId);
+  }, [getTopicById]);
 
   const ensureTopicsLoaded = useCallback(async (id: SubjectId | 'all') => {
     if (id === 'all') {

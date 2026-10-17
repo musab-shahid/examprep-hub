@@ -134,6 +134,25 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
     });
   }, [trackMembership.activeTrackId]);
 
+  // Full reset / multi-tab clear — wipe in-memory prefs so they cannot re-persist
+  useEffect(() => {
+    const onReset = () => {
+      setState({ byTrack: {}, activeTrack: 'fpsc' });
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+      } catch { /* ignore */ }
+    };
+    window.addEventListener('examprep-subject-selection-reset', onReset);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === STORAGE_KEY && e.newValue == null) onReset();
+    };
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener('examprep-subject-selection-reset', onReset);
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
+
   const activePrefs = prefsFor(state, state.activeTrack);
 
   const getActiveSubject = useCallback(

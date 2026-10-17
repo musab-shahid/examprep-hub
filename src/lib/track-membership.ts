@@ -307,15 +307,13 @@ export function migrateTrackMembership(
   data: AppData,
   options?: MigrateMembershipOptions,
 ): TrackMembershipState {
-  if (options?.existing && options.existing.schemaVersion === 1) {
-    const normalized = normalizeTrackMembership(options.existing);
-    // If already has any enrollment, trust normalize only (idempotent)
-    if (Object.keys(normalized.enrollments).length > 0 || normalized.activeTrackId === null) {
-      // Re-run evidence only when enrollments empty (new install path after partial write)
-      if (Object.keys(normalized.enrollments).length > 0) {
-        return normalized;
-      }
-    }
+  // Valid current schema (v1), including intentionally empty enrollments — never re-infer.
+  if (
+    options?.existing &&
+    typeof options.existing.schemaVersion === 'number' &&
+    options.existing.schemaVersion === TRACK_MEMBERSHIP_SCHEMA_VERSION
+  ) {
+    return normalizeTrackMembership(options.existing);
   }
 
   const evidence = collectTrackEvidence(data);
@@ -373,15 +371,26 @@ export function ensureTrackMembership(
   data: AppData,
   options?: MigrateMembershipOptions,
 ): { data: AppData; changed: boolean } {
-  // Valid current schema present (including empty enrollments) — normalize only, never re-migrate.
+  const raw = data.trackMembership;
+
+  // Unsupported future schema: do not downgrade or overwrite — preserve blob as-is.
   if (
-    data.trackMembership &&
-    typeof data.trackMembership === 'object' &&
-    data.trackMembership.schemaVersion === TRACK_MEMBERSHIP_SCHEMA_VERSION
+    raw &&
+    typeof raw === 'object' &&
+    typeof (raw as { schemaVersion?: unknown }).schemaVersion === 'number' &&
+    ((raw as { schemaVersion: number }).schemaVersion > TRACK_MEMBERSHIP_SCHEMA_VERSION)
   ) {
-    const existing = normalizeTrackMembership(data.trackMembership);
-    const same =
-      JSON.stringify(data.trackMembership) === JSON.stringify(existing);
+    return { data, changed: false };
+  }
+
+  // Valid current schema (including empty enrollments) — normalize only, never re-migrate.
+  if (
+    raw &&
+    typeof raw === 'object' &&
+    (raw as { schemaVersion?: unknown }).schemaVersion === TRACK_MEMBERSHIP_SCHEMA_VERSION
+  ) {
+    const existing = normalizeTrackMembership(raw);
+    const same = JSON.stringify(raw) === JSON.stringify(existing);
     if (same) return { data, changed: false };
     return { data: { ...data, trackMembership: existing }, changed: true };
   }
@@ -389,7 +398,7 @@ export function ensureTrackMembership(
   // Absent / legacy / unknown shape → evidence migration once
   const migrated = migrateTrackMembership(data, {
     ...options,
-    existing: data.trackMembership ? normalizeTrackMembership(data.trackMembership) : null,
+    existing: null,
   });
   return { data: { ...data, trackMembership: migrated }, changed: true };
 }

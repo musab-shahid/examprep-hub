@@ -28,3 +28,10 @@
 3. Begin both tracks → Switch from Home → prefs restored per track.
 4. FPSC profile “Met BS-17” → subject list unchanged; bs16-only tags hidden if present.
 5. Reset all → no enrollments.
+
+
+## Scope rules
+- `examId: null` → general track content.
+- Unknown `examId` → **empty** permitted subjects (never full-track fallback).
+- Valid current `schemaVersion: 1` with zero enrollments is stable (no evidence re-migration).
+- Newer schema versions are left untouched (no silent downgrade).

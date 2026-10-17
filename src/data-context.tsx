@@ -30,6 +30,9 @@ export const DataContext = createContext<DataContextValue | null>(null);
 
 export function DataProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<AppData>(() => loadData());
+  const dataRef = useRef(data);
+  dataRef.current = data;
+
   const isFirst = useState(() => ({ current: true }))[0];
 
   // Persist outside setState updaters (StrictMode-safe: one effect per committed data)
@@ -47,7 +50,14 @@ export function DataProvider({ children }: { children: ReactNode }) {
       if (e.key !== STORAGE_KEYS.appData) return;
       try {
         // null newValue = reset/cleared in another tab
-        setData(loadData());
+        const next = loadData();
+        setData(next);
+        dataRef.current = next;
+        if (e.newValue == null) {
+          try {
+            window.dispatchEvent(new CustomEvent('examprep-subject-selection-reset'));
+          } catch { /* ignore */ }
+        }
       } catch {
         /* ignore */
       }
@@ -70,60 +80,47 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   const reset = useCallback(() => {
     resetData();
-    setData(loadData());
+    const fresh = loadData();
+    setData(fresh);
+    dataRef.current = fresh;
+    try {
+      window.dispatchEvent(new CustomEvent('examprep-subject-selection-reset'));
+    } catch { /* ignore */ }
   }, []);
 
-  const actionResultRef = useRef<{ ok: boolean; reason?: string }>({ ok: false, reason: 'unknown' });
-
+  /** Compute next state from latest dataRef, then setState with the concrete value (no updater side effects). */
   const enrollInTrack = useCallback((trackId: TrackId) => {
-    actionResultRef.current = { ok: false, reason: 'unknown' };
-    setData((prev) => {
-      const r = withEnrollAndFocus(prev, trackId);
-      if (!r.ok) {
-        actionResultRef.current = { ok: false, reason: r.reason };
-        return prev;
-      }
-      actionResultRef.current = { ok: true };
-      return r.data;
-    });
-    return actionResultRef.current;
+    const r = withEnrollAndFocus(dataRef.current, trackId);
+    if (!r.ok) return { ok: false as const, reason: r.reason };
+    setData(r.data);
+    dataRef.current = r.data;
+    return { ok: true as const };
   }, []);
 
   const setActiveEnrolledTrack = useCallback((trackId: TrackId | null) => {
-    actionResultRef.current = { ok: false, reason: 'unknown' };
-    setData((prev) => {
-      const r = withFocusTrack(prev, trackId);
-      if (!r.ok) {
-        actionResultRef.current = { ok: false, reason: r.reason };
-        return prev;
-      }
-      actionResultRef.current = { ok: true };
-      return r.data;
-    });
-    return actionResultRef.current;
+    const r = withFocusTrack(dataRef.current, trackId);
+    if (!r.ok) return { ok: false as const, reason: r.reason };
+    setData(r.data);
+    dataRef.current = r.data;
+    return { ok: true as const };
   }, []);
 
   const leaveEnrolledTrack = useCallback((trackId: TrackId) => {
-    actionResultRef.current = { ok: false, reason: 'unknown' };
-    setData((prev) => {
-      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
-      const r = leaveTrackPure(mem, trackId);
-      if (!r.ok) {
-        actionResultRef.current = { ok: false, reason: r.reason };
-        return prev;
-      }
-      actionResultRef.current = { ok: true };
-      return { ...prev, trackMembership: r.state };
-    });
-    return actionResultRef.current;
+    const mem = normalizeTrackMembership(dataRef.current.trackMembership ?? emptyTrackMembership());
+    const r = leaveTrackPure(mem, trackId);
+    if (!r.ok) return { ok: false as const, reason: r.reason };
+    const next = { ...dataRef.current, trackMembership: r.state };
+    setData(next);
+    dataRef.current = next;
+    return { ok: true as const };
   }, []);
 
   const setExamProfile = useCallback((trackId: TrackId, examId: string | null) => {
-    setData((prev) => {
-      const mem = normalizeTrackMembership(prev.trackMembership ?? emptyTrackMembership());
-      if (!mem.enrollments[trackId]) return prev;
-      return { ...prev, trackMembership: setActiveExamProfilePure(mem, trackId, examId) };
-    });
+    const mem = normalizeTrackMembership(dataRef.current.trackMembership ?? emptyTrackMembership());
+    if (!mem.enrollments[trackId]) return;
+    const next = { ...dataRef.current, trackMembership: setActiveExamProfilePure(mem, trackId, examId) };
+    setData(next);
+    dataRef.current = next;
   }, []);
 
   const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());

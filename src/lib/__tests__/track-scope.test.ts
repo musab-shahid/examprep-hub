@@ -77,3 +77,10 @@ describe('contentEligibleForScope', () => {
     );
   });
 });
+
+describe('invalid exam profile', () => {
+  it('does not broaden to full track when examId is unknown', () => {
+    const list = subjectsForScope({ trackId: 'fpsc', examId: 'not-a-real-profile' });
+    assert.equal(list.length, 0);
+  });
+});
