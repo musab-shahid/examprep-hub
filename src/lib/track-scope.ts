@@ -49,8 +49,12 @@ export function resolveSubjectsForScope(input: ScopeInput): ScopeResolution {
 
   const all = subjectsByTrack(trackId);
 
-  if (examId == null || examId === '') {
+  // Only null is general preparation. Empty string is invalid (not a silent broaden).
+  if (examId == null) {
     return { kind: 'general', trackId, subjects: all };
+  }
+  if (examId === '') {
+    return { kind: 'invalid-profile', trackId, examId: '' };
   }
 
   const profile = getExamProfile(trackId, examId);
@@ -93,7 +97,8 @@ export function contentEligibleForScope(
 ): boolean {
   if (!isTrackId(input.trackId)) return false;
 
-  if (input.examId != null && input.examId !== '') {
+  if (input.examId === '') return false;
+  if (input.examId != null) {
     const profile = getExamProfile(input.trackId, input.examId);
     if (!profile) return false;
 

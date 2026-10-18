@@ -179,3 +179,11 @@ describe('applyProfileSubjectPolicy empty vs valid', () => {
     }
   });
 });
+
+describe('examId empty string', () => {
+  it('does not treat empty string as general preparation', () => {
+    const r = resolveSubjectsForScope({ trackId: 'fpsc', examId: '' });
+    assert.equal(r.kind, 'invalid-profile');
+    assert.equal(subjectsForScope({ trackId: 'fpsc', examId: '' }).length, 0);
+  });
+});

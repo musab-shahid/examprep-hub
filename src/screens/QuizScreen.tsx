@@ -18,6 +18,8 @@ import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@
 import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId, TopicProgress } from '@/types';
 // SubjectId used for workspace scope checks
 import { quizSignature } from '@/lib/quiz-signature';
+import { selectQuizPool, filterRestoredQuestions, targetPoolCount } from '@/lib/quiz-pool';
+import { scopeInputFromData } from '@/lib/learning-scope';
 import { pickAdaptiveQuestions, recentQuestionIdsFromResults } from '@/lib/adaptive-select';
 import { instantiatePool } from '@/lib/quant-template';
 
@@ -127,56 +129,39 @@ function applySavedOptionOrders(
 
 function pickQuestions(
   mode: PracticeMode,
-  topicId?: string,
-  topicIds?: string[],
-  scope?: 'subject' | 'all',
-  subjectId?: string,
-  count?: number | 'all',
-  difficulty?: DifficultyFilter,
-  wrongPool?: boolean,
-  questionResults?: Record<string, { correct: boolean; timestamp: number }>,
-  track?: 'fpsc' | 'hat' | null,
-  topicProgress?: Record<string, TopicProgress>,
+  topicId: string | undefined,
+  topicIds: string[] | undefined,
+  scope: 'subject' | 'all' | undefined,
+  subjectId: string | undefined,
+  count: number | 'all' | undefined,
+  difficulty: DifficultyFilter | undefined,
+  wrongPool: boolean | undefined,
+  questionResults: Record<string, { correct: boolean; timestamp: number }> | undefined,
+  track: 'fpsc' | 'hat' | null | undefined,
+  topicProgress: Record<string, TopicProgress> | undefined,
+  allowedSubjectIds: Set<string>,
+  scopeInput: import('@/lib/track-scope').ScopeInput | null,
 ): Question[] {
-  // Fail closed: never treat a broken topic quiz as track-wide practice
-  if (mode === 'topic' && !topicId) {
-    if (import.meta.env?.DEV) {
-      console.warn('[pickQuestions] mode=topic without topicId — returning empty pool');
-    }
-    return [];
-  }
-  const fullPool = allQuestions();
-  let pool: Question[];
-  if (mode === 'topic' && topicId) {
-    pool = questionsByTopic(topicId);
-  } else if (topicIds && topicIds.length > 0) {
-    const idSet = new Set(topicIds);
-    pool = fullPool.filter((q) => idSet.has(q.topicId));
-  } else if (scope === 'subject' && subjectId) {
-    pool = fullPool.filter((q) => sectionMap[q.sectionId]?.subjectId === subjectId);
-  } else {
-    // No silent FPSC default — missing track → empty pool
-    if (!track) return [];
-    const trackSubjectIds = new Set(subjectsByTrack(track).map((s) => s.id));
-    pool = fullPool.filter((q) => trackSubjectIds.has(sectionMap[q.sectionId]?.subjectId));
-  }
-  if (wrongPool && questionResults) {
-    const wrongIds = new Set(Object.entries(questionResults).filter(([, r]) => !r.correct).map(([qid]) => qid));
-    pool = pool.filter((q) => wrongIds.has(q.id));
-  }
-  if (difficulty && difficulty !== 'any') {
-    pool = pool.filter((q) => q.difficulty === difficulty);
-  }
-  // Explicit "all", legacy >=999, or review/challenge default → entire pool
-  const targetCount = (() => {
-    if (count === 'all' || (typeof count === 'number' && count >= 999)) return pool.length;
-    if (count !== undefined) return count;
-    if (mode === 'mock') return 60;
-    if (mode === 'review' || mode === 'challenge') return pool.length;
-    return 10;
-  })();
+  const pool = selectQuizPool({
+    mode,
+    topicId,
+    topicIds,
+    scope,
+    subjectId,
+    count,
+    difficulty,
+    wrongPool,
+    questionResults,
+    track,
+    allowedSubjectIds,
+    scopeInput,
+    topicProgress,
+  });
+  if (pool.length === 0) return [];
+
+  const targetCount = targetPoolCount(mode, count, pool.length);
+
   if (mode === 'mock') {
-    // Exam-like fixed mix — not adaptive (fairness / realism)
     if (pool.length <= targetCount) return shuffleArray(pool);
     const easyPool = pool.filter((q) => q.difficulty === 'easy');
     const mediumPool = pool.filter((q) => q.difficulty === 'medium');
@@ -189,7 +174,6 @@ function pickQuestions(
       ...shuffleArray(mediumPool).slice(0, Math.min(targetMedium, mediumPool.length)),
       ...shuffleArray(hardPool).slice(0, Math.min(targetHard, hardPool.length)),
     ];
-    // Fill from leftover if a difficulty band is short
     if (picked.length < targetCount) {
       const pickedIds = new Set(picked.map((q) => q.id));
       const leftover = pool.filter((q) => !pickedIds.has(q.id));
@@ -198,7 +182,6 @@ function pickQuestions(
     }
     return shuffleArray(picked);
   }
-  // Adaptive: wrong / unseen / SR-due / weak / near-miss / variant groups
   return pickAdaptiveQuestions(pool, Math.min(targetCount, pool.length), {
     mode,
     questionResults,
@@ -294,6 +277,7 @@ interface SavedQuizProgress {
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
   track?: 'fpsc' | 'hat';
+  examId?: string | null;
 }
 
 function saveQuizProgress(
@@ -308,6 +292,7 @@ function saveQuizProgress(
   timeLimit?: TimeLimitSetting,
   wrongPool?: boolean,
   track?: 'fpsc' | 'hat' | null,
+  examId?: string | null,
 ): void {
   try {
     const progress: SavedQuizProgress = {
@@ -325,7 +310,8 @@ function saveQuizProgress(
       difficulty,
       timeLimit,
       wrongPool,
-      track,
+      track: track ?? undefined,
+      examId: examId ?? null,
     };
     localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify(progress));
   } catch { /* ignore */ }
@@ -397,7 +383,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
-    const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, questionResultsSnapshot.current, trackRef.current, data.topicProgress);
+    const pool = pickQuestions(
+      mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
+      questionResultsSnapshot.current, trackRef.current, data.topicProgress,
+      sd.trackSubjectIds, scopeInputFromData(data),
+    );
     // Phase D: materialize quant templates (new numbers); strength stays on base id
     const sessionSeed = `${Date.now()}-${mode}-${topicId ?? subjectId ?? 'all'}`;
     const materialized = instantiatePool(pool, sessionSeed);
@@ -410,13 +400,16 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setState({ questions: qs, optionOrders, currentIdx: 0, selectedIndices: [], checked: false, answers: [], startTime: Date.now(), elapsed: 0 });
     setFinished(false);
     setResults(null);
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, sd.trackSubjectIds, data]);
 
   // Check for saved quiz progress on mount — only offer resume if full signature matches
   useEffect(() => {
     const saved = loadQuizProgress();
     if (saved && saved.answers.length > 0) {
-      const currentSig = quizSignature({ mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, track: activeTrack, timeLimit });
+      const currentSig = quizSignature({
+        mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
+        track: activeTrack, examId: sd.activeExamId ?? null, timeLimit,
+      });
       const savedSig = quizSignature({
         mode: saved.mode,
         topicId: saved.topicId,
@@ -427,6 +420,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         difficulty: saved.difficulty,
         wrongPool: saved.wrongPool,
         track: saved.track,
+        examId: saved.examId ?? null,
         timeLimit: saved.timeLimit,
       });
       if (currentSig === savedSig) {
@@ -435,12 +429,12 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         clearQuizProgress();
       }
     }
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack, sd.activeExamId]);
 
   // Save quiz progress whenever answers or currentIdx changes
   useEffect(() => {
     if (state && !finished && state.questions.length > 0) {
-      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, trackRef.current);
+      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, trackRef.current, sd.activeExamId ?? null);
     }
   }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool]);
 
@@ -465,14 +459,19 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       return;
     }
     const allQs = allQuestions();
-    const qMap = new Map(allQs.map((q) => [q.id, q]));
-    const bankQuestions = saved.questionIds.map((id) => qMap.get(id)).filter((q): q is Question => q !== undefined);
-    if (bankQuestions.length === 0) {
+    const scoped = filterRestoredQuestions(
+      allQs,
+      saved.questionIds,
+      sd.trackSubjectIds,
+      scopeInputFromData(data),
+    );
+    if (!scoped || scoped.length === 0) {
       clearQuizProgress();
       setQuestionsLoading(false);
       initQuiz();
       return;
     }
+    const bankQuestions = scoped;
     // Restore session option order by question id (survives missing bank items)
     const restoredQuestions = applySavedOptionOrders(bankQuestions, saved.questionIds, saved.optionOrders);
     const orderById = new Map<string, number[]>();
@@ -502,7 +501,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setFinished(false);
     setResults(null);
     setQuestionsLoading(false);
-  }, [resumeOffer, initQuiz]);
+  }, [resumeOffer, initQuiz, sd.trackSubjectIds, data]);
 
   const declineResume = useCallback(() => {
     setResumeOffer(null);
@@ -511,7 +510,11 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const handleRetry = useCallback(() => {
     if (wrongPool) {
-      const pool = pickQuestions(mode, topicId, topicIds, scope, subjectId, count, difficulty, true, data.questionResults, trackRef.current, data.topicProgress);
+      const pool = pickQuestions(
+        mode, topicId, topicIds, scope, subjectId, count, difficulty, true,
+        data.questionResults, trackRef.current, data.topicProgress,
+        sd.trackSubjectIds, scopeInputFromData(data),
+      );
       if (pool.length === 0) {
         setRetakeEmpty(true);
         return;
@@ -837,6 +840,30 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         </Card>
       </PageContainer>
     );
+  }
+
+  // Topic mode without subjectId still must resolve inside workspace (selector fail-closed; UI message)
+  if (mode === 'topic' && topicId) {
+    const scopedTopic = sd.getTopicById(topicId);
+    if (!scopedTopic) {
+      return (
+        <PageContainer>
+          <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
+          <Card className="p-8">
+            <EmptyState
+              title="Topic outside active workspace"
+              message="This topic is not available in your current track or exam profile."
+              icon={<AlertTriangle className="w-12 h-12" />}
+            />
+            <div className="flex justify-center mt-4">
+              <Button variant="secondary" onClick={() => navigate({ screen: 'practice', parent: null })}>
+                Back to Practice
+              </Button>
+            </div>
+          </Card>
+        </PageContainer>
+      );
+    }
   }
 
   if (resumeOffer) {

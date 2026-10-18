@@ -38,3 +38,7 @@ describe('quiz signature', () => {
     assert.notEqual(a, b);
   });
 });
+
+  it('differs when examId changes', () => {
+    assert.equal(signaturesMatch({ ...base, examId: null }, { ...base, examId: 'fpsc-met-bs17' }), false);
+  });
