@@ -80,7 +80,19 @@ describe('filterRestoredQuestions', () => {
   it('rejects when question subject not allowed', () => {
     const qs = allQuestions().slice(0, 5);
     if (qs.length === 0) return;
-    const r = filterRestoredQuestions(qs, [qs[0].id], new Set(['__none__']), null);
+    const r = filterRestoredQuestions(
+      qs,
+      [qs[0].id],
+      new Set(['__none__']),
+      { trackId: 'fpsc', examId: null },
+    );
+    assert.equal(r, null);
+  });
+
+  it('rejects restore when scopeInput is null', () => {
+    const qs = allQuestions().slice(0, 2);
+    if (qs.length === 0) return;
+    const r = filterRestoredQuestions(qs, [qs[0].id], new Set(['physics']), null);
     assert.equal(r, null);
   });
 });

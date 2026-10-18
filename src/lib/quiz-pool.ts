@@ -1,6 +1,6 @@
 /**
- * Canonical quiz pool selection — always constrained to active workspace scope.
- * Fail-closed: missing track or empty allowed subjects → [].
+ * Canonical quiz pool selection — always constrained to a coherent session scope.
+ * Fail-closed on contradictory parameters or missing workspace.
  */
 import { allQuestions, questionsByTopic } from '../data/questions.ts';
 import { sectionMap } from '../data/sections.ts';
@@ -9,7 +9,9 @@ import {
   contentEligibleForScope,
   type ScopeInput,
 } from './track-scope.ts';
-import type { DifficultyFilter, PracticeMode, Question, SubjectId, TopicProgress } from '../types.ts';
+import { isTrackId } from '../data/tracks.ts';
+import { validateQuizRequest } from './quiz-session.ts';
+import type { DifficultyFilter, PracticeMode, Question, TopicProgress } from '../types.ts';
 
 export type QuizPoolParams = {
   mode: PracticeMode;
@@ -21,11 +23,9 @@ export type QuizPoolParams = {
   difficulty?: DifficultyFilter;
   wrongPool?: boolean;
   questionResults?: Record<string, { correct: boolean; timestamp: number }>;
-  /** Active enrolled track; required for non-empty pool */
   track: string | null | undefined;
-  /** Allowed subjects under track + exam profile */
   allowedSubjectIds: Set<string>;
-  /** For content-level tags */
+  /** Required — missing scopeInput fails closed (no subject-only bypass) */
   scopeInput: ScopeInput | null;
   topicProgress?: Record<string, TopicProgress>;
 };
@@ -37,93 +37,96 @@ function questionSubjectId(q: Question): string | undefined {
 function questionInWorkspace(
   q: Question,
   allowed: Set<string>,
-  scopeInput: ScopeInput | null,
+  scopeInput: ScopeInput,
 ): boolean {
   const sid = questionSubjectId(q);
   if (!sid || !allowed.has(sid)) return false;
-  if (scopeInput && !contentEligibleForScope(q, scopeInput)) return false;
-  return true;
+  return contentEligibleForScope(q, scopeInput);
 }
 
 function topicInWorkspace(
   topicId: string,
   allowed: Set<string>,
-  scopeInput: ScopeInput | null,
+  scopeInput: ScopeInput,
 ): boolean {
   const topic = getTopic(topicId);
   if (!topic) return false;
   const sid = sectionMap[topic.sectionId]?.subjectId;
   if (!sid || !allowed.has(sid)) return false;
-  if (scopeInput && !contentEligibleForScope(topic, scopeInput)) return false;
-  return true;
+  return contentEligibleForScope(topic, scopeInput);
 }
 
 /**
  * Build the eligible question pool for a quiz session.
- * Applies workspace subject + content filters before wrong/difficulty/count.
+ * Applies workspace + request coherence before wrong/difficulty filters.
  */
 export function selectQuizPool(p: QuizPoolParams): Question[] {
-  if (!p.track || p.allowedSubjectIds.size === 0) return [];
+  // Workspace integrity
+  if (!p.track || !isTrackId(p.track)) return [];
+  if (!p.scopeInput) return [];
+  if (p.scopeInput.trackId !== p.track) return [];
+  if (p.allowedSubjectIds.size === 0) return [];
 
-  if (p.mode === 'topic' && !p.topicId) return [];
+  const req = validateQuizRequest({
+    mode: p.mode,
+    topicId: p.topicId,
+    topicIds: p.topicIds,
+    scope: p.scope,
+    subjectId: p.subjectId,
+    count: p.count,
+    difficulty: p.difficulty,
+    wrongPool: p.wrongPool,
+  });
+  if (!req.ok) return [];
+  const r = req.request;
 
   const fullPool = allQuestions();
   let pool: Question[];
 
-  if (p.mode === 'topic' && p.topicId) {
-    if (!topicInWorkspace(p.topicId, p.allowedSubjectIds, p.scopeInput)) return [];
-    pool = questionsByTopic(p.topicId);
-  } else if (p.topicIds && p.topicIds.length > 0) {
-    // Reject mixed lists that include any out-of-scope topic (fail closed)
-    for (const tid of p.topicIds) {
-      if (!topicInWorkspace(tid, p.allowedSubjectIds, p.scopeInput)) return [];
+  if (r.mode === 'topic' && r.topicId) {
+    if (!topicInWorkspace(r.topicId, p.allowedSubjectIds, p.scopeInput)) return [];
+    if (r.subjectId && r.subjectId !== '') {
+      const sid = sectionMap[getTopic(r.topicId)!.sectionId]?.subjectId;
+      if (sid !== r.subjectId) return [];
     }
-    const idSet = new Set(p.topicIds);
+    pool = questionsByTopic(r.topicId);
+  } else if (r.topicIds && r.topicIds.length > 0) {
+    for (const tid of r.topicIds) {
+      if (!topicInWorkspace(tid, p.allowedSubjectIds, p.scopeInput)) return [];
+      if (r.subjectId && r.subjectId !== '') {
+        const sid = sectionMap[getTopic(tid)?.sectionId ?? '']?.subjectId;
+        if (sid !== r.subjectId) return [];
+      }
+    }
+    const idSet = new Set(r.topicIds);
     pool = fullPool.filter((q) => idSet.has(q.topicId));
-  } else if (p.scope === 'subject' && p.subjectId) {
-    if (!p.allowedSubjectIds.has(p.subjectId)) return [];
-    pool = fullPool.filter((q) => questionSubjectId(q) === p.subjectId);
+  } else if (r.scope === 'subject') {
+    // Already validated non-empty subjectId
+    if (!r.subjectId || !p.allowedSubjectIds.has(r.subjectId)) return [];
+    pool = fullPool.filter((q) => questionSubjectId(q) === r.subjectId);
   } else {
+    // General / track-wide within workspace
     pool = fullPool.filter((q) => {
       const sid = questionSubjectId(q);
       return sid != null && p.allowedSubjectIds.has(sid);
     });
   }
 
-  // Workspace content tags (all paths)
-  if (p.scopeInput) {
-    pool = pool.filter((q) => contentEligibleForScope(q, p.scopeInput!));
-  } else {
-    pool = pool.filter((q) => {
-      const sid = questionSubjectId(q);
-      return sid != null && p.allowedSubjectIds.has(sid);
-    });
-  }
+  pool = pool.filter((q) => questionInWorkspace(q, p.allowedSubjectIds, p.scopeInput!));
 
-  if (p.wrongPool && p.questionResults) {
+  if (r.wrongPool && p.questionResults) {
     const wrongIds = new Set(
       Object.entries(p.questionResults)
-        .filter(([, r]) => !r.correct)
+        .filter(([, res]) => !res.correct)
         .map(([qid]) => qid),
     );
     pool = pool.filter((q) => wrongIds.has(q.id));
   }
 
-  if (p.difficulty && p.difficulty !== 'any') {
-    pool = pool.filter((q) => q.difficulty === p.difficulty);
+  if (r.difficulty && r.difficulty !== 'any') {
+    pool = pool.filter((q) => q.difficulty === r.difficulty);
   }
 
-  const targetCount = (() => {
-    if (p.count === 'all' || (typeof p.count === 'number' && p.count >= 999)) return pool.length;
-    if (p.count !== undefined) return p.count;
-    if (p.mode === 'mock') return 60;
-    if (p.mode === 'review' || p.mode === 'challenge') return pool.length;
-    return 10;
-  })();
-
-  // Adaptive / mock mixing stays in QuizScreen for now — return full filtered pool
-  // and let caller slice. Export target for callers.
-  void targetCount;
   return pool;
 }
 
@@ -134,7 +137,7 @@ export function filterRestoredQuestions(
   allowedSubjectIds: Set<string>,
   scopeInput: ScopeInput | null,
 ): Question[] | null {
-  if (savedIds.length === 0) return null;
+  if (!scopeInput || savedIds.length === 0) return null;
   const byId = new Map(questions.map((q) => [q.id, q]));
   const out: Question[] = [];
   for (const id of savedIds) {

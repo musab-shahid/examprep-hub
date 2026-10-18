@@ -8,7 +8,6 @@ import { AiTutorChat } from '@/components/AiTutorChat';
 import { allQuestions, questionsByTopic } from '@/data/questions';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
-import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { subjectsByTrack } from '@/data/subjects';
 import { subjectMap } from '@/data/subjects';
@@ -19,7 +18,14 @@ import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, Subjec
 // SubjectId used for workspace scope checks
 import { quizSignature } from '@/lib/quiz-signature';
 import { selectQuizPool, filterRestoredQuestions, targetPoolCount } from '@/lib/quiz-pool';
-import { scopeInputFromData } from '@/lib/learning-scope';
+import { resolveLearningScope, scopeInputFromData } from '@/lib/learning-scope';
+import {
+  validateDraftShape,
+  validateQuizRequest,
+  questionsMatchRequest,
+  isValidOptionPermutation,
+  type QuizSessionSnapshot,
+} from '@/lib/quiz-session';
 import { pickAdaptiveQuestions, recentQuestionIdsFromResults } from '@/lib/adaptive-select';
 import { instantiatePool } from '@/lib/quant-template';
 
@@ -120,9 +126,7 @@ function applySavedOptionOrders(
   }
   return questions.map((q) => {
     const order = orderById.get(q.id);
-    if (!order || order.length !== q.options.length) return q;
-    // Defensive: skip invalid permutations
-    if (new Set(order).size !== order.length) return q;
+    if (!order || !isValidOptionPermutation(order, q.options?.length ?? 0)) return q;
     return applyOptionOrder(q, order);
   });
 }
@@ -322,8 +326,9 @@ function loadQuizProgress(): SavedQuizProgress | null {
     const raw = localStorage.getItem(QUIZ_PROGRESS_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
-    if (!parsed || !Array.isArray(parsed.questionIds) || !Array.isArray(parsed.answers)) return null;
-    return parsed as SavedQuizProgress;
+    const v = validateDraftShape(parsed);
+    if (!v.ok) return null;
+    return v.draft as SavedQuizProgress;
   } catch { return null; }
 }
 
@@ -349,8 +354,10 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     else navigate({ screen: 'home', parent: null });
   }, [canGoBack, back, navigate]);
   const { recordQuiz, data } = useData();
-  const { activeTrack } = useSubjectSelection();
   const sd = useSubjectData();
+  const learningScope = resolveLearningScope(data);
+  const activeTrack = learningScope?.trackId ?? null;
+  const activeExamId = learningScope?.examId ?? null;
   const [state, setState] = useState<QuizState | null>(null);
   const [finished, setFinished] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
@@ -362,6 +369,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   // Snapshot question results once at mount — do not rewrite every render
   const questionResultsSnapshot = useRef(data.questionResults);
   // Lock track for this quiz session so mid-quiz track switches do not re-init
+  /** Locked at init/resume — one workspace for the whole session */
+  const sessionRef = useRef<QuizSessionSnapshot | null>(null);
   const trackRef = useRef(activeTrack);
 
   // Refs for stable handlers in keyboard / timer effects
@@ -383,10 +392,26 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
+    const ls = resolveLearningScope(data);
+    if (!ls) {
+      setState(null);
+      setFinished(false);
+      setResults(null);
+      sessionRef.current = null;
+      return;
+    }
+    const snap: QuizSessionSnapshot = {
+      trackId: ls.trackId,
+      examId: ls.examId,
+      allowedSubjectIds: Array.from(ls.subjectIds),
+      scopeInput: { trackId: ls.trackId, examId: ls.examId },
+    };
+    sessionRef.current = snap;
+    trackRef.current = ls.trackId;
     const pool = pickQuestions(
       mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
-      questionResultsSnapshot.current, trackRef.current, data.topicProgress,
-      sd.trackSubjectIds, scopeInputFromData(data),
+      questionResultsSnapshot.current, snap.trackId, data.topicProgress,
+      new Set(snap.allowedSubjectIds), snap.scopeInput,
     );
     // Phase D: materialize quant templates (new numbers); strength stays on base id
     const sessionSeed = `${Date.now()}-${mode}-${topicId ?? subjectId ?? 'all'}`;
@@ -408,7 +433,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     if (saved && saved.answers.length > 0) {
       const currentSig = quizSignature({
         mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
-        track: activeTrack, examId: sd.activeExamId ?? null, timeLimit,
+        track: activeTrack, examId: activeExamId, timeLimit,
       });
       const savedSig = quizSignature({
         mode: saved.mode,
@@ -429,12 +454,17 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         clearQuizProgress();
       }
     }
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack, sd.activeExamId]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack, activeExamId]);
 
   // Save quiz progress whenever answers or currentIdx changes
   useEffect(() => {
     if (state && !finished && state.questions.length > 0) {
-      saveQuizProgress(state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool, trackRef.current, sd.activeExamId ?? null);
+      const sess = sessionRef.current;
+      saveQuizProgress(
+        state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool,
+        sess?.trackId ?? trackRef.current,
+        sess?.examId ?? activeExamId,
+      );
     }
   }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool]);
 
@@ -458,14 +488,50 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       initQuiz();
       return;
     }
+    const ls = resolveLearningScope(data);
+    if (!ls) {
+      clearQuizProgress();
+      setQuestionsLoading(false);
+      initQuiz();
+      return;
+    }
+    // Draft workspace must match current canonical workspace
+    if ((saved.track ?? null) !== ls.trackId || (saved.examId ?? null) !== (ls.examId ?? null)) {
+      clearQuizProgress();
+      setQuestionsLoading(false);
+      initQuiz();
+      return;
+    }
+    const snap: QuizSessionSnapshot = {
+      trackId: ls.trackId,
+      examId: ls.examId,
+      allowedSubjectIds: Array.from(ls.subjectIds),
+      scopeInput: { trackId: ls.trackId, examId: ls.examId },
+    };
+    sessionRef.current = snap;
+    trackRef.current = ls.trackId;
     const allQs = allQuestions();
     const scoped = filterRestoredQuestions(
       allQs,
       saved.questionIds,
-      sd.trackSubjectIds,
-      scopeInputFromData(data),
+      new Set(snap.allowedSubjectIds),
+      snap.scopeInput,
     );
     if (!scoped || scoped.length === 0) {
+      clearQuizProgress();
+      setQuestionsLoading(false);
+      initQuiz();
+      return;
+    }
+    if (!questionsMatchRequest(scoped, {
+      mode: saved.mode,
+      topicId: saved.topicId,
+      topicIds: saved.topicIds,
+      scope: saved.scope,
+      subjectId: saved.subjectId,
+      difficulty: saved.difficulty,
+      wrongPool: saved.wrongPool,
+    })) {
       clearQuizProgress();
       setQuestionsLoading(false);
       initQuiz();
@@ -501,7 +567,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setFinished(false);
     setResults(null);
     setQuestionsLoading(false);
-  }, [resumeOffer, initQuiz, sd.trackSubjectIds, data]);
+  }, [resumeOffer, initQuiz, data]);
 
   const declineResume = useCallback(() => {
     setResumeOffer(null);
@@ -510,10 +576,15 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const handleRetry = useCallback(() => {
     if (wrongPool) {
+      const sess = sessionRef.current;
+      if (!sess) {
+        setRetakeEmpty(true);
+        return;
+      }
       const pool = pickQuestions(
         mode, topicId, topicIds, scope, subjectId, count, difficulty, true,
-        data.questionResults, trackRef.current, data.topicProgress,
-        sd.trackSubjectIds, scopeInputFromData(data),
+        data.questionResults, sess.trackId, data.topicProgress,
+        new Set(sess.allowedSubjectIds), sess.scopeInput,
       );
       if (pool.length === 0) {
         setRetakeEmpty(true);
@@ -821,8 +892,28 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     );
   }
 
+  if (!learningScope) {
+    return (
+      <PageContainer>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
+        <Card className="p-8">
+          <EmptyState
+            title="No active workspace"
+            message="Enroll in a track and set it active before starting a quiz."
+            icon={<AlertTriangle className="w-12 h-12" />}
+          />
+          <div className="flex justify-center mt-4">
+            <Button variant="secondary" onClick={() => navigate({ screen: 'home', parent: null })}>
+              Go Home
+            </Button>
+          </div>
+        </Card>
+      </PageContainer>
+    );
+  }
+
   // Workspace scope: subject must belong to active track + exam profile
-  if (subjectId && subjectId !== '' && !sd.trackSubjectIds.has(subjectId as SubjectId)) {
+  if (subjectId && subjectId !== '' && !learningScope.subjectIds.has(subjectId as SubjectId)) {
     return (
       <PageContainer>
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>

@@ -117,6 +117,9 @@ export function contentEligibleForScope(
       const pr = tags.postRestriction as string;
       if (pr === 'bs16' || pr === 'bs17') {
         if (!scaleSet.has(pr as ExamScale)) return false;
+      } else {
+        // Unknown non-empty restriction is fail-closed (not unrestricted)
+        return false;
       }
     }
 
