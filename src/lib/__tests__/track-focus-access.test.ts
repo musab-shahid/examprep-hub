@@ -14,6 +14,7 @@ import {
 } from '../track-access.ts';
 import { emptyTrackMembership, setActiveExamProfile } from '../track-membership.ts';
 import { subjectsForScope, contentEligibleForScope } from '../track-scope.ts';
+import { getTrackForSubject, groupByTrack } from '../exam-track.ts';
 import type { AppData } from '../../types.ts';
 
 function baseData(over: Partial<AppData> = {}): AppData {
@@ -123,6 +124,23 @@ describe('contentEligible examScope', () => {
         { trackId: 'fpsc', examId: 'fpsc-met-bs17' },
       ),
       true,
+    );
+  });
+});
+
+describe('exam-track registry hygiene', () => {
+  it('getTrackForSubject returns null for unknown subjects (no FPSC default)', () => {
+    assert.equal(getTrackForSubject('not-a-real-subject-xyz'), null);
+  });
+  it('groupByTrack omits unknown subject ids', () => {
+    const g = groupByTrack([
+      { subjectId: 'physics', n: 1 },
+      { subjectId: 'ghost-subject', n: 2 },
+    ]);
+    assert.ok(g.fpsc.some((x) => x.subjectId === 'physics'));
+    assert.equal(
+      Object.values(g).flat().some((x) => x.subjectId === 'ghost-subject'),
+      false,
     );
   });
 });

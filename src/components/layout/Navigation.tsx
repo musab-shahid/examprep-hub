@@ -81,8 +81,13 @@ export function Sidebar() {
   const toggleSubject = (subjectId: string) => {
     setExpandedSubject((prev) => (prev === subjectId ? null : subjectId));
   };
-  const isTrackLandingActive = (trackId: ExamTrackId) =>
-    currentScreen === getLandingScreenForTrack(trackId);
+  const isTrackLandingActive = (trackId: ExamTrackId) => {
+    const landing = getLandingScreenForTrack(trackId);
+    if (landing === 'track') {
+      return currentScreen === 'track' && route.trackId === trackId;
+    }
+    return currentScreen === landing;
+  };
   return (
     <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-slate-900 flex-col z-40">
       {/* Logo */}

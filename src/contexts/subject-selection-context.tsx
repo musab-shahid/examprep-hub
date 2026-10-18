@@ -1,12 +1,12 @@
 import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import type { SubjectId } from '@/types';
 import type { ExamTrackId } from '@/lib/exam-track';
-import { getTrackForSubject } from '@/lib/exam-track';
+import { TRACK_IDS } from '@/lib/exam-track';
+import { isTrackId } from '@/data/tracks';
 import { subjectsForScope } from '@/lib/track-scope';
 import { subjectsByTrack } from '@/data/subjects';
 import { STAGE_SCREENS } from '@/lib/constants';
 import { useData } from '@/hooks/useData';
-import { isTrackId } from '@/data/tracks';
 
 export type StageScreen = (typeof STAGE_SCREENS)[number];
 export type SubjectSelection = SubjectId | 'all';
@@ -72,12 +72,14 @@ function loadPersisted(): SubjectSelectionState {
     if (raw) {
       const parsed = JSON.parse(raw) as Record<string, unknown>;
       const activeTrack: ExamTrackId =
-        parsed.activeTrack === 'hat' || parsed.activeTrack === 'fpsc' ? parsed.activeTrack : 'fpsc';
+        typeof parsed.activeTrack === 'string' && isTrackId(parsed.activeTrack)
+          ? parsed.activeTrack
+          : TRACK_IDS[0];
 
       // New shape
       if (parsed.byTrack && typeof parsed.byTrack === 'object') {
         const byTrack: SubjectSelectionState['byTrack'] = {};
-        for (const key of ['fpsc', 'hat'] as ExamTrackId[]) {
+        for (const key of TRACK_IDS) {
           const bucket = (parsed.byTrack as Record<string, unknown>)[key];
           if (bucket && typeof bucket === 'object') {
             const b = bucket as Record<string, unknown>;
@@ -109,7 +111,7 @@ function loadPersisted(): SubjectSelectionState {
   } catch {
     /* ignore */
   }
-  return { byTrack: {}, activeTrack: 'fpsc' };
+  return { byTrack: {}, activeTrack: TRACK_IDS[0] };
 }
 
 function prefsFor(state: SubjectSelectionState, track: ExamTrackId): TrackPrefs {
@@ -176,7 +178,7 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
   // Full reset / multi-tab clear — wipe in-memory prefs so they cannot re-persist
   useEffect(() => {
     const onReset = () => {
-      setState({ byTrack: {}, activeTrack: 'fpsc' });
+      setState({ byTrack: {}, activeTrack: TRACK_IDS[0] });
       try {
         localStorage.removeItem(STORAGE_KEY);
       } catch { /* ignore */ }
@@ -291,7 +293,7 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
         perScreen: activePrefs.perScreen,
         lastSelected: activePrefs.lastSelected,
         prefersAll: activePrefs.prefersAll,
-        activeTrack: state.activeTrack,
+        activeTrack: derivedActiveTrack,
         getActiveSubject,
         setActiveSubjectForScreen,
         setGlobalSubject,

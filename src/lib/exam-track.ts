@@ -1,42 +1,33 @@
 /**
- * Thin ExamTrack abstraction — single place shared screens use to treat
- * FPSC and HAT the same way at the data layer.
+ * Thin ExamTrack abstraction — shared screens treat all tracks the same.
  *
- * Landing screens (HatLandingScreen, FpscLandingScreen) stay track-specific
- * for branding. Dashboard, Progress, Revision, Practice, Study, Navigation
- * consume only this module + subjects (no HAT meta / section special-cases).
+ * Track IDs and ordered list come from `@/data/tracks` (TRACK_IDS / listTrackDefinitions).
+ * Landing screens stay brand-specific via landingVariant on the registry.
  *
- * Both tracks are multi-subject:
- *   - FPSC: meteo-climatology, physics, maths, …
- *   - HAT: the three reasoning subjects (verbal / analytical / quantitative)
- *
- * Depends on @/data/subjects for the canonical subject list + track tags.
- * If a subject is missing a track field, it is treated as 'fpsc'.
+ * Unknown track/subject IDs never silently become FPSC.
  */
 
 import {
   subjects,
-  examTracks as dataExamTracks,
   subjectsByTrack as dataSubjectsByTrack,
-  type ExamTrack as DataExamTrack,
 } from '../data/subjects.ts';
+import {
+  TRACK_IDS,
+  isTrackId,
+  listTrackDefinitions,
+  getTrackDefinition,
+  type TrackId,
+} from '../data/tracks.ts';
 import type { SubjectId } from '../types.ts';
 
-// ── Public types ──
+export type ExamTrackId = TrackId;
 
-/** Canonical track ids. Keep in sync with @/data/subjects ExamTrack. */
-export type ExamTrackId = DataExamTrack; // 'fpsc' | 'hat'
-
-/** UI chrome for a track (gradients, labels). Not the same as subjects.ExamTrackMeta. */
 export type TrackChromeMeta = {
   id: ExamTrackId;
-  /** Short UI label, e.g. "FPSC Subjects" / "HAT Modules" */
   label: string;
-  /** Full product name for landings / headers */
   productName: string;
-  /** Router screen for the track landing (branding stays track-specific) */
-  landingScreen: 'fpsc' | 'hat';
-  /** Accent for shared UI (not full branding) */
+  /** Brand landing route when present; generic tracks use /track/:id */
+  landingScreen: 'fpsc' | 'hat' | 'track';
   accent: 'sky' | 'indigo';
 };
 
@@ -46,77 +37,42 @@ export type TrackSubjectRef = {
   title: string;
 };
 
-// ── Static meta (UI-facing; not content) ──
-
-const TRACK_META: Record<ExamTrackId, TrackChromeMeta> = {
-  fpsc: {
-    id: 'fpsc',
-    label: 'FPSC Subjects',
-    productName: 'FPSC Prep',
-    landingScreen: 'fpsc',
-    accent: 'sky',
-  },
-  hat: {
-    id: 'hat',
-    label: 'HAT Modules',
-    productName: 'HAT Prep',
-    landingScreen: 'hat',
-    accent: 'indigo',
-  },
-};
-
-/** Ordered list of tracks (same order as data layer). */
-export function getExamTracks(): TrackChromeMeta[] {
-  // Prefer data module order if present; fall back to TRACK_META keys
-  if (Array.isArray(dataExamTracks) && dataExamTracks.length > 0) {
-    return dataExamTracks.map((t) => TRACK_META[t.id as ExamTrackId] ?? {
-      id: t.id as ExamTrackId,
-      label: (t as { label?: string }).label ?? String(t.id).toUpperCase(),
-      productName: String(t.id).toUpperCase(),
-      landingScreen: (t.id === 'hat' ? 'hat' : 'fpsc') as 'fpsc' | 'hat',
-      accent: (t.id === 'hat' ? 'indigo' : 'sky') as 'sky' | 'indigo',
-    });
-  }
-  return Object.values(TRACK_META);
-}
-
-export function getTrackMeta(track: ExamTrackId): TrackChromeMeta {
-  if (TRACK_META[track]) return TRACK_META[track];
-  // Unknown id — neutral chrome, never pretend to be FPSC
+function chromeFromRegistry(id: TrackId): TrackChromeMeta {
+  const d = getTrackDefinition(id);
+  const landing: TrackChromeMeta['landingScreen'] =
+    d.landingVariant === 'fpsc' || d.landingVariant === 'hat'
+      ? d.landingVariant
+      : 'track';
   return {
-    id: track,
-    label: String(track).toUpperCase(),
-    productName: String(track).toUpperCase(),
-    landingScreen: 'fpsc',
-    accent: 'sky',
+    id,
+    label: d.shortTitle,
+    productName: d.title,
+    landingScreen: landing,
+    accent: d.accent === 'indigo' ? 'indigo' : 'sky',
   };
 }
 
-// ── Subject ↔ track resolution ──
-
-/**
- * Resolve which exam track a subject belongs to.
- * Prefers the `track` field on the subject record from @/data/subjects.
- */
-export function getTrackForSubject(subjectId: SubjectId | string): ExamTrackId {
-  const sub = subjects.find((s) => s.id === subjectId);
-  if (sub?.track === 'hat' || sub?.track === 'fpsc') {
-    return sub.track as ExamTrackId;
-  }
-  // Legacy id patterns only — do not invent FPSC for arbitrary strings
-  if (subjectId === 'hat' || String(subjectId).startsWith('hat-')) return 'hat';
-  if (sub) return 'fpsc';
-  // Unknown subject: still return fpsc for type compatibility, callers should verify subject exists
-  return 'fpsc';
+/** Ordered list of tracks from the central registry. */
+export function getExamTracks(): TrackChromeMeta[] {
+  return listTrackDefinitions().map((d) => chromeFromRegistry(d.id));
 }
 
-/** Subjects belonging to a track (thin wrapper over data layer). */
-export function getSubjectsForTrack(track: ExamTrackId): TrackSubjectRef[] {
-  const list =
-    typeof dataSubjectsByTrack === 'function'
-      ? dataSubjectsByTrack(track)
-      : subjects.filter((s) => getTrackForSubject(s.id) === track);
+export function getTrackMeta(track: ExamTrackId): TrackChromeMeta {
+  return chromeFromRegistry(track);
+}
 
+/**
+ * Resolve subject → track. Unknown subjects return null (never default FPSC).
+ */
+export function getTrackForSubject(subjectId: SubjectId | string): ExamTrackId | null {
+  const sub = subjects.find((s) => s.id === subjectId);
+  if (sub && isTrackId(sub.track)) return sub.track;
+  if (typeof subjectId === 'string' && subjectId.startsWith('hat-')) return 'hat';
+  return null;
+}
+
+export function getSubjectsForTrack(track: ExamTrackId): TrackSubjectRef[] {
+  const list = dataSubjectsByTrack(track);
   return list.map((s) => ({
     subjectId: s.id as SubjectId,
     track,
@@ -124,50 +80,38 @@ export function getSubjectsForTrack(track: ExamTrackId): TrackSubjectRef[] {
   }));
 }
 
-/** All subject ids for a track — useful for scoping attention / stats. */
 export function getSubjectIdsForTrack(track: ExamTrackId): Set<SubjectId> {
   return new Set(getSubjectsForTrack(track).map((s) => s.subjectId));
 }
 
-/**
- * Whether a track has only one subject.
- * With current data both FPSC and HAT are multi-subject, so this is false
- * for both. Kept for defensive UI (empty / future single-subject tracks).
- */
 export function isSingleSubjectTrack(track: ExamTrackId): boolean {
-  return getSubjectsForTrack(track).length <= 1;
+  return getSubjectsForTrack(track).length === 1;
 }
 
-/**
- * Map a SubjectSelection ('all' | SubjectId) to an optional track filter.
- * 'all' → no track filter; a subject id → that subject's track.
- */
-export function trackFromSelection(
-  selection: SubjectId | 'all',
+export function getTrackForSelection(
+  selection: SubjectId | 'all' | string,
 ): ExamTrackId | null {
   if (selection === 'all') return null;
   return getTrackForSubject(selection);
 }
 
-/**
- * Landing route for a track — only place shared UI should branch for branding entry.
- * Content screens must not hard-code 'hat' vs 'fpsc' beyond this helper.
- */
-export function getLandingScreenForTrack(track: ExamTrackId): 'fpsc' | 'hat' {
+export function getLandingScreenForTrack(track: ExamTrackId): 'fpsc' | 'hat' | 'track' {
   return getTrackMeta(track).landingScreen;
 }
 
-/**
- * Group an array of subject-scoped stats (or any { subjectId } items) by track.
- * Replaces ad-hoc fpscStats / hatStats filters in Dashboard.
- */
+/** Group items by subject→track; unknown subjects are omitted (not forced into FPSC). */
 export function groupByTrack<T extends { subjectId: string }>(
   items: T[],
 ): Record<ExamTrackId, T[]> {
-  const out: Record<ExamTrackId, T[]> = { fpsc: [], hat: [] };
+  const out = Object.fromEntries(TRACK_IDS.map((id) => [id, [] as T[]])) as Record<
+    ExamTrackId,
+    T[]
+  >;
   for (const item of items) {
     const track = getTrackForSubject(item.subjectId);
-    out[track].push(item);
+    if (track) out[track].push(item);
   }
   return out;
 }
+
+export { TRACK_IDS, isTrackId };
