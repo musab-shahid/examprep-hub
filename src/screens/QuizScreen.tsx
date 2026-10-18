@@ -45,6 +45,8 @@ function validateQuizParams(params: {
   mode?: PracticeMode;
   count?: number | 'all';
   topicId?: string;
+  topicIds?: string[];
+  scope?: 'subject' | 'all';
   subjectId?: string;
 }): string | null {
   if (!params.mode || !VALID_MODES.includes(params.mode)) {
@@ -61,9 +63,14 @@ function validateQuizParams(params: {
   if (params.subjectId !== undefined && params.subjectId !== '' && !VALID_SUBJECT_IDS.includes(params.subjectId)) {
     return `Invalid subject ID: "${params.subjectId}" does not exist.`;
   }
-  if (params.mode === 'topic' && (!params.topicId || params.topicId === '')) {
-    return 'Topic quiz requires a topicId. Refusing to start a track-wide pool.';
-  }
+  const coherence = validateQuizRequest({
+    mode: params.mode,
+    topicId: params.topicId,
+    topicIds: params.topicIds,
+    scope: params.scope,
+    subjectId: params.subjectId,
+  });
+  if (!coherence.ok) return coherence.reason;
   return null;
 }
 
@@ -436,40 +443,44 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   // Check for saved quiz progress on mount — only offer resume if full signature matches
   useEffect(() => {
     const saved = loadQuizProgress();
-    if (saved && saved.answers.length > 0) {
-      const currentSig = quizSignature({
-        mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
-        track: activeTrack, examId: activeExamId, timeLimit,
-      });
-      const savedSig = quizSignature({
-        mode: saved.mode,
-        topicId: saved.topicId,
-        topicIds: saved.topicIds,
-        scope: saved.scope,
-        subjectId: saved.subjectId,
-        count: saved.count,
-        difficulty: saved.difficulty,
-        wrongPool: saved.wrongPool,
-        track: saved.track,
-        examId: saved.examId ?? null,
-        timeLimit: saved.timeLimit,
-      });
-      if (currentSig === savedSig) {
-        setResumeOffer(saved);
-      } else {
-        clearQuizProgress();
-      }
+    if (!saved || saved.answers.length === 0) return;
+    // Without an active workspace, do not discard a potentially valid draft
+    if (!activeTrack) return;
+    const currentSig = quizSignature({
+      mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
+      track: activeTrack, examId: activeExamId, timeLimit,
+    });
+    const savedSig = quizSignature({
+      mode: saved.mode,
+      topicId: saved.topicId,
+      topicIds: saved.topicIds,
+      scope: saved.scope,
+      subjectId: saved.subjectId,
+      count: saved.count,
+      difficulty: saved.difficulty,
+      wrongPool: saved.wrongPool,
+      track: saved.track,
+      examId: saved.examId ?? null,
+      timeLimit: saved.timeLimit,
+    });
+    if (currentSig === savedSig) {
+      setResumeOffer(saved);
+    } else {
+      // Only clear when we can positively prove mismatch against a real workspace
+      clearQuizProgress();
+      setResumeOffer(null);
     }
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack, activeExamId]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, activeTrack, activeExamId, timeLimit]);
 
   // Save quiz progress whenever answers or currentIdx changes
   useEffect(() => {
     if (state && !finished && state.questions.length > 0) {
       const sess = sessionRef.current;
+      if (!sess) return;
       saveQuizProgress(
         state, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool,
-        sess?.trackId ?? trackRef.current,
-        sess?.examId ?? activeExamId,
+        sess.trackId,
+        sess.examId,
       );
     }
   }, [state?.answers, state?.currentIdx, finished, mode, topicId, subjectId, topicIds, scope, count, difficulty, timeLimit, wrongPool]);
@@ -537,7 +548,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       subjectId: saved.subjectId,
       difficulty: saved.difficulty,
       wrongPool: saved.wrongPool,
-    })) {
+    }, dataRef.current.questionResults)) {
       clearQuizProgress();
       setQuestionsLoading(false);
       initQuiz();
@@ -894,7 +905,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   }, [finished, showExitConfirm, showKeysHelp, handleCheck, handleNext, handleExit, toggleOption]);
 
   // ── Early returns only AFTER all hooks ──
-  const validationError = validateQuizParams({ mode, count, topicId, subjectId });
+  const validationError = validateQuizParams({ mode, count, topicId, topicIds, scope, subjectId });
   if (validationError) {
     return (
       <PageContainer>

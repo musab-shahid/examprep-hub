@@ -66,7 +66,29 @@ function add(severity: Severity, subjectId: string, questionId: string, code: st
   findings.push({ severity, subjectId, questionId, code, message });
 }
 
-function validateQuestion(q: Question, subjectId: string) {
+const ALLOWED_POST_RESTRICTION = new Set(['bs16', 'bs17', 'all']);
+
+function validateContentTags(
+  subjectId: string,
+  id: string,
+  tags: { postRestriction?: string | null; examScope?: string[] | null } | null | undefined,
+) {
+  if (!tags) return;
+  const pr = tags.postRestriction;
+  if (pr != null && pr !== '' && !ALLOWED_POST_RESTRICTION.has(pr)) {
+    add('critical', subjectId, id, 'UNKNOWN_POST_RESTRICTION', `postRestriction "${pr}" is not in {bs16,bs17,all}`);
+  }
+  if (tags.examScope) {
+    for (const s of tags.examScope) {
+      if (s !== 'bs16' && s !== 'bs17') {
+        add('warning', subjectId, id, 'UNKNOWN_EXAM_SCOPE', `examScope entry "${s}"`);
+      }
+    }
+  }
+}
+
+function validateQuestion(
+q: Question, subjectId: string) {
   const id = q.id || '(missing-id)';
 
   // ID
@@ -134,6 +156,8 @@ function validateQuestion(q: Question, subjectId: string) {
       add('warning', subjectId, id, 'DUPLICATE_OPTIONS', 'Duplicate option text');
     }
   }
+
+  validateContentTags(subjectId, id, q as { postRestriction?: string | null; examScope?: string[] | null });
 
   const n = q.options?.length ?? 0;
 
@@ -246,6 +270,7 @@ async function main() {
     try {
       const mod = await loader();
       for (const topic of mod.topics ?? []) {
+        validateContentTags(subjectId, topic.id, topic as { postRestriction?: string | null; examScope?: string[] | null });
         const fields: [string, string[] | undefined][] = [
           ['relatedTopics', topic.relatedTopics],
           ['buildsOn', topic.buildsOn],

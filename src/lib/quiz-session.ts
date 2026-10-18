@@ -143,6 +143,11 @@ export function validateDraftShape(raw: unknown): DraftValidation {
   }
   if (p.examId === '') return { ok: false, reason: 'empty-examId' };
 
+  const VALID_MODES = ['topic', 'quick', 'mock', 'review', 'challenge'];
+  if (typeof p.mode !== 'string' || !VALID_MODES.includes(p.mode)) {
+    return { ok: false, reason: 'invalid-mode' };
+  }
+
   if (p.optionOrders !== undefined) {
     if (!Array.isArray(p.optionOrders)) return { ok: false, reason: 'optionOrders-type' };
     if (p.optionOrders.length > 0 && p.optionOrders.length !== questionIds.length) {
@@ -177,6 +182,7 @@ export function validateDraftShape(raw: unknown): DraftValidation {
 export function questionsMatchRequest(
   questions: Question[],
   request: QuizRequest,
+  questionResults?: Record<string, { correct: boolean; timestamp: number }>,
 ): boolean {
   if (request.scope === 'subject' && request.subjectId) {
     for (const q of questions) {
@@ -197,6 +203,13 @@ export function questionsMatchRequest(
   if (request.difficulty && request.difficulty !== 'any') {
     for (const q of questions) {
       if (q.difficulty !== request.difficulty) return false;
+    }
+  }
+  // Wrong-pool drafts: every restored question must still be marked wrong in history
+  if (request.wrongPool && questionResults) {
+    for (const q of questions) {
+      const r = questionResults[q.id];
+      if (!r || r.correct) return false;
     }
   }
   return true;

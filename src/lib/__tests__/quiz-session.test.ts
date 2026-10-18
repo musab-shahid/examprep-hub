@@ -137,3 +137,42 @@ describe('selectQuizPool parameter integrity', () => {
     });
   }
 });
+
+describe('questionsMatchRequest wrongPool', () => {
+  it('rejects when a restored question is not wrong in history', () => {
+    const qs = allQuestions().slice(0, 2);
+    if (qs.length < 2) {
+      assert.ok(true);
+      return;
+    }
+    const ok = questionsMatchRequest(
+      qs,
+      { mode: 'review', wrongPool: true },
+      { [qs[0].id]: { correct: false, timestamp: 1 }, [qs[1].id]: { correct: true, timestamp: 1 } },
+    );
+    assert.equal(ok, false);
+  });
+
+  it('accepts when all are wrong', () => {
+    const qs = allQuestions().slice(0, 2);
+    if (qs.length < 2) {
+      assert.ok(true);
+      return;
+    }
+    const results: Record<string, { correct: boolean; timestamp: number }> = {};
+    for (const q of qs) results[q.id] = { correct: false, timestamp: 1 };
+    assert.equal(questionsMatchRequest(qs, { mode: 'review', wrongPool: true }, results), true);
+  });
+});
+
+describe('validateDraftShape mode', () => {
+  it('rejects unsupported mode', () => {
+    const r = validateDraftShape({
+      questionIds: ['q1'],
+      answers: [],
+      currentIdx: 0,
+      mode: 'not-a-mode',
+    });
+    assert.equal(r.ok, false);
+  });
+});
