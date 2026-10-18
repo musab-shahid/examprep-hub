@@ -39,3 +39,11 @@
 - Resource on another enrolled track → explicit Switch (not silent open / not FPSC fallback).
 - Valid current `schemaVersion: 1` with zero enrollments is stable (no evidence re-migration).
 - Newer schema versions are left untouched (no silent downgrade).
+
+
+## Quiz session scope
+- Active workspace for a quiz is resolved from **membership** (`resolveLearningScope`), not subject-selection prefs.
+- On load for a quiz request, a **session snapshot** (track, examId, allowed subjects) is locked.
+- Changing membership / AppData mid-quiz does **not** re-init the pool or rewrite the draft under a new profile.
+- A new quiz request (mode/topic/subject/count/…) clears the snapshot and starts a new session.
+- Saved drafts must match track + examId + request signature; malformed drafts are discarded without touching topic progress.

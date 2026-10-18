@@ -354,6 +354,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     else navigate({ screen: 'home', parent: null });
   }, [canGoBack, back, navigate]);
   const { recordQuiz, data } = useData();
+  const dataRef = useRef(data);
+  dataRef.current = data;
   const sd = useSubjectData();
   const learningScope = resolveLearningScope(data);
   const activeTrack = learningScope?.trackId ?? null;
@@ -392,25 +394,29 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   const initQuiz = useCallback(() => {
     recordedRef.current = false;
-    const ls = resolveLearningScope(data);
-    if (!ls) {
-      setState(null);
-      setFinished(false);
-      setResults(null);
-      sessionRef.current = null;
-      return;
+    // Prefer existing locked session workspace (mid-session membership changes must not re-scope)
+    let snap = sessionRef.current;
+    if (!snap) {
+      const ls = resolveLearningScope(dataRef.current);
+      if (!ls) {
+        setState(null);
+        setFinished(false);
+        setResults(null);
+        sessionRef.current = null;
+        return;
+      }
+      snap = {
+        trackId: ls.trackId,
+        examId: ls.examId,
+        allowedSubjectIds: Array.from(ls.subjectIds),
+        scopeInput: { trackId: ls.trackId, examId: ls.examId },
+      };
+      sessionRef.current = snap;
+      trackRef.current = ls.trackId;
     }
-    const snap: QuizSessionSnapshot = {
-      trackId: ls.trackId,
-      examId: ls.examId,
-      allowedSubjectIds: Array.from(ls.subjectIds),
-      scopeInput: { trackId: ls.trackId, examId: ls.examId },
-    };
-    sessionRef.current = snap;
-    trackRef.current = ls.trackId;
     const pool = pickQuestions(
       mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool,
-      questionResultsSnapshot.current, snap.trackId, data.topicProgress,
+      questionResultsSnapshot.current, snap.trackId, dataRef.current.topicProgress,
       new Set(snap.allowedSubjectIds), snap.scopeInput,
     );
     // Phase D: materialize quant templates (new numbers); strength stays on base id
@@ -425,7 +431,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     setState({ questions: qs, optionOrders, currentIdx: 0, selectedIndices: [], checked: false, answers: [], startTime: Date.now(), elapsed: 0 });
     setFinished(false);
     setResults(null);
-  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool, sd.trackSubjectIds, data]);
+  }, [mode, topicId, topicIds, scope, subjectId, count, difficulty, wrongPool]);
 
   // Check for saved quiz progress on mount — only offer resume if full signature matches
   useEffect(() => {
@@ -548,8 +554,10 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     }
     const optionOrders = restoredQuestions.map((q) => {
       const savedOrder = orderById.get(q.id);
-      if (savedOrder && savedOrder.length === q.options.length) return savedOrder;
-      return q.options.map((_, i) => i);
+      if (savedOrder && isValidOptionPermutation(savedOrder, q.options?.length ?? 0)) {
+        return savedOrder;
+      }
+      return (q.options ?? []).map((_, i) => i);
     });
     recordedRef.current = false;
     const resumedElapsed = Math.max(0, saved.elapsedSeconds ?? 0);
@@ -595,10 +603,25 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     initQuiz();
   }, [wrongPool, data.questionResults, mode, topicId, topicIds, scope, subjectId, count, difficulty, initQuiz]);
 
-  // Load questions first, then init quiz
-  // Re-runs when quiz params change because initQuiz is memoized on those deps.
+  // Load questions first, then init quiz.
+  // Param-key change starts a *new* session (clears snapshot). Membership-only
+  // AppData updates must not re-run this effect or wipe in-progress answers.
+  const quizParamKey = [
+    mode,
+    topicId ?? '',
+    (topicIds ?? []).slice().sort().join(','),
+    scope ?? '',
+    subjectId ?? '',
+    String(count ?? ''),
+    difficulty ?? '',
+    String(wrongPool ?? false),
+    String(timeLimit ?? ''),
+  ].join('|');
+
   useEffect(() => {
     let cancelled = false;
+    sessionRef.current = null;
+    trackRef.current = null;
     setQuestionsLoadError(false);
     setRetakeEmpty(false);
     const load = async () => {
@@ -624,8 +647,8 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     };
     load();
     return () => { cancelled = true; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- mode/topicId/scope/subjectId live inside initQuiz
-  }, [initQuiz]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- keyed by quizParamKey
+  }, [quizParamKey]);
 
   // ── Shared finish helper — side effects only outside setState updaters ──
   const finishQuiz = useCallback((s: QuizState, finalAnswers: AnswerRecord[]) => {
