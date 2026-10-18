@@ -43,12 +43,30 @@ export function scopeInputFromData(data: AppData | null | undefined): ScopeInput
   return { trackId: s.trackId, examId: s.examId };
 }
 
-/** Authorize access to a concrete subject (and optional content tags). */
+export type SubjectAccessOk = { ok: true; trackId: TrackId };
+export type SubjectAccessDeny = {
+  ok: false;
+  reason:
+    | 'unknown-subject'
+    | 'track-not-enrolled'
+    | 'subject-not-in-profile'
+    | 'content-out-of-scope'
+    | 'other-enrolled-track';
+  trackId?: TrackId;
+};
+export type SubjectAccessResult = SubjectAccessOk | SubjectAccessDeny;
+
+/**
+ * Authorize access to a concrete subject (and optional content tags).
+ * Success means the resource is enrolled + in profile + eligible + matches
+ * the **active** workspace. Another enrolled track returns other-enrolled-track
+ * so the UI can offer an explicit Switch.
+ */
 export function canAccessSubject(
   data: AppData | null | undefined,
   subjectId: string,
   tags?: { examScope?: ('bs17' | 'bs16')[]; postRestriction?: string | null },
-): { ok: true; trackId: TrackId } | { ok: false; reason: string; trackId?: TrackId } {
+): SubjectAccessResult {
   const trackId = getTrackForSubject(subjectId);
   if (!isTrackId(trackId)) {
     return { ok: false, reason: 'unknown-subject' };
@@ -56,6 +74,8 @@ export function canAccessSubject(
   if (!isTrackEnrolled(data, trackId)) {
     return { ok: false, reason: 'track-not-enrolled', trackId };
   }
+
+  // Profile policy for the resource's track (not necessarily active)
   const mem = getMembershipState(data);
   const examId = mem.enrollments[trackId]?.activeExamId ?? null;
   const scope: ScopeInput = { trackId, examId };
@@ -66,6 +86,12 @@ export function canAccessSubject(
   if (tags && !contentEligibleForScope(tags, scope)) {
     return { ok: false, reason: 'content-out-of-scope', trackId };
   }
+
+  const active = getFocusTrackId(data);
+  if (active !== trackId) {
+    return { ok: false, reason: 'other-enrolled-track', trackId };
+  }
+
   return { ok: true, trackId };
 }
 

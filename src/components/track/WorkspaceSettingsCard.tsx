@@ -87,10 +87,16 @@ export function WorkspaceSettingsCard() {
                     type="button"
                     className="text-xs py-1.5 px-2.5"
                     onClick={() => {
-                      setActiveEnrolledTrack(id);
-                      setActiveTrack(id);
-                      setMsg(`Switched active workspace to ${def.shortTitle}.`);
-                      setConfirmLeave(null);
+                      const r = setActiveEnrolledTrack(id);
+                      if (r.ok) {
+                        setActiveTrack(id);
+                        setMsg(`Switched active workspace to ${def.shortTitle}.`);
+                        setConfirmLeave(null);
+                      } else {
+                        setMsg(r.reason === 'persist-failed'
+                          ? 'Could not save workspace switch. Check storage and try again.'
+                          : 'Could not switch workspace.');
+                      }
                     }}
                   >
                     Switch to this track

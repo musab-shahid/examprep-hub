@@ -10,6 +10,11 @@ import {
 import { getFocusTrackId } from './track-focus.ts';
 import type { AppData, TrackMembershipState } from '../types.ts';
 
+export type StudyGateReason =
+  | 'no-enrollment'
+  | 'track-not-enrolled'
+  | 'no-active-workspace';
+
 export function getMembership(data: AppData | null | undefined): TrackMembershipState {
   return normalizeTrackMembership(data?.trackMembership ?? emptyTrackMembership());
 }
@@ -39,13 +44,13 @@ export function hasAnyEnrollment(data: AppData | null | undefined): boolean {
 
 /**
  * Gate for study activities.
- * - If trackId provided: must be enrolled in that track
- * - If omitted: must have at least one enrollment (and preferably an active focus)
+ * - If trackId provided: must be enrolled in that track (preview/switch targets OK).
+ * - If omitted: must have a valid active enrolled workspace (not merely any enrollment).
  */
 export function assertCanStudy(
   data: AppData | null | undefined,
   trackId?: string | null,
-): { ok: true } | { ok: false; reason: 'no-enrollment' | 'track-not-enrolled' } {
+): { ok: true } | { ok: false; reason: StudyGateReason } {
   if (trackId) {
     if (!isTrackEnrolled(data, trackId)) {
       return { ok: false, reason: 'track-not-enrolled' };
@@ -54,6 +59,10 @@ export function assertCanStudy(
   }
   if (!hasAnyEnrollment(data)) {
     return { ok: false, reason: 'no-enrollment' };
+  }
+  const focus = getFocusTrackId(data);
+  if (!focus || !isTrackEnrolled(data, focus)) {
+    return { ok: false, reason: 'no-active-workspace' };
   }
   return { ok: true };
 }

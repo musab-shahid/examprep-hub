@@ -59,16 +59,29 @@ describe('resolveLearningScope', () => {
 });
 
 describe('canAccessSubject', () => {
-  it('denies subject on other track', () => {
+  it('denies subject on unenrolled track', () => {
     const d = withEnrollAndFocus(base(), 'fpsc').data;
     const r = canAccessSubject(d, 'hat-verbal');
     assert.equal(r.ok, false);
+    if (!r.ok) assert.equal(r.reason, 'track-not-enrolled');
   });
 
-  it('allows fpsc subject when enrolled in fpsc', () => {
+  it('allows fpsc subject when enrolled and active fpsc', () => {
     const d = withEnrollAndFocus(base(), 'fpsc').data;
     const r = canAccessSubject(d, 'physics');
     assert.equal(r.ok, true);
+  });
+
+  it('signals other-enrolled-track when resource is enrolled but not active', () => {
+    let d = withEnrollAndFocus(base(), 'fpsc').data;
+    const hat = withEnrollAndFocus(d, 'hat').data;
+    // Active remains hat after second enroll (setActive default)
+    const r = canAccessSubject(hat, 'physics');
+    assert.equal(r.ok, false);
+    if (!r.ok) {
+      assert.equal(r.reason, 'other-enrolled-track');
+      assert.equal(r.trackId, 'fpsc');
+    }
   });
 });
 

@@ -172,7 +172,8 @@ export function useSubjectData(): SubjectDataLayer {
       id === 'all'
         ? trackSubjectIdList.every((s) => getCachedQuestions(s) !== undefined)
         : getCachedQuestions(id) !== undefined;
-    const qCount = fullyLoaded && sQuestions.length > 0 ? sQuestions.length : questionCountFor(id);
+    // When bank is loaded, trust filtered length (including legitimate zero)
+    const qCount = fullyLoaded ? sQuestions.length : questionCountFor(id);
 
     return {
       subjectId: id,

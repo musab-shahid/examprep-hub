@@ -1,10 +1,11 @@
 import { useData } from '@/hooks/useData';
 import { useRouter } from '@/router';
-import { assertCanStudy } from '@/lib/track-access';
+import { assertCanStudy, getMembership } from '@/lib/track-access';
 import { openTrackOptions } from '@/router/openTrack';
 import { listTrackDefinitions } from '@/data/tracks';
 import { isTrackId, type TrackId } from '@/data/tracks';
 import { PageContainer, Button, Card } from '@/components/ui';
+import { useSubjectSelection } from '@/contexts/subject-selection-context';
 
 type Props = {
   children: React.ReactNode;
@@ -19,7 +20,8 @@ type Props = {
  * Blocks learning screens until enrollment (and optional track) is satisfied.
  */
 export function EnrollmentRequired({ children, requiredTrack }: Props) {
-  const { data } = useData();
+  const { data, setActiveEnrolledTrack } = useData();
+  const { setActiveTrack } = useSubjectSelection();
   const { navigate } = useRouter();
 
   const check = requiredTrack
@@ -32,6 +34,37 @@ export function EnrollmentRequired({ children, requiredTrack }: Props) {
 
   const exploreTrack: TrackId | null =
     requiredTrack && isTrackId(requiredTrack) ? requiredTrack : null;
+
+  if (!check.ok && check.reason === 'no-active-workspace') {
+    const enrolled = Object.keys(getMembership(data).enrollments).filter(isTrackId) as TrackId[];
+    return (
+      <PageContainer>
+        <Card className="p-3.5 sm:p-5 max-w-lg">
+          <h2 className="text-lg font-semibold text-slate-900">Choose an active workspace</h2>
+          <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+            You are enrolled, but no track is active. Switch to a workspace to open Study and Practice.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {enrolled.map((id) => {
+              const title = listTrackDefinitions().find((t) => t.id === id)?.shortTitle ?? id;
+              return (
+                <Button
+                  key={id}
+                  type="button"
+                  onClick={() => {
+                    const r = setActiveEnrolledTrack(id);
+                    if (r.ok) setActiveTrack(id);
+                  }}
+                >
+                  Activate {title}
+                </Button>
+              );
+            })}
+          </div>
+        </Card>
+      </PageContainer>
+    );
+  }
 
   return (
     <PageContainer>
@@ -56,7 +89,11 @@ export function EnrollmentRequired({ children, requiredTrack }: Props) {
               <Button type="button" onClick={() => navigate({ ...openTrackOptions('fpsc') })}>
                 Explore FPSC
               </Button>
-              <Button type="button" variant="secondary" onClick={() => navigate({ ...openTrackOptions('hat') })}>
+              <Button
+                type="button"
+                variant="secondary"
+                onClick={() => navigate({ ...openTrackOptions('hat') })}
+              >
                 Explore HAT
               </Button>
             </>

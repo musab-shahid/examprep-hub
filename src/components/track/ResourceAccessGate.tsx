@@ -1,11 +1,49 @@
 import { useData } from '@/hooks/useData';
+import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { canAccessSubject } from '@/lib/learning-scope';
 import { isTrackId, type TrackId } from '@/data/tracks';
+import { listTrackDefinitions } from '@/data/tracks';
 import { EnrollmentRequired } from '@/components/track/EnrollmentRequired';
-import { PageContainer, EmptyState, Card } from '@/components/ui';
+import { PageContainer, EmptyState, Card, Button } from '@/components/ui';
 import { BookOpen } from 'lucide-react';
+
+function SwitchWorkspaceCard({
+  trackId,
+  title,
+}: {
+  trackId: TrackId;
+  title: string;
+}) {
+  const { setActiveEnrolledTrack } = useData();
+  const { setActiveTrack } = useSubjectSelection();
+  const label =
+    listTrackDefinitions().find((t) => t.id === trackId)?.shortTitle ?? trackId.toUpperCase();
+
+  return (
+    <PageContainer>
+      <Card className="p-6 max-w-lg">
+        <EmptyState
+          title={`Open in ${label}?`}
+          message={`${title} belongs to your ${label} enrollment, which is not the active workspace. Switch only if you want to change Study and Practice context.`}
+          icon={<BookOpen className="w-12 h-12" />}
+        />
+        <div className="flex justify-center mt-4">
+          <Button
+            type="button"
+            onClick={() => {
+              const r = setActiveEnrolledTrack(trackId);
+              if (r.ok) setActiveTrack(trackId);
+            }}
+          >
+            Switch to {label} and open
+          </Button>
+        </div>
+      </Card>
+    </PageContainer>
+  );
+}
 
 /** Gate a topic route by resolving topic → subject → track enrollment + profile tags. */
 export function TopicAccessGate({
@@ -35,18 +73,25 @@ export function TopicAccessGate({
     return (
       <PageContainer>
         <Card className="p-6">
-          <EmptyState title="Topic unavailable" message="No subject mapping for this topic." icon={<BookOpen className="w-12 h-12" />} />
+          <EmptyState
+            title="Topic unavailable"
+            message="No subject mapping for this topic."
+            icon={<BookOpen className="w-12 h-12" />}
+          />
         </Card>
       </PageContainer>
     );
   }
   const access = canAccessSubject(data, subjectId, topic);
-  if (!access.ok) {
-    const track: TrackId | undefined =
-      access.trackId && isTrackId(access.trackId) ? access.trackId : undefined;
-    return <EnrollmentRequired requiredTrack={track}>{null}</EnrollmentRequired>;
+  if (access.ok) return <>{children}</>;
+
+  if (access.reason === 'other-enrolled-track' && access.trackId && isTrackId(access.trackId)) {
+    return <SwitchWorkspaceCard trackId={access.trackId} title={topic.title} />;
   }
-  return <>{children}</>;
+
+  const track: TrackId | undefined =
+    access.trackId && isTrackId(access.trackId) ? access.trackId : undefined;
+  return <EnrollmentRequired requiredTrack={track}>{null}</EnrollmentRequired>;
 }
 
 /** Gate a section route by section → subject → track. */
@@ -63,16 +108,28 @@ export function SectionAccessGate({
     return (
       <PageContainer>
         <Card className="p-6">
-          <EmptyState title="Section not found" message="Unknown section id." icon={<BookOpen className="w-12 h-12" />} />
+          <EmptyState
+            title="Section not found"
+            message="Unknown section id."
+            icon={<BookOpen className="w-12 h-12" />}
+          />
         </Card>
       </PageContainer>
     );
   }
   const access = canAccessSubject(data, section.subjectId);
-  if (!access.ok) {
-    const track: TrackId | undefined =
-      access.trackId && isTrackId(access.trackId) ? access.trackId : undefined;
-    return <EnrollmentRequired requiredTrack={track}>{null}</EnrollmentRequired>;
+  if (access.ok) return <>{children}</>;
+
+  if (access.reason === 'other-enrolled-track' && access.trackId && isTrackId(access.trackId)) {
+    return (
+      <SwitchWorkspaceCard
+        trackId={access.trackId}
+        title={section.title}
+      />
+    );
   }
-  return <>{children}</>;
+
+  const track: TrackId | undefined =
+    access.trackId && isTrackId(access.trackId) ? access.trackId : undefined;
+  return <EnrollmentRequired requiredTrack={track}>{null}</EnrollmentRequired>;
 }

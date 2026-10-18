@@ -1,9 +1,10 @@
 /**
  * Single pipeline for subjects/content under track + optional exam profile.
  *
- * 1. Enrolled track subjects
- * 2. Profile subject policy (required ∪ optional)
- * 3. Content-level tags (examScope / postRestriction) when profile has scales
+ * Distinguishes:
+ * - general preparation (examId null)
+ * - valid profile with subject policy
+ * - invalid track / invalid profile / empty policy (never broadens to whole track)
  */
 import { subjectsByTrack } from '../data/subjects.ts';
 import { isTrackId, getExamProfile, type TrackId, type ExamScale } from '../data/tracks.ts';
@@ -16,22 +17,47 @@ export type ScopeInput = {
   examId?: string | null;
 };
 
-export function subjectsForScope(input: ScopeInput): Subject[] {
+/** Explicit scope resolution — callers must not treat invalid as general. */
+export type ScopeResolution =
+  | { kind: 'general'; trackId: TrackId; subjects: Subject[] }
+  | { kind: 'profile'; trackId: TrackId; examId: string; subjects: Subject[] }
+  | { kind: 'invalid-track' }
+  | { kind: 'invalid-profile'; trackId: TrackId; examId: string }
+  | { kind: 'empty-policy'; trackId: TrackId; examId: string };
+
+export function resolveSubjectsForScope(input: ScopeInput): ScopeResolution {
   const { trackId, examId = null } = input;
-  if (!isTrackId(trackId)) return [];
+  if (!isTrackId(trackId)) return { kind: 'invalid-track' };
+
   const all = subjectsByTrack(trackId);
-  // null / undefined examId = general preparation across the whole track
-  if (examId == null || examId === '') return all;
+
+  if (examId == null || examId === '') {
+    return { kind: 'general', trackId, subjects: all };
+  }
 
   const profile = getExamProfile(trackId, examId);
-  // Invalid profile id must never broaden to the full track
-  if (!profile) return [];
+  if (!profile) {
+    return { kind: 'invalid-profile', trackId, examId };
+  }
 
-  const required = new Set(profile.requiredSubjectIds);
-  const optional = new Set(profile.optionalSubjectIds ?? []);
-  const allowed = new Set([...required, ...optional]);
-  if (allowed.size === 0) return all;
-  return all.filter((s) => allowed.has(s.id));
+  const required = profile.requiredSubjectIds ?? [];
+  const optional = profile.optionalSubjectIds ?? [];
+  const allowed = new Set<string>([...required, ...optional]);
+
+  // Empty policy is valid profile with zero subjects — NOT whole-track fallback
+  if (allowed.size === 0) {
+    return { kind: 'empty-policy', trackId, examId };
+  }
+
+  const subjects = all.filter((s) => allowed.has(s.id));
+  return { kind: 'profile', trackId, examId, subjects };
+}
+
+/** Subject list for a scope. Empty for invalid track/profile or empty policy. */
+export function subjectsForScope(input: ScopeInput): Subject[] {
+  const r = resolveSubjectsForScope(input);
+  if (r.kind === 'general' || r.kind === 'profile') return r.subjects;
+  return [];
 }
 
 export function subjectIdsForScope(input: ScopeInput): Set<SubjectId> {
@@ -51,39 +77,39 @@ export type ContentTag = {
  * Whether a topic/question is eligible under the active profile contentScope.
  * Untagged content stays visible. Scale filters only exclude content tagged
  * exclusively for a different scale.
+ * Invalid track or invalid profile → not eligible.
  */
 export function contentEligibleForScope(
   tags: ContentTag | null | undefined,
   input: ScopeInput,
 ): boolean {
+  if (!isTrackId(input.trackId)) return false;
+
   if (input.examId != null && input.examId !== '') {
     const profile = getExamProfile(input.trackId, input.examId);
     if (!profile) return false;
-  }
-  const profile = input.examId ? getExamProfile(input.trackId, input.examId) : null;
-  const scales = profile?.contentScope?.scales;
-  if (!scales || scales.length === 0) return true;
-  if (!tags) return true;
 
-  const scaleSet = new Set(scales);
+    const scales = profile.contentScope?.scales;
+    if (!scales || scales.length === 0) return true;
+    if (!tags) return true;
 
-  if (tags.postRestriction && tags.postRestriction !== 'all') {
-    if (tags.postRestriction === 'bs17' || tags.postRestriction === 'bs16') {
-      if (!scaleSet.has(tags.postRestriction as ExamScale)) return false;
+    const scaleSet = new Set(scales as ExamScale[]);
+
+    if (tags.examScope && tags.examScope.length > 0) {
+      const tagged = tags.examScope as ExamScale[];
+      if (tagged.every((s) => !scaleSet.has(s))) return false;
     }
+
+    if (tags.postRestriction && tags.postRestriction !== 'all') {
+      const pr = tags.postRestriction as string;
+      if (pr === 'bs16' || pr === 'bs17') {
+        if (!scaleSet.has(pr as ExamScale)) return false;
+      }
+    }
+
+    return true;
   }
 
-  if (tags.examScope && tags.examScope.length > 0) {
-    // Include if any listed scale intersects profile scales
-    if (!tags.examScope.some((s) => scaleSet.has(s as ExamScale))) return false;
-  }
-
+  // General preparation — no scale filter
   return true;
-}
-
-export function filterTopicsForScope<T extends ContentTag & { id: string }>(
-  topics: T[],
-  input: ScopeInput,
-): T[] {
-  return topics.filter((t) => contentEligibleForScope(t, input));
 }

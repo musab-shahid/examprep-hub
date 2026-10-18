@@ -33,5 +33,9 @@
 ## Scope rules
 - `examId: null` → general track content.
 - Unknown `examId` → **empty** permitted subjects (never full-track fallback).
+- Profile with empty required∪optional subject set → **empty** subjects (`empty-policy`), not whole track.
+- Invalid track id → no content eligibility.
+- Generic Study/Practice requires a **valid active enrolled workspace**, not merely any enrollment.
+- Resource on another enrolled track → explicit Switch (not silent open / not FPSC fallback).
 - Valid current `schemaVersion: 1` with zero enrollments is stable (no evidence re-migration).
 - Newer schema versions are left untouched (no silent downgrade).

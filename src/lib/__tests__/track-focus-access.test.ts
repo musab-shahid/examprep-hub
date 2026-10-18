@@ -81,6 +81,17 @@ describe('track-access', () => {
     assert.equal(assertCanStudy(d, 'hat').ok, true);
     assert.equal(assertCanStudy(d, 'fpsc').ok, false);
   });
+
+  it('assertCanStudy fails for generic gate when activeTrackId is null', () => {
+    let d = withEnrollAndFocus(baseData(), 'hat').data;
+    d = {
+      ...d,
+      trackMembership: { ...d.trackMembership!, activeTrackId: null },
+    };
+    const r = assertCanStudy(d);
+    assert.equal(r.ok, false);
+    if (!r.ok) assert.equal(r.reason, 'no-active-workspace');
+  });
 });
 
 describe('track-scope content tags', () => {
