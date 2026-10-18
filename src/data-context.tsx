@@ -20,7 +20,7 @@ export interface DataContextValue {
   /** Switch active focus among enrolled tracks only */
   setActiveEnrolledTrack: (trackId: TrackId | null) => { ok: boolean; reason?: string };
   /** Set exam/post profile within an enrolled track (null = general track scope) */
-  setExamProfile: (trackId: TrackId, examId: string | null) => void;
+  setExamProfile: (trackId: TrackId, examId: string | null) => { ok: boolean; reason?: string };
   /** Leave a track (unenroll). Progress is kept. */
   leaveEnrolledTrack: (trackId: TrackId) => { ok: boolean; reason?: string };
   trackMembership: TrackMembershipState;
@@ -126,12 +126,14 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
   const setExamProfile = useCallback((trackId: TrackId, examId: string | null) => {
     const mem = normalizeTrackMembership(dataRef.current.trackMembership ?? emptyTrackMembership());
-    if (!mem.enrollments[trackId]) return;
-    const next = { ...dataRef.current, trackMembership: setActiveExamProfilePure(mem, trackId, examId) };
+    const r = setActiveExamProfilePure(mem, trackId, examId);
+    if (!r.ok) return { ok: false as const, reason: r.reason };
+    const next = { ...dataRef.current, trackMembership: r.state };
     setData(next);
     dataRef.current = next;
     saveData(next);
-    flushPendingSave();
+    if (!flushPendingSave()) return { ok: false as const, reason: 'persist-failed' };
+    return { ok: true as const };
   }, []);
 
   const trackMembership = normalizeTrackMembership(data.trackMembership ?? emptyTrackMembership());

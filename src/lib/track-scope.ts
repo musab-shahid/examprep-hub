@@ -25,6 +25,24 @@ export type ScopeResolution =
   | { kind: 'invalid-profile'; trackId: TrackId; examId: string }
   | { kind: 'empty-policy'; trackId: TrackId; examId: string };
 
+
+/** Apply a profile subject policy to a track subject list (testable without registry mutation). */
+export function applyProfileSubjectPolicy(
+  all: Subject[],
+  profile: { requiredSubjectIds: readonly string[]; optionalSubjectIds?: readonly string[] },
+  trackId: TrackId,
+  examId: string,
+): ScopeResolution {
+  const required = profile.requiredSubjectIds ?? [];
+  const optional = profile.optionalSubjectIds ?? [];
+  const allowed = new Set<string>([...required, ...optional]);
+  if (allowed.size === 0) {
+    return { kind: 'empty-policy', trackId, examId };
+  }
+  const subjects = all.filter((s) => allowed.has(s.id));
+  return { kind: 'profile', trackId, examId, subjects };
+}
+
 export function resolveSubjectsForScope(input: ScopeInput): ScopeResolution {
   const { trackId, examId = null } = input;
   if (!isTrackId(trackId)) return { kind: 'invalid-track' };
@@ -40,17 +58,7 @@ export function resolveSubjectsForScope(input: ScopeInput): ScopeResolution {
     return { kind: 'invalid-profile', trackId, examId };
   }
 
-  const required = profile.requiredSubjectIds ?? [];
-  const optional = profile.optionalSubjectIds ?? [];
-  const allowed = new Set<string>([...required, ...optional]);
-
-  // Empty policy is valid profile with zero subjects — NOT whole-track fallback
-  if (allowed.size === 0) {
-    return { kind: 'empty-policy', trackId, examId };
-  }
-
-  const subjects = all.filter((s) => allowed.has(s.id));
-  return { kind: 'profile', trackId, examId, subjects };
+  return applyProfileSubjectPolicy(all, profile, trackId, examId);
 }
 
 /** Subject list for a scope. Empty for invalid track/profile or empty policy. */

@@ -5,6 +5,7 @@ import {
   enrollTrack,
   setActiveTrack,
   setActiveExamProfile,
+  leaveTrack,
   normalizeTrackMembership,
   migrateTrackMembership,
   collectTrackEvidence,
@@ -47,7 +48,7 @@ describe('track membership', () => {
     const a = enrollTrack(state, 'fpsc', { at: '2026-01-01T00:00:00.000Z' });
     assert.ok(a.ok);
     if (!a.ok) return;
-    state = setActiveExamProfile(a.state, 'fpsc', null);
+    state = setActiveExamProfile(a.state, 'fpsc', null).state;
     const b = enrollTrack(state, 'fpsc', { at: '2026-06-01T00:00:00.000Z' });
     assert.ok(b.ok);
     if (!b.ok) return;
@@ -154,5 +155,55 @@ describe('track membership', () => {
       }),
     );
     assert.ok(ev.tracks.hat);
+  });
+});
+
+describe('setActiveExamProfile validation', () => {
+  it('rejects profile that does not belong to track', () => {
+    let state = emptyTrackMembership();
+    const e = enrollTrack(state, 'fpsc');
+    assert.ok(e.ok);
+    if (!e.ok) return;
+    const r = setActiveExamProfile(e.state, 'fpsc', 'not-a-real-profile');
+    assert.equal(r.ok, false);
+    if (!r.ok) assert.equal(r.reason, 'invalid-profile');
+    assert.equal(e.state.enrollments.fpsc?.activeExamId ?? null, null);
+  });
+
+  it('accepts null general preparation', () => {
+    let state = emptyTrackMembership();
+    const e = enrollTrack(state, 'fpsc');
+    assert.ok(e.ok);
+    if (!e.ok) return;
+    const r = setActiveExamProfile(e.state, 'fpsc', null);
+    assert.equal(r.ok, true);
+    if (r.ok) assert.equal(r.examId, null);
+  });
+});
+
+describe('leaveTrack focus policy', () => {
+  it('leaving inactive track does not change activeTrackId', () => {
+    let state = emptyTrackMembership();
+    state = enrollTrack(state, 'fpsc').state;
+    state = enrollTrack(state, 'hat').state;
+    // Active should be hat after second enroll with setActive default
+    assert.equal(state.activeTrackId, 'hat');
+    const r = leaveTrack(state, 'fpsc');
+    assert.ok(r.ok);
+    if (!r.ok) return;
+    assert.equal(r.state.activeTrackId, 'hat');
+    assert.ok(!r.state.enrollments.fpsc);
+    assert.ok(r.state.enrollments.hat);
+  });
+
+  it('leaving active track falls back to another enrollment', () => {
+    let state = emptyTrackMembership();
+    state = enrollTrack(state, 'fpsc').state;
+    state = enrollTrack(state, 'hat').state;
+    assert.equal(state.activeTrackId, 'hat');
+    const r = leaveTrack(state, 'hat');
+    assert.ok(r.ok);
+    if (!r.ok) return;
+    assert.equal(r.state.activeTrackId, 'fpsc');
   });
 });

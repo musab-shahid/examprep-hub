@@ -35,7 +35,12 @@ export function ExamProfilePicker({ trackId, enrolled }: Props) {
         onChange={(e) => {
           const v = e.target.value;
           const examId = v === "" ? null : v;
-          setExamProfile(trackId, examId);
+          const r = setExamProfile(trackId, examId);
+          if (!r.ok) {
+            // Revert select to canonical membership value
+            e.target.value = current ?? "";
+            return;
+          }
           // Soft-clear subject picks that fall outside the new profile
           if (lastSelected && lastSelected !== "all" && !subjectInScope(lastSelected, { trackId, examId })) {
             setGlobalSubject("all");

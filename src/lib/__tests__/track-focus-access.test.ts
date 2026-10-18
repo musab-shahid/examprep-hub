@@ -52,7 +52,7 @@ describe('track-focus', () => {
     let d = withEnrollAndFocus(baseData(), 'fpsc').data;
     d = {
       ...d,
-      trackMembership: setActiveExamProfile(getMembershipState(d), 'fpsc', 'fpsc-met-bs17'),
+      trackMembership: setActiveExamProfile(getMembershipState(d), 'fpsc', 'fpsc-met-bs17').state,
     };
     const focused = withFocusTrack(d, 'fpsc');
     assert.equal(focused.ok, true);

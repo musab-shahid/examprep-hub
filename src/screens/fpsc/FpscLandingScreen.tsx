@@ -102,8 +102,8 @@ export function FpscLandingScreen() {
         enrolling={enrolling}
         onBegin={handleBegin}
         onContinue={() => {
-          setActiveEnrolledTrack('fpsc');
-          setActiveTrack('fpsc');
+          const sw = setActiveEnrolledTrack('fpsc');
+          if (sw.ok) setActiveTrack('fpsc');
         }}
         accentClass="from-sky-500 to-cyan-600"
       />

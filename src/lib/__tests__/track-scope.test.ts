@@ -5,6 +5,7 @@ import {
   subjectIdsForScope,
   contentEligibleForScope,
   resolveSubjectsForScope,
+  applyProfileSubjectPolicy,
 } from '../track-scope.ts';
 import { assertCanStudy } from '../track-access.ts';
 import type { AppData } from '../../types.ts';
@@ -142,5 +143,39 @@ describe('invalid / empty profile policy', () => {
     const invalid = subjectsForScope({ trackId: 'fpsc', examId: 'not-a-real-profile' });
     assert.equal(invalid.length, 0);
     assert.ok(invalid.length < general.length);
+  });
+});
+
+describe('applyProfileSubjectPolicy empty vs valid', () => {
+  const fakeSubjects = [
+    { id: 'a', title: 'A', track: 'fpsc' },
+    { id: 'b', title: 'B', track: 'fpsc' },
+  ] as never[];
+
+  it('empty required+optional is empty-policy not whole list', () => {
+    const r = applyProfileSubjectPolicy(
+      fakeSubjects as never,
+      { requiredSubjectIds: [], optionalSubjectIds: [] },
+      'fpsc',
+      'fixture-empty',
+    );
+    assert.equal(r.kind, 'empty-policy');
+    if (r.kind === 'empty-policy') {
+      assert.equal(r.examId, 'fixture-empty');
+    }
+  });
+
+  it('non-empty policy filters subjects', () => {
+    const r = applyProfileSubjectPolicy(
+      fakeSubjects as never,
+      { requiredSubjectIds: ['a'], optionalSubjectIds: [] },
+      'fpsc',
+      'fixture-a',
+    );
+    assert.equal(r.kind, 'profile');
+    if (r.kind === 'profile') {
+      assert.equal(r.subjects.length, 1);
+      assert.equal(r.subjects[0].id, 'a');
+    }
   });
 });

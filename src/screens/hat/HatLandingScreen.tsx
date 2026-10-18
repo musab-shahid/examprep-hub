@@ -105,8 +105,8 @@ export function HatLandingScreen() {
         enrolling={enrolling}
         onBegin={handleBegin}
         onContinue={() => {
-          setActiveEnrolledTrack('hat');
-          setActiveTrack('hat');
+          const sw = setActiveEnrolledTrack('hat');
+          if (sw.ok) setActiveTrack('hat');
         }}
         accentClass="from-indigo-500 to-violet-600"
       />

@@ -265,8 +265,8 @@ export function DashboardScreen() {
                     type="button"
                     className="text-xs font-semibold text-white bg-slate-800 px-2.5 py-1.5 rounded-btn shrink-0"
                     onClick={() => {
-                      setActiveEnrolledTrack(id);
-                      setActiveTrack(id);
+                      const sw = setActiveEnrolledTrack(id);
+                      if (sw.ok) setActiveTrack(id);
                     }}
                   >
                     Switch workspace
@@ -498,9 +498,11 @@ export function DashboardScreen() {
                   <button
                     type="button"
                     onClick={() => {
-                      setActiveEnrolledTrack(id);
-                      setActiveTrack(id);
-                      navigate({ ...openTrackOptions(id) });
+                      const sw = setActiveEnrolledTrack(id);
+                      if (sw.ok) {
+                        setActiveTrack(id);
+                        navigate({ ...openTrackOptions(id) });
+                      }
                     }}
                     className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-btn ${isActive ? 'bg-brand-500 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'}`}
                   >

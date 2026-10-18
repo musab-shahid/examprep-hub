@@ -200,21 +200,36 @@ export function leaveTrack(
   };
 }
 
+export type SetExamProfileResult =
+  | { ok: true; state: TrackMembershipState; examId: string | null }
+  | { ok: false; reason: 'unknown-track' | 'not-enrolled' | 'invalid-profile'; state: TrackMembershipState };
+
 export function setActiveExamProfile(
   state: TrackMembershipState,
   trackId: string,
   examId: string | null,
-): TrackMembershipState {
-  if (!isTrackId(trackId) || !state.enrollments[trackId]) return state;
-  const resolved =
-    examId === null ? null : getExamProfile(trackId, examId) ? examId : null;
+): SetExamProfileResult {
+  if (!isTrackId(trackId)) {
+    return { ok: false, reason: 'unknown-track', state };
+  }
+  if (!state.enrollments[trackId]) {
+    return { ok: false, reason: 'not-enrolled', state };
+  }
+  if (examId !== null && !getExamProfile(trackId, examId)) {
+    return { ok: false, reason: 'invalid-profile', state };
+  }
+  const resolved = examId;
   return {
-    ...state,
-    enrollments: {
-      ...state.enrollments,
-      [trackId]: {
-        ...state.enrollments[trackId]!,
-        activeExamId: resolved,
+    ok: true,
+    examId: resolved,
+    state: {
+      ...state,
+      enrollments: {
+        ...state.enrollments,
+        [trackId]: {
+          ...state.enrollments[trackId]!,
+          activeExamId: resolved,
+        },
       },
     },
   };

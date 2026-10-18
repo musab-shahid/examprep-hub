@@ -7,7 +7,7 @@ import {
 } from '../learning-scope.ts';
 import { withEnrollAndFocus } from '../track-focus.ts';
 import { subjectsForScope } from '../track-scope.ts';
-import { emptyTrackMembership, setActiveExamProfile } from '../track-membership.ts';
+import { emptyTrackMembership } from '../track-membership.ts';
 import type { AppData } from '../../types.ts';
 
 function base(): AppData {

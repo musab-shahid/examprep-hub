@@ -84,7 +84,7 @@ describe('Phase 5 membership invariants', () => {
     const e = enrollTrack(s, 'fpsc');
     assert.ok(e.ok);
     if (!e.ok) return;
-    const next = setActiveExamProfile(e.state, 'fpsc', 'fpsc-met-bs17');
+    const next = setActiveExamProfile(e.state, 'fpsc', 'fpsc-met-bs17').state;
     assert.equal(next.enrollments.fpsc?.activeExamId, 'fpsc-met-bs17');
     assert.ok(next.enrollments.fpsc);
   });
@@ -240,7 +240,7 @@ describe('enrollTrack profile stability', () => {
     const a = enrollTrack(s, 'fpsc');
     assert.ok(a.ok);
     if (!a.ok) return;
-    s = setActiveExamProfile(a.state, 'fpsc', 'fpsc-met-bs17');
+    s = setActiveExamProfile(a.state, 'fpsc', 'fpsc-met-bs17').state;
     assert.equal(s.enrollments.fpsc?.activeExamId, 'fpsc-met-bs17');
     const again = enrollTrack(s, 'fpsc', { setActive: true });
     assert.ok(again.ok);

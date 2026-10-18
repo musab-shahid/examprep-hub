@@ -53,8 +53,8 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
         isActiveFocus={isActive}
         onBegin={handleBegin}
         onContinue={() => {
-          setActiveEnrolledTrack(trackId);
-          setActiveTrack(trackId);
+          const sw = setActiveEnrolledTrack(trackId);
+          if (sw.ok) setActiveTrack(trackId);
         }}
         accentClass={accent.gradient}
       />

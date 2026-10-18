@@ -19,7 +19,10 @@ interface TrackPrefs {
 }
 
 interface SubjectSelectionState {
-  /** Preferences keyed by track — switching restores the other track's picks */
+  /**
+   * Preferences keyed by track — switching restores the other track's picks.
+   * PREFS-ONLY: not enrollment. Learning focus is AppData.trackMembership.activeTrackId.
+   */
   byTrack: Partial<Record<ExamTrackId, TrackPrefs>>;
   /**
    * UI focus track for subject selectors (kept in sync with membership when possible).
