@@ -9,12 +9,14 @@ import { allQuestions, questionsByTopic } from '@/data/questions';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
+import { useSubjectData } from '@/hooks/useSubjectData';
 import { subjectsByTrack } from '@/data/subjects';
 import { subjectMap } from '@/data/subjects';
 import { BackButton, Breadcrumbs, HomeButton } from '@/components/layout/Breadcrumbs';
 import { PageContainer, Card, ProgressBar, Button, EmptyState, LoadingSpinner } from '@/components/ui';
 import { loadAllQuestions, loadSubjectQuestions, loadQuestionsForTopic } from '@/data/lazy-data';
 import type { Question, DifficultyFilter, PracticeMode, TimeLimitSetting, SubjectId, TopicProgress } from '@/types';
+// SubjectId used for workspace scope checks
 import { quizSignature } from '@/lib/quiz-signature';
 import { pickAdaptiveQuestions, recentQuestionIdsFromResults } from '@/lib/adaptive-select';
 import { instantiatePool } from '@/lib/quant-template';
@@ -133,7 +135,7 @@ function pickQuestions(
   difficulty?: DifficultyFilter,
   wrongPool?: boolean,
   questionResults?: Record<string, { correct: boolean; timestamp: number }>,
-  track?: 'fpsc' | 'hat',
+  track?: 'fpsc' | 'hat' | null,
   topicProgress?: Record<string, TopicProgress>,
 ): Question[] {
   // Fail closed: never treat a broken topic quiz as track-wide practice
@@ -153,7 +155,9 @@ function pickQuestions(
   } else if (scope === 'subject' && subjectId) {
     pool = fullPool.filter((q) => sectionMap[q.sectionId]?.subjectId === subjectId);
   } else {
-    const trackSubjectIds = new Set(subjectsByTrack(track ?? 'fpsc').map((s) => s.id));
+    // No silent FPSC default — missing track → empty pool
+    if (!track) return [];
+    const trackSubjectIds = new Set(subjectsByTrack(track).map((s) => s.id));
     pool = fullPool.filter((q) => trackSubjectIds.has(sectionMap[q.sectionId]?.subjectId));
   }
   if (wrongPool && questionResults) {
@@ -303,7 +307,7 @@ function saveQuizProgress(
   difficulty?: DifficultyFilter,
   timeLimit?: TimeLimitSetting,
   wrongPool?: boolean,
-  track?: 'fpsc' | 'hat',
+  track?: 'fpsc' | 'hat' | null,
 ): void {
   try {
     const progress: SavedQuizProgress = {
@@ -360,6 +364,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   }, [canGoBack, back, navigate]);
   const { recordQuiz, data } = useData();
   const { activeTrack } = useSubjectSelection();
+  const sd = useSubjectData();
   const [state, setState] = useState<QuizState | null>(null);
   const [finished, setFinished] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
@@ -801,6 +806,27 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
           <EmptyState
             title="Invalid quiz parameters"
             message={validationError}
+            icon={<AlertTriangle className="w-12 h-12" />}
+          />
+          <div className="flex justify-center mt-4">
+            <Button variant="secondary" onClick={() => navigate({ screen: 'practice', parent: null })}>
+              Back to Practice
+            </Button>
+          </div>
+        </Card>
+      </PageContainer>
+    );
+  }
+
+  // Workspace scope: subject must belong to active track + exam profile
+  if (subjectId && subjectId !== '' && !sd.trackSubjectIds.has(subjectId as SubjectId)) {
+    return (
+      <PageContainer>
+        <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
+        <Card className="p-8">
+          <EmptyState
+            title="Subject outside active workspace"
+            message="This quiz targets a subject that is not in your current track or exam profile. Switch workspace or choose another subject."
             icon={<AlertTriangle className="w-12 h-12" />}
           />
           <div className="flex justify-center mt-4">

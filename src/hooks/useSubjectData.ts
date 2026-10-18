@@ -365,11 +365,16 @@ export function useSubjectData(): SubjectDataLayer {
     loadedSubjects,
     isLoaded,
     isQuestionsReady,
+    /** Active workspace subject set (track + exam profile) */
+    trackSubjectIds,
+    activeTrack,
+    activeExamId,
   }), [
     topicsFor, questionsFor, sectionsFor, statsFor, allSubjectsStats,
     totalTopics, totalQuestions, totalFormulas,
     revisionQueueAll, searchAll, formulasFor, getTopicById,
     questionsByTopicId, ensureTopicsLoaded, ensureQuestionsLoaded,
     loadedSubjects, isLoaded, isQuestionsReady,
+    trackSubjectIds, activeTrack, activeExamId,
   ]);
 }

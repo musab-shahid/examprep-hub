@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useData } from '@/hooks/useData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { getTopic } from '@/data/topics';
@@ -18,6 +19,7 @@ function SwitchWorkspaceCard({
 }) {
   const { setActiveEnrolledTrack } = useData();
   const { setActiveTrack } = useSubjectSelection();
+  const [err, setErr] = useState<string | null>(null);
   const label =
     listTrackDefinitions().find((t) => t.id === trackId)?.shortTitle ?? trackId.toUpperCase();
 
@@ -29,12 +31,24 @@ function SwitchWorkspaceCard({
           message={`${title} belongs to your ${label} enrollment, which is not the active workspace. Switch only if you want to change Study and Practice context.`}
           icon={<BookOpen className="w-12 h-12" />}
         />
+        {err && (
+          <p className="text-sm text-red-600 text-center mt-3" role="alert">{err}</p>
+        )}
         <div className="flex justify-center mt-4">
           <Button
             type="button"
             onClick={() => {
+              setErr(null);
               const r = setActiveEnrolledTrack(trackId);
-              if (r.ok) setActiveTrack(trackId);
+              if (r.ok) {
+                setActiveTrack(trackId);
+              } else {
+                setErr(
+                  r.reason === 'persist-failed'
+                    ? 'Could not save workspace switch. Check storage and try again.'
+                    : 'Could not switch workspace.',
+                );
+              }
             }}
           >
             Switch to {label} and open
