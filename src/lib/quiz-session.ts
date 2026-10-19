@@ -415,14 +415,18 @@ export function applyOptionOrderPure(q: Question, order: number[]): Question {
 
   let correctAnswer: number | number[];
   if (q.type === 'matching' && Array.isArray(q.correctAnswer)) {
-    correctAnswer = order.map((oi) => (q.correctAnswer as number[])[oi]);
+    const mapped = order.map((oi) => (q.correctAnswer as number[])[oi]);
+    if (mapped.some((v) => v === undefined)) return q; // fail closed
+    correctAnswer = mapped;
   } else if (Array.isArray(q.correctAnswer)) {
-    correctAnswer = (q.correctAnswer as number[])
-      .map((oi) => inv[oi])
-      .filter((n) => n !== undefined)
-      .sort((a, b) => a - b);
+    const mapped = (q.correctAnswer as number[]).map((oi) => inv[oi]);
+    if (mapped.some((v) => v === undefined)) return q; // fail closed — no silent drop
+    correctAnswer = mapped.sort((a, b) => a - b);
   } else {
-    correctAnswer = inv[q.correctAnswer as number] ?? q.correctAnswer;
+    const mapped = inv[q.correctAnswer as number];
+    // Never retain the bank index after a failed inverse (would grade the wrong option)
+    if (mapped === undefined) return q;
+    correctAnswer = mapped;
   }
   return { ...q, options, correctAnswer };
 }

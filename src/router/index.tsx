@@ -242,10 +242,11 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     const prev = routeRef.current;
     if (!prev.parent) return;
     const savedY = scrollStackRef.current.pop() ?? 0;
-    // Always walk the in-app parent chain (safe on deep links — does not leave the origin).
-    // Browser Back still works via popstate + history.state.routeState.
+    // Walk the in-app parent chain without growing the history stack.
+    // replace keeps browser Back coherent with the parent (does not push a duplicate entry).
+    // Browser Back/Forward still use popstate + history.state.routeState.
     setCurrentRoute(prev.parent);
-    pushRouteHistory(prev.parent, 'push');
+    pushRouteHistory(prev.parent, 'replace');
     requestAnimationFrame(() => window.scrollTo(0, savedY));
   }, []);
 

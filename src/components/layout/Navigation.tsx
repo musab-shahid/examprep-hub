@@ -48,7 +48,7 @@ function trackNavStyles(trackId: ExamTrack) {
 export function Sidebar() {
   const { route, navigate } = useRouter();
   const { getActiveSubject, setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
-  const { trackMembership } = useData();
+  const { trackMembership, setActiveEnrolledTrack } = useData();
   const sd = useSubjectData();
   const enrolledIds = enrolledTrackIds(trackMembership.enrollments);
   const exploreIds = allTrackIds().filter((id) => !trackMembership.enrollments[id]);

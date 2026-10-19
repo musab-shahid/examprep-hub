@@ -100,14 +100,17 @@ function applyOptionOrder(q: Question, order: number[]): Question {
   let correctAnswer: number | number[];
   if (q.type === 'matching' && Array.isArray(q.correctAnswer)) {
     // correctAnswer[i] = matchOptions index for options[i]; permute with options
-    correctAnswer = order.map((oi) => (q.correctAnswer as number[])[oi]);
+    const mapped = order.map((oi) => (q.correctAnswer as number[])[oi]);
+    if (mapped.some((v) => v === undefined)) return q;
+    correctAnswer = mapped;
   } else if (Array.isArray(q.correctAnswer)) {
-    correctAnswer = (q.correctAnswer as number[])
-      .map((oi) => inv[oi])
-      .filter((n) => n !== undefined)
-      .sort((a, b) => a - b);
+    const mapped = (q.correctAnswer as number[]).map((oi) => inv[oi]);
+    if (mapped.some((v) => v === undefined)) return q;
+    correctAnswer = mapped.sort((a, b) => a - b);
   } else {
-    correctAnswer = inv[q.correctAnswer as number] ?? q.correctAnswer;
+    const mapped = inv[q.correctAnswer as number];
+    if (mapped === undefined) return q; // fail closed — never keep bank index after shuffle
+    correctAnswer = mapped;
   }
   return { ...q, options, correctAnswer };
 }

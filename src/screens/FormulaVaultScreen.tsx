@@ -30,6 +30,8 @@ export function FormulaVaultScreen() {
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
   const [vaultTick, setVaultTick] = useState(0);
+  /** Bumped only by Retry — drives the load effect without self-looping */
+  const [reloadKey, setReloadKey] = useState(0);
 
   const activeSubject = getActiveSubject('formulas');
   const isAllSubjects = activeSubject === 'all';
@@ -73,7 +75,7 @@ export function FormulaVaultScreen() {
 
     void load();
     return () => { cancelled = true; };
-  }, [isAllSubjects, activeSubject, ensureTopicsLoaded, activeTrack]);
+  }, [isAllSubjects, activeSubject, ensureTopicsLoaded, activeTrack, reloadKey]);
 
   const scopedFormulas = useMemo(() => {
     // Always respect active track / exam profile subject set (never global vault dump)
@@ -86,7 +88,7 @@ export function FormulaVaultScreen() {
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading formulas. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
         <div className="flex justify-center mt-4">
-          <Button onClick={() => { setLoadError(false); setLoading(true); setVaultTick((n) => n + 1); }}>Retry</Button>
+          <Button onClick={() => { setLoadError(false); setLoading(true); setReloadKey((n) => n + 1); }}>Retry</Button>
         </div>
       </Card>
     </PageContainer>

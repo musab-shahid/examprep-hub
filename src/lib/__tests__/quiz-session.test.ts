@@ -8,6 +8,7 @@ import {
   gradeAnswer,
   selectionsValidForQuestion,
   reconcileRestoredDraft,
+  applyOptionOrderPure,
 } from '../quiz-session.ts';
 import type { Question } from '../../types.ts';
 import { selectQuizPool } from '../quiz-pool.ts';
@@ -320,5 +321,33 @@ describe('schema field validation', () => {
       topicIds: 'x',
     });
     assert.equal(r.ok, false);
+  });
+});
+
+describe('applyOptionOrderPure fail-closed', () => {
+  it('maps single-choice correct index under valid permutation', () => {
+    const q = makeQ({ id: 's1', correctAnswer: 2 });
+    const order = [3, 0, 1, 2]; // bank index 2 → display index 3
+    const r = applyOptionOrderPure(q, order);
+    assert.equal(r.correctAnswer, 3);
+    assert.equal(r.options[3], q.options[2]);
+  });
+
+  it('does not retain bank correct index when mapping fails', () => {
+    const q = makeQ({ id: 's1', correctAnswer: 2 });
+    // Force incomplete inv by using order that claims length 4 but we pass invalid via out-of-range correctAnswer
+    const broken = { ...q, correctAnswer: 99 as unknown as number };
+    const order = [0, 1, 2, 3];
+    const r = applyOptionOrderPure(broken, order);
+    // Unchanged bank form — not a shuffled question with wrong key
+    assert.equal(r.correctAnswer, 99);
+    assert.deepEqual(r.options, broken.options);
+  });
+
+  it('multi-select maps all indices or fails closed', () => {
+    const q = makeQ({ id: 'm1', type: 'multi', correctAnswer: [0, 2] });
+    const order = [1, 2, 3, 0]; // 0→3, 2→1
+    const r = applyOptionOrderPure(q, order);
+    assert.deepEqual(r.correctAnswer, [1, 3].sort((a, b) => a - b));
   });
 });
