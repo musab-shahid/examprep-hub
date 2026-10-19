@@ -108,9 +108,15 @@ export function HatLandingScreen() {
           <p className="text-white/90">
             <span className="font-semibold text-white">{sections.length}</span> sections
             {' · '}
-            <span className="font-semibold text-white">{hatTopics.length}</span> topics
+            <span className="font-semibold text-white">{hatTopics.length || '—'}</span> topics
             {' · '}
-            <span className="font-semibold text-white">{hatQuestions.length}</span> questions
+            <span className="font-semibold text-white">
+              {hatQuestions.length > 0 ? hatQuestions.length : hatTopics.length === 0 ? '—' : '0'}
+            </span>{' '}
+            questions
+            {hatTopics.length === 0 && !loadError && (
+              <span className="text-white/70 text-xs"> (loading…)</span>
+            )}
           </p>
         )
       }
