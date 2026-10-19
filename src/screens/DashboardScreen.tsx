@@ -12,7 +12,7 @@ import { useData } from '@/hooks/useData';
 import { subjects, type ExamTrack } from '@/data/subjects';
 import { listTrackDefinitions, getExamProfile, getTrackDefinition, type TrackId } from '@/data/tracks';
 import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
-import type { SubjectId } from '@/types';
+import type { SubjectId, PracticeMode } from '@/types';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
@@ -30,6 +30,7 @@ import {
   getExamCountdownTarget,
 } from '@/lib/exam-schedule';
 import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
+import { validateDraftShape } from '@/lib/quiz-session';
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -118,6 +119,55 @@ export function DashboardScreen() {
   const recHeadline = rec.headline;
   const recSubtext = rec.subtext;
   const recAction = rec.action;
+
+  /** Canonical draft peek — same shape gate as QuizScreen.loadQuizProgress */
+  const resumableDraft = useMemo(() => {
+    try {
+      const raw = localStorage.getItem('examprep-quiz-progress');
+      if (!raw) return null;
+      const v = validateDraftShape(JSON.parse(raw));
+      if (!v.ok) return null;
+      const d = v.draft as {
+        mode: PracticeMode;
+        topicId?: string;
+        topicIds?: string[];
+        scope?: 'subject' | 'all';
+        subjectId?: string;
+        count?: number | 'all';
+        difficulty?: string;
+        timeLimit?: number | 'none' | 'auto';
+        wrongPool?: boolean;
+        track?: string | null;
+        examId?: string | null;
+        answers?: unknown[];
+        questionIds?: string[];
+      };
+      // Prefer draft matching active workspace when both known
+      const focus = trackMembership.activeTrackId;
+      if (d.track && focus && d.track !== focus) return null;
+      if (!d.questionIds?.length) return null;
+      return d;
+    } catch {
+      return null;
+    }
+  }, [data.quizHistory, trackMembership.activeTrackId]);
+
+  const resumeQuizFromHome = () => {
+    if (!resumableDraft) return;
+    navigate({
+      screen: 'quiz',
+      mode: resumableDraft.mode,
+      topicId: resumableDraft.topicId,
+      topicIds: resumableDraft.topicIds,
+      scope: resumableDraft.scope,
+      subjectId: resumableDraft.subjectId,
+      count: resumableDraft.count,
+      difficulty: resumableDraft.difficulty as any,
+      timeLimit: resumableDraft.timeLimit as any,
+      wrongPool: resumableDraft.wrongPool,
+    });
+  };
+
   const recNavigate = () => {
     const p = rec.payload;
     if (p.screen === 'topic' && p.topicId) {
@@ -256,31 +306,61 @@ export function DashboardScreen() {
         </div>
       )}
 
-      {/* Primary next action — single dominant CTA */}
+      {/* Primary next action — resume unfinished quiz when draft is valid */}
       <Card className="p-4 sm:p-5 mb-5 border-slate-200">
-        <p className="text-xs font-medium text-slate-500 mb-1">Next up</p>
-        <p className="text-lg font-semibold text-slate-900 tracking-tight">{recHeadline}</p>
-        <p className="text-sm text-slate-600 mt-1 mb-4 max-w-xl leading-relaxed">{recSubtext}</p>
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={recNavigate}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800"
-          >
-            {recAction}
-            <ChevronRight className="w-4 h-4" aria-hidden />
-          </button>
-          {dailyTopicIds.length > 0 && (
-            <button
-              type="button"
-              onClick={startDailyReview}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50"
-            >
-              <Zap className="w-4 h-4 text-brand-600" aria-hidden />
-              3-min review
-            </button>
-          )}
-        </div>
+        {resumableDraft ? (
+          <>
+            <p className="text-xs font-medium text-slate-500 mb-1">Unfinished quiz</p>
+            <p className="text-lg font-semibold text-slate-900 tracking-tight">Resume your quiz</p>
+            <p className="text-sm text-slate-600 mt-1 mb-4 max-w-xl leading-relaxed">
+              You have a saved attempt ({resumableDraft.answers?.length ?? 0} answered of{' '}
+              {resumableDraft.questionIds?.length ?? 0}). Continue where you left off — same questions and answers.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={resumeQuizFromHome}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800"
+              >
+                Resume quiz
+                <ChevronRight className="w-4 h-4" aria-hidden />
+              </button>
+              <button
+                type="button"
+                onClick={recNavigate}
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50"
+              >
+                {recAction}
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <p className="text-xs font-medium text-slate-500 mb-1">Next up</p>
+            <p className="text-lg font-semibold text-slate-900 tracking-tight">{recHeadline}</p>
+            <p className="text-sm text-slate-600 mt-1 mb-4 max-w-xl leading-relaxed">{recSubtext}</p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={recNavigate}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800"
+              >
+                {recAction}
+                <ChevronRight className="w-4 h-4" aria-hidden />
+              </button>
+              {dailyTopicIds.length > 0 && (
+                <button
+                  type="button"
+                  onClick={startDailyReview}
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50"
+                >
+                  <Zap className="w-4 h-4 text-brand-600" aria-hidden />
+                  3-min review
+                </button>
+              )}
+            </div>
+          </>
+        )}
       </Card>
 
       {/* Progress summary — only when there is history; honest empty otherwise */}
@@ -449,80 +529,3 @@ export function DashboardScreen() {
   );
 }
 
-function HeroStat({ icon, value, label }: { icon: React.ReactNode; value: string; label: string }) {
-  return (
-    <div className="flex flex-col items-center gap-0.5">
-      {icon}
-      <p className="text-lg font-bold text-slate-900 leading-tight">{value}</p>
-      <p className="text-slate-400 text-xs leading-tight">{label}</p>
-    </div>
-  );
-}
-
-function QuickActionTile({
-  icon, iconBg, title, subtitle, onClick, disabled, dark,
-}: {
-  icon: React.ReactNode;
-  iconBg: string;
-  title: string;
-  subtitle: string;
-  onClick: () => void;
-  disabled?: boolean;
-  dark?: boolean;
-}) {
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`flex items-center gap-3 p-3 rounded-xl text-left transition-all disabled:opacity-50 disabled:cursor-not-allowed ${
-        dark
-          ? 'bg-slate-900 hover:bg-slate-800'
-          : 'bg-slate-50 border border-slate-200 hover:bg-white hover:shadow-card-hover hover:border-slate-300'
-      }`}
-    >
-      <span className={`w-9 h-9 rounded-lg ${iconBg} flex items-center justify-center shrink-0`}>
-        {icon}
-      </span>
-      <div className="flex-1 min-w-0">
-        <p className={`font-semibold text-sm truncate ${dark ? 'text-white' : 'text-slate-900'}`}>{title}</p>
-        <p className={`text-xs truncate ${dark ? 'text-slate-400' : 'text-slate-500'}`}>{subtitle}</p>
-      </div>
-      <ChevronRight className={`w-4 h-4 shrink-0 ${dark ? 'text-slate-400' : 'text-slate-300'}`} />
-    </button>
-  );
-}
-
-
-function WeeklyAccuracyChart({ data }: { data: import('@/types').AppData }) {
-  const weeks = getWeeklyAccuracy(data, 8);
-  const maxBarHeight = 48;
-  const hasData = weeks.some((w) => w.accuracy !== null);
-
-  if (!hasData) {
-    return (
-      <p className="text-slate-400 text-sm text-center py-4">
-        Take quizzes to see your weekly accuracy trend.
-      </p>
-    );
-  }
-
-  return (
-    <div className="flex items-end justify-between gap-1.5 h-16">
-      {weeks.map((w, i) => {
-        const height = w.accuracy !== null ? Math.max(4, (w.accuracy / 100) * maxBarHeight) : 2;
-        const color = w.accuracy === null
-          ? 'bg-slate-200'
-          : w.accuracy >= 75 ? 'bg-success-500'
-          : w.accuracy >= 50 ? 'bg-warning-500' : 'bg-danger-500';
-        return (
-          <div key={i} className="flex-1 flex flex-col items-center gap-1">
-            <div className="w-full rounded-t-md transition-all" style={{ height: `${height}px` }}>
-              <div className={`w-full h-full rounded-t-md ${color}`} />
-            </div>
-            <span className="text-slate-400 text-xs">{w.label}</span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}

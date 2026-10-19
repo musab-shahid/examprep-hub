@@ -10,7 +10,7 @@ import { subjectMap, subjects } from '@/data/subjects';
 import { topicsBySection } from '@/data/topics';
 import { questionsByTopic } from '@/data/questions';
 import { SectionBadge } from '@/components/subject/SubjectBadge';
-import { PageContainer, Card, EmptyState, PurposeLine, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
+import { PageContainer, Card, EmptyState, PurposeLine, LoadingSpinner, Button, ScreenHeader, SectionLabel } from '@/components/ui';
 
 import type { SubjectId } from '@/types';
 import { getTopicStatusFromProgress } from '@/lib/constants';
@@ -282,13 +282,15 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
       />
       <PurposeLine>Test yourself deliberately. Five paths, one clear goal.</PurposeLine>
 
-      <div className="mb-4">
+      <SectionLabel>Scope</SectionLabel>
+      <div className="mb-5">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
+        <p className="text-slate-500 text-sm mt-2">
+          {totalAvailable} question{totalAvailable !== 1 ? 's' : ''} available in this scope
+        </p>
       </div>
 
-      <p className="text-slate-500 text-sm font-medium mb-3 sm:mb-6">
-        {totalAvailable} question{totalAvailable !== 1 ? 's' : ''} available
-      </p>
+      <SectionLabel>Mode</SectionLabel>
 
       {activeSubject !== 'all' && !hasContent ? (
         <Card className="p-8">

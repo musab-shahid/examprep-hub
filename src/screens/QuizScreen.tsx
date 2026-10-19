@@ -1077,19 +1077,19 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const timerUrgent = typeof timeLimit === 'number' && displaySeconds <= 60;
 
   return (
-    <PageContainer>
-      {/* Top bar */}
+    <PageContainer className="max-w-3xl">
+      {/* Compact focus header */}
       <div className="mb-4">
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-1 min-w-0">
             <button
               onClick={handleExit}
-              className="flex items-center justify-center w-11 h-11 rounded-lg text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors shrink-0"
-              aria-label="Go back"
+              className="flex items-center justify-center w-10 h-10 rounded-btn text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors shrink-0"
+              aria-label="Exit quiz"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
-            <Breadcrumbs />
+            <span className="text-sm font-medium text-slate-700 truncate hidden sm:inline">Quiz</span>
           </div>
           <div className="flex items-center gap-1">
             <button
@@ -1455,14 +1455,17 @@ function QuizResults({
   const doneLabel = 'Done';
 
   return (
-    <PageContainer>
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl sm:text-2xl sm:text-3xl font-bold text-slate-900">Quiz Complete!</h1>
+    <PageContainer className="max-w-3xl">
+      <div className="flex items-center justify-between mb-5">
+        <div>
+          <p className="text-xs font-medium text-slate-500">{modeLabel}</p>
+          <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 tracking-tight">Results</h1>
+        </div>
         <HomeButton />
       </div>
 
-      {/* Score card */}
-      <Card className="p-6 mb-4 text-center">
+      {/* Score summary */}
+      <Card className="p-5 sm:p-6 mb-4">
         <p className="text-slate-500 text-sm font-medium mb-2">{modeLabel}</p>
         <div className="relative inline-flex items-center justify-center mb-3">
           <svg className="w-32 h-32 -rotate-90" viewBox="0 0 120 120">
