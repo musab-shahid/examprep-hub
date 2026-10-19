@@ -3,7 +3,7 @@ import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useRouter } from '@/router';
 import { getTrackDefinition, type TrackId } from '@/data/tracks';
 import { resolveSubjectsForScope, type ScopeInput } from '@/lib/track-scope';
-import { getTrackCatalog } from '@/lib/track-catalog';
+import { getTrackCatalog, formatQuestionCountLabel } from '@/lib/track-catalog';
 import { isTrackEnrolled } from '@/lib/track-access';
 import { ExamProfilePicker } from '@/components/track/ExamProfilePicker';
 import { Button } from '@/components/ui';
@@ -35,7 +35,11 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
   const scopeEmpty = catalog.empty;
   const scopeInvalid = scopeResolution.kind === 'invalid-profile' || scopeResolution.kind === 'invalid-track';
   const scopeEmptyPolicy = scopeResolution.kind === 'empty-policy';
-  const questionCountsApprox = scopeResolution.kind === 'profile';
+  const qLabel = formatQuestionCountLabel(catalog.totalQuestions, catalog.questionCountPrecision);
+  const qPrecisionNote =
+    catalog.questionCountPrecision === 'estimated'
+      ? ' (estimated until banks load)'
+      : '';
 
   const handleBegin = () => {
     const r = enrollInTrack(trackId);
@@ -74,8 +78,8 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
           <p className="text-white/90">
             <span className="font-semibold text-white">{subjects.length}</span> subjects ·{' '}
             <span className="font-semibold text-white">{catalog.totalTopics}</span> topics ·{' '}
-            <span className="font-semibold text-white">{catalog.totalQuestions}</span> questions
-            {questionCountsApprox && <span className="text-white/70 text-xs"> (approx.)</span>}
+            <span className="font-semibold text-white">{qLabel}</span> questions
+            {qPrecisionNote && <span className="text-white/70 text-xs">{qPrecisionNote}</span>}
           </p>
         )
       }

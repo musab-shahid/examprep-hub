@@ -11,7 +11,7 @@ import {
   TrackSubjectRow,
 } from '@/components/track/TrackLandingShell';
 import { resolveSubjectsForScope, type ScopeInput } from '@/lib/track-scope';
-import { getTrackCatalog } from '@/lib/track-catalog';
+import { getTrackCatalog, formatQuestionCountLabel } from '@/lib/track-catalog';
 import { getSubjectStyle } from '@/data/subject-colors';
 import { AlertCircle } from 'lucide-react';
 
@@ -34,10 +34,13 @@ export function FpscLandingScreen() {
   const scopeEmpty = catalog.empty;
   const scopeInvalid = scopeResolution.kind === 'invalid-profile' || scopeResolution.kind === 'invalid-track';
   const scopeEmptyPolicy = scopeResolution.kind === 'empty-policy';
-  // Question counts come from section metadata; under a restrictive profile some
-  // questions may be excluded by their own tags, so counts are approximate until
-  // the question bank is loaded.
-  const questionCountsApprox = scopeResolution.kind === 'profile';
+  const qLabel = formatQuestionCountLabel(catalog.totalQuestions, catalog.questionCountPrecision);
+  const qPrecisionNote =
+    catalog.questionCountPrecision === 'estimated'
+      ? ' (estimated until banks load)'
+      : catalog.questionCountPrecision === 'unavailable'
+        ? ''
+        : '';
 
   const handleBegin = () => {
     setEnrolling(true);
@@ -97,8 +100,8 @@ export function FpscLandingScreen() {
             {' · '}
             <span className="font-semibold text-white">{totalTopics}</span> topics
             {' · '}
-            <span className="font-semibold text-white">{totalQuestions}</span> questions in scope
-            {questionCountsApprox && <span className="text-white/70 text-xs"> (approx.)</span>}
+            <span className="font-semibold text-white">{qLabel}</span> questions in scope
+            {qPrecisionNote && <span className="text-white/70 text-xs">{qPrecisionNote}</span>}
           </p>
         )
       }
@@ -123,7 +126,7 @@ export function FpscLandingScreen() {
           </div>
         ) : (
           <TrackSubjectList>
-            {catalog.subjects.map(({ subject, topicCount, questionCount, sectionCount, topics: catTopics }) => {
+            {catalog.subjects.map(({ subject, topicCount, questionCount, questionCountPrecision, sectionCount, topics: catTopics }) => {
               const sid = subject.id as SubjectId;
               const studied = isActive
                 ? catTopics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length
@@ -134,7 +137,7 @@ export function FpscLandingScreen() {
                 <TrackSubjectRow
                   key={sid}
                   title={subject.title}
-                  meta={`${sectionCount} sections · ${topicCount} topics · ${questionCount} questions`}
+                  meta={`${sectionCount} sections · ${topicCount} topics · ${formatQuestionCountLabel(questionCount, questionCountPrecision)} questions`}
                   progressPct={enrolled && isActive ? progressPct : null}
                   disabled={!enrolled}
                   onOpen={() => openSubject(sid)}

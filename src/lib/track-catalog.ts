@@ -14,10 +14,15 @@ function scopedSubjectIds(input: ScopeInput): Set<string> {
   return new Set(subjectsForScope(input).map((s) => s.id));
 }
 
+/** How trustworthy a displayed question count is. */
+export type CountPrecision = 'exact' | 'estimated' | 'unavailable';
+
 export interface TrackCatalogSubject {
   subject: SubjectWithMeta;
   topicCount: number;
   questionCount: number;
+  /** exact when bank loaded for this subject; estimated from section metadata; unavailable if out of scope */
+  questionCountPrecision: CountPrecision;
   sectionCount: number;
   topics: Topic[];
 }
@@ -26,8 +31,25 @@ export interface TrackCatalog {
   subjects: TrackCatalogSubject[];
   totalTopics: number;
   totalQuestions: number;
+  /**
+   * Aggregate precision for totalQuestions:
+   * - exact: every in-scope subject had a loaded bank
+   * - estimated: at least one subject used section metadata
+   * - unavailable: empty/invalid scope
+   */
+  questionCountPrecision: CountPrecision;
   /** Scope resolution was empty/invalid — no subjects to show. */
   empty: boolean;
+}
+
+/** Label helper for UI (short). */
+export function formatQuestionCountLabel(
+  count: number,
+  precision: CountPrecision,
+): string {
+  if (precision === 'unavailable') return '—';
+  if (precision === 'estimated') return `~${count}`;
+  return String(count);
 }
 
 /**
@@ -71,7 +93,7 @@ export function getTrackCatalog(
 ): TrackCatalog {
   const scoped = subjectsForScope(input);
   if (scoped.length === 0) {
-    return { subjects: [], totalTopics: 0, totalQuestions: 0, empty: true };
+    return { subjects: [], totalTopics: 0, totalQuestions: 0, questionCountPrecision: 'unavailable', empty: true };
   }
 
   const subjects: TrackCatalogSubject[] = scoped.map((subject) => {
@@ -84,19 +106,23 @@ export function getTrackCatalog(
     });
     const loaded = loadedQuestionsBySubject?.get(sid);
     let questionCount: number;
+    let questionCountPrecision: CountPrecision;
     if (loaded) {
       questionCount = loaded.reduce(
         (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
         0,
       );
+      questionCountPrecision = 'exact';
     } else {
-      // No loaded bank: use section-authored totals as an upper-bound estimate.
+      // No loaded bank: section-authored totals are an upper-bound estimate.
       questionCount = sSections.reduce((sum, s) => sum + s.questionCount, 0);
+      questionCountPrecision = 'estimated';
     }
     return {
       subject,
       topicCount: sTopics.length,
       questionCount,
+      questionCountPrecision,
       sectionCount: sSections.length,
       topics: sTopics,
     };
@@ -104,8 +130,10 @@ export function getTrackCatalog(
 
   const totalTopics = subjects.reduce((sum, s) => sum + s.topicCount, 0);
   const totalQuestions = subjects.reduce((sum, s) => sum + s.questionCount, 0);
+  const allExact = subjects.every((s) => s.questionCountPrecision === 'exact');
+  const questionCountPrecision: CountPrecision = allExact ? 'exact' : 'estimated';
 
-  return { subjects, totalTopics, totalQuestions, empty: false };
+  return { subjects, totalTopics, totalQuestions, questionCountPrecision, empty: false };
 }
 
 /**
@@ -128,6 +156,29 @@ export function topicsForSubjectInScope(subjectId: SubjectId, input: ScopeInput)
  * When loadedQuestions is provided, counts only profile-eligible questions;
  * otherwise returns the section-authored total as an upper bound.
  */
+export function questionCountDetailForSubjectInScope(
+  subjectId: SubjectId,
+  input: ScopeInput,
+  loadedQuestions?: Question[],
+): { count: number; precision: CountPrecision } {
+  if (!subjectInScope(subjectId, input)) {
+    return { count: 0, precision: 'unavailable' };
+  }
+  const sSections = sectionsBySubject(subjectId);
+  const sSectionIds = new Set(sSections.map((s) => s.id));
+  if (loadedQuestions) {
+    const count = loadedQuestions.reduce(
+      (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
+      0,
+    );
+    return { count, precision: 'exact' };
+  }
+  return {
+    count: sSections.reduce((sum, s) => sum + s.questionCount, 0),
+    precision: 'estimated',
+  };
+}
+
 export function questionCountForSubjectInScope(
   subjectId: SubjectId,
   input: ScopeInput,

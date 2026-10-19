@@ -206,7 +206,7 @@ export function StudyScreen() {
                     >
                       <SectionBadge section={section} />
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-slate-900 text-sm truncate">{section.title}</p>
+                        <p className="font-medium text-slate-900 text-sm break-words">{section.title}</p>
                         <p className="text-slate-500 text-xs mt-0.5">{section.topicCount} topics · {studiedInSection} studied · {masteredInSection} mastered</p>
                       </div>
                       {isExpanded ? <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" /> : <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />}

@@ -58,13 +58,13 @@ function ScreenRouter() {
         <FormulaVaultScreen />
       </EnrollmentRequired>;
     case 'flashcards':
-      return <EnrollmentRequired purposeTitle="Flashcards" purpose="Review key facts as cards. Begin a track so flashcards can use your enrolled subjects.">
+      return <EnrollmentRequired purposeTitle="Flashcard review" purpose="Flip key facts and formulas as cards for the subjects in your workspace. Begin a track to load flashcard decks.">
         <FlashcardsScreen topicId={route.topicId} />
       </EnrollmentRequired>;
     case 'cloud-atlas':
       return <CloudAtlasScreen />;
     case 'practice':
-      return <EnrollmentRequired purposeTitle="Practice" purpose="Configure quizzes by mode, subject, and difficulty. Begin a track to practice eligible questions in your workspace.">
+      return <EnrollmentRequired purposeTitle="Practice quizzes" purpose="Pick a mode (topic, quick, mock, review, challenge), set options for that mode, confirm scope under your active track, then start. Begin a track to unlock practice.">
         <PracticeScreen mode={route.mode} />
       </EnrollmentRequired>;
     case 'quiz':
@@ -84,7 +84,7 @@ function ScreenRouter() {
       </EnrollmentRequired>
       );
     case 'review':
-      return <EnrollmentRequired purposeTitle="Revision" purpose="Work due reviews and spaced-repetition queues. Begin a track so revision can use your learning progress.">
+      return <EnrollmentRequired purposeTitle="Revision queue" purpose="See topics due for spaced review and start a focused review quiz. Begin a track so due items come from your real progress.">
         <RevisionScreen />
       </EnrollmentRequired>;
     case 'progress':
@@ -92,7 +92,7 @@ function ScreenRouter() {
         <ProgressScreen />
       </EnrollmentRequired>;
     case 'search':
-      return <EnrollmentRequired purposeTitle="Search" purpose="Search topics and material inside your enrolled workspace — not every track at once. Begin a track to search its content.">
+      return <EnrollmentRequired purposeTitle="Search this workspace" purpose="Find topics and study material inside your active enrolled track and exam profile only. Begin a track to search its content.">
         <SearchScreen />
       </EnrollmentRequired>;
     case 'settings':
