@@ -380,8 +380,8 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
 
             {/* Challenge Mode */}
             <ExpandableModeCard
-              icon={<Dumbbell className="w-5 h-5" />}
-              iconBg="bg-violet-100 text-violet-600"
+              icon={<Dumbbell className="w-5 h-5" aria-hidden />}
+              iconBg="bg-warning-100 text-warning-700"
               title="Challenge Mode"
               description={challengeDisabled ? `No ${prefs.challengeDifficulty} questions available` : `All ${prefs.challengeDifficulty} questions`}
               bestFor="advanced learners"
@@ -529,7 +529,7 @@ function SimpleModeCard({ icon, iconBg, title, description, bestFor, onClick, di
     <button
       onClick={onClick}
       disabled={disabled}
-      className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 rounded-2xl bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed"
+      className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 rounded-card bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
     >
       <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
         {icon}
@@ -559,11 +559,13 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
   children: React.ReactNode;
 }) {
   return (
-    <div className={`rounded-2xl bg-white border transition-all ${expanded ? 'border-slate-300 shadow-card' : 'border-slate-200 hover:border-slate-300 hover:shadow-card-hover'} ${disabled ? 'opacity-60' : ''}`}>
+    <div className={`rounded-card bg-white border transition-all ${expanded ? 'border-slate-300 shadow-card' : 'border-slate-200 hover:border-slate-300 hover:shadow-card-hover'} ${disabled ? 'opacity-60' : ''}`}>
       <button
         onClick={onToggle}
         disabled={disabled}
-        className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 text-left disabled:cursor-not-allowed"
+        aria-expanded={expanded}
+        aria-controls={`practice-options-${title.toLowerCase().replace(/\s+/g, '-')}`}
+        className="w-full flex items-start gap-2.5 sm:gap-4 p-3.5 sm:p-5 text-left disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-inset"
       >
         <div className={`w-12 h-12 rounded-btn ${iconBg} flex items-center justify-center shrink-0`}>
           {icon}
@@ -579,7 +581,7 @@ function ExpandableModeCard({ icon, iconBg, title, description, bestFor, expande
       </button>
 
       {expanded && !disabled && (
-        <div className="px-5 pb-5">
+        <div id={`practice-options-${title.toLowerCase().replace(/\s+/g, '-')}`} className="px-5 pb-5">
           <div className="border-t border-slate-100 pt-4">
             {children}
             <button

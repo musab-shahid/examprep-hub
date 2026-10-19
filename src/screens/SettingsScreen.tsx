@@ -12,7 +12,7 @@ import {
   examTracks, examTrackMap,
 } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
-import { PageContainer, Card, Button } from '@/components/ui';
+import { PageContainer, Card, Button, ScreenHeader } from '@/components/ui';
 import { WorkspaceSettingsCard } from '@/components/track/WorkspaceSettingsCard';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
 import { downloadBackupFile } from '@/lib/storage';
@@ -143,10 +143,11 @@ export function SettingsScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-3 sm:mb-6 animate-fade-in-up">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Settings</h1>
-        <p className="text-slate-500 mt-1">App information and data management</p>
-      </div>
+      <ScreenHeader
+        title="Settings"
+        subtitle="Manage your workspace, data, installation, and study preferences."
+        className="animate-fade-in-up"
+      />
 
       {resetDone && (
         <div className="mb-4 p-3 rounded-xl bg-success-50 border border-success-100 flex items-center gap-2 animate-fade-in-up">
@@ -170,8 +171,8 @@ export function SettingsScreen() {
         </div>
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
           <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
-          <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${globalTopicCount}`} label="topics" />
-          <InfoStat icon={<Database className="w-4 h-4 text-success-500" />} value={`${globalQuestionCount}`} label="questions" />
+          <InfoStat icon={<FileText className="w-4 h-4 text-brand-500" />} value={`${globalTopicCount}`} label="topics" />
+          <InfoStat icon={<Database className="w-4 h-4 text-brand-500" />} value={`${globalQuestionCount}`} label="questions" />
         </div>
       </Card>
 
@@ -286,7 +287,7 @@ export function SettingsScreen() {
       <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Database className="w-4 h-4 text-slate-500" />
+            <Database className="w-4 h-4 text-brand-500" />
             <h3 className="font-semibold text-slate-900">Subject Data</h3>
           </div>
           <button
@@ -427,7 +428,7 @@ export function SettingsScreen() {
         <h3 className="font-semibold text-slate-900 mb-3">All Data</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <MiniStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} label="Studied" value={`${globalStudied}`} />
-          <MiniStat icon={<Brain className="w-4 h-4 text-violet-500" />} label="Answered" value={`${globalAnswered}`} />
+          <MiniStat icon={<Brain className="w-4 h-4 text-brand-500" />} label="Answered" value={`${globalAnswered}`} />
           <MiniStat icon={<Target className="w-4 h-4 text-success-500" />} label="Accuracy" value={`${globalAcc}%`} />
           <MiniStat icon={<TrendingUp className="w-4 h-4 text-warning-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />
         </div>

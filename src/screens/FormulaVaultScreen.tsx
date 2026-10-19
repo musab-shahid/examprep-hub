@@ -8,7 +8,7 @@ import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/S
 import { getFormulasForSubject, refreshFormulaVault } from '@/data/formulas';
 import { subjectMap } from '@/data/subjects';
 import { getTrackForSubject } from '@/lib/exam-track';
-import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
 /** Formula-heavy subjects load first so the vault is usable before every bank finishes. */
@@ -102,12 +102,10 @@ export function FormulaVaultScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-3 sm:mb-6">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Formulas</h1>
-        <p className="text-slate-500 mt-1">
-          {isAllSubjects ? 'All formulas across all subjects' : `All formulas in ${subjectTitle}`}, grouped by category{loading ? ' · loading more…' : ''}
-        </p>
-      </div>
+      <ScreenHeader
+        title="Formulas"
+        subtitle={`${isAllSubjects ? 'All formulas across all subjects' : `All formulas in ${subjectTitle}`}, grouped by category${loading ? ' · loading more…' : ''}`}
+      />
 
       <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />

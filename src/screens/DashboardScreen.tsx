@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect } from 'react';
 import { getAttentionItems, getDashboardRecommendation, buildDailyReviewTopicIds, firstUnmasteredPrereq } from '@/lib/attention';
-import { Zap, ChevronRight, Flame } from 'lucide-react';
+import { Zap, ChevronRight, Flame, BookOpen, Brain, RotateCcw, TrendingUp } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
@@ -212,9 +212,31 @@ export function DashboardScreen() {
               );
             })}
         </div>
-        <p className="text-xs text-slate-500 mt-6 leading-relaxed">
-          Begin adds a track to My Tracks and can set your active workspace. You may enroll in more than one track later.
-        </p>
+        {/* Feature preview — fills empty space and sets expectations */}
+        <div className="mt-8 pt-6 border-t border-slate-200">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4">What you get after beginning</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              { icon: <BookOpen className="w-5 h-5" />, label: 'Learn', desc: 'Topic notes & explanations' },
+              { icon: <Brain className="w-5 h-5" />, label: 'Practice', desc: 'Adaptive quiz sessions' },
+              { icon: <RotateCcw className="w-5 h-5" />, label: 'Review', desc: 'Spaced-repetition queue' },
+              { icon: <TrendingUp className="w-5 h-5" />, label: 'Progress', desc: 'Accuracy & coverage stats' },
+            ].map(({ icon, label, desc }) => (
+              <div key={label} className="rounded-card border border-slate-200 bg-white p-3.5 flex flex-col gap-2">
+                <div className="w-9 h-9 rounded-btn bg-brand-50 flex items-center justify-center text-brand-500">
+                  {icon}
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-800 text-sm">{label}</p>
+                  <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-slate-400 mt-5">
+            Beginning a track adds it to My Tracks and sets your active workspace. You can enroll in more than one track.
+          </p>
+        </div>
       </PageContainer>
     );
   }

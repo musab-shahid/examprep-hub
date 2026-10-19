@@ -6,6 +6,7 @@ import { loadAllHatTopics, loadAllHatQuestions } from '@/data/hat';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { getSubjectsForTrack } from '@/lib/exam-track';
+import { getHatSectionStyle } from '@/data/subject-colors';
 import type { Topic, Question, SubjectId } from '@/types';
 import {
   TrackLandingShell,
@@ -97,19 +98,19 @@ export function HatLandingScreen() {
         if (sw.ok) setActiveTrack('hat');
       }}
       enrollError={enrollError}
-      accentClass="from-indigo-600 to-indigo-700"
+      accentClass="from-slate-700 to-slate-800"
       summary={
         loadError ? (
-          <p className="text-danger-600" role="alert">
+          <p className="text-danger-200" role="alert">
             Could not load HAT content. Refresh and try again.
           </p>
         ) : (
-          <p>
-            <span className="font-medium text-slate-800">{sections.length}</span> sections
+          <p className="text-white/90">
+            <span className="font-semibold text-white">{sections.length}</span> sections
             {' · '}
-            <span className="font-medium text-slate-800">{hatTopics.length}</span> topics
+            <span className="font-semibold text-white">{hatTopics.length}</span> topics
             {' · '}
-            <span className="font-medium text-slate-800">{hatQuestions.length}</span> questions
+            <span className="font-semibold text-white">{hatQuestions.length}</span> questions
           </p>
         )
       }
@@ -134,6 +135,7 @@ export function HatLandingScreen() {
                 disabled={!enrolled}
                 onOpen={() => openSection(section.id)}
                 actionLabel={enrolled ? 'Study' : 'Preview'}
+                dotClass={getHatSectionStyle(section.id).dotBg}
               />
             );
           })}

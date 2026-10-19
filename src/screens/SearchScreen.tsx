@@ -6,7 +6,7 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { sectionMap } from '@/data/sections';
 import { subjectMap } from '@/data/subjects';
-import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
 export function SearchScreen() {
@@ -101,16 +101,14 @@ export function SearchScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-3 sm:mb-6">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Search</h1>
-        <p className="text-xs text-slate-500 mt-1">
-          Results stay inside your active track and exam profile — not other tracks.
-        </p>
-        <p className="text-slate-500 mt-1">Search topic titles, definitions, key facts, and formulas</p>
-      </div>
+      <ScreenHeader
+        title="Search"
+        subtitle="Find topics, definitions, key facts, and formulas in your active workspace."
+      />
 
-      <div className="mb-4">
+      <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
+        <p className="text-xs text-slate-500">Results stay within this track and exam profile.</p>
       </div>
 
       {!hasContent ? (
@@ -160,11 +158,11 @@ export function SearchScreen() {
                 {results.map((result, i) => {
                   const section = sectionMap[result.topic.sectionId];
                   return (
-                    <Card key={`${i}-${result.type}-${result.topic.id}`} className="p-0">
+                    <Card key={`${i}-${result.type}-${result.topic.id}`} elevation="flat" className="p-0 border-b border-slate-200 rounded-none first:rounded-t-card last:rounded-b-card">
                       <button
                         type="button"
                         onClick={() => navigate({ screen: 'topic', topicId: result.topic.id })}
-                        className="w-full flex items-start gap-3 p-4 hover:bg-slate-50 transition-colors text-left rounded-2xl"
+                        className="w-full flex items-start gap-3 p-4 hover:bg-slate-50 transition-colors text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-inset"
                       >
                         <div className="w-9 h-9 rounded-btn bg-slate-100 flex items-center justify-center shrink-0 mt-0.5">
                           {result.type === 'formula' ? (
@@ -179,7 +177,7 @@ export function SearchScreen() {
                             {subjectMap[result.subjectId]?.title ?? result.subjectId}
                             {section ? ` · ${section.title}` : ''}
                           </p>
-                          <p className="text-slate-600 text-sm mt-2 line-clamp-2 bg-slate-50 px-3 py-2 rounded-lg">
+                          <p className="text-slate-600 text-sm mt-2 line-clamp-2">
                             {result.match}
                           </p>
                         </div>

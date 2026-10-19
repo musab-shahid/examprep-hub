@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { Cloud, ChevronRight, X } from 'lucide-react';
 import { clouds } from '@/data/clouds';
-import { PageContainer, Card } from '@/components/ui';
+import { PageContainer, Card, ScreenHeader } from '@/components/ui';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import type { CloudEntry } from '@/types';
@@ -10,7 +10,7 @@ const LEVELS: CloudEntry['level'][] = ['High', 'Middle', 'Low', 'Vertical'];
 
 const levelColors: Record<CloudEntry['level'], string> = {
   High: 'bg-sky-100 text-sky-700 border-sky-200',
-  Middle: 'bg-violet-100 text-violet-700 border-violet-200',
+  Middle: 'bg-brand-100 text-brand-700 border-brand-200',
   Low: 'bg-slate-100 text-slate-700 border-slate-200',
   Vertical: 'bg-amber-100 text-amber-700 border-amber-200',
 };
@@ -31,14 +31,14 @@ export function CloudAtlasScreen() {
   }, []);
 
   return (
-    <PageContainer>
+    <PageContainer className="max-w-[72rem]">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Cloud Atlas</h1>
-        <p className="text-slate-500 mt-1">10 cloud genera grouped by altitude level</p>
-      </div>
+      <ScreenHeader
+        title="Cloud Atlas"
+        subtitle="Explore 10 cloud genera grouped by altitude level."
+      />
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {LEVELS.map((level) => {
           const levelClouds = clouds.filter((c) => c.level === level);
           return (
@@ -48,7 +48,7 @@ export function CloudAtlasScreen() {
                 <h2 className="font-semibold text-slate-900 text-lg">{level} Clouds</h2>
                 <span className="text-slate-400 text-sm">({levelClouds.length})</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {levelClouds.map((cloud) => (
                   <Card key={cloud.name} elevation="interactive" className="p-4">
                     <button

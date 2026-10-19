@@ -1,171 +1,163 @@
 /**
- * Catalog counts for track landings — explicit precision, never implied exact.
+ * Read-only catalog metadata for a specific track + exam profile,
+ * independent of the active workspace. Used by track landing pages
+ * to show accurate content counts even when previewing a non-active track.
  */
-import { sectionsBySubject } from '../data/sections.ts';
-import { isTrackId, type TrackId } from '../data/tracks.ts';
-import {
-  contentEligibleForScope,
-  resolveSubjectsForScope,
-  type ScopeInput,
-} from './track-scope.ts';
-import type { Question } from '../types.ts';
-import type { Subject } from '../types.ts';
+import { subjectsForScope, contentEligibleForScope, type ScopeInput } from './track-scope.ts';
+import { sectionsBySubject, sectionMap } from '../data/sections.ts';
+import { topics } from '../data/topics.ts';
+import { topicMap } from '../data/topics.ts';
+import type { SubjectId, Topic, Question } from '../types.ts';
+import type { SubjectWithMeta } from '../data/subjects.ts';
 
-export type CountPrecision = 'exact' | 'estimated' | 'unavailable';
-
-export type CatalogCount = {
-  value: number;
-  precision: CountPrecision;
-};
-
-export type SubjectCatalogEntry = {
-  subject: Subject;
-  topicCount: CatalogCount;
-  questionCount: CatalogCount;
-  /** Personal progress (studied topics), not catalog size */
-  studiedTopicCount: number;
-};
-
-export type TrackCatalog = {
-  trackId: TrackId;
-  examId: string | null;
-  scopeKind: 'general' | 'profile' | 'invalid' | 'empty-policy';
-  subjects: SubjectCatalogEntry[];
-  totalTopics: CatalogCount;
-  totalQuestions: CatalogCount;
-};
-
-function sumCounts(counts: CatalogCount[]): CatalogCount {
-  if (counts.length === 0) {
-    return { value: 0, precision: 'exact' };
-  }
-  if (counts.some((c) => c.precision === 'unavailable')) {
-    return { value: 0, precision: 'unavailable' };
-  }
-  const value = counts.reduce((s, c) => s + c.value, 0);
-  if (counts.some((c) => c.precision === 'estimated')) {
-    return { value, precision: 'estimated' };
-  }
-  return { value, precision: 'exact' };
+function scopedSubjectIds(input: ScopeInput): Set<string> {
+  return new Set(subjectsForScope(input).map((s) => s.id));
 }
 
-export function formatCatalogCount(c: CatalogCount, unit: string): string {
-  if (c.precision === 'unavailable') return `— ${unit}`;
-  if (c.precision === 'estimated') return `~${c.value} ${unit}`;
-  return `${c.value} ${unit}`;
+export interface TrackCatalogSubject {
+  subject: SubjectWithMeta;
+  topicCount: number;
+  questionCount: number;
+  sectionCount: number;
+  topics: Topic[];
+}
+
+export interface TrackCatalog {
+  subjects: TrackCatalogSubject[];
+  totalTopics: number;
+  totalQuestions: number;
+  /** Scope resolution was empty/invalid — no subjects to show. */
+  empty: boolean;
 }
 
 /**
- * Build subject catalog for a viewed track/profile (not necessarily active workspace).
+ * Whether a question is eligible under the given scope.
+ * A question is eligible when:
+ *  - its subject is in scope, AND
+ *  - its own content tags pass contentEligibleForScope, AND
+ *  - (when the question has no tags) its topic's tags pass, if any.
  *
- * - topicCount: exact when topicIds provided; else estimated from section.topicCount
- * - questionCount: exact when questions provided and filtered; else estimated from section.questionCount
+ * Untagged questions inherit eligibility from their topic so that
+ * topic-level restrictions cascade to their questions.
  */
-export function buildTrackCatalog(
+export function questionEligibleForScope(
+  question: Question,
   input: ScopeInput,
-  opts?: {
-    /** Loaded topic ids per subject (from cache); omit → section metadata estimates */
-    topicIdsBySubject?: Map<string, string[]>;
-    /** Loaded questions for subjects in scope; omit → section metadata estimates */
-    questions?: Question[];
-    /** studied topic ids for personal progress */
-    studiedTopicIds?: ReadonlySet<string> | string[];
-  },
+  inScopeSubject: boolean,
+): boolean {
+  if (!inScopeSubject) return false;
+  if (!contentEligibleForScope(question, input)) return false;
+  // Question is directly eligible. If it has its own tags we are done.
+  if (question.examScope || question.postRestriction) return true;
+  // Untagged question: inherit from its topic's restriction policy.
+  const topic = topicMap[question.topicId];
+  if (topic && !contentEligibleForScope(topic, input)) return false;
+  return true;
+}
+
+/**
+ * Compute catalog metadata (topic/question/section counts) for a track + profile,
+ * applying item-level content eligibility restrictions. Does not depend on the
+ * active workspace or any cache state.
+ *
+ * Question counts are derived from the authored question bank filtered by the
+ * scope. Question data must be loaded (via the lazy loaders) before calling
+ * if exact counts are required; when the bank is not yet loaded, questionCount
+ * falls back to the section-authored total and `questionCountExact` is false.
+ */
+export function getTrackCatalog(
+  input: ScopeInput,
+  loadedQuestionsBySubject?: ReadonlyMap<string, Question[]>,
 ): TrackCatalog {
-  const trackId = input.trackId;
-  const examId = input.examId ?? null;
-
-  if (!isTrackId(trackId)) {
-    return {
-      trackId: trackId as TrackId,
-      examId,
-      scopeKind: 'invalid',
-      subjects: [],
-      totalTopics: { value: 0, precision: 'unavailable' },
-      totalQuestions: { value: 0, precision: 'unavailable' },
-    };
+  const scoped = subjectsForScope(input);
+  if (scoped.length === 0) {
+    return { subjects: [], totalTopics: 0, totalQuestions: 0, empty: true };
   }
 
-  const resolved = resolveSubjectsForScope(input);
-  if (resolved.kind === 'invalid-track' || resolved.kind === 'invalid-profile') {
-    return {
-      trackId,
-      examId,
-      scopeKind: 'invalid',
-      subjects: [],
-      totalTopics: { value: 0, precision: 'unavailable' },
-      totalQuestions: { value: 0, precision: 'unavailable' },
-    };
-  }
-  if (resolved.kind === 'empty-policy') {
-    return {
-      trackId,
-      examId,
-      scopeKind: 'empty-policy',
-      subjects: [],
-      totalTopics: { value: 0, precision: 'exact' },
-      totalQuestions: { value: 0, precision: 'exact' },
-    };
-  }
-
-  const studied =
-    opts?.studiedTopicIds instanceof Set
-      ? opts.studiedTopicIds
-      : new Set(opts?.studiedTopicIds ?? []);
-
-  const questions = opts?.questions;
-  const topicIdsBySubject = opts?.topicIdsBySubject;
-
-  const entries: SubjectCatalogEntry[] = resolved.subjects.map((subject) => {
-    const secs = sectionsBySubject(subject.id);
-    const metaTopics = secs.reduce((s, sec) => s + (sec.topicCount || 0), 0);
-    const metaQs = secs.reduce((s, sec) => s + (sec.questionCount || 0), 0);
-
-    let topicCount: CatalogCount;
-    let studiedTopicCount = 0;
-
-    if (topicIdsBySubject?.has(subject.id)) {
-      const ids = topicIdsBySubject.get(subject.id) ?? [];
-      topicCount = { value: ids.length, precision: 'exact' };
-      studiedTopicCount = ids.filter((id) => studied.has(id)).length;
-    } else {
-      topicCount = { value: metaTopics, precision: 'estimated' };
-    }
-
-    let questionCount: CatalogCount;
-    if (questions) {
-      const eligible = questions.filter(
-        (q) =>
-          secs.some((sec) => sec.id === q.sectionId) &&
-          contentEligibleForScope(
-            { examScope: (q as { examScope?: ('bs17' | 'bs16')[] }).examScope, postRestriction: (q as { postRestriction?: string | null }).postRestriction },
-            input,
-          ),
+  const subjects: TrackCatalogSubject[] = scoped.map((subject) => {
+    const sid = subject.id as SubjectId;
+    const sSections = sectionsBySubject(sid);
+    const sSectionIds = new Set(sSections.map((s) => s.id));
+    const sTopics = topics.filter((t) => {
+      if (!sSectionIds.has(t.sectionId)) return false;
+      return contentEligibleForScope(t, input);
+    });
+    const loaded = loadedQuestionsBySubject?.get(sid);
+    let questionCount: number;
+    if (loaded) {
+      questionCount = loaded.reduce(
+        (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
+        0,
       );
-      // Also require subject ownership via section
-      const forSubject = eligible.filter((q) => {
-        const sec = secs.find((s) => s.id === q.sectionId);
-        return sec?.subjectId === subject.id;
-      });
-      questionCount = { value: forSubject.length, precision: 'exact' };
     } else {
-      questionCount = { value: metaQs, precision: metaQs > 0 ? 'estimated' : 'exact' };
+      // No loaded bank: use section-authored totals as an upper-bound estimate.
+      questionCount = sSections.reduce((sum, s) => sum + s.questionCount, 0);
     }
-
     return {
       subject,
-      topicCount,
+      topicCount: sTopics.length,
       questionCount,
-      studiedTopicCount,
+      sectionCount: sSections.length,
+      topics: sTopics,
     };
   });
 
-  return {
-    trackId,
-    examId,
-    scopeKind: resolved.kind === 'profile' ? 'profile' : 'general',
-    subjects: entries,
-    totalTopics: sumCounts(entries.map((e) => e.topicCount)),
-    totalQuestions: sumCounts(entries.map((e) => e.questionCount)),
-  };
+  const totalTopics = subjects.reduce((sum, s) => sum + s.topicCount, 0);
+  const totalQuestions = subjects.reduce((sum, s) => sum + s.questionCount, 0);
+
+  return { subjects, totalTopics, totalQuestions, empty: false };
+}
+
+/**
+ * Topics for a single subject under a track+profile scope (independent of active workspace).
+ * Rejects subjects that are not in the supplied track/profile scope.
+ */
+export function topicsForSubjectInScope(subjectId: SubjectId, input: ScopeInput): Topic[] {
+  if (!subjectInScope(subjectId, input)) return [];
+  const sSections = sectionsBySubject(subjectId);
+  const sSectionIds = new Set(sSections.map((s) => s.id));
+  return topics.filter((t) => {
+    if (!sSectionIds.has(t.sectionId)) return false;
+    return contentEligibleForScope(t, input);
+  });
+}
+
+/**
+ * Question count for a single subject under a track+profile scope.
+ * Rejects subjects that are not in the supplied track/profile scope.
+ * When loadedQuestions is provided, counts only profile-eligible questions;
+ * otherwise returns the section-authored total as an upper bound.
+ */
+export function questionCountForSubjectInScope(
+  subjectId: SubjectId,
+  input: ScopeInput,
+  loadedQuestions?: Question[],
+): number {
+  if (!subjectInScope(subjectId, input)) return 0;
+  const sSections = sectionsBySubject(subjectId);
+  const sSectionIds = new Set(sSections.map((s) => s.id));
+  if (loadedQuestions) {
+    return loadedQuestions.reduce(
+      (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
+      0,
+    );
+  }
+  return sSections.reduce((sum, s) => sum + s.questionCount, 0);
+}
+
+/** Section count for a single subject. */
+export function sectionCountForSubject(subjectId: SubjectId): number {
+  return sectionsBySubject(subjectId).length;
+}
+
+/** Whether a subject id is within the supplied track/profile scope. */
+export function subjectInScope(subjectId: string, input: ScopeInput): boolean {
+  return scopedSubjectIds(input).has(subjectId);
+}
+
+/** Resolve a topic's subject id via its section. */
+export function subjectIdForTopic(topicId: string): SubjectId | undefined {
+  const topic = topics.find((t) => t.id === topicId);
+  if (!topic) return undefined;
+  return sectionMap[topic.sectionId]?.subjectId as SubjectId | undefined;
 }
