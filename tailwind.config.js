@@ -55,7 +55,11 @@ export default {
         'glow-indigo': '0 0 0 1px rgb(67 56 202 / 0.12)',
       },
       maxWidth: {
-        content: '56rem',
+        content: '56rem',       /* standard workspace */
+        reading: '42rem',       /* prose / topic reader */
+        wide: '72rem',          /* dashboard / catalogs */
+        analytics: '80rem',     /* charts */
+        focused: '36rem',       /* active quiz */
       },
       transitionDuration: {
         'DEFAULT': '150ms',

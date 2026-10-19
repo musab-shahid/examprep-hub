@@ -14,6 +14,8 @@ import {
 } from '@/components/track/TrackLandingShell';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import type { SubjectId } from '@/types';
+import { buildTrackCatalog, formatCatalogCount } from '@/lib/track-catalog';
+import { useMemo } from 'react';
 
 /**
  * Generic track overview for registry tracks that do not use FPSC/HAT branded landings.
@@ -27,7 +29,21 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
   const enrolled = isTrackEnrolled(data, trackId);
   const isActive = trackMembership.activeTrackId === trackId;
   const examId = trackMembership.enrollments[trackId]?.activeExamId ?? null;
-  const subjects = subjectsForScope({ trackId, examId });
+  const catalog = useMemo(() => {
+    const topicIdsBySubject = new Map<string, string[]>();
+    for (const s of subjectsForScope({ trackId, examId })) {
+      const topics = sd.topicsFor(s.id as SubjectId);
+      if (topics.length > 0) topicIdsBySubject.set(s.id, topics.map((x) => x.id));
+    }
+    return buildTrackCatalog(
+      { trackId, examId },
+      {
+        topicIdsBySubject: topicIdsBySubject.size ? topicIdsBySubject : undefined,
+        studiedTopicIds: data.studiedTopics,
+      },
+    );
+  }, [trackId, examId, sd, data.studiedTopics]);
+  const subjects = catalog.subjects.map((e) => e.subject);
   const accent = trackAccentClasses(trackId);
 
   const handleBegin = () => {
@@ -60,8 +76,9 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
       }
       summary={
         <p>
-          <span className="font-medium text-slate-800">{subjects.length}</span> subjects in current
-          scope
+          <span className="font-medium text-slate-800">{catalog.subjects.length}</span> subjects ·{' '}
+          {formatCatalogCount(catalog.totalTopics, 'topics')} ·{' '}
+          {formatCatalogCount(catalog.totalQuestions, 'questions')}
         </p>
       }
       catalog={

@@ -136,7 +136,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
 
   // --- Focus mode topic picker ---
   if (view === 'focus') {
-    if (questionsLoading) return <PageContainer><LoadingSpinner label="Loading questions…" /></PageContainer>;
+    if (questionsLoading) return <PageContainer width="standard"><LoadingSpinner label="Loading questions…" /></PageContainer>;
     const subjectOrder = subjects.reduce((map, s, i) => { map[s.id] = i; return map; }, {} as Record<string, number>);
     const focusSections = sd.sectionsFor(subjectId).slice().sort((a, b) => {
       const aOrder = subjectOrder[a.subjectId] ?? 99;
@@ -145,7 +145,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
     });
 
     return (
-      <PageContainer>
+      <PageContainer width="standard">
         <div className="mb-4">
           <button onClick={() => setView('modes')} className="flex items-center gap-1 text-slate-500 text-sm hover:text-slate-700 mb-2">
             <ArrowLeft className="w-4 h-4" /> Back
@@ -262,7 +262,7 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
   };
 
   if (loadError) return (
-    <PageContainer>
+    <PageContainer width="standard">
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading questions. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
         <div className="flex justify-center mt-4">
@@ -272,10 +272,10 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
     </PageContainer>
   );
 
-  if (questionsLoading) return <PageContainer><LoadingSpinner label="Loading questions…" /></PageContainer>;
+  if (questionsLoading) return <PageContainer width="standard"><LoadingSpinner label="Loading questions…" /></PageContainer>;
 
   return (
-    <PageContainer>
+    <PageContainer width="standard">
       <ScreenHeader
         title="Practice"
         subtitle="Choose a mode, set scope, then start. One primary action per mode."

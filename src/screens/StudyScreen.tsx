@@ -78,7 +78,7 @@ export function StudyScreen() {
     const trackSubjects = isTrackId(activeTrack) ? subjectsForScope({ trackId: activeTrack, examId }) : [];
     const subjectsWithContent = trackSubjects.filter((s) => sd.topicsFor(s.id as SubjectId).length > 0);
     return (
-      <PageContainer className="max-w-3xl">
+      <PageContainer width="wide">
         <div className="mb-2">
           <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
         </div>
@@ -117,7 +117,7 @@ export function StudyScreen() {
   }
 
   return (
-    <PageContainer>
+    <PageContainer width="standard">
       <div className="mb-2">
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
       </div>
@@ -154,11 +154,11 @@ export function StudyScreen() {
             );
           })()}
 
-          {/* Featured links */}
+          {/* Secondary tools */}
           {subjectId === 'meteo-climatology' && (
             <button
               onClick={() => navigate({ screen: 'section', sectionId: 'METEO-09' })}
-              className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-sky-500 to-sky-600 text-white hover:from-sky-600 hover:to-sky-700 transition-colors text-left mb-4"
+              className="w-full flex items-center gap-3 p-3 rounded-card border border-slate-200 bg-white hover:bg-slate-50 transition-colors text-left mb-3 text-slate-800"
             >
               <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center shrink-0"><MapIcon className="w-6 h-6 text-white" /></div>
               <div className="flex-1">
@@ -182,7 +182,7 @@ export function StudyScreen() {
             )}
           </div>
 
-          {/* Sections accordion */}
+          {/* Primary: sections & topics */}
           <Card className="p-3.5 sm:p-5 mb-3 sm:mb-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-slate-900">Sections</h3>
@@ -206,7 +206,7 @@ export function StudyScreen() {
                     >
                       <SectionBadge section={section} />
                       <div className="flex-1 min-w-0">
-                        <p className="font-medium text-slate-900 text-sm truncate">{section.title}</p>
+                        <p className="font-medium text-slate-900 text-sm break-words">{section.title}</p>
                         <p className="text-slate-500 text-xs mt-0.5">{section.topicCount} topics · {studiedInSection} studied · {masteredInSection} mastered</p>
                       </div>
                       {isExpanded ? <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" /> : <ChevronRight className="w-5 h-5 text-slate-400 shrink-0" />}
@@ -260,7 +260,7 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
 
   if (!section) {
     return (
-      <PageContainer>
+      <PageContainer width="standard">
         <BackButton />
         <EmptyState
           title="Section not found"
@@ -272,7 +272,7 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
   }
 
   return (
-    <PageContainer>
+    <PageContainer width="standard">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
       <div className="mb-3 sm:mb-6">
         <div className="flex items-center gap-2 mb-1">
@@ -371,9 +371,9 @@ export function TopicScreen({ topicId }: { topicId: string }) {
     return () => { cancelled = true; };
   }, [topicId]);
 
-  if (loading) return <PageContainer><LoadingSpinner label="Loading topic…" /></PageContainer>;
+  if (loading) return <PageContainer width="standard"><LoadingSpinner label="Loading topic…" /></PageContainer>;
   if (loadError) return (
-    <PageContainer>
+    <PageContainer width="standard">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
       <Card className="p-8">
         <EmptyState title="Failed to load" message="Something went wrong while loading this topic." icon={<AlertTriangle className="w-12 h-12" />} />
@@ -385,7 +385,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
   );
   if (!topic) {
     return (
-      <PageContainer>
+      <PageContainer width="standard">
         <BackButton />
         <EmptyState
           title="Topic not found"
@@ -400,7 +400,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
 
   if (!topic.content) {
     return (
-      <PageContainer>
+      <PageContainer width="standard">
         <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
         <div className="mb-4">
           <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
@@ -417,7 +417,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
   }
 
   return (
-    <PageContainer>
+    <PageContainer width="standard">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
       <div className="mb-3 sm:mb-6">
         <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>

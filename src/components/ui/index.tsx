@@ -33,9 +33,30 @@ export function Skeleton({
   );
 }
 
-export function PageContainer({ children, className = '' }: { children: ReactNode; className?: string }) {
+export type PageWidth = 'standard' | 'reading' | 'wide' | 'analytics' | 'focused';
+
+const PAGE_WIDTH_CLASS: Record<PageWidth, string> = {
+  standard: 'max-w-content',
+  reading: 'max-w-reading',
+  wide: 'max-w-wide',
+  analytics: 'max-w-analytics',
+  focused: 'max-w-focused',
+};
+
+export function PageContainer({
+  children,
+  className = '',
+  width = 'standard',
+}: {
+  children: ReactNode;
+  className?: string;
+  /** Semantic content width — do not use for every page the same way */
+  width?: PageWidth;
+}) {
   return (
-    <div className={`px-4 sm:px-6 lg:px-8 py-4 sm:py-6 max-w-content mx-auto w-full ${className}`}>
+    <div
+      className={`px-4 sm:px-6 lg:px-8 py-4 sm:py-6 ${PAGE_WIDTH_CLASS[width]} mx-auto w-full ${className}`}
+    >
       {children}
     </div>
   );

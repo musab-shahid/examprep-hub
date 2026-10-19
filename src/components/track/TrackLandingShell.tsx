@@ -12,13 +12,9 @@ type Props = {
   onContinue?: () => void;
   enrollError?: string | null;
   accentClass?: string;
-  /** Compact profile control (e.g. ExamProfilePicker) */
   profileSlot?: ReactNode;
-  /** One-line orientation metrics — keep small */
   summary?: ReactNode;
-  /** Subject / section catalog */
   catalog: ReactNode;
-  /** Secondary actions (mock, practice all) */
   footer?: ReactNode;
 };
 
@@ -42,40 +38,37 @@ export function TrackLandingShell({
   footer,
 }: Props) {
   return (
-    <PageContainer>
-      <ScreenHeader title={title} subtitle={description} />
-
-      <TrackEnrollmentBanner
-        trackTitle={title}
-        enrolled={enrolled}
-        isActiveFocus={isActiveFocus}
-        enrolling={enrolling}
-        onBegin={onBegin}
-        onContinue={onContinue}
-        accentClass={accentClass}
-      />
-
-      {enrollError && (
-        <p className="text-sm text-danger-600 mb-4" role="alert">
-          {enrollError}
-        </p>
-      )}
-
-      {profileSlot && <div className="mb-5">{profileSlot}</div>}
-
-      {summary && <div className="mb-5 text-sm text-slate-600">{summary}</div>}
+    <PageContainer width="wide">
+      <div className="rounded-card border border-slate-200 bg-white p-4 sm:p-5 mb-6">
+        <ScreenHeader title={title} subtitle={description} />
+        <TrackEnrollmentBanner
+          trackTitle={title}
+          enrolled={enrolled}
+          isActiveFocus={isActiveFocus}
+          enrolling={enrolling}
+          onBegin={onBegin}
+          onContinue={onContinue}
+          accentClass={accentClass}
+        />
+        {enrollError && (
+          <p className="text-sm text-danger-600 mt-3" role="alert">
+            {enrollError}
+          </p>
+        )}
+        {profileSlot && <div className="mt-4 pt-4 border-t border-slate-100">{profileSlot}</div>}
+        {summary && <div className="mt-3 text-sm text-slate-600">{summary}</div>}
+      </div>
 
       <section className="mb-6" aria-label="Subjects">
         <h2 className="text-sm font-medium text-slate-600 mb-3">Subjects</h2>
         {catalog}
       </section>
 
-      {footer && <div className="mt-2">{footer}</div>}
+      {footer && <div className="mt-2 pb-4">{footer}</div>}
     </PageContainer>
   );
 }
 
-/** Compact subject row for track catalogs — list, not decorative grid cards */
 export function TrackSubjectRow({
   title,
   meta,
@@ -93,13 +86,13 @@ export function TrackSubjectRow({
 }) {
   return (
     <div
-      className={`flex items-center gap-3 px-3 py-3 border-b border-slate-100 last:border-b-0 ${
+      className={`flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3 px-3 py-3 border-b border-slate-100 last:border-b-0 ${
         disabled ? 'opacity-60' : 'hover:bg-slate-50'
       }`}
     >
       <div className="min-w-0 flex-1">
-        <p className="text-sm font-semibold text-slate-900 truncate">{title}</p>
-        <p className="text-xs text-slate-500 mt-0.5 truncate">{meta}</p>
+        <p className="text-sm font-semibold text-slate-900 break-words">{title}</p>
+        <p className="text-xs text-slate-500 mt-0.5 break-words leading-relaxed">{meta}</p>
         {typeof progressPct === 'number' && (
           <div className="mt-1.5 h-1 w-full max-w-[12rem] rounded-full bg-slate-200 overflow-hidden">
             <div
@@ -119,7 +112,7 @@ export function TrackSubjectRow({
         variant="secondary"
         disabled={disabled}
         onClick={onOpen}
-        className="shrink-0 text-sm px-3 py-1.5"
+        className="shrink-0 text-sm px-3 py-1.5 self-start sm:self-center"
       >
         {actionLabel}
       </Button>

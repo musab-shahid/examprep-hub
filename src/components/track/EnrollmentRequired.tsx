@@ -14,12 +14,15 @@ type Props = {
    * Omit for generic stages that use the active enrolled focus only.
    */
   requiredTrack?: TrackId;
+  /** Route-specific explanation of what this tool is for */
+  purpose?: string;
+  purposeTitle?: string;
 };
 
 /**
  * Blocks learning screens until enrollment (and optional track) is satisfied.
  */
-export function EnrollmentRequired({ children, requiredTrack }: Props) {
+export function EnrollmentRequired({ children, requiredTrack, purpose, purposeTitle }: Props) {
   const { data, setActiveEnrolledTrack } = useData();
   const { setActiveTrack } = useSubjectSelection();
   const { navigate } = useRouter();
@@ -66,19 +69,22 @@ export function EnrollmentRequired({ children, requiredTrack }: Props) {
     );
   }
 
+  const title =
+    purposeTitle ??
+    (requiredTrack
+      ? `Begin ${requiredTrack.toUpperCase()} to continue`
+      : 'Choose a track to begin');
+  const body =
+    purpose ??
+    (requiredTrack
+      ? `This content belongs to the ${requiredTrack.toUpperCase()} track. Preview the track, then use Begin — opening a page does not enroll you.`
+      : 'Study, practice, and review unlock after you begin a track. Preview FPSC or HAT first — beginning is an explicit step.');
+
   return (
     <PageContainer>
       <Card className="p-3.5 sm:p-5 max-w-lg">
-        <h2 className="text-lg font-semibold text-slate-900">
-          {requiredTrack
-            ? `Begin ${requiredTrack.toUpperCase()} to continue`
-            : 'Choose a track to begin'}
-        </h2>
-        <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-          {requiredTrack
-            ? `This content belongs to the ${requiredTrack.toUpperCase()} track. Preview the track, then use Begin — opening a page does not enroll you.`
-            : 'Study, practice, and review unlock after you begin a track. Preview FPSC or HAT first — beginning is an explicit step.'}
-        </p>
+        <h2 className="text-lg font-semibold text-slate-900">{title}</h2>
+        <p className="text-sm text-slate-600 mt-2 leading-relaxed">{body}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           {exploreTrack ? (
             <Button type="button" onClick={() => navigate({ ...openTrackOptions(exploreTrack) })}>

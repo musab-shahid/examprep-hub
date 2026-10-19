@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useRouter } from '@/router';
 import { Button } from '@/components/ui';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
-import { subjectsByTrack } from '@/data/subjects';
-import { sectionsBySubject } from '@/data/sections';
 import type { SubjectId } from '@/types';
 import { ExamProfilePicker } from '@/components/track/ExamProfilePicker';
 import {
@@ -13,7 +11,7 @@ import {
   TrackSubjectList,
   TrackSubjectRow,
 } from '@/components/track/TrackLandingShell';
-import { subjectsForScope } from '@/lib/track-scope';
+import { buildTrackCatalog, formatCatalogCount } from '@/lib/track-catalog';
 
 export function FpscLandingScreen() {
   const { navigate, currentRoute } = useRouter();
@@ -26,19 +24,25 @@ export function FpscLandingScreen() {
   const [enrollError, setEnrollError] = useState<string | null>(null);
 
   const examId = trackMembership.enrollments.fpsc?.activeExamId ?? null;
-  const scopedSubjects = subjectsForScope({ trackId: 'fpsc', examId });
-  // Prefer profile-scoped list; fall back to full FPSC registry order
-  const fpscSubjects =
-    scopedSubjects.length > 0 ? scopedSubjects : subjectsByTrack('fpsc');
 
-  const totalTopics = fpscSubjects.reduce(
-    (sum, s) => sum + sd.topicsFor(s.id as SubjectId).length,
-    0,
-  );
-  const totalQuestions = fpscSubjects.reduce(
-    (sum, s) => sum + (sd.statsFor(s.id as SubjectId).totalQuestions || 0),
-    0,
-  );
+  const catalog = useMemo(() => {
+    const topicIdsBySubject = new Map<string, string[]>();
+    // Prefer loaded topic lists when present (exact); else estimates
+    const scopeSubjects = buildTrackCatalog({ trackId: 'fpsc', examId }).subjects.map((e) => e.subject);
+    for (const s of scopeSubjects) {
+      const topics = sd.topicsFor(s.id as SubjectId);
+      if (topics.length > 0) {
+        topicIdsBySubject.set(s.id, topics.map((t) => t.id));
+      }
+    }
+    return buildTrackCatalog(
+      { trackId: 'fpsc', examId },
+      {
+        topicIdsBySubject: topicIdsBySubject.size > 0 ? topicIdsBySubject : undefined,
+        studiedTopicIds: data.studiedTopics,
+      },
+    );
+  }, [examId, sd, data.studiedTopics]);
 
   const handleBegin = () => {
     setEnrolling(true);
@@ -70,47 +74,60 @@ export function FpscLandingScreen() {
 
   return (
     <TrackLandingShell
-      title="FPSC Exam"
-      description="Federal Public Service Commission — meteorology, sciences, maths, English, and research."
+      title="FPSC"
+      description="Federal competitive exams — meteorology, sciences, English, and more. Begin to study and practice under this track."
       enrolled={enrolled}
       isActiveFocus={isActive}
       enrolling={enrolling}
       onBegin={handleBegin}
-      onContinue={() => {
-        const sw = setActiveEnrolledTrack('fpsc');
-        if (sw.ok) setActiveTrack('fpsc');
-      }}
+      onContinue={
+        enrolled && !isActive
+          ? () => {
+              const r = setActiveEnrolledTrack('fpsc');
+              if (r.ok) setActiveTrack('fpsc');
+            }
+          : undefined
+      }
       enrollError={enrollError}
-      accentClass="from-sky-600 to-sky-700"
-      profileSlot={<ExamProfilePicker trackId="fpsc" enrolled={enrolled} />}
+      accentClass="from-sky-500 to-brand-600"
+      profileSlot={enrolled ? <ExamProfilePicker trackId="fpsc" /> : undefined}
       summary={
         <p>
-          <span className="font-medium text-slate-800">{fpscSubjects.length}</span> subjects
-          {' · '}
-          <span className="font-medium text-slate-800">{totalTopics}</span> topics
-          {' · '}
-          <span className="font-medium text-slate-800">{totalQuestions}</span> questions in scope
+          Catalog: {formatCatalogCount(catalog.totalTopics, 'topics')} ·{' '}
+          {formatCatalogCount(catalog.totalQuestions, 'questions')}
+          {(catalog.totalTopics.precision === 'estimated' ||
+            catalog.totalQuestions.precision === 'estimated') && (
+            <span className="text-slate-400"> (estimates until content loads)</span>
+          )}
         </p>
       }
       catalog={
         <TrackSubjectList>
-          {fpscSubjects.map((subject) => {
-            const sid = subject.id as SubjectId;
-            const sections = sectionsBySubject(sid);
-            const topics = sd.topicsFor(sid);
-            const studied = topics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
+          {catalog.subjects.map((entry) => {
+            const s = entry.subject;
+            const topics = entry.topicCount;
+            const qs = entry.questionCount;
+            const studied = entry.studiedTopicCount;
             const progressPct =
-              topics.length > 0 ? Math.round((studied / topics.length) * 100) : null;
-            const qCount = sd.statsFor(sid).totalQuestions;
+              topics.precision === 'exact' && topics.value > 0
+                ? Math.round((studied / topics.value) * 100)
+                : null;
+            const meta = [
+              formatCatalogCount(topics, 'topics'),
+              formatCatalogCount(qs, 'questions'),
+              studied > 0 ? `${studied} studied` : null,
+            ]
+              .filter(Boolean)
+              .join(' · ');
             return (
               <TrackSubjectRow
-                key={sid}
-                title={subject.title}
-                meta={`${sections.length} sections · ${topics.length} topics · ${qCount} questions`}
-                progressPct={enrolled ? progressPct : null}
+                key={s.id}
+                title={s.name}
+                meta={meta}
+                progressPct={progressPct}
                 disabled={!enrolled}
-                onOpen={() => openSubject(sid)}
-                actionLabel={enrolled ? 'Study' : 'Preview'}
+                onOpen={() => openSubject(s.id as SubjectId)}
+                actionLabel={enrolled ? 'Study' : 'Locked'}
               />
             );
           })}
@@ -118,23 +135,15 @@ export function FpscLandingScreen() {
       }
       footer={
         enrolled ? (
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+          <div className="flex flex-wrap gap-2">
             <Button
               type="button"
               variant="secondary"
-              onClick={() => guard(() => navigate({ screen: 'practice', parent: currentRoute }))}
-            >
-              Practice
-            </Button>
-            <Button
-              type="button"
-              variant="secondary"
-              disabled={totalQuestions < 10}
               onClick={() =>
-                guard(() => navigate({ screen: 'practice', mode: 'mock', parent: currentRoute }))
+                guard(() => navigate({ screen: 'practice', parent: currentRoute }))
               }
             >
-              Mock exam
+              Practice
             </Button>
           </div>
         ) : null

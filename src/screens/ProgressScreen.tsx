@@ -117,7 +117,7 @@ export function ProgressScreen() {
   );
 
 return (
-    <PageContainer>
+    <PageContainer width="analytics">
       <ScreenHeader
         title="Progress"
         subtitle={`Totals, weak areas, and streaks use your active track${examId ? ' and exam profile' : ''} only — not other tracks.`}

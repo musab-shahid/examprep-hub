@@ -99,12 +99,15 @@ export function InstallPrompt() {
     actions: ReactNode,
   ) => (
     <div
-      className="fixed z-40 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up left-1/2 -translate-x-1/2"
-      style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5rem)' }}
+      className="fixed z-30 w-[calc(100%-2rem)] max-w-sm animate-fade-in-up left-1/2 -translate-x-1/2 lg:left-auto lg:right-4 lg:translate-x-0 lg:top-20 lg:bottom-auto"
+      style={{ bottom: 'calc(env(safe-area-inset-bottom) + 5.75rem)' }}
       role="dialog"
       aria-label={title}
     >
-      <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4">
+      <div className="rounded-2xl border border-slate-200 bg-white shadow-xl p-4 relative">
+        <button type="button" onClick={handleDismiss} className="absolute top-2 right-2 p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100" aria-label="Dismiss">
+          <X className="w-4 h-4" />
+        </button>
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-md">
             {icon}

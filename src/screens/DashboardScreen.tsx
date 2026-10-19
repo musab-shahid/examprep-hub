@@ -178,7 +178,7 @@ export function DashboardScreen() {
   // ── Zero enrollments: membership shell only (no study dashboard) ──
   if (!hasEnrollment) {
     return (
-      <PageContainer>
+      <PageContainer width="wide">
         <ScreenHeader
           title="Welcome"
           subtitle="Choose a track to begin. Preview freely — study and practice unlock only after you Begin."
@@ -225,7 +225,7 @@ export function DashboardScreen() {
     (data.quizHistory?.length ?? 0) > 0;
 
   return (
-    <PageContainer>
+    <PageContainer width="wide">
       <ScreenHeader
         title={getGreeting()}
         subtitle={

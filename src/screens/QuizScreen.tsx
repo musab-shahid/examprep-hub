@@ -885,7 +885,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   const validationError = validateQuizParams({ mode, count, topicId, topicIds, scope, subjectId });
   if (validationError) {
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
@@ -905,7 +905,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   if (!learningScope) {
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
@@ -926,7 +926,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   // Workspace scope: subject must belong to active track + exam profile
   if (subjectId && subjectId !== '' && !learningScope.subjectIds.has(subjectId as SubjectId)) {
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
@@ -949,7 +949,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
     const scopedTopic = sd.getTopicById(topicId);
     if (!scopedTopic) {
       return (
-        <PageContainer>
+        <PageContainer width="focused">
           <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
           <Card className="p-8">
             <EmptyState
@@ -980,7 +980,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       : resumeOffer.mode === 'review' ? 'Review'
       : 'Challenge';
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState
@@ -1000,7 +1000,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   if (questionsLoading || !state) {
     if (questionsLoadError) {
       return (
-        <PageContainer>
+        <PageContainer width="focused">
           <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
           <Card className="p-8">
             <EmptyState title="Failed to load" message="Something went wrong while loading questions. Please try again." icon={<AlertTriangle className="w-12 h-12" />} />
@@ -1011,7 +1011,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
         </PageContainer>
       );
     }
-    return <PageContainer><LoadingSpinner label="Loading questions…" /></PageContainer>;
+    return <PageContainer width="focused"><LoadingSpinner label="Loading questions…" /></PageContainer>;
   }
 
   if (state.questions.length === 0) {
@@ -1019,7 +1019,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       ? () => navigate({ screen: 'topic', topicId, parent: null })
       : exitToOrigin;
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState title="No questions available" message={mode === 'topic' && topicId ? "This topic doesn't have any questions yet." : "No questions are available yet."} icon={<Brain className="w-12 h-12" />} />
@@ -1031,7 +1031,7 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
 
   if (finished && retakeEmpty) {
     return (
-      <PageContainer>
+      <PageContainer width="focused">
         <div className="flex items-center gap-2 mb-4"><BackButton fallbackToHome /><Breadcrumbs /></div>
         <Card className="p-8">
           <EmptyState

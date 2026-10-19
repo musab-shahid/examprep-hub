@@ -38,7 +38,9 @@ function ScreenRouter() {
     case 'home':
       return <DashboardScreen />;
     case 'learn':
-      return <EnrollmentRequired><StudyScreen /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Study material" purpose="Read structured topics and mark what you have studied. Begin a track to unlock subjects in your workspace.">
+        <StudyScreen />
+      </EnrollmentRequired>;
     case 'section':
       return (
         <SectionAccessGate sectionId={route.sectionId}>
@@ -52,16 +54,23 @@ function ScreenRouter() {
         </TopicAccessGate>
       );
     case 'formulas':
-      return <EnrollmentRequired><FormulaVaultScreen /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Formula vault" purpose="Browse formulas from subjects you have begun. Enroll in a track to load formula collections for that workspace.">
+        <FormulaVaultScreen />
+      </EnrollmentRequired>;
     case 'flashcards':
-      return <EnrollmentRequired><FlashcardsScreen topicId={route.topicId} /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Flashcards" purpose="Review key facts as cards. Begin a track so flashcards can use your enrolled subjects.">
+        <FlashcardsScreen topicId={route.topicId} />
+      </EnrollmentRequired>;
     case 'cloud-atlas':
       return <CloudAtlasScreen />;
     case 'practice':
-      return <EnrollmentRequired><PracticeScreen mode={route.mode} /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Practice" purpose="Configure quizzes by mode, subject, and difficulty. Begin a track to practice eligible questions in your workspace.">
+        <PracticeScreen mode={route.mode} />
+      </EnrollmentRequired>;
     case 'quiz':
       return (
-        <EnrollmentRequired><QuizScreen
+        <EnrollmentRequired purposeTitle="Quiz" purpose="Answer questions under your active track and exam profile. Begin a track before starting a quiz.">
+        <QuizScreen
           mode={route.mode}
           topicId={route.topicId}
           topicIds={route.topicIds}
@@ -71,14 +80,21 @@ function ScreenRouter() {
           difficulty={route.difficulty}
           timeLimit={route.timeLimit}
           wrongPool={route.wrongPool}
-        /></EnrollmentRequired>
+        />
+      </EnrollmentRequired>
       );
     case 'review':
-      return <EnrollmentRequired><RevisionScreen /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Revision" purpose="Work due reviews and spaced-repetition queues. Begin a track so revision can use your learning progress.">
+        <RevisionScreen />
+      </EnrollmentRequired>;
     case 'progress':
-      return <EnrollmentRequired><ProgressScreen /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Progress" purpose="See accuracy, weak areas, and mastery for your workspace. Begin a track to track real study data.">
+        <ProgressScreen />
+      </EnrollmentRequired>;
     case 'search':
-      return <EnrollmentRequired><SearchScreen /></EnrollmentRequired>;
+      return <EnrollmentRequired purposeTitle="Search" purpose="Search topics and material inside your enrolled workspace — not every track at once. Begin a track to search its content.">
+        <SearchScreen />
+      </EnrollmentRequired>;
     case 'settings':
       return <SettingsScreen />;
     case 'hat':
