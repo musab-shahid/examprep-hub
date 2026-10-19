@@ -16,6 +16,8 @@ import { PageContainer, Card, Button, ScreenHeader } from '@/components/ui';
 import { WorkspaceSettingsCard } from '@/components/track/WorkspaceSettingsCard';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
 import { downloadBackupFile } from '@/lib/storage';
+import { STORAGE_KEYS } from '@/lib/constants';
+import { isProgressSyncConfigured, pushProgress, pullProgress } from '@/lib/progress-sync';
 import { sections } from '@/data/sections';
 import type { SubjectId } from '@/types';
 
@@ -39,6 +41,8 @@ export function SettingsScreen() {
   const [selectedSubjects, setSelectedSubjects] = useState<Set<SubjectId>>(new Set());
   const [confirming, setConfirming] = useState(false);
   const [resetDone, setResetDone] = useState<string | null>(null);
+  const [syncMsg, setSyncMsg] = useState<string | null>(null);
+  const [syncBusy, setSyncBusy] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstall, setShowInstall] = useState(false);
 
@@ -205,6 +209,62 @@ export function SettingsScreen() {
           <p className="text-slate-500 text-xs mt-0.5 truncate">{week.questionsAnswered} answered</p>
         </Card>
       </div>
+
+
+      {/* Cloud backup (Supabase) */}
+      {isProgressSyncConfigured() && (
+        <Card className="p-4 mb-4">
+          <div className="flex flex-col gap-3">
+            <div>
+              <p className="font-semibold text-slate-900 text-sm">Cloud backup</p>
+              <p className="text-slate-500 text-xs mt-0.5">
+                Optional sync of local progress to your Supabase project (same device id). Requires network.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button
+                variant="secondary"
+                disabled={syncBusy}
+                onClick={async () => {
+                  setSyncBusy(true);
+                  setSyncMsg(null);
+                  const r = await pushProgress(data);
+                  setSyncMsg(r.ok ? 'Uploaded to cloud.' : `Upload failed: ${r.error}`);
+                  setSyncBusy(false);
+                }}
+              >
+                Upload
+              </Button>
+              <Button
+                variant="secondary"
+                disabled={syncBusy}
+                onClick={async () => {
+                  setSyncBusy(true);
+                  setSyncMsg(null);
+                  const r = await pullProgress();
+                  if (r.ok && r.data) {
+                    window.location.reload();
+                    // Consumer should merge; full reload after writing:
+                    try {
+                      localStorage.setItem(STORAGE_KEYS.appData, JSON.stringify(r.data));
+                      setSyncMsg('Downloaded. Reloading…');
+                      window.location.reload();
+                    } catch {
+                      setSyncMsg('Download ok but could not write locally.');
+                    }
+                  } else {
+                    setSyncMsg(`Download failed: ${r.error}`);
+                  }
+                  setSyncBusy(false);
+                }}
+              >
+                Download
+              </Button>
+            </div>
+            {syncMsg && <p className="text-xs text-slate-600">{syncMsg}</p>}
+          </div>
+        </Card>
+      )}
 
       {/* Export progress */}
       <Card className="p-4 mb-4">

@@ -7,13 +7,13 @@
  * Phase B: variantGroupId — rank skill groups, prefer a fresh stem inside the group
  * Phase C: group-level strength rollup (skill not closed by one memorized stem)
  */
-import type { Difficulty, PracticeMode, Question, TopicProgress } from '@/types';
+import type { Difficulty, PracticeMode, Question, TopicProgress } from '../types.ts';
 import {
   MASTERY_ACCURACY_THRESHOLD,
   getEffectiveQuizStats,
   localDateString,
   parseLocalDate,
-} from '@/lib/constants';
+} from './constants.ts';
 
 export type QuestionResultLike = {
   correct: boolean;

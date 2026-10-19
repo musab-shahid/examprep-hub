@@ -479,8 +479,8 @@ export interface AppData {
   topicProgress: Record<string, TopicProgress>;
   questionResults: Record<string, QuestionResult>;
   quizHistory: QuizHistoryEntry[];
-  /** @deprecated Prefer topicProgress.nextReview. Kept for load migration / rare orphans. */
-  revisionDates: Record<string, string>;
+  /** @deprecated Prefer topicProgress.nextReview. Optional; stripped on save. */
+  revisionDates?: Record<string, string>;
   lastOpenedTopic: string;
   /** Track enrollments + active focus (schema v1). Optional until migrated. */
   trackMembership?: TrackMembershipState;

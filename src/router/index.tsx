@@ -201,6 +201,8 @@ export function RouterProvider({ children }: { children: ReactNode }) {
   });
 
   const scrollStackRef = useRef<number[]>([]);
+  /** SPA history entries pushed this session (browser Back vs synthetic parent). */
+  const spaDepthRef = useRef(0);
   const routeRef = useRef(currentRoute);
   routeRef.current = currentRoute;
 

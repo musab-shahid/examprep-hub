@@ -1,4 +1,4 @@
-import { env } from '@/lib/runtime-env';
+import { env, isAiProxyConfigured } from '@/lib/runtime-env';
 import type { Topic, Formula, WorkedExample, MethodChooser, MethodChooserStep, LimitCase, ComparisonTable, AppData, Question } from '@/types';
 import { getEffectiveQuizStats, deriveStatus, MASTERY_ACCURACY_THRESHOLD } from '@/lib/constants';
 import { getTopic } from '@/data/topics';
@@ -749,6 +749,8 @@ const PROVIDER_KEYS: Record<ProviderKey, keyof typeof env> = {
 };
 
 function isProviderAvailable(provider: ProviderKey): boolean {
+  // Proxy mode: all catalog models are offered; server rejects missing secrets.
+  if (isAiProxyConfigured()) return true;
   return Boolean(env[PROVIDER_KEYS[provider]]);
 }
 
@@ -757,6 +759,7 @@ export function getAvailableModels(): ModelOption[] {
 }
 
 export function isTutorAvailable(): boolean {
+  if (isAiProxyConfigured()) return true;
   return Boolean(
     env.GEMINI_API_KEY ||
       env.OPENROUTER_API_KEY ||
@@ -767,6 +770,39 @@ export function isTutorAvailable(): boolean {
       env.XAI_API_KEY ||
       env.ANTHROPIC_API_KEY,
   );
+}
+
+async function callViaProxy(
+  provider: ProviderKey,
+  model: string,
+  messages: TutorMessage[],
+  preamble: string,
+  signal?: AbortSignal,
+): Promise<{ text: string; truncated: boolean }> {
+  const url = `${env.SUPABASE_URL.replace(/\/$/, '')}/functions/v1/ai-tutor`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${env.SUPABASE_ANON_KEY}`,
+      apikey: env.SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify({ provider, model, messages, preamble }),
+    signal,
+  });
+  if (!res.ok) {
+    let detail = '';
+    try {
+      const errData = await res.json();
+      detail = errData?.error || '';
+    } catch {
+      detail = await res.text().catch(() => '');
+    }
+    throw new Error(detail || `AI proxy failed (${res.status}).`);
+  }
+  const data = await res.json();
+  if (!data?.text) throw new Error('No response from AI proxy.');
+  return { text: data.text, truncated: Boolean(data.truncated) };
 }
 
 export function getDefaultModelId(): string {
@@ -782,10 +818,10 @@ async function callGemini(messages: TutorMessage[], preamble: string, model: str
   }));
 
   const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
     {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
       body: JSON.stringify({
         systemInstruction: { parts: [{ text: preamble }] },
         contents,
@@ -1069,6 +1105,16 @@ export async function askTutor(
 
   try {
     let result: { text: string; truncated: boolean };
+    if (isAiProxyConfigured()) {
+      result = await callViaProxy(
+        modelOption.provider,
+        modelOption.model,
+        messages,
+        preamble,
+        controller.signal,
+      );
+      return { reply: result.text, modelLabel: modelOption.label, truncated: result.truncated };
+    }
     switch (modelOption.provider) {
       case 'openrouter':
         result = await callOpenRouter(messages, preamble, modelOption.model, controller.signal);

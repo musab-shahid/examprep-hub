@@ -2,11 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 import { swPrecachePlugin } from './vite-sw-plugin.js';
+import packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-    __APP_VERSION__: JSON.stringify('1.1.0'),
+    __APP_VERSION__: JSON.stringify(packageJson.version || '0.0.0'),
   },
   plugins: [react(), swPrecachePlugin()],
   resolve: {

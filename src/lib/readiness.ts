@@ -1,5 +1,5 @@
-import type { AppData } from '@/types';
-import { getEffectiveQuizStats, computeMasteryScore } from '@/lib/constants';
+import type { AppData } from '../types.ts';
+import { getEffectiveQuizStats, computeMasteryScore } from './constants';
 
 export interface ReadinessResult {
   score: number;
