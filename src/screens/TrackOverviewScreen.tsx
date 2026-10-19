@@ -35,6 +35,7 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
   const scopeEmpty = catalog.empty;
   const scopeInvalid = scopeResolution.kind === 'invalid-profile' || scopeResolution.kind === 'invalid-track';
   const scopeEmptyPolicy = scopeResolution.kind === 'empty-policy';
+  const questionCountsApprox = scopeResolution.kind === 'profile';
 
   const handleBegin = () => {
     const r = enrollInTrack(trackId);
@@ -70,10 +71,11 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
             {scopeInvalid ? 'Invalid exam profile.' : scopeEmptyPolicy ? 'No subjects defined for this profile.' : 'No subjects in scope.'}
           </p>
         ) : (
-          <p>
-            <span className="font-medium text-slate-800">{subjects.length}</span> subjects ·{' '}
-            <span className="font-medium text-slate-800">{catalog.totalTopics}</span> topics ·{' '}
-            <span className="font-medium text-slate-800">{catalog.totalQuestions}</span> questions
+          <p className="text-white/90">
+            <span className="font-semibold text-white">{subjects.length}</span> subjects ·{' '}
+            <span className="font-semibold text-white">{catalog.totalTopics}</span> topics ·{' '}
+            <span className="font-semibold text-white">{catalog.totalQuestions}</span> questions
+            {questionCountsApprox && <span className="text-white/70 text-xs"> (approx.)</span>}
           </p>
         )
       }

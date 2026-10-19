@@ -6,8 +6,13 @@
 import { subjectsForScope, contentEligibleForScope, type ScopeInput } from './track-scope.ts';
 import { sectionsBySubject, sectionMap } from '../data/sections.ts';
 import { topics } from '../data/topics.ts';
-import type { SubjectId, Topic } from '../types.ts';
+import { topicMap } from '../data/topics.ts';
+import type { SubjectId, Topic, Question } from '../types.ts';
 import type { SubjectWithMeta } from '../data/subjects.ts';
+
+function scopedSubjectIds(input: ScopeInput): Set<string> {
+  return new Set(subjectsForScope(input).map((s) => s.id));
+}
 
 export interface TrackCatalogSubject {
   subject: SubjectWithMeta;
@@ -26,11 +31,44 @@ export interface TrackCatalog {
 }
 
 /**
+ * Whether a question is eligible under the given scope.
+ * A question is eligible when:
+ *  - its subject is in scope, AND
+ *  - its own content tags pass contentEligibleForScope, AND
+ *  - (when the question has no tags) its topic's tags pass, if any.
+ *
+ * Untagged questions inherit eligibility from their topic so that
+ * topic-level restrictions cascade to their questions.
+ */
+export function questionEligibleForScope(
+  question: Question,
+  input: ScopeInput,
+  inScopeSubject: boolean,
+): boolean {
+  if (!inScopeSubject) return false;
+  if (!contentEligibleForScope(question, input)) return false;
+  // Question is directly eligible. If it has its own tags we are done.
+  if (question.examScope || question.postRestriction) return true;
+  // Untagged question: inherit from its topic's restriction policy.
+  const topic = topicMap[question.topicId];
+  if (topic && !contentEligibleForScope(topic, input)) return false;
+  return true;
+}
+
+/**
  * Compute catalog metadata (topic/question/section counts) for a track + profile,
  * applying item-level content eligibility restrictions. Does not depend on the
  * active workspace or any cache state.
+ *
+ * Question counts are derived from the authored question bank filtered by the
+ * scope. Question data must be loaded (via the lazy loaders) before calling
+ * if exact counts are required; when the bank is not yet loaded, questionCount
+ * falls back to the section-authored total and `questionCountExact` is false.
  */
-export function getTrackCatalog(input: ScopeInput): TrackCatalog {
+export function getTrackCatalog(
+  input: ScopeInput,
+  loadedQuestionsBySubject?: ReadonlyMap<string, Question[]>,
+): TrackCatalog {
   const scoped = subjectsForScope(input);
   if (scoped.length === 0) {
     return { subjects: [], totalTopics: 0, totalQuestions: 0, empty: true };
@@ -44,7 +82,17 @@ export function getTrackCatalog(input: ScopeInput): TrackCatalog {
       if (!sSectionIds.has(t.sectionId)) return false;
       return contentEligibleForScope(t, input);
     });
-    const questionCount = sSections.reduce((sum, s) => sum + s.questionCount, 0);
+    const loaded = loadedQuestionsBySubject?.get(sid);
+    let questionCount: number;
+    if (loaded) {
+      questionCount = loaded.reduce(
+        (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
+        0,
+      );
+    } else {
+      // No loaded bank: use section-authored totals as an upper-bound estimate.
+      questionCount = sSections.reduce((sum, s) => sum + s.questionCount, 0);
+    }
     return {
       subject,
       topicCount: sTopics.length,
@@ -60,8 +108,12 @@ export function getTrackCatalog(input: ScopeInput): TrackCatalog {
   return { subjects, totalTopics, totalQuestions, empty: false };
 }
 
-/** Topics for a single subject under a track+profile scope (independent of active workspace). */
+/**
+ * Topics for a single subject under a track+profile scope (independent of active workspace).
+ * Rejects subjects that are not in the supplied track/profile scope.
+ */
 export function topicsForSubjectInScope(subjectId: SubjectId, input: ScopeInput): Topic[] {
+  if (!subjectInScope(subjectId, input)) return [];
   const sSections = sectionsBySubject(subjectId);
   const sSectionIds = new Set(sSections.map((s) => s.id));
   return topics.filter((t) => {
@@ -70,14 +122,37 @@ export function topicsForSubjectInScope(subjectId: SubjectId, input: ScopeInput)
   });
 }
 
-/** Question count for a single subject under a track+profile scope (from section metadata). */
-export function questionCountForSubjectInScope(subjectId: SubjectId, _input: ScopeInput): number {
-  return sectionsBySubject(subjectId).reduce((sum, s) => sum + s.questionCount, 0);
+/**
+ * Question count for a single subject under a track+profile scope.
+ * Rejects subjects that are not in the supplied track/profile scope.
+ * When loadedQuestions is provided, counts only profile-eligible questions;
+ * otherwise returns the section-authored total as an upper bound.
+ */
+export function questionCountForSubjectInScope(
+  subjectId: SubjectId,
+  input: ScopeInput,
+  loadedQuestions?: Question[],
+): number {
+  if (!subjectInScope(subjectId, input)) return 0;
+  const sSections = sectionsBySubject(subjectId);
+  const sSectionIds = new Set(sSections.map((s) => s.id));
+  if (loadedQuestions) {
+    return loadedQuestions.reduce(
+      (sum, q) => (sSectionIds.has(q.sectionId) && questionEligibleForScope(q, input, true) ? sum + 1 : sum),
+      0,
+    );
+  }
+  return sSections.reduce((sum, s) => sum + s.questionCount, 0);
 }
 
 /** Section count for a single subject. */
 export function sectionCountForSubject(subjectId: SubjectId): number {
   return sectionsBySubject(subjectId).length;
+}
+
+/** Whether a subject id is within the supplied track/profile scope. */
+export function subjectInScope(subjectId: string, input: ScopeInput): boolean {
+  return scopedSubjectIds(input).has(subjectId);
 }
 
 /** Resolve a topic's subject id via its section. */

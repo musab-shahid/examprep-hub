@@ -34,6 +34,10 @@ export function FpscLandingScreen() {
   const scopeEmpty = catalog.empty;
   const scopeInvalid = scopeResolution.kind === 'invalid-profile' || scopeResolution.kind === 'invalid-track';
   const scopeEmptyPolicy = scopeResolution.kind === 'empty-policy';
+  // Question counts come from section metadata; under a restrictive profile some
+  // questions may be excluded by their own tags, so counts are approximate until
+  // the question bank is loaded.
+  const questionCountsApprox = scopeResolution.kind === 'profile';
 
   const handleBegin = () => {
     setEnrolling(true);
@@ -94,6 +98,7 @@ export function FpscLandingScreen() {
             <span className="font-semibold text-white">{totalTopics}</span> topics
             {' · '}
             <span className="font-semibold text-white">{totalQuestions}</span> questions in scope
+            {questionCountsApprox && <span className="text-white/70 text-xs"> (approx.)</span>}
           </p>
         )
       }
