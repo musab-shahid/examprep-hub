@@ -204,3 +204,9 @@ export function isAppPath(pathname: string): boolean {
   if (route.screen === 'home') return pathname.replace(/\/+$/, '') === '' || pathname === '/';
   return routeToPath(route) === (pathname.replace(/\/+$/, '') || '/');
 }
+
+/** Pure helper — browser Back is safe when we still have SPA-owned depth */
+export function shouldUseBrowserHistoryBack(spaDepth: number): boolean {
+  return spaDepth > 0;
+}
+

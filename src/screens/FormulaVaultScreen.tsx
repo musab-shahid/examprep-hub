@@ -116,8 +116,12 @@ export function FormulaVaultScreen() {
       {scopedFormulas.length === 0 ? (
         <Card className="p-8">
           <EmptyState
-            title={`No formulas for ${subjectTitle} yet`}
-            message="This subject doesn't have any formulas yet. Formulas will appear here as topics with formula content are added."
+            title={`No formulas for ${subjectTitle}`}
+            message={
+              isAllSubjects
+                ? 'No formula content is available in your active track and exam profile yet.'
+                : 'This subject has no formula entries in the study material yet — not a load failure.'
+            }
             icon={<GraduationCap className="w-12 h-12" />}
           />
         </Card>

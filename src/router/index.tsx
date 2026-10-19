@@ -7,7 +7,7 @@
 import { createContext, useContext, useState, useCallback, useRef, useEffect, type ReactNode } from 'react';
 import { getTopic } from '@/data/topics';
 import { resolveScreen } from './resolveScreen';
-import { routeToPath, pathToRoute, breadcrumbForRoute } from './paths';
+import { routeToPath, pathToRoute, breadcrumbForRoute, shouldUseBrowserHistoryBack } from './paths';
 import { isTrackId } from '@/data/tracks';
 
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
@@ -133,6 +133,8 @@ export function routeLabel(route: Route): string {
 
 type HistoryPayload = {
   v: 1;
+  /** Marker: this entry was written by the SPA router */
+  spa: true;
   routeState: RouteState;
 };
 
@@ -160,13 +162,23 @@ function readHistoryRouteState(raw: unknown): RouteState | null {
   return s.routeState as RouteState;
 }
 
-function pushRouteHistory(routeState: RouteState, mode: 'push' | 'replace') {
+function isSpaHistoryState(raw: unknown): boolean {
+  return !!(raw && typeof raw === 'object' && (raw as Partial<HistoryPayload>).spa === true
+    && (raw as Partial<HistoryPayload>).v === 1);
+}
+
+function pushRouteHistory(
+  routeState: RouteState,
+  mode: 'push' | 'replace',
+  spaDepthRef?: { current: number },
+) {
   const path = routeToPath(routeState.route);
-  const payload: HistoryPayload = { v: 1, routeState };
+  const payload: HistoryPayload = { v: 1, spa: true, routeState };
   if (mode === 'replace') {
     window.history.replaceState(payload, '', path);
   } else if (window.location.pathname !== path) {
     window.history.pushState(payload, '', path);
+    if (spaDepthRef) spaDepthRef.current += 1;
   } else {
     // Same path (e.g. quiz param change) — still refresh state blob
     window.history.replaceState(payload, '', path);
@@ -206,7 +218,7 @@ export function RouterProvider({ children }: { children: ReactNode }) {
   // Ensure history.state is populated on first paint (deep links)
   useEffect(() => {
     const path = routeToPath(routeRef.current.route);
-    const payload: HistoryPayload = { v: 1, routeState: routeRef.current };
+    const payload: HistoryPayload = { v: 1, spa: true, routeState: routeRef.current };
     if (window.location.pathname !== path) {
       window.history.replaceState(payload, '', path);
     } else if (!readHistoryRouteState(window.history.state)) {
@@ -234,7 +246,7 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     }
     const next: RouteState = { route, parent, breadcrumb };
     setCurrentRoute(next);
-    pushRouteHistory(next, 'push');
+    pushRouteHistory(next, 'push', spaDepthRef);
     window.scrollTo(0, 0);
   }, []);
 
@@ -242,11 +254,16 @@ export function RouterProvider({ children }: { children: ReactNode }) {
     const prev = routeRef.current;
     if (!prev.parent) return;
     const savedY = scrollStackRef.current.pop() ?? 0;
-    // Walk the in-app parent chain without growing the history stack.
-    // replace keeps browser Back coherent with the parent (does not push a duplicate entry).
-    // Browser Back/Forward still use popstate + history.state.routeState.
+    // Prefer browser history when this session pushed SPA entries — keeps Back/Forward coherent.
+    // Deep links / external referrers (spaDepth === 0): walk synthetic parent via replace (never leave the origin).
+    if (shouldUseBrowserHistoryBack(spaDepthRef.current)) {
+      spaDepthRef.current -= 1;
+      window.history.back();
+      requestAnimationFrame(() => window.scrollTo(0, savedY));
+      return;
+    }
     setCurrentRoute(prev.parent);
-    pushRouteHistory(prev.parent, 'replace');
+    pushRouteHistory(prev.parent, 'replace', spaDepthRef);
     requestAnimationFrame(() => window.scrollTo(0, savedY));
   }, []);
 

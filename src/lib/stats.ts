@@ -27,7 +27,8 @@ export function getOverallStats(data: AppData, scopedTopics: Topic[], scopedQues
     questionsAnswered = questionResults.length;
     correctCount = questionResults.filter((r) => r.correct).length;
   }
-  const accuracy = questionsAnswered > 0 ? Math.round((correctCount / questionsAnswered) * 100) : 0;
+  // null = no measured accuracy (not the same as a genuine 0%)
+  const accuracy: number | null = questionsAnswered > 0 ? Math.round((correctCount / questionsAnswered) * 100) : null;
   const quizProgress = Object.entries(data.topicProgress)
     .filter(([id, p]) => topicIds.has(id) && getEffectiveQuizStats(p).total > 0)
     .map(([, p]) => p);

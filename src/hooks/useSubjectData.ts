@@ -29,7 +29,8 @@ export interface SubjectStats {
   quizTouchedTopics: number;
   totalQuestions: number;
   questionsAnswered: number;
-  accuracy: number;
+  /** null = no quiz attempts yet (not a measured 0%) */
+  accuracy: number | null;
   mastery: number;
   hasContent: boolean;
   sections: Section[];

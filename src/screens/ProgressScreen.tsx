@@ -27,6 +27,13 @@ function practicedSubjectsNote(isAll: boolean): string {
     : 'Figures are limited to this subject within your active workspace.';
 }
 
+
+/** Display accuracy: distinguish unmeasured from genuine 0%. */
+function formatAccuracy(accuracy: number | null | undefined, attempts?: number): string {
+  if (attempts === 0 || accuracy === null || accuracy === undefined) return 'No quiz attempts yet';
+  return `${accuracy}% accuracy`;
+}
+
 export function ProgressScreen() {
   const { data, trackMembership } = useData();
   const { navigate } = useRouter();
@@ -142,7 +149,7 @@ return (
           {/* Overall stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
             <StatCard icon={<Brain className="w-5 h-5" />} label="Questions" value={String(currentStats.questionsAnswered)} color="slate" />
-            <StatCard icon={<Target className="w-5 h-5" />} label="Accuracy" value={`${currentStats.accuracy}%`} color="amber" />
+            <StatCard icon={<Target className="w-5 h-5" />} label="Accuracy" value={currentStats.questionsAnswered === 0 || currentStats.accuracy === null ? '—' : `${currentStats.accuracy}%`} color="amber" />
             <StatCard icon={<TrendingUp className="w-5 h-5" />} label="Mastery" value={String(masteryScore)} color="green" sub="/100" />
           </div>
 
@@ -203,7 +210,7 @@ return (
                         <span className="text-sm font-bold shrink-0 ml-2">{mScore}/100</span>
                       </div>
                       <ProgressBar value={mScore} colorClass={color.bar} />
-                      <p className="text-slate-400 text-xs mt-0.5">{sStats.studiedTopics}/{sStats.totalTopics} topics · {sStats.accuracy}% accuracy</p>
+                      <p className="text-slate-400 text-xs mt-0.5">{sStats.studiedTopics}/{sStats.totalTopics} topics · {sStats.accuracy === null ? 'No quiz attempts yet' : `${sStats.accuracy}% accuracy`}</p>
                     </div>
                   );
                 })}

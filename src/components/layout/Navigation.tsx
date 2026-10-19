@@ -134,6 +134,7 @@ export function Sidebar() {
             <div key={trackId} className="mb-1">
               <button
                 type="button"
+                aria-current={trackMembership.activeTrackId === trackId ? 'page' : undefined}
                 onClick={() => {
                   const sw = setActiveEnrolledTrack(trackId);
                   if (sw.ok) {
@@ -147,7 +148,7 @@ export function Sidebar() {
                     : 'border-transparent text-slate-400 hover:text-white hover:bg-slate-800'
                 }`}
               >
-                <TrackIcon className={`w-5 h-5 shrink-0 ${isTrackActive ? styles.iconColor : ''}`} />
+                <TrackIcon className={`w-5 h-5 shrink-0 ${isTrackActive ? styles.iconColor : ''}`} aria-hidden />
                 <span className="flex-1 text-left">{track.title}</span>
                 {trackMembership.activeTrackId === trackId && (
                   <span className="text-[10px] text-emerald-400 font-semibold">Active</span>

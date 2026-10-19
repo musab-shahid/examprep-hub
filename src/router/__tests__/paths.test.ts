@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { routeToPath, pathToRoute } from '../paths.ts';
+import { routeToPath, pathToRoute, shouldUseBrowserHistoryBack } from '../paths.ts';
 
 describe('Phase A path mapping', () => {
   it('round-trips static screens', () => {
@@ -35,5 +35,17 @@ describe('Phase A path mapping', () => {
 
   it('unknown paths fall back to home', () => {
     assert.equal(pathToRoute('/not-a-real-page').screen, 'home');
+  });
+});
+
+
+describe('SPA history back policy', () => {
+  it('uses browser history when SPA depth is positive', () => {
+    assert.equal(shouldUseBrowserHistoryBack(1), true);
+    assert.equal(shouldUseBrowserHistoryBack(3), true);
+  });
+
+  it('falls back to synthetic parent when depth is 0 (deep link)', () => {
+    assert.equal(shouldUseBrowserHistoryBack(0), false);
   });
 });

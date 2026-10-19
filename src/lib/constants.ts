@@ -100,9 +100,10 @@ export function getTopicStatusFromProgress(
 }
 
 /** Composite mastery score 0–100, clamped: 50% coverage + 50% accuracy */
-export function computeMasteryScore(studiedTopics: number, totalTopics: number, accuracy: number): number {
+export function computeMasteryScore(studiedTopics: number, totalTopics: number, accuracy: number | null): number {
   if (totalTopics <= 0) return 0;
-  return Math.min(100, Math.max(0, Math.round((studiedTopics / totalTopics) * 50 + accuracy * 0.5)));
+  const acc = accuracy ?? 0; // no attempts → coverage-only half of the score
+  return Math.min(100, Math.max(0, Math.round((studiedTopics / totalTopics) * 50 + acc * 0.5)));
 }
 
 /** Local date string (YYYY-MM-DD) for storage — avoids UTC/local mismatch */
