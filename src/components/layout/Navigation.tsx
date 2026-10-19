@@ -33,8 +33,6 @@ const stageIcons: Record<StageScreen, typeof BookCopy> = {
   search: Search,
 };
 
-const orderedStages: StageScreen[] = ['practice', 'learn', 'review', 'formulas', 'progress'];
-
 function trackNavStyles(trackId: ExamTrack) {
   const a = trackAccentClasses(trackId);
   const border = a.text.includes('indigo') ? 'border-l-indigo-600' : 'border-l-sky-500';
@@ -181,7 +179,7 @@ export function Sidebar() {
                         </button>
                         {expanded && (
                           <div className="ml-2 mb-1 space-y-0.5">
-                            {orderedStages.map((stage) => {
+                            {STAGE_SCREENS.filter((s) => s !== 'search').map((stage) => {
                               const StageIcon = stageIcons[stage];
                               const active = currentScreen === stage && getActiveSubject(stage) === subjectId;
                               return (
