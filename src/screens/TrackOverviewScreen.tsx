@@ -2,7 +2,8 @@ import { useData } from '@/hooks/useData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useRouter } from '@/router';
 import { getTrackDefinition, type TrackId } from '@/data/tracks';
-import { subjectsForScope } from '@/lib/track-scope';
+import { resolveSubjectsForScope, type ScopeInput } from '@/lib/track-scope';
+import { getTrackCatalog } from '@/lib/track-catalog';
 import { isTrackEnrolled } from '@/lib/track-access';
 import { ExamProfilePicker } from '@/components/track/ExamProfilePicker';
 import { Button } from '@/components/ui';
@@ -12,7 +13,7 @@ import {
   TrackSubjectList,
   TrackSubjectRow,
 } from '@/components/track/TrackLandingShell';
-import { useSubjectData } from '@/hooks/useSubjectData';
+import { AlertCircle } from 'lucide-react';
 import type { SubjectId } from '@/types';
 
 /**
@@ -23,12 +24,17 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
   const { data, enrollInTrack, setActiveEnrolledTrack, trackMembership } = useData();
   const { setActiveTrack, setActiveSubjectForScreen } = useSubjectSelection();
   const { navigate, currentRoute } = useRouter();
-  const sd = useSubjectData();
   const enrolled = isTrackEnrolled(data, trackId);
   const isActive = trackMembership.activeTrackId === trackId;
   const examId = trackMembership.enrollments[trackId]?.activeExamId ?? null;
-  const subjects = subjectsForScope({ trackId, examId });
+  const scope: ScopeInput = { trackId, examId };
+  const scopeResolution = resolveSubjectsForScope(scope);
+  const catalog = getTrackCatalog(scope);
+  const subjects = catalog.subjects.map((s) => s.subject);
   const accent = trackAccentClasses(trackId);
+  const scopeEmpty = catalog.empty;
+  const scopeInvalid = scopeResolution.kind === 'invalid-profile' || scopeResolution.kind === 'invalid-track';
+  const scopeEmptyPolicy = scopeResolution.kind === 'empty-policy';
 
   const handleBegin = () => {
     const r = enrollInTrack(trackId);
@@ -59,33 +65,44 @@ export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
         ) : null
       }
       summary={
-        <p>
-          <span className="font-medium text-slate-800">{subjects.length}</span> subjects in current
-          scope
-        </p>
-      }
-      catalog={
-        subjects.length === 0 ? (
-          <p className="text-sm text-slate-500 border border-dashed border-slate-200 rounded-card px-4 py-6 text-center">
-            No subjects available for this exam profile.
+        scopeEmpty ? (
+          <p className="text-white/90">
+            {scopeInvalid ? 'Invalid exam profile.' : scopeEmptyPolicy ? 'No subjects defined for this profile.' : 'No subjects in scope.'}
           </p>
         ) : (
+          <p>
+            <span className="font-medium text-slate-800">{subjects.length}</span> subjects ·{' '}
+            <span className="font-medium text-slate-800">{catalog.totalTopics}</span> topics ·{' '}
+            <span className="font-medium text-slate-800">{catalog.totalQuestions}</span> questions
+          </p>
+        )
+      }
+      catalog={
+        scopeEmpty ? (
+          <div className="border border-dashed border-slate-200 rounded-card px-4 py-8 text-center">
+            <AlertCircle className="w-6 h-6 text-slate-300 mx-auto mb-2" aria-hidden />
+            <p className="text-sm font-medium text-slate-700">
+              {scopeInvalid ? 'Invalid exam profile' : scopeEmptyPolicy ? 'No subjects defined for this profile' : 'No subjects available'}
+            </p>
+            <p className="text-xs text-slate-500 mt-1">
+              {scopeInvalid ? 'Choose a valid exam profile to see available subjects.' : scopeEmptyPolicy ? 'This profile exists but has no subject policy yet.' : 'Try a different profile or general preparation.'}
+            </p>
+          </div>
+        ) : (
           <TrackSubjectList>
-            {subjects.map((subject) => {
+            {catalog.subjects.map(({ subject, topicCount, questionCount, topics: catTopics }) => {
               const sid = subject.id as SubjectId;
-              const topics = sd.topicsFor(sid);
-              const studied = topics.filter((t) =>
-                (data.studiedTopics ?? []).includes(t.id),
-              ).length;
+              const studied = isActive
+                ? catTopics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length
+                : 0;
               const progressPct =
-                topics.length > 0 ? Math.round((studied / topics.length) * 100) : null;
-              const qCount = sd.statsFor(sid).totalQuestions;
+                isActive && topicCount > 0 ? Math.round((studied / topicCount) * 100) : null;
               return (
                 <TrackSubjectRow
                   key={sid}
                   title={subject.title}
-                  meta={`${topics.length} topics · ${qCount} questions`}
-                  progressPct={enrolled ? progressPct : null}
+                  meta={`${topicCount} topics · ${questionCount} questions`}
+                  progressPct={enrolled && isActive ? progressPct : null}
                   disabled={!enrolled}
                   onOpen={() => openSubject(sid)}
                   actionLabel={enrolled ? 'Study' : 'Preview'}
