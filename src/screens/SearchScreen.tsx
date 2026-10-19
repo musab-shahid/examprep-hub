@@ -6,7 +6,7 @@ import { useSubjectData } from '@/hooks/useSubjectData';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
 import { sectionMap } from '@/data/sections';
 import { subjectMap } from '@/data/subjects';
-import { PageContainer, Card, EmptyState, LoadingSpinner, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
 export function SearchScreen() {
@@ -101,10 +101,10 @@ export function SearchScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-5 sm:mb-7">
-        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Search</h1>
-        <p className="text-sm text-slate-600 mt-1">Find topics, definitions, key facts, and formulas in your active workspace.</p>
-      </div>
+      <ScreenHeader
+        title="Search"
+        subtitle="Find topics, definitions, key facts, and formulas in your active workspace."
+      />
 
       <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />

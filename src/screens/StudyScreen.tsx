@@ -12,7 +12,7 @@ import { topicsBySection, getTopic, topicsBySubject } from '@/data/topics';
 import { sectionMap, sections } from '@/data/sections';
 import { SectionBadge } from '@/components/SectionBadge';
 import { getSubjectColor } from '@/data/subject-colors';
-import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, PurposeLine, TopicStatusIcon, LoadingSpinner, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, ProgressBar, ActionCard, TopicStatusIcon, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
 import { MathText } from '@/components/MathText';
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { getTopicAsync } from '@/data/topics';
@@ -79,10 +79,10 @@ export function StudyScreen() {
     const subjectsWithContent = trackSubjects.filter((s) => sd.topicsFor(s.id as SubjectId).length > 0);
     return (
       <PageContainer className="max-w-3xl">
-        <div className="mb-2">
-          <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
-        </div>
-        <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
+        <ScreenHeader
+          title="Learn"
+          subtitle="Read new material or revisit what you've seen."
+        />
         <div className="mb-3 sm:mb-6">
           <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
         </div>
@@ -118,10 +118,10 @@ export function StudyScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-2">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
-      </div>
-      <PurposeLine>Read new material or revisit what you've seen.</PurposeLine>
+      <ScreenHeader
+        title="Learn"
+        subtitle="Read new material or revisit what you've seen."
+      />
 
       <div className="mb-3 sm:mb-6">
         <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
@@ -274,12 +274,12 @@ export function SectionScreen({ sectionId }: { sectionId: string }) {
   return (
     <PageContainer>
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-3 sm:mb-6">
+      <div className="mb-5 sm:mb-8">
         <div className="flex items-center gap-2 mb-1">
           <SectionBadge section={section} />
         </div>
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">{section.title}</h1>
-        <p className="text-slate-500 mt-1">{section.topicCount} topics</p>
+        <h1 className="text-2xl sm:text-[1.75rem] font-semibold text-slate-900 tracking-tight leading-tight">{section.title}</h1>
+        <p className="text-slate-600 mt-1 text-sm sm:text-[0.9375rem]">{section.topicCount} topics</p>
       </div>
       <div className="space-y-2">
         {sectionTopics.map((topic) => {
@@ -417,28 +417,31 @@ export function TopicScreen({ topicId }: { topicId: string }) {
   }
 
   return (
-    <PageContainer>
+    <PageContainer className="max-w-3xl">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-3 sm:mb-6">
+      <div className="mb-6 sm:mb-8">
         <span className="text-xs font-bold text-sky-600 bg-sky-100 px-2 py-0.5 rounded">Section {topic.sectionId} · Topic {topic.order}</span>
         <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight mt-2">{topic.title}</h1>
         {isStudied && <span className="inline-flex items-center gap-1 text-success-600 text-sm font-medium mt-2"><BookOpen className="w-4 h-4" /> Studied</span>}
       </div>
-      <div className="space-y-3 sm:space-y-4">
+      <article className="space-y-6 sm:space-y-8">
         {topic.definition && (
-          <Card className="p-3.5 sm:p-5 border-l-4 border-l-sky-500">
-            <div className="flex items-center gap-2 mb-2"><BookOpen className="w-4 h-4 text-sky-500" /><h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide">Definition</h3></div>
-            <p className="text-slate-700 text-base leading-relaxed"><MathText text={topic.definition} /></p>
-          </Card>
+          <section>
+            <h3 className="font-semibold text-slate-900 text-xs uppercase tracking-wider text-sky-700 mb-2">Definition</h3>
+            <p className="text-slate-800 text-base sm:text-lg leading-relaxed"><MathText text={topic.definition} /></p>
+          </section>
         )}
         {topic.keyFacts && topic.keyFacts.length > 0 && (
-          <Card className="p-3.5 sm:p-5">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Key Facts</h3>
-            <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2 text-slate-700 text-sm leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" /><MathText text={fact} /></li>)}</ul>
-          </Card>
+          <section>
+            <h3 className="font-semibold text-slate-900 text-xs uppercase tracking-wider text-slate-500 mb-3">Key Facts</h3>
+            <ul className="space-y-2">{topic.keyFacts.map((fact, i) => <li key={i} className="flex items-start gap-2.5 text-slate-700 text-sm sm:text-base leading-relaxed"><span className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-2 shrink-0" /><MathText text={fact} /></li>)}</ul>
+          </section>
         )}
         {topic.explanationSections && topic.explanationSections.map((sec, i) => (
-          <Card key={i} className="p-5"><h3 className="font-semibold text-slate-900 mb-2">{sec.heading}</h3><p className="text-slate-700 text-base leading-relaxed"><MathText text={sec.body} /></p></Card>
+          <section key={i}>
+            <h3 className="font-semibold text-slate-900 text-base sm:text-lg mb-2">{sec.heading}</h3>
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed"><MathText text={sec.body} /></p>
+          </section>
         ))}
         {topic.subtopics && topic.subtopics.length > 0 && (
           <SubtopicsBlock subtopics={topic.subtopics} expandedGroups={expandedSubtopics} onToggleGroup={toggleSet(setExpandedSubtopics)} />
@@ -607,8 +610,8 @@ export function TopicScreen({ topicId }: { topicId: string }) {
           );
         })()}
         {topic.limitCases && topic.limitCases.length > 0 && (
-          <Card className="p-3.5 sm:p-5">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wide mb-3">Limit cases</h3>
+          <section>
+            <h3 className="font-semibold text-slate-900 text-xs uppercase tracking-wider text-slate-500 mb-3">Limit cases</h3>
             <ul className="space-y-2 sm:space-y-3">
               {topic.limitCases.map((lc, i) => {
                 if (lc.condition) {
@@ -630,7 +633,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
                 );
               })}
             </ul>
-          </Card>
+          </section>
         )}
         {topic.misconceptionRemediation && topic.misconceptionRemediation.length > 0 && (
           <Card className="p-3.5 sm:p-5 border-l-4 border-l-amber-500 bg-amber-50/40">
@@ -778,7 +781,7 @@ export function TopicScreen({ topicId }: { topicId: string }) {
             </div>
           );
         })()}
-      </div>
+      </article>
       <AiTutorChat
         topicId={topic.id}
         topicTitle={topic.title}

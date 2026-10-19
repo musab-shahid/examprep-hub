@@ -12,7 +12,7 @@ import {
   examTracks, examTrackMap,
 } from '@/data/subjects';
 import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
-import { PageContainer, Card, Button } from '@/components/ui';
+import { PageContainer, Card, Button, ScreenHeader } from '@/components/ui';
 import { WorkspaceSettingsCard } from '@/components/track/WorkspaceSettingsCard';
 import { computeStreak, getTodayActivity, getWeekActivity } from '@/lib/streak';
 import { downloadBackupFile } from '@/lib/storage';
@@ -143,10 +143,11 @@ export function SettingsScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-5 sm:mb-7 animate-fade-in-up">
-        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Settings</h1>
-        <p className="text-slate-600 mt-1">Manage your workspace, data, installation, and study preferences.</p>
-      </div>
+      <ScreenHeader
+        title="Settings"
+        subtitle="Manage your workspace, data, installation, and study preferences."
+        className="animate-fade-in-up"
+      />
 
       {resetDone && (
         <div className="mb-4 p-3 rounded-xl bg-success-50 border border-success-100 flex items-center gap-2 animate-fade-in-up">

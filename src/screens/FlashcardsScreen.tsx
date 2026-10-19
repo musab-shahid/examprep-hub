@@ -1,11 +1,11 @@
 import { useMemo, useState, useEffect, useCallback } from 'react';
 import type { SubjectId } from '@/types';
-import { Layers, RotateCcw, ChevronLeft, ChevronRight, Eye, EyeOff, Shuffle, BookOpen } from 'lucide-react';
+import { RotateCcw, ChevronLeft, ChevronRight, Eye, EyeOff, Shuffle, BookOpen } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { SubjectSelector, type SubjectFilterValue } from '@/components/subject/SubjectSelector';
-import { PageContainer, Card, Button, EmptyState, LoadingSpinner } from '@/components/ui';
+import { PageContainer, Card, Button, EmptyState, LoadingSpinner, ScreenHeader } from '@/components/ui';
 import { MathText } from '@/components/MathText';
 import {
   buildFlashcardsForTopics,
@@ -126,20 +126,11 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
 
   return (
     <PageContainer>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
-        <div>
-          <div className="flex items-center gap-2">
-            <Layers className="w-6 h-6 text-brand-500" aria-hidden />
-            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Flashcards</h1>
-          </div>
-          <p className="text-slate-600 text-sm mt-1">
-            Rapid recall for key facts, formulas, idioms, and common traps.
-          </p>
-        </div>
-        {!topicId && (
-          <SubjectSelector value={activeSubject} onChange={onSubjectChange} compact />
-        )}
-      </div>
+      <ScreenHeader
+        title="Flashcards"
+        subtitle="Rapid recall for key facts, formulas, idioms, and common traps."
+        actions={!topicId ? <SubjectSelector value={activeSubject} onChange={onSubjectChange} compact /> : undefined}
+      />
 
       {/* Kind filters */}
       <div className="flex flex-wrap gap-2 mb-4">

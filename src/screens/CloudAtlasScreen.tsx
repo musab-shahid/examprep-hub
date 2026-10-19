@@ -1,7 +1,7 @@
 import { useState, useRef, useCallback } from 'react';
 import { Cloud, ChevronRight, X } from 'lucide-react';
 import { clouds } from '@/data/clouds';
-import { PageContainer, Card } from '@/components/ui';
+import { PageContainer, Card, ScreenHeader } from '@/components/ui';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { BackButton, Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import type { CloudEntry } from '@/types';
@@ -33,10 +33,10 @@ export function CloudAtlasScreen() {
   return (
     <PageContainer className="max-w-[72rem]">
       <div className="flex items-center gap-2 mb-4"><BackButton /><Breadcrumbs /></div>
-      <div className="mb-6">
-        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Cloud Atlas</h1>
-        <p className="text-slate-600 mt-1">Explore 10 cloud genera grouped by altitude level.</p>
-      </div>
+      <ScreenHeader
+        title="Cloud Atlas"
+        subtitle="Explore 10 cloud genera grouped by altitude level."
+      />
 
       <div className="space-y-8">
         {LEVELS.map((level) => {
