@@ -169,539 +169,282 @@ export function DashboardScreen() {
   if (!hasEnrollment) {
     return (
       <PageContainer>
-        <div className="mb-2 animate-fade-in-up">
-          <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Welcome</h1>
-        </div>
-        <PurposeLine className="animate-fade-in-up">
-          Choose a track to begin. Preview freely — study and practice unlock only after you begin.
-        </PurposeLine>
-        <div className="space-y-3 mt-4">
+        <ScreenHeader
+          title="Welcome"
+          subtitle="Choose a track to begin. Preview freely — study and practice unlock only after you Begin."
+        />
+        <div className="space-y-2">
           {listTrackDefinitions()
             .filter((tr) => tr.status === 'available')
             .map((track) => {
               const Icon = trackIcon(track.id);
               const accent = trackAccentClasses(track.id);
               return (
-                <Card key={track.id} elevation="interactive" className="p-4 sm:p-5">
-                  <div className="flex items-start gap-3">
-                    <div className={`w-11 h-11 rounded-btn bg-gradient-to-br ${accent.gradient} flex items-center justify-center shrink-0`}>
-                      <Icon className="w-5 h-5 text-white" />
+                <Card key={track.id} elevation="interactive" className="p-4">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 rounded-btn ${accent.iconWrap} flex items-center justify-center shrink-0`}>
+                      <Icon className="w-5 h-5 text-white" aria-hidden />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h2 className="font-semibold text-slate-900">{track.title}</h2>
-                      <p className="text-sm text-slate-600 mt-0.5 leading-relaxed">{track.description}</p>
-                      <button
-                        type="button"
-                        onClick={() => navigate({ ...openTrackOptions(track.id) })}
-                        className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-sky-700 hover:text-sky-900"
-                      >
-                        Explore & Begin
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
+                      <h2 className="font-semibold text-slate-900 text-sm sm:text-base">{track.title}</h2>
+                      <p className="text-xs sm:text-sm text-slate-600 mt-0.5 line-clamp-2">{track.description}</p>
                     </div>
+                    <button
+                      type="button"
+                      onClick={() => navigate({ ...openTrackOptions(track.id) })}
+                      className="shrink-0 inline-flex items-center gap-1 px-3 py-2 rounded-btn bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800"
+                    >
+                      Explore
+                      <ChevronRight className="w-4 h-4" aria-hidden />
+                    </button>
                   </div>
                 </Card>
               );
             })}
         </div>
         <p className="text-xs text-slate-500 mt-6 leading-relaxed">
-          Beginning a track adds it to My Tracks and sets your active workspace. You can begin more than one track later and switch between them.
+          Begin adds a track to My Tracks and can set your active workspace. You may enroll in more than one track later.
         </p>
       </PageContainer>
     );
   }
 
+  const hasHistory =
+    globalStats.questionsAnswered > 0 ||
+    globalStats.studiedTopics > 0 ||
+    (data.quizHistory?.length ?? 0) > 0;
+
   return (
     <PageContainer>
       <ScreenHeader
-        title="Home"
+        title={getGreeting()}
         subtitle={
           activeDef
             ? `${activeDef.shortTitle}${activeProfile ? ` · ${activeProfile.shortLabel ?? activeProfile.title}` : ' · General preparation'}`
-            : 'Enroll in a track, then set it active to focus study and practice.'
+            : 'Set an enrolled track as your active workspace to focus study.'
         }
       />
 
-      {/* Workspace strip — membership, not browse */}
-      <Card className="p-3.5 sm:p-4 mb-4 border-slate-200">
-        <p className="text-sm font-medium text-slate-600 mb-2">Workspace</p>
-        <div className="flex flex-col gap-2">
+      {/* Compact workspace switcher — secondary to header context */}
+      {enrolledTracks.length > 1 && (
+        <div className="flex flex-wrap gap-2 mb-5">
           {enrolledTracks.map((id) => {
             const def = getTrackDefinition(id);
-            const Icon = trackIcon(id);
-            const accent = trackAccentClasses(id);
             const isActive = trackMembership.activeTrackId === id;
-            const examId = trackMembership.enrollments[id]?.activeExamId;
-            const profile = examId ? getExamProfile(id, examId) : null;
             return (
-              <div
+              <button
                 key={id}
-                className={`flex items-center gap-3 rounded-btn px-3 py-2.5 border ${
-                  isActive ? 'border-emerald-300 bg-emerald-50' : 'border-slate-100 bg-slate-50'
+                type="button"
+                onClick={() => {
+                  if (isActive) {
+                    navigate({ ...openTrackOptions(id) });
+                    return;
+                  }
+                  const sw = setActiveEnrolledTrack(id);
+                  if (sw.ok) setActiveTrack(id);
+                }}
+                className={`px-3 py-1.5 rounded-chip text-xs font-semibold border transition-colors ${
+                  isActive
+                    ? 'bg-slate-900 text-white border-slate-900'
+                    : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300'
                 }`}
               >
-                <div className={`w-9 h-9 rounded-btn ${accent.iconWrap} flex items-center justify-center shrink-0`}>
-                  <Icon className="w-4 h-4 text-white" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold text-slate-900">
-                    {def.shortTitle}
-                    {isActive && <span className="ml-2 text-[10px] font-bold uppercase text-emerald-700">Active</span>}
-                  </p>
-                  <p className="text-xs text-slate-500 truncate">
-                    {profile ? profile.title : 'General preparation'}
-                  </p>
-                </div>
-                {isActive ? (
-                  <button
-                    type="button"
-                    className="text-xs font-semibold text-sky-700 shrink-0"
-                    onClick={() => navigate({ ...openTrackOptions(id) })}
-                  >
-                    Open
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="text-xs font-semibold text-white bg-slate-800 px-2.5 py-1.5 rounded-btn shrink-0"
-                    onClick={() => {
-                      const sw = setActiveEnrolledTrack(id);
-                      if (sw.ok) setActiveTrack(id);
-                    }}
-                  >
-                    Switch workspace
-                  </button>
-                )}
-              </div>
+                {def.shortTitle}
+              </button>
             );
           })}
         </div>
-        {listTrackDefinitions().some((tr) => tr.status === 'available' && !trackMembership.enrollments[tr.id]) && (
-          <button
-            type="button"
-            className="mt-3 text-xs font-semibold text-slate-600 hover:text-slate-900"
-            onClick={() => {
-              const next = listTrackDefinitions().find(
-                (tr) => tr.status === 'available' && !trackMembership.enrollments[tr.id],
-              );
-              if (next) navigate({ ...openTrackOptions(next.id) });
-            }}
-          >
-            Explore another track →
-          </button>
-        )}
-      </Card>
-
-      {/* FPSC Oct 16 countdown + readiness (skill score; urgency is separate) */}
-      {examCountdown && nextExam && examTarget && examTarget.phase !== 'started' && (
-        <Card elevation="raised" className="p-4 sm:p-5 mb-4 border-amber-200 bg-gradient-to-br from-amber-50 via-white to-orange-50 animate-fade-in-up">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">FPSC · 16 Oct 2026</p>
-              <p className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                {nextExam.label}
-              </p>
-              <p className="text-xs text-slate-500 mt-1 leading-snug">{nextExam.note}</p>
-              {nextExam.venue && (
-                <p className="text-xs text-slate-500 mt-0.5 leading-snug">{nextExam.venue}</p>
-              )}
-            </div>
-            <div className="text-right shrink-0">
-              <p className="text-xl sm:text-3xl font-bold font-mono tabular-nums text-amber-800 leading-none">
-                {formatCountdownShort(examCountdown)}
-              </p>
-              <p className="text-[11px] text-amber-600/80 mt-1">
-                {examTarget.label}
-              </p>
-            </div>
-          </div>
-
-          {/* Exam-day hall checklist (from admission certificate) */}
-          <div className="mt-3 pt-3 border-t border-amber-100">
-            <p className="text-[11px] font-semibold uppercase tracking-wide text-amber-800/90 mb-2">
-              Exam day — bring / follow
-            </p>
-            <ul className="space-y-1.5">
-              {EXAM_DAY_CHECKLIST.map((item) => (
-                <li key={item.id} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" aria-hidden />
-                  <span>{item.label}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="mt-3 pt-3 border-t border-amber-100 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm">
-            <span className="font-semibold text-slate-800">
-              Readiness {readiness.score}
-              <span className="text-slate-400 font-normal">/100</span>
-              <span className="ml-1.5 text-xs font-medium text-slate-500">({readinessLabel(readiness.score)})</span>
-            </span>
-            <span className="text-xs text-slate-500">
-              cover {readiness.coveragePct}% · master {readiness.masteryPct}% · acc {readiness.accuracyPct}%
-            </span>
-          </div>
-          {readinessWhy.length > 0 && (
-            <ul className="mt-2 text-xs text-slate-600 space-y-0.5 list-disc list-inside">
-              {readinessWhy.map((d) => (
-                <li key={d}>{d}</li>
-              ))}
-            </ul>
-          )}
-          {gainOps.length > 0 && (
-            <p className="mt-2 text-xs text-slate-600 leading-relaxed">
-              Biggest lifts:{' '}
-              {gainOps.map((g, i) => {
-                const title = getTopic(g.topicId)?.title ?? g.topicId;
-                return (
-                  <button
-                    key={g.topicId}
-                    type="button"
-                    className="text-brand-700 font-medium hover:underline mr-1"
-                    onClick={() => navigate({ screen: 'topic', topicId: g.topicId })}
-                  >
-                    {title}{i < gainOps.length - 1 ? ',' : ''}
-                  </button>
-                );
-              })}
-              <span className="text-slate-400"> (study impact, not official marks)</span>
-            </p>
-          )}
-        </Card>
       )}
 
-      {/* Hero card */}
-      <Card elevation="hero" className="p-4 sm:p-5 mb-4 border-slate-200" style={{ animationDelay: '0.05s' }}>
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div className="min-w-0">
-            <p className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">{getGreeting()}!</p>
-            <div className="mt-1.5">
-              {streakInfo.streak === 0 ? (
-                <p className="text-slate-600 text-sm">Start a streak by answering a question today.</p>
-              ) : (
-                <StreakIndicator streak={streakInfo.streak} atRisk={streakInfo.atRisk} />
-              )}
-            </div>
-          </div>
-          <div className="text-right shrink-0">
-            <p className="text-3xl sm:text-4xl font-bold text-slate-900 font-mono tabular-nums leading-none">{overallProgress}<span className="text-lg text-slate-400">%</span></p>
-            <p className="text-slate-400 text-xs mt-1">overall progress</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-4 gap-2 pt-3 border-t border-brand-100">
-          <HeroStat icon={<Flame className="w-4 h-4 text-orange-500" />} value={`${streakInfo.streak}`} label="streak" />
-          <HeroStat icon={<Brain className="w-4 h-4 text-violet-500" />} value={`${todayActivity.questionsAnswered}`} label="today" />
-          <HeroStat icon={<TrendingUp className="w-4 h-4 text-success-500" />} value={`${weekActivity.avgAccuracy}%`} label="week acc" />
-          <HeroStat icon={<RotateCcw className="w-4 h-4 text-warning-500" />} value={`${reviewDue.length}`} label="due" />
-        </div>
-      </Card>
-
-      {/* Today's Recommendation */}
-      <ActionCard className="mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-        <div className="flex items-center gap-1.5 mb-1">
-          <Sparkles className="w-3.5 h-3.5 text-brand-500" />
-          <p className="text-xs font-semibold text-brand-600 uppercase tracking-wide">Today's Recommendation</p>
-        </div>
-        <p className="text-lg font-bold text-slate-900 mb-1 tracking-tight">{recHeadline}</p>
-        <p className="text-slate-500 text-sm mb-4">{recSubtext}</p>
-        <button
-          onClick={recNavigate}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-btn bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-colors duration-DEFAULT shadow-sm shadow-brand-500/20"
-        >
-          {recAction} <ChevronRight className="w-4 h-4" />
-        </button>
-      </ActionCard>
-
-      {/* Daily 3-minute adaptive review */}
-      <Card className="p-4 mb-4 border-slate-200" style={{ animationDelay: '0.12s' }}>
-        <div className="flex items-start justify-between gap-3">
-          <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-600 flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5" /> 3-minute review
-            </p>
-            <p className="text-base font-bold text-slate-900 mt-1">
-              {dailyTopicIds.length > 0
-                ? `${dailyTopicIds.length} high-ROI topics · up to 8 adaptive questions`
-                : 'Quick adaptive practice'}
-            </p>
-            <p className="text-slate-500 text-sm mt-1">
-              Due reviews first, then weak spots — same adaptive engine as Practice.
-            </p>
-          </div>
+      {/* Primary next action — single dominant CTA */}
+      <Card className="p-4 sm:p-5 mb-5 border-slate-200">
+        <p className="text-xs font-medium text-slate-500 mb-1">Next up</p>
+        <p className="text-lg font-semibold text-slate-900 tracking-tight">{recHeadline}</p>
+        <p className="text-sm text-slate-600 mt-1 mb-4 max-w-xl leading-relaxed">{recSubtext}</p>
+        <div className="flex flex-wrap gap-2">
           <button
             type="button"
-            onClick={startDailyReview}
-            className="shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-btn bg-brand-500 text-white text-sm font-semibold hover:bg-brand-600 transition-colors shadow-sm shadow-brand-500/20"
+            onClick={recNavigate}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-btn bg-brand-700 text-white text-sm font-semibold hover:bg-brand-800"
           >
-            Start <ChevronRight className="w-4 h-4" />
+            {recAction}
+            <ChevronRight className="w-4 h-4" aria-hidden />
           </button>
-        </div>
-      </Card>
-
-
-      {/* Enrollment-aware home */}
-      {!hasEnrollment && (
-        <Card className="p-3.5 sm:p-5 mb-4 border-dashed border-2 border-slate-200">
-          <h2 className="text-lg font-semibold text-slate-900">Begin a track to start studying</h2>
-          <p className="text-sm text-slate-600 mt-1.5 leading-relaxed">
-            Nothing is enrolled yet. Preview a track, then use <span className="font-medium">Begin</span> when you are ready.
-            Opening a preview does not start a track for you.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {listTrackDefinitions().map((track) => (
-              <button
-                key={track.id}
-                type="button"
-                onClick={() => navigate({ ...openTrackOptions(track.id as ExamTrack) })}
-                className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-btn text-sm font-semibold text-white bg-gradient-to-r ${getTrackStyle(track.id).gradient}`}
-              >
-                Explore {track.shortTitle}
-              </button>
-            ))}
-          </div>
-        </Card>
-      )}
-
-      {hasEnrollment && (
-        <Card className="p-3.5 sm:p-5 mb-4">
-          <div className="flex items-center justify-between gap-2 mb-3">
-            <h2 className="text-sm font-semibold text-slate-900 uppercase tracking-wide">My Tracks</h2>
+          {dailyTopicIds.length > 0 && (
             <button
               type="button"
-              className="text-xs font-medium text-brand-600 hover:underline"
-              onClick={() => {
-                const unstarted = listTrackDefinitions().find((t) => !trackMembership.enrollments[t.id]);
-                if (unstarted) navigate({ ...openTrackOptions(unstarted.id as ExamTrack) });
-              }}
+              onClick={startDailyReview}
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-btn border border-slate-200 bg-white text-slate-700 text-sm font-medium hover:bg-slate-50"
             >
-              {listTrackDefinitions().some((t) => !trackMembership.enrollments[t.id]) ? 'Explore another track' : ''}
+              <Zap className="w-4 h-4 text-brand-600" aria-hidden />
+              3-min review
             </button>
+          )}
+        </div>
+      </Card>
+
+      {/* Progress summary — only when there is history; honest empty otherwise */}
+      {hasHistory ? (
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+          <div className="rounded-card border border-slate-200 bg-white p-3">
+            <p className="text-xs text-slate-500">Topics studied</p>
+            <p className="text-xl font-semibold text-slate-900 mt-0.5">
+              {globalStats.studiedTopics}
+              <span className="text-sm font-normal text-slate-400">/{globalStats.totalTopics}</span>
+            </p>
+            <div className="mt-2">
+              <ProgressBar
+                value={overallProgress}
+                size="sm"
+                ariaLabel={`${overallProgress}% of topics studied`}
+              />
+            </div>
           </div>
+          <div className="rounded-card border border-slate-200 bg-white p-3">
+            <p className="text-xs text-slate-500">Accuracy</p>
+            <p className="text-xl font-semibold text-slate-900 mt-0.5">
+              {globalStats.questionsAnswered === 0 || globalStats.accuracy === null
+                ? '—'
+                : `${globalStats.accuracy}%`}
+            </p>
+            <p className="text-[11px] text-slate-400 mt-1">
+              {globalStats.questionsAnswered === 0
+                ? 'No quiz attempts yet'
+                : `${globalStats.questionsAnswered} answered`}
+            </p>
+          </div>
+          <div className="rounded-card border border-slate-200 bg-white p-3">
+            <p className="text-xs text-slate-500">Streak</p>
+            <p className="text-xl font-semibold text-slate-900 mt-0.5 flex items-center gap-1.5">
+              <Flame className="w-5 h-5 text-orange-500" aria-hidden />
+              {streakInfo.streak}
+            </p>
+            <p className="text-[11px] text-slate-400 mt-1">
+              {streakInfo.atRisk ? 'At risk today' : 'Keep it going'}
+            </p>
+          </div>
+          <div className="rounded-card border border-slate-200 bg-white p-3">
+            <p className="text-xs text-slate-500">Reviews due</p>
+            <p className="text-xl font-semibold text-slate-900 mt-0.5">{reviewDue.length}</p>
+            <p className="text-[11px] text-slate-400 mt-1">
+              {reviewDue.length === 0 ? 'You\'re caught up' : 'In your active scope'}
+            </p>
+          </div>
+        </div>
+      ) : (
+        <Card className="p-4 mb-5 border-dashed border-slate-200">
+          <p className="text-sm font-medium text-slate-900">No study history yet</p>
+          <p className="text-sm text-slate-600 mt-1">
+            Open a subject and mark topics studied, or start a short practice session. Metrics appear after real activity — not zeros that look like scores.
+          </p>
+        </Card>
+      )}
+
+      {/* Supporting: review / weak areas when real data exists */}
+      {(reviewDue.length > 0 || weakTopics.length > 0) && (
+        <Card className="p-4 mb-5">
+          <h2 className="text-sm font-semibold text-slate-900 mb-3">Focus areas</h2>
           <div className="space-y-2">
-            {enrolledTracks.map((id) => {
-              const track = listTrackDefinitions().find((t) => t.id === id);
-              if (!track) return null;
-              const ts = getTrackStyle(id);
-              const isActive = trackMembership.activeTrackId === id;
+            {reviewDue.slice(0, 3).map((item) => {
+              const topic = getTopic(item.topicId);
               return (
-                <div
-                  key={id}
-                  className={`flex items-center gap-3 p-3 rounded-card border ${isActive ? 'border-brand-200 bg-brand-50/50' : 'border-slate-100 bg-slate-50'}`}
+                <button
+                  key={item.topicId}
+                  type="button"
+                  onClick={() => navigate({ screen: 'topic', topicId: item.topicId })}
+                  className="w-full flex items-center justify-between gap-2 text-left px-2 py-2 rounded-btn hover:bg-slate-50"
                 >
-                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${ts.gradient} flex items-center justify-center shrink-0`}>
-                    {(() => { const Ic = trackIcon(id as ExamTrack); return <Ic className="w-4 h-4 text-white" />; })()}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-sm font-semibold text-slate-900">{track.title}</p>
-                    <p className="text-xs text-slate-500">{isActive ? 'Active study context' : 'Enrolled'}</p>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const sw = setActiveEnrolledTrack(id);
-                      if (sw.ok) {
-                        setActiveTrack(id);
-                        navigate({ ...openTrackOptions(id) });
-                      }
-                    }}
-                    className={`shrink-0 text-xs font-semibold px-3 py-1.5 rounded-btn ${isActive ? 'bg-brand-500 text-white' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'}`}
-                  >
-                    {isActive ? 'Continue' : 'Switch'}
-                  </button>
-                </div>
+                  <span className="text-sm text-slate-800 truncate">
+                    {topic?.title ?? item.topicId}
+                  </span>
+                  <span className="text-xs font-medium text-amber-700 shrink-0">Due</span>
+                </button>
+              );
+            })}
+            {weakTopics.slice(0, 2).map((w) => {
+              const topic = getTopic(w.topicId);
+              return (
+                <button
+                  key={`w-${w.topicId}`}
+                  type="button"
+                  onClick={() => navigate({ screen: 'topic', topicId: w.topicId })}
+                  className="w-full flex items-center justify-between gap-2 text-left px-2 py-2 rounded-btn hover:bg-slate-50"
+                >
+                  <span className="text-sm text-slate-800 truncate">
+                    {topic?.title ?? w.topicId}
+                  </span>
+                  <span className="text-xs font-medium text-slate-500 shrink-0">
+                    {w.accuracy}%
+                  </span>
+                </button>
               );
             })}
           </div>
+          {reviewDue.length > 0 && (
+            <button
+              type="button"
+              onClick={() => navigate({ screen: 'review' })}
+              className="mt-3 text-sm font-semibold text-brand-700 hover:text-brand-800"
+            >
+              Open review queue
+            </button>
+          )}
         </Card>
       )}
 
-      {/* Exam Track Sections */}
-      {(hasEnrollment ? listTrackDefinitions().filter((t) => trackMembership.enrollments[t.id]) : listTrackDefinitions()).map((track, trackIdx) => {
-        const trackStats = statsByTrack[track.id];
-        const trackTs = getTrackStyle(track.id);
-        const TrackIcon = trackIcon(track.id as ExamTrack);
-
-        return (
-          <Card key={track.id} className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: `${0.15 + trackIdx * 0.05}s` }}>
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${trackTs.gradient} flex items-center justify-center shrink-0 shadow-sm`}>
-                  <TrackIcon className="w-4 h-4 text-white" />
-                </div>
-                <h3 className="font-semibold text-slate-900">{trackTs.label}</h3>
-              </div>
-              <button
-                onClick={() => navigate({ ...openTrackOptions(track.id as ExamTrack) })}
-                className={`text-sm font-medium hover:underline ${trackTs.accent}`}
-              >
-                Open {track.shortTitle}
-              </button>
+      {/* Exam countdown — compact, only if relevant */}
+      {nextExam && examCountdown && !examCountdown.started && (
+        <Card className="p-4 mb-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-xs text-slate-500">Upcoming exam</p>
+              <p className="text-sm font-semibold text-slate-900">{nextExam.label}</p>
             </div>
-
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
-              {trackStats.map((sStats) => {
-                const subject = subjects.find((s) => s.id === sStats.subjectId);
-                if (!subject) return null;
-                const color = getSubjectColor(sStats.subjectId);
-                const colors = getSubjectStyle(sStats.subjectId);
-                const studiedPct = sStats.totalTopics > 0 ? Math.round((sStats.studiedTopics / sStats.totalTopics) * 100) : 0;
-                const isComplete = studiedPct === 100;
-                const hasContent = sStats.hasContent;
-                const Icon = subject.lucideIcon;
-                return (
-                  <button
-                    key={sStats.subjectId}
-                    onClick={() => {
-                      setActiveSubjectForScreen('learn', sStats.subjectId);
-                      navigate({ screen: 'learn' });
-                    }}
-                    disabled={!hasContent}
-                    className="text-left p-3 rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className={`w-7 h-7 rounded-md ${colors.bg} flex items-center justify-center shrink-0`}>
-                        {Icon && <Icon className="w-4 h-4 text-white" />}
-                      </span>
-                      <p className="text-sm font-semibold text-slate-900 truncate flex-1">{subject.title}</p>
-                    </div>
-                    {hasContent ? (
-                      <>
-                        <div className="mb-1.5">
-                          <ProgressBar value={studiedPct} colorClass={isComplete ? 'bg-success-500' : color.bar} />
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className={color.text}>{studiedPct}%</span>
-                          {sStats.accuracy > 0 && (
-                            <span className={`font-mono tabular-nums ${sStats.accuracy >= 75 ? 'text-success-600' : sStats.accuracy >= 50 ? 'text-warning-600' : 'text-danger-600'}`}>
-                              {sStats.accuracy}% acc
-                            </span>
-                          )}
-                        </div>
-                      </>
-                    ) : (
-                      <p className="text-slate-400 text-xs">Coming soon</p>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </Card>
-        );
-      })}
-
-      {/* Three-column: Weak Areas + Quick Actions (wider) */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.25s' }}>
-        {/* Weak Areas — 2 cols */}
-        <Card className="p-4 bg-warning-50/50 border-warning-100 lg:col-span-2">
-          <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle className="w-4 h-4 text-warning-500" />
-            <h3 className="font-semibold text-slate-900 text-sm">Areas needing attention</h3>
+            <p className="text-sm font-medium text-slate-700 tabular-nums">
+              {formatCountdownShort(examCountdown)}
+            </p>
           </div>
-          {weakTopics.length > 0 ? (
-            <>
-              <div className="space-y-1 mb-3">
-                {weakTopics.slice(0, 4).map((w, i) => {
-                  const topic = getTopic(w.topicId);
-                  if (!topic) return null;
-                  const subjId = sectionMap[topic.sectionId]?.subjectId;
-                  const color = subjId ? getSubjectColor(subjId) : null;
-                  return (
-                    <button
-                      key={w.topicId}
-                      onClick={() => navigate({ screen: 'topic', topicId: w.topicId })}
-                      className="w-full flex items-center justify-between px-2 py-2 rounded-lg hover:bg-white transition-colors text-left"
-                    >
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-slate-400 text-xs font-bold w-4 shrink-0">{i + 1}</span>
-                        {color && <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: color.dot }} />}
-                        <span className="text-slate-700 text-sm font-medium truncate">{topic.title}</span>
-                      </div>
-                      <span className={`text-sm font-bold shrink-0 ml-2 ${w.accuracy < 60 ? 'text-danger-500' : 'text-warning-500'}`}>
-                        {w.accuracy}%
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-              <button
-                onClick={() => navigate({ screen: 'practice' })}
-                className="text-warning-700 text-sm font-semibold hover:text-warning-700"
-              >
-                Practice these
-              </button>
-            </>
-          ) : (
-            <EmptyState
-              title="No weak areas yet"
-              message="Take some quizzes to find topics that need extra attention."
-              icon={<Target className="w-10 h-10" />}
-            />
+          {readiness && (
+            <p className="text-xs text-slate-500 mt-2">
+              Readiness {readiness.score}% — {readinessLabel(readiness.score)}
+            </p>
           )}
         </Card>
+      )}
 
-        {/* Quick Actions — 3 cols, grid layout */}
-        <Card className="p-4 lg:col-span-3">
-          <div className="flex items-center gap-2 mb-3">
-            <Zap className="w-4 h-4 text-slate-500" />
-            <h3 className="font-semibold text-slate-900 text-sm">Quick actions</h3>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <QuickActionTile
-              icon={<Zap className="w-5 h-5 text-warning-600" />}
-              iconBg="bg-warning-50 border border-warning-100"
-              title="Quick Practice"
-              subtitle="10 questions"
-              onClick={() => navigate({ screen: 'practice', mode: 'quick' })}
-            />
-            <QuickActionTile
-              icon={<Target className="w-5 h-5 text-brand-600" />}
-              iconBg="bg-brand-50 border border-brand-200"
-              title="Focus Practice"
-              subtitle="Pick your topics"
-              onClick={() => navigate({ screen: 'practice' })}
-            />
-            <QuickActionTile
-              icon={<FileText className="w-5 h-5 text-sky-600" />}
-              iconBg="bg-sky-50 border border-sky-200"
-              title="FPSC Exam"
-              subtitle="7 subjects"
-              onClick={() => navigate({ ...openTrackOptions('fpsc') })}
-            />
-            <QuickActionTile
-              icon={<Trophy className="w-5 h-5 text-indigo-600" />}
-              iconBg="bg-indigo-50 border border-indigo-200"
-              title="HAT Prep"
-              subtitle="3 modules"
-              onClick={() => navigate({ ...openTrackOptions('hat') })}
-            />
-            <QuickActionTile
-              icon={<RotateCcw className="w-5 h-5 text-success-600" />}
-              iconBg="bg-success-50 border border-success-100"
-              title="Review Queue"
-              subtitle={`${reviewDue.length} due`}
-              onClick={() => navigate({ screen: 'review' })}
-            />
-            <QuickActionTile
-              icon={<Clock className="w-5 h-5 text-brand-400" />}
-              iconBg="bg-slate-900 border border-slate-700"
-              title="Mock Exam"
-              subtitle="Full simulation"
-              onClick={() => navigate({ screen: 'practice', mode: 'mock' })}
-              disabled={(sd.statsFor('all').totalQuestions) < 30}
-              dark
-            />
-          </div>
-        </Card>
+      {/* Secondary destinations — low visual weight */}
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => navigate({ screen: 'practice' })}
+          className="px-3 py-2 rounded-btn border border-slate-200 bg-white text-sm text-slate-700 hover:bg-slate-50"
+        >
+          Practice
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate({ screen: 'progress' })}
+          className="px-3 py-2 rounded-btn border border-slate-200 bg-white text-sm text-slate-700 hover:bg-slate-50"
+        >
+          Progress
+        </button>
+        <button
+          type="button"
+          onClick={() => navigate({ screen: 'learn' })}
+          className="px-3 py-2 rounded-btn border border-slate-200 bg-white text-sm text-slate-700 hover:bg-slate-50"
+        >
+          Learn
+        </button>
+        {activeId && (
+          <button
+            type="button"
+            onClick={() => navigate({ ...openTrackOptions(activeId as TrackId) })}
+            className="px-3 py-2 rounded-btn border border-slate-200 bg-white text-sm text-slate-700 hover:bg-slate-50"
+          >
+            Track catalog
+          </button>
+        )}
       </div>
-
-      {/* Weekly accuracy mini-chart */}
-      <Card className="p-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-        <div className="flex items-center gap-2 mb-3">
-          <BarChart3 className="w-4 h-4 text-slate-500" />
-          <h3 className="font-semibold text-slate-900 text-sm">Weekly accuracy trend</h3>
-        </div>
-        <WeeklyAccuracyChart data={data} />
-      </Card>
     </PageContainer>
   );
 }
