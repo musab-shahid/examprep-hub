@@ -17,7 +17,7 @@
     "validate:data": "tsx scripts/validate-question-bank.ts",
     "lint": "eslint src --max-warnings 200",
     "check": "npm run validate:data && npm test && npm run typecheck && npm run lint && npm run build",
-    "test": "tsx --test src/lib/__tests__/*.test.ts src/router/__tests__/*.test.ts"
+    "test": "tsx --test src/lib/__tests__/spaced-repetition.test.ts src/lib/__tests__/quiz-signature.test.ts src/lib/__tests__/quiz-pool.test.ts src/lib/__tests__/quiz-session.test.ts src/lib/__tests__/mastery.test.ts src/lib/__tests__/question-fixtures.test.ts src/lib/__tests__/track-membership.test.ts src/lib/__tests__/track-scope.test.ts src/lib/__tests__/track-enrollment-phase5.test.ts src/lib/__tests__/track-focus-access.test.ts src/lib/__tests__/learning-scope.test.ts src/lib/__tests__/draft-resume.test.ts src/router/__tests__/paths.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
