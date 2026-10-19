@@ -251,6 +251,53 @@ export function validateDraftShape(raw: unknown): DraftValidation {
 }
 
 /**
+ * Dashboard / preflight resume eligibility — stronger than shape alone.
+ * Does not load the question bank; QuizScreen still runs reconcileRestoredDraft.
+ *
+ * - no-draft / invalid-shape → not offerable
+ * - workspace null → unknown (do not claim resumable)
+ * - track/exam mismatch → incompatible
+ * - shape OK + workspace match → eligible to offer (bank checks still at resume)
+ */
+export type DraftResumeAssessment =
+  | { status: 'eligible'; draft: SavedDraftShape }
+  | { status: 'none' }
+  | { status: 'invalid'; reason: string }
+  | { status: 'incompatible'; reason: string }
+  | { status: 'unknown'; reason: string };
+
+export function assessSavedDraftForResume(
+  raw: unknown,
+  workspace: { trackId: string; examId: string | null } | null,
+): DraftResumeAssessment {
+  if (raw == null) return { status: 'none' };
+  const shape = validateDraftShape(raw);
+  if (!shape.ok) return { status: 'invalid', reason: shape.reason };
+
+  const draft = shape.draft;
+
+  // Active workspace is required to claim compatibility — do not treat null as a match
+  if (!workspace || !workspace.trackId) {
+    return { status: 'unknown', reason: 'no-active-workspace' };
+  }
+
+  const draftTrack = draft.track ?? null;
+  const draftExam = draft.examId ?? null;
+  // Legacy drafts without track: not safely offerable from Home
+  if (draftTrack == null || draftTrack === '') {
+    return { status: 'incompatible', reason: 'draft-missing-track' };
+  }
+  if (draftTrack !== workspace.trackId) {
+    return { status: 'incompatible', reason: 'track-mismatch' };
+  }
+  if (draftExam !== workspace.examId) {
+    return { status: 'incompatible', reason: 'exam-mismatch' };
+  }
+
+  return { status: 'eligible', draft };
+}
+
+/**
  * Same grading rules as QuizScreen — single source for resume recompute.
  * selectedIndices are in the *display* option space (after permutation applied).
  */

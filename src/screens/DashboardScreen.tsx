@@ -30,7 +30,7 @@ import {
   getExamCountdownTarget,
 } from '@/lib/exam-schedule';
 import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
-import { validateDraftShape } from '@/lib/quiz-session';
+import { assessSavedDraftForResume } from '@/lib/quiz-session';
 
 function getGreeting(): string {
   const h = new Date().getHours();
@@ -120,37 +120,23 @@ export function DashboardScreen() {
   const recSubtext = rec.subtext;
   const recAction = rec.action;
 
-  /** Canonical draft peek — same shape gate as QuizScreen.loadQuizProgress */
-  const resumableDraft = useMemo(() => {
+  const workspaceFocus = trackMembership.activeTrackId
+    ? {
+        trackId: trackMembership.activeTrackId,
+        examId: trackMembership.enrollments[trackMembership.activeTrackId]?.activeExamId ?? null,
+      }
+    : null;
+
+  const draftAssessment = useMemo(() => {
     try {
       const raw = localStorage.getItem('examprep-quiz-progress');
-      if (!raw) return null;
-      const v = validateDraftShape(JSON.parse(raw));
-      if (!v.ok) return null;
-      const d = v.draft as {
-        mode: PracticeMode;
-        topicId?: string;
-        topicIds?: string[];
-        scope?: 'subject' | 'all';
-        subjectId?: string;
-        count?: number | 'all';
-        difficulty?: string;
-        timeLimit?: number | 'none' | 'auto';
-        wrongPool?: boolean;
-        track?: string | null;
-        examId?: string | null;
-        answers?: unknown[];
-        questionIds?: string[];
-      };
-      // Prefer draft matching active workspace when both known
-      const focus = trackMembership.activeTrackId;
-      if (d.track && focus && d.track !== focus) return null;
-      if (!d.questionIds?.length) return null;
-      return d;
+      return assessSavedDraftForResume(raw ? JSON.parse(raw) : null, workspaceFocus);
     } catch {
-      return null;
+      return { status: 'none' as const };
     }
-  }, [data.quizHistory, trackMembership.activeTrackId]);
+  }, [data.quizHistory, workspaceFocus?.trackId, workspaceFocus?.examId]);
+
+  const resumableDraft = draftAssessment.status === 'eligible' ? draftAssessment.draft : null;
 
   const resumeQuizFromHome = () => {
     if (!resumableDraft) return;
@@ -167,6 +153,7 @@ export function DashboardScreen() {
       wrongPool: resumableDraft.wrongPool,
     });
   };
+
 
   const recNavigate = () => {
     const p = rec.payload;
