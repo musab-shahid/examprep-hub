@@ -1,35 +1,26 @@
 import { useMemo, useState, useEffect } from 'react';
 import { getAttentionItems, getDashboardRecommendation, buildDailyReviewTopicIds, firstUnmasteredPrereq } from '@/lib/attention';
-import {
-  Zap, ChevronRight, Trophy, Clock, CheckCircle2,
-  AlertTriangle, Target, Flame, TrendingUp, Brain,
-  RotateCcw, BarChart3, FileText, Sparkles,
-} from 'lucide-react';
+import { Zap, ChevronRight, Flame } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useSubjectData } from '@/hooks/useSubjectData';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
-import { subjects, type ExamTrack } from '@/data/subjects';
 import { listTrackDefinitions, getExamProfile, getTrackDefinition, type TrackId } from '@/data/tracks';
-import { enrolledTrackIds, trackIcon, trackAccentClasses, allTrackIds } from '@/lib/track-chrome';
+import { enrolledTrackIds, trackIcon, trackAccentClasses } from '@/lib/track-chrome';
 import type { SubjectId, PracticeMode } from '@/types';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
-import { topics } from '@/data/topics';
-import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator, ScreenHeader } from '@/components/ui';
-import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
-import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics, getWeeklyAccuracy } from '@/lib/streak';
-import { getLandingScreenForTrack } from '@/lib/exam-track';
+import { PageContainer, Card, ProgressBar, ScreenHeader } from '@/components/ui';
+import { computeStreak, getWeakTopics } from '@/lib/streak';
 import { openTrackOptions } from '@/router/openTrack';
 import {
   FPSC_OCT_2026_SESSIONS,
-  EXAM_DAY_CHECKLIST,
   getCountdownParts,
   formatCountdownShort,
   getNextSession,
   getExamCountdownTarget,
 } from '@/lib/exam-schedule';
-import { computeReadiness, readinessLabel, rankScoreGainOpportunities, readinessDrivers } from '@/lib/readiness';
+import { computeReadiness, readinessLabel } from '@/lib/readiness';
 import { assessSavedDraftForResume } from '@/lib/quiz-session';
 
 function getGreeting(): string {
@@ -44,7 +35,7 @@ function getGreeting(): string {
 export function DashboardScreen() {
   const { navigate } = useRouter();
   const sd = useSubjectData();
-  const { setActiveSubjectForScreen, activeTrack, setActiveTrack } = useSubjectSelection();
+  const { setActiveTrack } = useSubjectSelection();
   const { data, trackMembership, setActiveEnrolledTrack } = useData();
   const enrolledTracks = enrolledTrackIds(trackMembership.enrollments);
   const hasEnrollment = enrolledTracks.length > 0;
@@ -56,8 +47,6 @@ export function DashboardScreen() {
     [sd],
   );
   const streakInfo = computeStreak(data, workspaceTopicIds, workspaceSubjectIds);
-  const todayActivity = getTodayActivity(data, workspaceSubjectIds, workspaceTopicIds);
-  const weekActivity = getWeekActivity(data, workspaceSubjectIds);
 
   const stats = sd.statsFor('all');
   const globalStats = stats;
@@ -92,14 +81,6 @@ export function DashboardScreen() {
   const readiness = useMemo(
     () => computeReadiness(data, globalStats.totalTopics, trackTopicIds),
     [data, globalStats.totalTopics, trackTopicIds],
-  );
-  const gainOps = useMemo(
-    () => rankScoreGainOpportunities(data, trackTopicIds, 3),
-    [data, trackTopicIds],
-  );
-  const readinessWhy = useMemo(
-    () => readinessDrivers(readiness, reviewDue.length),
-    [readiness, reviewDue.length],
   );
 
   // Single recommendation source (attention.ts) — do not duplicate priority logic here
@@ -184,10 +165,7 @@ export function DashboardScreen() {
     });
   };
 
-  const statsByTrack = useMemo(() => {
-    const map = Object.fromEntries(allTrackIds().map((id) => [id, [] as typeof allStats])) as Record<ExamTrack, typeof allStats>;
-    for (const s of allStats) {
-      const sub = subjects.find((sub) => sub.id === s.subjectId);
+
       if (sub) map[sub.track].push(s);
     }
     return map;
