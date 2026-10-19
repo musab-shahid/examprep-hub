@@ -16,7 +16,7 @@ import type { SubjectId } from '@/types';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { topics } from '@/data/topics';
-import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator } from '@/components/ui';
+import { PageContainer, Card, ProgressBar, EmptyState, ActionCard, PurposeLine, StreakIndicator, ScreenHeader } from '@/components/ui';
 import { getSubjectColor, getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import { computeStreak, getTodayActivity, getWeekActivity, getWeakTopics, getWeeklyAccuracy } from '@/lib/streak';
 import { getLandingScreenForTrack } from '@/lib/exam-track';
@@ -213,18 +213,18 @@ export function DashboardScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-2 animate-fade-in-up">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Home</h1>
-      </div>
-      <PurposeLine className="animate-fade-in-up">
-        {activeDef
-          ? `Active workspace: ${activeDef.shortTitle}${activeProfile ? ` · ${activeProfile.shortLabel ?? activeProfile.title}` : ''}`
-          : 'Select an enrolled track as your active workspace to focus study and practice.'}
-      </PurposeLine>
+      <ScreenHeader
+        title="Home"
+        subtitle={
+          activeDef
+            ? `${activeDef.shortTitle}${activeProfile ? ` · ${activeProfile.shortLabel ?? activeProfile.title}` : ' · General preparation'}`
+            : 'Enroll in a track, then set it active to focus study and practice.'
+        }
+      />
 
       {/* Workspace strip — membership, not browse */}
       <Card className="p-3.5 sm:p-4 mb-4 border-slate-200">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">My Tracks</p>
+        <p className="text-sm font-medium text-slate-600 mb-2">Workspace</p>
         <div className="flex flex-col gap-2">
           {enrolledTracks.map((id) => {
             const def = getTrackDefinition(id);
@@ -240,7 +240,7 @@ export function DashboardScreen() {
                   isActive ? 'border-emerald-300 bg-emerald-50' : 'border-slate-100 bg-slate-50'
                 }`}
               >
-                <div className={`w-9 h-9 rounded-btn bg-gradient-to-br ${accent.gradient} flex items-center justify-center shrink-0`}>
+                <div className={`w-9 h-9 rounded-btn ${accent.iconWrap} flex items-center justify-center shrink-0`}>
                   <Icon className="w-4 h-4 text-white" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -371,7 +371,7 @@ export function DashboardScreen() {
       )}
 
       {/* Hero card */}
-      <Card elevation="hero" className="hero-glow p-5 sm:p-4 sm:p-6 mb-4 bg-gradient-to-br from-brand-50 via-white to-slate-50 border-brand-100 animate-fade-in-up" style={{ animationDelay: '0.05s' }}>
+      <Card elevation="hero" className="p-4 sm:p-5 mb-4 border-slate-200" style={{ animationDelay: '0.05s' }}>
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="min-w-0">
             <p className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">{getGreeting()}!</p>
@@ -413,7 +413,7 @@ export function DashboardScreen() {
       </ActionCard>
 
       {/* Daily 3-minute adaptive review */}
-      <Card className="p-4 mb-4 animate-fade-in-up border-brand-100 bg-gradient-to-br from-white to-sky-50/80" style={{ animationDelay: '0.12s' }}>
+      <Card className="p-4 mb-4 border-slate-200" style={{ animationDelay: '0.12s' }}>
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-brand-600 flex items-center gap-1.5">

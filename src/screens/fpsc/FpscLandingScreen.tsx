@@ -114,14 +114,14 @@ export function FpscLandingScreen() {
 
       {/* Hero Banner */}
       <div className="mb-6 animate-fade-in-up">
-        <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-4 sm:p-8`}>
+        <div className={`relative overflow-hidden rounded-3xl bg-slate-100 ${ts.heroGradient} p-4 sm:p-8`}>
           {/* Decorative gradient orbs */}
           <div className={`absolute top-0 right-0 w-64 h-64 ${ts.heroOrb} rounded-full blur-3xl pointer-events-none`} />
           <div className={`absolute bottom-0 left-1/4 w-48 h-48 ${ts.heroOrbSecondary} rounded-full blur-3xl pointer-events-none`} />
 
           <div className="relative">
             <div className="flex items-center gap-3 mb-4">
-              <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
+              <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-slate-100 ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
                 <FileText className="w-7 h-7 text-white" />
               </div>
               <div>
@@ -170,7 +170,7 @@ export function FpscLandingScreen() {
           </div>
           <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
             <div
-              className={`h-full bg-gradient-to-r ${ts.progressGradient} rounded-full transition-all duration-700 ease-out`}
+              className={`h-full bg-slate-50 ${ts.progressGradient} rounded-full transition-all duration-700 ease-out`}
               style={{ width: `${overallProgress}%` }}
             />
           </div>
@@ -179,7 +179,7 @@ export function FpscLandingScreen() {
       )}
 
       {/* Quick Actions Card */}
-      <Card className="p-3.5 sm:p-5 mb-4 sm:mb-6 animate-fade-in-up bg-gradient-to-br from-slate-50 to-white border-slate-200" style={{ animationDelay: '0.1s' }}>
+      <Card className="p-3.5 sm:p-5 mb-4 sm:mb-6 animate-fade-in-up bg-slate-100 from-slate-50 to-white border-slate-200" style={{ animationDelay: '0.1s' }}>
         <div className="flex items-center gap-2 mb-4">
           <Sparkles className={`w-5 h-5 ${ts.sparklesIcon}`} />
           <h2 className="font-bold text-slate-900 text-base">Quick Actions</h2>
@@ -242,7 +242,7 @@ export function FpscLandingScreen() {
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}
-                <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-gradient-to-br ${style.gradient} flex items-center justify-center shrink-0 shadow-lg ${style.glow}`}>
+                <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-slate-100 ${style.gradient} flex items-center justify-center shrink-0 shadow-lg ${style.glow}`}>
                   <Icon className="w-7 h-7 text-white" />
                 </div>
 
@@ -297,7 +297,7 @@ export function FpscLandingScreen() {
                   <div className="flex flex-wrap gap-2">
                     <button
                       onClick={() => handleStudySubject(subject.id as SubjectId)}
-                      className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r ${style.gradient} text-white text-sm font-semibold hover:opacity-90 transition-all hover:shadow-card-hover`}
+                      className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-50 ${style.gradient} text-white text-sm font-semibold hover:opacity-90 transition-all hover:shadow-card-hover`}
                     >
                       Study <ChevronRight className="w-4 h-4" />
                     </button>
@@ -319,11 +319,11 @@ export function FpscLandingScreen() {
 
       {/* Mock Exam CTA */}
       <div className="animate-fade-in-up" style={{ animationDelay: '0.55s' }}>
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 sm:p-7">
+        <div className="relative overflow-hidden rounded-3xl bg-slate-100 from-slate-900 to-slate-800 p-4 sm:p-7">
           <div className={`absolute top-0 right-0 w-48 h-48 ${ts.mockOrb} rounded-full blur-3xl pointer-events-none`} />
 
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
+            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-card bg-slate-100 ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
               <Clock className="w-7 h-7 text-white" />
             </div>
             <div className="flex-1">

@@ -10,7 +10,7 @@ import { subjectMap, subjects } from '@/data/subjects';
 import { topicsBySection } from '@/data/topics';
 import { questionsByTopic } from '@/data/questions';
 import { SectionBadge } from '@/components/subject/SubjectBadge';
-import { PageContainer, Card, EmptyState, PurposeLine, LoadingSpinner, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, PurposeLine, LoadingSpinner, Button, ScreenHeader } from '@/components/ui';
 
 import type { SubjectId } from '@/types';
 import { getTopicStatusFromProgress } from '@/lib/constants';
@@ -276,9 +276,10 @@ export function PracticeScreen({ mode: initialMode }: { mode?: 'topic' | 'quick'
 
   return (
     <PageContainer>
-      <div className="mb-2">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Practice</h1>
-      </div>
+      <ScreenHeader
+        title="Practice"
+        subtitle="Choose a mode, set scope, then start. One primary action per mode."
+      />
       <PurposeLine>Test yourself deliberately. Five paths, one clear goal.</PurposeLine>
 
       <div className="mb-4">

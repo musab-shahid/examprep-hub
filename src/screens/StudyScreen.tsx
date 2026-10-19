@@ -78,7 +78,7 @@ export function StudyScreen() {
     const trackSubjects = isTrackId(activeTrack) ? subjectsForScope({ trackId: activeTrack, examId }) : [];
     const subjectsWithContent = trackSubjects.filter((s) => sd.topicsFor(s.id as SubjectId).length > 0);
     return (
-      <PageContainer>
+      <PageContainer className="max-w-3xl">
         <div className="mb-2">
           <h1 className="text-xl sm:text-3xl font-bold text-slate-900 leading-tight">Learn</h1>
         </div>

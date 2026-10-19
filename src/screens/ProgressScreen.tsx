@@ -17,7 +17,7 @@ import { computeStreak, getWeakTopics, getWeeklyAccuracy, type WeeklyAccuracyPoi
 import { computeMasteryScore } from '@/lib/constants';
 import { countMasteredTopics } from '@/lib/attention';
 import { getSubjectColor } from '@/data/subject-colors';
-import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge } from '@/components/ui';
+import { PageContainer, Card, ProgressBar, EmptyState, PurposeLine, StreakIndicator, AchievementBadge, ScreenHeader } from '@/components/ui';
 import type { SubjectId } from '@/types';
 
 /** Honesty label when filter is All Subjects — stats are not bank-wide. */
@@ -118,12 +118,10 @@ export function ProgressScreen() {
 
 return (
     <PageContainer>
-      <div className="mb-2">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Progress</h1>
-        <p className="text-xs text-slate-500 mt-1">
-          Totals, weak areas, and streaks use your active track{examId ? ' and exam profile' : ''} only — not other tracks.
-        </p>
-      </div>
+      <ScreenHeader
+        title="Progress"
+        subtitle={`Totals, weak areas, and streaks use your active track${examId ? ' and exam profile' : ''} only — not other tracks.`}
+      />
       <PurposeLine>See your growth, find your gaps, stay motivated.</PurposeLine>
 
       <div className="mb-3 sm:mb-6">
