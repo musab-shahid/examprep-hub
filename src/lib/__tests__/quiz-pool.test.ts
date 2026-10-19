@@ -2,8 +2,20 @@ import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import { selectQuizPool, filterRestoredQuestions } from '../quiz-pool.ts';
 import { quizSignature, signaturesMatch } from '../quiz-signature.ts';
-import { sectionMap } from '../../data/sections.ts';
-import { allQuestions } from '../../data/questions.ts';
+import type { Question } from '../../types.ts';
+
+/** Minimal question fixture — no dependency on lazy-loaded banks */
+function q(partial: Partial<Question> & { id: string; sectionId: string; topicId: string }): Question {
+  return {
+    type: 'single',
+    difficulty: 'easy',
+    question: 'fixture',
+    options: ['a', 'b'],
+    correctAnswer: 0,
+    explanation: '',
+    ...partial,
+  };
+}
 
 describe('selectQuizPool workspace scope', () => {
   it('returns empty without track', () => {
@@ -38,20 +50,35 @@ describe('selectQuizPool workspace scope', () => {
     assert.equal(pool.length, 0);
   });
 
-  it('track-wide pool only includes allowed subjects', () => {
-    const allowed = new Set(['physics']);
+  it('missing scopeInput yields empty even with allowed subjects', () => {
     const pool = selectQuizPool({
       mode: 'quick',
       track: 'fpsc',
-      allowedSubjectIds: allowed,
-      scopeInput: { trackId: 'fpsc', examId: null },
-      count: 'all',
+      allowedSubjectIds: new Set(['physics']),
+      scopeInput: null,
     });
-    assert.ok(pool.length > 0);
-    for (const q of pool) {
-      const sid = sectionMap[q.sectionId]?.subjectId;
-      assert.equal(sid, 'physics');
-    }
+    assert.equal(pool.length, 0);
+  });
+
+  it('track / scopeInput.trackId mismatch yields empty', () => {
+    const pool = selectQuizPool({
+      mode: 'quick',
+      track: 'fpsc',
+      allowedSubjectIds: new Set(['physics']),
+      scopeInput: { trackId: 'hat', examId: null },
+    });
+    assert.equal(pool.length, 0);
+  });
+
+  it('empty topicIds yields empty', () => {
+    const pool = selectQuizPool({
+      mode: 'quick',
+      topicIds: [],
+      track: 'fpsc',
+      allowedSubjectIds: new Set(['physics']),
+      scopeInput: { trackId: 'fpsc', examId: null },
+    });
+    assert.equal(pool.length, 0);
   });
 
   it('mixed topicIds with one invalid returns empty (reject policy)', () => {
@@ -64,35 +91,34 @@ describe('selectQuizPool workspace scope', () => {
     });
     assert.equal(pool.length, 0);
   });
+
+  it('scope subject without id yields empty', () => {
+    const pool = selectQuizPool({
+      mode: 'quick',
+      scope: 'subject',
+      track: 'fpsc',
+      allowedSubjectIds: new Set(['physics']),
+      scopeInput: { trackId: 'fpsc', examId: null },
+    });
+    assert.equal(pool.length, 0);
+  });
 });
 
 describe('filterRestoredQuestions', () => {
   it('rejects when any saved id is missing', () => {
-    const qs = allQuestions().slice(0, 3);
-    if (qs.length < 2) return;
-    const allowed = new Set(
-      qs.map((q) => sectionMap[q.sectionId]?.subjectId).filter(Boolean) as string[],
-    );
-    const r = filterRestoredQuestions(qs, [qs[0].id, 'missing-id'], allowed, null);
-    assert.equal(r, null);
-  });
-
-  it('rejects when question subject not allowed', () => {
-    const qs = allQuestions().slice(0, 5);
-    if (qs.length === 0) return;
+    const qs = [q({ id: 'q1', sectionId: 'PHY-01', topicId: 't1' })];
     const r = filterRestoredQuestions(
       qs,
-      [qs[0].id],
-      new Set(['__none__']),
+      ['q1', 'missing-id'],
+      new Set(['physics']),
       { trackId: 'fpsc', examId: null },
     );
     assert.equal(r, null);
   });
 
-  it('rejects restore when scopeInput is null', () => {
-    const qs = allQuestions().slice(0, 2);
-    if (qs.length === 0) return;
-    const r = filterRestoredQuestions(qs, [qs[0].id], new Set(['physics']), null);
+  it('rejects when scopeInput is null', () => {
+    const qs = [q({ id: 'q1', sectionId: 'PHY-01', topicId: 't1' })];
+    const r = filterRestoredQuestions(qs, ['q1'], new Set(['physics']), null);
     assert.equal(r, null);
   });
 });

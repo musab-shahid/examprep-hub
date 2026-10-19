@@ -2573,22 +2573,10 @@ export const topics: Topic[] = [
     ]
   },
 
-  postRestriction: [
-    {
-      rule: 'After a participial phrase, supply the subject that performs the action (to avoid dangling modifiers).',
-      restriction: '"Running through the field, the dog barked" — OK, "dog" runs. "Running through the field, the road stretched ahead" — NOT OK, "road" does not run. Fix: "As I ran through the field, the road stretched ahead" or "The road stretched ahead as I ran through the field".',
-      consequence: 'A participial phrase at the start of a sentence REQUIRES a grammatical subject in the main clause that can logically perform the action. If no such subject exists, the modifier dangles.'
-    },
-    {
-      rule: 'After a subordinator (because / although / when / if / since / while), a dependent clause must be attached to an independent clause.',
-      restriction: '"Because the storm was severe." → fragment. "Because the storm was severe, schools closed." → correct.',
-      consequence: 'Subordinators create dependent clauses that cannot stand alone. Either join to an independent clause or remove the subordinator.'
-    },
-    {
-      rule: 'After a defining relative clause (no commas), do NOT add a comma before the main verb.',
-      restriction: '"The scientist who studied the data, presented the findings" → wrong. Either: "The scientist who studied the data presented the findings" (defining, no commas) OR "The scientist, who studied the data, presented the findings" (non-defining, commas on both sides).',
-      consequence: 'A mid-sentence comma inside a defining relative clause breaks the rule. Choose one form: defining (no commas) or non-defining (commas on both sides).'
-    }
+  examPoints: [
+    'After a participial phrase, supply the subject that performs the action (to avoid dangling modifiers). — "Running through the field, the dog barked" — OK, "dog" runs. "Running through the field, the road stretched ahead" — NOT OK, "road" does not run. Fix: "As I ran through the field, the road stretched ahead" or "The road stretched ahead as I ran through the field".',
+    'After a subordinator (because / although / when / if / since / while), a dependent clause must be attached to an independent clause. — "Because the storm was severe." → fragment. "Because the storm was severe, schools closed." → correct.',
+    'After a defining relative clause (no commas), do NOT add a comma before the main verb. — "The scientist who studied the data, presented the findings" → wrong. Either: "The scientist who studied the data presented the findings" (defining, no commas) OR "The scientist, who studied the data, presented the findings" (non-defining, commas on both sides).',
   ],
 
 
@@ -3011,27 +2999,11 @@ export const topics: Topic[] = [
     ]
   },
 
-  postRestriction: [
-    {
-      rule: 'After a subordinator (because / although / when / if / since / while), a comma is REQUIRED when the DC precedes the IC.',
-      restriction: '"Because the storm was severe, schools closed." (DC first → comma required). "Schools closed, because the storm was severe." (DC second → comma optional).',
-      consequence: 'A DC at the START of a sentence requires a comma before the IC. A DC at the END does not require a comma (optional but common in long DCs).'
-    },
-    {
-      rule: 'After a coordinating conjunction (FANBOYS) joining two ICs, a comma PRECEDES the conjunction.',
-      restriction: '"The rain fell, and the crops grew." (comma + FANBOYS). "The rain fell and the crops grew" → acceptable but less clear; comma is preferred for longer ICs. "The rain fell and, the crops grew" → INCORRECT; comma must precede FANBOYS, not follow.',
-      consequence: 'FANBOYS joining two ICs requires the comma BEFORE the conjunction, not after.'
-    },
-    {
-      rule: 'After a semicolon, the second clause must be an independent clause (not a phrase or dependent clause).',
-      restriction: '"It was raining; we stayed inside." "It was raining; the typical weather for Karachi." → second unit is a fragment, NOT joined correctly. "It was raining; because we disliked the cold." → second unit is a DC, NOT joined correctly.',
-      consequence: 'A semicolon connects two EQUAL grammatical units; both must be ICs (or both must be parallel list items). It cannot fix a fragment or join an IC to a DC.'
-    },
-    {
-      rule: 'After a defining relative clause (no commas), do NOT add a comma before the main verb.',
-      restriction: '"The scientist who studied the data presented the findings." "The scientist who studied the data, presented the findings" → INCORRECT comma placement. Either remove the comma (defining) OR add commas on BOTH sides (non-defining: "The scientist, who studied the data, presented the findings.").',
-      consequence: 'A mid-sentence comma inside a defining relative clause breaks the rule. Choose one form: defining (no commas) or non-defining (commas on both sides).'
-    }
+  examPoints: [
+    'After a subordinator (because / although / when / if / since / while), a comma is REQUIRED when the DC precedes the IC. — "Because the storm was severe, schools closed." (DC first → comma required). "Schools closed, because the storm was severe." (DC second → comma optional).',
+    'After a coordinating conjunction (FANBOYS) joining two ICs, a comma PRECEDES the conjunction. — "The rain fell, and the crops grew." (comma + FANBOYS). "The rain fell and the crops grew" → acceptable but less clear; comma is preferred for longer ICs. "The rain fell and, the crops grew" → INCORRECT; comma must precede FANBOYS, not follow.',
+    'After a semicolon, the second clause must be an independent clause (not a phrase or dependent clause). — "It was raining; we stayed inside." "It was raining; the typical weather for Karachi." → second unit is a fragment, NOT joined correctly. "It was raining; because we disliked the cold." → second unit is a DC, NOT joined correctly.',
+    'After a defining relative clause (no commas), do NOT add a comma before the main verb. — "The scientist who studied the data presented the findings." "The scientist who studied the data, presented the findings" → INCORRECT comma placement. Either remove the comma (defining) OR add commas on BOTH sides (non-defining: "The scientist, who studied the data, presented the findings.").',
   ],
 
 
@@ -3372,27 +3344,11 @@ export const topics: Topic[] = [
     ]
   },
 
-  postRestriction: [
-    {
-      rule: 'After a participial phrase at the START of a sentence, supply the subject that performs the action (no dangling modifier).',
-      restriction: '"Having collected the data, the team analyzed it." — OK, "team" collected and analyzed. "Having collected the data, it was analyzed." → DANGLING, no subject performed "having collected".',
-      consequence: 'A participial phrase at the start requires a grammatical subject in the main clause that can logically perform the action.'
-    },
-    {
-      rule: 'After a subordinator at the START of a sentence, a comma is REQUIRED before the IC.',
-      restriction: '"Although it rained, the match continued." (DC first → comma required). "Although it rained the match continued" → missing the required comma.',
-      consequence: 'A DC at the START of a sentence requires a comma before the IC.'
-    },
-    {
-      rule: 'After a non-defining relative clause (commas), the relative pronoun CANNOT be "that".',
-      restriction: '"The scientist, who studied the data, presented it." — NON-defining, "who", commas. "The scientist, that studied the data, won the award." → INCORRECT, "that" cannot be used in non-defining clauses. "The scientist that studied the data won the award." → CORRECT, "that" used in defining clause, no commas.',
-      consequence: '"that" is reserved for DEFINING clauses; "who / which" is required for NON-DEFINING clauses.'
-    },
-    {
-      rule: 'In a paragraph, a sentence starting with "this / these / it / they" must be preceded by the sentence it refers to.',
-      restriction: '"Meteorology is a science. This science has improved." → "This" refers to "Meteorology" in the previous sentence. "This science has improved. Meteorology is a science." → BROKEN order, "This" has no referent in the first sentence.',
-      consequence: 'When rearranging jumbled sentences, ALWAYS place the sentence with a referring pronoun AFTER the sentence containing the antecedent.'
-    }
+  examPoints: [
+    'After a participial phrase at the START of a sentence, supply the subject that performs the action (no dangling modifier). — "Having collected the data, the team analyzed it." — OK, "team" collected and analyzed. "Having collected the data, it was analyzed." → DANGLING, no subject performed "having collected".',
+    'After a subordinator at the START of a sentence, a comma is REQUIRED before the IC. — "Although it rained, the match continued." (DC first → comma required). "Although it rained the match continued" → missing the required comma.',
+    'After a non-defining relative clause (commas), the relative pronoun CANNOT be "that". — "The scientist, who studied the data, presented it." — NON-defining, "who", commas. "The scientist, that studied the data, won the award." → INCORRECT, "that" cannot be used in non-defining clauses. "The scientist that studied the data won the award." → CORRECT, "that" used in defining clause, no commas.',
+    'In a paragraph, a sentence starting with "this / these / it / they" must be preceded by the sentence it refers to. — "Meteorology is a science. This science has improved." → "This" refers to "Meteorology" in the previous sentence. "This science has improved. Meteorology is a science." → BROKEN order, "This" has no referent in the first sentence.',
   ],
 
 

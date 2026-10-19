@@ -74,8 +74,12 @@ function validateContentTags(
   tags: { postRestriction?: string | null; examScope?: string[] | null } | null | undefined,
 ) {
   if (!tags) return;
-  const pr = tags.postRestriction;
-  if (pr != null && pr !== '' && !ALLOWED_POST_RESTRICTION.has(pr)) {
+  const pr = tags.postRestriction as unknown;
+  if (pr == null || pr === '') {
+    // ok — unrestricted
+  } else if (typeof pr !== 'string') {
+    add('critical', subjectId, id, 'BAD_POST_RESTRICTION_TYPE', 'postRestriction must be a string (bs16|bs17|all)');
+  } else if (!ALLOWED_POST_RESTRICTION.has(pr)) {
     add('critical', subjectId, id, 'UNKNOWN_POST_RESTRICTION', `postRestriction "${pr}" is not in {bs16,bs17,all}`);
   }
   if (tags.examScope) {
