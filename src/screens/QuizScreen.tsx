@@ -1386,6 +1386,15 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
   );
 }
 
+function ResultMetric({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-btn bg-slate-50 px-2.5 py-2">
+      <p className="text-xs text-slate-500">{label}</p>
+      <p className="text-base font-semibold font-mono tabular-nums text-slate-900 mt-0.5">{value}</p>
+    </div>
+  );
+}
+
 function QuizResults({
   results,
   mode,
@@ -1439,6 +1448,8 @@ function QuizResults({
   }, [results.answers, results.questions, reviewFilter]);
   const wrongCount = results.answers.filter((a) => !a.correct).length;
   const correctCount = results.answers.filter((a) => a.correct).length;
+  const answeredCount = results.answers.filter((a) => a.selectedIndices.length > 0).length;
+  const unansweredCount = Math.max(0, results.total - answeredCount);
 
   const modeLabel =
     mode === 'topic'
@@ -1489,7 +1500,13 @@ function QuizResults({
         <p className="text-slate-700 font-semibold text-lg">
           <span className="font-mono tabular-nums">{results.score}/{results.total}</span> correct
         </p>
-        <p className="text-slate-500 text-sm mt-1"><span className="font-mono tabular-nums">{results.total - results.score}</span> incorrect</p>
+        <p className="text-slate-500 text-sm mt-1"><span className="font-mono tabular-nums">{wrongCount}</span> incorrect</p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-5 pt-4 border-t border-slate-100">
+          <ResultMetric label="Answered" value={answeredCount} />
+          <ResultMetric label="Correct" value={correctCount} />
+          <ResultMetric label="Incorrect" value={wrongCount} />
+          <ResultMetric label="Unanswered" value={unansweredCount} />
+        </div>
       </Card>
 
       {/* Performance breakdown */}
@@ -1601,9 +1618,9 @@ function QuizResults({
       )}
 
       {weakTopics.length === 0 && pct >= 75 && (
-        <Card className="p-4 mb-4 border-l-4 border-l-violet-500 bg-violet-50/50">
+        <Card className="p-4 mb-4 border-l-4 border-l-brand-500 bg-brand-50/50">
           <div className="flex items-center gap-2">
-            <Dumbbell className="w-5 h-5 text-violet-600" />
+            <Dumbbell className="w-5 h-5 text-brand-600" />
             <p className="text-slate-900 text-sm font-medium">Great work! Try Challenge mode for harder questions.</p>
           </div>
         </Card>

@@ -126,14 +126,14 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
 
   return (
     <PageContainer>
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5">
         <div>
-          <h1 className="text-xl sm:text-3xl font-bold text-slate-900 flex items-center gap-2">
-            <Layers className="w-7 h-7 text-brand-500" />
-            Flashcards
-          </h1>
-          <p className="text-slate-500 text-sm mt-1">
-            Rapid recall — key facts, formulas, idioms, and traps. Not a graded quiz.
+          <div className="flex items-center gap-2">
+            <Layers className="w-6 h-6 text-brand-500" aria-hidden />
+            <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Flashcards</h1>
+          </div>
+          <p className="text-slate-600 text-sm mt-1">
+            Rapid recall for key facts, formulas, idioms, and common traps.
           </p>
         </div>
         {!topicId && (
@@ -153,7 +153,7 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
               key={k}
               type="button"
               onClick={() => setKindFilter(k)}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
+              className={`min-h-[40px] px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
                 active
                   ? 'bg-brand-500 text-white'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -249,13 +249,13 @@ export function FlashcardsScreen({ topicId }: { topicId?: string }) {
 
           <div className="flex flex-wrap gap-2 justify-between">
             <div className="flex gap-2">
-              <Button variant="secondary" onClick={() => go(-1)} aria-label="Previous card">
+              <Button size="lg" variant="secondary" onClick={() => go(-1)} aria-label="Previous card">
                 <ChevronLeft className="w-4 h-4" />
               </Button>
-              <Button variant="secondary" onClick={() => go(1)} aria-label="Next card">
+              <Button size="lg" variant="secondary" onClick={() => go(1)} aria-label="Next card">
                 <ChevronRight className="w-4 h-4" />
               </Button>
-              <Button variant="secondary" onClick={reshuffle} aria-label="Shuffle deck">
+              <Button size="lg" variant="secondary" onClick={reshuffle} aria-label="Shuffle deck">
                 <Shuffle className="w-4 h-4" />
               </Button>
             </div>

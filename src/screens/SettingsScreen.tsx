@@ -143,9 +143,9 @@ export function SettingsScreen() {
 
   return (
     <PageContainer>
-      <div className="mb-3 sm:mb-6 animate-fade-in-up">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Settings</h1>
-        <p className="text-slate-500 mt-1">App information and data management</p>
+      <div className="mb-5 sm:mb-7 animate-fade-in-up">
+        <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">Settings</h1>
+        <p className="text-slate-600 mt-1">Manage your workspace, data, installation, and study preferences.</p>
       </div>
 
       {resetDone && (
@@ -170,7 +170,7 @@ export function SettingsScreen() {
         </div>
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
           <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
-          <InfoStat icon={<FileText className="w-4 h-4 text-violet-500" />} value={`${globalTopicCount}`} label="topics" />
+          <InfoStat icon={<FileText className="w-4 h-4 text-brand-500" />} value={`${globalTopicCount}`} label="topics" />
           <InfoStat icon={<Database className="w-4 h-4 text-success-500" />} value={`${globalQuestionCount}`} label="questions" />
         </div>
       </Card>
@@ -427,7 +427,7 @@ export function SettingsScreen() {
         <h3 className="font-semibold text-slate-900 mb-3">All Data</h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <MiniStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} label="Studied" value={`${globalStudied}`} />
-          <MiniStat icon={<Brain className="w-4 h-4 text-violet-500" />} label="Answered" value={`${globalAnswered}`} />
+          <MiniStat icon={<Brain className="w-4 h-4 text-brand-500" />} label="Answered" value={`${globalAnswered}`} />
           <MiniStat icon={<Target className="w-4 h-4 text-success-500" />} label="Accuracy" value={`${globalAcc}%`} />
           <MiniStat icon={<TrendingUp className="w-4 h-4 text-warning-500" />} label="Quizzes" value={`${data.quizHistory.length}`} />
         </div>
