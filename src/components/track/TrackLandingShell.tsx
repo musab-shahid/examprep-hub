@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { ChevronRight, Lock, CheckCircle2, Sparkles, AlertCircle } from 'lucide-react';
-import { PageContainer, Card, Button, ScreenHeader, ProgressBar } from '@/components/ui';
+import { PageContainer, Card, Button, ProgressBar } from '@/components/ui';
 
 type TrackLandingShellProps = {
   title: string;
@@ -13,6 +13,7 @@ type TrackLandingShellProps = {
   onContinue: () => void;
   accentClass: string;
   profileSlot?: ReactNode;
+  /** Plain text / numbers shown in the hero — must use text-white/90 */
   summary: ReactNode;
   catalog: ReactNode;
   footer?: ReactNode;
@@ -39,12 +40,12 @@ export function TrackLandingShell({
 }: TrackLandingShellProps) {
   return (
     <PageContainer>
-      {/* Hero band — gradient accent with title and summary */}
+      {/* Hero band */}
       <div
         className={`relative overflow-hidden rounded-card bg-gradient-to-br ${accentClass} text-white px-5 py-6 sm:px-8 sm:py-8 mb-5 shadow-card`}
       >
         <div className="relative z-10">
-          <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center gap-2 mb-3">
             {enrolled ? (
               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-chip bg-white/15 text-white text-xs font-medium ring-1 ring-white/20">
                 <CheckCircle2 className="w-3.5 h-3.5" aria-hidden />
@@ -66,10 +67,10 @@ export function TrackLandingShell({
           <h1 className="text-2xl sm:text-[1.75rem] font-semibold tracking-tight leading-tight">
             {title}
           </h1>
-          <p className="text-white/85 text-sm mt-1.5 max-w-2xl leading-relaxed">{description}</p>
-          <div className="text-sm text-white/90 mt-3">{summary}</div>
+          <p className="text-white/80 text-sm mt-1.5 max-w-2xl leading-relaxed">{description}</p>
+          {/* Summary slot — always white text inside the hero */}
+          <div className="text-sm text-white/90 mt-3 font-medium">{summary}</div>
         </div>
-        {/* Decorative pattern overlay */}
         <div
           className="absolute inset-0 opacity-10 pointer-events-none"
           style={{
@@ -80,7 +81,6 @@ export function TrackLandingShell({
         />
       </div>
 
-      {/* Exam profile picker (optional, enrolled-only) */}
       {profileSlot}
 
       {/* Enrollment gate / action card */}
@@ -123,11 +123,9 @@ export function TrackLandingShell({
 
       {/* Subject catalog */}
       <div className="mb-5">
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-sm font-semibold text-slate-700 tracking-wide uppercase">
-            {enrolled ? 'Subjects' : 'Subject preview'}
-          </h2>
-        </div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+          {enrolled ? 'Subjects' : 'Subject preview'}
+        </p>
         {catalog}
       </div>
 
@@ -147,6 +145,8 @@ type TrackSubjectRowProps = {
   disabled?: boolean;
   onOpen: () => void;
   actionLabel: string;
+  /** Optional color dot class e.g. "bg-cyan-500" */
+  dotClass?: string;
 };
 
 export function TrackSubjectRow({
@@ -156,6 +156,7 @@ export function TrackSubjectRow({
   disabled = false,
   onOpen,
   actionLabel,
+  dotClass,
 }: TrackSubjectRowProps) {
   return (
     <Card
@@ -164,6 +165,10 @@ export function TrackSubjectRow({
       onClick={disabled ? undefined : onOpen}
     >
       <div className="flex items-center gap-3 px-4 py-3.5">
+        {/* Color dot */}
+        {dotClass && (
+          <div className={`w-2.5 h-2.5 rounded-full shrink-0 ${dotClass}`} aria-hidden />
+        )}
         <div className="min-w-0 flex-1">
           <p
             className={`font-semibold text-sm truncate ${

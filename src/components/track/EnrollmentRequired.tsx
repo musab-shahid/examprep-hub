@@ -4,20 +4,19 @@ import { assertCanStudy, getMembership } from '@/lib/track-access';
 import { openTrackOptions } from '@/router/openTrack';
 import { listTrackDefinitions } from '@/data/tracks';
 import { isTrackId, type TrackId } from '@/data/tracks';
-import { PageContainer, Button, Card } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
+import { trackIcon, trackAccentClasses } from '@/lib/track-chrome';
+import { BookOpen, ChevronRight, Lock } from 'lucide-react';
 
 type Props = {
   children: React.ReactNode;
-  /**
-   * When set, user must be enrolled in this track (not merely any track).
-   * Omit for generic stages that use the active enrolled focus only.
-   */
   requiredTrack?: TrackId;
 };
 
 /**
- * Blocks learning screens until enrollment (and optional track) is satisfied.
+ * Blocks learning screens until enrollment is satisfied.
+ * Shows a full-page centred gate — not a small floating card.
  */
 export function EnrollmentRequired({ children, requiredTrack }: Props) {
   const { data, setActiveEnrolledTrack } = useData();
@@ -28,78 +27,97 @@ export function EnrollmentRequired({ children, requiredTrack }: Props) {
     ? assertCanStudy(data, requiredTrack)
     : assertCanStudy(data);
 
-  if (check.ok) {
-    return <>{children}</>;
-  }
+  if (check.ok) return <>{children}</>;
 
-  const exploreTrack: TrackId | null =
-    requiredTrack && isTrackId(requiredTrack) ? requiredTrack : null;
-
-  if (!check.ok && check.reason === 'no-active-workspace') {
+  // Enrolled but no active workspace
+  if (check.reason === 'no-active-workspace') {
     const enrolled = Object.keys(getMembership(data).enrollments).filter(isTrackId) as TrackId[];
     return (
-      <PageContainer>
-        <Card className="p-3.5 sm:p-5 max-w-lg">
-          <h2 className="text-lg font-semibold text-slate-900">Choose an active workspace</h2>
-          <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-            You are enrolled, but no track is active. Switch to a workspace to open Study and Practice.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {enrolled.map((id) => {
-              const title = listTrackDefinitions().find((t) => t.id === id)?.shortTitle ?? id;
-              return (
-                <Button
-                  key={id}
-                  type="button"
-                  onClick={() => {
-                    const r = setActiveEnrolledTrack(id);
-                    if (r.ok) setActiveTrack(id);
-                  }}
-                >
-                  Activate {title}
-                </Button>
-              );
-            })}
-          </div>
-        </Card>
-      </PageContainer>
+      <GatePage
+        icon={<BookOpen className="w-8 h-8 text-slate-400" />}
+        title="Activate a workspace"
+        description="You are enrolled, but no track is active. Activate one to open Study and Practice."
+      >
+        <div className="flex flex-wrap gap-3 justify-center">
+          {enrolled.map((id) => {
+            const title = listTrackDefinitions().find((t) => t.id === id)?.shortTitle ?? id;
+            return (
+              <Button
+                key={id}
+                onClick={() => {
+                  const r = setActiveEnrolledTrack(id);
+                  if (r.ok) setActiveTrack(id);
+                }}
+              >
+                Activate {title}
+              </Button>
+            );
+          })}
+        </div>
+      </GatePage>
     );
   }
 
+  // Not enrolled at all — show track picker
+  const exploreTrack: TrackId | null =
+    requiredTrack && isTrackId(requiredTrack) ? requiredTrack : null;
+
+  const tracks = exploreTrack
+    ? listTrackDefinitions().filter((t) => t.id === exploreTrack)
+    : listTrackDefinitions().filter((t) => t.status === 'available');
+
   return (
-    <PageContainer>
-      <Card className="p-3.5 sm:p-5 max-w-lg">
-        <h2 className="text-lg font-semibold text-slate-900">
-          {requiredTrack
-            ? `Begin ${requiredTrack.toUpperCase()} to continue`
-            : 'Choose a track to begin'}
-        </h2>
-        <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-          {requiredTrack
-            ? `This content belongs to the ${requiredTrack.toUpperCase()} track. Preview the track, then use Begin — opening a page does not enroll you.`
-            : 'Study, practice, and review unlock after you begin a track. Preview FPSC or HAT first — beginning is an explicit step.'}
-        </p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {exploreTrack ? (
-            <Button type="button" onClick={() => navigate({ ...openTrackOptions(exploreTrack) })}>
-              Explore {exploreTrack.toUpperCase()}
-            </Button>
-          ) : (
-            <>
-              <Button type="button" onClick={() => navigate({ ...openTrackOptions('fpsc') })}>
-                Explore FPSC
-              </Button>
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => navigate({ ...openTrackOptions('hat') })}
-              >
-                Explore HAT
-              </Button>
-            </>
-          )}
-        </div>
-      </Card>
-    </PageContainer>
+    <GatePage
+      icon={<Lock className="w-8 h-8 text-slate-400" />}
+      title="Begin a track to continue"
+      description="Study, practice, and review unlock after you begin a track. Preview FPSC or HAT first — beginning is an explicit step."
+    >
+      <div className="w-full max-w-lg mx-auto space-y-3">
+        {tracks.map((track) => {
+          const Icon = trackIcon(track.id);
+          const accent = trackAccentClasses(track.id);
+          return (
+            <button
+              key={track.id}
+              type="button"
+              onClick={() => navigate({ ...openTrackOptions(track.id) })}
+              className="w-full flex items-center gap-4 p-4 rounded-card bg-white border border-slate-200 hover:border-slate-300 hover:shadow-card-hover transition-all text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+            >
+              <div className={`w-10 h-10 rounded-btn ${accent.iconWrap} flex items-center justify-center shrink-0`}>
+                <Icon className="w-5 h-5 text-white" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="font-semibold text-slate-900 text-sm leading-tight">{track.title}</p>
+                <p className="text-xs text-slate-500 mt-0.5 line-clamp-2 leading-relaxed">{track.description}</p>
+              </div>
+              <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
+            </button>
+          );
+        })}
+      </div>
+    </GatePage>
+  );
+}
+
+function GatePage({
+  icon,
+  title,
+  description,
+  children,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-[60vh] px-4 py-16 text-center">
+      <div className="mb-5 w-16 h-16 rounded-card bg-slate-50 border border-slate-100 flex items-center justify-center shadow-card">
+        {icon}
+      </div>
+      <h2 className="text-xl font-semibold text-slate-900 tracking-tight mb-2">{title}</h2>
+      <p className="text-sm text-slate-500 max-w-sm leading-relaxed mb-8">{description}</p>
+      {children}
+    </div>
   );
 }

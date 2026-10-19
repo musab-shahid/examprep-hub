@@ -171,7 +171,7 @@ export function SettingsScreen() {
         <div className="grid grid-cols-3 gap-3 pt-3 border-t border-slate-100">
           <InfoStat icon={<BookOpen className="w-4 h-4 text-brand-500" />} value={`${subjects.length}`} label="subjects" />
           <InfoStat icon={<FileText className="w-4 h-4 text-brand-500" />} value={`${globalTopicCount}`} label="topics" />
-          <InfoStat icon={<Database className="w-4 h-4 text-success-500" />} value={`${globalQuestionCount}`} label="questions" />
+          <InfoStat icon={<Database className="w-4 h-4 text-brand-500" />} value={`${globalQuestionCount}`} label="questions" />
         </div>
       </Card>
 
@@ -286,7 +286,7 @@ export function SettingsScreen() {
       <Card className="p-4 mb-4 animate-fade-in-up" style={{ animationDelay: '0.15s' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <Database className="w-4 h-4 text-slate-500" />
+            <Database className="w-4 h-4 text-brand-500" />
             <h3 className="font-semibold text-slate-900">Subject Data</h3>
           </div>
           <button

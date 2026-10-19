@@ -14,6 +14,7 @@ import {
   TrackSubjectRow,
 } from '@/components/track/TrackLandingShell';
 import { subjectsForScope } from '@/lib/track-scope';
+import { getSubjectStyle } from '@/data/subject-colors';
 
 export function FpscLandingScreen() {
   const { navigate, currentRoute } = useRouter();
@@ -84,12 +85,12 @@ export function FpscLandingScreen() {
       accentClass="from-sky-600 to-sky-700"
       profileSlot={<ExamProfilePicker trackId="fpsc" enrolled={enrolled} />}
       summary={
-        <p>
-          <span className="font-medium text-slate-800">{fpscSubjects.length}</span> subjects
+        <p className="text-white/90">
+          <span className="font-semibold text-white">{fpscSubjects.length}</span> subjects
           {' · '}
-          <span className="font-medium text-slate-800">{totalTopics}</span> topics
+          <span className="font-semibold text-white">{totalTopics}</span> topics
           {' · '}
-          <span className="font-medium text-slate-800">{totalQuestions}</span> questions in scope
+          <span className="font-semibold text-white">{totalQuestions}</span> questions in scope
         </p>
       }
       catalog={
@@ -111,6 +112,7 @@ export function FpscLandingScreen() {
                 disabled={!enrolled}
                 onOpen={() => openSubject(sid)}
                 actionLabel={enrolled ? 'Study' : 'Preview'}
+                dotClass={getSubjectStyle(sid).dotBg}
               />
             );
           })}
