@@ -89,12 +89,12 @@ export function Sidebar() {
     return currentScreen === landing;
   };
   return (
-    <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-64 bg-slate-900 flex-col z-40">
+    <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-60 bg-slate-950 flex-col z-40 border-r border-slate-800/80">
       {/* Logo */}
       <div className="px-6 py-5 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-btn bg-gradient-to-br from-brand-400 to-sky-600 flex items-center justify-center shrink-0 shadow-glow-brand">
-            <Library className="w-6 h-6 text-white" />
+          <div className="w-9 h-9 rounded-btn bg-brand-700 flex items-center justify-center shrink-0">
+            <Library className="w-5 h-5 text-white" aria-hidden />
           </div>
           <div className="min-w-0">
             <h1 className="text-white font-bold text-lg leading-tight">ExamPrep Hub</h1>
@@ -351,7 +351,7 @@ export function MobileNav() {
   return (
     <>
       <nav
-        className="lg:hidden fixed bottom-0 left-0 right-0 glass-dark border-t border-slate-800 z-40 safe-area"
+        className="lg:hidden fixed bottom-0 left-0 right-0 bg-slate-950/95 backdrop-blur-md border-t border-slate-800 z-40 safe-area"
         aria-label="Primary"
       >
         <div className="flex items-center justify-around px-1 pt-1.5 pb-1">
@@ -380,7 +380,7 @@ export function MobileNav() {
                   />
                 )}
                 <Icon className="w-5 h-5" strokeWidth={active ? 2.25 : 2} />
-                <span className="text-[10px] sm:text-[11px] font-medium leading-tight">{item.label}</span>
+                <span className="text-[11px] font-medium leading-tight">{item.label}</span>
               </button>
             );
           })}

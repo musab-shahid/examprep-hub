@@ -44,15 +44,18 @@ export default {
         },
       },
       borderRadius: {
-        'card': '1rem',      // 16px → rounded-2xl equivalent
-        'btn':  '0.75rem',   // 12px → rounded-xl
+        'card': '0.75rem',   // 12px — calmer, less bubble-app
+        'btn':  '0.625rem',  // 10px
         'chip': '9999px',
       },
       boxShadow: {
-        'card':     '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-        'card-hover': '0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05)',
-        'glow-brand': '0 0 0 1px rgb(14 165 233 / 0.15), 0 4px 12px -2px rgb(14 165 233 / 0.2)',
-        'glow-indigo': '0 0 0 1px rgb(99 102 241 / 0.15), 0 4px 12px -2px rgb(99 102 241 / 0.2)',
+        'card':     '0 1px 2px 0 rgb(15 23 42 / 0.04)',
+        'card-hover': '0 2px 8px -2px rgb(15 23 42 / 0.08)',
+        'glow-brand': '0 0 0 1px rgb(3 105 161 / 0.12)',
+        'glow-indigo': '0 0 0 1px rgb(67 56 202 / 0.12)',
+      },
+      maxWidth: {
+        content: '56rem',
       },
       transitionDuration: {
         'DEFAULT': '150ms',

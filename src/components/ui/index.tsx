@@ -35,7 +35,7 @@ export function Skeleton({
 
 export function PageContainer({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`px-3 sm:px-6 py-3 sm:py-6 max-w-5xl mx-auto ${className}`}>
+    <div className={`px-4 sm:px-6 lg:px-8 py-4 sm:py-6 max-w-content mx-auto w-full ${className}`}>
       {children}
     </div>
   );
@@ -47,19 +47,32 @@ export function ScreenHeader({
   subtitle,
   purpose,
   className = '',
+  actions,
 }: {
   title: string;
   subtitle?: string;
   purpose?: string;
   className?: string;
+  actions?: ReactNode;
 }) {
   return (
-    <div className={`mb-3 sm:mb-6 ${className}`}>
-      <h1 className="text-xl sm:text-3xl font-bold text-slate-900 tracking-tight leading-tight">{title}</h1>
-      {subtitle && <p className="text-slate-500 mt-0.5 sm:mt-1 text-sm sm:text-base leading-snug">{subtitle}</p>}
-      {purpose && (
-        <p className="text-sm text-slate-500 italic max-w-2xl mt-1.5 sm:mt-2 leading-snug sm:leading-relaxed">{purpose}</p>
-      )}
+    <div className={`mb-5 sm:mb-8 ${className}`}>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h1 className="text-2xl sm:text-[1.75rem] font-semibold text-slate-900 tracking-tight leading-tight">
+            {title}
+          </h1>
+          {subtitle && (
+            <p className="text-slate-600 mt-1 text-sm sm:text-[0.9375rem] leading-relaxed max-w-2xl">
+              {subtitle}
+            </p>
+          )}
+          {purpose && (
+            <p className="text-sm text-slate-500 max-w-2xl mt-2 leading-relaxed">{purpose}</p>
+          )}
+        </div>
+        {actions && <div className="flex flex-wrap gap-2 shrink-0">{actions}</div>}
+      </div>
     </div>
   );
 }
@@ -67,7 +80,7 @@ export function ScreenHeader({
 /** Uppercase section label used above card groups */
 export function SectionLabel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <p className={`text-xs font-semibold text-slate-500 uppercase tracking-wide mb-2 ${className}`}>
+    <p className={`text-[0.8125rem] font-medium text-slate-600 tracking-normal mb-2.5 ${className}`}>
       {children}
     </p>
   );
@@ -179,10 +192,10 @@ export function ProgressBar({
     red: 'bg-danger-500',
   };
   const fillClass = colorClass ?? colors[color];
-  const height = size === 'sm' ? 'h-1.5' : size === 'lg' ? 'h-3' : 'h-2';
+  const height = size === 'sm' ? 'h-1.5' : size === 'lg' ? 'h-2.5' : 'h-2';
   return (
     <div
-      className={`${height} bg-slate-100 rounded-full overflow-hidden`}
+      className={`${height} bg-slate-200/80 rounded-full overflow-hidden`}
       role="progressbar"
       aria-valuenow={pct}
       aria-valuemin={0}
@@ -322,7 +335,7 @@ export function ActionCard({
   className = '',
   borderColorClass = 'border-l-brand-500',
   style,
-  elevation = 'raised',
+  elevation,
 }: {
   children: ReactNode;
   className?: string;
@@ -403,17 +416,17 @@ export function AchievementBadge({
         </div>
         <p className="font-semibold text-slate-900 text-sm">{title}</p>
         <p className="text-slate-500 text-xs mt-1">{description}</p>
-        {unlockDate && <p className="text-slate-400 text-xs mt-1.5">Unlocked {unlockDate}</p>}
+        {unlockDate && <p className="text-slate-500 text-xs mt-1.5">Unlocked {unlockDate}</p>}
       </div>
     );
   }
   return (
     <div className="rounded-2xl border border-slate-200 p-4 text-center bg-slate-50/80">
       <div className="w-10 h-10 rounded-full mx-auto mb-2 flex items-center justify-center bg-slate-200">
-        <Lock className="w-5 h-5 text-slate-400" />
+        <Lock className="w-5 h-5 text-slate-500" />
       </div>
       <p className="font-semibold text-slate-500 text-sm">{title}</p>
-      <p className="text-slate-400 text-xs mt-1">Locked — {description}</p>
+      <p className="text-slate-500 text-xs mt-1">Locked — {description}</p>
     </div>
   );
 }

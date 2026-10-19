@@ -212,7 +212,7 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-pattern-topo">
+    <div className="min-h-screen bg-[var(--surface-page)]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-brand-500 focus:text-white focus:rounded-btn focus:text-sm focus:font-medium"
@@ -254,7 +254,7 @@ function AppContent() {
             screen={route.screen}
           />
         )}
-        <main id="main-content" className="pb-mobile-nav min-h-screen bg-pattern-topo" tabIndex={-1}>
+        <main id="main-content" className="pb-mobile-nav min-h-screen bg-[var(--surface-page)]" tabIndex={-1}>
           <ErrorBoundary>
               <ScreenRouter />
             </ErrorBoundary>
