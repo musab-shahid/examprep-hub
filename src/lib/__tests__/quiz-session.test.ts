@@ -5,7 +5,11 @@ import {
   isValidOptionPermutation,
   validateDraftShape,
   questionsMatchRequest,
+  gradeAnswer,
+  selectionsValidForQuestion,
+  reconcileRestoredDraft,
 } from '../quiz-session.ts';
+import type { Question } from '../../types.ts';
 import { selectQuizPool } from '../quiz-pool.ts';
 import { sectionMap } from '../../data/sections.ts';
 import { allQuestions } from '../../data/questions.ts';
@@ -172,6 +176,148 @@ describe('validateDraftShape mode', () => {
       answers: [],
       currentIdx: 0,
       mode: 'not-a-mode',
+    });
+    assert.equal(r.ok, false);
+  });
+});
+
+
+function makeQ(over: Partial<Question> & { id: string }): Question {
+  return {
+    sectionId: 'PHY-01',
+    topicId: 't1',
+    type: 'single',
+    difficulty: 'easy',
+    question: 'Q?',
+    options: ['A', 'B', 'C', 'D'],
+    correctAnswer: 1,
+    explanation: '',
+    ...over,
+  };
+}
+
+describe('answer record uniqueness', () => {
+  it('rejects duplicate answer records for same question', () => {
+    const r = validateDraftShape({
+      questionIds: ['q1', 'q2'],
+      answers: [
+        { questionId: 'q1', correct: true, selectedIndices: [0] },
+        { questionId: 'q1', correct: true, selectedIndices: [0] },
+      ],
+      currentIdx: 0,
+      mode: 'quick',
+    });
+    assert.equal(r.ok, false);
+    if (!r.ok) assert.equal(r.reason, 'duplicate-answer-record');
+  });
+
+  it('accepts partial answers (unanswered ok)', () => {
+    const r = validateDraftShape({
+      questionIds: ['q1', 'q2'],
+      answers: [{ questionId: 'q1', correct: false, selectedIndices: [2] }],
+      currentIdx: 1,
+      mode: 'quick',
+    });
+    assert.equal(r.ok, true);
+  });
+});
+
+describe('selectionsValidForQuestion', () => {
+  it('rejects out-of-range single', () => {
+    const q = makeQ({ id: 'q1' });
+    assert.equal(selectionsValidForQuestion(q, [4]), false);
+    assert.equal(selectionsValidForQuestion(q, [1]), true);
+  });
+
+  it('rejects multi duplicates', () => {
+    const q = makeQ({ id: 'q1', type: 'multi', correctAnswer: [0, 2] });
+    assert.equal(selectionsValidForQuestion(q, [0, 0]), false);
+    assert.equal(selectionsValidForQuestion(q, [0, 2]), true);
+  });
+
+  it('matching bounds use matchOptions length', () => {
+    const q = makeQ({
+      id: 'q1',
+      type: 'matching',
+      options: ['s1', 's2'],
+      matchOptions: ['m1', 'm2', 'm3'],
+      correctAnswer: [0, 1],
+    });
+    assert.equal(selectionsValidForQuestion(q, [0, 2]), true);
+    assert.equal(selectionsValidForQuestion(q, [0, 3]), false);
+    assert.equal(selectionsValidForQuestion(q, [0]), false);
+  });
+});
+
+describe('reconcileRestoredDraft', () => {
+  it('recomputes correctness (ignores stored boolean)', () => {
+    const bank = [makeQ({ id: 'q1', correctAnswer: 1 })];
+    const draft = {
+      questionIds: ['q1'],
+      answers: [{ questionId: 'q1', correct: true, selectedIndices: [0] }], // wrong but marked true
+      currentIdx: 0,
+      mode: 'quick' as const,
+    };
+    const r = reconcileRestoredDraft(bank, draft);
+    assert.equal(r.ok, true);
+    if (r.ok) {
+      assert.equal(r.answers[0].correct, false);
+      assert.equal(gradeAnswer(r.questions[0], [0]), false);
+    }
+  });
+
+  it('rejects invalid option order when answers present', () => {
+    const bank = [makeQ({ id: 'q1' })];
+    const draft = {
+      questionIds: ['q1'],
+      optionOrders: [[0, 0, 1, 2]], // invalid permutation
+      answers: [{ questionId: 'q1', correct: false, selectedIndices: [1] }],
+      currentIdx: 0,
+      mode: 'quick' as const,
+    };
+    const r = reconcileRestoredDraft(bank, draft);
+    assert.equal(r.ok, false);
+  });
+
+  it('preserves grading under valid permutation', () => {
+    const bank = [makeQ({ id: 'q1', correctAnswer: 1 })];
+    // display order: bank indices [1,0,2,3] → correct at display 0
+    const order = [1, 0, 2, 3];
+    const draft = {
+      questionIds: ['q1'],
+      optionOrders: [order],
+      answers: [{ questionId: 'q1', correct: true, selectedIndices: [0] }],
+      currentIdx: 0,
+      mode: 'quick' as const,
+    };
+    const r = reconcileRestoredDraft(bank, draft);
+    assert.equal(r.ok, true);
+    if (r.ok) {
+      assert.equal(r.answers[0].correct, true);
+      assert.deepEqual(r.optionOrders[0], order);
+    }
+  });
+});
+
+describe('schema field validation', () => {
+  it('rejects bad scope', () => {
+    const r = validateDraftShape({
+      questionIds: ['q1'],
+      answers: [],
+      currentIdx: 0,
+      mode: 'quick',
+      scope: 'track',
+    });
+    assert.equal(r.ok, false);
+  });
+
+  it('rejects non-array topicIds', () => {
+    const r = validateDraftShape({
+      questionIds: ['q1'],
+      answers: [],
+      currentIdx: 0,
+      mode: 'quick',
+      topicIds: 'x',
     });
     assert.equal(r.ok, false);
   });

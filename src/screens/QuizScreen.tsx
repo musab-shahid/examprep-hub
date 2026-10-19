@@ -24,6 +24,8 @@ import {
   validateQuizRequest,
   questionsMatchRequest,
   isValidOptionPermutation,
+  reconcileRestoredDraft,
+  gradeAnswer,
   type QuizSessionSnapshot,
 } from '@/lib/quiz-session';
 import { pickAdaptiveQuestions, recentQuestionIdsFromResults } from '@/lib/adaptive-select';
@@ -202,27 +204,7 @@ function pickQuestions(
 }
 
 function isCorrect(question: Question, selectedIndex: number[]): boolean {
-  if (question.type === 'multi') {
-    const correct = [...(question.correctAnswer as number[])].sort();
-    const selected = [...selectedIndex].sort();
-    return correct.length === selected.length && correct.every((v, i) => v === selected[i]);
-  }
-  if (question.type === 'fill_blank') {
-    if (selectedIndex.length === 0) return false;
-    const correctIdx = question.correctAnswer as number;
-    return selectedIndex[0] === correctIdx;
-  }
-  if (question.type === 'matching') {
-    const correct = question.correctAnswer as number[];
-    // Dense check: sparse holes are skipped by Array#every and would false-pass
-    if (selectedIndex.length !== correct.length) return false;
-    for (let i = 0; i < correct.length; i++) {
-      const v = selectedIndex[i];
-      if (v === undefined || v === null || v < 0 || v !== correct[i]) return false;
-    }
-    return true;
-  }
-  return selectedIndex.length === 1 && selectedIndex[0] === question.correctAnswer;
+  return gradeAnswer(question, selectedIndex);
 }
 
 type AnswerRecord = {
@@ -555,31 +537,23 @@ export function QuizScreen({ mode, topicId, topicIds, scope, subjectId, count, d
       return;
     }
     const bankQuestions = scoped;
-    // Restore session option order by question id (survives missing bank items)
-    const restoredQuestions = applySavedOptionOrders(bankQuestions, saved.questionIds, saved.optionOrders);
-    const orderById = new Map<string, number[]>();
-    if (saved.optionOrders?.length) {
-      saved.questionIds.forEach((id, i) => {
-        if (saved.optionOrders![i]) orderById.set(id, saved.optionOrders![i]);
-      });
+    const reconciled = reconcileRestoredDraft(bankQuestions, saved);
+    if (!reconciled.ok) {
+      clearQuizProgress();
+      setQuestionsLoading(false);
+      initQuiz();
+      return;
     }
-    const optionOrders = restoredQuestions.map((q) => {
-      const savedOrder = orderById.get(q.id);
-      if (savedOrder && isValidOptionPermutation(savedOrder, q.options?.length ?? 0)) {
-        return savedOrder;
-      }
-      return (q.options ?? []).map((_, i) => i);
-    });
     recordedRef.current = false;
     const resumedElapsed = Math.max(0, saved.elapsedSeconds ?? 0);
     setState({
-      questions: restoredQuestions,
-      optionOrders,
-      currentIdx: Math.min(saved.currentIdx, restoredQuestions.length - 1),
+      questions: reconciled.questions,
+      optionOrders: reconciled.optionOrders,
+      currentIdx: Math.min(saved.currentIdx, reconciled.questions.length - 1),
       selectedIndices: [],
       checked: false,
-      answers: saved.answers,
-      // Back-date startTime so the interval picks up remaining time correctly
+      // Correctness recomputed — never trust stored boolean alone
+      answers: reconciled.answers,
       startTime: Date.now() - resumedElapsed * 1000,
       elapsed: resumedElapsed,
     });
