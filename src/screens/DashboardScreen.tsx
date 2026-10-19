@@ -166,11 +166,6 @@ export function DashboardScreen() {
   };
 
 
-      if (sub) map[sub.track].push(s);
-    }
-    return map;
-  }, [allStats]);
-
   const activeId = trackMembership.activeTrackId;
   const activeDef = activeId ? getTrackDefinition(activeId as TrackId) : null;
   const activeExamId = activeId
