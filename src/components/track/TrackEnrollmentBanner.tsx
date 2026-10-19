@@ -35,7 +35,7 @@ export function TrackEnrollmentBanner({
         </p>
         {!isActiveFocus && onContinue && (
           <div className="mt-3">
-            <Button type="button" className={`bg-gradient-to-r ${accentClass} text-white border-0`} onClick={onContinue}>
+            <Button type="button" className="bg-brand-700 text-white border-0 hover:bg-brand-800" onClick={onContinue}>
               Continue {trackTitle}
             </Button>
           </div>
@@ -54,7 +54,7 @@ export function TrackEnrollmentBanner({
       <div className="mt-3 flex flex-wrap gap-2">
         <Button
           type="button"
-          className={`bg-gradient-to-r ${accentClass} text-white border-0`}
+          className="bg-brand-700 text-white border-0 hover:bg-brand-800"
           disabled={enrolling}
           onClick={onBegin}
         >

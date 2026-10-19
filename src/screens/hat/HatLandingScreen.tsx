@@ -1,26 +1,21 @@
 import { useEffect, useState } from 'react';
-import { Trophy, Clock, BookOpen, Brain, Calculator, ChevronRight, ArrowRight, Sparkles, Target, TrendingUp, Layers } from 'lucide-react';
 import { useRouter } from '@/router';
-import { PageContainer, Card, Button } from '@/components/ui';
-import { HAT_SECTIONS, HAT_EXAM_DURATION_MINUTES, HAT_TOTAL_QUESTIONS, HAT_PASSING_SCORE } from '@/data/hat/hat-meta';
+import { Button } from '@/components/ui';
+import { HAT_SECTIONS, HAT_EXAM_DURATION_MINUTES } from '@/data/hat/hat-meta';
 import { loadAllHatTopics, loadAllHatQuestions } from '@/data/hat';
 import { useSubjectSelection } from '@/contexts/subject-selection-context';
 import { useData } from '@/hooks/useData';
 import { getSubjectsForTrack } from '@/lib/exam-track';
-import { getSubjectStyle, getTrackStyle } from '@/data/subject-colors';
 import type { Topic, Question, SubjectId } from '@/types';
-import { TrackEnrollmentBanner } from '@/components/track/TrackEnrollmentBanner';
+import {
+  TrackLandingShell,
+  TrackSubjectList,
+  TrackSubjectRow,
+} from '@/components/track/TrackLandingShell';
 
-const SECTION_ICONS = {
-  verbal: BookOpen,
-  analytical: Brain,
-  quantitative: Calculator,
-} as const;
-
-/** Map a HAT section code (verbal / analytical / quantitative) to its SubjectId. */
-function subjectIdForHatSection(sectionCode: string): SubjectId {
+function subjectIdForHatSection(sectionId: string): SubjectId {
   const hatSubjects = getSubjectsForTrack('hat');
-  const code = sectionCode.toLowerCase();
+  const code = sectionId.toLowerCase();
   const match =
     hatSubjects.find((s) => s.subjectId === code) ??
     hatSubjects.find((s) => s.subjectId === `hat-${code}`) ??
@@ -33,9 +28,34 @@ export function HatLandingScreen() {
   const { setActiveSubjectForScreen, setActiveTrack } = useSubjectSelection();
   const { data, enrollInTrack, setActiveEnrolledTrack, trackMembership } = useData();
   const enrolled = Boolean(trackMembership.enrollments.hat);
+  const isActive = trackMembership.activeTrackId === 'hat';
   const [enrolling, setEnrolling] = useState(false);
   const [enrollError, setEnrollError] = useState<string | null>(null);
+  const [hatTopics, setHatTopics] = useState<Topic[]>([]);
+  const [hatQuestions, setHatQuestions] = useState<Question[]>([]);
+  const [loadError, setLoadError] = useState(false);
 
+  useEffect(() => {
+    let active = true;
+    Promise.all([loadAllHatTopics(), loadAllHatQuestions()])
+      .then(([t, q]) => {
+        if (active) {
+          setHatTopics(t);
+          setHatQuestions(q);
+          setLoadError(false);
+        }
+      })
+      .catch(() => {
+        if (active) {
+          setHatTopics([]);
+          setHatQuestions([]);
+          setLoadError(true);
+        }
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const handleBegin = () => {
     setEnrollError(null);
@@ -43,7 +63,11 @@ export function HatLandingScreen() {
     try {
       const r = enrollInTrack('hat');
       if (!r.ok) {
-        setEnrollError(r.reason === 'not-enrollable' ? 'This track is not available to begin yet.' : 'Could not start this track. Try again.');
+        setEnrollError(
+          r.reason === 'not-enrollable'
+            ? 'This track is not available to begin yet.'
+            : 'Could not start this track. Try again.',
+        );
         return;
       }
       setActiveTrack('hat');
@@ -52,285 +76,82 @@ export function HatLandingScreen() {
     }
   };
 
-  const guard = (fn: () => void) => {
+  const sections = Object.values(HAT_SECTIONS);
+
+  const openSection = (sectionKey: string) => {
     if (!enrolled) return;
-    fn();
-  };
-
-  const ts = getTrackStyle('hat');
-
-  const [hatTopics, setHatTopics] = useState<Topic[]>([]);
-  const [hatQuestions, setHatQuestions] = useState<Question[]>([]);
-
-  useEffect(() => {
-    let active = true;
-    Promise.all([loadAllHatTopics(), loadAllHatQuestions()])
-      .then(([t, q]) => {
-        if (active) { setHatTopics(t); setHatQuestions(q); }
-      })
-      .catch((err) => {
-        console.error('Failed to load HAT data', err);
-        if (active) { setHatTopics([]); setHatQuestions([]); }
-      });
-    return () => { active = false; };
-  }, []);
-  const handleStudySection = (sectionCode: string) => {
-    if (!enrolled) return;
-    setActiveSubjectForScreen('learn', subjectIdForHatSection(sectionCode));
+    setActiveSubjectForScreen('learn', subjectIdForHatSection(sectionKey));
     navigate({ screen: 'learn', parent: currentRoute });
   };
-  const handlePracticeSection = (sectionCode: string) => {
-    if (!enrolled) return;
-    setActiveSubjectForScreen('practice', subjectIdForHatSection(sectionCode));
-    navigate({ screen: 'practice', parent: currentRoute });
-  };
-  const sectionEntries = Object.values(HAT_SECTIONS);
-  const totalTopics = hatTopics.length;
-  const totalQuestions = hatQuestions.length;
-  const studiedHatTopics = hatTopics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
-  const quizTouchedHatTopics = hatTopics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
-  const overallProgress = totalTopics > 0 ? Math.round((studiedHatTopics / totalTopics) * 100) : 0;
-  const stats = [
-    { icon: Layers, label: 'Sections', value: '3', color: ts.statIconColors[0] },
-    { icon: BookOpen, label: 'Topics', value: String(totalTopics), color: ts.statIconColors[1] },
-    { icon: Target, label: 'Questions', value: String(totalQuestions), color: ts.statIconColors[2] },
-    { icon: Clock, label: 'Minutes', value: String(HAT_EXAM_DURATION_MINUTES), color: ts.statIconColors[3] },
-  ];
-  return (
-    <PageContainer>
-      <TrackEnrollmentBanner
-        trackTitle="HAT Preparation"
-        enrolled={enrolled}
-        isActiveFocus={trackMembership.activeTrackId === 'hat'}
-        enrolling={enrolling}
-        onBegin={handleBegin}
-        onContinue={() => {
-          const sw = setActiveEnrolledTrack('hat');
-          if (sw.ok) setActiveTrack('hat');
-        }}
-        accentClass="from-indigo-500 to-violet-600"
-      />
-      {enrollError && (
-        <p className="text-sm text-red-600 mb-3" role="alert">{enrollError}</p>
-      )}
 
-      {/* Hero Banner */}
-      <div className="mb-6 animate-fade-in-up">
-        <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-br ${ts.heroGradient} p-4 sm:p-8`}>
-          {/* Decorative gradient orbs */}
-          <div className={`absolute top-0 right-0 w-64 h-64 ${ts.heroOrb} rounded-full blur-3xl pointer-events-none`} />
-          <div className={`absolute bottom-0 left-1/4 w-48 h-48 ${ts.heroOrbSecondary} rounded-full blur-3xl pointer-events-none`} />
-          <div className="relative">
-            <div className="flex items-center gap-3 mb-4">
-              <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${ts.iconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.iconGlow}`}>
-                <Trophy className="w-7 h-7 text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl sm:text-3xl font-bold text-white">HAT Prep</h1>
-                <p className={`${ts.accentText} text-sm`}>Higher Education Aptitude Test</p>
-              </div>
-            </div>
-            <p className="text-slate-300 text-sm leading-relaxed max-w-xl mb-5">
-              Comprehensive preparation for all three reasoning sections — Verbal, Analytical, and Quantitative.
-              Study materials, practice questions, and timed mock exams in one place.
-            </p>
-            {/* Stat pills */}
-            <div className="grid grid-cols-4 gap-3">
-              {stats.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.label} className="flex flex-col items-center gap-1 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 px-2 py-3">
-                    <Icon className={`w-4 h-4 ${s.color}`} />
-                    <span className="text-white font-bold text-lg leading-tight">{s.value}</span>
-                    <span className="text-slate-400 text-[10px] uppercase tracking-wide leading-tight">{s.label}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* Progress Bar Card */}
-      {(studiedHatTopics > 0 || quizTouchedHatTopics > 0) && (
-        <Card className={`p-4 mb-6 animate-fade-in-up ${ts.borderTint}`} style={{ animationDelay: '0.05s' }}>
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2">
-              <TrendingUp className={`w-4 h-4 ${ts.progressIcon}`} />
-              <span className="font-semibold text-slate-900 text-sm">Your Progress</span>
-            </div>
-            <div className="flex items-center gap-3 text-sm">
-              <span className={`${ts.accent} font-bold`}>{studiedHatTopics}/{totalTopics} studied</span>
-              {quizTouchedHatTopics > 0 && (
-                <span className="text-warning-600 font-bold">{quizTouchedHatTopics} practiced</span>
-              )}
-            </div>
-          </div>
-          <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
-            <div
-              className={`h-full bg-gradient-to-r ${ts.progressGradient} rounded-full transition-all duration-700 ease-out`}
-              style={{ width: `${overallProgress}%` }}
-            />
-          </div>
-          <p className="text-slate-400 text-xs mt-1.5">Study progress shows topics you've read. Practice shows topics you've answered questions on.</p>
-        </Card>
-      )}
-      {/* Exam Overview Card */}
-      <Card className="p-3.5 sm:p-5 mb-4 sm:mb-6 animate-fade-in-up bg-gradient-to-br from-slate-50 to-white border-slate-200" style={{ animationDelay: '0.1s' }}>
-        <div className="flex items-center gap-2 mb-4">
-          <Sparkles className={`w-5 h-5 ${ts.sparklesIcon}`} />
-          <h2 className="font-bold text-slate-900 text-base">Exam Overview</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {sectionEntries.map((section) => {
-            const style = getSubjectStyle(`hat-${section.id}`);
+  return (
+    <TrackLandingShell
+      title="HAT Preparation"
+      description={`Higher Ability Test — verbal, analytical, and quantitative · ${HAT_EXAM_DURATION_MINUTES} minutes.`}
+      enrolled={enrolled}
+      isActiveFocus={isActive}
+      enrolling={enrolling}
+      onBegin={handleBegin}
+      onContinue={() => {
+        const sw = setActiveEnrolledTrack('hat');
+        if (sw.ok) setActiveTrack('hat');
+      }}
+      enrollError={enrollError}
+      accentClass="from-indigo-600 to-indigo-700"
+      summary={
+        loadError ? (
+          <p className="text-danger-600" role="alert">
+            Could not load HAT content. Refresh and try again.
+          </p>
+        ) : (
+          <p>
+            <span className="font-medium text-slate-800">{sections.length}</span> sections
+            {' · '}
+            <span className="font-medium text-slate-800">{hatTopics.length}</span> topics
+            {' · '}
+            <span className="font-medium text-slate-800">{hatQuestions.length}</span> questions
+          </p>
+        )
+      }
+      catalog={
+        <TrackSubjectList>
+          {sections.map((section) => {
+            const idSet = new Set(section.sectionIds as readonly string[]);
+            const topics = hatTopics.filter((t) => idSet.has(t.sectionId));
+            const studied = topics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
+            const progressPct =
+              topics.length > 0 ? Math.round((studied / topics.length) * 100) : null;
+            const qCount = hatQuestions.filter((q) => idSet.has(q.sectionId)).length;
+            const metaTopics = topics.length || section.topicCount;
+            const metaQs = qCount || section.questionCount;
+
             return (
-              <div key={section.id} className={`rounded-2xl bg-gradient-to-br ${style.lightGradient} p-4 border ${style.border}`}>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold uppercase tracking-wide text-slate-600">{section.shortName}</span>
-                  <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${style.bg} text-white`}>
-                    {Math.round(section.weight * 100)}%
-                  </span>
-                </div>
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-2xl font-bold text-slate-900">{section.questionCount}</span>
-                  <span className="text-slate-500 text-xs">questions</span>
-                </div>
-                <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-lg font-semibold text-slate-700">{section.topicCount}</span>
-                  <span className="text-slate-500 text-xs">topics</span>
-                </div>
-              </div>
+              <TrackSubjectRow
+                key={section.id}
+                title={section.name}
+                meta={`${metaTopics} topics · ${metaQs} questions · ${Math.round(section.weight * 100)}% weight`}
+                progressPct={enrolled ? progressPct : null}
+                disabled={!enrolled}
+                onOpen={() => openSection(section.id)}
+                actionLabel={enrolled ? 'Study' : 'Preview'}
+              />
             );
           })}
-        </div>
-        <div className="flex items-center gap-4 mt-4 pt-4 border-t border-slate-200">
-          <div className="flex items-center gap-1.5">
-            <Clock className="w-4 h-4 text-slate-400" />
-            <span className="text-slate-600 text-sm font-medium">{HAT_EXAM_DURATION_MINUTES} min</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Target className="w-4 h-4 text-slate-400" />
-            <span className="text-slate-600 text-sm font-medium">{HAT_TOTAL_QUESTIONS} total Qs</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <Trophy className="w-4 h-4 text-slate-400" />
-            <span className="text-slate-600 text-sm font-medium">Pass: {HAT_PASSING_SCORE}/100</span>
-          </div>
-        </div>
-      </Card>
-      {/* Section Cards */}
-      <div className="grid grid-cols-1 gap-4 mb-6">
-        {sectionEntries.map((section, idx) => {
-          const style = getSubjectStyle(`hat-${section.id}`);
-          const Icon = SECTION_ICONS[section.id];
-          const topics = hatTopics.filter((t) => t.hatSection === section.id);
-          const sectionQuestionCount = hatQuestions.filter((q) => q.sectionId === section.sectionCode || q.sectionId.startsWith(section.sectionCode + '-')).length;
-          const studiedCount = topics.filter((t) => (data.studiedTopics ?? []).includes(t.id)).length;
-          const quizCount = topics.filter((t) => (data.topicProgress[t.id]?.quizTotal ?? 0) > 0).length;
-          const sectionProgress = topics.length > 0 ? Math.round((studiedCount / topics.length) * 100) : 0;
-          return (
-            <Card
-              key={section.id}
-              className={`p-3.5 sm:p-5 animate-fade-in-up border ${style.border} ${style.hoverBorder} transition-all hover:shadow-lg ${style.glow}`}
-              style={{ animationDelay: `${0.15 + idx * 0.08}s` }}
-            >
-              <div className="flex items-start gap-4">
-                {/* Icon */}
-                <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shrink-0 shadow-lg ${style.glow}`}>
-                  <Icon className="w-7 h-7 text-white" />
-                </div>
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="font-bold text-slate-900 text-base">{section.name}</h3>
-                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${style.tint} ${style.text}`}>
-                      {Math.round(section.weight * 100)}% weight
-                    </span>
-                  </div>
-                  <p className="text-slate-500 text-sm mb-3">{section.longDescription}</p>
-                  {/* Stats row */}
-                  <div className="flex items-center gap-4 mb-3">
-                    <span className="text-xs text-slate-500">
-                      <span className="font-bold text-slate-700">{topics.length}</span> topics
-                    </span>
-                    <span className="text-xs text-slate-500">
-                      <span className="font-bold text-slate-700">{sectionQuestionCount}</span> questions
-                    </span>
-                    {studiedCount > 0 && (
-                      <span className={`text-xs font-medium ${style.text}`}>
-                        {studiedCount}/{topics.length} studied
-                      </span>
-                    )}
-                    {quizCount > 0 && (
-                      <span className="text-xs font-medium text-warning-600">
-                        {quizCount} practiced
-                      </span>
-                    )}
-                  </div>
-                  {/* Progress bar */}
-                  {studiedCount > 0 && (
-                    <div className="mb-4">
-                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                        <div
-                          className={`h-full ${style.bar} rounded-full transition-all duration-500 ease-out`}
-                          style={{ width: `${sectionProgress}%` }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {/* Action buttons */}
-                  <div className="flex flex-wrap gap-2">
-                    <button
-                      onClick={() => handleStudySection(section.id)}
-                      className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r ${style.gradient} text-white text-sm font-semibold hover:opacity-90 transition-all hover:shadow-card-hover`}
-                    >
-                      Study <ChevronRight className="w-4 h-4" />
-                    </button>
-                    {sectionQuestionCount > 0 && (
-                      <button
-                        onClick={() => handlePracticeSection(section.id)}
-                        className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl ${style.tint} ${style.text} text-sm font-semibold hover:opacity-80 transition-all border ${style.border}`}
-                      >
-                        Practice <ArrowRight className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Card>
-          );
-        })}
-      </div>
-      {/* Full Mock Exam CTA */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 sm:p-7">
-          <div className={`absolute top-0 right-0 w-48 h-48 ${ts.mockOrb} rounded-full blur-3xl pointer-events-none`} />
-          <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className={`w-11 h-11 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${ts.mockIconGradient} flex items-center justify-center shrink-0 shadow-lg ${ts.mockIconGlow}`}>
-              <Clock className="w-7 h-7 text-white" />
-            </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
-                <h3 className="font-bold text-white text-lg">Full Mock Exam</h3>
-                <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
-                  {HAT_EXAM_DURATION_MINUTES} min
-                </span>
-              </div>
-              <p className="text-slate-400 text-sm max-w-md">
-                Simulate the complete HAT — all 3 sections, {HAT_TOTAL_QUESTIONS} questions, timed.
-                Get a detailed breakdown of your performance by section.
-              </p>
-            </div>
+        </TrackSubjectList>
+      }
+      footer={
+        enrolled ? (
+          <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
             <Button
+              type="button"
               variant="secondary"
-              disabled
-              className="shrink-0 bg-white/10 text-slate-300 border-white/20 hover:bg-white/10"
+              onClick={() => navigate({ screen: 'practice', parent: currentRoute })}
             >
-              Coming Soon
+              Practice
             </Button>
           </div>
-        </div>
-      </div>
-    </PageContainer>
+        ) : null
+      }
+    />
   );
 }

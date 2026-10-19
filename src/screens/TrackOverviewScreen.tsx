@@ -4,87 +4,110 @@ import { useRouter } from '@/router';
 import { getTrackDefinition, type TrackId } from '@/data/tracks';
 import { subjectsForScope } from '@/lib/track-scope';
 import { isTrackEnrolled } from '@/lib/track-access';
-import { TrackEnrollmentBanner } from '@/components/track/TrackEnrollmentBanner';
 import { ExamProfilePicker } from '@/components/track/ExamProfilePicker';
-import { PageContainer, Card, Button } from '@/components/ui';
-import { trackAccentClasses, trackIcon } from '@/lib/track-chrome';
-import { openTrackOptions } from '@/router/openTrack';
+import { Button } from '@/components/ui';
+import { trackAccentClasses } from '@/lib/track-chrome';
+import {
+  TrackLandingShell,
+  TrackSubjectList,
+  TrackSubjectRow,
+} from '@/components/track/TrackLandingShell';
+import { useSubjectData } from '@/hooks/useSubjectData';
+import type { SubjectId } from '@/types';
 
 /**
  * Generic track overview for registry tracks that do not use FPSC/HAT branded landings.
- * Begin / Continue / profile picker share the same lifecycle as specialized screens.
  */
 export function TrackOverviewScreen({ trackId }: { trackId: TrackId }) {
   const def = getTrackDefinition(trackId);
   const { data, enrollInTrack, setActiveEnrolledTrack, trackMembership } = useData();
-  const { setActiveTrack } = useSubjectSelection();
-  const { navigate } = useRouter();
+  const { setActiveTrack, setActiveSubjectForScreen } = useSubjectSelection();
+  const { navigate, currentRoute } = useRouter();
+  const sd = useSubjectData();
   const enrolled = isTrackEnrolled(data, trackId);
   const isActive = trackMembership.activeTrackId === trackId;
-  const subjects = subjectsForScope({
-    trackId,
-    examId: trackMembership.enrollments[trackId]?.activeExamId ?? null,
-  });
+  const examId = trackMembership.enrollments[trackId]?.activeExamId ?? null;
+  const subjects = subjectsForScope({ trackId, examId });
   const accent = trackAccentClasses(trackId);
-  const Icon = trackIcon(trackId);
 
   const handleBegin = () => {
     const r = enrollInTrack(trackId);
     if (r.ok) setActiveTrack(trackId);
   };
 
+  const openSubject = (subjectId: SubjectId) => {
+    if (!enrolled) return;
+    setActiveSubjectForScreen('learn', subjectId);
+    navigate({ screen: 'learn', parent: currentRoute });
+  };
+
   return (
-    <PageContainer>
-      <div className={`rounded-card bg-gradient-to-r ${accent.gradient} text-white px-4 py-5 sm:px-6 sm:py-8 mb-4 sm:mb-6`}>
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-btn bg-white/20 flex items-center justify-center">
-            <Icon className="w-6 h-6" />
+    <TrackLandingShell
+      title={def.title}
+      description={def.description}
+      enrolled={enrolled}
+      isActiveFocus={isActive}
+      onBegin={handleBegin}
+      onContinue={() => {
+        const sw = setActiveEnrolledTrack(trackId);
+        if (sw.ok) setActiveTrack(trackId);
+      }}
+      accentClass={accent.gradient}
+      profileSlot={
+        def.examProfiles && def.examProfiles.length > 0 ? (
+          <ExamProfilePicker trackId={trackId} enrolled={enrolled} />
+        ) : null
+      }
+      summary={
+        <p>
+          <span className="font-medium text-slate-800">{subjects.length}</span> subjects in current
+          scope
+        </p>
+      }
+      catalog={
+        subjects.length === 0 ? (
+          <p className="text-sm text-slate-500 border border-dashed border-slate-200 rounded-card px-4 py-6 text-center">
+            No subjects available for this exam profile.
+          </p>
+        ) : (
+          <TrackSubjectList>
+            {subjects.map((subject) => {
+              const sid = subject.id as SubjectId;
+              const topics = sd.topicsFor(sid);
+              const studied = topics.filter((t) =>
+                (data.studiedTopics ?? []).includes(t.id),
+              ).length;
+              const progressPct =
+                topics.length > 0 ? Math.round((studied / topics.length) * 100) : null;
+              const qCount = sd.statsFor(sid).totalQuestions;
+              return (
+                <TrackSubjectRow
+                  key={sid}
+                  title={subject.title}
+                  meta={`${topics.length} topics · ${qCount} questions`}
+                  progressPct={enrolled ? progressPct : null}
+                  disabled={!enrolled}
+                  onOpen={() => openSubject(sid)}
+                  actionLabel={enrolled ? 'Study' : 'Preview'}
+                />
+              );
+            })}
+          </TrackSubjectList>
+        )
+      }
+      footer={
+        enrolled ? (
+          <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200">
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => navigate({ screen: 'practice', parent: currentRoute })}
+            >
+              Practice
+            </Button>
           </div>
-          <div>
-            <h1 className="text-xl sm:text-2xl font-bold">{def.title}</h1>
-            <p className="text-sm text-white/90 mt-0.5">{def.description}</p>
-          </div>
-        </div>
-      </div>
-
-      <TrackEnrollmentBanner
-        trackTitle={def.shortTitle}
-        enrolled={enrolled}
-        isActiveFocus={isActive}
-        onBegin={handleBegin}
-        onContinue={() => {
-          const sw = setActiveEnrolledTrack(trackId);
-          if (sw.ok) setActiveTrack(trackId);
-        }}
-        accentClass={accent.gradient}
-      />
-
-      <ExamProfilePicker trackId={trackId} enrolled={enrolled} />
-
-      <Card className="p-3.5 sm:p-5 mb-4">
-        <h2 className="text-sm font-semibold text-slate-900 mb-2">Subjects</h2>
-        <ul className="space-y-1.5">
-          {subjects.map((s) => (
-            <li key={s.id} className="text-sm text-slate-700">
-              {s.title}
-            </li>
-          ))}
-          {subjects.length === 0 && (
-            <li className="text-sm text-slate-500">No subjects registered for this track yet.</li>
-          )}
-        </ul>
-      </Card>
-
-      {enrolled && (
-        <div className="flex flex-wrap gap-2">
-          <Button type="button" onClick={() => navigate({ screen: 'learn', parent: null })}>
-            Study
-          </Button>
-          <Button type="button" variant="secondary" onClick={() => navigate({ screen: 'practice', parent: null })}>
-            Practice
-          </Button>
-        </div>
-      )}
-    </PageContainer>
+        ) : null
+      }
+    />
   );
 }
