@@ -1,4 +1,4 @@
-import { RotateCcw, AlertTriangle, Clock, CheckCircle2, GraduationCap, Dumbbell } from 'lucide-react';
+import { RotateCcw, AlertTriangle, Clock, CheckCircle2, GraduationCap, Dumbbell, ChevronRight } from 'lucide-react';
 import { useRouter } from '@/router';
 import { useData } from '@/hooks/useData';
 import { useSubjectData } from '@/hooks/useSubjectData';
@@ -8,37 +8,38 @@ import { subjectMap } from '@/data/subjects';
 import { getTopic } from '@/data/topics';
 import { sectionMap } from '@/data/sections';
 import { getSubjectColor } from '@/data/subject-colors';
-import { PageContainer, Card, EmptyState, ProgressBar, Button } from '@/components/ui';
+import { PageContainer, Card, EmptyState, Button, ScreenHeader, ListRow, Badge } from '@/components/ui';
 import type { SubjectId, TopicProgress } from '@/types';
-
 import { getEffectiveQuizStats, parseLocalDate } from '@/lib/constants';
+
+type RevisionItem = {
+  topicId: string;
+  dateStr: string;
+  accuracy: number | null;
+  attempts: number;
+  group: 'high' | 'review' | 'refresh';
+};
 
 function getRevisionGroups(
   topicProgress: Record<string, TopicProgress>,
   scopedTopicIds: Set<string>,
-) {
+): Record<'high' | 'review' | 'refresh', RevisionItem[]> {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
   const due = Object.entries(topicProgress)
-    .filter(([topicId, p]) => scopedTopicIds.has(topicId) && p.nextReview && parseLocalDate(p.nextReview) <= today)
-    .map(([topicId, p]) => {
-      const stats = getEffectiveQuizStats(p);
-      const accuracy = stats.accuracy;
-      let group: 'high' | 'review' | 'refresh';
-      // No quiz attempts yet → neutral refresh, not "weak / high priority"
-      if (stats.total <= 0) group = 'refresh';
-      else if (accuracy < 60) group = 'high';
-      else if (accuracy < 75) group = 'review';
-      else group = 'refresh';
-      return { topicId, dateStr: p.nextReview!, accuracy, group };
+    .filter(([, progress]) => progress.nextReview && scopedTopicIds.has(progress.topicId) && parseLocalDate(progress.nextReview) <= today)
+    .map(([topicId, progress]) => {
+      const stats = getEffectiveQuizStats(progress);
+      const attempts = stats.total;
+      const accuracy = attempts > 0 ? stats.accuracy : null;
+      const group = attempts <= 0 ? 'refresh' : accuracy! < 60 ? 'high' : accuracy! < 75 ? 'review' : 'refresh';
+      return { topicId, dateStr: progress.nextReview!, accuracy, attempts, group };
     });
-
-  const high = due.filter((d) => d.group === 'high');
-  const review = due.filter((d) => d.group === 'review');
-  const refresh = due.filter((d) => d.group === 'refresh');
-
-  return { high, review, refresh };
+  return {
+    high: due.filter((item) => item.group === 'high'),
+    review: due.filter((item) => item.group === 'review'),
+    refresh: due.filter((item) => item.group === 'refresh'),
+  };
 }
 
 export function RevisionScreen() {
@@ -46,165 +47,117 @@ export function RevisionScreen() {
   const sd = useSubjectData();
   const { data } = useData();
   const { getActiveSubject, setActiveSubjectForScreen } = useSubjectSelection();
-
   const activeSubject = getActiveSubject('review');
   const isAllSubjects = activeSubject === 'all';
-
-  const handleSubjectChange = (value: SubjectFilterValue) => {
-    setActiveSubjectForScreen('review', value);
-  };
-
-  // Build topic IDs set based on filter
-  const scopedTopicIds = (() => {
-    if (isAllSubjects) {
-      return new Set(sd.topicsFor('all').map((t) => t.id));
-    }
-    return new Set(sd.topicsFor(activeSubject as SubjectId).map((t) => t.id));
-  })();
-
+  const subjectTitle = isAllSubjects ? 'All Subjects' : subjectMap[activeSubject as string]?.title ?? 'Subject';
+  const scopedTopicIds = new Set(
+    sd.topicsFor(isAllSubjects ? 'all' : activeSubject as SubjectId).map((topic) => topic.id),
+  );
   const hasContent = isAllSubjects || scopedTopicIds.size > 0;
-  const subjectTitle = isAllSubjects ? 'All Subjects' : (subjectMap[activeSubject as string]?.title ?? 'Subject');
-
   const groups = getRevisionGroups(data.topicProgress, scopedTopicIds);
   const totalDue = groups.high.length + groups.review.length + groups.refresh.length;
+  const allDueIds = [...groups.high, ...groups.review, ...groups.refresh].map((item) => item.topicId);
+
+  const handleSubjectChange = (value: SubjectFilterValue) => setActiveSubjectForScreen('review', value);
 
   return (
     <PageContainer>
-      <div className="mb-3 sm:mb-6">
-        <h1 className="text-xl sm:text-3xl font-bold text-slate-900">Review</h1>
-        <p className="text-slate-500 mt-1">Spaced repetition for your active workspace — due topics outside other tracks stay hidden.</p>
-      </div>
-
-      <div className="mb-3 sm:mb-6">
-        <SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />
-      </div>
+      <ScreenHeader
+        title="Revision"
+        subtitle="Review topics when they are due, with priority based on your recent performance."
+        actions={<SubjectSelector value={activeSubject} onChange={handleSubjectChange} showAllOption />}
+      />
 
       {!hasContent ? (
         <Card className="p-8">
           <EmptyState
             title={`No content for ${subjectTitle} yet`}
-            message="This subject hasn't been authored yet. Try selecting a different subject or use All Subjects."
-            icon={<GraduationCap className="w-12 h-12" />}
+            message="Try another subject or switch to All Subjects."
+            icon={<GraduationCap className="w-12 h-12" aria-hidden />}
+          />
+        </Card>
+      ) : totalDue === 0 ? (
+        <Card className="p-8">
+          <EmptyState
+            title="You are caught up"
+            message="Nothing is due in this workspace. Study a topic or take a quiz to build your next review schedule."
+            icon={<CheckCircle2 className="w-12 h-12 text-success-500" aria-hidden />}
+            action={<Button onClick={() => navigate({ screen: 'practice', mode: 'quick' })}>Start practice</Button>}
           />
         </Card>
       ) : (
         <>
-          {/* Schedule info */}
-          <Card className="p-4 mb-3 sm:mb-6 bg-slate-50/50">
-            <div className="flex items-center gap-2 mb-2">
-              <Clock className="w-4 h-4 text-slate-600" />
-              <p className="text-slate-700 text-sm font-medium">Adaptive schedule (ease-based intervals)</p>
+          <Card className="p-4 sm:p-5 mb-5 border-brand-100 bg-brand-50/50">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">Ready for review</p>
+                <p className="text-xl font-semibold text-slate-900 mt-1">{totalDue} topic{totalDue === 1 ? '' : 's'} due now</p>
+                <p className="text-sm text-slate-600 mt-1">Work through the full queue or choose a topic below.</p>
+              </div>
+              <Button onClick={() => navigate({ screen: 'quiz', mode: 'review', topicIds: allDueIds, count: Math.min(totalDue * 3, 20) })}>
+                <Dumbbell className="w-4 h-4" aria-hidden />
+                Start review quiz
+              </Button>
             </div>
-            <p className="text-slate-500 text-xs">
-              Quizzes update each topic&apos;s interval and ease: strong scores space reviews further out
-              (up to ~90 days); weak scores reset toward a 1-day retry. First mark-as-studied only seeds
-              a 1-day check if nothing was scheduled yet.
-            </p>
           </Card>
 
-          {totalDue === 0 ? (
-            <Card className="p-8">
-              <EmptyState
-                title="Nothing due for revision"
-                message="Mark topics as studied or take quizzes to build your revision schedule. Due topics will appear here grouped by priority."
-                icon={<RotateCcw className="w-12 h-12" />}
-              />
-            </Card>
-          ) : (
-            <>
-            <Card className="p-4 mb-3 sm:mb-6 bg-gradient-to-r from-brand-50 to-indigo-50 border border-brand-100">
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="font-semibold text-slate-900 text-sm">{totalDue} topic{totalDue !== 1 ? 's' : ''} due for review</p>
-                  <p className="text-slate-500 text-xs mt-0.5">Quiz yourself on all due topics at once</p>
-                </div>
-                <Button
-                  onClick={() => navigate({ screen: 'quiz', mode: 'review', topicIds: [...groups.high.map(g => g.topicId), ...groups.review.map(g => g.topicId), ...groups.refresh.map(g => g.topicId)], count: Math.min(totalDue * 3, 20) })}
-                  className="shrink-0"
-                >
-                  <Dumbbell className="w-4 h-4 inline mr-1" /> Start Review Quiz
-                </Button>
-              </div>
-            </Card>
-            <div className="space-y-3 sm:space-y-6">
-              {/* High Priority */}
-              {groups.high.length > 0 && (
-                <RevisionGroup
-                  title="High Priority"
-                  icon={<AlertTriangle className="w-5 h-5 text-danger-500" />}
-                  items={groups.high}
-                  onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
-                />
-              )}
-
-              {/* Review */}
-              {groups.review.length > 0 && (
-                <RevisionGroup
-                  title="Review"
-                  icon={<Clock className="w-5 h-5 text-warning-500" />}
-                  items={groups.review}
-                  onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
-                />
-              )}
-
-              {/* Refresh */}
-              {groups.refresh.length > 0 && (
-                <RevisionGroup
-                  title="Refresh"
-                  icon={<CheckCircle2 className="w-5 h-5 text-success-500" />}
-                  items={groups.refresh}
-                  onOpen={(topicId) => navigate({ screen: 'topic', topicId })}
-                />
-              )}
-            </div>
-            </>
-          )}
+          <div className="space-y-6">
+            {groups.high.length > 0 && <RevisionGroup title="Needs attention" description="Recent quiz accuracy below 60%." icon={<AlertTriangle className="w-4 h-4" aria-hidden />} tone="red" items={groups.high} onOpen={(topicId) => navigate({ screen: 'topic', topicId })} />}
+            {groups.review.length > 0 && <RevisionGroup title="Keep practicing" description="Due topics with developing recall." icon={<Clock className="w-4 h-4" aria-hidden />} tone="amber" items={groups.review} onOpen={(topicId) => navigate({ screen: 'topic', topicId })} />}
+            {groups.refresh.length > 0 && <RevisionGroup title="Refresh" description="Due for a quick check-in." icon={<RotateCcw className="w-4 h-4" aria-hidden />} tone="green" items={groups.refresh} onOpen={(topicId) => navigate({ screen: 'topic', topicId })} />}
+          </div>
         </>
       )}
     </PageContainer>
   );
 }
 
-function RevisionGroup({ title, icon, items, onOpen }: {
+function RevisionGroup({
+  title,
+  description,
+  icon,
+  tone,
+  items,
+  onOpen,
+}: {
   title: string;
+  description: string;
   icon: React.ReactNode;
-  items: { topicId: string; accuracy: number; dateStr: string }[];
+  tone: 'red' | 'amber' | 'green';
+  items: RevisionItem[];
   onOpen: (topicId: string) => void;
 }) {
+  const iconClass = { red: 'text-danger-600 bg-danger-50', amber: 'text-warning-600 bg-warning-50', green: 'text-success-600 bg-success-50' }[tone];
   return (
-    <div>
-      <div className="flex items-center gap-2 mb-3">
-        {icon}
-        <h2 className="font-semibold text-slate-900 text-lg">{title}</h2>
-        <span className="text-slate-400 text-sm">({items.length})</span>
+    <section aria-labelledby={`revision-${tone}`}>
+      <div className="flex items-center gap-2 mb-2">
+        <span className={`w-7 h-7 rounded-lg flex items-center justify-center ${iconClass}`}>{icon}</span>
+        <div>
+          <h2 id={`revision-${tone}`} className="font-semibold text-slate-900">{title} <span className="text-slate-400 font-normal">({items.length})</span></h2>
+          <p className="text-xs text-slate-500">{description}</p>
+        </div>
       </div>
-      <div className="space-y-2">
+      <Card elevation="flat" className="p-1">
         {items.map((item) => {
           const topic = getTopic(item.topicId);
           if (!topic) return null;
-          const subjId = sectionMap[topic.sectionId]?.subjectId;
-          const subjColor = subjId ? getSubjectColor(subjId) : null;
-          const borderColor = subjColor?.borderLeft ?? 'border-l-slate-400';
+          const subjectId = sectionMap[topic.sectionId]?.subjectId;
+          const subjectColor = subjectId ? getSubjectColor(subjectId) : null;
           return (
-            <Card key={item.topicId} className={`p-4 border-l-4 ${borderColor}`}>
-              <button onClick={() => onOpen(item.topicId)} className="w-full text-left">
-                <div className="flex items-center justify-between gap-3 mb-2">
-                  <p className="font-medium text-slate-900 text-sm truncate flex-1">{topic.title}</p>
-                  <span className={`text-sm font-bold shrink-0 ${item.accuracy < 60 ? 'text-danger-500' : item.accuracy < 75 ? 'text-warning-500' : 'text-success-500'}`}>
-                    {item.accuracy}%
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-slate-500 text-xs">Due: {new Date(item.dateStr).toLocaleDateString()}</span>
-                </div>
-                <div className="mt-2">
-                  <ProgressBar value={item.accuracy} colorClass={subjColor?.bar ?? 'bg-slate-400'} />
-                </div>
-              </button>
-            </Card>
+            <ListRow key={item.topicId} onClick={() => onOpen(item.topicId)} className="border-b border-slate-100 last:border-0">
+              <span className={`w-1 self-stretch rounded-full ${subjectColor?.bar ?? 'bg-slate-300'}`} aria-hidden />
+              <span className="min-w-0 flex-1">
+                <span className="block font-medium text-sm text-slate-900 truncate">{topic.title}</span>
+                <span className="flex flex-wrap items-center gap-2 mt-1 text-xs text-slate-500">
+                  <span>Due {new Date(item.dateStr).toLocaleDateString()}</span>
+                  {item.accuracy === null ? <Badge color="slate">Not attempted</Badge> : <span>{item.accuracy}% recent accuracy</span>}
+                </span>
+              </span>
+              <ChevronRight className="w-4 h-4 text-slate-300 shrink-0" aria-hidden />
+            </ListRow>
           );
         })}
-      </div>
-    </div>
+      </Card>
+    </section>
   );
 }
