@@ -117,7 +117,7 @@ export function pathToRoute(pathname: string): PathRoute {
       return { screen: 'practice' };
     }
     case 'quiz':
-      // Refresh mid-quiz → Practice (resume still available from storage when user starts again)
+      // Live quiz params are not in the URL; land on Practice where storage-backed resume is offered.
       return { screen: 'practice' };
     case 'review':
       return { screen: 'review' };
@@ -200,9 +200,18 @@ function routeLabelFallback(route: PathRoute): string {
 
 /** True if path is one of our app routes (not an unknown URL). */
 export function isAppPath(pathname: string): boolean {
-  const route = pathToRoute(pathname);
-  if (route.screen === 'home') return pathname.replace(/\/+$/, '') === '' || pathname === '/';
-  return routeToPath(route) === (pathname.replace(/\/+$/, '') || '/');
+  const cleaned = (pathname.replace(/\/+$/, '') || '/');
+  let decoded = cleaned;
+  try {
+    decoded = decodeURIComponent(cleaned);
+  } catch {
+    decoded = cleaned;
+  }
+  const route = pathToRoute(decoded);
+  if (route.screen === 'home') return decoded === '/' || decoded === '';
+  // Compare both encoded and decoded forms (flashcards/topic ids)
+  const expected = routeToPath(route);
+  return expected === cleaned || expected === decoded || expected === encodeURI(decoded);
 }
 
 /** Pure helper — browser Back is safe when we still have SPA-owned depth */

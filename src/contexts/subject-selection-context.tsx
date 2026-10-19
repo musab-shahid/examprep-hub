@@ -126,11 +126,14 @@ export function SubjectSelectionProvider({ children }: { children: ReactNode }) 
   const { trackMembership } = useData();
 
   useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch {
-      /* ignore */
-    }
+    const id = window.setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch {
+        /* ignore */
+      }
+    }, 120);
+    return () => window.clearTimeout(id);
   }, [state]);
 
   // Canonical focus is membership.activeTrackId — mirror into UI prefs context only

@@ -33,7 +33,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const dataRef = useRef(data);
   dataRef.current = data;
 
-  const isFirst = useState(() => ({ current: true }))[0];
+  const isFirst = useRef(true);
 
   // Persist outside setState updaters (StrictMode-safe: one effect per committed data)
   useEffect(() => {
@@ -42,7 +42,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       return;
     }
     saveData(data);
-  }, [data, isFirst]);
+  }, [data]);
 
   // Multi-tab: another tab wrote or cleared AppData — converge
   useEffect(() => {

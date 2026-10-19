@@ -26,7 +26,14 @@ function hasMath(text: string): boolean {
 
 // ── Inline rendering ──────────────────────────────────────────────
 
+function stripRawHtml(s: string): string {
+  // Model output must not inject tags; keep text only before markdown-ish parse.
+  return s.replace(/<[^>]*>/g, '');
+}
+
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
+  text = stripRawHtml(text);
+
   const nodes: ReactNode[] = [];
   let remaining = text;
   let keyIdx = 0;

@@ -108,21 +108,26 @@ function sanitizeForSave(data: AppData): AppData {
 }
 
 /** @returns false if write failed (storage full/denied) */
+let saveRetryCount = 0;
+const MAX_SAVE_RETRIES = 3;
+
 function flushSave(): boolean {
   if (pendingData === null) return true;
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
     pendingData = null;
     saveTimer = null;
+    saveRetryCount = 0;
     return true;
   } catch {
     lastStorageWarning =
       'Could not save progress (browser storage may be full). Free space or export a backup — your latest changes may be lost on reload.';
     saveTimer = null;
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && saveRetryCount < MAX_SAVE_RETRIES) {
+      saveRetryCount += 1;
       saveTimer = window.setTimeout(() => {
         flushSave();
-      }, 2000);
+      }, 2000 * saveRetryCount);
     }
     return false;
   }
@@ -156,12 +161,18 @@ function validateAppData(data: unknown): data is AppData {
       console.warn('[storage] Invalid data: topicProgress is not an object');
       return false;
     }
-    for (const [k, v] of Object.entries(data.topicProgress)) {
+    // Quarantine bad entries on a copy so we do not mutate the caller's object in place.
+    const tp: Record<string, unknown> = { ...(data.topicProgress as Record<string, unknown>) };
+    let stripped = false;
+    for (const [k, v] of Object.entries(tp)) {
       if (!validateTopicProgress(v)) {
-        // Quarantine the bad entry — do not wipe the entire save
         console.warn(`[storage] Invalid topicProgress entry quarantined: ${k}`);
-        delete data.topicProgress[k];
+        delete tp[k];
+        stripped = true;
       }
+    }
+    if (stripped) {
+      (data as { topicProgress: Record<string, unknown> }).topicProgress = tp;
     }
   }
   if (data.questionResults !== undefined && !isObject(data.questionResults)) {
@@ -341,6 +352,9 @@ export function loadData(): AppData {
       if (fromBackup) {
         lastStorageWarning =
           'Primary save was invalid; restored from the last good backup. You can still download a copy.';
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(fromBackup)));
+        } catch { /* ignore */ }
         return fromBackup;
       }
       lastStorageWarning =
@@ -362,9 +376,8 @@ function tryRestoreBackup(): AppData | null {
     if (!backup) return null;
     const parsed = JSON.parse(backup);
     if (!validateAppData(parsed)) return null;
-    const normalized = normalizeLoaded(parsed as AppData);
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(normalized)); } catch { /* ignore */ }
-    return normalized;
+    // Do not write during restore read — caller (loadData) owns persistence.
+    return normalizeLoaded(parsed as AppData);
   } catch {
     return null;
   }
@@ -387,11 +400,19 @@ export function flushPendingSave(): boolean {
 }
 
 export function resetData(): void {
+  // Persist any in-flight debounced write into primary before backup/reset.
   if (saveTimer !== null) {
     clearTimeout(saveTimer);
     saveTimer = null;
   }
-  pendingData = null;
+  if (pendingData !== null) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sanitizeForSave(pendingData)));
+    } catch {
+      /* still attempt backup of whatever is on disk */
+    }
+    pendingData = null;
+  }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {

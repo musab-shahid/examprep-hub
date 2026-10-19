@@ -1051,7 +1051,10 @@ async function callAnthropic(
       'Content-Type': 'application/json',
       'x-api-key': env.ANTHROPIC_API_KEY,
       'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true',
+      // Dev-only browser calls; production uses Edge Function (no browser Anthropic).
+      ...(import.meta.env.DEV
+        ? { 'anthropic-dangerous-direct-browser-access': 'true' as const }
+        : {}),
     },
     body: JSON.stringify({
       model,

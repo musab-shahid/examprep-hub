@@ -8,7 +8,7 @@ import { createContext, useContext, useState, useCallback, useRef, useEffect, ty
 import { getTopic } from '@/data/topics';
 import { resolveScreen } from './resolveScreen';
 import { routeToPath, pathToRoute, breadcrumbForRoute, shouldUseBrowserHistoryBack } from './paths';
-import { isTrackId } from '@/data/tracks';
+import { getTrackDefinition, isTrackId } from '@/data/tracks';
 
 import type { DifficultyFilter, PracticeMode, TimeLimitSetting } from '@/types';
 
@@ -126,7 +126,9 @@ export function routeLabel(route: Route): string {
     case 'hat': return 'HAT Prep';
     case 'fpsc': return 'FPSC Exam';
     case 'track':
-      return route.trackId === 'hat' ? 'HAT Prep' : route.trackId === 'fpsc' ? 'FPSC Exam' : 'Track';
+      return isTrackId(route.trackId)
+        ? getTrackDefinition(route.trackId).shortTitle || getTrackDefinition(route.trackId).title
+        : 'Track';
     default: return 'Exam Prep';
   }
 }
