@@ -95,7 +95,7 @@ describe('out-of-scope subjects must return zero', () => {
 describe('restrictive profile does not vacuous-pass', () => {
   it('profile resolution either narrows subjects or is empty-policy/invalid', () => {
     const general = resolveSubjectsForScope({ trackId: 'fpsc', examId: null });
-    assert.equal(general.kind, 'ok');
+    assert.equal(general.kind, 'general');
     // Known profile ids if any; otherwise assert empty-policy structure is explicit
     const bogus = resolveSubjectsForScope({ trackId: 'fpsc', examId: 'no-such-exam-profile-xyz' });
     assert.ok(
