@@ -36,6 +36,13 @@ export function trackAccentClasses(trackId: TrackId): {
       text: "text-indigo-400",
     };
   }
+  if (accent === "teal") {
+    return {
+      gradient: "from-teal-500 to-cyan-600",
+      iconWrap: "bg-teal-600",
+      text: "text-teal-400",
+    };
+  }
   return {
     gradient: "from-sky-500 to-cyan-600",
     iconWrap: "bg-sky-500",

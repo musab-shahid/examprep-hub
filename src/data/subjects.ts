@@ -26,7 +26,12 @@ export const examTracks: ExamTrackMeta[] = listTrackDefinitions().map((d) => ({
   description: d.description,
   icon: d.iconKey === 'GraduationCap' ? Trophy : FileText,
   color: d.accent,
-  accent: d.accent === 'indigo' ? 'from-indigo-500 to-blue-600' : 'from-sky-500 to-cyan-600',
+  accent:
+    d.accent === 'indigo'
+      ? 'from-indigo-500 to-blue-600'
+      : d.accent === 'teal'
+        ? 'from-teal-500 to-cyan-600'
+        : 'from-sky-500 to-cyan-600',
 }));
 
 export const examTrackMap: Record<ExamTrack, ExamTrackMeta> = Object.fromEntries(
@@ -56,6 +61,13 @@ export const subjects: SubjectWithMeta[] = [
   { id: 'hat-verbal', title: 'Verbal Reasoning', color: 'indigo', lucideIcon: MessageSquareText, track: 'hat' },
   { id: 'hat-analytical', title: 'Analytical Reasoning', color: 'emerald', lucideIcon: Puzzle, track: 'hat' },
   { id: 'hat-quantitative', title: 'Quantitative Reasoning', color: 'amber', lucideIcon: Sigma, track: 'hat' },
+  {
+    id: 'cgei-climate-science',
+    title: 'Climate Science & Climate Data',
+    color: 'teal',
+    lucideIcon: Cloud,
+    track: 'cgei',
+  },
 ];
 
 export const subjectMap: Record<string, SubjectWithMeta> = Object.fromEntries(

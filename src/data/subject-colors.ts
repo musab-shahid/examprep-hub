@@ -257,6 +257,23 @@ export const subjectStyles: Record<string, SubjectStyle> = {
     gradient: 'from-orange-500 to-red-500',
     lightGradient: 'from-orange-50 to-red-50',
   },
+
+  // 11. CGEI Climate science — Teal (distinct from FPSC meteo cyan / env emerald)
+  'cgei-climate-science': {
+    dot: '#0d9488',
+    dotBg: 'bg-teal-600',
+    bar: 'bg-teal-600',
+    tint: 'bg-teal-50',
+    text: 'text-teal-800',
+    borderLeft: 'border-l-teal-600',
+    bg: 'bg-teal-600',
+    border: 'border-teal-200',
+    borderActive: 'border-teal-600',
+    hoverBorder: 'hover:border-teal-500',
+    glow: 'shadow-teal-500/20',
+    gradient: 'from-teal-500 to-cyan-600',
+    lightGradient: 'from-teal-50 to-cyan-50',
+  },
 };
 
 export const allSubjectsStyle: SubjectStyle = {
@@ -329,6 +346,27 @@ export const trackStyles: Record<string, TrackStyle> = {
     mockIconGradient: 'from-indigo-300 to-blue-500',
     mockIconGlow: 'shadow-indigo-400/30',
     statIconColors: ['text-indigo-300', 'text-lime-400', 'text-orange-400', 'text-rose-400'],
+  },
+
+  // T3 — CGEI: teal metal on deep slate (climate / geospatial identity)
+  cgei: {
+    label: 'CGEI Subjects',
+    accent: 'text-teal-400',
+    gradient: 'from-teal-500 to-cyan-600',
+    heroGradient: 'from-slate-950 via-slate-900 to-teal-950',
+    heroOrb: 'bg-teal-400/20',
+    heroOrbSecondary: 'bg-cyan-300/10',
+    iconGradient: 'from-teal-300 to-cyan-500',
+    iconGlow: 'shadow-teal-400/40',
+    accentText: 'text-teal-200',
+    borderTint: 'border-teal-100',
+    progressGradient: 'from-teal-400 to-cyan-500',
+    progressIcon: 'text-teal-400',
+    sparklesIcon: 'text-teal-300',
+    mockOrb: 'bg-teal-400/15',
+    mockIconGradient: 'from-teal-300 to-cyan-500',
+    mockIconGlow: 'shadow-teal-400/30',
+    statIconColors: ['text-teal-300', 'text-cyan-400', 'text-amber-400', 'text-rose-400'],
   },
 };
 

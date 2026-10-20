@@ -28,7 +28,7 @@ export type TrackChromeMeta = {
   productName: string;
   /** Brand landing route when present; generic tracks use /track/:id */
   landingScreen: 'fpsc' | 'hat' | 'track';
-  accent: 'sky' | 'indigo';
+  accent: 'sky' | 'indigo' | 'teal';
 };
 
 export type TrackSubjectRef = {
@@ -48,7 +48,7 @@ function chromeFromRegistry(id: TrackId): TrackChromeMeta {
     label: d.shortTitle,
     productName: d.title,
     landingScreen: landing,
-    accent: d.accent === 'indigo' ? 'indigo' : 'sky',
+    accent: d.accent === 'indigo' ? 'indigo' : d.accent === 'teal' ? 'teal' : 'sky',
   };
 }
 

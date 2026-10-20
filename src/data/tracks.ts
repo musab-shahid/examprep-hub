@@ -8,7 +8,7 @@
  */
 
 /** Canonical track ids — derive ExamTrack / ExamTrackId from this. */
-export const TRACK_IDS = ['fpsc', 'hat'] as const;
+export const TRACK_IDS = ['fpsc', 'hat', 'cgei'] as const;
 
 export type TrackId = (typeof TRACK_IDS)[number];
 
@@ -52,7 +52,8 @@ export type TrackDefinition = {
   description: string;
   status: TrackStatus;
   iconKey: 'FileText' | 'GraduationCap';
-  accent: 'sky' | 'indigo';
+  /** UI accent family — subject-colors maps unknown accents via getTrackStyle */
+  accent: 'sky' | 'indigo' | 'teal';
   capabilities: TrackCapabilities;
   landingVariant?: 'fpsc' | 'hat' | 'default';
   examProfiles: readonly ExamProfileDefinition[];
@@ -121,6 +122,25 @@ export const TRACK_DEFINITIONS: readonly TrackDefinition[] = [
     accent: 'indigo',
     capabilities: { ...DEFAULT_CAPS, formulas: false },
     landingVariant: 'hat',
+    examProfiles: [],
+  },
+  {
+    id: 'cgei',
+    title: 'Climate, Geospatial & Environmental Intelligence',
+    shortTitle: 'CGEI',
+    description:
+      'Study map for climate science, geospatial/EO methods, data science, and decision support. Start with Core units (sample bank: Climate science — extremes & trends). Practice deliverables stay outside the quiz engine.',
+    status: 'available',
+    iconKey: 'FileText',
+    accent: 'teal',
+    capabilities: {
+      study: true,
+      practice: true,
+      mockExam: false,
+      revision: true,
+      formulas: false,
+    },
+    landingVariant: 'default',
     examProfiles: [],
   },
 ] as const;

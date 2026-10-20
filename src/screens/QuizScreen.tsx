@@ -1,3 +1,4 @@
+import type { TrackId } from '@/data/tracks';
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { CheckCircle2, XCircle, Check, ChevronRight, RotateCcw, ArrowLeft, Clock, Brain, AlertTriangle, BookOpen, Dumbbell, TrendingUp, Target, Keyboard, X, Sparkles } from 'lucide-react';
@@ -153,7 +154,7 @@ function pickQuestions(
   difficulty: DifficultyFilter | undefined,
   wrongPool: boolean | undefined,
   questionResults: Record<string, { correct: boolean; timestamp: number }> | undefined,
-  track: 'fpsc' | 'hat' | null | undefined,
+  track: import('@/data/tracks').TrackId | null | undefined,
   topicProgress: Record<string, TopicProgress> | undefined,
   allowedSubjectIds: Set<string>,
   scopeInput: import('@/lib/track-scope').ScopeInput | null,
@@ -272,7 +273,7 @@ interface SavedQuizProgress {
   difficulty?: DifficultyFilter;
   timeLimit?: TimeLimitSetting;
   wrongPool?: boolean;
-  track?: 'fpsc' | 'hat';
+  track?: TrackId;
   examId?: string | null;
 }
 
@@ -287,7 +288,7 @@ function saveQuizProgress(
   difficulty?: DifficultyFilter,
   timeLimit?: TimeLimitSetting,
   wrongPool?: boolean,
-  track?: 'fpsc' | 'hat' | null,
+  track?: TrackId | null,
   examId?: string | null,
 ): void {
   try {

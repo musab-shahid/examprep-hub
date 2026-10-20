@@ -15,6 +15,7 @@ const topicLoaders: Record<string, () => Promise<TopicModule>> = {
   'hat-verbal': () => import('./hat/verbal/topics-verbal'),
   'hat-analytical': () => import('./hat/analytical/topics-analytical'),
   'hat-quantitative': () => import('./hat/quantitative/topics-quantitative'),
+  'cgei-climate-science': () => import('./cgei/climate-science/topics-climate-science'),
 };
 
 const questionLoaders: Record<string, () => Promise<QuestionModule>> = {
@@ -28,6 +29,7 @@ const questionLoaders: Record<string, () => Promise<QuestionModule>> = {
   'hat-verbal': () => import('./hat/verbal/questions-verbal'),
   'hat-analytical': () => import('./hat/analytical/questions-analytical'),
   'hat-quantitative': () => import('./hat/quantitative/questions-quantitative'),
+  'cgei-climate-science': () => import('./cgei/climate-science/questions-climate-science'),
 };
 
 /** Subjects that have lazy loaders — derived so it cannot drift from the loader map. */

@@ -10,7 +10,9 @@ export type SubjectId =
   | 'english'
   | 'hat-verbal'
   | 'hat-analytical'
-  | 'hat-quantitative';
+  | 'hat-quantitative'
+  /** CGEI track — Climate science and climate data (Subject 2 of Master Study TOC) */
+  | 'cgei-climate-science';
 
 export interface Subject {
   id: SubjectId;

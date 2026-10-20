@@ -315,6 +315,15 @@ export const topicMetadata: TopicMeta[] = [
   { id: "hat-q8-applied", sectionId: "HATQ-08", order: 8, title: "Applied Word Problems: Ages, Mixtures, Partnership, Clocks", content: true },
   { id: "hat-q9-strategy", sectionId: "HATQ-09", order: 9, title: "HAT Quantitative Strategy: Question Recognition, Estimation & Error Analysis", content: true },
   { id: "hat-q10-master-sheet", sectionId: "HATQ-10", order: 10, title: "Quantitative Master Sheet — Final Day Revision", content: true },
+
+  // ── CGEI — Climate science sample ──
+  {
+    id: "cgei-extremes-and-trend-analysis",
+    sectionId: "CGEI-02",
+    order: 1,
+    title: "Extremes and trend analysis",
+    content: true,
+  },
 ];
 
 export const topicMetaMap: Record<string, TopicMeta> = Object.fromEntries(

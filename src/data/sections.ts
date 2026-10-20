@@ -112,6 +112,15 @@ export const sections: Section[] = [
   { id: 'HATQ-08', subjectId: 'hat-quantitative', title: 'Applied Word Problems: Ages, Mixtures, Partnership, Clocks', topicCount: 1, questionCount: 19 },
   { id: 'HATQ-09', subjectId: 'hat-quantitative', title: 'HAT Quantitative Strategy: Question Recognition, Estimation & Error Analysis', topicCount: 1, questionCount: 11 },
   { id: 'HATQ-10', subjectId: 'hat-quantitative', title: 'Quantitative Master Sheet — Final Day Revision', topicCount: 1, questionCount: 14 },
+
+  // ── CGEI — Climate science (sample: Unit 2.6 Extremes and trend analysis) ──
+  {
+    id: 'CGEI-02',
+    subjectId: 'cgei-climate-science',
+    title: 'Extremes and trend analysis',
+    topicCount: 1,
+    questionCount: 15,
+  },
 ];
 
 export const sectionMap: Record<string, Section> = Object.fromEntries(
