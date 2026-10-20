@@ -780,11 +780,23 @@ async function callViaProxy(
   signal?: AbortSignal,
 ): Promise<{ text: string; truncated: boolean }> {
   const url = `${env.SUPABASE_URL.replace(/\/$/, '')}/functions/v1/ai-tutor`;
+  // Prefer user session JWT (required by hardened edge function). Anon key alone is rejected.
+  let userJwt: string | null = null;
+  try {
+    userJwt = localStorage.getItem('examprep-supabase-access-token');
+  } catch {
+    userJwt = null;
+  }
+  if (!userJwt) {
+    throw new Error(
+      'Sign in required for AI tutor (cloud). Local provider keys still work when configured.',
+    );
+  }
   const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${env.SUPABASE_ANON_KEY}`,
+      Authorization: `Bearer ${userJwt}`,
       apikey: env.SUPABASE_ANON_KEY,
     },
     body: JSON.stringify({ provider, model, messages, preamble }),
@@ -796,7 +808,13 @@ async function callViaProxy(
       const errData = await res.json();
       detail = errData?.error || '';
     } catch {
-      detail = await res.text().catch(() => '');
+      /* ignore */
+    }
+    if (res.status === 401 || res.status === 403) {
+      throw new Error(detail || 'Session expired — sign in again for cloud AI.');
+    }
+    if (res.status === 429) {
+      throw new Error(detail || 'Too many AI requests — wait a minute and retry.');
     }
     throw new Error(detail || `AI proxy failed (${res.status}).`);
   }

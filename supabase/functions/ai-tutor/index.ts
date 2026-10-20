@@ -1,57 +1,232 @@
 /**
- * ExamPrep Hub — AI tutor proxy.
+ * ExamPrep Hub — AI tutor proxy (edge).
+ *
  * Secrets (Dashboard → Edge Functions → Secrets), never VITE_*:
  *   GEMINI_API_KEY, OPENROUTER_API_KEY, GROQ_API_KEY, MISTRAL_API_KEY,
  *   DEEPSEEK_API_KEY, OPENAI_API_KEY, XAI_API_KEY, ANTHROPIC_API_KEY
+ *   SUPABASE_URL, SUPABASE_ANON_KEY (auto-injected on hosted Supabase)
  *
+ * Security (P0):
+ * - Require Authorization: Bearer <user JWT>; validate via Auth getUser
+ * - Allowlist providers + models (client cannot open arbitrary upstream routes)
+ * - Cap message count, content length, preamble length
+ * - Upstream fetch timeout
+ * - Coarse in-memory rate limit per user id
+ * - Sanitized errors (no raw upstream bodies to clients)
+ *
+ * Deploy with JWT verification enabled on the function when possible.
  * POST JSON: { provider, model, messages: {role,content}[], preamble?: string }
- * CORS open for the static app origin; tighten in production if needed.
  */
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { createClient } from "jsr:@supabase/supabase-js@2";
 
 const cors = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type",
 };
 
 type Msg = { role: string; content: string };
+
+const ALLOWED_PROVIDERS = new Set([
+  "gemini",
+  "openrouter",
+  "groq",
+  "mistral",
+  "deepseek",
+  "openai",
+  "xai",
+  "anthropic",
+]);
+
+/** Restrict to known tutor models — keep aligned with src/lib/ai-tutor.ts catalog. */
+const ALLOWED_MODELS = new Set([
+  "gemini-2.0-flash",
+  "gemini-2.5-flash",
+  "gemini-2.5-pro",
+  "gemini-1.5-flash",
+  "gemini-1.5-pro",
+  "gemini-3.5-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-3.5-pro",
+  "gpt-4o-mini",
+  "gpt-4o",
+  "gpt-4.1-mini",
+  "gpt-4.1",
+  "claude-sonnet-4-5",
+  "claude-sonnet-5",
+  "claude-haiku-4-5",
+  "claude-3-5-sonnet-latest",
+  "claude-3-5-haiku-latest",
+  "grok-4.3",
+  "grok-4.1",
+  "grok-3",
+  "grok-2",
+  "llama-3.3-70b-versatile",
+  "llama-3.1-8b-instant",
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "mistral-small-latest",
+  "mistral-medium-latest",
+  "mistral-large-latest",
+  "deepseek-chat",
+  "deepseek-v4-flash",
+  "deepseek-reasoner",
+  "google/gemini-2.0-flash-001",
+  "google/gemini-2.5-flash-preview",
+  "google/gemini-3.5-flash",
+  "google/gemini-3.5-pro",
+  "anthropic/claude-sonnet-4",
+  "anthropic/claude-sonnet-5",
+  "anthropic/claude-haiku-4.5",
+  "openai/gpt-4o-mini",
+  "openai/gpt-4.1-mini",
+  "openai/gpt-4.1",
+  "meta-llama/llama-3.3-70b-instruct",
+  "deepseek/deepseek-v4-flash",
+]);
+
+const MAX_MESSAGES = 24;
+const MAX_CONTENT_CHARS = 6000;
+const MAX_PREAMBLE_CHARS = 4000;
+const MAX_TOKENS_OUT = 2048;
+const UPSTREAM_TIMEOUT_MS = 45_000;
+const RATE_WINDOW_MS = 60_000;
+const RATE_MAX_PER_WINDOW = 20;
+
+/** Best-effort per-isolate rate limit (resets on cold start). */
+const rateBuckets = new Map<string, { count: number; windowStart: number }>();
+
+function json(status: number, body: Record<string, unknown>) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { ...cors, "Content-Type": "application/json" },
+  });
+}
+
+function clientErrorMessage(status: number): string {
+  if (status === 401 || status === 403) return "Unauthorized";
+  if (status === 429) return "Rate limit exceeded. Try again shortly.";
+  if (status === 400) return "Invalid request";
+  return "AI service temporarily unavailable";
+}
+
+function checkRateLimit(userId: string): boolean {
+  const now = Date.now();
+  const b = rateBuckets.get(userId);
+  if (!b || now - b.windowStart > RATE_WINDOW_MS) {
+    rateBuckets.set(userId, { count: 1, windowStart: now });
+    return true;
+  }
+  if (b.count >= RATE_MAX_PER_WINDOW) return false;
+  b.count += 1;
+  return true;
+}
+
+function sanitizeMessages(raw: unknown): Msg[] | null {
+  if (!Array.isArray(raw)) return null;
+  if (raw.length === 0 || raw.length > MAX_MESSAGES) return null;
+  const out: Msg[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== "object") return null;
+    const role = String((item as Msg).role || "");
+    const content = String((item as Msg).content || "");
+    if (role !== "user" && role !== "assistant" && role !== "system") return null;
+    if (content.length > MAX_CONTENT_CHARS) return null;
+    out.push({ role, content });
+  }
+  return out;
+}
+
+async function requireUser(req: Request): Promise<{ id: string } | Response> {
+  const authHeader = req.headers.get("Authorization") || "";
+  if (!authHeader.startsWith("Bearer ")) {
+    return json(401, { error: "Missing or invalid Authorization bearer token" });
+  }
+  const token = authHeader.slice(7).trim();
+  if (!token || token.length < 20) {
+    return json(401, { error: "Missing or invalid Authorization bearer token" });
+  }
+
+  const supabaseUrl = Deno.env.get("SUPABASE_URL");
+  const supabaseAnon = Deno.env.get("SUPABASE_ANON_KEY");
+  if (!supabaseUrl || !supabaseAnon) {
+    return json(500, { error: "Server auth not configured" });
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseAnon, {
+    global: { headers: { Authorization: `Bearer ${token}` } },
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  const { data, error } = await supabase.auth.getUser(token);
+  if (error || !data?.user?.id) {
+    return json(401, { error: "Invalid or expired session" });
+  }
+  return { id: data.user.id };
+}
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: cors });
   }
   if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: "POST only" }), {
-      status: 405,
-      headers: { ...cors, "Content-Type": "application/json" },
+    return json(405, { error: "POST only" });
+  }
+
+  const userOrErr = await requireUser(req);
+  if (userOrErr instanceof Response) return userOrErr;
+  const userId = userOrErr.id;
+
+  if (!checkRateLimit(userId)) {
+    return json(429, { error: clientErrorMessage(429) });
+  }
+
+  let body: Record<string, unknown>;
+  try {
+    body = await req.json();
+  } catch {
+    return json(400, { error: "Invalid JSON body" });
+  }
+
+  const provider = String(body.provider || "");
+  const model = String(body.model || "");
+  const preamble = String(body.preamble || "").slice(0, MAX_PREAMBLE_CHARS);
+  const messages = sanitizeMessages(body.messages);
+
+  if (!ALLOWED_PROVIDERS.has(provider)) {
+    return json(400, { error: "Provider not allowed" });
+  }
+  if (!ALLOWED_MODELS.has(model)) {
+    return json(400, { error: "Model not allowed" });
+  }
+  if (!messages) {
+    return json(400, {
+      error: `messages required (1–${MAX_MESSAGES} items, ≤${MAX_CONTENT_CHARS} chars each)`,
     });
   }
 
   try {
-    const body = await req.json();
-    const provider = String(body.provider || "");
-    const model = String(body.model || "");
-    const preamble = String(body.preamble || "");
-    const messages = (body.messages || []) as Msg[];
-    if (!provider || !model || !Array.isArray(messages)) {
-      return new Response(JSON.stringify({ error: "provider, model, messages required" }), {
-        status: 400,
-        headers: { ...cors, "Content-Type": "application/json" },
-      });
-    }
-
     const { text, truncated } = await routeProvider(provider, model, preamble, messages);
-    return new Response(JSON.stringify({ text, truncated }), {
-      headers: { ...cors, "Content-Type": "application/json" },
-    });
+    return json(200, { text, truncated });
   } catch (e) {
-    const msg = e instanceof Error ? e.message : "AI proxy error";
-    return new Response(JSON.stringify({ error: msg }), {
-      status: 502,
-      headers: { ...cors, "Content-Type": "application/json" },
-    });
+    console.error("ai-tutor upstream error", userId, provider, model, e);
+    return json(502, { error: clientErrorMessage(502) });
   }
 });
+
+async function fetchWithTimeout(
+  url: string,
+  init: RequestInit,
+  ms = UPSTREAM_TIMEOUT_MS,
+): Promise<Response> {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 async function routeProvider(
   provider: string,
@@ -69,7 +244,10 @@ async function routeProvider(
         model,
         preamble,
         messages,
-        { "HTTP-Referer": "https://examprep-hub.local", "X-Title": "ExamPrep AI Tutor" },
+        {
+          "HTTP-Referer": "https://examprep-hub.local",
+          "X-Title": "ExamPrep AI Tutor",
+        },
       );
     case "groq":
       return callOpenAICompat(
@@ -114,7 +292,7 @@ async function routeProvider(
     case "anthropic":
       return callAnthropic(model, preamble, messages);
     default:
-      throw new Error(`Unknown provider: ${provider}`);
+      throw new Error("Unknown provider");
   }
 }
 
@@ -131,7 +309,7 @@ async function callOpenAICompat(
     { role: "system", content: preamble },
     ...messages.map((m) => ({ role: m.role, content: m.content })),
   ];
-  const res = await fetch(url, {
+  const res = await fetchWithTimeout(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -142,13 +320,10 @@ async function callOpenAICompat(
       model,
       messages: chatMessages,
       temperature: 0.7,
-      max_tokens: 4096,
+      max_tokens: MAX_TOKENS_OUT,
     }),
   });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(detail || `Upstream ${res.status}`);
-  }
+  if (!res.ok) throw new Error(`Upstream ${res.status}`);
   const data = await res.json();
   const text = data?.choices?.[0]?.message?.content;
   if (!text) throw new Error("Empty upstream response");
@@ -169,7 +344,7 @@ async function callGemini(
   }));
   const url =
     `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-  const res = await fetch(url, {
+  const res = await fetchWithTimeout(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -178,15 +353,14 @@ async function callGemini(
     body: JSON.stringify({
       system_instruction: { parts: [{ text: preamble }] },
       contents,
-      generationConfig: { temperature: 0.7, maxOutputTokens: 4096 },
+      generationConfig: { temperature: 0.7, maxOutputTokens: MAX_TOKENS_OUT },
     }),
   });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(detail || `Gemini ${res.status}`);
-  }
+  if (!res.ok) throw new Error(`Gemini ${res.status}`);
   const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text || "").join("") || "";
+  const text = data?.candidates?.[0]?.content?.parts
+    ?.map((p: { text?: string }) => p.text || "")
+    .join("") || "";
   if (!text) throw new Error("Empty Gemini response");
   const reason = data?.candidates?.[0]?.finishReason || "";
   return { text, truncated: reason === "MAX_TOKENS" };
@@ -199,7 +373,7 @@ async function callAnthropic(
 ): Promise<{ text: string; truncated: boolean }> {
   const apiKey = Deno.env.get("ANTHROPIC_API_KEY");
   if (!apiKey) throw new Error("ANTHROPIC_API_KEY not configured on server");
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetchWithTimeout("https://api.anthropic.com/v1/messages", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -208,7 +382,7 @@ async function callAnthropic(
     },
     body: JSON.stringify({
       model,
-      max_tokens: 4096,
+      max_tokens: MAX_TOKENS_OUT,
       system: preamble,
       messages: messages.map((m) => ({
         role: m.role === "assistant" ? "assistant" : "user",
@@ -216,13 +390,12 @@ async function callAnthropic(
       })),
     }),
   });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(detail || `Anthropic ${res.status}`);
-  }
+  if (!res.ok) throw new Error(`Anthropic ${res.status}`);
   const data = await res.json();
-  const text = data?.content?.filter((b: { type: string }) => b.type === "text")
-    .map((b: { text: string }) => b.text).join("") || "";
+  const text = data?.content
+    ?.filter((b: { type: string }) => b.type === "text")
+    .map((b: { text: string }) => b.text)
+    .join("") || "";
   if (!text) throw new Error("Empty Anthropic response");
   return { text, truncated: data?.stop_reason === "max_tokens" };
 }

@@ -1,20 +1,44 @@
--- Optional cloud backup of learner AppData (JSON blob). Enable stricter RLS before public launch.
+-- Cloud backup of learner AppData (JSON blob).
+-- Security: RLS + authenticated ownership only (see also 20261021_progress_sync_rls_harden.sql).
+-- A client-supplied device_id is NOT proof of ownership.
+
 create table if not exists public.app_progress (
-  device_id text primary key,
+  user_id uuid not null references auth.users (id) on delete cascade,
+  device_id text not null,
   payload jsonb not null,
-  updated_at timestamptz not null default now()
+  updated_at timestamptz not null default now(),
+  primary key (user_id, device_id)
 );
+
+create index if not exists app_progress_user_id_idx on public.app_progress (user_id);
 
 alter table public.app_progress enable row level security;
 
-create policy "device read own"
+-- No policies for anon. Authenticated users only access their own rows.
+drop policy if exists "device read own" on public.app_progress;
+drop policy if exists "device upsert" on public.app_progress;
+drop policy if exists "device update" on public.app_progress;
+
+create policy "progress_select_own"
   on public.app_progress for select
-  using (true);
+  to authenticated
+  using (user_id = auth.uid());
 
-create policy "device upsert"
+create policy "progress_insert_own"
   on public.app_progress for insert
-  with check (true);
+  to authenticated
+  with check (user_id = auth.uid());
 
-create policy "device update"
+create policy "progress_update_own"
   on public.app_progress for update
-  using (true);
+  to authenticated
+  using (user_id = auth.uid())
+  with check (user_id = auth.uid());
+
+create policy "progress_delete_own"
+  on public.app_progress for delete
+  to authenticated
+  using (user_id = auth.uid());
+
+revoke all on table public.app_progress from anon;
+grant select, insert, update, delete on table public.app_progress to authenticated;

@@ -218,7 +218,8 @@ export function SettingsScreen() {
             <div>
               <p className="font-semibold text-slate-900 text-sm">Cloud backup</p>
               <p className="text-slate-500 text-xs mt-0.5">
-                Optional sync of local progress to your Supabase project (same device id). Requires network.
+                Optional sync of local progress to your Supabase project. Requires network and a signed-in
+                account (device id alone is not enough). Rows are isolated per user under RLS.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -229,7 +230,13 @@ export function SettingsScreen() {
                   setSyncBusy(true);
                   setSyncMsg(null);
                   const r = await pushProgress(data);
-                  setSyncMsg(r.ok ? 'Uploaded to cloud.' : `Upload failed: ${r.error}`);
+                  setSyncMsg(
+                    r.ok
+                      ? 'Uploaded to cloud.'
+                      : r.error === 'auth-required'
+                        ? 'Sign in required before cloud backup.'
+                        : `Upload failed: ${r.error}`,
+                  );
                   setSyncBusy(false);
                 }}
               >
