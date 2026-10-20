@@ -28,6 +28,15 @@ const questionLoaders: Record<string, () => Promise<{ questions: Question[] }>> 
   'hat-verbal': () => import('../src/data/hat/verbal/questions-verbal'),
   'hat-analytical': () => import('../src/data/hat/analytical/questions-analytical'),
   'hat-quantitative': () => import('../src/data/hat/quantitative/questions-quantitative'),
+  // CGEI — keep in sync with src/data/lazy-data.ts
+  'cgei-climate-science': () => import('../src/data/cgei/climate-science/questions-climate-science'),
+  'cgei-env-systems': () => import('../src/data/cgei/env-systems/questions-env-systems'),
+  'cgei-geospatial': () => import('../src/data/cgei/geospatial/questions-geospatial'),
+  'cgei-remote-sensing': () => import('../src/data/cgei/remote-sensing/questions-remote-sensing'),
+  'cgei-data-science': () => import('../src/data/cgei/data-science/questions-data-science'),
+  'cgei-ml-geoai': () => import('../src/data/cgei/ml-geoai/questions-ml-geoai'),
+  'cgei-climate-risk': () => import('../src/data/cgei/climate-risk/questions-climate-risk'),
+  'cgei-research-practice': () => import('../src/data/cgei/research-practice/questions-research-practice'),
 };
 
 type Severity = 'critical' | 'warning';
@@ -266,6 +275,14 @@ async function main() {
     'hat-verbal': () => import('../src/data/hat/verbal/topics-verbal'),
     'hat-analytical': () => import('../src/data/hat/analytical/topics-analytical'),
     'hat-quantitative': () => import('../src/data/hat/quantitative/topics-quantitative'),
+    'cgei-climate-science': () => import('../src/data/cgei/climate-science/topics-climate-science'),
+    'cgei-env-systems': () => import('../src/data/cgei/env-systems/topics-env-systems'),
+    'cgei-geospatial': () => import('../src/data/cgei/geospatial/topics-geospatial'),
+    'cgei-remote-sensing': () => import('../src/data/cgei/remote-sensing/topics-remote-sensing'),
+    'cgei-data-science': () => import('../src/data/cgei/data-science/topics-data-science'),
+    'cgei-ml-geoai': () => import('../src/data/cgei/ml-geoai/topics-ml-geoai'),
+    'cgei-climate-risk': () => import('../src/data/cgei/climate-risk/topics-climate-risk'),
+    'cgei-research-practice': () => import('../src/data/cgei/research-practice/topics-research-practice'),
   };
   const knownTopicIds = new Set(topics.map((t) => t.id));
   for (const subjectId of activeSubjects as SubjectId[]) {
