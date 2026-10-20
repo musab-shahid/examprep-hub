@@ -113,7 +113,21 @@ export const sections: Section[] = [
   { id: 'HATQ-09', subjectId: 'hat-quantitative', title: 'HAT Quantitative Strategy: Question Recognition, Estimation & Error Analysis', topicCount: 1, questionCount: 11 },
   { id: 'HATQ-10', subjectId: 'hat-quantitative', title: 'Quantitative Master Sheet — Final Day Revision', topicCount: 1, questionCount: 14 },
 
-  // ── CGEI — Climate science (sample: Unit 2.6 Extremes and trend analysis) ──
+  // ── CGEI — Climate science (Priority Path Units 2.4 → 2.6) ──
+  {
+    id: 'CGEI-024',
+    subjectId: 'cgei-climate-science',
+    title: 'Climate data products & reanalysis',
+    topicCount: 1,
+    questionCount: 12,
+  },
+  {
+    id: 'CGEI-025',
+    subjectId: 'cgei-climate-science',
+    title: 'Time, units & daily construction',
+    topicCount: 1,
+    questionCount: 10,
+  },
   {
     id: 'CGEI-02',
     subjectId: 'cgei-climate-science',

@@ -316,7 +316,21 @@ export const topicMetadata: TopicMeta[] = [
   { id: "hat-q9-strategy", sectionId: "HATQ-09", order: 9, title: "HAT Quantitative Strategy: Question Recognition, Estimation & Error Analysis", content: true },
   { id: "hat-q10-master-sheet", sectionId: "HATQ-10", order: 10, title: "Quantitative Master Sheet — Final Day Revision", content: true },
 
-  // ── CGEI — Climate science sample ──
+  // ── CGEI — Climate science (Units 2.4 → 2.6) ──
+  {
+    id: "cgei-climate-data-products",
+    sectionId: "CGEI-024",
+    order: 1,
+    title: "Climate data products & reanalysis",
+    content: true,
+  },
+  {
+    id: "cgei-time-units-daily",
+    sectionId: "CGEI-025",
+    order: 1,
+    title: "Time, units & daily construction",
+    content: true,
+  },
   {
     id: "cgei-extremes-and-trend-analysis",
     sectionId: "CGEI-02",
