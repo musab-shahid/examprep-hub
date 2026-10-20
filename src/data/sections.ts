@@ -121,6 +121,13 @@ export const sections: Section[] = [
     topicCount: 1,
     questionCount: 15,
   },
+  { id: 'CGEI-01', subjectId: 'cgei-env-systems', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-03', subjectId: 'cgei-geospatial', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-04', subjectId: 'cgei-remote-sensing', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-05', subjectId: 'cgei-data-science', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-06', subjectId: 'cgei-ml-geoai', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-07', subjectId: 'cgei-climate-risk', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
+  { id: 'CGEI-08', subjectId: 'cgei-research-practice', title: 'Subject roadmap', topicCount: 1, questionCount: 0 },
 ];
 
 export const sectionMap: Record<string, Section> = Object.fromEntries(

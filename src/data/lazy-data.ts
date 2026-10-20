@@ -16,7 +16,15 @@ const topicLoaders: Record<string, () => Promise<TopicModule>> = {
   'hat-analytical': () => import('./hat/analytical/topics-analytical'),
   'hat-quantitative': () => import('./hat/quantitative/topics-quantitative'),
   'cgei-climate-science': () => import('./cgei/climate-science/topics-climate-science'),
+  'cgei-env-systems': () => import('./cgei/env-systems/topics-env-systems'),
+  'cgei-geospatial': () => import('./cgei/geospatial/topics-geospatial'),
+  'cgei-remote-sensing': () => import('./cgei/remote-sensing/topics-remote-sensing'),
+  'cgei-data-science': () => import('./cgei/data-science/topics-data-science'),
+  'cgei-ml-geoai': () => import('./cgei/ml-geoai/topics-ml-geoai'),
+  'cgei-climate-risk': () => import('./cgei/climate-risk/topics-climate-risk'),
+  'cgei-research-practice': () => import('./cgei/research-practice/topics-research-practice'),
 };
+
 
 const questionLoaders: Record<string, () => Promise<QuestionModule>> = {
   'meteo-climatology': () => import('./fpsc/meteorology/questions-meteorology'),
@@ -30,7 +38,15 @@ const questionLoaders: Record<string, () => Promise<QuestionModule>> = {
   'hat-analytical': () => import('./hat/analytical/questions-analytical'),
   'hat-quantitative': () => import('./hat/quantitative/questions-quantitative'),
   'cgei-climate-science': () => import('./cgei/climate-science/questions-climate-science'),
+  'cgei-env-systems': () => import('./cgei/env-systems/questions-env-systems'),
+  'cgei-geospatial': () => import('./cgei/geospatial/questions-geospatial'),
+  'cgei-remote-sensing': () => import('./cgei/remote-sensing/questions-remote-sensing'),
+  'cgei-data-science': () => import('./cgei/data-science/questions-data-science'),
+  'cgei-ml-geoai': () => import('./cgei/ml-geoai/questions-ml-geoai'),
+  'cgei-climate-risk': () => import('./cgei/climate-risk/questions-climate-risk'),
+  'cgei-research-practice': () => import('./cgei/research-practice/questions-research-practice'),
 };
+
 
 /** Subjects that have lazy loaders — derived so it cannot drift from the loader map. */
 const LOADER_SUBJECT_IDS = Object.keys(topicLoaders) as SubjectId[];

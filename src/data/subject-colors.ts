@@ -274,6 +274,50 @@ export const subjectStyles: Record<string, SubjectStyle> = {
     gradient: 'from-teal-500 to-cyan-600',
     lightGradient: 'from-teal-50 to-cyan-50',
   },
+
+  'cgei-env-systems': {
+    dot: '#78716c', dotBg: 'bg-stone-500', bar: 'bg-stone-500', tint: 'bg-stone-50',
+    text: 'text-stone-700', borderLeft: 'border-l-stone-500', bg: 'bg-stone-500',
+    border: 'border-stone-200', borderActive: 'border-stone-500', hoverBorder: 'hover:border-stone-400',
+    glow: 'shadow-stone-500/20', gradient: 'from-stone-500 to-stone-600', lightGradient: 'from-stone-50 to-stone-100',
+  },
+  'cgei-geospatial': {
+    dot: '#0891b2', dotBg: 'bg-cyan-600', bar: 'bg-cyan-600', tint: 'bg-cyan-50',
+    text: 'text-cyan-800', borderLeft: 'border-l-cyan-600', bg: 'bg-cyan-600',
+    border: 'border-cyan-200', borderActive: 'border-cyan-600', hoverBorder: 'hover:border-cyan-500',
+    glow: 'shadow-cyan-500/20', gradient: 'from-cyan-500 to-teal-600', lightGradient: 'from-cyan-50 to-teal-50',
+  },
+  'cgei-remote-sensing': {
+    dot: '#0284c7', dotBg: 'bg-sky-600', bar: 'bg-sky-600', tint: 'bg-sky-50',
+    text: 'text-sky-800', borderLeft: 'border-l-sky-600', bg: 'bg-sky-600',
+    border: 'border-sky-200', borderActive: 'border-sky-600', hoverBorder: 'hover:border-sky-500',
+    glow: 'shadow-sky-500/20', gradient: 'from-sky-500 to-blue-600', lightGradient: 'from-sky-50 to-blue-50',
+  },
+  'cgei-data-science': {
+    dot: '#7c3aed', dotBg: 'bg-violet-600', bar: 'bg-violet-600', tint: 'bg-violet-50',
+    text: 'text-violet-800', borderLeft: 'border-l-violet-600', bg: 'bg-violet-600',
+    border: 'border-violet-200', borderActive: 'border-violet-600', hoverBorder: 'hover:border-violet-500',
+    glow: 'shadow-violet-500/20', gradient: 'from-violet-500 to-purple-600', lightGradient: 'from-violet-50 to-purple-50',
+  },
+  'cgei-ml-geoai': {
+    dot: '#c026d3', dotBg: 'bg-fuchsia-600', bar: 'bg-fuchsia-600', tint: 'bg-fuchsia-50',
+    text: 'text-fuchsia-800', borderLeft: 'border-l-fuchsia-600', bg: 'bg-fuchsia-600',
+    border: 'border-fuchsia-200', borderActive: 'border-fuchsia-600', hoverBorder: 'hover:border-fuchsia-500',
+    glow: 'shadow-fuchsia-500/20', gradient: 'from-fuchsia-500 to-pink-600', lightGradient: 'from-fuchsia-50 to-pink-50',
+  },
+  'cgei-climate-risk': {
+    dot: '#e11d48', dotBg: 'bg-rose-600', bar: 'bg-rose-600', tint: 'bg-rose-50',
+    text: 'text-rose-800', borderLeft: 'border-l-rose-600', bg: 'bg-rose-600',
+    border: 'border-rose-200', borderActive: 'border-rose-600', hoverBorder: 'hover:border-rose-500',
+    glow: 'shadow-rose-500/20', gradient: 'from-rose-500 to-red-600', lightGradient: 'from-rose-50 to-red-50',
+  },
+  'cgei-research-practice': {
+    dot: '#d97706', dotBg: 'bg-amber-600', bar: 'bg-amber-600', tint: 'bg-amber-50',
+    text: 'text-amber-800', borderLeft: 'border-l-amber-600', bg: 'bg-amber-600',
+    border: 'border-amber-200', borderActive: 'border-amber-600', hoverBorder: 'hover:border-amber-500',
+    glow: 'shadow-amber-500/20', gradient: 'from-amber-500 to-orange-600', lightGradient: 'from-amber-50 to-orange-50',
+  },
+
 };
 
 export const allSubjectsStyle: SubjectStyle = {

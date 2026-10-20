@@ -324,6 +324,13 @@ export const topicMetadata: TopicMeta[] = [
     title: "Extremes and trend analysis",
     content: true,
   },
+  { id: "cgei-env-systems-roadmap", sectionId: "CGEI-01", order: 1, title: "Subject roadmap — Environmental systems", content: true },
+  { id: "cgei-geospatial-roadmap", sectionId: "CGEI-03", order: 1, title: "Subject roadmap — Geospatial & GIS", content: true },
+  { id: "cgei-remote-sensing-roadmap", sectionId: "CGEI-04", order: 1, title: "Subject roadmap — Remote sensing & EO", content: true },
+  { id: "cgei-data-science-roadmap", sectionId: "CGEI-05", order: 1, title: "Subject roadmap — Scientific computing", content: true },
+  { id: "cgei-ml-geoai-roadmap", sectionId: "CGEI-06", order: 1, title: "Subject roadmap — ML & GeoAI", content: true },
+  { id: "cgei-climate-risk-roadmap", sectionId: "CGEI-07", order: 1, title: "Subject roadmap — Climate risk & DRR", content: true },
+  { id: "cgei-research-practice-roadmap", sectionId: "CGEI-08", order: 1, title: "Subject roadmap — Research practice", content: true },
 ];
 
 export const topicMetaMap: Record<string, TopicMeta> = Object.fromEntries(

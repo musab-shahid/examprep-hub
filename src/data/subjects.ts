@@ -1,7 +1,26 @@
 import type { Subject } from '../types.ts';
 import type { TrackId } from './tracks.ts';
 import { listTrackDefinitions } from './tracks.ts';
-import { Calculator, Atom, Globe, Cloud, Leaf, BarChart3, BookOpen, Trophy, FileText, MessageSquareText, Puzzle, Sigma } from 'lucide-react';
+import {
+  Calculator,
+  Atom,
+  Globe,
+  Cloud,
+  Leaf,
+  BarChart3,
+  BookOpen,
+  Trophy,
+  FileText,
+  MessageSquareText,
+  Puzzle,
+  Sigma,
+  Map,
+  Satellite,
+  Binary,
+  Brain,
+  Shield,
+  FlaskConical,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export type ExamTrack = TrackId;
@@ -62,10 +81,59 @@ export const subjects: SubjectWithMeta[] = [
   { id: 'hat-analytical', title: 'Analytical Reasoning', color: 'emerald', lucideIcon: Puzzle, track: 'hat' },
   { id: 'hat-quantitative', title: 'Quantitative Reasoning', color: 'amber', lucideIcon: Sigma, track: 'hat' },
   {
+    id: 'cgei-env-systems',
+    title: 'Environmental Systems & Earth Processes',
+    color: 'stone',
+    lucideIcon: Globe,
+    track: 'cgei',
+  },
+  {
     id: 'cgei-climate-science',
     title: 'Climate Science & Climate Data',
     color: 'teal',
     lucideIcon: Cloud,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-geospatial',
+    title: 'Geospatial Science, GIS & Cartography',
+    color: 'cyan',
+    lucideIcon: Map,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-remote-sensing',
+    title: 'Remote Sensing & Earth Observation',
+    color: 'sky',
+    lucideIcon: Satellite,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-data-science',
+    title: 'Scientific Computing & Data Science',
+    color: 'violet',
+    lucideIcon: Binary,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-ml-geoai',
+    title: 'Machine Learning & GeoAI',
+    color: 'fuchsia',
+    lucideIcon: Brain,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-climate-risk',
+    title: 'Climate Risk, DRR & Resilience',
+    color: 'rose',
+    lucideIcon: Shield,
+    track: 'cgei',
+  },
+  {
+    id: 'cgei-research-practice',
+    title: 'Research Design & Communication',
+    color: 'amber',
+    lucideIcon: FlaskConical,
     track: 'cgei',
   },
 ];

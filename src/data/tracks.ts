@@ -129,7 +129,7 @@ export const TRACK_DEFINITIONS: readonly TrackDefinition[] = [
     title: 'Climate, Geospatial & Environmental Intelligence',
     shortTitle: 'CGEI',
     description:
-      'Study map for climate science, geospatial/EO methods, data science, and decision support. Start with Core units (sample bank: Climate science — extremes & trends). Practice deliverables stay outside the quiz engine.',
+      'Master Study TOC path: climate risk, geospatial AI, EO, and decision support. Priority Core subjects are listed first; full quizzes expand unit-by-unit (sample live: Climate science — Unit 2.6 extremes & trends). L3 mastery = public artefact, not certificates alone.',
     status: 'available',
     iconKey: 'FileText',
     accent: 'teal',
